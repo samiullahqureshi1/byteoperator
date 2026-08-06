@@ -1,11 +1,11 @@
-import {Suspense} from 'react';
-import {Await, NavLink, useAsyncValue} from 'react-router';
-import {
-  type CartViewPayload,
-  useAnalytics,
-  useOptimisticCart,
-} from '@shopify/hydrogen';
-import type {HeaderQuery, CartApiQueryFragment} from 'storefrontapi.generated';
+import {useEffect, useState} from 'react';
+import {NavLink} from 'react-router';
+
+import type {
+  CartApiQueryFragment,
+  HeaderQuery,
+} from 'storefrontapi.generated';
+
 import {useAside} from '~/components/Aside';
 
 interface HeaderProps {
@@ -17,26 +17,62 @@ interface HeaderProps {
 
 type Viewport = 'desktop' | 'mobile';
 
+const STICKY_SCROLL_POSITION = 45;
+
 export function Header({
   header,
-  isLoggedIn,
-  cart,
   publicStoreDomain,
 }: HeaderProps) {
+  const isSticky = useStickyHeader(STICKY_SCROLL_POSITION);
+
   const {shop, menu} = header;
+
+  const brandName = shop.name.replace(/\.$/, '');
+
   return (
-    <header className="header">
-      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <strong>{shop.name}</strong>
-      </NavLink>
-      <HeaderMenu
-        menu={menu}
-        viewport="desktop"
-        primaryDomainUrl={header.shop.primaryDomain.url}
-        publicStoreDomain={publicStoreDomain}
+    <>
+      <div
+        className="charle-header-spacer"
+        aria-hidden="true"
       />
-      <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
-    </header>
+
+      <header
+        className={`charle-header ${
+          isSticky ? 'charle-header--sticky' : ''
+        }`}
+      >
+        <div className="charle-header__inner">
+          <NavLink
+            className="charle-header__brand"
+            end
+            prefetch="intent"
+            to="/"
+            aria-label={`${shop.name} homepage`}
+          >
+            {brandName}
+            <span aria-hidden="true">.</span>
+          </NavLink>
+
+          <HeaderMenu
+            menu={menu}
+            viewport="desktop"
+            primaryDomainUrl={shop.primaryDomain.url}
+            publicStoreDomain={publicStoreDomain}
+          />
+
+          <NavLink
+            className="charle-header__cta"
+            prefetch="intent"
+            to="/pages/contact"
+          >
+            <span>Get in touch</span>
+            <ArrowUpRightIcon />
+          </NavLink>
+
+          <MobileMenuButton />
+        </div>
+      </header>
+    </>
   );
 }
 
@@ -51,43 +87,102 @@ export function HeaderMenu({
   viewport: Viewport;
   publicStoreDomain: HeaderProps['publicStoreDomain'];
 }) {
-  const className = `header-menu-${viewport}`;
   const {close} = useAside();
 
-  return (
-    <nav className={className} role="navigation">
-      {viewport === 'mobile' && (
+  const menuItems =
+    menu?.items && menu.items.length > 0
+      ? menu.items
+      : FALLBACK_HEADER_MENU.items;
+
+  if (viewport === 'mobile') {
+    return (
+      <nav
+        className="charle-mobile-nav"
+        aria-label="Mobile navigation"
+      >
         <NavLink
+          className="charle-mobile-nav__link"
           end
           onClick={close}
           prefetch="intent"
-          style={activeLinkStyle}
           to="/"
         >
-          Home
+          <span>Home</span>
+          <ArrowUpRightIcon />
         </NavLink>
-      )}
-      {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
+
+        {menuItems.map((item) => {
+          if (!item.url) return null;
+
+          const url = normalizeMenuUrl(
+            item.url,
+            primaryDomainUrl,
+            publicStoreDomain,
+          );
+
+          return (
+            <NavLink
+              className="charle-mobile-nav__link"
+              end
+              key={item.id}
+              onClick={close}
+              prefetch={url.startsWith('/') ? 'intent' : 'none'}
+              to={url}
+            >
+              <span>{item.title}</span>
+              <ArrowUpRightIcon />
+            </NavLink>
+          );
+        })}
+
+        <NavLink
+          className="charle-mobile-nav__cta"
+          onClick={close}
+          prefetch="intent"
+          to="/pages/contact"
+        >
+          <span>Get in touch</span>
+          <ArrowUpRightIcon />
+        </NavLink>
+      </nav>
+    );
+  }
+
+  return (
+    <nav
+      className="charle-header__navigation"
+      aria-label="Main navigation"
+    >
+      {menuItems.map((item) => {
         if (!item.url) return null;
 
-        // if the url is internal, we strip the domain
-        const url =
-          item.url.includes('myshopify.com') ||
-          item.url.includes(publicStoreDomain) ||
-          item.url.includes(primaryDomainUrl)
-            ? new URL(item.url).pathname
-            : item.url;
+        const url = normalizeMenuUrl(
+          item.url,
+          primaryDomainUrl,
+          publicStoreDomain,
+        );
+
+        const showBadge =
+          item.title.trim().toLowerCase() === 'services';
+
         return (
           <NavLink
-            className="header-menu-item"
+            className="charle-header__nav-link"
             end
             key={item.id}
-            onClick={close}
-            prefetch="intent"
-            style={activeLinkStyle}
+            prefetch={url.startsWith('/') ? 'intent' : 'none'}
             to={url}
           >
-            {item.title}
+            <span>{item.title}</span>
+
+            {showBadge && (
+              <span
+                className="charle-header__badge"
+                aria-label="15 services"
+              >
+                15
+              </span>
+            )}
           </NavLink>
         );
       })}
@@ -95,137 +190,173 @@ export function HeaderMenu({
   );
 }
 
-function HeaderCtas({
-  isLoggedIn,
-  cart,
-}: Pick<HeaderProps, 'isLoggedIn' | 'cart'>) {
-  return (
-    <nav className="header-ctas" role="navigation">
-      <HeaderMenuMobileToggle />
-      <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-        <Suspense fallback="Sign in">
-          <Await resolve={isLoggedIn} errorElement="Sign in">
-            {(isLoggedIn) => (isLoggedIn ? 'Account' : 'Sign in')}
-          </Await>
-        </Suspense>
-      </NavLink>
-      <SearchToggle />
-      <CartToggle cart={cart} />
-    </nav>
-  );
-}
-
-function HeaderMenuMobileToggle() {
+function MobileMenuButton() {
   const {open} = useAside();
+
   return (
     <button
-      className="header-menu-mobile-toggle reset"
+      className="charle-header__mobile-button"
+      type="button"
+      aria-label="Open navigation menu"
       onClick={() => open('mobile')}
     >
-      <h3>☰</h3>
+      <span />
+      <span />
     </button>
   );
 }
 
-function SearchToggle() {
-  const {open} = useAside();
-  return (
-    <button className="reset" onClick={() => open('search')}>
-      Search
-    </button>
-  );
+function useStickyHeader(threshold: number) {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    let animationFrame: number | null = null;
+
+    const updateHeader = () => {
+      const nextStickyState = window.scrollY > threshold;
+
+      setIsSticky((currentState) =>
+        currentState === nextStickyState
+          ? currentState
+          : nextStickyState,
+      );
+
+      animationFrame = null;
+    };
+
+    const handleScroll = () => {
+      if (animationFrame !== null) return;
+
+      animationFrame = window.requestAnimationFrame(
+        updateHeader,
+      );
+    };
+
+    updateHeader();
+
+    window.addEventListener('scroll', handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+
+      if (animationFrame !== null) {
+        window.cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [threshold]);
+
+  return isSticky;
 }
 
-function CartBadge({count}: {count: number | null}) {
-  const {open} = useAside();
-  const {publish, shop, cart, prevCart} = useAnalytics();
+function normalizeMenuUrl(
+  url: string,
+  primaryDomainUrl: string,
+  publicStoreDomain: string,
+) {
+  if (url.startsWith('/')) {
+    return url;
+  }
 
+  const internalDomains = [
+    primaryDomainUrl,
+    publicStoreDomain,
+    'myshopify.com',
+  ].filter(Boolean);
+
+  const isInternalUrl = internalDomains.some((domain) =>
+    url.includes(domain),
+  );
+
+  if (!isInternalUrl) {
+    return url;
+  }
+
+  try {
+    const parsedUrl = new URL(url);
+
+    return `${parsedUrl.pathname}${parsedUrl.search}${parsedUrl.hash}`;
+  } catch {
+    return url;
+  }
+}
+
+function ArrowUpRightIcon() {
   return (
-    <a
-      href="/cart"
-      onClick={(e) => {
-        e.preventDefault();
-        open('cart');
-        publish('cart_viewed', {
-          cart,
-          prevCart,
-          shop,
-          url: window.location.href || '',
-        } as CartViewPayload);
-      }}
+    <svg
+      aria-hidden="true"
+      fill="none"
+      height="17"
+      viewBox="0 0 17 17"
+      width="17"
     >
-      Cart {count === null ? <span>&nbsp;</span> : count}
-    </a>
+      <path
+        d="M4.5 12.5 12.5 4.5M6.25 4.5h6.25v6.25"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.25"
+      />
+    </svg>
   );
-}
-
-function CartToggle({cart}: Pick<HeaderProps, 'cart'>) {
-  return (
-    <Suspense fallback={<CartBadge count={null} />}>
-      <Await resolve={cart}>
-        <CartBanner />
-      </Await>
-    </Suspense>
-  );
-}
-
-function CartBanner() {
-  const originalCart = useAsyncValue() as CartApiQueryFragment | null;
-  const cart = useOptimisticCart(originalCart);
-  return <CartBadge count={cart?.totalQuantity ?? 0} />;
 }
 
 const FALLBACK_HEADER_MENU = {
-  id: 'gid://shopify/Menu/199655587896',
   items: [
     {
-      id: 'gid://shopify/MenuItem/461609500728',
+      id: 'our-work',
       resourceId: null,
       tags: [],
-      title: 'Collections',
+      title: 'Our Work',
       type: 'HTTP',
-      url: '/collections',
+      url: '/pages/our-work',
       items: [],
     },
     {
-      id: 'gid://shopify/MenuItem/461609533496',
+      id: 'services',
       resourceId: null,
       tags: [],
-      title: 'Blog',
+      title: 'Services',
+      type: 'HTTP',
+      url: '/pages/services',
+      items: [],
+    },
+    {
+      id: 'ai',
+      resourceId: null,
+      tags: [],
+      title: 'AI',
+      type: 'HTTP',
+      url: '/pages/ai',
+      items: [],
+    },
+    {
+      id: 'about',
+      resourceId: null,
+      tags: [],
+      title: 'About us',
+      type: 'HTTP',
+      url: '/pages/about',
+      items: [],
+    },
+    {
+      id: 'resources',
+      resourceId: null,
+      tags: [],
+      title: 'Resources',
       type: 'HTTP',
       url: '/blogs/journal',
       items: [],
     },
     {
-      id: 'gid://shopify/MenuItem/461609566264',
+      id: 'contact',
       resourceId: null,
       tags: [],
-      title: 'Policies',
+      title: 'Contact',
       type: 'HTTP',
-      url: '/policies',
-      items: [],
-    },
-    {
-      id: 'gid://shopify/MenuItem/461609599032',
-      resourceId: 'gid://shopify/Page/92591030328',
-      tags: [],
-      title: 'About',
-      type: 'PAGE',
-      url: '/pages/about',
+      url: '/pages/contact',
       items: [],
     },
   ],
 };
-
-function activeLinkStyle({
-  isActive,
-  isPending,
-}: {
-  isActive: boolean;
-  isPending: boolean;
-}) {
-  return {
-    fontWeight: isActive ? 'bold' : undefined,
-    color: isPending ? 'grey' : 'black',
-  };
-}
