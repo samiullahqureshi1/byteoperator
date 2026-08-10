@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect,useRef, useState} from 'react';
 import {NavLink} from 'react-router';
 
 import type {
@@ -23,17 +23,28 @@ export function Header({
   header,
   publicStoreDomain,
 }: HeaderProps) {
-  const isSticky = useStickyHeader(STICKY_SCROLL_POSITION);
+  const {isSticky, isVisible} = useStickyHeader(
+  STICKY_SCROLL_POSITION,
+);
 
   const {shop, menu} = header;
 
   return (
     <>
       <header
-        className={`charle-header ${
-          isSticky ? 'charle-header--sticky' : ''
-        }`}
-      >
+  className={[
+    'charle-header',
+    isSticky
+      ? 'charle-header--sticky'
+      : '',
+    !isVisible
+      ? 'charle-header--scroll-hidden'
+      : '',
+  ]
+    .filter(Boolean)
+    .join(' ')}
+    data-scroll-hidden={!isVisible ? 'true' : 'false'}
+>
         <div className="charle-header__inner">
           <NavLink
   className="charle-header__brand"
@@ -1126,45 +1137,75 @@ function MobileMenuButton() {
 }
 
 function useStickyHeader(threshold: number) {
-  const [isSticky, setIsSticky] = useState(false);
+  const [headerState, setHeaderState] = useState({
+    isSticky: false,
+    isVisible: true,
+  });
+
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    let animationFrame: number | null = null;
-
-    const updateHeader = () => {
-      const nextStickyState = window.scrollY > threshold;
-
-      setIsSticky((currentState) =>
-        currentState === nextStickyState
-          ? currentState
-          : nextStickyState,
-      );
-
-      animationFrame = null;
-    };
+    lastScrollY.current = window.scrollY;
 
     const handleScroll = () => {
-      if (animationFrame !== null) return;
+      const currentScrollY = window.scrollY;
 
-      animationFrame = window.requestAnimationFrame(updateHeader);
+      const directionTolerance =
+        window.innerHeight * 0.002;
+
+      const scrollDifference =
+        currentScrollY - lastScrollY.current;
+
+      if (
+        Math.abs(scrollDifference) <
+        directionTolerance
+      ) {
+        return;
+      }
+
+      const isAtTop =
+        currentScrollY <= threshold;
+
+      const isScrollingUp =
+        scrollDifference < 0;
+
+      setHeaderState((current) => {
+        const nextState = {
+          isSticky: !isAtTop,
+          isVisible:
+            isAtTop || isScrollingUp,
+        };
+
+        if (
+          current.isSticky === nextState.isSticky &&
+          current.isVisible === nextState.isVisible
+        ) {
+          return current;
+        }
+
+        return nextState;
+      });
+
+      lastScrollY.current = currentScrollY;
     };
 
-    updateHeader();
+    window.addEventListener(
+      'scroll',
+      handleScroll,
+      {passive: true},
+    );
 
-    window.addEventListener('scroll', handleScroll, {
-      passive: true,
-    });
+    handleScroll();
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-
-      if (animationFrame !== null) {
-        window.cancelAnimationFrame(animationFrame);
-      }
+      window.removeEventListener(
+        'scroll',
+        handleScroll,
+      );
     };
   }, [threshold]);
 
-  return isSticky;
+  return headerState;
 }
 
 function normalizeMenuUrl(

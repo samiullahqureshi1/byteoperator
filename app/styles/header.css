@@ -48,6 +48,7 @@
     border-radius 420ms cubic-bezier(0.22, 1, 0.36, 1),
     background-color 300ms ease,
     box-shadow 300ms ease;
+    
 }
 
 /* Rounded sticky state */
@@ -2380,4 +2381,26 @@
     display: inline-flex;
     flex-shrink: 0;
   }
+}
+/* =========================================================
+   HEADER — SCROLL DIRECTION VISIBILITY
+========================================================= */
+
+[data-scroll-hidden] {
+  translate: 0 0;
+
+  transition:
+    translate 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-scroll-hidden='true'] {
+  translate: 0 -140%;
+
+  pointer-events: none;
+}
+
+[data-scroll-hidden='false'] {
+  translate: 0 0;
+
+  pointer-events: auto;
 }
