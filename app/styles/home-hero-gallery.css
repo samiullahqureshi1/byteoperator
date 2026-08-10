@@ -1,0 +1,729 @@
+/* =========================================================
+   FOLDTECH — HOME HERO GALLERY
+   ---------------------------------------------------------
+   Reference behaviour:
+   - 240vh scroll section
+   - 100vh sticky viewport
+   - 5 x 3 desktop grid
+   - 3 project layers
+   - centre video
+   - video starts large, then shrinks into centre grid cell
+   - layered fade + reveal animation
+   - mobile 3-column layout
+   - reduced-motion fallback
+========================================================= */
+
+
+/* =========================================================
+   BASE / FALLBACK
+========================================================= */
+
+.ft-hero-gallery {
+  position: relative;
+  width: 100%;
+  padding: 0 2vw;
+  background-color: var(--ft-dark-deep, #01151b);
+}
+
+.ft-hero-gallery__inner {
+  position: relative;
+
+  width: 100%;
+}
+
+.ft-hero-gallery__layer {
+  display: none;
+}
+
+.ft-hero-gallery__main-image {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 12 / 5;
+
+  margin: 0 auto 3vh;
+
+  overflow: hidden;
+
+  border-radius: 1vw;
+}
+
+.ft-hero-gallery__video {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: inherit;
+}
+
+
+/* =========================================================
+   BASE MOBILE FALLBACK
+========================================================= */
+
+@media (max-width: 48rem) {
+  .ft-hero-gallery__main-image {
+    aspect-ratio: 1;
+  }
+}
+
+
+/* =========================================================
+   SUBGRID-ENABLED EXPERIENCE
+========================================================= */
+
+@supports (grid-template-columns: subgrid) {
+  /*
+   * These animations intentionally define only their
+   * starting states.
+   *
+   * CSS then interpolates back toward the element's
+   * normal/final layout values.
+   */
+
+  @keyframes ft-gallery-fade {
+    0%,
+    55% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes ft-gallery-reveal {
+    0%,
+    30% {
+      scale: 0;
+    }
+  }
+
+  @keyframes ft-gallery-scale-x {
+    0%,
+    10% {
+      width: calc(
+        100vw - (2 * var(--ft-gallery-gutter-x))
+      );
+    }
+  }
+
+  @keyframes ft-gallery-scale-y-mobile {
+    0%,
+    10% {
+      height: 75vh;
+    }
+  }
+
+  @keyframes ft-gallery-scale-y-desktop {
+    0%,
+    10% {
+      height: calc(
+        100vh - (2 * var(--ft-gallery-gutter-y))
+      );
+    }
+  }
+
+
+  /* =======================================================
+     SECTION VARIABLES
+  ======================================================= */
+
+  .ft-hero-gallery {
+    --ft-gallery-gap: clamp(
+      0.625vw,
+      4.9vw,
+      5vw
+    );
+
+    --ft-gallery-gutter-x: 2vw;
+    --ft-gallery-gutter-y: 2vh;
+
+    --ft-power-1-out: linear(
+      0 0%,
+      0.0027 3.64%,
+      0.0106 7.29%,
+      0.0425 14.58%,
+      0.0957 21.87%,
+      0.1701 29.16%,
+      0.2477 35.19%,
+      0.3401 41.23%,
+      0.5982 55.18%,
+      0.7044 61.56%,
+      0.7987 68.28%,
+      0.875 75%,
+      0.9297 81.25%,
+      0.9687 87.5%,
+      0.9922 93.75%,
+      1 100%
+    );
+
+    --ft-power-2-out: linear(
+      0 0%,
+      0.0036 9.62%,
+      0.0185 16.66%,
+      0.0489 23.03%,
+      0.0962 28.86%,
+      0.1705 34.93%,
+      0.269 40.66%,
+      0.3867 45.89%,
+      0.5833 52.95%,
+      0.683 57.05%,
+      0.7829 62.14%,
+      0.8621 67.46%,
+      0.8991 70.68%,
+      0.9299 74.03%,
+      0.9545 77.52%,
+      0.9735 81.21%,
+      0.9865 85%,
+      0.9949 89.15%,
+      1 100%
+    );
+
+    --ft-sine: linear(
+      0 0%,
+      0.2861 18.47%,
+      0.4829 32.08%,
+      0.6437 44.52%,
+      0.7712 56.07%,
+      0.8722 67.47%,
+      0.9115 73.02%,
+      0.9434 78.49%,
+      0.9682 83.91%,
+      0.9859 89.3%,
+      0.9965 94.66%,
+      1 100%
+    );
+
+    width: 100%;
+    max-width: 100%;
+
+    padding: 0;
+
+    background-color: var(--ft-dark-deep, #01151b);
+  }
+
+
+  /* =======================================================
+     STICKY VIEWPORT
+  ======================================================= */
+
+  .ft-hero-gallery__inner {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    place-items: center;
+    align-content: center;
+
+    width: 100vw;
+    min-height: 100vh;
+
+    overflow: hidden;
+  }
+
+
+  /* =======================================================
+     LONG SCROLL DRIVER
+  ======================================================= */
+
+  @media (prefers-reduced-motion: no-preference) {
+    .ft-hero-gallery {
+      min-height: 240vh;
+    }
+  }
+
+
+  /* =======================================================
+     GALLERY GRID
+  ======================================================= */
+
+  .ft-hero-gallery__grid {
+    --ft-gallery-offset: 0;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    translate: -50% -50%;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(5, minmax(0, 1fr));
+
+    grid-template-rows:
+      repeat(3, auto);
+
+    gap: var(--ft-gallery-gap);
+
+    width: min(
+      95vw,
+      calc(
+        100vw - (2 * var(--ft-gallery-gutter-x))
+      )
+    );
+
+    margin: 0 auto;
+
+    align-content: center;
+  }
+
+
+  /* Desktop top adjustment */
+  @media (min-width: 64rem) {
+    .ft-hero-gallery__grid {
+      padding-top: 3.2vh;
+    }
+  }
+
+
+  /* =======================================================
+     ALL PROJECT LAYERS
+  ======================================================= */
+
+  .ft-hero-gallery__grid
+    > .ft-hero-gallery__layer {
+    display: grid;
+
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+
+    pointer-events: none;
+  }
+
+
+  /* =======================================================
+     LAYER 1 — OUTER COLUMNS
+     6 cards
+  ======================================================= */
+
+  .ft-hero-gallery__grid
+    > .ft-hero-gallery__layer:nth-of-type(1)
+    > .ft-hero-gallery__item:nth-of-type(odd) {
+    grid-column: 1;
+  }
+
+  .ft-hero-gallery__grid
+    > .ft-hero-gallery__layer:nth-of-type(1)
+    > .ft-hero-gallery__item:nth-of-type(even) {
+    grid-column: -2;
+  }
+
+
+  /* =======================================================
+     LAYER 2 — INNER COLUMNS
+     6 cards
+  ======================================================= */
+
+  .ft-hero-gallery__grid
+    > .ft-hero-gallery__layer:nth-of-type(2)
+    > .ft-hero-gallery__item:nth-of-type(odd) {
+    grid-column:
+      calc(2 + var(--ft-gallery-offset));
+  }
+
+  .ft-hero-gallery__grid
+    > .ft-hero-gallery__layer:nth-of-type(2)
+    > .ft-hero-gallery__item:nth-of-type(even) {
+    grid-column:
+      calc(-3 - var(--ft-gallery-offset));
+  }
+
+
+  /* =======================================================
+     LAYER 3 — CENTRE COLUMN
+     2 cards
+  ======================================================= */
+
+  .ft-hero-gallery__grid
+    > .ft-hero-gallery__layer:nth-of-type(3)
+    > .ft-hero-gallery__item {
+    grid-column:
+      calc(3 + var(--ft-gallery-offset));
+  }
+
+  .ft-hero-gallery__grid
+    > .ft-hero-gallery__layer:nth-of-type(3)
+    > .ft-hero-gallery__item:last-of-type {
+    grid-row: -1;
+  }
+
+
+  /* =======================================================
+     CENTRE VIDEO CELL
+  ======================================================= */
+
+  .ft-hero-gallery__grid
+    > .ft-hero-gallery__main-image {
+    position: relative;
+
+    grid-area:
+      2 /
+      calc(3 + var(--ft-gallery-offset));
+
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    margin: auto;
+
+    overflow: visible;
+
+    aspect-ratio: auto;
+
+    border-radius: 0;
+  }
+
+  .ft-hero-gallery__main-image
+    .ft-hero-gallery__video {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    translate: -50% -50%;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 1vw;
+  }
+
+
+  /* =======================================================
+     PROJECT IMAGES
+  ======================================================= */
+
+  .ft-hero-gallery__item-image {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 1vw;
+  }
+
+
+  /* =======================================================
+     MOBILE GRID
+  ======================================================= */
+
+  @media (max-width: 37.5rem) {
+    .ft-hero-gallery {
+      --ft-gallery-gutter-x: 4vw;
+      --ft-gallery-gutter-y: 2vh;
+      --ft-gallery-gap: 3vw;
+    }
+
+    .ft-hero-gallery__grid {
+      --ft-gallery-offset: -1;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      width: calc(
+        100vw - (2 * var(--ft-gallery-gutter-x))
+      );
+    }
+
+    /*
+     * Reference hides the first / outermost layer
+     * on small screens.
+     */
+    .ft-hero-gallery__grid
+      > .ft-hero-gallery__layer:nth-of-type(1) {
+      display: none;
+    }
+  }
+}
+
+
+/* =========================================================
+   SCROLL-DRIVEN ANIMATION
+========================================================= */
+
+@supports
+  (grid-template-columns: subgrid)
+  and (animation-timeline: scroll())
+  and (animation-range: 0% 100%) {
+
+  @media (prefers-reduced-motion: no-preference) {
+    /*
+     * The complete 240vh section becomes
+     * the animation progress source.
+     */
+    .ft-hero-gallery {
+      view-timeline-name: --ft-gallery-runner;
+      view-timeline-axis: block;
+    }
+
+
+    /* =====================================================
+       VIDEO: FULL VIEWPORT → CENTRE GRID CELL
+    ===================================================== */
+
+    .ft-hero-gallery__main-image
+      .ft-hero-gallery__video {
+      animation-name:
+        ft-gallery-scale-x,
+        ft-gallery-scale-y-mobile;
+
+      animation-fill-mode:
+        both,
+        both;
+
+      animation-timing-function:
+        var(--ft-power-2-out),
+        var(--ft-power-1-out);
+
+      animation-timeline:
+        --ft-gallery-runner,
+        --ft-gallery-runner;
+
+      animation-range:
+        entry 100%
+        exit -20%;
+    }
+
+
+    /* Desktop gets full viewport-height reveal */
+    @media (min-width: 64rem) {
+      .ft-hero-gallery__main-image
+        .ft-hero-gallery__video {
+        animation-name:
+          ft-gallery-scale-x,
+          ft-gallery-scale-y-desktop;
+      }
+    }
+
+
+    /* =====================================================
+       ALL GALLERY LAYERS
+    ===================================================== */
+
+    .ft-hero-gallery__grid
+      > .ft-hero-gallery__layer {
+      animation-name:
+        ft-gallery-fade,
+        ft-gallery-reveal;
+
+      animation-fill-mode:
+        both,
+        both;
+
+      animation-timeline:
+        --ft-gallery-runner,
+        --ft-gallery-runner;
+
+      animation-timing-function:
+        var(--ft-sine),
+        var(--ft-power-1-out);
+
+      animation-range:
+        entry 100%
+        exit 0%;
+    }
+
+
+    /* Layer 1 appears first */
+    .ft-hero-gallery__grid
+      > .ft-hero-gallery__layer:nth-of-type(1) {
+      animation-range:
+        entry 100%
+        exit 0%;
+    }
+
+
+    /* Layer 2 appears slightly later */
+    .ft-hero-gallery__grid
+      > .ft-hero-gallery__layer:nth-of-type(2) {
+      animation-range:
+        entry 100%
+        exit -10%;
+    }
+
+
+    /* Layer 3 appears last */
+    .ft-hero-gallery__grid
+      > .ft-hero-gallery__layer:nth-of-type(3) {
+      animation-range:
+        entry 100%
+        exit -20%;
+    }
+  }
+}
+
+
+/* =========================================================
+   PROJECT CARD
+========================================================= */
+
+.ft-hero-gallery__item {
+  position: relative;
+
+  display: block;
+
+  pointer-events: auto;
+
+  overflow: hidden;
+
+  text-decoration: none;
+
+  border-radius: 1vw;
+
+  background-color: var(--ft-dark-deep, #01151b);
+
+  transform: translateZ(0);
+}
+
+
+/* =========================================================
+   HOVER OVERLAY
+========================================================= */
+
+.ft-hero-gallery__item-hover {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding:
+    1.8vh
+    1.2vw;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
+}
+
+.ft-hero-gallery__item:hover
+  .ft-hero-gallery__item-hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* =========================================================
+   HOVER CONTENT
+========================================================= */
+
+.ft-hero-gallery__item-content {
+  display: flex;
+  align-items: flex-end;
+
+  width: 100%;
+
+  gap: 0.8vw;
+
+  transform: translateY(100%);
+
+  transition:
+    transform 0.3s ease-in-out;
+}
+
+.ft-hero-gallery__item:hover
+  .ft-hero-gallery__item-content {
+  transform: translateY(0);
+}
+
+.ft-hero-gallery__item-content p {
+  flex: 1;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.ft-hero-gallery__arrow {
+  flex-shrink: 0;
+
+  width: 0.8125rem;
+  height: 0.8125rem;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   MOBILE HOVER CONTENT
+========================================================= */
+
+@media (max-width: 37.5rem) {
+  .ft-hero-gallery__item-hover {
+    padding:
+      1.5vh
+      2.5vw;
+  }
+
+  .ft-hero-gallery__item-content {
+    gap: 2vw;
+  }
+
+  .ft-hero-gallery__item-content p {
+    font-size: 0.8125rem;
+  }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) {
+  .ft-hero-gallery__item-hover {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-hero-gallery,
+  .ft-hero-gallery__layer,
+  .ft-hero-gallery__video,
+  .ft-hero-gallery__item,
+  .ft-hero-gallery__item-content {
+    animation: none;
+  }
+
+  .ft-hero-gallery__item-hover,
+  .ft-hero-gallery__item-content {
+    transition: none;
+  }
+}

@@ -1,5 +1,13 @@
 import {HomeHero} from '~/components/HomeHero';
+import {HomeHeroGallery} from '~/components/HomeHeroGallery';
 import '~/styles/home-hero.css';
+import homeHeroGalleryStyles from '~/styles/home-hero-gallery.css?url';
+export const links = () => [
+  {
+    rel: 'stylesheet',
+    href: homeHeroGalleryStyles,
+  },
+];
 import {
   Await,
   useLoaderData,
@@ -67,6 +75,7 @@ export default function Homepage() {
   return (
     <div className="home">
       <HomeHero />
+      <HomeHeroGallery />
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>

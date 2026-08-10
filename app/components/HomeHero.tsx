@@ -105,8 +105,8 @@ function HeroMark() {
       aria-hidden="true"
     >
       <svg
-        width="52"
-        height="52"
+        width="1em"
+        height="1em"
         viewBox="0 0 48 48"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -131,8 +131,8 @@ function ArrowDownIcon() {
   return (
     <svg
       aria-hidden="true"
-      width="18"
-      height="18"
+      width="1em"
+      height="1em"
       viewBox="0 0 18 18"
       fill="none"
     >
@@ -158,8 +158,8 @@ function ArrowRightIcon() {
   return (
     <svg
       aria-hidden="true"
-      width="14"
-      height="14"
+      width="1em"
+      height="1em"
       viewBox="0 0 14 14"
       fill="none"
     >
