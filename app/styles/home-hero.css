@@ -1,0 +1,614 @@
+/* =========================================================
+   FOLDTECH HOME HERO
+========================================================= */
+
+.ft-home-hero,
+.ft-home-hero *,
+.ft-home-hero *::before,
+.ft-home-hero *::after {
+  box-sizing: border-box;
+}
+
+.ft-home-hero {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  width: 100%;
+
+  /*
+   * The fixed header does not render the spacer defined in app.css,
+   * so keep the hero below it without changing the hero's inner spacing.
+   */
+  margin-top: var(--charle-header-height, 108px);
+
+  min-height: calc(
+    100svh - var(--charle-header-height, 108px)
+  );
+
+  padding:
+    clamp(70px, 8vh, 90px)
+    32px
+    32px;
+
+  color: #fff;
+
+  background:
+    radial-gradient(
+      ellipse 48% 55% at 58% 78%,
+      rgba(64, 173, 170, 0.22),
+      rgba(64, 173, 170, 0.07) 42%,
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 42% 55% at 40% 75%,
+      rgba(17, 50, 81, 0.32),
+      transparent 70%
+    ),
+    var(--ft-dark-deep, #01151b);
+
+  overflow: hidden;
+}
+
+
+/* Background glow */
+
+.ft-home-hero__glow {
+  position: absolute;
+
+  left: 50%;
+  bottom: -55%;
+
+  z-index: -1;
+
+  width: min(950px, 80vw);
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(64, 173, 170, 0.12),
+      transparent 68%
+    );
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
+}
+
+
+/* Main content */
+
+.ft-home-hero__content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: min(100%, 900px);
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+
+/* Small top label */
+
+.ft-home-hero__eyebrow {
+  margin:
+    0
+    0
+    28px;
+
+  color:
+    rgba(255, 255, 255, 0.94);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  letter-spacing: -0.035em;
+}
+
+
+/* Main title */
+
+.ft-home-hero__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0;
+
+  color: #fff;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(50px, 4.3vw, 70px);
+
+  font-weight: 400;
+  line-height: 1;
+
+  letter-spacing: -0.06em;
+}
+
+.ft-home-hero__title-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  white-space: nowrap;
+}
+
+.ft-home-hero__title strong {
+  font-weight: 700;
+}
+
+
+/* Hero icon */
+
+.ft-home-hero__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex:
+    0
+    0
+    clamp(42px, 3.25vw, 53px);
+
+  width:
+    clamp(42px, 3.25vw, 53px);
+
+  height:
+    clamp(42px, 3.25vw, 53px);
+
+  max-width: 53px;
+  max-height: 53px;
+
+  color: #fff;
+
+  overflow: hidden;
+}
+
+.ft-home-hero__mark svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  max-width: 53px;
+  max-height: 53px;
+
+  flex: none;
+}
+
+
+/* Description */
+
+.ft-home-hero__description {
+  width: min(100%, 680px);
+
+  margin:
+    40px
+    auto
+    0;
+
+  color:
+    rgba(255, 255, 255, 0.95);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+
+  letter-spacing: -0.035em;
+}
+
+
+/* Four service cards */
+
+.ft-home-hero__services {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  width: min(100%, 820px);
+
+  margin-top: 49px;
+
+  background:
+    rgba(255, 255, 255, 0.13);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.06);
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+.ft-home-hero__service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  min-width: 0;
+  min-height: 78px;
+
+  padding: 15px 12px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  transition:
+    background-color 180ms ease;
+}
+
+.ft-home-hero__service
+  + .ft-home-hero__service {
+  border-left:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+.ft-home-hero__service:hover {
+  background:
+    rgba(64, 173, 170, 0.1);
+}
+
+.ft-home-hero__service strong {
+  color: #fff;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.15;
+
+  letter-spacing: -0.035em;
+
+  white-space: nowrap;
+}
+
+.ft-home-hero__service span {
+  color:
+    rgba(255, 255, 255, 0.58);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  letter-spacing: -0.025em;
+
+  white-space: nowrap;
+}
+
+
+/* See our work */
+
+.ft-home-hero__work-link {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 22px;
+
+  color:
+    rgba(255, 255, 255, 0.58);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 14px;
+
+  text-decoration: none;
+
+  transition: color 180ms ease;
+}
+
+.ft-home-hero__work-link:hover {
+  color: #fff;
+}
+
+.ft-home-hero__work-link svg {
+  transition:
+    transform 200ms ease;
+}
+
+.ft-home-hero__work-link:hover svg {
+  transform: translateY(3px);
+}
+
+
+/* Right-side CTA */
+
+.ft-home-hero__side-link {
+  position: absolute;
+
+  top: 58%;
+  right: 0;
+
+  z-index: 4;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  min-width: 230px;
+  height: 38px;
+
+  padding: 0 17px;
+
+  color:
+    rgba(255, 255, 255, 0.57);
+
+  background:
+    rgba(0, 0, 0, 0.28);
+
+  border-radius:
+    9px
+    0
+    0
+    9px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.02em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transform: translateY(-50%);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1250px) {
+  .ft-home-hero__side-link {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .ft-home-hero {
+    min-height: calc(
+      100svh - var(--charle-header-height, 80px)
+    );
+
+    padding:
+      72px
+      28px
+      36px;
+  }
+
+  .ft-home-hero__eyebrow {
+    font-size: 15px;
+  }
+
+  .ft-home-hero__title {
+    font-size:
+      clamp(42px, 6.6vw, 58px);
+  }
+
+  .ft-home-hero__description {
+    margin-top: 34px;
+
+    font-size: 16px;
+  }
+
+  .ft-home-hero__services {
+    margin-top: 42px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 720px) {
+  .ft-home-hero {
+    min-height: calc(
+      100svh - var(--charle-header-height, 80px)
+    );
+
+    padding:
+      clamp(56px, 8vh, 72px)
+      24px
+      38px;
+
+    background:
+      radial-gradient(
+        ellipse 90% 45% at 53% 68%,
+        rgba(64, 173, 170, 0.17),
+        transparent 74%
+      ),
+      var(--ft-dark-deep, #01151b);
+  }
+
+  .ft-home-hero__eyebrow {
+    margin-bottom: 28px;
+
+    font-size: 14px;
+  }
+
+  .ft-home-hero__title {
+    font-size:
+      clamp(31px, 9vw, 39px);
+
+    line-height: 1.02;
+  }
+
+  .ft-home-hero__title-line {
+    gap: 8px;
+  }
+
+  .ft-home-hero__mark {
+    flex-basis:
+      clamp(27px, 7vw, 32px);
+
+    width:
+      clamp(27px, 7vw, 32px);
+
+    height:
+      clamp(27px, 7vw, 32px);
+
+    max-width: 32px;
+    max-height: 32px;
+  }
+
+  .ft-home-hero__mark svg {
+    max-width: 32px;
+    max-height: 32px;
+  }
+
+  .ft-home-hero__description {
+    max-width: 330px;
+
+    margin-top: 34px;
+
+    font-size: 15px;
+  }
+
+  .ft-home-hero__services {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    width: min(100%, 340px);
+
+    margin-top: 44px;
+  }
+
+  .ft-home-hero__service {
+    min-height: 86px;
+
+    padding: 13px 9px;
+  }
+
+  .ft-home-hero__service
+    + .ft-home-hero__service {
+    border-left: 0;
+  }
+
+  .ft-home-hero__service:nth-child(even) {
+    border-left:
+      1px solid
+      rgba(255, 255, 255, 0.08);
+  }
+
+  .ft-home-hero__service:nth-child(n + 3) {
+    border-top:
+      1px solid
+      rgba(255, 255, 255, 0.08);
+  }
+
+  .ft-home-hero__service strong {
+    font-size: 14px;
+
+    white-space: normal;
+  }
+
+  .ft-home-hero__service span {
+    max-width: 130px;
+
+    font-size: 12px;
+
+    white-space: normal;
+  }
+
+  .ft-home-hero__work-link {
+    margin-top: 24px;
+
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .ft-home-hero {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .ft-home-hero__title {
+    font-size:
+      clamp(29px, 9.1vw, 35px);
+  }
+
+  .ft-home-hero__description {
+    max-width: 305px;
+
+    font-size: 14px;
+  }
+
+  .ft-home-hero__services {
+    width: 100%;
+  }
+
+  .ft-home-hero__service strong {
+    font-size: 13px;
+  }
+
+  .ft-home-hero__service span {
+    font-size: 11.5px;
+  }
+}

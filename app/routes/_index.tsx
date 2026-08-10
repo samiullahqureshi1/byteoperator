@@ -1,3 +1,5 @@
+import {HomeHero} from '~/components/HomeHero';
+import '~/styles/home-hero.css';
 import {
   Await,
   useLoaderData,
@@ -64,6 +66,7 @@ export default function Homepage() {
   const data = useLoaderData<typeof loader>();
   return (
     <div className="home">
+      <HomeHero />
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
