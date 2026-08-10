@@ -1,9 +1,11 @@
 import {HomeSideRail} from '~/components/HomeSideRail';
 import {HomeHero} from '~/components/HomeHero';
 import {HomeHeroGallery} from '~/components/HomeHeroGallery';
+import {HomeAbout} from '~/components/HomeAbout';
 import homeSideRailStyles from '~/styles/home-side-rail.css?url';
 import '~/styles/home-hero.css';
 import homeHeroGalleryStyles from '~/styles/home-hero-gallery.css?url';
+import homeAboutStyles from '~/styles/home-about.css?url';
 export const links = () => [
   {
     rel: 'stylesheet',
@@ -12,6 +14,10 @@ export const links = () => [
   {
     rel: 'stylesheet',
     href: homeSideRailStyles,
+  },
+    {
+    rel: 'stylesheet',
+    href: homeAboutStyles,
   },
 ];
 import {
@@ -84,6 +90,7 @@ export default function Homepage() {
 
       <HomeHero />
       <HomeHeroGallery />
+      <HomeAbout />
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
