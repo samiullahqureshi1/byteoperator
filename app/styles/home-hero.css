@@ -368,73 +368,9 @@
   transform: translateY(0.1875rem);
 }
 
-
-/* Right-side CTA */
-
-.ft-home-hero__side-link {
-  position: absolute;
-
-  top: 58%;
-  right: 0;
-
-  z-index: 4;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 0.75rem;
-
-  min-width: 14.375rem;
-  height: 2.375rem;
-
-  padding: 0 1.0625rem;
-
-  color:
-    rgba(255, 255, 255, 0.57);
-
-  background:
-    rgba(0, 0, 0, 0.28);
-
-  border-radius:
-    0.5625rem
-    0
-    0
-    0.5625rem;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  font-size: 0.6875rem;
-  font-weight: 600;
-
-  letter-spacing: 0.02em;
-
-  text-decoration: none;
-  text-transform: uppercase;
-
-  transform: translateY(-50%);
-}
-
-.ft-home-hero__side-link svg {
-  width: 0.875rem;
-  height: 0.875rem;
-
-  flex: none;
-}
-
-
 /* =========================================================
    TABLET
 ========================================================= */
-
-@media (max-width: 78.125rem) {
-  .ft-home-hero__side-link {
-    display: none;
-  }
-}
 
 @media (max-width: 61.9375rem) {
   .ft-home-hero {

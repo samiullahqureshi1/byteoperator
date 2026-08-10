@@ -1,11 +1,17 @@
+import {HomeSideRail} from '~/components/HomeSideRail';
 import {HomeHero} from '~/components/HomeHero';
 import {HomeHeroGallery} from '~/components/HomeHeroGallery';
+import homeSideRailStyles from '~/styles/home-side-rail.css?url';
 import '~/styles/home-hero.css';
 import homeHeroGalleryStyles from '~/styles/home-hero-gallery.css?url';
 export const links = () => [
   {
     rel: 'stylesheet',
     href: homeHeroGalleryStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: homeSideRailStyles,
   },
 ];
 import {
@@ -74,6 +80,8 @@ export default function Homepage() {
   const data = useLoaderData<typeof loader>();
   return (
     <div className="home">
+      <HomeSideRail />
+
       <HomeHero />
       <HomeHeroGallery />
       <FeaturedCollection collection={data.featuredCollection} />

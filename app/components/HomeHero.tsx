@@ -85,15 +85,6 @@ export function HomeHero() {
           <ArrowDownIcon />
         </NavLink>
       </div>
-
-      <NavLink
-        className="ft-home-hero__side-link"
-        prefetch="intent"
-        to="/pages/about"
-      >
-        <span>Learn about FoldTech</span>
-        <ArrowRightIcon />
-      </NavLink>
     </section>
   );
 }
@@ -147,33 +138,6 @@ function ArrowDownIcon() {
         d="M4.5 10.5L9 15L13.5 10.5"
         stroke="currentColor"
         strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ArrowRightIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      width="1em"
-      height="1em"
-      viewBox="0 0 14 14"
-      fill="none"
-    >
-      <path
-        d="M2 7H12"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-
-      <path
-        d="M8.5 3.5L12 7L8.5 10.5"
-        stroke="currentColor"
-        strokeWidth="1.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

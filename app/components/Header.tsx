@@ -932,8 +932,8 @@ function MobileHeaderMenu({
                 )}
               </div>
 
-              <NavLink
-                className="ft-mobile-resources__featured"
+              {/* <NavLink
+                className="ft-mobile-resources__featured test"
                 to="/blogs/journal"
                 prefetch="intent"
                 onClick={closeMenu}
@@ -963,7 +963,7 @@ function MobileHeaderMenu({
                     Read article →
                   </small>
                 </div>
-              </NavLink>
+              </NavLink> */}
             </div>
 
             <MobileMenuFooter

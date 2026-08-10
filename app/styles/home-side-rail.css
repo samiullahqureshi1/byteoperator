@@ -1,0 +1,295 @@
+/* =========================================================
+   FOLDTECH — SEARCH / ABOUT SIDE TAB
+   ---------------------------------------------------------
+   HERO:
+   horizontal fixed tab
+
+   AFTER HERO:
+   vertical fixed tab
+
+   MOBILE:
+   hidden
+========================================================= */
+
+
+/* =========================================================
+   SHARED BASE
+========================================================= */
+
+.ft-home-side-tab {
+  position: fixed;
+
+  top: 50%;
+  right: 0;
+
+  z-index: 90;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.55vw;
+
+  color: rgba(255, 255, 255, 0.7);
+  background: var(--ft-dark-deep, #01151b);
+
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  box-shadow:
+    -0.25vw
+    0
+    1.25vw
+    rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.35s
+      cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.2s ease,
+    background-color 0.2s ease;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.ft-home-side-tab__arrow {
+  display: block;
+
+  width: 0.75vw;
+  height: 0.75vw;
+
+  flex: none;
+
+  color: currentColor;
+
+  opacity: 0.55;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+/* =========================================================
+   HORIZONTAL — HERO STATE
+========================================================= */
+
+.ft-home-side-tab--horizontal {
+  min-width: 12.5vw;
+  min-height: 3.5vh;
+
+  padding:
+    0.25vh
+    1vw
+    0.25vh
+    1.15vw;
+
+  border-radius:
+    0.55vw
+    0
+    0
+    0.55vw;
+
+  transform:
+    translateY(-50%)
+    translateX(0);
+}
+
+
+/*
+ * Hero has been passed.
+ * Horizontal tab slides INTO the right edge.
+ */
+.ft-home-side-tab--horizontal.ft-home-side-tab--out {
+  transform:
+    translateY(-50%)
+    translateX(110%);
+}
+
+
+/*
+ * After horizontal exit finishes,
+ * completely remove it from rendering.
+ */
+.ft-home-side-tab--horizontal.ft-home-side-tab--hidden {
+  display: none;
+}
+
+
+/*
+ * Used when returning upward.
+ *
+ * First put horizontal tab outside the
+ * viewport WITHOUT animation.
+ * Component then removes this class,
+ * causing it to slide back in.
+ */
+.ft-home-side-tab--horizontal.ft-home-side-tab--pre {
+  transition: none !important;
+
+  transform:
+    translateY(-50%)
+    translateX(110%) !important;
+}
+
+
+/* =========================================================
+   VERTICAL — SCROLLED STATE
+========================================================= */
+
+.ft-home-side-tab--vertical {
+  display: none;
+
+  writing-mode: vertical-rl;
+
+  min-width: 1.7vw;
+  min-height: 25vh;
+
+  padding:
+    2.2vh
+    0.2vw;
+
+  border-radius:
+    0
+    0.55vw
+    0.55vw
+    0;
+
+  /*
+   * rotate(180deg) gives the reference
+   * reading direction.
+   *
+   * Initial state sits outside right edge.
+   */
+  transform:
+    translateY(-50%)
+    rotate(180deg)
+    translateX(-110%);
+}
+
+
+/*
+ * JSX adds mounted first so element can
+ * exist off-screen before transition begins.
+ */
+.ft-home-side-tab--vertical.ft-home-side-tab--mounted {
+  display: flex;
+}
+
+
+/*
+ * Then visible class moves it onto screen.
+ */
+.ft-home-side-tab--vertical.ft-home-side-tab--visible {
+  transform:
+    translateY(-50%)
+    rotate(180deg)
+    translateX(0);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) {
+  .ft-home-side-tab:hover {
+    color: #ffffff;
+
+    background:
+      color-mix(
+        in srgb,
+        var(--ft-dark-deep, #01151b) 82%,
+        var(--ft-teal, #40adaa) 18%
+      );
+  }
+
+  .ft-home-side-tab:hover
+    .ft-home-side-tab__arrow {
+    opacity: 1;
+  }
+
+  .ft-home-side-tab--horizontal:hover
+    .ft-home-side-tab__arrow {
+    transform:
+      translateX(0.2vw);
+  }
+
+  .ft-home-side-tab--vertical:hover
+    .ft-home-side-tab__arrow {
+    transform:
+      translateY(-0.35vh);
+  }
+}
+
+
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
+========================================================= */
+
+.ft-home-side-tab:focus-visible {
+  color: #ffffff;
+
+  outline:
+    0.12vw solid
+    var(--ft-teal-light, #afdddc);
+
+  outline-offset: 0.18vw;
+}
+
+
+/* =========================================================
+   SMALLER DESKTOP
+========================================================= */
+
+@media (max-width: 64rem) {
+  .ft-home-side-tab--horizontal {
+    min-width: 17vw;
+  }
+
+  .ft-home-side-tab--vertical {
+    min-width: 3.3vw;
+    min-height: 24vh;
+  }
+
+  .ft-home-side-tab__arrow {
+    width: 0.95vw;
+    height: 0.95vw;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   Reference does not show either tab on mobile.
+========================================================= */
+
+@media (max-width: 48rem) {
+  .ft-home-side-tab,
+  .ft-home-side-rail--desktop-only {
+    display: none !important;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-home-side-tab,
+  .ft-home-side-tab__arrow {
+    transition: none;
+  }
+}
