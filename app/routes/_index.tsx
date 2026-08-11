@@ -5,11 +5,14 @@ import {HomeAbout} from '~/components/HomeAbout';
 import {HomeServices} from '~/components/HomeServices';
 import homeSideRailStyles from '~/styles/home-side-rail.css?url';
 import {HomeProjects} from '~/components/HomeProjects';
+import {HomeFeature} from '~/components/HomeFeature';
+import {HOME_FEATURES} from '~/data/homeFeatures';
 import '~/styles/home-hero.css';
 import homeHeroGalleryStyles from '~/styles/home-hero-gallery.css?url';
 import homeAboutStyles from '~/styles/home-about.css?url';
 import homeServicesStyles from '~/styles/home-services.css?url';
 import homeProjectsStyles from '~/styles/home-projects.css?url';
+import homeFeatureStyles from '~/styles/home-feature.css?url';
 export const links = () => [
   {
     rel: 'stylesheet',
@@ -30,6 +33,10 @@ export const links = () => [
 {
   rel: 'stylesheet',
   href: homeProjectsStyles,
+},
+{
+  rel: 'stylesheet',
+  href: homeFeatureStyles,
 },
 ];
 import {
@@ -105,6 +112,12 @@ export default function Homepage() {
       <HomeAbout />
       <HomeServices />
       <HomeProjects />
+      {HOME_FEATURES.map((feature) => (
+  <HomeFeature
+    key={feature.id}
+    feature={feature}
+  />
+))}
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
