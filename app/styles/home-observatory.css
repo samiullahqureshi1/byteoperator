@@ -1,0 +1,1001 @@
+/* =========================================================
+   FOLDTECH — HOME OBSERVATORY
+========================================================= */
+
+.ft-home-observatory {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #041f27;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   LOCAL BOX SIZING
+========================================================= */
+
+.ft-home-observatory,
+.ft-home-observatory *,
+.ft-home-observatory *::before,
+.ft-home-observatory *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOWS
+========================================================= */
+
+.ft-home-observatory::before {
+  content: "";
+
+  position: absolute;
+
+  width: 60vw;
+  height: 60vw;
+
+  top: -40%;
+  left: -10%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(64, 173, 170, 0.10) 0%,
+      transparent 65%
+    );
+
+  pointer-events: none;
+}
+
+.ft-home-observatory::after {
+  content: "";
+
+  position: absolute;
+
+  width: 40vw;
+  height: 40vw;
+
+  right: 5%;
+  bottom: -30%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(64, 173, 170, 0.06) 0%,
+      transparent 65%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   MAIN INNER
+   Mobile first = stacked
+========================================================= */
+
+.ft-home-observatory__inner {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  width: 100%;
+  max-width: 75rem;
+
+  margin: 0 auto;
+
+  padding:
+    7vh
+    5.33vw;
+
+  gap: 5vh;
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.ft-home-observatory__left {
+  width: 100%;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.ft-home-observatory__eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 1.8vw;
+
+  margin-bottom: 2.5vh;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: #40adaa;
+}
+
+.ft-home-observatory__eyebrow-icon {
+  flex-shrink: 0;
+
+  width: 0.6875rem;
+  height: 0.8125rem;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.ft-home-observatory__title {
+  width: 100%;
+
+  margin:
+    0
+    0
+    2vh;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+
+  letter-spacing: -0.03em;
+
+  color: #ffffff;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ft-home-observatory__title em {
+  font-family:
+    "Season Serif",
+    serif;
+
+  font-style: italic;
+  font-weight: 400;
+
+  opacity: 0.58;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.ft-home-observatory__description {
+  width: 100%;
+  max-width: 40ch;
+
+  margin:
+    0
+    0
+    4vh;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.65;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.62
+    );
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.ft-home-observatory__stats {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  border-top:
+    0.0625rem
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+}
+
+
+/* =========================================================
+   MOBILE STAT CELLS
+========================================================= */
+
+.ft-home-observatory__stat {
+  display: flex;
+
+  flex-direction: column;
+
+  flex:
+    1 1
+    50%;
+
+  min-width: 0;
+
+  padding:
+    2vh
+    3vw
+    1.8vh
+    0;
+
+  border-right:
+    0.0625rem
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+
+  border-bottom:
+    0.0625rem
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+}
+
+
+/* First stat takes full row on mobile */
+.ft-home-observatory__stat--primary {
+  flex-basis: 100%;
+
+  border-right: 0;
+}
+
+.ft-home-observatory__stat:nth-child(3) {
+  padding-left: 6vw;
+
+  border-right: 0;
+}
+
+
+/* =========================================================
+   STAT VALUE
+========================================================= */
+
+.ft-home-observatory__stat-value {
+  display: block;
+
+  margin-bottom: 0.4vh;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.1;
+
+  letter-spacing: -0.03em;
+
+  color: #ffffff;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   STAT LABEL
+========================================================= */
+
+.ft-home-observatory__stat-label {
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.5625rem;
+  font-weight: 400;
+  line-height: 1.2;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.35
+    );
+}
+
+
+/* =========================================================
+   SIGNUP CARD
+========================================================= */
+
+.ft-home-observatory__card {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding:
+    3.5vh
+    6.8vw;
+
+  border:
+    0.0625rem
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.11
+    );
+
+  border-radius: 5vw;
+
+  background:
+    linear-gradient(
+      160deg,
+      rgba(
+        255,
+        255,
+        255,
+        0.065
+      ),
+      rgba(
+        255,
+        255,
+        255,
+        0.018
+      )
+    );
+}
+
+
+/* =========================================================
+   CARD TEAL GLOW
+========================================================= */
+
+.ft-home-observatory__card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -0.0625rem;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      140deg,
+      rgba(
+        64,
+        173,
+        170,
+        0.14
+      ),
+      transparent 55%
+    );
+
+  pointer-events: none;
+}
+
+.ft-home-observatory__card > * {
+  position: relative;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   CARD LABEL
+========================================================= */
+
+.ft-home-observatory__card-label {
+  display: block;
+
+  margin-bottom: 1.7vh;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.42
+    );
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.ft-home-observatory__form {
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+
+  gap: 1.3vh;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.ft-home-observatory__input {
+  width: 100%;
+
+  padding:
+    1.8vh
+    5vw;
+
+  border:
+    0.0625rem
+    solid
+    rgba(
+      255,
+      255,
+      255,
+      0.4
+    );
+
+  border-radius: 2.7vw;
+
+  outline: none;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.12
+    );
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.875rem;
+  font-weight: 400;
+
+  color: #ffffff;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+.ft-home-observatory__input::placeholder {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+}
+
+.ft-home-observatory__input:focus {
+  border-color:
+    rgba(
+      64,
+      173,
+      170,
+      0.85
+    );
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.15
+    );
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.ft-home-observatory__button {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  gap: 2vw;
+
+  padding:
+    1.8vh
+    5vw;
+
+  border: 0;
+
+  border-radius: 2.7vw;
+
+  background: #ffffff;
+  color: #041f27;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ft-home-observatory__button-arrow {
+  display: block;
+
+  width: 0.9375rem;
+  height: 0.9375rem;
+}
+
+
+/* =========================================================
+   TEMPORARY STATUS
+========================================================= */
+
+.ft-home-observatory__status {
+  margin: 0;
+
+  padding:
+    1.5vh
+    3vw;
+
+  border:
+    0.0625rem
+    solid
+    rgba(
+      64,
+      173,
+      170,
+      0.3
+    );
+
+  border-radius: 2.7vw;
+
+  background:
+    rgba(
+      64,
+      173,
+      170,
+      0.1
+    );
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.75rem;
+  line-height: 1.4;
+
+  text-align: center;
+
+  color: #afdddc;
+}
+
+
+/* =========================================================
+   FINE PRINT
+========================================================= */
+
+.ft-home-observatory__fine {
+  margin:
+    1.4vh
+    0
+    0;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 1.4;
+
+  letter-spacing: 0.03em;
+
+  text-align: center;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.32
+    );
+}
+
+.ft-home-observatory__fine a {
+  color: inherit;
+
+  text-decoration: underline;
+
+  text-underline-offset: 0.15em;
+
+  transition: color 0.2s ease;
+}
+
+
+/* =========================================================
+   SCREEN READER ONLY
+========================================================= */
+
+.ft-home-observatory__sr-only {
+  position: absolute;
+
+  width: 0.0625rem;
+  height: 0.0625rem;
+
+  padding: 0;
+  margin: -0.0625rem;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) {
+  .ft-home-observatory__button:hover {
+    opacity: 0.88;
+
+    transform:
+      translateY(-0.15vh);
+  }
+
+  .ft-home-observatory__fine a:hover {
+    color:
+      rgba(
+        255,
+        255,
+        255,
+        0.65
+      );
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 48rem) {
+  .ft-home-observatory__inner {
+    padding:
+      8vh
+      4.17vw;
+
+    gap: 5vw;
+  }
+
+  .ft-home-observatory__eyebrow {
+    gap: 0.7vw;
+  }
+
+  .ft-home-observatory__title {
+    font-size: 2.8rem;
+  }
+
+  .ft-home-observatory__description {
+    font-size: 0.9375rem;
+  }
+
+  .ft-home-observatory__stats {
+    flex-wrap: nowrap;
+  }
+
+  .ft-home-observatory__stat,
+  .ft-home-observatory__stat--primary {
+    flex:
+      0 1
+      auto;
+
+    padding:
+      2vh
+      2vw
+      0
+      0;
+
+    margin-right: 2vw;
+
+    border-right:
+      0.0625rem
+      solid
+      rgba(
+        255,
+        255,
+        255,
+        0.1
+      );
+
+    border-bottom: 0;
+  }
+
+  .ft-home-observatory__stat:nth-child(3) {
+    padding-left: 0;
+
+    margin-right: 0;
+
+    border-right: 0;
+  }
+
+  .ft-home-observatory__stat-value {
+    font-size: 1.25rem;
+  }
+
+  .ft-home-observatory__card {
+    max-width: 30rem;
+
+    padding:
+      4vh
+      3.5vw;
+
+    border-radius: 2vw;
+  }
+
+  .ft-home-observatory__input,
+  .ft-home-observatory__button {
+    padding:
+      1.7vh
+      2vw;
+
+    border-radius: 1vw;
+  }
+
+  .ft-home-observatory__button {
+    gap: 0.7vw;
+  }
+
+  .ft-home-observatory__status {
+    border-radius: 1vw;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+   Reference = content left + fixed-width card right
+========================================================= */
+
+@media (min-width: 56.25rem) {
+  .ft-home-observatory__inner {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 27.5rem);
+
+    padding:
+      9vh
+      4vw;
+
+    gap: 5vw;
+  }
+
+  .ft-home-observatory__card {
+    max-width: none;
+  }
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 64rem) {
+  .ft-home-observatory__inner {
+    padding:
+      10vh
+      3vw;
+  }
+
+  .ft-home-observatory__title {
+    font-size: 3.5rem;
+  }
+
+  .ft-home-observatory__card {
+    padding:
+      4.5vh
+      2.3vw;
+
+    border-radius: 1.25rem;
+  }
+
+  .ft-home-observatory__input,
+  .ft-home-observatory__button {
+    padding:
+      1.7vh
+      1.1vw;
+
+    border-radius: 0.625rem;
+  }
+
+  .ft-home-observatory__status {
+    padding:
+      1.5vh
+      1vw;
+
+    border-radius: 0.625rem;
+  }
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.ft-home-observatory__button:focus-visible,
+.ft-home-observatory__fine a:focus-visible {
+  outline:
+    0.15vw
+    solid
+    #ffffff;
+
+  outline-offset: 0.2vw;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-home-observatory__input,
+  .ft-home-observatory__button,
+  .ft-home-observatory__fine a {
+    transition: none;
+  }
+}
+/* =========================================================
+   DESKTOP REFERENCE TUNING
+========================================================= */
+
+@media (min-width: 64rem) {
+  .ft-home-observatory__inner {
+    padding:
+      5.75vw
+      3.6vw;
+
+    gap: 4.8vw;
+  }
+
+  .ft-home-observatory__eyebrow {
+    margin-bottom: 2.1vh;
+  }
+
+  .ft-home-observatory__title {
+    margin-bottom: 1.7vh;
+
+    font-size: 3.05rem;
+    line-height: 1;
+
+    white-space: nowrap;
+  }
+
+  .ft-home-observatory__description {
+    max-width: 31vw;
+
+    margin-bottom: 3vh;
+
+    font-size: 0.9375rem;
+    line-height: 1.65;
+  }
+
+  .ft-home-observatory__stat {
+    padding-top: 1.7vh;
+  }
+
+  .ft-home-observatory__card {
+    padding: 2.15vw;
+
+    border-radius: 1.2vw;
+  }
+
+  .ft-home-observatory__card-label {
+    margin-bottom: 1.3vh;
+  }
+
+  .ft-home-observatory__form {
+    gap: 1.1vh;
+  }
+
+  .ft-home-observatory__input,
+  .ft-home-observatory__button {
+    padding:
+      1.45vh
+      1.1vw;
+
+    border-radius: 0.6vw;
+  }
+
+  .ft-home-observatory__fine {
+    margin-top: 1vh;
+  }
+}
