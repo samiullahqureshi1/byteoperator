@@ -1,0 +1,1159 @@
+/* =========================================================
+   FOLDTECH — GLOBAL FOOTER
+========================================================= */
+
+.ft-footer {
+  position: relative;
+
+  width: 100%;
+
+  padding-top: 12vh;
+
+  overflow: hidden;
+
+  background: #01151b;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   LOCAL BOX SIZING
+========================================================= */
+
+.ft-footer,
+.ft-footer *,
+.ft-footer *::before,
+.ft-footer *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.ft-footer__background {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse 60% 48% at 14% 18%,
+      rgba(64, 173, 170, 0.16) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 52% 48% at 55% 72%,
+      rgba(64, 173, 170, 0.12) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 42% 40% at 83% 28%,
+      rgba(4, 67, 78, 0.24) 0%,
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.ft-footer__container {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+
+  padding-left: 3.2vw;
+  padding-right: 3.2vw;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ft-footer__hero {
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+
+  gap: 7vh;
+
+  padding-bottom: 8vh;
+
+  border-bottom:
+    0.065rem
+    solid
+    rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   HERO LEFT
+========================================================= */
+
+.ft-footer__hero-left {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 6vh;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.ft-footer__heading {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  width: 100%;
+
+  margin: 0;
+
+  font-family:
+    "Season Serif",
+    serif;
+
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.03;
+
+  letter-spacing: -0.045em;
+
+  color: #ffffff;
+}
+
+.ft-footer__heading span,
+.ft-footer__heading em {
+  display: block;
+}
+
+.ft-footer__heading em {
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-style: normal;
+  font-weight: 300;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================================
+   PRIMARY CTA
+========================================================= */
+
+.ft-footer__primary-cta {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 2.5vw;
+
+  min-height: 5.4vh;
+
+  padding:
+    1.25vh
+    7vw;
+
+  border-radius: 999vw;
+
+  background: #ffffff;
+  color: #01151b;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    opacity 0.3s ease;
+}
+
+.ft-footer__cta-arrow {
+  display: block;
+
+  width: 0.625rem;
+  height: 0.625rem;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* =========================================================
+   HERO RIGHT / NEWSLETTER
+========================================================= */
+
+.ft-footer__hero-right {
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+
+  gap: 3vh;
+}
+
+
+/* =========================================================
+   NEWSLETTER LABEL
+========================================================= */
+
+.ft-footer__newsletter-label {
+  width: 100%;
+
+  max-width: 33ch;
+
+  margin: 0;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.5;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   NEWSLETTER FORM
+========================================================= */
+
+.ft-footer__newsletter {
+  display: flex;
+
+  align-items: stretch;
+
+  width: 100%;
+
+  min-height: 5.8vh;
+}
+
+
+/* =========================================================
+   NEWSLETTER INPUT
+========================================================= */
+
+.ft-footer__newsletter-input {
+  flex: 1;
+
+  width: 100%;
+  min-width: 0;
+
+  padding:
+    1.35vh
+    5.5vw;
+
+  border:
+    0.065rem
+    solid
+    rgba(255, 255, 255, 0.22);
+
+  border-right: 0;
+
+  border-radius:
+    999vw
+    0
+    0
+    999vw;
+
+  outline: none;
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.875rem;
+  font-weight: 300;
+
+  color: #ffffff;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.ft-footer__newsletter-input::placeholder {
+  color:
+    rgba(255, 255, 255, 0.35);
+}
+
+.ft-footer__newsletter-input:focus {
+  border-color:
+    rgba(64, 173, 170, 0.75);
+
+  background:
+    rgba(255, 255, 255, 0.045);
+}
+
+
+/* =========================================================
+   NEWSLETTER BUTTON
+========================================================= */
+
+.ft-footer__newsletter-button {
+  flex-shrink: 0;
+
+  min-width: 31vw;
+
+  padding:
+    1.35vh
+    4vw;
+
+  border: 0;
+
+  border-radius:
+    0
+    999vw
+    999vw
+    0;
+
+  background: #ffffff;
+  color: #01151b;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.25s ease;
+}
+
+
+/* =========================================================
+   TEMP NEWSLETTER MESSAGE
+========================================================= */
+
+.ft-footer__newsletter-message {
+  margin: 0;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.75rem;
+  line-height: 1.4;
+
+  color: #afdddc;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.ft-footer__nav {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr);
+
+  width: 100%;
+
+  padding:
+    6vh
+    0;
+
+  border-bottom:
+    0.065rem
+    solid
+    rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   NAV GROUP
+========================================================= */
+
+.ft-footer__nav-group {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    2.6vh
+    0;
+
+  border-bottom:
+    0.065rem
+    solid
+    rgba(255, 255, 255, 0.08);
+}
+
+.ft-footer__nav-group:first-child {
+  padding-top: 0;
+}
+
+
+/* =========================================================
+   NAV TITLE
+========================================================= */
+
+.ft-footer__nav-title {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  border: 0;
+
+  appearance: none;
+
+  background: transparent;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1;
+
+  letter-spacing: 0.15em;
+
+  text-align: left;
+  text-transform: uppercase;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   PLUS ICON
+========================================================= */
+
+.ft-footer__plus {
+  display: block;
+
+  width: 0.75rem;
+  height: 0.75rem;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  transition:
+    transform 0.3s ease;
+}
+
+.ft-footer__nav-group[data-open='true']
+  .ft-footer__plus {
+  transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   ACCORDION BODY
+========================================================= */
+
+.ft-footer__nav-body {
+  display: grid;
+
+  grid-template-rows: 0fr;
+
+  transition:
+    grid-template-rows 0.35s
+      cubic-bezier(
+        0.4,
+        0,
+        0.2,
+        1
+      );
+}
+
+.ft-footer__nav-body-inner {
+  overflow: hidden;
+}
+
+.ft-footer__nav-group[data-open='true']
+  .ft-footer__nav-body {
+  grid-template-rows: 1fr;
+}
+
+.ft-footer__nav-group[data-open='true']
+  .ft-footer__nav-body-inner {
+  padding-top: 3vh;
+}
+
+
+/* =========================================================
+   NAV LIST
+========================================================= */
+
+.ft-footer__nav-list {
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  gap: 1.4vh;
+
+  list-style: none;
+}
+
+.ft-footer__nav-list li {
+  margin: 0;
+
+  padding: 0;
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.ft-footer__nav-link {
+  display: inline-flex;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.4;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.ft-footer__bottom {
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+
+  gap: 3vh;
+
+  padding:
+    4vh
+    0
+    5vh;
+}
+
+
+/* =========================================================
+   BOTTOM LEFT
+========================================================= */
+
+.ft-footer__bottom-left {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  gap:
+    2vh
+    5vw;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.ft-footer__logo {
+  display: inline-flex;
+
+  align-items: center;
+
+  flex-shrink: 0;
+
+  text-decoration: none;
+
+  transition:
+    opacity 0.3s ease;
+}
+
+.ft-footer__logo img {
+  display: block;
+
+  width: auto;
+  height: 1.65rem;
+
+  max-width: 32vw;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.ft-footer__copyright {
+  margin: 0;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.8125rem;
+  font-weight: 300;
+  line-height: 1.4;
+
+  color:
+    rgba(255, 255, 255, 0.38);
+}
+
+
+/* =========================================================
+   BOTTOM RIGHT
+========================================================= */
+
+.ft-footer__bottom-right {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  gap:
+    2vh
+    5vw;
+}
+
+
+/* =========================================================
+   POLICY LINKS
+========================================================= */
+
+.ft-footer__bottom-link {
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.8125rem;
+  font-weight: 300;
+
+  color:
+    rgba(255, 255, 255, 0.4);
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+/* =========================================================
+   SCREEN READER ONLY
+========================================================= */
+
+.ft-footer__sr-only {
+  position: absolute;
+
+  width: 0.0625rem;
+  height: 0.0625rem;
+
+  padding: 0;
+  margin: -0.0625rem;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) {
+  .ft-footer__primary-cta:hover,
+  .ft-footer__newsletter-button:hover {
+    opacity: 0.84;
+  }
+
+  .ft-footer__primary-cta:hover
+    .ft-footer__cta-arrow {
+    transform:
+      translate(
+        0.45vw,
+        -0.45vw
+      );
+
+    opacity: 0;
+  }
+
+  .ft-footer__nav-link:hover {
+    color: #ffffff;
+  }
+
+  .ft-footer__bottom-link:hover {
+    color:
+      rgba(255, 255, 255, 0.75);
+  }
+
+  .ft-footer__logo:hover {
+    opacity: 0.72;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 48rem) {
+  .ft-footer {
+    padding-top: 8vw;
+  }
+
+  .ft-footer__container {
+    padding-left: 4.17vw;
+    padding-right: 4.17vw;
+  }
+
+  .ft-footer__hero {
+    flex-direction: row;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 8vw;
+
+    padding-bottom: 5vw;
+  }
+
+  .ft-footer__hero-left {
+    width: 55%;
+
+    gap: 3.5vw;
+  }
+
+  .ft-footer__heading {
+    font-size: 5rem;
+  }
+
+  .ft-footer__hero-right {
+    flex-shrink: 0;
+
+    width: 34vw;
+
+    gap: 1.5vw;
+
+    padding-bottom: 0.7vw;
+  }
+
+  .ft-footer__newsletter-label {
+    font-size: 0.9375rem;
+  }
+
+  .ft-footer__newsletter {
+    min-height: 4.7vw;
+  }
+
+  .ft-footer__newsletter-input {
+    padding:
+      1.2vw
+      1.8vw;
+  }
+
+  .ft-footer__newsletter-button {
+    min-width: 11vw;
+
+    padding:
+      1.2vw
+      1.7vw;
+  }
+
+
+  /* =======================================================
+     DESKTOP NAV = ALL GROUPS OPEN
+  ======================================================= */
+
+  .ft-footer__nav {
+    grid-template-columns:
+      repeat(
+        4,
+        minmax(0, 1fr)
+      );
+
+    gap: 4vw;
+
+    padding:
+      4vw
+      0;
+  }
+
+  .ft-footer__nav-group {
+    padding: 0;
+
+    border-bottom: 0;
+  }
+
+  .ft-footer__nav-title {
+    margin-bottom: 3vw;
+
+    cursor: default;
+
+    pointer-events: none;
+  }
+
+  .ft-footer__plus {
+    display: none;
+  }
+
+  .ft-footer__nav-body {
+    display: block;
+  }
+
+  .ft-footer__nav-body-inner,
+  .ft-footer__nav-group[data-open='true']
+    .ft-footer__nav-body-inner {
+    padding-top: 0;
+    overflow: visible;
+  }
+
+  .ft-footer__nav-list {
+    gap: 0.8vw;
+  }
+
+
+  /* =======================================================
+     BOTTOM
+  ======================================================= */
+
+  .ft-footer__bottom {
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 4vw;
+
+    padding:
+      2.8vw
+      0
+      3.2vw;
+  }
+
+  .ft-footer__bottom-left,
+  .ft-footer__bottom-right {
+    width: auto;
+  }
+
+  .ft-footer__bottom-left {
+    flex-wrap: nowrap;
+
+    gap: 2vw;
+  }
+
+  .ft-footer__bottom-right {
+    flex-wrap: nowrap;
+
+    gap: 1.7vw;
+  }
+
+  .ft-footer__logo img {
+    height: 1.45rem;
+
+    max-width: 9vw;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 64rem) {
+  .ft-footer {
+    padding-top: 5.7vw;
+  }
+
+  .ft-footer__container {
+    padding-left: 7.1vw;
+    padding-right: 7.1vw;
+  }
+
+  .ft-footer__hero {
+    gap: 10vw;
+
+    padding-bottom: 3.8vw;
+  }
+
+  .ft-footer__hero-left {
+    width: 58%;
+
+    gap: 2.6vw;
+  }
+
+  .ft-footer__heading {
+    font-size: 7rem;
+  }
+
+  .ft-footer__hero-right {
+    width: 23vw;
+
+    gap: 1.2vw;
+
+    padding-bottom: 0.7vw;
+  }
+
+  .ft-footer__newsletter {
+    min-height: 2.9vw;
+  }
+
+  .ft-footer__newsletter-input {
+    padding:
+      0.75vw
+      1.25vw;
+  }
+
+  .ft-footer__newsletter-button {
+    min-width: 7vw;
+
+    padding:
+      0.75vw
+      1.4vw;
+  }
+
+  .ft-footer__primary-cta {
+    min-height: 2.8vw;
+
+    padding:
+      0.75vw
+      1.7vw;
+
+    gap: 0.7vw;
+  }
+
+
+  /* =======================================================
+     NAV
+  ======================================================= */
+
+  .ft-footer__nav {
+    grid-template-columns:
+      1fr
+      1fr
+      1fr
+      1.1fr;
+
+    gap: 6vw;
+
+    padding:
+      3vw
+      0;
+  }
+
+  .ft-footer__nav-title {
+    margin-bottom: 2.4vw;
+  }
+
+  .ft-footer__nav-list {
+    gap: 0.65vw;
+  }
+
+
+  /* =======================================================
+     BOTTOM
+  ======================================================= */
+
+  .ft-footer__bottom {
+    padding:
+      2vw
+      0
+      2.5vw;
+  }
+}
+
+
+/* =========================================================
+   WIDE DESKTOP
+========================================================= */
+
+@media (min-width: 80rem) {
+  .ft-footer__heading {
+    font-size: 7rem;
+  }
+
+  .ft-footer__hero-right {
+    width: 23vw;
+  }
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.ft-footer__primary-cta:focus-visible,
+.ft-footer__newsletter-input:focus-visible,
+.ft-footer__newsletter-button:focus-visible,
+.ft-footer__nav-title:focus-visible,
+.ft-footer__nav-link:focus-visible,
+.ft-footer__bottom-link:focus-visible,
+.ft-footer__logo:focus-visible {
+  outline:
+    0.15vw
+    solid
+    #ffffff;
+
+  outline-offset: 0.2vw;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-footer__primary-cta,
+  .ft-footer__cta-arrow,
+  .ft-footer__newsletter-input,
+  .ft-footer__newsletter-button,
+  .ft-footer__plus,
+  .ft-footer__nav-body,
+  .ft-footer__nav-link,
+  .ft-footer__bottom-link,
+  .ft-footer__logo {
+    transition: none;
+  }
+}
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
+
+.ft-footer__socials {
+  align-items: center;
+}
+
+.ft-footer__socials--nav {
+  display: none;
+}
+
+.ft-footer__socials--bottom {
+  display: flex;
+
+  width: 100%;
+
+  gap: 5vw;
+
+  margin-top: 1vh;
+}
+
+.ft-footer__social {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ft-footer__social svg {
+  display: block;
+
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+
+/* =========================================================
+   DESKTOP SOCIAL POSITION
+========================================================= */
+
+@media (min-width: 48rem) {
+  .ft-footer__socials--nav {
+    display: flex;
+
+    gap: 1.2vw;
+
+    margin-top: 2vw;
+  }
+
+  .ft-footer__socials--bottom {
+    display: none;
+  }
+
+  .ft-footer__social svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+}

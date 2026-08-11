@@ -146,8 +146,8 @@ export default function Homepage() {
 <HomePartners />
 <HomeExperts />
 <HomeObservatory />
-      <FeaturedCollection collection={data.featuredCollection} />
-      <RecommendedProducts products={data.recommendedProducts} />
+      {/* <FeaturedCollection collection={data.featuredCollection} />
+      <RecommendedProducts products={data.recommendedProducts} /> */}
     </div>
   );
 }

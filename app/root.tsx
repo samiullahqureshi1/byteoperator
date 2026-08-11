@@ -17,7 +17,7 @@ import resetStyles from '~/styles/reset.css?url';
 import appStyles from '~/styles/app.css?url';
 import headerStyles from '~/styles/header.css?url';
 import {PageLayout} from './components/PageLayout';
-
+import footerStyles from '~/styles/footer.css?url';
 export type RootLoader = typeof loader;
 
 /**
@@ -153,6 +153,7 @@ export function Layout({children}: {children?: React.ReactNode}) {
         <link rel="stylesheet" href={resetStyles}></link>
         <link rel="stylesheet" href={appStyles}></link>
         <link rel="stylesheet" href={headerStyles}></link>
+        <link rel="stylesheet" href={footerStyles}></link>
         <Meta />
         <Links />
       </head>
