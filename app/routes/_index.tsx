@@ -9,6 +9,7 @@ import {HomeFeature} from '~/components/HomeFeature';
 import {HOME_FEATURES} from '~/data/homeFeatures';
 import {HomePeople} from '~/components/HomePeople';
 import {HomePartners} from '~/components/HomePartners';
+import {HomeExperts} from '~/components/HomeExperts';
 import '~/styles/home-hero.css';
 import homeHeroGalleryStyles from '~/styles/home-hero-gallery.css?url';
 import homeAboutStyles from '~/styles/home-about.css?url';
@@ -17,6 +18,7 @@ import homeProjectsStyles from '~/styles/home-projects.css?url';
 import homeFeatureStyles from '~/styles/home-feature.css?url';
 import homePeopleStyles from '~/styles/home-people.css?url';
 import homePartnersStyles from '~/styles/home-partners.css?url';
+import homeExpertsStyles from '~/styles/home-experts.css?url';
 export const links = () => [
   {
     rel: 'stylesheet',
@@ -49,6 +51,10 @@ export const links = () => [
 {
   rel: 'stylesheet',
   href: homePartnersStyles,
+},
+{
+  rel: 'stylesheet',
+  href: homeExpertsStyles,
 },
 ];
 import {
@@ -132,6 +138,7 @@ export default function Homepage() {
 ))}
 <HomePeople />
 <HomePartners />
+<HomeExperts />
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
