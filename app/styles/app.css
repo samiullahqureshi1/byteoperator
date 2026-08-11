@@ -61,13 +61,16 @@ body {
   padding: 0;
   overflow-x: clip;
 }
+a:hover{
+  text-decoration: none;
+}
 /*
 * --------------------------------------------------
 * Non anchor links
 * --------------------------------------------------
 */
 .link:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   cursor: pointer;
 }
 

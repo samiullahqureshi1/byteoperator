@@ -4,10 +4,12 @@ import {HomeHeroGallery} from '~/components/HomeHeroGallery';
 import {HomeAbout} from '~/components/HomeAbout';
 import {HomeServices} from '~/components/HomeServices';
 import homeSideRailStyles from '~/styles/home-side-rail.css?url';
+import {HomeProjects} from '~/components/HomeProjects';
 import '~/styles/home-hero.css';
 import homeHeroGalleryStyles from '~/styles/home-hero-gallery.css?url';
 import homeAboutStyles from '~/styles/home-about.css?url';
 import homeServicesStyles from '~/styles/home-services.css?url';
+import homeProjectsStyles from '~/styles/home-projects.css?url';
 export const links = () => [
   {
     rel: 'stylesheet',
@@ -24,6 +26,10 @@ export const links = () => [
   {
   rel: 'stylesheet',
   href: homeServicesStyles,
+},
+{
+  rel: 'stylesheet',
+  href: homeProjectsStyles,
 },
 ];
 import {
@@ -98,6 +104,7 @@ export default function Homepage() {
       <HomeHeroGallery />
       <HomeAbout />
       <HomeServices />
+      <HomeProjects />
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>

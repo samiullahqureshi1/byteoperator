@@ -1,0 +1,965 @@
+/* =========================================================
+   FOLDTECH — HOME PROJECTS / CASE STUDIES
+========================================================= */
+
+.ft-home-projects {
+  --ft-projects-gutter: 5.33vw;
+  --ft-projects-gap: 3.2vw;
+  --ft-projects-slide-width: 72vw;
+  --ft-projects-radius: 6.5vw;
+
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
+  margin-top:
+    calc(
+      -1 * var(--ft-projects-radius)
+    );
+
+  padding:
+    10vh
+    0
+    9vh;
+
+  overflow: hidden;
+
+  border-radius:
+    var(--ft-projects-radius)
+    var(--ft-projects-radius)
+    0
+    0;
+
+  background: #ffffff;
+  color: #000000;
+}
+
+
+/* =========================================================
+   LOCAL BOX SIZING
+========================================================= */
+
+.ft-home-projects,
+.ft-home-projects *,
+.ft-home-projects *::before,
+.ft-home-projects *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   INNER CONTAINER
+========================================================= */
+
+.ft-home-projects__inner {
+  position: relative;
+
+  width: 100%;
+
+  margin:
+    0
+    auto;
+
+  padding:
+    0
+    var(--ft-projects-gutter);
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.ft-home-projects__heading {
+  width: 100%;
+
+  margin:
+    0
+    auto
+    6vh;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: clamp(
+    2.125rem,
+    5vw,
+    3.75rem
+  );
+
+  font-weight: 400;
+  line-height: 1.2;
+
+  letter-spacing: -0.04em;
+
+  text-align: center;
+
+  color: #000000;
+}
+
+
+/* =========================================================
+   CAROUSEL
+========================================================= */
+
+.ft-home-projects__carousel {
+  position: relative;
+
+  /*
+   * Extend into the right gutter.
+   * This allows the next project to remain partially visible
+   * like the reference Swiper implementation.
+   */
+  width:
+    calc(
+      100% +
+      var(--ft-projects-gutter)
+    );
+
+  margin-bottom: 6vh;
+}
+
+
+/* =========================================================
+   NATIVE SCROLL TRACK
+========================================================= */
+
+.ft-home-projects__track {
+  display: flex;
+
+  align-items: flex-start;
+
+  width: 100%;
+
+  gap:
+    var(--ft-projects-gap);
+
+  margin: 0;
+  padding: 0;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type:
+    x mandatory;
+
+  scroll-behavior:
+    smooth;
+
+  overscroll-behavior-x:
+    contain;
+
+  scrollbar-width:
+    none;
+
+  -webkit-overflow-scrolling:
+    touch;
+
+  cursor: grab;
+
+  user-select: none;
+
+  touch-action: pan-y;
+}
+
+.ft-home-projects__track::-webkit-scrollbar {
+  display: none;
+}
+
+.ft-home-projects__track--dragging {
+  cursor: grabbing;
+
+  scroll-snap-type:
+    none;
+
+  scroll-behavior:
+    auto;
+}
+
+
+/* =========================================================
+   SLIDE
+========================================================= */
+
+.ft-home-projects__slide {
+  flex:
+    0
+    0
+    var(--ft-projects-slide-width);
+
+  width:
+    var(--ft-projects-slide-width);
+
+  min-width: 0;
+
+  scroll-snap-align:
+    start;
+
+  scroll-snap-stop:
+    always;
+}
+
+
+/* =========================================================
+   PROJECT
+========================================================= */
+
+.ft-home-projects__project {
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+
+  gap: 2vh;
+}
+
+
+/* =========================================================
+   MAIN PROJECT IMAGE
+========================================================= */
+
+.ft-home-projects__media {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio:
+    53 / 70;
+
+  overflow: hidden;
+
+  border-radius: 4vw;
+
+  background:
+    #f3f3f3;
+
+  text-decoration: none;
+}
+
+.ft-home-projects__media-image {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  pointer-events: none;
+
+  transition:
+    transform
+    0.6s
+    cubic-bezier(
+      0.4,
+      0,
+      0.2,
+      1
+    );
+}
+
+
+/* =========================================================
+   BRAND LOGO OVER IMAGE
+========================================================= */
+
+.ft-home-projects__project-logo {
+  position: absolute;
+
+  top: 7.5vw;
+  left: 7.5vw;
+
+  z-index: 2;
+
+  display: block;
+
+  width:
+    var(
+      --project-logo-width,
+      25%
+    );
+
+  height: auto;
+
+  max-width: 50%;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+========================================================= */
+
+@media (hover: hover) {
+  .ft-home-projects__media:hover
+    .ft-home-projects__media-image {
+    transform:
+      scale(1.025);
+  }
+}
+
+
+/* =========================================================
+   PROJECT INFO
+========================================================= */
+
+.ft-home-projects__content {
+  display: grid;
+
+  grid-template-columns:
+    16vw
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  width: 100%;
+
+  gap: 4vw;
+}
+
+
+/* =========================================================
+   THUMBNAIL
+========================================================= */
+
+.ft-home-projects__thumbnail {
+  position: relative;
+
+  display: block;
+
+  width: 16vw;
+
+  aspect-ratio: 1;
+
+  overflow: hidden;
+
+  border-radius: 1.6vw;
+
+  background: #f3f3f3;
+}
+
+.ft-home-projects__thumbnail img {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.ft-home-projects__text {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+  gap: 0.8vh;
+}
+
+.ft-home-projects__title {
+  margin: 0;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.05;
+
+  letter-spacing: -0.025em;
+
+  color: #000000;
+}
+
+.ft-home-projects__title a {
+  color: inherit;
+
+  text-decoration: none;
+
+  transition:
+    opacity 0.3s ease;
+}
+
+.ft-home-projects__type {
+  margin: 0;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.08;
+
+  letter-spacing: -0.02em;
+
+  color: #000000;
+}
+
+@media (hover: hover) {
+  .ft-home-projects__title a:hover {
+    opacity: 0.6;
+  }
+}
+
+
+/* =========================================================
+   CAROUSEL ARROWS LAYER
+========================================================= */
+
+.ft-home-projects__arrows {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  z-index: 10;
+
+  width: 100%;
+
+  height:
+    calc(
+      var(--ft-projects-slide-width) *
+      70 /
+      53
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CAROUSEL ARROW
+========================================================= */
+
+.ft-home-projects__arrow {
+  position: absolute;
+
+  top: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 13.3vw;
+
+  aspect-ratio: 1;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: #000000;
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  transform:
+    translateY(-50%);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.ft-home-projects__arrow svg {
+  display: block;
+
+  width: 3vw;
+  height: auto;
+}
+
+.ft-home-projects__arrow--previous {
+  left: 2.7vw;
+}
+
+.ft-home-projects__arrow--next {
+  right: 2.7vw;
+}
+
+@media (hover: hover) {
+  .ft-home-projects__arrow:hover {
+    opacity: 0.8;
+  }
+
+  .ft-home-projects__arrow:active {
+    transform:
+      translateY(-50%)
+      scale(0.96);
+  }
+}
+
+
+/* =========================================================
+   CTA WRAPPER
+========================================================= */
+
+.ft-home-projects__cta-wrap {
+  display: flex;
+
+  justify-content: center;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.ft-home-projects__cta {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 5vh;
+
+  padding:
+    1.2vh
+    12vw
+    1.2vh
+    6vw;
+
+  border-radius: 999vw;
+
+  background: #000000;
+  color: #ffffff;
+
+  font-family:
+    "Season Serif",
+    serif;
+
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  text-decoration: none;
+
+  transition:
+    opacity 0.4s ease;
+}
+
+.ft-home-projects__cta-arrow {
+  position: absolute;
+
+  top: 50%;
+  right: 5vw;
+
+  display: block;
+
+  width: 3.2vw;
+  height: auto;
+
+  transform:
+    translateY(-50%);
+
+  transition:
+    right
+    0.4s
+    cubic-bezier(
+      0.4,
+      0,
+      0.2,
+      1
+    );
+}
+
+@media (hover: hover) {
+  .ft-home-projects__cta:hover {
+    opacity: 0.8;
+  }
+
+  .ft-home-projects__cta:hover
+    .ft-home-projects__cta-arrow {
+    right: 4.3vw;
+  }
+}
+
+
+/* =========================================================
+   TABLET — 2 SLIDES
+========================================================= */
+
+@media (min-width: 48rem) {
+  .ft-home-projects {
+    --ft-projects-gutter: 4.17vw;
+    --ft-projects-gap: 1.56vw;
+    --ft-projects-slide-width: 45vw;
+    --ft-projects-radius: 3.25vw;
+
+    padding:
+      9vh
+      0
+      9vh;
+  }
+
+  .ft-home-projects__heading {
+    margin-bottom: 6.5vh;
+  }
+
+  .ft-home-projects__carousel {
+    margin-bottom: 7vh;
+  }
+
+  .ft-home-projects__media {
+    border-radius: 2vw;
+  }
+
+  .ft-home-projects__project-logo {
+    top: 3.9vw;
+    left: 3.9vw;
+  }
+
+  .ft-home-projects__project {
+    gap: 1.8vh;
+  }
+
+  .ft-home-projects__content {
+    grid-template-columns:
+      7.8vw
+      minmax(0, 1fr);
+
+    gap: 2vw;
+  }
+
+  .ft-home-projects__thumbnail {
+    width: 7.8vw;
+
+    border-radius: 0.8vw;
+  }
+
+  .ft-home-projects__arrow {
+    width: 6.5vw;
+  }
+
+  .ft-home-projects__arrow svg {
+    width: 1.45vw;
+  }
+
+  .ft-home-projects__arrow--previous {
+    left: 1.3vw;
+  }
+
+  .ft-home-projects__arrow--next {
+    right: 1.3vw;
+  }
+
+  .ft-home-projects__cta {
+    min-height: 4.8vh;
+
+    padding:
+      1.2vh
+      6vw
+      1.2vh
+      3vw;
+  }
+
+  .ft-home-projects__cta-arrow {
+    right: 2.5vw;
+
+    width: 1.5vw;
+  }
+
+  .ft-home-projects__cta:hover
+    .ft-home-projects__cta-arrow {
+    right: 2.1vw;
+  }
+}
+
+
+/* =========================================================
+   SMALL DESKTOP — 2.25 SLIDES
+========================================================= */
+
+@media (min-width: 64rem) {
+  .ft-home-projects {
+    --ft-projects-gutter: 4.69vw;
+    --ft-projects-gap: 1.17vw;
+    --ft-projects-slide-width: 39.6vw;
+    --ft-projects-radius: 3.4vw;
+
+    padding:
+      13vh
+      0
+      12vh;
+  }
+
+  .ft-home-projects__heading {
+    margin-bottom: 8vh;
+  }
+
+  .ft-home-projects__carousel {
+    margin-bottom: 9vh;
+  }
+
+  .ft-home-projects__media {
+    border-radius: 1.5vw;
+  }
+
+  .ft-home-projects__project-logo {
+    top: 2.9vw;
+    left: 2.9vw;
+  }
+
+  .ft-home-projects__content {
+    grid-template-columns:
+      5.86vw
+      minmax(0, 1fr);
+
+    gap: 1.56vw;
+  }
+
+  .ft-home-projects__thumbnail {
+    width: 5.86vw;
+
+    border-radius: 0.6vw;
+  }
+
+  .ft-home-projects__arrow {
+    width: 5.86vw;
+  }
+
+  .ft-home-projects__arrow svg {
+    width: 1.05vw;
+  }
+
+  .ft-home-projects__arrow--previous {
+    left: 1vw;
+  }
+
+  .ft-home-projects__arrow--next {
+    right: 1vw;
+  }
+
+  .ft-home-projects__cta {
+    min-height: 4.8vh;
+
+    padding:
+      1.2vh
+      4.5vw
+      1.2vh
+      2vw;
+  }
+
+  .ft-home-projects__cta-arrow {
+    right: 1.8vw;
+
+    width: 0.9vw;
+  }
+
+  .ft-home-projects__cta:hover
+    .ft-home-projects__cta-arrow {
+    right: 1.5vw;
+  }
+}
+
+
+/* =========================================================
+   LARGE DESKTOP — 3 SLIDES
+========================================================= */
+
+@media (min-width: 80rem) {
+  .ft-home-projects {
+    --ft-projects-gutter: 3.75vw;
+    --ft-projects-gap: 1.875vw;
+    --ft-projects-slide-width: 29.6vw;
+    --ft-projects-radius: 2.7vw;
+
+    padding:
+      13.5vh
+      0
+      13vh;
+  }
+
+  .ft-home-projects__heading {
+    margin-bottom: 8.5vh;
+  }
+
+  .ft-home-projects__carousel {
+    margin-bottom: 10vh;
+  }
+
+  .ft-home-projects__media {
+    border-radius: 1.15vw;
+  }
+
+  .ft-home-projects__project-logo {
+    top: 2.35vw;
+    left: 2.35vw;
+  }
+
+  .ft-home-projects__content {
+    grid-template-columns:
+      4.7vw
+      minmax(0, 1fr);
+
+    gap: 1.25vw;
+  }
+
+  .ft-home-projects__thumbnail {
+    width: 4.7vw;
+
+    border-radius: 0.5vw;
+  }
+
+  .ft-home-projects__arrow {
+    width: 4.7vw;
+  }
+
+  .ft-home-projects__arrow svg {
+    width: 0.85vw;
+  }
+
+  .ft-home-projects__arrow--previous {
+    left: 0.8vw;
+  }
+
+  .ft-home-projects__arrow--next {
+    right: 0.8vw;
+  }
+
+  .ft-home-projects__cta {
+    padding:
+      1.2vh
+      3.3vw
+      1.2vh
+      1.6vw;
+  }
+
+  .ft-home-projects__cta-arrow {
+    right: 1.4vw;
+
+    width: 0.75vw;
+  }
+
+  .ft-home-projects__cta:hover
+    .ft-home-projects__cta-arrow {
+    right: 1.15vw;
+  }
+}
+
+
+/* =========================================================
+   WIDE DESKTOP
+   Matches reference max-container proportions
+========================================================= */
+
+@media (min-width: 96rem) {
+  .ft-home-projects {
+    --ft-projects-gutter: 2.9vw;
+    --ft-projects-gap: 1.45vw;
+    --ft-projects-slide-width: 27.85vw;
+    --ft-projects-radius: 2.1vw;
+  }
+
+  .ft-home-projects__inner {
+    width: 92.25vw;
+  }
+
+  .ft-home-projects__media {
+    border-radius: 0.9vw;
+  }
+
+  .ft-home-projects__project-logo {
+    top: 1.8vw;
+    left: 1.8vw;
+  }
+
+  .ft-home-projects__content {
+    grid-template-columns:
+      3.6vw
+      minmax(0, 1fr);
+
+    gap: 1vw;
+  }
+
+  .ft-home-projects__thumbnail {
+    width: 3.6vw;
+
+    border-radius: 0.36vw;
+  }
+
+  .ft-home-projects__arrow {
+    width: 3.6vw;
+  }
+
+  .ft-home-projects__arrow svg {
+    width: 0.66vw;
+  }
+
+  .ft-home-projects__arrow--previous {
+    left: 0.6vw;
+  }
+
+  .ft-home-projects__arrow--next {
+    right: 0.6vw;
+  }
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.ft-home-projects__arrow:focus-visible,
+.ft-home-projects__cta:focus-visible,
+.ft-home-projects__title a:focus-visible,
+.ft-home-projects__media:focus-visible {
+  outline:
+    0.15vw
+    solid
+    currentColor;
+
+  outline-offset: 0.2vw;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-home-projects__track {
+    scroll-behavior: auto;
+  }
+
+  .ft-home-projects__media-image,
+  .ft-home-projects__arrow,
+  .ft-home-projects__cta,
+  .ft-home-projects__cta-arrow,
+  .ft-home-projects__title a {
+    transition: none;
+  }
+}
