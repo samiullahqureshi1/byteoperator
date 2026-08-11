@@ -221,38 +221,22 @@
 
 .ft-footer__hero-right {
   display: flex;
-
   flex-direction: column;
 
   width: 100%;
 
-  gap: 3vh;
+  gap: 1.25rem;
 }
 
-
-/* =========================================================
-   NEWSLETTER LABEL
-========================================================= */
-
 .ft-footer__newsletter-label {
-  width: 100%;
-
-  max-width: 33ch;
-
   margin: 0;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
-
+  font-family: "Season Sans", sans-serif;
   font-size: 0.9375rem;
   font-weight: 300;
   line-height: 1.5;
 
-  color:
-    rgba(255, 255, 255, 0.65);
-
-  -webkit-font-smoothing: antialiased;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 
@@ -267,13 +251,18 @@
 
   width: 100%;
 
-  min-height: 5.8vh;
+  gap: 0;
+
+  min-height: 0;
+
+  overflow: visible;
+
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
 }
 
-
-/* =========================================================
-   NEWSLETTER INPUT
-========================================================= */
 
 .ft-footer__newsletter-input {
   flex: 1;
@@ -281,54 +270,60 @@
   width: 100%;
   min-width: 0;
 
+  height: auto;
+  min-height: 0;
+
+  margin: 0;
+
   padding:
-    1.35vh
-    5.5vw;
+    0.8rem
+    1.25rem;
 
   border:
-    0.065rem
+    0.0625rem
     solid
-    rgba(255, 255, 255, 0.22);
+    rgba(255, 255, 255, 0.2);
 
   border-right: 0;
 
   border-radius:
-    999vw
+    3.125rem
     0
     0
-    999vw;
+    3.125rem;
 
-  outline: none;
+  outline: 0;
 
   background:
-    rgba(255, 255, 255, 0.025);
-
-  font-family:
-    "Season Sans",
-    sans-serif;
-
-  font-size: 0.875rem;
-  font-weight: 300;
+    rgba(255, 255, 255, 0.05);
 
   color: #ffffff;
 
-  transition:
-    border-color 0.25s ease,
-    background 0.25s ease;
+  font-family: "Season Sans", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 300;
+
+  line-height: normal;
+
+  appearance: none;
+
+  box-shadow: none;
 }
 
 .ft-footer__newsletter-input::placeholder {
   color:
-    rgba(255, 255, 255, 0.35);
+    rgba(255, 255, 255, 0.3);
 }
+
 
 .ft-footer__newsletter-input:focus {
   border-color:
-    rgba(64, 173, 170, 0.75);
+    rgba(255, 255, 255, 0.4);
 
   background:
-    rgba(255, 255, 255, 0.045);
+    rgba(255, 255, 255, 0.05);
 }
+
 
 
 /* =========================================================
@@ -336,37 +331,53 @@
 ========================================================= */
 
 .ft-footer__newsletter-button {
-  flex-shrink: 0;
+  display: block;
 
-  min-width: 31vw;
+  flex: 0 0 auto;
+
+  width: auto;
+
+  height: auto;
+  min-height: 0;
+  min-width: 0;
+
+  margin: 0;
 
   padding:
-    1.35vh
-    4vw;
+    0.8rem
+    1.5rem;
 
-  border: 0;
+  border:
+    0.0625rem
+    solid
+    rgba(255, 255, 255, 0.2);
+
+  border-left: 0;
 
   border-radius:
     0
-    999vw
-    999vw
+    3.125rem
+    3.125rem
     0;
 
   background: #ffffff;
-  color: #01151b;
+  color: #000000;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
-
+  font-family: "Season Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1;
+
+  line-height: normal;
+
+  letter-spacing: 0.01em;
+
+  white-space: nowrap;
+
+  appearance: none;
+
+  box-shadow: none;
 
   cursor: pointer;
-
-  transition:
-    opacity 0.25s ease;
 }
 
 
@@ -773,7 +784,12 @@
   }
 }
 
-
+@media (hover: hover) {
+  .ft-footer__newsletter-button:hover {
+    background:
+      rgba(255, 255, 255, 0.85);
+  }
+}
 /* =========================================================
    TABLET
 ========================================================= */
@@ -809,14 +825,13 @@
     font-size: 5rem;
   }
 
-  .ft-footer__hero-right {
+    .ft-footer__hero-right {
+    width: 23.75rem;
+    max-width: 23.75rem;
+
     flex-shrink: 0;
 
-    width: 34vw;
-
-    gap: 1.5vw;
-
-    padding-bottom: 0.7vw;
+    padding-bottom: 0.75rem;
   }
 
   .ft-footer__newsletter-label {
@@ -1124,28 +1139,47 @@
   align-items: center;
   justify-content: center;
 
-  color: rgba(255, 255, 255, 0.5);
+  width: 2.5rem;
+  height: 2.5rem;
+
+  flex: 0 0 2.5rem;
+
+  border:
+    0.0625rem
+    solid
+    rgba(255, 255, 255, 0.16);
+
+  border-radius: 50%;
+
+  color:
+    rgba(255, 255, 255, 0.52);
+
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
 }
 
 .ft-footer__social svg {
   display: block;
 
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1rem;
+  height: 1rem;
 }
-
 
 /* =========================================================
    DESKTOP SOCIAL POSITION
 ========================================================= */
 
 @media (min-width: 48rem) {
-  .ft-footer__socials--nav {
+   .ft-footer__socials--nav {
     display: flex;
 
-    gap: 1.2vw;
+    align-items: center;
 
-    margin-top: 2vw;
+    gap: 0.8vw;
+
+    margin-top: 1.8vw;
   }
 
   .ft-footer__socials--bottom {
