@@ -2,10 +2,12 @@ import {HomeSideRail} from '~/components/HomeSideRail';
 import {HomeHero} from '~/components/HomeHero';
 import {HomeHeroGallery} from '~/components/HomeHeroGallery';
 import {HomeAbout} from '~/components/HomeAbout';
+import {HomeServices} from '~/components/HomeServices';
 import homeSideRailStyles from '~/styles/home-side-rail.css?url';
 import '~/styles/home-hero.css';
 import homeHeroGalleryStyles from '~/styles/home-hero-gallery.css?url';
 import homeAboutStyles from '~/styles/home-about.css?url';
+import homeServicesStyles from '~/styles/home-services.css?url';
 export const links = () => [
   {
     rel: 'stylesheet',
@@ -19,6 +21,10 @@ export const links = () => [
     rel: 'stylesheet',
     href: homeAboutStyles,
   },
+  {
+  rel: 'stylesheet',
+  href: homeServicesStyles,
+},
 ];
 import {
   Await,
@@ -91,6 +97,7 @@ export default function Homepage() {
       <HomeHero />
       <HomeHeroGallery />
       <HomeAbout />
+      <HomeServices />
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>

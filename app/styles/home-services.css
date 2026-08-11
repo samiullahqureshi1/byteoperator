@@ -1,0 +1,1815 @@
+/* =========================================================
+   FOLDTECH — HOME SERVICES
+========================================================= */
+
+/* =========================================================
+   LOCAL BOX SIZING
+========================================================= */
+
+.ft-home-services,
+.ft-home-services *,
+.ft-home-services *::before,
+.ft-home-services *::after {
+  box-sizing: border-box;
+}
+.ft-home-services {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+
+  padding:
+    1.8vh
+    0
+    9vh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse 65vw 90vh at 25% 10%,
+      rgba(64, 173, 170, 0.16) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 58vw 82vh at 76% 86%,
+      rgba(175, 221, 220, 0.1) 0%,
+      transparent 70%
+    ),
+    var(--ft-dark-deep, #01151b);
+
+  color: #ffffff;
+}
+
+.ft-home-services__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+  padding:
+    0
+    3vw;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   CLIENT LOGO MARQUEE
+========================================================= */
+
+.ft-home-services__logos {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    3.5vh
+    0
+    7vh;
+}
+
+.ft-home-services__logos-label {
+  display: block;
+
+  margin:
+    0
+    0
+    2.2vh;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.6875rem;
+  font-weight: 400;
+  line-height: 1;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color:
+    rgba(255, 255, 255, 0.3);
+}
+
+.ft-home-services__logos-mask {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  -webkit-mask-image:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      #000000 8%,
+      #000000 92%,
+      transparent 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      #000000 8%,
+      #000000 92%,
+      transparent 100%
+    );
+}
+
+.ft-home-services__logos-track {
+  display: flex;
+  align-items: center;
+
+  width: max-content;
+
+  will-change: transform;
+
+  animation:
+    ft-home-services-marquee
+    60s
+    linear
+    infinite;
+}
+
+.ft-home-services__logos-set {
+  display: flex;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  gap: 2.5vw;
+
+  padding-right: 2.5vw;
+}
+
+.ft-home-services__logo-item {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  height: 1.5rem;
+}
+
+.ft-home-services__logo-item--small {
+  height: 1rem;
+}
+
+.ft-home-services__logo-item--large {
+  height: 2rem;
+}
+
+.ft-home-services__logo-image {
+  display: block;
+
+  width: auto;
+  height: 100%;
+
+  opacity: 0.45;
+
+  filter:
+    brightness(0)
+    invert(1);
+
+  transition:
+    opacity 0.3s ease;
+}
+
+.ft-home-services__logo-image--no-filter {
+  filter: none;
+}
+
+@media (hover: hover) {
+  .ft-home-services__logos-track:hover {
+    animation-play-state: paused;
+  }
+
+  .ft-home-services__logos-track:hover
+    .ft-home-services__logo-image {
+    opacity: 0.65;
+  }
+}
+
+@keyframes ft-home-services-marquee {
+  from {
+    transform:
+      translate3d(
+        0,
+        0,
+        0
+      );
+  }
+
+  to {
+    transform:
+      translate3d(
+        -50%,
+        0,
+        0
+      );
+  }
+}
+
+
+/* =========================================================
+   MOBILE HEADING
+========================================================= */
+
+.ft-home-services__mobile-heading {
+  display: none;
+
+  margin:
+    0
+    0
+    3.5vh;
+
+  text-align: left;
+}
+
+.ft-home-services__mobile-heading-sub {
+  margin:
+    0
+    0
+    0.8vh;
+
+  font-family:
+    "Season Serif",
+    serif;
+
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+
+  color:
+    rgba(255, 255, 255, 0.6);
+}
+
+.ft-home-services__mobile-heading-main {
+  margin: 0;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.15;
+
+  letter-spacing: -0.035em;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   DESKTOP BENTO GRID
+========================================================= */
+
+.ft-home-services__grid {
+    min-width: 0;
+    max-width: 100%;
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      12,
+      minmax(0, 1fr)
+    );
+
+  grid-template-rows:
+    repeat(
+      4,
+      minmax(18vh, auto)
+    );
+
+  gap: 0.85vw;
+
+  width: 100%;
+}
+
+
+/* SEO — large left */
+.ft-home-services__cell--1 {
+  grid-column: 1 / 6;
+  grid-row: 1 / 3;
+}
+
+
+/* New Stores */
+.ft-home-services__cell--2 {
+  grid-column: 6 / 10;
+  grid-row: 1 / 2;
+}
+
+
+/* Shopify Migrations */
+.ft-home-services__cell--3 {
+  grid-column: 10 / 13;
+  grid-row: 1 / 2;
+}
+
+
+/* CRO — tall centre */
+.ft-home-services__cell--4 {
+  grid-column: 6 / 9;
+  grid-row: 2 / 4;
+}
+
+
+/* Theme Development */
+.ft-home-services__cell--5 {
+  grid-column: 9 / 13;
+  grid-row: 2 / 3;
+}
+
+
+/* Support */
+.ft-home-services__cell--6 {
+  grid-column: 1 / 6;
+  grid-row: 3 / 4;
+}
+
+
+/* UI / UX — tall right */
+.ft-home-services__cell--7 {
+  grid-column: 9 / 13;
+  grid-row: 3 / 5;
+}
+
+
+/* Email — wide bottom */
+.ft-home-services__cell--8 {
+  grid-column: 1 / 9;
+  grid-row: 4 / 5;
+}
+
+
+/* =========================================================
+   SERVICE CARD BASE
+========================================================= */
+
+.ft-home-services__cell {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  min-width: 0;
+  min-height: 18vh;
+
+  padding:
+    3vh
+    1.65vw;
+
+  overflow: hidden;
+
+  border:
+    0.055vw solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 0.75vw;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  transform:
+    translateZ(0);
+
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.ft-home-services__cell:hover,
+.ft-home-services__cell:focus-visible,
+.ft-home-services__cell:active {
+  background:
+    rgba(255, 255, 255, 0.075);
+
+  border-color:
+    rgba(255, 255, 255, 0.13);
+}
+
+
+/* =========================================================
+   HIDDEN NUMBER
+========================================================= */
+
+.ft-home-services__cell-number {
+  margin-bottom: auto;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0;
+
+  visibility: hidden;
+}
+
+
+/* =========================================================
+   CARD BADGE
+========================================================= */
+
+.ft-home-services__cell-badge {
+  position: relative;
+  z-index: 2;
+
+  display: block;
+
+  align-self: flex-start;
+
+  height: 1.25rem;
+
+  margin-bottom: 1.4vh;
+}
+
+.ft-home-services__cell-badge img {
+  display: block;
+
+  width: auto;
+  height: 100%;
+
+  opacity: 0.35;
+
+  transition:
+    opacity 0.3s ease;
+}
+
+.ft-home-services__cell:hover
+  .ft-home-services__cell-badge img,
+.ft-home-services__cell:focus-visible
+  .ft-home-services__cell-badge img,
+.ft-home-services__cell:active
+  .ft-home-services__cell-badge img {
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.ft-home-services__cell-name {
+  position: relative;
+  z-index: 2;
+
+  margin:
+    0
+    0
+    0.8vh;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: clamp(
+    1.3rem,
+    2.2vw,
+    2rem
+  );
+
+  font-weight: 400;
+  line-height: 1.15;
+
+  letter-spacing: -0.035em;
+
+  color: #ffffff;
+}
+
+.ft-home-services__cell--1
+  .ft-home-services__cell-name,
+.ft-home-services__cell--8
+  .ft-home-services__cell-name {
+  font-size: clamp(
+    1.6rem,
+    2.8vw,
+    2.6rem
+  );
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.ft-home-services__cell-description {
+  position: relative;
+  z-index: 2;
+
+  max-width: 20vw;
+
+  margin: 0;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.4;
+
+  color:
+    rgba(255, 255, 255, 0.5);
+
+  transition:
+    color 0.4s ease;
+}
+
+.ft-home-services__cell:hover
+  .ft-home-services__cell-description,
+.ft-home-services__cell:focus-visible
+  .ft-home-services__cell-description,
+.ft-home-services__cell:active
+  .ft-home-services__cell-description {
+  color:
+    rgba(255, 255, 255, 0.75);
+}
+
+
+/* =========================================================
+   CARD ARROW
+========================================================= */
+
+.ft-home-services__cell-arrow {
+  position: absolute;
+
+  top: 3vh;
+  right: 1.65vw;
+
+  z-index: 4;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 2.2vw;
+  aspect-ratio: 1;
+
+  border:
+    0.055vw solid
+    rgba(255, 255, 255, 0.15);
+
+  border-radius: 50%;
+
+  opacity: 0;
+
+  transform:
+    translate(
+      -0.5vw,
+      0.8vh
+    );
+
+  transition:
+    opacity 0.35s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      ),
+    transform 0.35s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      ),
+    border-color 0.35s ease;
+}
+
+.ft-home-services__arrow-icon {
+  width: 0.85vw;
+  height: 0.85vw;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+}
+
+.ft-home-services__cell:hover
+  .ft-home-services__cell-arrow,
+.ft-home-services__cell:focus-visible
+  .ft-home-services__cell-arrow,
+.ft-home-services__cell:active
+  .ft-home-services__cell-arrow {
+  opacity: 1;
+
+  transform:
+    translate(
+      0,
+      0
+    );
+
+  border-color: #ffffff;
+}
+
+.ft-home-services__cell:hover
+  .ft-home-services__arrow-icon,
+.ft-home-services__cell:focus-visible
+  .ft-home-services__arrow-icon,
+.ft-home-services__cell:active
+  .ft-home-services__arrow-icon {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   GRAPHICS
+========================================================= */
+
+.ft-home-services__graphic {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  width: 95%;
+
+  flex-shrink: 0;
+
+  margin:
+    0
+    0
+    2.2vh;
+
+  border-radius: 0.65vw;
+
+  opacity: 0.85;
+
+  pointer-events: none;
+
+  transform:
+    translateZ(0);
+
+  transition:
+    opacity 0.4s ease;
+}
+
+.ft-home-services__cell:hover
+  .ft-home-services__graphic,
+.ft-home-services__cell:focus-visible
+  .ft-home-services__graphic {
+  opacity: 0.62;
+}
+
+
+/* =========================================================
+   EMAIL CARD HORIZONTAL LAYOUT
+========================================================= */
+
+.ft-home-services__cell--8 {
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ft-home-services__cell--8
+  .ft-home-services__cell-content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  flex:
+    0
+    0
+    40%;
+
+  min-width: 0;
+}
+
+.ft-home-services__cell--8
+  .ft-home-services__graphic {
+  flex:
+    0
+    0
+    55%;
+
+  width: 55%;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   SEO SERP ANIMATION
+========================================================= */
+
+.ft-home-services__serp-line {
+  transform:
+    scaleX(0);
+
+  transform-origin:
+    left center;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line {
+  animation:
+    ft-home-services-serp-expand
+    0.8s
+    ease-out
+    forwards;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--2 {
+  animation-delay: 0.1s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--3 {
+  animation-delay: 0.2s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--4 {
+  animation-delay: 0.3s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--5 {
+  animation-delay: 0.4s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--6 {
+  animation-delay: 0.5s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--7 {
+  animation-delay: 0.6s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--8 {
+  animation-delay: 0.65s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--9 {
+  animation-delay: 0.7s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--10 {
+  animation-delay: 0.75s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--11 {
+  animation-delay: 0.8s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--12 {
+  animation-delay: 0.85s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--13 {
+  animation-delay: 0.9s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__serp-line--14 {
+  animation-delay: 0.95s;
+}
+
+@keyframes ft-home-services-serp-expand {
+  from {
+    transform:
+      scaleX(0);
+  }
+
+  to {
+    transform:
+      scaleX(1);
+  }
+}
+
+
+/* =========================================================
+   SEO CHAT ANIMATION
+========================================================= */
+
+.ft-home-services__chat-message {
+  opacity: 0;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__chat-message {
+  animation:
+    ft-home-services-chat-in
+    0.6s
+    ease-out
+    forwards;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__chat-message--1 {
+  animation-delay: 0.3s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__chat-message--2 {
+  animation-delay: 0.9s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__chat-message--3 {
+  animation-delay: 1.5s;
+}
+
+@keyframes ft-home-services-chat-in {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(1vh);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* =========================================================
+   CRO CONTROL → VARIANT
+========================================================= */
+
+.ft-home-services__cro-label-variant,
+.ft-home-services__cro-variant-heading,
+.ft-home-services__cro-variant-cta,
+.ft-home-services__cro-variant-hero,
+.ft-home-services__cro-variant-lines,
+.ft-home-services__cro-variant-badge {
+  opacity: 0;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__cro-label-control {
+  animation:
+    ft-home-services-fade-out
+    0.4s
+    ease-out
+    0.6s
+    forwards;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__cro-label-variant {
+  animation:
+    ft-home-services-fade-in
+    0.4s
+    ease-out
+    0.6s
+    forwards;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__cro-control-hero {
+  animation:
+    ft-home-services-fade-out
+    0.4s
+    ease-out
+    0.6s
+    forwards;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__cro-control-heading {
+  animation:
+    ft-home-services-fade-out
+    0.4s
+    ease-out
+    0.7s
+    forwards;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__cro-control-cta,
+.ft-home-services__cell--in-view
+  .ft-home-services__cro-control-lines {
+  animation:
+    ft-home-services-fade-out
+    0.4s
+    ease-out
+    0.8s
+    forwards;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__cro-variant-heading {
+  animation:
+    ft-home-services-fade-in
+    0.4s
+    ease-out
+    0.9s
+    forwards;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__cro-variant-cta {
+  animation:
+    ft-home-services-fade-in
+    0.4s
+    ease-out
+    1s
+    forwards;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__cro-variant-hero,
+.ft-home-services__cell--in-view
+  .ft-home-services__cro-variant-lines {
+  animation:
+    ft-home-services-fade-in
+    0.4s
+    ease-out
+    1.1s
+    forwards;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__cro-variant-badge {
+  animation:
+    ft-home-services-fade-in
+    0.4s
+    ease-out
+    1.4s
+    forwards;
+}
+
+@keyframes ft-home-services-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ft-home-services-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   UI / UX STAGGERED BUILD
+========================================================= */
+
+.ft-home-services__ux {
+  opacity: 0;
+
+  transform:
+    translateY(1vh);
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__ux {
+  animation:
+    ft-home-services-ux-in
+    0.5s
+    ease-out
+    forwards;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__ux--1 {
+  animation-delay: 0.15s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__ux--2 {
+  animation-delay: 0.3s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__ux--3 {
+  animation-delay: 0.45s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__ux--4 {
+  animation-delay: 0.6s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__ux--5 {
+  animation-delay: 0.75s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__ux--6 {
+  animation-delay: 0.85s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__ux--7 {
+  animation-delay: 0.95s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__ux--8 {
+  animation-delay: 1.05s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__ux--9 {
+  animation-delay: 1.15s;
+}
+
+@keyframes ft-home-services-ux-in {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(1vh);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* =========================================================
+   EMAIL FLOW ANIMATION
+========================================================= */
+
+.ft-home-services__email-line {
+  opacity: 0;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line {
+  animation:
+    ft-home-services-email-in
+    0.3s
+    ease-out
+    forwards;
+}
+
+
+/* Card 1 */
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--1a {
+  animation-delay: 0.1s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--1b {
+  animation-delay: 0.15s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--1c {
+  animation-delay: 0.2s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--1d {
+  animation-delay: 0.25s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--1e {
+  animation-delay: 0.3s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--1f {
+  animation-delay: 0.35s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--arrow-1 {
+  animation-delay: 0.25s;
+}
+
+
+/* Card 2 */
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--2a {
+  animation-delay: 0.3s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--2b {
+  animation-delay: 0.35s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--2c {
+  animation-delay: 0.4s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--2d {
+  animation-delay: 0.45s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--2e {
+  animation-delay: 0.5s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--2f {
+  animation-delay: 0.55s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--arrow-2 {
+  animation-delay: 0.45s;
+}
+
+
+/* Card 3 */
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--3a {
+  animation-delay: 0.5s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--3b {
+  animation-delay: 0.55s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--3c {
+  animation-delay: 0.6s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--3d {
+  animation-delay: 0.65s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--3e {
+  animation-delay: 0.7s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--3f {
+  animation-delay: 0.75s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--arrow-3 {
+  animation-delay: 0.65s;
+}
+
+
+/* Card 4 */
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--4a {
+  animation-delay: 0.7s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--4b {
+  animation-delay: 0.75s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--4c {
+  animation-delay: 0.8s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--4d {
+  animation-delay: 0.85s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--4e {
+  animation-delay: 0.9s;
+}
+
+.ft-home-services__cell--in-view
+  .ft-home-services__email-line--4f {
+  animation-delay: 0.95s;
+}
+
+@keyframes ft-home-services-email-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   BOTTOM SERVICE PRODUCT LOGOS
+========================================================= */
+
+.ft-home-services__products {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 3vw;
+
+  margin-top: 6vh;
+}
+
+.ft-home-services__product {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  height: 1.75rem;
+
+  text-decoration: none;
+}
+
+.ft-home-services__product img {
+  display: block;
+
+  width: auto;
+  height: 100%;
+
+  opacity: 0.5;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.ft-home-services__product:hover img,
+.ft-home-services__product:focus-visible img {
+  opacity: 0.85;
+
+  transform:
+    translateY(-0.25vh);
+}
+
+
+/* =========================================================
+   VIEW ALL SERVICES CTA
+========================================================= */
+
+.ft-home-services__cta-wrap {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 4.5vh;
+}
+
+.ft-home-services__cta {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+
+  padding:
+    0.75rem
+    3rem
+    0.75rem
+    1.5rem;
+
+  border: 0;
+  border-radius: 999rem;
+
+  background: #ffffff;
+  color: #000000;
+
+  font-family:
+    "Season Serif",
+    serif;
+
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  text-decoration: none;
+
+  transition:
+    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ft-home-services__cta
+  .ft-home-services__arrow-icon {
+  position: absolute;
+
+  top: 50%;
+  right: 1.5rem;
+
+  width: 0.625rem;
+  height: 0.625rem;
+
+  color: currentColor;
+
+  transform:
+    translateY(-50%);
+
+  transition:
+    right 0.5s
+      cubic-bezier(
+        0.4,
+        0,
+        0.2,
+        1
+      );
+}
+
+.ft-home-services__cta:hover {
+  opacity: 0.8;
+}
+
+.ft-home-services__cta:hover
+  .ft-home-services__arrow-icon {
+  right: 1.25rem;
+}
+
+
+/* =========================================================
+   TABLET
+   Reference breakpoint: <= 900
+========================================================= */
+
+@media (max-width: 56.25rem) {
+  .ft-home-services {
+    padding-bottom: 7vh;
+  }
+
+  .ft-home-services__inner {
+    padding:
+      0
+      4vw;
+  }
+
+
+  /* ------------------------------
+     Logos
+  ------------------------------ */
+
+  .ft-home-services__logos {
+    padding:
+      2.8vh
+      0
+      5vh;
+  }
+
+  .ft-home-services__logos-label {
+    display: none;
+  }
+
+  .ft-home-services__logos-set {
+    gap: 5vw;
+
+    padding-right: 5vw;
+  }
+
+
+  /* ------------------------------
+     Heading
+  ------------------------------ */
+
+  .ft-home-services__mobile-heading {
+    display: block;
+  }
+
+
+  /* ------------------------------
+     2-column grid
+  ------------------------------ */
+
+  .ft-home-services__grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    grid-template-rows: auto;
+
+    gap:
+      1.5vh
+      1.5vw;
+  }
+
+  .ft-home-services__cell--1,
+  .ft-home-services__cell--2,
+  .ft-home-services__cell--3,
+  .ft-home-services__cell--4,
+  .ft-home-services__cell--5,
+  .ft-home-services__cell--6,
+  .ft-home-services__cell--7,
+  .ft-home-services__cell--8 {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .ft-home-services__cell--1,
+  .ft-home-services__cell--8 {
+    grid-column: 1 / -1;
+  }
+
+
+  /* ------------------------------
+     Compact cards
+  ------------------------------ */
+
+  .ft-home-services__cell {
+    min-height: 15vh;
+
+    padding:
+      2.4vh
+      2.2vw;
+
+    border-radius: 1.5vw;
+  }
+
+  .ft-home-services__cell-description,
+  .ft-home-services__graphic {
+    display: none;
+  }
+
+  .ft-home-services__cell--8 {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .ft-home-services__cell--8
+    .ft-home-services__cell-content {
+    flex:
+      1
+      1
+      auto;
+
+    width: 100%;
+  }
+
+  .ft-home-services__cell-name,
+  .ft-home-services__cell--1
+    .ft-home-services__cell-name,
+  .ft-home-services__cell--8
+    .ft-home-services__cell-name {
+    margin: 0;
+
+    font-size: clamp(
+      1.2rem,
+      3vw,
+      1.6rem
+    );
+  }
+
+  .ft-home-services__cell-badge {
+    height: 1.1rem;
+
+    margin-bottom: 1.2vh;
+  }
+
+
+  /* ------------------------------
+     Tablet arrow
+  ------------------------------ */
+
+  .ft-home-services__cell-arrow {
+    top: 2.4vh;
+    right: 2.2vw;
+
+    width: 4vw;
+
+    border-width: 0.08vw;
+
+    transform:
+      translate(
+        -0.7vw,
+        0.7vh
+      );
+  }
+
+  .ft-home-services__arrow-icon {
+    width: 1.4vw;
+    height: 1.4vw;
+  }
+
+
+  /* ------------------------------
+     Bottom logos
+  ------------------------------ */
+
+  .ft-home-services__products {
+    gap: 5vw;
+
+    margin-top: 5.5vh;
+  }
+
+  .ft-home-services__product {
+    height: 1.6rem;
+  }
+
+
+  /* ------------------------------
+     CTA
+  ------------------------------ */
+
+  .ft-home-services__cta-wrap {
+    margin-top: 4vh;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   Reference breakpoint: <= 600
+========================================================= */
+
+@media (max-width: 37.5rem) {
+  .ft-home-services {
+    padding:
+      0
+      0
+      6vh;
+  }
+
+  .ft-home-services__inner {
+    padding:
+      0
+      5vw;
+  }
+
+
+  /* ------------------------------
+     Marquee
+  ------------------------------ */
+
+  .ft-home-services__logos {
+    padding:
+      2.8vh
+      0
+      5.5vh;
+  }
+
+  .ft-home-services__logos-mask {
+    width:
+      calc(
+        100% + 10vw
+      );
+
+    margin-left: -5vw;
+
+    -webkit-mask-image:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        #000000 7%,
+        #000000 93%,
+        transparent 100%
+      );
+
+    mask-image:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        #000000 7%,
+        #000000 93%,
+        transparent 100%
+      );
+  }
+
+  .ft-home-services__logos-set {
+    gap: 8vw;
+
+    padding-right: 8vw;
+  }
+
+  .ft-home-services__logo-item {
+    height: 1.35rem;
+  }
+
+  .ft-home-services__logo-item--small {
+    height: 0.9rem;
+  }
+
+  .ft-home-services__logo-item--large {
+    height: 1.8rem;
+  }
+
+
+  /* ------------------------------
+     Heading
+  ------------------------------ */
+
+  .ft-home-services__mobile-heading {
+    margin-bottom: 3.2vh;
+  }
+
+  .ft-home-services__mobile-heading-sub {
+    font-size: 1rem;
+  }
+
+  .ft-home-services__mobile-heading-main {
+    font-size: 2.5rem;
+  }
+
+
+  /* ------------------------------
+     Single-column grid
+  ------------------------------ */
+
+  .ft-home-services__grid {
+    grid-template-columns:
+      1fr;
+
+    gap: 1.5vh;
+  }
+
+  .ft-home-services__cell--1,
+  .ft-home-services__cell--8 {
+    grid-column: auto;
+  }
+
+
+  /* ------------------------------
+     Mobile card
+  ------------------------------ */
+
+  .ft-home-services__cell {
+    min-height: 13.5vh;
+
+    padding:
+      2.5vh
+      5.5vw;
+
+    border-width: 0.12vw;
+
+    border-radius: 3vw;
+  }
+
+  .ft-home-services__cell-name,
+  .ft-home-services__cell--1
+    .ft-home-services__cell-name,
+  .ft-home-services__cell--8
+    .ft-home-services__cell-name {
+    font-size: 1.125rem;
+
+    line-height: 1.15;
+  }
+
+  .ft-home-services__cell-badge {
+    height: 1rem;
+
+    margin-bottom: 1.5vh;
+  }
+
+
+  /* ------------------------------
+     Mobile arrow
+  ------------------------------ */
+
+  .ft-home-services__cell-arrow {
+    top: 2.5vh;
+    right: 5vw;
+
+    width: 9vw;
+
+    border-width: 0.12vw;
+
+    transform:
+      translate(
+        -1.5vw,
+        0.8vh
+      );
+  }
+
+  .ft-home-services__arrow-icon {
+    width: 3vw;
+    height: 3vw;
+  }
+
+
+  /* ------------------------------
+     Bottom service logos
+  ------------------------------ */
+
+  .ft-home-services__products {
+    gap:
+      3.5vh
+      8vw;
+
+    margin-top: 6vh;
+
+    padding:
+      0
+      2vw;
+  }
+
+  .ft-home-services__product {
+    height: 1.70rem;
+  }
+
+
+  /* ------------------------------
+     CTA
+  ------------------------------ */
+
+  .ft-home-services__cta-wrap {
+    margin-top: 5vh;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-home-services__logos-track {
+    animation: none;
+  }
+
+  .ft-home-services__serp-line {
+    transform:
+      scaleX(1);
+  }
+
+  .ft-home-services__chat-message,
+  .ft-home-services__ux,
+  .ft-home-services__email-line,
+  .ft-home-services__cro-label-variant,
+  .ft-home-services__cro-variant-heading,
+  .ft-home-services__cro-variant-cta,
+  .ft-home-services__cro-variant-hero,
+  .ft-home-services__cro-variant-lines,
+  .ft-home-services__cro-variant-badge {
+    opacity: 1;
+
+    transform: none;
+
+    animation: none;
+  }
+
+  .ft-home-services__cro-label-control,
+  .ft-home-services__cro-control-hero,
+  .ft-home-services__cro-control-heading,
+  .ft-home-services__cro-control-cta,
+  .ft-home-services__cro-control-lines {
+    animation: none;
+  }
+
+  .ft-home-services__cell,
+  .ft-home-services__cell-arrow,
+  .ft-home-services__graphic,
+  .ft-home-services__logo-image,
+  .ft-home-services__product img,
+  .ft-home-services__cta,
+  .ft-home-services__arrow-icon {
+    transition: none;
+  }
+}
