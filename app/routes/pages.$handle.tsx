@@ -1,13 +1,25 @@
+import workHeroStyles from '~/styles/work-hero.css?url';
+import workResultsStyles from '~/styles/work-results.css?url';
 import {
   useLoaderData,
 } from 'react-router';
 import type {Route} from './+types/pages.$handle';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
+import {WorkPage} from '~/components/WorkPage';
 
 export const meta: Route.MetaFunction = ({data}) => {
   return [{title: `Hydrogen | ${data?.page.title ?? ''}`}];
 };
-
+export const links: Route.LinksFunction = () => [
+  {
+    rel: 'stylesheet',
+    href: workHeroStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: workResultsStyles,
+  },
+];
 export async function loader(args: Route.LoaderArgs) {
   // Start fetching non-critical data without blocking time to first byte
   const deferredData = loadDeferredData(args);
@@ -62,7 +74,9 @@ function loadDeferredData({context}: Route.LoaderArgs) {
 
 export default function Page() {
   const {page} = useLoaderData<typeof loader>();
-
+  if (page.handle === 'work') {
+    return <WorkPage page={page} />;
+  }
   return (
     <div className="page">
       <header>
