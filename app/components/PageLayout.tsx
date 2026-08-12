@@ -1,5 +1,6 @@
 import {Await, Link} from 'react-router';
 import {Suspense, useId} from 'react';
+import {FloatingContactCta} from './FloatingContactCta';
 import type {
   CartApiQueryFragment,
   FooterQuery,
@@ -51,6 +52,7 @@ export function PageLayout({
         header={header}
         publicStoreDomain={publicStoreDomain}
       />
+      <FloatingContactCta />
     </Aside.Provider>
   );
 }

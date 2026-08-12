@@ -18,6 +18,7 @@ import appStyles from '~/styles/app.css?url';
 import headerStyles from '~/styles/header.css?url';
 import {PageLayout} from './components/PageLayout';
 import footerStyles from '~/styles/footer.css?url';
+import floatingContactCtaStyles from '~/styles/floating-contact-cta.css?url';
 export type RootLoader = typeof loader;
 
 /**
@@ -154,6 +155,7 @@ export function Layout({children}: {children?: React.ReactNode}) {
         <link rel="stylesheet" href={appStyles}></link>
         <link rel="stylesheet" href={headerStyles}></link>
         <link rel="stylesheet" href={footerStyles}></link>
+        <link rel="stylesheet" href={floatingContactCtaStyles}></link>
         <Meta />
         <Links />
       </head>

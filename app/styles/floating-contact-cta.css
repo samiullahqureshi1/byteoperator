@@ -1,0 +1,215 @@
+/* =========================================================
+   FOLDTECH — FLOATING CONTACT CTA
+   Reference matched
+========================================================= */
+
+.ft-floating-cta {
+  position: fixed;
+
+  left: 2rem;
+  bottom: 2rem;
+
+  z-index: 60;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 6.25rem;
+  height: 6.25rem;
+
+  cursor: pointer;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  transition:
+    transform 0.3s
+    cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* =========================================================
+   CIRCLE
+========================================================= */
+
+.ft-floating-cta__circle {
+  position: absolute;
+
+  inset: 0;
+
+  background: #000000;
+
+  border: 0;
+  border-radius: 50%;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   ROTATING TEXT
+========================================================= */
+
+.ft-floating-cta__text {
+  position: absolute;
+
+  inset: 0;
+
+  animation:
+    ft-floating-cta-rotate
+    12s
+    linear
+    infinite;
+}
+
+.ft-floating-cta__text svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+.ft-floating-cta__text svg text {
+  fill: #ffffff;
+
+  font-family:
+    "Season Sans",
+    sans-serif;
+
+  font-size: 0.71875rem;
+  font-weight: 400;
+
+  letter-spacing: 0.21875rem;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CENTER ARROW
+========================================================= */
+
+.ft-floating-cta__arrow {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ft-floating-cta__arrow svg {
+  display: block;
+
+  width: 1.25rem;
+  height: 1.25rem;
+
+  overflow: visible;
+
+  transition:
+    transform 0.3s
+    cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* =========================================================
+   ROTATION
+========================================================= */
+
+@keyframes ft-floating-cta-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media (hover: hover) {
+  .ft-floating-cta:hover {
+    transform: scale(1.1);
+  }
+
+  .ft-floating-cta:hover
+    .ft-floating-cta__text {
+    animation-play-state: paused;
+  }
+
+  .ft-floating-cta:hover
+    .ft-floating-cta__arrow svg {
+    transform:
+      translate(
+        0.125rem,
+        -0.125rem
+      );
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 47.9375rem) {
+  .ft-floating-cta {
+    left: 1.25rem;
+    bottom: 1.25rem;
+
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .ft-floating-cta__text svg text {
+    font-size: 0.6875rem;
+
+    letter-spacing: 0.1875rem;
+  }
+
+  .ft-floating-cta__arrow svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.ft-floating-cta:focus-visible {
+  outline:
+    0.125rem
+    solid
+    #ffffff;
+
+  outline-offset: 0.25rem;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-floating-cta {
+    transition: none;
+  }
+
+  .ft-floating-cta__text {
+    animation: none;
+  }
+
+  .ft-floating-cta__arrow svg {
+    transition: none;
+  }
+}
