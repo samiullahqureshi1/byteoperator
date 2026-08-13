@@ -5,7 +5,7 @@
 
 .ft-work-case-studies {
   width: 100%;
-  padding: 1.5rem 5.33vw 5rem;
+  padding: 1.5rem 5.33vw 1rem;
   overflow: hidden;
   background: var(--ft-dark-deep, #01151b);
   color: var(--ft-white, #ffffff);
@@ -20,7 +20,7 @@
 
 @media (min-width: 48rem) {
   .ft-work-case-studies {
-    padding: 3rem 4vw 6rem;
+    padding: 3rem 4vw 1rem;
   }
 
   .ft-work-case-studies__grid {
@@ -31,7 +31,7 @@
 
 @media (min-width: 64rem) {
   .ft-work-case-studies {
-    padding: 4rem 7.1vw 7rem;
+    padding: 4rem 7.1vw 0rem;
   }
 
   .ft-work-case-studies__grid {

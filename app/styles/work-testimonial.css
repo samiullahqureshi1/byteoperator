@@ -1,0 +1,185 @@
+/* =========================================================
+   FOLDTECH — WORK PAGE TESTIMONIAL (static image card)
+========================================================= */
+
+.ft-work-testimonial,
+.ft-work-testimonial * {
+  box-sizing: border-box;
+}
+
+.ft-work-testimonial {
+  width: 100%;
+  padding: 3.5rem 5.33vw 4rem;
+  overflow: hidden;
+  background: var(--ft-off-white, #fbfcfc);
+  border-radius: 3rem 3rem 0 0;
+  color: var(--ft-dark-deep, #01151b);
+}
+
+.ft-work-testimonial__container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   IMAGE CARD
+========================================================= */
+
+.ft-work-testimonial__inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 68vh;
+  min-height: 26rem;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: var(--ft-dark-deep, #01151b);
+  isolation: isolate;
+}
+
+.ft-work-testimonial__bg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Dark gradient keeps the white copy readable over any crop. */
+.ft-work-testimonial__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      to top,
+      rgba(1, 21, 27, 0.82) 0%,
+      rgba(1, 21, 27, 0.55) 34%,
+      rgba(1, 21, 27, 0.12) 66%,
+      rgba(1, 21, 27, 0) 100%
+    ),
+    linear-gradient(
+      to right,
+      rgba(1, 21, 27, 0.55) 0%,
+      rgba(1, 21, 27, 0.18) 45%,
+      rgba(1, 21, 27, 0) 78%
+    );
+  pointer-events: none;
+}
+
+/* =========================================================
+   CONTENT — bottom left
+========================================================= */
+
+.ft-work-testimonial__content {
+  position: absolute;
+  right: 6vw;
+  bottom: 2.5rem;
+  left: 6vw;
+  z-index: 1;
+  min-width: 0;
+}
+
+.ft-work-testimonial__quote {
+  margin: 0;
+  font-family: 'Season Sans', sans-serif;
+  font-size: clamp(1.375rem, 5.4vw, 2rem);
+  font-weight: 300;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: var(--ft-white, #ffffff);
+  overflow-wrap: anywhere;
+}
+
+.ft-work-testimonial__author {
+  margin: 1.125rem 0 0;
+  font-family: 'Season Serif', serif;
+  font-size: clamp(0.9375rem, 3vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.82);
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 48rem) {
+  .ft-work-testimonial {
+    padding: 4.5rem 4vw 5rem;
+  }
+
+ .ft-work-testimonial__inner {
+  height: 58vh;
+  min-height: 22rem;
+  border-radius: 1.5rem;
+}
+
+  .ft-work-testimonial__content {
+    right: auto;
+    bottom: 3rem;
+    left: 4vw;
+    width: 72%;
+    max-width: 40rem;
+  }
+
+  .ft-work-testimonial__quote {
+    font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+  }
+
+  .ft-work-testimonial__author {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+  }
+}
+
+/* =========================================================
+   DESKTOP — wide cinematic card
+========================================================= */
+
+@media (min-width: 64rem) {
+  .ft-work-testimonial {
+    padding: 3rem 2vw 4rem;
+  }
+
+  .ft-work-testimonial__inner {
+  height: 68vh;
+  min-height: 30rem;
+  max-height: 44rem;
+  border-radius: 1.75rem;
+}
+
+  .ft-work-testimonial__content {
+    bottom: 4.5vh;
+    left: 3.5vw;
+    width: 50%;
+    max-width: 52%;
+  }
+
+  .ft-work-testimonial__quote {
+    font-size: clamp(1.875rem, 2.4vw, 2.75rem);
+    line-height: 1.16;
+  }
+
+  .ft-work-testimonial__author {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+  }
+}
+
+/* =========================================================
+   MOBILE — taller card, copy stays bottom-left
+========================================================= */
+
+@media (max-width: 47.99rem) {
+   .ft-work-testimonial__inner {
+    height: 62vh;
+    min-height: 24rem;
+  }
+  .ft-work-testimonial__content {
+    right: 5vw;
+    bottom: 2rem;
+    left: 5vw;
+  }
+}

@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {WorkHero} from './work/WorkHero';
 import {WorkResults} from './work/WorkResults';
+import {HomePeople} from './HomePeople';
 import {
   WorkFeaturedProjects,
   type WorkFeaturedArticle,
@@ -14,6 +15,7 @@ import {
   WorkCaseStudies,
   type WorkCaseStudyArticle,
 } from './work/WorkCaseStudies';
+import {WorkTestimonial} from './work/WorkTestimonial';
 import type {IndustryFilter} from './work/IndustryFilters';
 
 interface WorkPageProps {
@@ -90,6 +92,10 @@ export function WorkPage({
         <>
           <WorkTeamCta />
           <WorkCaseStudies articles={caseStudyArticles} />
+       <div className="ft-work-people">
+  <HomePeople />
+</div>
+          <WorkTestimonial />
         </>
       ) : null}
     </main>

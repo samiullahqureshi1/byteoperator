@@ -4,7 +4,9 @@ import workFeaturedProjectsStyles from '~/styles/work-featured-projects.css?url'
 import workTopCaseStudiesStyles from '~/styles/work-top-case-studies.css?url';
 import workTeamCtaStyles from '~/styles/work-team-cta.css?url';
 import workCaseStudiesStyles from '~/styles/work-case-studies.css?url';
+import workTestimonialStyles from '~/styles/work-testimonial.css?url';
 import type {WorkCaseStudiesQuery} from 'storefrontapi.generated';
+import homePeopleStyles from '~/styles/home-people.css?url';
 import {
   useLoaderData,
 } from 'react-router';
@@ -39,6 +41,14 @@ export const links: Route.LinksFunction = () => [
   {
     rel: 'stylesheet',
     href: workCaseStudiesStyles,
+  },
+  {
+  rel: 'stylesheet',
+  href: homePeopleStyles,
+},
+  {
+    rel: 'stylesheet',
+    href: workTestimonialStyles,
   },
 ];
 export async function loader(args: Route.LoaderArgs) {
