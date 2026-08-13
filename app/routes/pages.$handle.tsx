@@ -7,6 +7,8 @@ import workCaseStudiesStyles from '~/styles/work-case-studies.css?url';
 import workTestimonialStyles from '~/styles/work-testimonial.css?url';
 import type {WorkCaseStudiesQuery} from 'storefrontapi.generated';
 import homePeopleStyles from '~/styles/home-people.css?url';
+import {ServicesPage} from '~/components/ServicesPage';
+import servicesHeroStyles from '~/styles/services-hero.css?url';
 import {
   useLoaderData,
 } from 'react-router';
@@ -54,6 +56,10 @@ export const links: Route.LinksFunction = () => [
   {
   rel: 'stylesheet',
   href: homeExpertsStyles,
+},
+{
+  rel: 'stylesheet',
+  href: servicesHeroStyles,
 },
 ];
 export async function loader(args: Route.LoaderArgs) {
@@ -164,8 +170,8 @@ export default function Page() {
     featuredArticles,
     topCaseStudyArticles,
     caseStudyArticles,
-  } =
-    useLoaderData<typeof loader>();
+  } = useLoaderData<typeof loader>();
+
   if (page.handle === 'work') {
     return (
       <WorkPage
@@ -176,12 +182,22 @@ export default function Page() {
       />
     );
   }
+
+  if (page.handle === 'services') {
+    return <ServicesPage page={page} />;
+  }
+
   return (
     <div className="page">
       <header>
         <h1>{page.title}</h1>
       </header>
-      <main dangerouslySetInnerHTML={{__html: page.body}} />
+
+      <main
+        dangerouslySetInnerHTML={{
+          __html: page.body,
+        }}
+      />
     </div>
   );
 }

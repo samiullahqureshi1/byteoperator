@@ -1,0 +1,399 @@
+/* =========================================================
+   FOLDTECH — SERVICES HERO
+========================================================= */
+
+.ft-services-hero,
+.ft-services-hero * {
+  box-sizing: border-box;
+}
+
+.ft-services-hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  padding:
+    calc(var(--charle-header-height, 5rem) + 5vh)
+    5.33vw
+    7vh;
+
+  background: var(--ft-dark-deep, #01151b);
+  color: var(--ft-white, #ffffff);
+}
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.ft-services-hero__glow {
+  position: absolute;
+
+  top: 8vh;
+  right: -8vw;
+
+  width: 58vw;
+  height: 78vh;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(64, 173, 170, 0.11) 0%,
+      rgba(64, 173, 170, 0.055) 34%,
+      rgba(4, 31, 39, 0) 72%
+    );
+
+  filter: blur(2rem);
+}
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.ft-services-hero__inner {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.72fr)
+    minmax(0, 1fr);
+
+  align-items: start;
+
+  width: 100%;
+  min-height: 0;
+
+  gap: 6vw;
+}
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.ft-services-hero__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+}
+
+.ft-services-hero__eyebrow {
+  margin:
+    0
+    0
+    1.8rem;
+
+  font-family: 'Season Serif', serif;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 400;
+  line-height: 1.2;
+
+  color: var(--ft-white, #ffffff);
+}
+
+.ft-services-hero__title {
+  max-width: 15ch;
+
+  margin: 0;
+
+  font-family: 'Season Sans', sans-serif;
+  font-size: clamp(3rem, 4vw, 4.1rem);
+  font-weight: 300;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+
+  color: var(--ft-white, #ffffff);
+}
+
+/* =========================================================
+   SERVICE CHIPS
+========================================================= */
+
+.ft-services-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 100%;
+  max-width: 54vw;
+
+  margin-top: 2.2rem;
+
+  gap:
+    0.65rem
+    0.6rem;
+}
+
+.ft-services-hero__chip {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 2.25rem;
+
+  padding:
+    0.5rem
+    0.8rem;
+
+  border-radius: 0.2rem;
+
+  background: rgba(255, 255, 255, 0.075);
+
+  font-family: 'Season Serif', serif;
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   CLIENT PROOF
+========================================================= */
+
+.ft-services-hero__client-proof {
+  width: 100%;
+  max-width: 34rem;
+  margin-top: 2rem;
+}
+
+.ft-services-hero__client-proof .ft-work-hero__right {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.ft-services-hero__client-proof .ft-work-hero__testimonial {
+  margin-top: 0;
+}
+
+/* =========================================================
+   RIGHT
+========================================================= */
+
+.ft-services-hero__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+
+  align-self: center;
+  padding-bottom: 0;
+}
+
+.ft-services-hero__partners {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+
+  margin-bottom: 2.5rem;
+}
+
+.ft-services-hero__partners img {
+  display: block;
+
+  width: auto;
+  max-width: 9.5rem;
+  height: 2.1rem;
+
+  object-fit: contain;
+  object-position: left center;
+}
+
+.ft-services-hero__partner-divider {
+  width: 0.0625rem;
+  height: 2.5rem;
+
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.ft-services-hero__description {
+  max-width: 35rem;
+
+  font-family: 'Season Sans', sans-serif;
+  font-size: clamp(1.25rem, 1.65vw, 1.6rem);
+  font-weight: 300;
+  line-height: 1.42;
+
+  color: var(--ft-white, #ffffff);
+}
+
+.ft-services-hero__description > :first-child {
+  margin-top: 0;
+}
+
+.ft-services-hero__description > :last-child {
+  margin-bottom: 0;
+}
+
+.ft-services-hero__description p {
+  margin:
+    0
+    0
+    1rem;
+}
+
+.ft-services-hero__description a {
+  color: inherit;
+
+  text-decoration: underline;
+  text-decoration-thickness: 0.06rem;
+  text-underline-offset: 0.12rem;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 79.99rem) {
+  .ft-services-hero {
+    padding:
+      calc(var(--charle-header-height, 5rem) + 4vh)
+      4vw
+      7vh;
+  }
+
+  .ft-services-hero__inner {
+    grid-template-columns:
+      minmax(0, 1.65fr)
+      minmax(0, 1fr);
+
+    gap: 5vw;
+  }
+
+  .ft-services-hero__title {
+    font-size: clamp(2.7rem, 4.5vw, 3.6rem);
+  }
+
+  .ft-services-hero__chips {
+    max-width: 58vw;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 47.99rem) {
+  .ft-services-hero {
+    min-height: auto;
+
+    padding:
+      calc(var(--charle-header-height, 5rem) + 7vh)
+      4.8vw
+      8vh;
+  }
+
+  .ft-services-hero__glow {
+    display: none;
+  }
+
+  .ft-services-hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    min-height: 0;
+
+    gap: 4.5rem;
+  }
+
+  .ft-services-hero__eyebrow {
+    margin-bottom: 1.6rem;
+
+    font-size: 1.2rem;
+  }
+
+  .ft-services-hero__title {
+    max-width: 100%;
+
+    font-size: clamp(2rem, 9vw, 2.7rem);
+    line-height: 1.08;
+  }
+
+  /* Reference-style horizontal chip rail */
+  .ft-services-hero__chips {
+    flex-wrap: nowrap;
+
+    width: calc(100% + 4.8vw);
+    max-width: none;
+
+    margin-top: 2rem;
+    margin-right: -4.8vw;
+
+    gap: 0.7rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ft-services-hero__chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ft-services-hero__chip {
+    flex: 0 0 auto;
+
+    scroll-snap-align: start;
+
+    min-height: 2.25rem;
+
+    padding:
+      0.55rem
+      0.85rem;
+
+    font-size: 0.86rem;
+  }
+
+  .ft-services-hero__client-proof {
+    max-width: 100%;
+  }
+
+  .ft-services-hero__right {
+    padding-bottom: 0;
+  }
+
+  .ft-services-hero__partners {
+    margin-bottom: 2.5rem;
+  }
+
+  .ft-services-hero__partners img {
+    max-width: 8rem;
+    height: 1.8rem;
+  }
+
+  .ft-services-hero__partner-divider {
+    height: 2rem;
+  }
+
+  .ft-services-hero__description {
+    max-width: 100%;
+
+    font-size: 1.15rem;
+    line-height: 1.42;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-services-hero__chips {
+    scroll-behavior: auto;
+  }
+}

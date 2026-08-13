@@ -18,6 +18,10 @@ import {
 } from './work/WorkCaseStudies';
 import {WorkTestimonial} from './work/WorkTestimonial';
 import type {IndustryFilter} from './work/IndustryFilters';
+import {
+  WORK_HERO_LOGOS,
+  WORK_HERO_TESTIMONIAL,
+} from '~/data/workHeroProof';
 
 interface WorkPageProps {
   page: {
@@ -27,41 +31,6 @@ interface WorkPageProps {
   topCaseStudyArticles: WorkTopCaseStudyArticle[];
   caseStudyArticles: WorkCaseStudyArticle[];
 }
-const WORK_HERO_TESTIMONIAL = {
-  quote:
-    'FoldTech helped us create a stronger ecommerce experience built around growth and performance.',
-  person: 'Client Name',
-  company: 'Company Name',
-  image: '/images/home-people/people.jpeg',
-  video: '/videos/foldtech-hero-video.mp4',
-};
-const WORK_HERO_LOGOS = [
-  {
-    src: '/images/home-projects/cambridge/logo.svg',
-    alt: 'Cambridge Satchel',
-  },
-  {
-    src: '/images/home-services/clients/billionaire-boys-club.svg',
-    alt: 'Billionaire Boys Club',
-  },
-  {
-    src: '/images/home-projects/111skin/logo.svg',
-    alt: '111SKIN',
-  },
-  {
-    src: '/images/home-services/clients/candy-kittens.svg',
-    alt: 'Candy Kittens',
-  },
-  {
-    src: '/images/home-services/clients/muc-off.svg',
-    alt: 'Muc-Off',
-  },
-  {
-    src: '/images/home-projects/case/logo.svg',
-    alt: 'Case Furniture',
-  },
-];
-
 export function WorkPage({
   page,
   featuredArticles,
