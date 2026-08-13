@@ -1,15 +1,28 @@
+import {useState} from 'react';
 import {WorkHero} from './work/WorkHero';
 import {WorkResults} from './work/WorkResults';
 import {
   WorkFeaturedProjects,
   type WorkFeaturedArticle,
 } from './work/WorkFeaturedProjects';
+import {
+  WorkTopCaseStudies,
+  type WorkTopCaseStudyArticle,
+} from './work/WorkTopCaseStudies';
+import {WorkTeamCta} from './work/WorkTeamCta';
+import {
+  WorkCaseStudies,
+  type WorkCaseStudyArticle,
+} from './work/WorkCaseStudies';
+import type {IndustryFilter} from './work/IndustryFilters';
 
 interface WorkPageProps {
   page: {
     handle: string;
   };
   featuredArticles: WorkFeaturedArticle[];
+  topCaseStudyArticles: WorkTopCaseStudyArticle[];
+  caseStudyArticles: WorkCaseStudyArticle[];
 }
 const WORK_HERO_TESTIMONIAL = {
   quote:
@@ -49,7 +62,13 @@ const WORK_HERO_LOGOS = [
 export function WorkPage({
   page,
   featuredArticles,
+  topCaseStudyArticles,
+  caseStudyArticles,
 }: WorkPageProps) {
+  const [selectedIndustry, setSelectedIndustry] =
+    useState<IndustryFilter>('All');
+  const showNormalCaseStudies = selectedIndustry === 'All';
+
   return (
     <main
       className="ft-work-page"
@@ -61,6 +80,18 @@ export function WorkPage({
 />
       <WorkResults />
       <WorkFeaturedProjects articles={featuredArticles} />
+      <WorkTopCaseStudies
+        articles={topCaseStudyArticles}
+        caseStudyArticles={caseStudyArticles}
+        selectedIndustry={selectedIndustry}
+        onIndustryChange={setSelectedIndustry}
+      />
+      {showNormalCaseStudies ? (
+        <>
+          <WorkTeamCta />
+          <WorkCaseStudies articles={caseStudyArticles} />
+        </>
+      ) : null}
     </main>
   );
 }

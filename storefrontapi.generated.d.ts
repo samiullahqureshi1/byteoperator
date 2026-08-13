@@ -791,6 +791,80 @@ export type WorkFeaturedProjectsQuery = {
   }>;
 };
 
+export type WorkTopCaseStudiesQueryVariables = StorefrontAPI.Exact<{
+  language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
+  country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
+}>;
+
+export type WorkTopCaseStudiesQuery = {
+  blog?: StorefrontAPI.Maybe<{
+    articles: {
+      nodes: Array<
+        Pick<
+          StorefrontAPI.Article,
+          'title' | 'handle' | 'tags' | 'excerpt' | 'content'
+        > & {
+          image?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+          >;
+          result?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+          services?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Metafield, 'value'>
+          >;
+          logo?: StorefrontAPI.Maybe<{
+            reference?: StorefrontAPI.Maybe<{
+              image?: StorefrontAPI.Maybe<
+                Pick<
+                  StorefrontAPI.Image,
+                  'url' | 'altText' | 'width' | 'height'
+                >
+              >;
+            }>;
+          }>;
+        }
+      >;
+    };
+  }>;
+};
+
+export type WorkCaseStudiesQueryVariables = StorefrontAPI.Exact<{
+  after?: StorefrontAPI.InputMaybe<StorefrontAPI.Scalars['String']['input']>;
+  language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
+  country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
+}>;
+
+export type WorkCaseStudiesQuery = {
+  blog?: StorefrontAPI.Maybe<{
+    articles: {
+      nodes: Array<
+        Pick<
+          StorefrontAPI.Article,
+          'title' | 'handle' | 'tags' | 'excerpt' | 'content'
+        > & {
+          image?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+          >;
+          result?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+          services?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Metafield, 'value'>
+          >;
+          logo?: StorefrontAPI.Maybe<{
+            reference?: StorefrontAPI.Maybe<{
+              image?: StorefrontAPI.Maybe<
+                Pick<
+                  StorefrontAPI.Image,
+                  'url' | 'altText' | 'width' | 'height'
+                >
+              >;
+            }>;
+          }>;
+        }
+      >;
+      pageInfo: Pick<StorefrontAPI.PageInfo, 'hasNextPage' | 'endCursor'>;
+    };
+  }>;
+};
+
 export type PolicyFragment = Pick<
   StorefrontAPI.ShopPolicy,
   'body' | 'handle' | 'id' | 'title' | 'url'
@@ -1362,6 +1436,14 @@ interface GeneratedQueryTypes {
   '#graphql\n  query WorkFeaturedProjects(\n    $language: LanguageCode\n    $country: CountryCode\n  ) @inContext(language: $language, country: $country) {\n    blog(handle: "featured") {\n      articles(first: 50, sortKey: PUBLISHED_AT, reverse: true) {\n        nodes {\n          title\n          handle\n          image {\n            url\n            altText\n            width\n            height\n          }\n          excerpt\n          content\n          result: metafield(namespace: "custom", key: "result") {\n            value\n          }\n          services: metafield(namespace: "custom", key: "services") {\n            value\n          }\n          logo: metafield(namespace: "custom", key: "logo") {\n            reference {\n              ... on MediaImage {\n                image {\n                  url\n                  altText\n                  width\n                  height\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n': {
     return: WorkFeaturedProjectsQuery;
     variables: WorkFeaturedProjectsQueryVariables;
+  };
+  '#graphql\n  query WorkTopCaseStudies(\n    $language: LanguageCode\n    $country: CountryCode\n  ) @inContext(language: $language, country: $country) {\n    blog(handle: "top-case-studies") {\n      articles(first: 6, sortKey: PUBLISHED_AT, reverse: true) {\n        nodes {\n          title\n          handle\n          tags\n          image {\n            url\n            altText\n            width\n            height\n          }\n          excerpt\n          content\n          result: metafield(namespace: "custom", key: "result") {\n            value\n          }\n          services: metafield(namespace: "custom", key: "services") {\n            value\n          }\n          logo: metafield(namespace: "custom", key: "logo") {\n            reference {\n              ... on MediaImage {\n                image {\n                  url\n                  altText\n                  width\n                  height\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n': {
+    return: WorkTopCaseStudiesQuery;
+    variables: WorkTopCaseStudiesQueryVariables;
+  };
+  '#graphql\n  query WorkCaseStudies(\n    $after: String\n    $language: LanguageCode\n    $country: CountryCode\n  ) @inContext(language: $language, country: $country) {\n    blog(handle: "case-studies") {\n      articles(\n        first: 250\n        after: $after\n        sortKey: PUBLISHED_AT\n        reverse: true\n      ) {\n        nodes {\n          title\n          handle\n          tags\n          image {\n            url\n            altText\n            width\n            height\n          }\n          excerpt\n          content\n          result: metafield(namespace: "custom", key: "result") {\n            value\n          }\n          services: metafield(namespace: "custom", key: "services") {\n            value\n          }\n          logo: metafield(namespace: "custom", key: "logo") {\n            reference {\n              ... on MediaImage {\n                image {\n                  url\n                  altText\n                  width\n                  height\n                }\n              }\n            }\n          }\n        }\n        pageInfo {\n          hasNextPage\n          endCursor\n        }\n      }\n    }\n  }\n': {
+    return: WorkCaseStudiesQuery;
+    variables: WorkCaseStudiesQueryVariables;
   };
   '#graphql\n  fragment Policy on ShopPolicy {\n    body\n    handle\n    id\n    title\n    url\n  }\n  query Policy(\n    $country: CountryCode\n    $language: LanguageCode\n    $privacyPolicy: Boolean!\n    $refundPolicy: Boolean!\n    $shippingPolicy: Boolean!\n    $termsOfService: Boolean!\n  ) @inContext(language: $language, country: $country) {\n    shop {\n      privacyPolicy @include(if: $privacyPolicy) {\n        ...Policy\n      }\n      shippingPolicy @include(if: $shippingPolicy) {\n        ...Policy\n      }\n      termsOfService @include(if: $termsOfService) {\n        ...Policy\n      }\n      refundPolicy @include(if: $refundPolicy) {\n        ...Policy\n      }\n    }\n  }\n': {
     return: PolicyQuery;

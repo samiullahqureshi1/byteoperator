@@ -1,6 +1,10 @@
 import workHeroStyles from '~/styles/work-hero.css?url';
 import workResultsStyles from '~/styles/work-results.css?url';
 import workFeaturedProjectsStyles from '~/styles/work-featured-projects.css?url';
+import workTopCaseStudiesStyles from '~/styles/work-top-case-studies.css?url';
+import workTeamCtaStyles from '~/styles/work-team-cta.css?url';
+import workCaseStudiesStyles from '~/styles/work-case-studies.css?url';
+import type {WorkCaseStudiesQuery} from 'storefrontapi.generated';
 import {
   useLoaderData,
 } from 'react-router';
@@ -20,9 +24,21 @@ export const links: Route.LinksFunction = () => [
     rel: 'stylesheet',
     href: workResultsStyles,
   },
-    {
+  {
     rel: 'stylesheet',
     href: workFeaturedProjectsStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: workTopCaseStudiesStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: workTeamCtaStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: workCaseStudiesStyles,
   },
 ];
 export async function loader(args: Route.LoaderArgs) {
@@ -48,7 +64,12 @@ async function loadCriticalData({
     throw new Error('Missing page handle');
   }
 
-  const [{page}, featuredBlogData] = await Promise.all([
+  const [
+    {page},
+    featuredBlogData,
+    topCaseStudiesBlogData,
+    caseStudyArticles,
+  ] = await Promise.all([
     context.storefront.query(PAGE_QUERY, {
       variables: {
         handle: params.handle,
@@ -57,6 +78,12 @@ async function loadCriticalData({
     params.handle === 'work'
       ? context.storefront.query(FEATURED_PROJECTS_QUERY)
       : Promise.resolve({blog: null}),
+    params.handle === 'work'
+      ? context.storefront.query(TOP_CASE_STUDIES_QUERY)
+      : Promise.resolve({blog: null}),
+    params.handle === 'work'
+      ? loadAllCaseStudies(context)
+      : Promise.resolve([]),
   ]);
 
   if (!page) {
@@ -69,7 +96,42 @@ async function loadCriticalData({
     page,
     featuredArticles:
       featuredBlogData.blog?.articles.nodes ?? [],
+    topCaseStudyArticles:
+      topCaseStudiesBlogData.blog?.articles.nodes ?? [],
+    caseStudyArticles,
   };
+}
+
+type WorkCaseStudyArticle = NonNullable<
+  WorkCaseStudiesQuery['blog']
+>['articles']['nodes'][number];
+
+async function loadAllCaseStudies(
+  context: Route.LoaderArgs['context'],
+): Promise<WorkCaseStudyArticle[]> {
+  const articles: WorkCaseStudyArticle[] = [];
+  let after: string | null = null;
+
+  do {
+    const data: WorkCaseStudiesQuery = await context.storefront.query(
+      CASE_STUDIES_QUERY,
+      {
+      variables: {after},
+      },
+    );
+    const connection: NonNullable<
+      WorkCaseStudiesQuery['blog']
+    >['articles'] | undefined = data.blog?.articles;
+
+    if (!connection) break;
+
+    articles.push(...connection.nodes);
+    after = connection.pageInfo.hasNextPage
+      ? (connection.pageInfo.endCursor ?? null)
+      : null;
+  } while (after);
+
+  return articles;
 }
 
 /**
@@ -82,12 +144,20 @@ function loadDeferredData({context}: Route.LoaderArgs) {
 }
 
 export default function Page() {
-  const {page, featuredArticles} = useLoaderData<typeof loader>();
+  const {
+    page,
+    featuredArticles,
+    topCaseStudyArticles,
+    caseStudyArticles,
+  } =
+    useLoaderData<typeof loader>();
   if (page.handle === 'work') {
     return (
       <WorkPage
         page={page}
         featuredArticles={featuredArticles}
+        topCaseStudyArticles={topCaseStudyArticles}
+        caseStudyArticles={caseStudyArticles}
       />
     );
   }
@@ -157,6 +227,102 @@ const FEATURED_PROJECTS_QUERY = `#graphql
               }
             }
           }
+        }
+      }
+    }
+  }
+` as const;
+
+const TOP_CASE_STUDIES_QUERY = `#graphql
+  query WorkTopCaseStudies(
+    $language: LanguageCode
+    $country: CountryCode
+  ) @inContext(language: $language, country: $country) {
+    blog(handle: "top-case-studies") {
+      articles(first: 6, sortKey: PUBLISHED_AT, reverse: true) {
+        nodes {
+          title
+          handle
+          tags
+          image {
+            url
+            altText
+            width
+            height
+          }
+          excerpt
+          content
+          result: metafield(namespace: "custom", key: "result") {
+            value
+          }
+          services: metafield(namespace: "custom", key: "services") {
+            value
+          }
+          logo: metafield(namespace: "custom", key: "logo") {
+            reference {
+              ... on MediaImage {
+                image {
+                  url
+                  altText
+                  width
+                  height
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+` as const;
+
+const CASE_STUDIES_QUERY = `#graphql
+  query WorkCaseStudies(
+    $after: String
+    $language: LanguageCode
+    $country: CountryCode
+  ) @inContext(language: $language, country: $country) {
+    blog(handle: "case-studies") {
+      articles(
+        first: 250
+        after: $after
+        sortKey: PUBLISHED_AT
+        reverse: true
+      ) {
+        nodes {
+          title
+          handle
+          tags
+          image {
+            url
+            altText
+            width
+            height
+          }
+          excerpt
+          content
+          result: metafield(namespace: "custom", key: "result") {
+            value
+          }
+          services: metafield(namespace: "custom", key: "services") {
+            value
+          }
+          logo: metafield(namespace: "custom", key: "logo") {
+            reference {
+              ... on MediaImage {
+                image {
+                  url
+                  altText
+                  width
+                  height
+                }
+              }
+            }
+          }
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
         }
       }
     }

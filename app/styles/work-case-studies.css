@@ -1,0 +1,40 @@
+.ft-work-case-studies,
+.ft-work-case-studies * {
+  box-sizing: border-box;
+}
+
+.ft-work-case-studies {
+  width: 100%;
+  padding: 1.5rem 5.33vw 5rem;
+  overflow: hidden;
+  background: var(--ft-dark-deep, #01151b);
+  color: var(--ft-white, #ffffff);
+}
+
+.ft-work-case-studies__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  gap: 1.5rem 0.75rem;
+}
+
+@media (min-width: 48rem) {
+  .ft-work-case-studies {
+    padding: 3rem 4vw 6rem;
+  }
+
+  .ft-work-case-studies__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2vw;
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-work-case-studies {
+    padding: 4rem 7.1vw 7rem;
+  }
+
+  .ft-work-case-studies__grid {
+    gap: 1.9vw;
+  }
+}
