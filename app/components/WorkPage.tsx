@@ -1,11 +1,15 @@
 import {WorkHero} from './work/WorkHero';
 import {WorkResults} from './work/WorkResults';
-import {WorkFeaturedProjects} from './work/WorkFeaturedProjects';
+import {
+  WorkFeaturedProjects,
+  type WorkFeaturedArticle,
+} from './work/WorkFeaturedProjects';
 
 interface WorkPageProps {
   page: {
     handle: string;
   };
+  featuredArticles: WorkFeaturedArticle[];
 }
 const WORK_HERO_TESTIMONIAL = {
   quote:
@@ -42,7 +46,10 @@ const WORK_HERO_LOGOS = [
   },
 ];
 
-export function WorkPage({page}: WorkPageProps) {
+export function WorkPage({
+  page,
+  featuredArticles,
+}: WorkPageProps) {
   return (
     <main
       className="ft-work-page"
@@ -53,7 +60,7 @@ export function WorkPage({page}: WorkPageProps) {
   logos={WORK_HERO_LOGOS}
 />
       <WorkResults />
-      <WorkFeaturedProjects />
+      <WorkFeaturedProjects articles={featuredArticles} />
     </main>
   );
 }

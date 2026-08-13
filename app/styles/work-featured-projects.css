@@ -3,20 +3,36 @@
   box-sizing: border-box;
 
   padding:
-    5rem
+    0rem
     5.33vw
     6rem;
 
   background: var(--ft-dark-deep, #01151b);
 }
 
+/* MOBILE SLIDER */
+
 .ft-work-featured__grid {
+  display: flex;
+
   width: 100%;
 
-  display: grid;
-  grid-template-columns: 1fr;
+  gap: 4vw;
 
-  gap: 2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+}
+
+.ft-work-featured__grid::-webkit-scrollbar {
+  display: none;
 }
 
 .ft-work-featured__card {
@@ -24,7 +40,9 @@
 
   display: block;
 
-  width: 100%;
+  flex: 0 0 80vw;
+  width: 80vw;
+
   aspect-ratio: 0.76;
 
   overflow: hidden;
@@ -37,6 +55,9 @@
   text-decoration: none;
 
   isolation: isolate;
+
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .ft-work-featured__image {
@@ -48,7 +69,10 @@
 
   object-fit: cover;
 
-  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition:
+    transform
+    700ms
+    cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .ft-work-featured__overlay {
@@ -79,7 +103,7 @@
   display: inline-flex;
   align-items: center;
 
-  min-height: 2rem;
+  min-height: 1rem;
 
   padding:
     0.45rem
@@ -148,7 +172,7 @@
 
 @media (hover: hover) {
   .ft-work-featured__card:hover
-    .ft-work-featured__image {
+  .ft-work-featured__image {
     transform: scale(1.035);
   }
 }
@@ -163,11 +187,26 @@
       6rem;
   }
 
-  .ft-work-featured__grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+ .ft-work-featured__grid {
+  display: grid;
 
-    gap: 2vw;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1.8vw;
+
+  overflow: visible;
+
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+  .ft-work-featured__card {
+    flex: initial;
+    width: 100%;
+
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
   }
 }
 
@@ -209,6 +248,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .ft-work-featured__grid {
+    scroll-behavior: auto;
+  }
+
   .ft-work-featured__image {
     transition: none;
   }

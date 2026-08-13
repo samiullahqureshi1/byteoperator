@@ -48,13 +48,15 @@ async function loadCriticalData({
     throw new Error('Missing page handle');
   }
 
-  const [{page}] = await Promise.all([
+  const [{page}, featuredBlogData] = await Promise.all([
     context.storefront.query(PAGE_QUERY, {
       variables: {
         handle: params.handle,
       },
     }),
-    // Add other queries here, so that they are loaded in parallel
+    params.handle === 'work'
+      ? context.storefront.query(FEATURED_PROJECTS_QUERY)
+      : Promise.resolve({blog: null}),
   ]);
 
   if (!page) {
@@ -65,6 +67,8 @@ async function loadCriticalData({
 
   return {
     page,
+    featuredArticles:
+      featuredBlogData.blog?.articles.nodes ?? [],
   };
 }
 
@@ -78,9 +82,14 @@ function loadDeferredData({context}: Route.LoaderArgs) {
 }
 
 export default function Page() {
-  const {page} = useLoaderData<typeof loader>();
+  const {page, featuredArticles} = useLoaderData<typeof loader>();
   if (page.handle === 'work') {
-    return <WorkPage page={page} />;
+    return (
+      <WorkPage
+        page={page}
+        featuredArticles={featuredArticles}
+      />
+    );
   }
   return (
     <div className="page">
@@ -107,6 +116,48 @@ const PAGE_QUERY = `#graphql
       seo {
         description
         title
+      }
+    }
+  }
+` as const;
+
+const FEATURED_PROJECTS_QUERY = `#graphql
+  query WorkFeaturedProjects(
+    $language: LanguageCode
+    $country: CountryCode
+  ) @inContext(language: $language, country: $country) {
+    blog(handle: "featured") {
+      articles(first: 50, sortKey: PUBLISHED_AT, reverse: true) {
+        nodes {
+          title
+          handle
+          image {
+            url
+            altText
+            width
+            height
+          }
+          excerpt
+          content
+          result: metafield(namespace: "custom", key: "result") {
+            value
+          }
+          services: metafield(namespace: "custom", key: "services") {
+            value
+          }
+          logo: metafield(namespace: "custom", key: "logo") {
+            reference {
+              ... on MediaImage {
+                image {
+                  url
+                  altText
+                  width
+                  height
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

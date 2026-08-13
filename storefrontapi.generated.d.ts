@@ -755,6 +755,42 @@ export type PageQuery = {
   >;
 };
 
+export type WorkFeaturedProjectsQueryVariables = StorefrontAPI.Exact<{
+  language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
+  country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
+}>;
+
+export type WorkFeaturedProjectsQuery = {
+  blog?: StorefrontAPI.Maybe<{
+    articles: {
+      nodes: Array<
+        Pick<
+          StorefrontAPI.Article,
+          'title' | 'handle' | 'excerpt' | 'content'
+        > & {
+          image?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+          >;
+          result?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+          services?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Metafield, 'value'>
+          >;
+          logo?: StorefrontAPI.Maybe<{
+            reference?: StorefrontAPI.Maybe<{
+              image?: StorefrontAPI.Maybe<
+                Pick<
+                  StorefrontAPI.Image,
+                  'url' | 'altText' | 'width' | 'height'
+                >
+              >;
+            }>;
+          }>;
+        }
+      >;
+    };
+  }>;
+};
+
 export type PolicyFragment = Pick<
   StorefrontAPI.ShopPolicy,
   'body' | 'handle' | 'id' | 'title' | 'url'
@@ -1322,6 +1358,10 @@ interface GeneratedQueryTypes {
   '#graphql\n  query Page(\n    $language: LanguageCode,\n    $country: CountryCode,\n    $handle: String!\n  )\n  @inContext(language: $language, country: $country) {\n    page(handle: $handle) {\n      handle\n      id\n      title\n      body\n      seo {\n        description\n        title\n      }\n    }\n  }\n': {
     return: PageQuery;
     variables: PageQueryVariables;
+  };
+  '#graphql\n  query WorkFeaturedProjects(\n    $language: LanguageCode\n    $country: CountryCode\n  ) @inContext(language: $language, country: $country) {\n    blog(handle: "featured") {\n      articles(first: 50, sortKey: PUBLISHED_AT, reverse: true) {\n        nodes {\n          title\n          handle\n          image {\n            url\n            altText\n            width\n            height\n          }\n          excerpt\n          content\n          result: metafield(namespace: "custom", key: "result") {\n            value\n          }\n          services: metafield(namespace: "custom", key: "services") {\n            value\n          }\n          logo: metafield(namespace: "custom", key: "logo") {\n            reference {\n              ... on MediaImage {\n                image {\n                  url\n                  altText\n                  width\n                  height\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n': {
+    return: WorkFeaturedProjectsQuery;
+    variables: WorkFeaturedProjectsQueryVariables;
   };
   '#graphql\n  fragment Policy on ShopPolicy {\n    body\n    handle\n    id\n    title\n    url\n  }\n  query Policy(\n    $country: CountryCode\n    $language: LanguageCode\n    $privacyPolicy: Boolean!\n    $refundPolicy: Boolean!\n    $shippingPolicy: Boolean!\n    $termsOfService: Boolean!\n  ) @inContext(language: $language, country: $country) {\n    shop {\n      privacyPolicy @include(if: $privacyPolicy) {\n        ...Policy\n      }\n      shippingPolicy @include(if: $shippingPolicy) {\n        ...Policy\n      }\n      termsOfService @include(if: $termsOfService) {\n        ...Policy\n      }\n      refundPolicy @include(if: $refundPolicy) {\n        ...Policy\n      }\n    }\n  }\n': {
     return: PolicyQuery;
