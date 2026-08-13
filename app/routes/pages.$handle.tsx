@@ -1,5 +1,6 @@
 import workHeroStyles from '~/styles/work-hero.css?url';
 import workResultsStyles from '~/styles/work-results.css?url';
+import workFeaturedProjectsStyles from '~/styles/work-featured-projects.css?url';
 import {
   useLoaderData,
 } from 'react-router';
@@ -18,6 +19,10 @@ export const links: Route.LinksFunction = () => [
   {
     rel: 'stylesheet',
     href: workResultsStyles,
+  },
+    {
+    rel: 'stylesheet',
+    href: workFeaturedProjectsStyles,
   },
 ];
 export async function loader(args: Route.LoaderArgs) {

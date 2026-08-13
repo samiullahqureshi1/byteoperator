@@ -1,5 +1,6 @@
 import {WorkHero} from './work/WorkHero';
 import {WorkResults} from './work/WorkResults';
+import {WorkFeaturedProjects} from './work/WorkFeaturedProjects';
 
 interface WorkPageProps {
   page: {
@@ -52,8 +53,7 @@ export function WorkPage({page}: WorkPageProps) {
   logos={WORK_HERO_LOGOS}
 />
       <WorkResults />
-
-      {/* Next sections yahan add hongi */}
+      <WorkFeaturedProjects />
     </main>
   );
 }
