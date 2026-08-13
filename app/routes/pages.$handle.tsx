@@ -13,6 +13,7 @@ import {
 import type {Route} from './+types/pages.$handle';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {WorkPage} from '~/components/WorkPage';
+import homeExpertsStyles from '~/styles/home-experts.css?url';
 
 export const meta: Route.MetaFunction = ({data}) => {
   return [{title: `Hydrogen | ${data?.page.title ?? ''}`}];
@@ -50,6 +51,10 @@ export const links: Route.LinksFunction = () => [
     rel: 'stylesheet',
     href: workTestimonialStyles,
   },
+  {
+  rel: 'stylesheet',
+  href: homeExpertsStyles,
+},
 ];
 export async function loader(args: Route.LoaderArgs) {
   // Start fetching non-critical data without blocking time to first byte

@@ -773,3 +773,6 @@
 .ft-work-people > section {
   background: var(--ft-dark-deep, #01151b);
 }
+.ft-work-experts > section {
+  background: var(--ft-dark-deep, #01151b);
+}

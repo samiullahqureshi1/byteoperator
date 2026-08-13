@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {WorkHero} from './work/WorkHero';
 import {WorkResults} from './work/WorkResults';
 import {HomePeople} from './HomePeople';
+import {HomeExperts} from './HomeExperts';
 import {
   WorkFeaturedProjects,
   type WorkFeaturedArticle,
@@ -96,6 +97,9 @@ export function WorkPage({
   <HomePeople />
 </div>
           <WorkTestimonial />
+          <div className="ft-work-experts">
+  <HomeExperts />
+</div>
         </>
       ) : null}
     </main>
