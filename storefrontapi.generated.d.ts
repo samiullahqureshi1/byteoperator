@@ -1384,6 +1384,457 @@ export type PredictiveSearchQuery = {
   }>;
 };
 
+export type CaseStudyImageFragment = Pick<
+  StorefrontAPI.Image,
+  'url' | 'altText' | 'width' | 'height'
+>;
+
+type CaseStudyMediaReference_Lc9p2qAkfOql545OMxgpSyumgqz6lEgbbAqn276jlNs_Fragment =
+  {};
+
+type CaseStudyMediaReference_GenericFile_Fragment = Pick<
+  StorefrontAPI.GenericFile,
+  'alt' | 'mimeType' | 'url'
+> & {
+  previewImage?: StorefrontAPI.Maybe<
+    Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+  >;
+};
+
+type CaseStudyMediaReference_MediaImage_Fragment = {
+  image?: StorefrontAPI.Maybe<
+    Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+  >;
+};
+
+type CaseStudyMediaReference_Video_Fragment = Pick<
+  StorefrontAPI.Video,
+  'alt'
+> & {
+  previewImage?: StorefrontAPI.Maybe<
+    Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+  >;
+  sources: Array<Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>>;
+};
+
+export type CaseStudyMediaReferenceFragment =
+  | CaseStudyMediaReference_Lc9p2qAkfOql545OMxgpSyumgqz6lEgbbAqn276jlNs_Fragment
+  | CaseStudyMediaReference_GenericFile_Fragment
+  | CaseStudyMediaReference_MediaImage_Fragment
+  | CaseStudyMediaReference_Video_Fragment;
+
+export type CaseStudyArticleFragment = Pick<
+  StorefrontAPI.Article,
+  | 'id'
+  | 'title'
+  | 'handle'
+  | 'tags'
+  | 'excerpt'
+  | 'excerptHtml'
+  | 'contentHtml'
+  | 'publishedAt'
+> & {
+  image?: StorefrontAPI.Maybe<
+    Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+  >;
+  seo?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Seo, 'title' | 'description'>>;
+  services?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+  platform?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+  caseStudyTitle?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+  caseStudySubheading?: StorefrontAPI.Maybe<
+    Pick<StorefrontAPI.Metafield, 'value'>
+  >;
+  caseStudyBlogDetails?: StorefrontAPI.Maybe<{
+    reference?: StorefrontAPI.Maybe<{
+      fields: Array<
+        Pick<StorefrontAPI.MetaobjectField, 'key' | 'type' | 'value'> & {
+          reference?: StorefrontAPI.Maybe<
+            | (Pick<StorefrontAPI.GenericFile, 'alt' | 'mimeType' | 'url'> & {
+                previewImage?: StorefrontAPI.Maybe<
+                  Pick<
+                    StorefrontAPI.Image,
+                    'url' | 'altText' | 'width' | 'height'
+                  >
+                >;
+              })
+            | {
+                image?: StorefrontAPI.Maybe<
+                  Pick<
+                    StorefrontAPI.Image,
+                    'url' | 'altText' | 'width' | 'height'
+                  >
+                >;
+              }
+            | (Pick<StorefrontAPI.Video, 'alt'> & {
+                previewImage?: StorefrontAPI.Maybe<
+                  Pick<
+                    StorefrontAPI.Image,
+                    'url' | 'altText' | 'width' | 'height'
+                  >
+                >;
+                sources: Array<
+                  Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>
+                >;
+              })
+          >;
+          references?: StorefrontAPI.Maybe<{
+            nodes: Array<
+              | (Pick<StorefrontAPI.GenericFile, 'alt' | 'mimeType' | 'url'> & {
+                  previewImage?: StorefrontAPI.Maybe<
+                    Pick<
+                      StorefrontAPI.Image,
+                      'url' | 'altText' | 'width' | 'height'
+                    >
+                  >;
+                })
+              | {
+                  image?: StorefrontAPI.Maybe<
+                    Pick<
+                      StorefrontAPI.Image,
+                      'url' | 'altText' | 'width' | 'height'
+                    >
+                  >;
+                }
+              | (Pick<StorefrontAPI.Video, 'alt'> & {
+                  previewImage?: StorefrontAPI.Maybe<
+                    Pick<
+                      StorefrontAPI.Image,
+                      'url' | 'altText' | 'width' | 'height'
+                    >
+                  >;
+                  sources: Array<
+                    Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>
+                  >;
+                })
+            >;
+          }>;
+        }
+      >;
+    }>;
+  }>;
+};
+
+export type CaseStudyDetailQueryVariables = StorefrontAPI.Exact<{
+  articleHandle: StorefrontAPI.Scalars['String']['input'];
+  language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
+  country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
+}>;
+
+export type CaseStudyDetailQuery = {
+  featured?: StorefrontAPI.Maybe<{
+    articleByHandle?: StorefrontAPI.Maybe<
+      Pick<
+        StorefrontAPI.Article,
+        | 'id'
+        | 'title'
+        | 'handle'
+        | 'tags'
+        | 'excerpt'
+        | 'excerptHtml'
+        | 'contentHtml'
+        | 'publishedAt'
+      > & {
+        image?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+        >;
+        seo?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Seo, 'title' | 'description'>
+        >;
+        services?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+        platform?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+        caseStudyTitle?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Metafield, 'value'>
+        >;
+        caseStudySubheading?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Metafield, 'value'>
+        >;
+        caseStudyBlogDetails?: StorefrontAPI.Maybe<{
+          reference?: StorefrontAPI.Maybe<{
+            fields: Array<
+              Pick<StorefrontAPI.MetaobjectField, 'key' | 'type' | 'value'> & {
+                reference?: StorefrontAPI.Maybe<
+                  | (Pick<
+                      StorefrontAPI.GenericFile,
+                      'alt' | 'mimeType' | 'url'
+                    > & {
+                      previewImage?: StorefrontAPI.Maybe<
+                        Pick<
+                          StorefrontAPI.Image,
+                          'url' | 'altText' | 'width' | 'height'
+                        >
+                      >;
+                    })
+                  | {
+                      image?: StorefrontAPI.Maybe<
+                        Pick<
+                          StorefrontAPI.Image,
+                          'url' | 'altText' | 'width' | 'height'
+                        >
+                      >;
+                    }
+                  | (Pick<StorefrontAPI.Video, 'alt'> & {
+                      previewImage?: StorefrontAPI.Maybe<
+                        Pick<
+                          StorefrontAPI.Image,
+                          'url' | 'altText' | 'width' | 'height'
+                        >
+                      >;
+                      sources: Array<
+                        Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>
+                      >;
+                    })
+                >;
+                references?: StorefrontAPI.Maybe<{
+                  nodes: Array<
+                    | (Pick<
+                        StorefrontAPI.GenericFile,
+                        'alt' | 'mimeType' | 'url'
+                      > & {
+                        previewImage?: StorefrontAPI.Maybe<
+                          Pick<
+                            StorefrontAPI.Image,
+                            'url' | 'altText' | 'width' | 'height'
+                          >
+                        >;
+                      })
+                    | {
+                        image?: StorefrontAPI.Maybe<
+                          Pick<
+                            StorefrontAPI.Image,
+                            'url' | 'altText' | 'width' | 'height'
+                          >
+                        >;
+                      }
+                    | (Pick<StorefrontAPI.Video, 'alt'> & {
+                        previewImage?: StorefrontAPI.Maybe<
+                          Pick<
+                            StorefrontAPI.Image,
+                            'url' | 'altText' | 'width' | 'height'
+                          >
+                        >;
+                        sources: Array<
+                          Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>
+                        >;
+                      })
+                  >;
+                }>;
+              }
+            >;
+          }>;
+        }>;
+      }
+    >;
+  }>;
+  topCaseStudies?: StorefrontAPI.Maybe<{
+    articleByHandle?: StorefrontAPI.Maybe<
+      Pick<
+        StorefrontAPI.Article,
+        | 'id'
+        | 'title'
+        | 'handle'
+        | 'tags'
+        | 'excerpt'
+        | 'excerptHtml'
+        | 'contentHtml'
+        | 'publishedAt'
+      > & {
+        image?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+        >;
+        seo?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Seo, 'title' | 'description'>
+        >;
+        services?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+        platform?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+        caseStudyTitle?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Metafield, 'value'>
+        >;
+        caseStudySubheading?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Metafield, 'value'>
+        >;
+        caseStudyBlogDetails?: StorefrontAPI.Maybe<{
+          reference?: StorefrontAPI.Maybe<{
+            fields: Array<
+              Pick<StorefrontAPI.MetaobjectField, 'key' | 'type' | 'value'> & {
+                reference?: StorefrontAPI.Maybe<
+                  | (Pick<
+                      StorefrontAPI.GenericFile,
+                      'alt' | 'mimeType' | 'url'
+                    > & {
+                      previewImage?: StorefrontAPI.Maybe<
+                        Pick<
+                          StorefrontAPI.Image,
+                          'url' | 'altText' | 'width' | 'height'
+                        >
+                      >;
+                    })
+                  | {
+                      image?: StorefrontAPI.Maybe<
+                        Pick<
+                          StorefrontAPI.Image,
+                          'url' | 'altText' | 'width' | 'height'
+                        >
+                      >;
+                    }
+                  | (Pick<StorefrontAPI.Video, 'alt'> & {
+                      previewImage?: StorefrontAPI.Maybe<
+                        Pick<
+                          StorefrontAPI.Image,
+                          'url' | 'altText' | 'width' | 'height'
+                        >
+                      >;
+                      sources: Array<
+                        Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>
+                      >;
+                    })
+                >;
+                references?: StorefrontAPI.Maybe<{
+                  nodes: Array<
+                    | (Pick<
+                        StorefrontAPI.GenericFile,
+                        'alt' | 'mimeType' | 'url'
+                      > & {
+                        previewImage?: StorefrontAPI.Maybe<
+                          Pick<
+                            StorefrontAPI.Image,
+                            'url' | 'altText' | 'width' | 'height'
+                          >
+                        >;
+                      })
+                    | {
+                        image?: StorefrontAPI.Maybe<
+                          Pick<
+                            StorefrontAPI.Image,
+                            'url' | 'altText' | 'width' | 'height'
+                          >
+                        >;
+                      }
+                    | (Pick<StorefrontAPI.Video, 'alt'> & {
+                        previewImage?: StorefrontAPI.Maybe<
+                          Pick<
+                            StorefrontAPI.Image,
+                            'url' | 'altText' | 'width' | 'height'
+                          >
+                        >;
+                        sources: Array<
+                          Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>
+                        >;
+                      })
+                  >;
+                }>;
+              }
+            >;
+          }>;
+        }>;
+      }
+    >;
+  }>;
+  caseStudies?: StorefrontAPI.Maybe<{
+    articleByHandle?: StorefrontAPI.Maybe<
+      Pick<
+        StorefrontAPI.Article,
+        | 'id'
+        | 'title'
+        | 'handle'
+        | 'tags'
+        | 'excerpt'
+        | 'excerptHtml'
+        | 'contentHtml'
+        | 'publishedAt'
+      > & {
+        image?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+        >;
+        seo?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Seo, 'title' | 'description'>
+        >;
+        services?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+        platform?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Metafield, 'value'>>;
+        caseStudyTitle?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Metafield, 'value'>
+        >;
+        caseStudySubheading?: StorefrontAPI.Maybe<
+          Pick<StorefrontAPI.Metafield, 'value'>
+        >;
+        caseStudyBlogDetails?: StorefrontAPI.Maybe<{
+          reference?: StorefrontAPI.Maybe<{
+            fields: Array<
+              Pick<StorefrontAPI.MetaobjectField, 'key' | 'type' | 'value'> & {
+                reference?: StorefrontAPI.Maybe<
+                  | (Pick<
+                      StorefrontAPI.GenericFile,
+                      'alt' | 'mimeType' | 'url'
+                    > & {
+                      previewImage?: StorefrontAPI.Maybe<
+                        Pick<
+                          StorefrontAPI.Image,
+                          'url' | 'altText' | 'width' | 'height'
+                        >
+                      >;
+                    })
+                  | {
+                      image?: StorefrontAPI.Maybe<
+                        Pick<
+                          StorefrontAPI.Image,
+                          'url' | 'altText' | 'width' | 'height'
+                        >
+                      >;
+                    }
+                  | (Pick<StorefrontAPI.Video, 'alt'> & {
+                      previewImage?: StorefrontAPI.Maybe<
+                        Pick<
+                          StorefrontAPI.Image,
+                          'url' | 'altText' | 'width' | 'height'
+                        >
+                      >;
+                      sources: Array<
+                        Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>
+                      >;
+                    })
+                >;
+                references?: StorefrontAPI.Maybe<{
+                  nodes: Array<
+                    | (Pick<
+                        StorefrontAPI.GenericFile,
+                        'alt' | 'mimeType' | 'url'
+                      > & {
+                        previewImage?: StorefrontAPI.Maybe<
+                          Pick<
+                            StorefrontAPI.Image,
+                            'url' | 'altText' | 'width' | 'height'
+                          >
+                        >;
+                      })
+                    | {
+                        image?: StorefrontAPI.Maybe<
+                          Pick<
+                            StorefrontAPI.Image,
+                            'url' | 'altText' | 'width' | 'height'
+                          >
+                        >;
+                      }
+                    | (Pick<StorefrontAPI.Video, 'alt'> & {
+                        previewImage?: StorefrontAPI.Maybe<
+                          Pick<
+                            StorefrontAPI.Image,
+                            'url' | 'altText' | 'width' | 'height'
+                          >
+                        >;
+                        sources: Array<
+                          Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>
+                        >;
+                      })
+                  >;
+                }>;
+              }
+            >;
+          }>;
+        }>;
+      }
+    >;
+  }>;
+};
+
 interface GeneratedQueryTypes {
   '#graphql\n  fragment Shop on Shop {\n    id\n    name\n    description\n    primaryDomain {\n      url\n    }\n    brand {\n      logo {\n        image {\n          url\n        }\n      }\n    }\n  }\n  query Header(\n    $country: CountryCode\n    $headerMenuHandle: String!\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    shop {\n      ...Shop\n    }\n    menu(handle: $headerMenuHandle) {\n      ...Menu\n    }\n  }\n  #graphql\n  fragment MenuItem on MenuItem {\n    id\n    resourceId\n    tags\n    title\n    type\n    url\n  }\n  fragment ChildMenuItem on MenuItem {\n    ...MenuItem\n  }\n  fragment ParentMenuItem on MenuItem {\n    ...MenuItem\n    items {\n      ...ChildMenuItem\n    }\n  }\n  fragment Menu on Menu {\n    id\n    items {\n      ...ParentMenuItem\n    }\n  }\n\n': {
     return: HeaderQuery;
@@ -1464,6 +1915,10 @@ interface GeneratedQueryTypes {
   '#graphql\n  query PredictiveSearch(\n    $country: CountryCode\n    $language: LanguageCode\n    $limit: Int!\n    $limitScope: PredictiveSearchLimitScope!\n    $term: String!\n    $types: [PredictiveSearchType!]\n  ) @inContext(country: $country, language: $language) {\n    predictiveSearch(\n      limit: $limit,\n      limitScope: $limitScope,\n      query: $term,\n      types: $types,\n    ) {\n      articles {\n        ...PredictiveArticle\n      }\n      collections {\n        ...PredictiveCollection\n      }\n      pages {\n        ...PredictivePage\n      }\n      products {\n        ...PredictiveProduct\n      }\n      queries {\n        ...PredictiveQuery\n      }\n    }\n  }\n  #graphql\n  fragment PredictiveArticle on Article {\n    __typename\n    id\n    title\n    handle\n    blog {\n      handle\n    }\n    image {\n      url\n      altText\n      width\n      height\n    }\n    trackingParameters\n  }\n\n  #graphql\n  fragment PredictiveCollection on Collection {\n    __typename\n    id\n    title\n    handle\n    image {\n      url\n      altText\n      width\n      height\n    }\n    trackingParameters\n  }\n\n  #graphql\n  fragment PredictivePage on Page {\n    __typename\n    id\n    title\n    handle\n    trackingParameters\n  }\n\n  #graphql\n  fragment PredictiveProduct on Product {\n    __typename\n    id\n    title\n    handle\n    trackingParameters\n    selectedOrFirstAvailableVariant(\n      selectedOptions: []\n      ignoreUnknownOptions: true\n      caseInsensitiveMatch: true\n    ) {\n      id\n      image {\n        url\n        altText\n        width\n        height\n      }\n      price {\n        amount\n        currencyCode\n      }\n    }\n  }\n\n  #graphql\n  fragment PredictiveQuery on SearchQuerySuggestion {\n    __typename\n    text\n    styledText\n    trackingParameters\n  }\n\n': {
     return: PredictiveSearchQuery;
     variables: PredictiveSearchQueryVariables;
+  };
+  '#graphql\n  fragment CaseStudyImage on Image {\n    url\n    altText\n    width\n    height\n  }\n\n  fragment CaseStudyMediaReference on MetafieldReference {\n    ... on MediaImage {\n      image {\n        ...CaseStudyImage\n      }\n    }\n    ... on Video {\n      alt\n      previewImage {\n        ...CaseStudyImage\n      }\n      sources {\n        url\n        mimeType\n      }\n    }\n    ... on GenericFile {\n      alt\n      mimeType\n      url\n      previewImage {\n        ...CaseStudyImage\n      }\n    }\n  }\n\n  fragment CaseStudyArticle on Article {\n    id\n    title\n    handle\n    tags\n    image {\n      ...CaseStudyImage\n    }\n    excerpt\n    excerptHtml\n    contentHtml\n    publishedAt\n    seo {\n      title\n      description\n    }\n    services: metafield(namespace: "custom", key: "services") {\n      value\n    }\n    platform: metafield(namespace: "custom", key: "platform") {\n      value\n    }\n    caseStudyTitle: metafield(namespace: "custom", key: "case_study_title") {\n      value\n    }\n    caseStudySubheading: metafield(\n      namespace: "custom"\n      key: "case_study_subheading"\n    ) {\n      value\n    }\n    caseStudyBlogDetails: metafield(\n      namespace: "custom"\n      key: "case_study_blog_post"\n    ) {\n      reference {\n        ... on Metaobject {\n          fields {\n            key\n            type\n            value\n            reference {\n              ...CaseStudyMediaReference\n            }\n            references(first: 20) {\n              nodes {\n                ...CaseStudyMediaReference\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n\n  query CaseStudyDetail(\n    $articleHandle: String!\n    $language: LanguageCode\n    $country: CountryCode\n  ) @inContext(language: $language, country: $country) {\n    featured: blog(handle: "featured") {\n      articleByHandle(handle: $articleHandle) {\n        ...CaseStudyArticle\n      }\n    }\n    topCaseStudies: blog(handle: "top-case-studies") {\n      articleByHandle(handle: $articleHandle) {\n        ...CaseStudyArticle\n      }\n    }\n    caseStudies: blog(handle: "case-studies") {\n      articleByHandle(handle: $articleHandle) {\n        ...CaseStudyArticle\n      }\n    }\n  }\n': {
+    return: CaseStudyDetailQuery;
+    variables: CaseStudyDetailQueryVariables;
   };
 }
 
