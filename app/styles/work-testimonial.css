@@ -102,6 +102,33 @@
   overflow-wrap: anywhere;
 }
 
+.ft-work-testimonial__action {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0;
+  gap: 0.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--ft-white, #ffffff);
+  font-family: 'Season Serif', serif;
+  font-size: 1rem;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.ft-work-testimonial__action svg {
+  display: block;
+  flex: 0 0 1rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.ft-work-testimonial__action:focus-visible {
+  outline: 0.125rem solid var(--ft-teal-light, #afdddc);
+  outline-offset: 0.25rem;
+}
+
 /* =========================================================
    TABLET
 ========================================================= */
@@ -144,7 +171,7 @@
   }
 
   .ft-work-testimonial__inner {
-  height: 68vh;
+  height: 70vh;
   min-height: 30rem;
   max-height: 44rem;
   border-radius: 1.75rem;

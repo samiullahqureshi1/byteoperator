@@ -1,0 +1,25 @@
+.ft-services-people > section {
+  background: var(--ft-dark-deep, #01151b);
+}
+
+.ft-services-features .ft-home-feature--dark {
+  background: var(--ft-dark-deep, #01151b);
+}
+.ft-services-partners > section {
+  background: var(--ft-dark-deep, #01151b);
+}
+
+.ft-services-case-study {
+  width: 100%;
+  overflow: hidden;
+  background: var(--ft-off-white, #fbfcfc);
+}
+.ft-services-experts > section {
+  background: var(--ft-dark-deep, #01151b);
+}
+@media (min-width: 64rem) {
+  .ft-services-case-study .ft-work-testimonial {
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+}

@@ -6,6 +6,7 @@ import workTeamCtaStyles from '~/styles/work-team-cta.css?url';
 import workCaseStudiesStyles from '~/styles/work-case-studies.css?url';
 import workTestimonialStyles from '~/styles/work-testimonial.css?url';
 import type {WorkCaseStudiesQuery} from 'storefrontapi.generated';
+import homeFeatureStyles from '~/styles/home-feature.css?url';
 import homePeopleStyles from '~/styles/home-people.css?url';
 import servicesDirectoryStyles from '~/styles/services-directory.css?url';
 import servicesWideImageStyles from '~/styles/services-wide-image.css?url';
@@ -18,6 +19,8 @@ import type {Route} from './+types/pages.$handle';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {WorkPage} from '~/components/WorkPage';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
+import servicesPageStyles from '~/styles/services-page.css?url';
+import homePartnersStyles from '~/styles/home-partners.css?url';
 
 export const meta: Route.MetaFunction = ({data}) => {
   return [{title: `Hydrogen | ${data?.page.title ?? ''}`}];
@@ -48,6 +51,10 @@ export const links: Route.LinksFunction = () => [
     href: workCaseStudiesStyles,
   },
   {
+    rel: 'stylesheet',
+    href: homeFeatureStyles,
+  },
+  {
   rel: 'stylesheet',
   href: homePeopleStyles,
 },
@@ -70,6 +77,14 @@ export const links: Route.LinksFunction = () => [
 {
   rel: 'stylesheet',
   href: servicesDirectoryStyles,
+},
+{
+  rel: 'stylesheet',
+  href: servicesPageStyles,
+},
+{
+  rel: 'stylesheet',
+  href: homePartnersStyles,
 },
 ];
 export async function loader(args: Route.LoaderArgs) {

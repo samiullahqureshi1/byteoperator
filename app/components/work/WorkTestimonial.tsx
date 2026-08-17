@@ -6,7 +6,23 @@ const TESTIMONIAL = {
   alt: 'FoldTech client testimonial',
 };
 
-export function WorkTestimonial() {
+interface WorkTestimonialProps {
+  image?: string;
+  alt?: string;
+  heading?: string;
+  meta?: string;
+  actionLabel?: string;
+  onAction?: () => void;
+}
+
+export function WorkTestimonial({
+  image = TESTIMONIAL.image,
+  alt = TESTIMONIAL.alt,
+  heading = TESTIMONIAL.quote,
+  meta = TESTIMONIAL.author,
+  actionLabel,
+  onAction,
+}: WorkTestimonialProps = {}) {
   return (
     <section
       className="ft-work-testimonial"
@@ -16,8 +32,8 @@ export function WorkTestimonial() {
         <figure className="ft-work-testimonial__inner">
           <img
             className="ft-work-testimonial__bg"
-            src={TESTIMONIAL.image}
-            alt={TESTIMONIAL.alt}
+            src={image}
+            alt={alt}
             loading="lazy"
             decoding="async"
           />
@@ -29,13 +45,33 @@ export function WorkTestimonial() {
               className="ft-work-testimonial__quote"
               id="ft-work-testimonial-quote"
             >
-              {TESTIMONIAL.quote}
+              {heading}
             </h3>
 
-            <p className="ft-work-testimonial__author">{TESTIMONIAL.author}</p>
+            <p className="ft-work-testimonial__author">{meta}</p>
+
+            {actionLabel && onAction ? (
+              <button
+                className="ft-work-testimonial__action"
+                type="button"
+                onClick={onAction}
+              >
+                <PlayIcon />
+                <span>{actionLabel}</span>
+              </button>
+            ) : null}
           </figcaption>
         </figure>
       </div>
     </section>
+  );
+}
+
+function PlayIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="7.5" stroke="currentColor" />
+      <path d="M6.5 5.5L10.5 8L6.5 10.5V5.5Z" fill="currentColor" />
+    </svg>
   );
 }

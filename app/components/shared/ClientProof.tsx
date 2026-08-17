@@ -1,5 +1,5 @@
-import {useEffect, useState, type ReactNode} from 'react';
-import {createPortal} from 'react-dom';
+import {useCallback, useState, type ReactNode} from 'react';
+import {VideoModal} from './VideoModal';
 
 export type ClientProofTestimonial = {
   quote: string;
@@ -26,70 +26,7 @@ export function ClientProof({
   triggerLabel,
 }: ClientProofProps) {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-
-  useEffect(() => {
-    if (!isVideoOpen) return;
-
-    const previousOverflow = document.body.style.overflow;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsVideoOpen(false);
-      }
-    };
-
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isVideoOpen]);
-
-  const videoModal =
-    testimonial &&
-    isVideoOpen &&
-    typeof document !== 'undefined'
-      ? createPortal(
-          <div
-            className="ft-video-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-label={`${testimonial.person} testimonial video`}
-            onMouseDown={(event) => {
-              if (event.target === event.currentTarget) {
-                setIsVideoOpen(false);
-              }
-            }}
-          >
-            <div className="ft-video-modal__content">
-              <button
-                type="button"
-                className="ft-video-modal__close"
-                onClick={() => setIsVideoOpen(false)}
-                aria-label="Close video"
-              >
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M5 5L19 19M19 5L5 19"
-                    stroke="currentColor"
-                  />
-                </svg>
-              </button>
-
-              <video
-                className="ft-video-modal__video"
-                src={testimonial.video}
-                controls
-                autoPlay
-                playsInline
-              />
-            </div>
-          </div>,
-          document.body,
-        )
-      : null;
+  const closeVideo = useCallback(() => setIsVideoOpen(false), []);
 
   return (
     <>
@@ -149,7 +86,14 @@ export function ClientProof({
         ) : null}
       </div>
 
-      {videoModal}
+      {testimonial ? (
+        <VideoModal
+          open={isVideoOpen}
+          src={testimonial.video}
+          ariaLabel={`${testimonial.person} testimonial video`}
+          onClose={closeVideo}
+        />
+      ) : null}
     </>
   );
 }
