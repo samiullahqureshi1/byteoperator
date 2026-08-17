@@ -1,4 +1,6 @@
+import {ServicesDirectory} from './services/ServicesDirectory';
 import {ServicesHero} from './services/ServicesHero';
+import {ServicesWideImage} from './services/ServicesWideImage';
 
 interface ServicesPageProps {
   page: {
@@ -24,6 +26,8 @@ export function ServicesPage({
       data-page-handle={page.handle}
     >
       <ServicesHero descriptionHtml={heroDescription} />
+      <ServicesWideImage />
+      <ServicesDirectory />
     </main>
   );
 }

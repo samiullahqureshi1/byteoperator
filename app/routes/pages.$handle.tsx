@@ -7,6 +7,8 @@ import workCaseStudiesStyles from '~/styles/work-case-studies.css?url';
 import workTestimonialStyles from '~/styles/work-testimonial.css?url';
 import type {WorkCaseStudiesQuery} from 'storefrontapi.generated';
 import homePeopleStyles from '~/styles/home-people.css?url';
+import servicesDirectoryStyles from '~/styles/services-directory.css?url';
+import servicesWideImageStyles from '~/styles/services-wide-image.css?url';
 import {ServicesPage} from '~/components/ServicesPage';
 import servicesHeroStyles from '~/styles/services-hero.css?url';
 import {
@@ -60,6 +62,14 @@ export const links: Route.LinksFunction = () => [
 {
   rel: 'stylesheet',
   href: servicesHeroStyles,
+},
+{
+  rel: 'stylesheet',
+  href: servicesWideImageStyles,
+},
+{
+  rel: 'stylesheet',
+  href: servicesDirectoryStyles,
 },
 ];
 export async function loader(args: Route.LoaderArgs) {
