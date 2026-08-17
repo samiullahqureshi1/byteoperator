@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, type ReactNode} from 'react';
 import {createPortal} from 'react-dom';
 
 export type ClientProofTestimonial = {
@@ -17,11 +17,13 @@ export type ClientProofLogo = {
 interface ClientProofProps {
   testimonial?: ClientProofTestimonial;
   logos?: ClientProofLogo[];
+  triggerLabel?: ReactNode;
 }
 
 export function ClientProof({
   testimonial,
   logos = [],
+  triggerLabel,
 }: ClientProofProps) {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
@@ -112,7 +114,8 @@ export function ClientProof({
 
               <span>
                 <PlayIcon />
-                Hear from {testimonial.person} - {testimonial.company}
+                {triggerLabel ??
+                  `Hear from ${testimonial.person} - ${testimonial.company}`}
               </span>
             </div>
           </button>

@@ -285,58 +285,43 @@ export function Footer({
                         </li>
                       ))}
                     </ul>
+
+                    {key === 'contact' ? (
+                      <div className="ft-footer__socials ft-footer__socials--nav">
+                        <span
+                          className="ft-footer__social"
+                          aria-label="Instagram"
+                          role="img"
+                        >
+                          <InstagramIcon />
+                        </span>
+
+                        <span
+                          className="ft-footer__social"
+                          aria-label="LinkedIn"
+                          role="img"
+                        >
+                          <LinkedInIcon />
+                        </span>
+
+                        <span
+                          className="ft-footer__social"
+                          aria-label="TikTok"
+                          role="img"
+                        >
+                          <TikTokIcon />
+                        </span>
+
+                        <span
+                          className="ft-footer__social"
+                          aria-label="YouTube"
+                          role="img"
+                        >
+                          <YouTubeIcon />
+                        </span>
+                      </div>
+                    ) : null}
                   </div>
-                  <div className="ft-footer__nav-body-inner">
-  <ul className="ft-footer__nav-list">
-    {group.links.map((link) => (
-      <li key={`${key}-${link.label}`}>
-        <NavLink
-          className="ft-footer__nav-link"
-          to={link.to}
-          prefetch="intent"
-        >
-          {link.label}
-        </NavLink>
-      </li>
-    ))}
-  </ul>
-
-  {key === 'contact' ? (
-    <div className="ft-footer__socials ft-footer__socials--nav">
-      <span
-        className="ft-footer__social"
-        aria-label="Instagram"
-        role="img"
-      >
-        <InstagramIcon />
-      </span>
-
-      <span
-        className="ft-footer__social"
-        aria-label="LinkedIn"
-        role="img"
-      >
-        <LinkedInIcon />
-      </span>
-
-      <span
-        className="ft-footer__social"
-        aria-label="TikTok"
-        role="img"
-      >
-        <TikTokIcon />
-      </span>
-
-      <span
-        className="ft-footer__social"
-        aria-label="YouTube"
-        role="img"
-      >
-        <YouTubeIcon />
-      </span>
-    </div>
-  ) : null}
-</div>
                 </div>
               </div>
             );
@@ -563,7 +548,12 @@ function PlusIcon() {
       aria-hidden="true"
     >
       <path
-        d="M6 0V12M12 6H0"
+        className="ft-footer__plus-vertical"
+        d="M6 0V12"
+        stroke="currentColor"
+      />
+      <path
+        d="M12 6H0"
         stroke="currentColor"
       />
     </svg>

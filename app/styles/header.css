@@ -1820,6 +1820,15 @@
   }
 
 
+  .ft-mobile-submenu__title-link {
+    position: relative;
+
+    color: inherit;
+
+    text-decoration: none;
+  }
+
+
   .ft-mobile-submenu__badge {
     position: absolute;
 

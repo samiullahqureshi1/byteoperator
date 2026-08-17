@@ -616,6 +616,20 @@ function MobileHeaderMenu({
   const [view, setView] =
     useState<MobileMenuView>('main');
 
+  const servicesPageItem = menuItems.find(
+    (item) =>
+      item.url &&
+      item.title.trim().toLowerCase() === 'services',
+  );
+
+  const servicesPageUrl = servicesPageItem?.url
+    ? normalizeMenuUrl(
+        servicesPageItem.url,
+        primaryDomainUrl,
+        publicStoreDomain,
+      )
+    : '/pages/services';
+
   const closeMenu = () => {
     setView('main');
     close();
@@ -778,14 +792,25 @@ function MobileHeaderMenu({
                 </button>
 
                 <h2>
-                  Services
-
-                  <span
-                    className="ft-mobile-submenu__badge"
-                    aria-hidden="true"
+                  <NavLink
+                    className="ft-mobile-submenu__title-link"
+                    to={servicesPageUrl}
+                    prefetch={
+                      servicesPageUrl.startsWith('/')
+                        ? 'intent'
+                        : 'none'
+                    }
+                    onClick={closeMenu}
                   >
-                    {SERVICES_BADGE_COUNT}
-                  </span>
+                    Services
+
+                    <span
+                      className="ft-mobile-submenu__badge"
+                      aria-hidden="true"
+                    >
+                      {SERVICES_BADGE_COUNT}
+                    </span>
+                  </NavLink>
                 </h2>
               </div>
 
