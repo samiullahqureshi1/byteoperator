@@ -1,11 +1,12 @@
 import {useCallback, useState} from 'react';
 import {SERVICES_FEATURES} from '~/data/servicesFeatures';
 import {WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
+import {SERVICES_LANDING_HERO} from '~/data/servicePages';
 import {HomeFeature} from './HomeFeature';
 import {HomePeople} from './HomePeople';
 import {VideoModal} from './shared/VideoModal';
 import {ServicesDirectory} from './services/ServicesDirectory';
-import {ServicesHero} from './services/ServicesHero';
+import {ServiceHero} from './services/ServiceHero';
 import {ServicesWideImage} from './services/ServicesWideImage';
 import {HomePartners} from '~/components/HomePartners';
 import {WorkTestimonial} from './work/WorkTestimonial';
@@ -36,7 +37,10 @@ export function ServicesPage({
       className="ft-services-page"
       data-page-handle={page.handle}
     >
-      <ServicesHero descriptionHtml={heroDescription} />
+      <ServiceHero
+        {...SERVICES_LANDING_HERO}
+        descriptionHtml={heroDescription}
+      />
       <ServicesWideImage />
       <ServicesDirectory />
 

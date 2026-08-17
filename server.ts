@@ -1,6 +1,7 @@
 import * as serverBuild from 'virtual:react-router/server-build';
 import {createRequestHandler, storefrontRedirect} from '@shopify/hydrogen';
 import {createHydrogenRouterContext} from '~/lib/context';
+import {getCleanUrlRedirect} from '~/services/redirects.server';
 
 /**
  * Export a fetch handler in module format.
@@ -12,6 +13,12 @@ export default {
     executionContext: ExecutionContext,
   ): Promise<Response> {
     try {
+      const cleanUrlRedirect = getCleanUrlRedirect(request);
+
+      if (cleanUrlRedirect) {
+        return cleanUrlRedirect;
+      }
+
       const hydrogenContext = await createHydrogenRouterContext(
         request,
         env,

@@ -5,6 +5,7 @@ import type {
   FooterQuery,
   HeaderQuery,
 } from 'storefrontapi.generated';
+import {normalizeMenuUrl} from '~/lib/normalize-menu-url';
 
 interface FooterProps {
   footer: Promise<FooterQuery | null>;
@@ -12,129 +13,18 @@ interface FooterProps {
   publicStoreDomain: string;
 }
 
-type FooterGroupKey =
-  | 'services'
-  | 'solutions'
-  | 'company'
-  | 'contact';
-
-const FOOTER_GROUPS = {
-  services: {
-    title: 'Services',
-    links: [
-      {
-        label: 'All Services',
-        to: '/pages/services',
-      },
-      {
-        label: 'Shopify Development',
-        to: '/pages/shopify-development',
-      },
-      {
-        label: 'Shopify Migrations',
-        to: '/pages/shopify-migrations',
-      },
-      {
-        label: 'App Development',
-        to: '/pages/shopify-app-development',
-      },
-      {
-        label: 'Shopify SEO',
-        to: '/pages/shopify-seo',
-      },
-      {
-        label: 'Email & SMS Marketing',
-        to: '/pages/email-sms-marketing',
-      },
-      {
-        label: 'CRO',
-        to: '/pages/conversion-rate-optimisation',
-      },
-      {
-        label: 'Support & Maintenance',
-        to: '/pages/shopify-maintenance',
-      },
-    ],
-  },
-
-  solutions: {
-    title: 'Solutions',
-    links: [
-      {
-        label: 'Internationalisation',
-        to: '/pages/internationalisation',
-      },
-      {
-        label: 'Headless Commerce',
-        to: '/pages/headless-commerce',
-      },
-      {
-        label: 'Custom Shopify Themes',
-        to: '/pages/shopify-development',
-      },
-      {
-        label: 'Shopify App Development',
-        to: '/pages/shopify-app-development',
-      },
-      {
-        label: 'Conversion Optimisation',
-        to: '/pages/conversion-rate-optimisation',
-      },
-      {
-        label: 'Ecommerce SEO',
-        to: '/pages/shopify-seo',
-      },
-    ],
-  },
-
-  company: {
-    title: 'Company',
-    links: [
-      {
-        label: 'About Us',
-        to: '/pages/about',
-      },
-      {
-        label: 'Our Work',
-        to: '/pages/case-studies',
-      },
-      {
-        label: 'Services',
-        to: '/pages/services',
-      },
-      {
-        label: 'Contact',
-        to: '/pages/contact',
-      },
-    ],
-  },
-
-  contact: {
-    title: 'Get In Touch',
-    links: [
-      {
-        label: 'Start a Project',
-        to: '/pages/contact',
-      },
-      {
-        label: 'Talk to FoldTech',
-        to: '/pages/contact',
-      },
-    ],
-  },
-} as const;
-
 export function Footer({
   footer,
+  header,
   publicStoreDomain,
 }: FooterProps) {
   const [openGroup, setOpenGroup] =
-    useState<FooterGroupKey | null>(null);
+    useState<string | null>(null);
 
   const [newsletterMessage, setNewsletterMessage] =
     useState('');
 
-  function toggleGroup(group: FooterGroupKey) {
+  function toggleGroup(group: string) {
     setOpenGroup((current) =>
       current === group ? null : group,
     );
@@ -173,7 +63,7 @@ export function Footer({
 
             <NavLink
               className="ft-footer__primary-cta"
-              to="/pages/contact"
+              to="/contact"
               prefetch="intent"
             >
               <span>Get in touch</span>
@@ -233,100 +123,26 @@ export function Footer({
             FOOTER NAVIGATION
         ================================================= */}
 
-        <nav
-          className="ft-footer__nav"
-          aria-label="Footer"
+        <Suspense
+          fallback={
+            <nav
+              className="ft-footer__nav"
+              aria-label="Footer"
+            />
+          }
         >
-          {(
-            Object.entries(
-              FOOTER_GROUPS,
-            ) as Array<
-              [
-                FooterGroupKey,
-                (typeof FOOTER_GROUPS)[FooterGroupKey],
-              ]
-            >
-          ).map(([key, group]) => {
-            const isOpen = openGroup === key;
-
-            return (
-              <div
-                className="ft-footer__nav-group"
-                key={key}
-                data-open={isOpen ? 'true' : 'false'}
-              >
-                <button
-                  className="ft-footer__nav-title"
-                  type="button"
-                  aria-expanded={isOpen}
-                  aria-controls={`ft-footer-${key}`}
-                  onClick={() => toggleGroup(key)}
-                >
-                  <span>{group.title}</span>
-
-                  <PlusIcon />
-                </button>
-
-                <div
-                  className="ft-footer__nav-body"
-                  id={`ft-footer-${key}`}
-                >
-                  <div className="ft-footer__nav-body-inner">
-                    <ul className="ft-footer__nav-list">
-                      {group.links.map((link) => (
-                        <li key={`${key}-${link.label}`}>
-                          <NavLink
-                            className="ft-footer__nav-link"
-                            to={link.to}
-                            prefetch="intent"
-                          >
-                            {link.label}
-                          </NavLink>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {key === 'contact' ? (
-                      <div className="ft-footer__socials ft-footer__socials--nav">
-                        <span
-                          className="ft-footer__social"
-                          aria-label="Instagram"
-                          role="img"
-                        >
-                          <InstagramIcon />
-                        </span>
-
-                        <span
-                          className="ft-footer__social"
-                          aria-label="LinkedIn"
-                          role="img"
-                        >
-                          <LinkedInIcon />
-                        </span>
-
-                        <span
-                          className="ft-footer__social"
-                          aria-label="TikTok"
-                          role="img"
-                        >
-                          <TikTokIcon />
-                        </span>
-
-                        <span
-                          className="ft-footer__social"
-                          aria-label="YouTube"
-                          role="img"
-                        >
-                          <YouTubeIcon />
-                        </span>
-                      </div>
-                    ) : null}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </nav>
+          <Await resolve={footer}>
+            {(footerData) => (
+              <FooterNavigation
+                footerData={footerData}
+                primaryDomainUrl={header.shop.primaryDomain.url}
+                publicStoreDomain={publicStoreDomain}
+                openGroup={openGroup}
+                onToggleGroup={toggleGroup}
+              />
+            )}
+          </Await>
+        </Suspense>
 
         {/* =================================================
             BOTTOM BAR
@@ -354,22 +170,7 @@ export function Footer({
           </div>
 
           <div className="ft-footer__bottom-right">
-            <Suspense
-              fallback={
-                <DefaultPolicyLinks />
-              }
-            >
-              <Await resolve={footer}>
-                {(footerData) => (
-                  <PolicyLinks
-                    footerData={footerData}
-                    publicStoreDomain={
-                      publicStoreDomain
-                    }
-                  />
-                )}
-              </Await>
-            </Suspense>
+            <DefaultPolicyLinks />
             <div className="ft-footer__socials ft-footer__socials--bottom">
   <span className="ft-footer__social" aria-label="Instagram" role="img">
     <InstagramIcon />
@@ -396,71 +197,129 @@ export function Footer({
 
 
 /* =========================================================
-   SHOPIFY POLICY MENU
+   SHOPIFY FOOTER NAVIGATION
 ========================================================= */
 
-function PolicyLinks({
+function FooterNavigation({
   footerData,
+  primaryDomainUrl,
   publicStoreDomain,
+  openGroup,
+  onToggleGroup,
 }: {
   footerData: FooterQuery | null;
+  primaryDomainUrl: string;
   publicStoreDomain: string;
+  openGroup: string | null;
+  onToggleGroup: (groupId: string) => void;
 }) {
-  const items =
-    footerData?.menu?.items ?? [];
-
-  const privacy = items.find((item) =>
-    item.title
-      .toLowerCase()
-      .includes('privacy'),
-  );
-
-  const terms = items.find((item) =>
-    item.title
-      .toLowerCase()
-      .includes('terms'),
-  );
+  const groups = (footerData?.menu?.items ?? []).map((group) => ({
+    id: group.id,
+    title: group.title,
+    links: group.items.flatMap((item) =>
+      item.url
+        ? [
+            {
+              id: item.id,
+              label: item.title,
+              href: normalizeMenuUrl(
+                item.url,
+                primaryDomainUrl,
+                publicStoreDomain,
+                item.title,
+              ),
+            },
+          ]
+        : [],
+    ),
+  }));
 
   return (
-    <>
-      {privacy?.url ? (
-        <NavLink
-          className="ft-footer__bottom-link"
-          to={normalizeMenuUrl(
-            privacy.url,
-            publicStoreDomain,
-          )}
-        >
-          Privacy
-        </NavLink>
-      ) : (
-        <NavLink
-          className="ft-footer__bottom-link"
-          to="/policies/privacy-policy"
-        >
-          Privacy
-        </NavLink>
-      )}
+    <nav className="ft-footer__nav" aria-label="Footer">
+      {groups.map((group, index) => {
+        const isOpen = openGroup === group.id;
+        const panelId = `ft-footer-${group.id.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+        const showSocials = index === groups.length - 1;
 
-      {terms?.url ? (
-        <NavLink
-          className="ft-footer__bottom-link"
-          to={normalizeMenuUrl(
-            terms.url,
-            publicStoreDomain,
-          )}
-        >
-          Terms
-        </NavLink>
-      ) : (
-        <NavLink
-          className="ft-footer__bottom-link"
-          to="/policies/terms-of-service"
-        >
-          Terms
-        </NavLink>
-      )}
-    </>
+        return (
+          <div
+            className="ft-footer__nav-group"
+            key={group.id}
+            data-open={isOpen ? 'true' : 'false'}
+          >
+            <button
+              className="ft-footer__nav-title"
+              type="button"
+              aria-expanded={isOpen}
+              aria-controls={panelId}
+              onClick={() => onToggleGroup(group.id)}
+            >
+              <span>{group.title}</span>
+
+              <PlusIcon />
+            </button>
+
+            <div className="ft-footer__nav-body" id={panelId}>
+              <div className="ft-footer__nav-body-inner">
+                <ul className="ft-footer__nav-list">
+                  {group.links.map((link) => (
+                    <li key={link.id}>
+                      <NavLink
+                        className="ft-footer__nav-link"
+                        to={link.href}
+                        prefetch={
+                          link.href.startsWith('/')
+                            ? 'intent'
+                            : 'none'
+                        }
+                      >
+                        {link.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+
+                {showSocials ? (
+                  <div className="ft-footer__socials ft-footer__socials--nav">
+                    <span
+                      className="ft-footer__social"
+                      aria-label="Instagram"
+                      role="img"
+                    >
+                      <InstagramIcon />
+                    </span>
+
+                    <span
+                      className="ft-footer__social"
+                      aria-label="LinkedIn"
+                      role="img"
+                    >
+                      <LinkedInIcon />
+                    </span>
+
+                    <span
+                      className="ft-footer__social"
+                      aria-label="TikTok"
+                      role="img"
+                    >
+                      <TikTokIcon />
+                    </span>
+
+                    <span
+                      className="ft-footer__social"
+                      aria-label="YouTube"
+                      role="img"
+                    >
+                      <YouTubeIcon />
+                    </span>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </nav>
   );
 }
 
@@ -483,38 +342,6 @@ function DefaultPolicyLinks() {
       </NavLink>
     </>
   );
-}
-
-
-/* =========================================================
-   NORMALISE SHOPIFY MENU URL
-========================================================= */
-
-function normalizeMenuUrl(
-  url: string,
-  publicStoreDomain: string,
-) {
-  try {
-    const parsedUrl = new URL(url);
-
-    const storeDomain =
-      publicStoreDomain
-        .replace(/^https?:\/\//, '')
-        .replace(/\/$/, '');
-
-    if (
-      parsedUrl.host === storeDomain ||
-      parsedUrl.host.endsWith(
-        '.myshopify.com',
-      )
-    ) {
-      return `${parsedUrl.pathname}${parsedUrl.search}${parsedUrl.hash}`;
-    }
-  } catch {
-    return url;
-  }
-
-  return url;
 }
 
 

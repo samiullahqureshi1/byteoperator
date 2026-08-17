@@ -7,6 +7,8 @@ import type {
 } from 'storefrontapi.generated';
 
 import {useAside} from '~/components/Aside';
+import {normalizeMenuUrl} from '~/lib/normalize-menu-url';
+import {resolveCleanPath} from '~/lib/route-mappings';
 
 interface HeaderProps {
   header: HeaderQuery;
@@ -73,7 +75,7 @@ export function Header({
           <NavLink
             className="charle-header__cta"
             prefetch="intent"
-            to="/pages/contact"
+            to="/contact"
           >
             <span>Get in touch</span>
             <ArrowUpRightIcon />
@@ -140,6 +142,7 @@ export function HeaderMenu({
           item.url,
           primaryDomainUrl,
           publicStoreDomain,
+          item.title,
         );
 
         const normalizedTitle =
@@ -249,7 +252,7 @@ function ServicesMegaMenu() {
                   className="ft-services-mega__link"
                   key={link.title}
                   prefetch="intent"
-                  to={link.url}
+                  to={resolveCleanPath(link.url)}
                 >
                   <strong>{link.title}</strong>
 
@@ -274,7 +277,7 @@ function ServicesMegaMenu() {
                         className="ft-services-mega__link"
                         key={link.title}
                         prefetch="intent"
-                        to={link.url}
+                        to={resolveCleanPath(link.url)}
                       >
                         <strong>
                           {link.title}
@@ -307,7 +310,7 @@ function ServicesMegaMenu() {
           <NavLink
             className="ft-mega-menu__cta"
             prefetch="intent"
-            to="/pages/contact"
+            to="/contact"
           >
             <span>Get in touch</span>
             <ArrowUpRightIcon />
@@ -348,7 +351,7 @@ function ResourcesMegaMenu() {
             className="ft-resources-mega__link"
             key={link.title}
             prefetch="intent"
-            to={link.url}
+            to={resolveCleanPath(link.url)}
           >
             <strong>{link.title}</strong>
 
@@ -627,8 +630,9 @@ function MobileHeaderMenu({
         servicesPageItem.url,
         primaryDomainUrl,
         publicStoreDomain,
+        servicesPageItem.title,
       )
-    : '/pages/services';
+    : '/services';
 
   const closeMenu = () => {
     setView('main');
@@ -682,6 +686,7 @@ function MobileHeaderMenu({
                     item.url,
                     primaryDomainUrl,
                     publicStoreDomain,
+                    item.title,
                   );
 
                   const title =
@@ -844,7 +849,7 @@ function MobileHeaderMenu({
                             <NavLink
                               className="ft-mobile-services__link"
                               key={link.title}
-                              to={link.url}
+                              to={resolveCleanPath(link.url)}
                               prefetch="intent"
                               onClick={closeMenu}
                             >
@@ -881,7 +886,7 @@ function MobileHeaderMenu({
                                   key={
                                     link.title
                                   }
-                                  to={link.url}
+                                  to={resolveCleanPath(link.url)}
                                   prefetch="intent"
                                   onClick={
                                     closeMenu
@@ -952,7 +957,7 @@ function MobileHeaderMenu({
                     <NavLink
                       className="ft-mobile-resources__link"
                       key={link.title}
-                      to={link.url}
+                      to={resolveCleanPath(link.url)}
                       prefetch="intent"
                       onClick={closeMenu}
                     >
@@ -1069,7 +1074,7 @@ function MobileMenuFooter({
 
         <NavLink
           className="ft-mobile-menu__footer-cta"
-          to="/pages/contact"
+          to="/contact"
           prefetch="intent"
           onClick={onNavigate}
         >
@@ -1231,38 +1236,6 @@ function useStickyHeader(threshold: number) {
   }, [threshold]);
 
   return headerState;
-}
-
-function normalizeMenuUrl(
-  url: string,
-  primaryDomainUrl: string,
-  publicStoreDomain: string,
-) {
-  if (url.startsWith('/')) {
-    return url;
-  }
-
-  const internalDomains = [
-    primaryDomainUrl,
-    publicStoreDomain,
-    'myshopify.com',
-  ].filter(Boolean);
-
-  const isInternalUrl = internalDomains.some((domain) =>
-    url.includes(domain),
-  );
-
-  if (!isInternalUrl) {
-    return url;
-  }
-
-  try {
-    const parsedUrl = new URL(url);
-
-    return `${parsedUrl.pathname}${parsedUrl.search}${parsedUrl.hash}`;
-  } catch {
-    return url;
-  }
 }
 
 function ArrowUpRightIcon() {

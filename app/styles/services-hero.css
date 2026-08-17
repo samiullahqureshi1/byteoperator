@@ -241,6 +241,28 @@
   text-underline-offset: 0.12rem;
 }
 
+.ft-services-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999rem;
+  background: var(--ft-white, #ffffff);
+  color: var(--ft-dark-deep, #01151b);
+  font-family: 'Season Serif', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.ft-services-hero__cta:focus-visible {
+  outline: 0.125rem solid var(--ft-teal-light, #afdddc);
+  outline-offset: 0.1875rem;
+}
+
 @media (min-width: 48rem) {
  
   .ft-services-hero__container {
@@ -302,6 +324,10 @@
 }
 
 @media (hover: hover) {
+  .ft-services-hero__cta:hover {
+    opacity: 0.8;
+  }
+
   .ft-services-hero__client-proof .ft-work-hero__testimonial:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: transparent;
@@ -318,6 +344,10 @@
 @media (prefers-reduced-motion: reduce) {
   .ft-services-hero__chips {
     scroll-behavior: auto;
+  }
+
+  .ft-services-hero__cta {
+    transition: none;
   }
 }
 @media(max-width: 768px){

@@ -12,15 +12,19 @@ import servicesDirectoryStyles from '~/styles/services-directory.css?url';
 import servicesWideImageStyles from '~/styles/services-wide-image.css?url';
 import {ServicesPage} from '~/components/ServicesPage';
 import servicesHeroStyles from '~/styles/services-hero.css?url';
-import {
-  useLoaderData,
-} from 'react-router';
+import {useLoaderData} from 'react-router';
 import type {Route} from './+types/pages.$handle';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {WorkPage} from '~/components/WorkPage';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
 import servicesPageStyles from '~/styles/services-page.css?url';
 import homePartnersStyles from '~/styles/home-partners.css?url';
+import serviceAboutSectionStyles from '~/styles/service-about-section.css?url';
+import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
+import {
+  SERVICE_PAGE_CONFIGS,
+  type ServicePageHandle,
+} from '~/data/servicePages';
 
 export const meta: Route.MetaFunction = ({data}) => {
   return [{title: `Hydrogen | ${data?.page.title ?? ''}`}];
@@ -86,13 +90,25 @@ export const links: Route.LinksFunction = () => [
   rel: 'stylesheet',
   href: homePartnersStyles,
 },
+{
+  rel: 'stylesheet',
+  href: serviceAboutSectionStyles,
+},
 ];
 export async function loader(args: Route.LoaderArgs) {
+  if (!args.params.handle) {
+    throw new Error('Missing page handle');
+  }
+
   // Start fetching non-critical data without blocking time to first byte
   const deferredData = loadDeferredData(args);
 
   // Await the critical data required to render initial state of the page
-  const criticalData = await loadCriticalData(args);
+  const criticalData = await loadPageData({
+    context: args.context,
+    request: args.request,
+    handle: args.params.handle,
+  });
 
   return {...deferredData, ...criticalData};
 }
@@ -101,15 +117,15 @@ export async function loader(args: Route.LoaderArgs) {
  * Load data necessary for rendering content above the fold. This is the critical data
  * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
  */
-async function loadCriticalData({
+export async function loadPageData({
   context,
   request,
-  params,
-}: Route.LoaderArgs) {
-  if (!params.handle) {
-    throw new Error('Missing page handle');
-  }
-
+  handle,
+}: {
+  context: Route.LoaderArgs['context'];
+  request: Request;
+  handle: string;
+}) {
   const [
     {page},
     featuredBlogData,
@@ -118,16 +134,16 @@ async function loadCriticalData({
   ] = await Promise.all([
     context.storefront.query(PAGE_QUERY, {
       variables: {
-        handle: params.handle,
+        handle,
       },
     }),
-    params.handle === 'work'
+    handle === 'work'
       ? context.storefront.query(FEATURED_PROJECTS_QUERY)
       : Promise.resolve({blog: null}),
-    params.handle === 'work'
+    handle === 'work'
       ? context.storefront.query(TOP_CASE_STUDIES_QUERY)
       : Promise.resolve({blog: null}),
-    params.handle === 'work'
+    handle === 'work'
       ? loadAllCaseStudies(context)
       : Promise.resolve([]),
   ]);
@@ -136,7 +152,7 @@ async function loadCriticalData({
     throw new Response('Not Found', {status: 404});
   }
 
-  redirectIfHandleIsLocalized(request, {handle: params.handle, data: page});
+  redirectIfHandleIsLocalized(request, {handle, data: page});
 
   return {
     page,
@@ -190,12 +206,22 @@ function loadDeferredData({context}: Route.LoaderArgs) {
 }
 
 export default function Page() {
+  const data = useLoaderData<typeof loader>();
+
+  return <PageContent data={data} />;
+}
+
+export function PageContent({
+  data,
+}: {
+  data: Awaited<ReturnType<typeof loadPageData>>;
+}) {
   const {
     page,
     featuredArticles,
     topCaseStudyArticles,
     caseStudyArticles,
-  } = useLoaderData<typeof loader>();
+  } = data;
 
   if (page.handle === 'work') {
     return (
@@ -210,6 +236,18 @@ export default function Page() {
 
   if (page.handle === 'services') {
     return <ServicesPage page={page} />;
+  }
+
+  const servicePageConfig =
+    SERVICE_PAGE_CONFIGS[page.handle as ServicePageHandle];
+
+  if (servicePageConfig) {
+    return (
+      <ServiceDetailPage
+        page={page}
+        config={servicePageConfig}
+      />
+    );
   }
 
   return (
