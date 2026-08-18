@@ -18,12 +18,14 @@ interface ClientProofProps {
   testimonial?: ClientProofTestimonial;
   logos?: ClientProofLogo[];
   triggerLabel?: ReactNode;
+  triggerLabelLines?: readonly [string, string];
 }
 
 export function ClientProof({
   testimonial,
   logos = [],
   triggerLabel,
+  triggerLabelLines,
 }: ClientProofProps) {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const closeVideo = useCallback(() => setIsVideoOpen(false), []);
@@ -51,10 +53,19 @@ export function ClientProof({
 
               <span>
                 <PlayIcon />
-                {triggerLabel ??
-                  `Hear from ${testimonial.person} - ${testimonial.company}`}
+                {triggerLabelLines ? (
+                  <span className="ft-client-proof__trigger-lines">
+                    <span>{triggerLabelLines[0]}</span>
+                    <span>{triggerLabelLines[1]}</span>
+                  </span>
+                ) : (
+                  triggerLabel ??
+                  `Hear from ${testimonial.person} - ${testimonial.company}`
+                )}
               </span>
             </div>
+
+            {triggerLabelLines ? <NorthEastArrowIcon /> : null}
           </button>
         ) : null}
 
@@ -111,6 +122,25 @@ function PlayIcon() {
       <path
         d="M6.5 5.5L10.5 8L6.5 10.5V5.5Z"
         fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function NorthEastArrowIcon() {
+  return (
+    <svg
+      className="ft-client-proof__trigger-arrow"
+      viewBox="0 0 14 14"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M4 10L10 4M5 4H10V9"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

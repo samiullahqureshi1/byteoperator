@@ -1,0 +1,48 @@
+.ft-shopify-plus-page {
+  width: 100%;
+  background: var(--ft-dark-deep, #01151b);
+}
+
+.ft-shopify-plus-page__people,
+.ft-shopify-plus-page__partners,
+.ft-shopify-plus-page__experts {
+  background: var(--ft-dark-deep, #01151b);
+}
+
+.ft-shopify-plus-page__features {
+  background: var(--ft-dark-deep, #01151b);
+}
+
+.ft-shopify-plus-page__features .ft-home-feature,
+.ft-shopify-plus-page__features .ft-home-feature--dark {
+  background: var(--ft-dark-deep, #01151b);
+  background-color: var(--ft-dark-deep, #01151b);
+}
+.ft-shopify-plus-page__projects,
+.ft-shopify-plus-page__projects .ft-home-projects {
+  background: var(--ft-white, #ffffff);
+}
+
+.ft-shopify-plus-page__people .ft-home-people,
+.ft-shopify-plus-page__partners .ft-home-partners,
+.ft-shopify-plus-page__experts .ft-home-experts {
+  background: var(--ft-dark-deep, #01151b);
+}
+
+.ft-shopify-plus-page > .ft-home-observatory {
+  background-color: var(--ft-dark, #041f27);
+}
+
+@media (max-width: 63.999rem) {
+  .ft-shopify-plus-page
+    .ft-services-hero--shopify-plus.ft-services-hero--theme-dark {
+    padding: 8.5rem 0 0.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-shopify-plus-page
+    .ft-services-hero--shopify-plus.ft-services-hero--theme-dark {
+    padding-bottom: 2rem;
+  }
+}

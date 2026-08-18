@@ -1,4 +1,4 @@
-import {FormEvent, useState} from 'react';
+import {useState, type FormEvent} from 'react';
 import {Link} from 'react-router';
 
 type FormStatus = 'idle' | 'pending';

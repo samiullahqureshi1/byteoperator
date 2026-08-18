@@ -7,6 +7,11 @@ import workCaseStudiesStyles from '~/styles/work-case-studies.css?url';
 import workTestimonialStyles from '~/styles/work-testimonial.css?url';
 import type {WorkCaseStudiesQuery} from 'storefrontapi.generated';
 import homeFeatureStyles from '~/styles/home-feature.css?url';
+import homeHeroGalleryStyles from '~/styles/home-hero-gallery.css?url';
+import homeAboutStyles from '~/styles/home-about.css?url';
+import homeServicesStyles from '~/styles/home-services.css?url';
+import clientLogoGridStyles from '~/styles/client-logo-grid.css?url';
+import homeProjectsStyles from '~/styles/home-projects.css?url';
 import homePeopleStyles from '~/styles/home-people.css?url';
 import servicesDirectoryStyles from '~/styles/services-directory.css?url';
 import servicesWideImageStyles from '~/styles/services-wide-image.css?url';
@@ -17,16 +22,20 @@ import type {Route} from './+types/pages.$handle';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {WorkPage} from '~/components/WorkPage';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
+import homeObservatoryStyles from '~/styles/home-observatory.css?url';
 import servicesPageStyles from '~/styles/services-page.css?url';
+import shopifyPlusPageStyles from '~/styles/shopify-plus-page.css?url';
 import homePartnersStyles from '~/styles/home-partners.css?url';
 import serviceAboutSectionStyles from '~/styles/service-about-section.css?url';
 import serviceDetailFaqStyles from '~/styles/service-detail-faqs.css?url';
 import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
+import {ShopifyPlusPage} from '~/components/services/ShopifyPlusPage';
 import {
   SERVICE_PAGE_CONFIGS,
   type ServicePageHandle,
 } from '~/data/servicePages';
 import type {ServiceDetailFaqItem} from '~/components/services/detail/ServiceDetailFaqs';
+import {SHOPIFY_PLUS_PAGE_HANDLE} from '~/lib/route-mappings';
 
 export const meta: Route.MetaFunction = ({data}) => {
   return [{title: `Hydrogen | ${data?.page.title ?? ''}`}];
@@ -61,6 +70,26 @@ export const links: Route.LinksFunction = () => [
     href: homeFeatureStyles,
   },
   {
+    rel: 'stylesheet',
+    href: homeHeroGalleryStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: homeAboutStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: homeServicesStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: clientLogoGridStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: homeProjectsStyles,
+  },
+  {
   rel: 'stylesheet',
   href: homePeopleStyles,
 },
@@ -72,6 +101,10 @@ export const links: Route.LinksFunction = () => [
   rel: 'stylesheet',
   href: homeExpertsStyles,
 },
+  {
+    rel: 'stylesheet',
+    href: homeObservatoryStyles,
+  },
 {
   rel: 'stylesheet',
   href: servicesHeroStyles,
@@ -99,6 +132,10 @@ export const links: Route.LinksFunction = () => [
 {
   rel: 'stylesheet',
   href: serviceDetailFaqStyles,
+},
+{
+  rel: 'stylesheet',
+  href: shopifyPlusPageStyles,
 },
 ];
 export async function loader(args: Route.LoaderArgs) {
@@ -275,6 +312,10 @@ export function PageContent({
 
   if (page.handle === 'services') {
     return <ServicesPage page={page} />;
+  }
+
+  if (page.handle === SHOPIFY_PLUS_PAGE_HANDLE) {
+    return <ShopifyPlusPage />;
   }
 
   const servicePageConfig =

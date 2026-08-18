@@ -6,7 +6,7 @@
   --charle-header-height: clamp(6.5rem, 12vh, 6.75rem);
   --charle-sticky-height: clamp(4.875rem, 9.111vh, 5.125rem);
   --charle-header-text: var(--ft-white);
-  --charle-header-black: var(--ft-dark-deep);
+  --charle-header-black: var(--ft-dark-deep, #01151b);
   --charle-header-pill: rgba(4, 31, 39, 0.94);
 }
 
@@ -37,7 +37,7 @@
   color: var(--charle-header-text);
   background: var(--charle-header-black);
 
-  border: 0.0625rem solid transparent;
+  border: 0;
   border-radius: 0;
 
   transition:
@@ -60,7 +60,7 @@
   height: var(--charle-sticky-height);
   border-radius: 50vw;
   background: rgba(4, 31, 39, 0.94);
-  border-color: rgba(64, 173, 170, 0.2);
+  border: 0.0625rem solid rgba(64, 173, 170, 0.2);
   box-shadow:
     0 0.75rem 2.375rem rgba(1, 21, 27, 0.24),
     0 0.125rem 0.5rem rgba(1, 21, 27, 0.14);

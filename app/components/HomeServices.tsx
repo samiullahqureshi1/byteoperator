@@ -10,7 +10,14 @@ import {Link} from 'react-router';
    Replace the src values later without changing the layout.
 ========================================================= */
 
-const CLIENT_LOGOS = [
+export type ClientLogoMarqueeItem = {
+  src: string;
+  alt: string;
+  size?: 'small' | 'large';
+  noFilter?: boolean;
+};
+
+export const HOME_CLIENT_LOGOS: readonly ClientLogoMarqueeItem[] = [
   {
     src: '/images/home-services/clients/cambridgesatchel.svg',
     alt: 'Cambridge Satchel',
@@ -368,11 +375,17 @@ export function HomeServices() {
    CLIENT LOGO MARQUEE
 ========================================================= */
 
-function ClientLogoMarquee() {
+export function ClientLogoMarquee({
+  label = 'Trusted by world-class ecommerce brands',
+  logos = HOME_CLIENT_LOGOS,
+}: {
+  label?: string;
+  logos?: readonly ClientLogoMarqueeItem[];
+} = {}) {
   return (
     <div className="ft-home-services__logos">
       <p className="ft-home-services__logos-label">
-        Trusted by world-class ecommerce brands
+        {label}
       </p>
 
       <div className="ft-home-services__logos-mask">
@@ -383,7 +396,7 @@ function ClientLogoMarquee() {
               className="ft-home-services__logos-set"
               aria-hidden={copyIndex === 1}
             >
-              {CLIENT_LOGOS.map((logo) => {
+              {logos.map((logo) => {
                 const sizeClass = logo.size
                   ? ` ft-home-services__logo-item--${logo.size}`
                   : '';

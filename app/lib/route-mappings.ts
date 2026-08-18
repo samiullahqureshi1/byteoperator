@@ -1,3 +1,6 @@
+export const SHOPIFY_PLUS_PAGE_HANDLE = 'shopify-plus-agency';
+export const SHOPIFY_PLUS_CLEAN_PATH = '/shopify-plus-agency';
+
 export const OLD_TO_CLEAN_PATHS = {
   '/pages/services': '/services',
   '/pages/work': '/work',
@@ -10,7 +13,9 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/shopify-development': '/shopify-development',
   '/pages/shopify-developers': '/shopify-developers',
   '/pages/shopify-web-design': '/shopify-web-design',
-  '/pages/shopify-plus': '/shopify-plus',
+  [`/pages/${SHOPIFY_PLUS_PAGE_HANDLE}`]: SHOPIFY_PLUS_CLEAN_PATH,
+  '/pages/shopify-plus': SHOPIFY_PLUS_CLEAN_PATH,
+  '/shopify-plus': SHOPIFY_PLUS_CLEAN_PATH,
   '/pages/shopify-migrations': '/shopify-migrations',
   '/pages/shopify-app-development': '/shopify-app-development',
   '/pages/shopify-integrations': '/shopify-integrations',
@@ -56,15 +61,20 @@ export const OLD_TO_CLEAN_PATHS = {
 
 export type LegacyPagePath = keyof typeof OLD_TO_CLEAN_PATHS;
 export type CleanPagePath = (typeof OLD_TO_CLEAN_PATHS)[LegacyPagePath];
+export type ShopifyPagePath = Extract<
+  LegacyPagePath,
+  `/pages/${string}`
+>;
 
 export function resolveCleanPath(pathname: string): string {
   return OLD_TO_CLEAN_PATHS[pathname as LegacyPagePath] ?? pathname;
 }
 
-export function resolveLegacyPath(pathname: string): LegacyPagePath | null {
+export function resolveLegacyPath(pathname: string): ShopifyPagePath | null {
   const match = Object.entries(OLD_TO_CLEAN_PATHS).find(
-    ([, cleanPath]) => cleanPath === pathname,
+    ([legacyPath, cleanPath]) =>
+      legacyPath.startsWith('/pages/') && cleanPath === pathname,
   );
 
-  return (match?.[0] as LegacyPagePath | undefined) ?? null;
+  return (match?.[0] as ShopifyPagePath | undefined) ?? null;
 }

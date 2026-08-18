@@ -3,7 +3,18 @@ import {Link} from 'react-router';
 
 const CASE_STUDIES_ROUTE = '/pages/case-studies';
 
-const PROJECTS = [
+export type HomeProjectData = {
+  title: string;
+  type: string;
+  href: string;
+  image: string;
+  logo: string;
+  thumbnail: string;
+  logoWidth: string;
+  alt: string;
+};
+
+export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
     title: 'Cambridge Satchel',
     type: 'SEO, Ecommerce design & development',
@@ -89,7 +100,24 @@ const PROJECTS = [
   },
 ] as const;
 
-export function HomeProjects() {
+export type HomeProjectsProps = {
+  heading?: string;
+  projects?: readonly HomeProjectData[];
+  cta?: {
+    label: string;
+    href: string;
+  };
+};
+
+export function HomeProjects({
+  heading =
+    'We support brands through transformative ecommerce strategies with Shopify expertise combined with search-first values.',
+  projects = HOME_PROJECTS,
+  cta = {
+    label: 'Explore Case Studies',
+    href: CASE_STUDIES_ROUTE,
+  },
+}: HomeProjectsProps = {}) {
   const trackRef =
     useRef<HTMLDivElement>(null);
 
@@ -283,10 +311,7 @@ export function HomeProjects() {
           className="ft-home-projects__heading"
           id="ft-home-projects-title"
         >
-          We support brands through
-          transformative ecommerce strategies
-          with Shopify expertise combined with
-          search-first values.
+          {heading}
         </h2>
 
         <div className="ft-home-projects__carousel">
@@ -299,7 +324,7 @@ export function HomeProjects() {
             onPointerCancel={endDragging}
             onClickCapture={handleTrackClick}
           >
-            {PROJECTS.map((project) => (
+            {projects.map((project) => (
               <article
                 className="ft-home-projects__slide"
                 key={project.title}
@@ -390,11 +415,11 @@ export function HomeProjects() {
         <div className="ft-home-projects__cta-wrap">
           <Link
             className="ft-home-projects__cta"
-            to={CASE_STUDIES_ROUTE}
+            to={cta.href}
             prefetch="intent"
           >
             <span>
-              Explore Case Studies
+              {cta.label}
             </span>
 
             <LongArrowIcon />

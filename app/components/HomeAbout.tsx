@@ -1,6 +1,27 @@
 import {Link} from 'react-router';
 
-const ABOUT_STATS = [
+export type HomeAboutStat = {
+  value: string;
+  label: string;
+};
+
+export type HomeAboutData = {
+  eyebrow: string;
+  heading: string;
+  stats: readonly HomeAboutStat[];
+  rightHeading: {
+    prefix: string;
+    emphasis: string;
+    suffix: string;
+  };
+  description: string;
+  cta: {
+    label: string;
+    href: string;
+  };
+};
+
+export const HOME_ABOUT_STATS = [
   {
     value: '20K+',
     label: 'Tasks Delivered',
@@ -19,7 +40,29 @@ const ABOUT_STATS = [
   },
 ] as const;
 
-export function HomeAbout() {
+const DEFAULT_HOME_ABOUT_DATA: HomeAboutData = {
+  eyebrow: 'Trusted Ecommerce and Shopify Agency.',
+  heading:
+    'FoldTech helps ambitious ecommerce brands build, optimise and grow high-performing Shopify stores.',
+  stats: HOME_ABOUT_STATS,
+  rightHeading: {
+    prefix: 'The',
+    emphasis: 'Growth-First',
+    suffix: 'Shopify Agency',
+  },
+  description:
+    'FoldTech is a Shopify and ecommerce growth agency helping ambitious brands design, build, migrate and grow high-performing Shopify and Shopify Plus stores. Our work brings together conversion-focused design, dependable development, SEO, AI visibility, email marketing and ongoing optimisation, supported by structured testing and clear growth strategies to improve performance across the customer journey.',
+  cta: {
+    label: 'Explore Our Work',
+    href: '/pages/case-studies',
+  },
+};
+
+export function HomeAbout({
+  data = DEFAULT_HOME_ABOUT_DATA,
+}: {
+  data?: HomeAboutData;
+} = {}) {
   return (
     <section
       className="ft-home-about"
@@ -28,22 +71,21 @@ export function HomeAbout() {
       <div className="ft-home-about__inner">
         <div className="ft-home-about__left">
           <p className="ft-home-about__eyebrow">
-            Trusted Ecommerce and Shopify Agency.
+            {data.eyebrow}
           </p>
 
           <h2
             className="ft-home-about__heading"
             id="ft-home-about-title"
           >
-            FoldTech helps ambitious ecommerce brands build,
-            optimise and grow high-performing Shopify stores.
+            {data.heading}
           </h2>
 
           <div
             className="ft-home-about__stats"
             aria-label="FoldTech performance statistics"
           >
-            {ABOUT_STATS.map((stat) => (
+            {data.stats.map((stat) => (
               <div
                 className="ft-home-about__stat"
                 key={stat.label}
@@ -62,32 +104,25 @@ export function HomeAbout() {
 
         <div className="ft-home-about__right">
           <h3 className="ft-home-about__right-heading">
-            <span>The</span>
+            <span>{data.rightHeading.prefix}</span>
 
             <AboutMark />
 
-            <strong>Growth-First</strong>
+            <strong>{data.rightHeading.emphasis}</strong>
 
-            <span>Shopify Agency</span>
+            <span>{data.rightHeading.suffix}</span>
           </h3>
 
           <p className="ft-home-about__description">
-            FoldTech is a Shopify and ecommerce growth agency
-            helping ambitious brands design, build, migrate and
-            grow high-performing Shopify and Shopify Plus stores.
-            Our work brings together conversion-focused design,
-            dependable development, SEO, AI visibility, email
-            marketing and ongoing optimisation, supported by
-            structured testing and clear growth strategies to
-            improve performance across the customer journey.
+            {data.description}
           </p>
 
           <Link
             className="ft-home-about__cta"
-            to="/pages/case-studies"
+            to={data.cta.href}
             prefetch="intent"
           >
-            <span>Explore Our Work</span>
+            <span>{data.cta.label}</span>
             <ArrowIcon />
           </Link>
         </div>
