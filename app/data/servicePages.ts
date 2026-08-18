@@ -9,6 +9,12 @@ import {resolveCleanPath} from '~/lib/route-mappings';
 const SERVICE_PAGE_ROUTES = {
   work: resolveCleanPath('/pages/work'),
   contact: resolveCleanPath('/pages/contact'),
+  shopifyDevelopment: resolveCleanPath(
+    '/pages/shopify-development',
+  ),
+  shopifyMaintenance: resolveCleanPath(
+    '/pages/shopify-maintenance',
+  ),
   shopifySeo: resolveCleanPath('/pages/shopify-seo'),
   shopifyAppDevelopment: resolveCleanPath(
     '/pages/shopify-app-development',
@@ -235,6 +241,174 @@ export const SERVICE_PAGE_CONFIGS = {
           {
             label: 'Explore Design Services',
             href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+    ],
+  },
+  'shopify-web-design': {
+    faqTitle: 'Shopify Web Design',
+    hero: {
+      eyebrow: 'Shopify Website Design',
+      heading:
+        'Shopify web design focused on your brand, customers and ecommerce goals.',
+      description:
+        'FoldTech designs Shopify storefronts around clear customer journeys, strong brand presentation and practical ecommerce requirements. From new store projects to updates for existing Shopify themes, our design process considers usability, product discovery, mobile experience and the path from landing page to checkout.',
+      chips: [
+        'Shopify Store Builds',
+        'Ecommerce SEO',
+        'Development Services',
+        'Ecommerce CRO',
+      ],
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+      showPartnerLogos: false,
+      showClientProof: false,
+    },
+    about: {
+      intro: {
+        heading:
+          'Shopify web design built around how customers discover, browse and buy.',
+        description:
+          'Our Shopify web design work brings brand direction and ecommerce usability into one clear storefront experience. We plan layouts around the products, content and customer journeys that matter to the business, while considering responsive behaviour, navigation, collection discovery and conversion-focused page structure.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt: 'FoldTech Shopify storefront project',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt: 'FoldTech team collaborating around a table',
+      },
+      process: {
+        heading: 'Our Shopify web design process',
+        leftDescription:
+          'We begin by understanding the brand, product catalogue, existing storefront and the goals behind the project. From there, the design process can move through research, page planning, wireframes and customer-journey mapping before detailed visual designs are prepared. This gives each major page a clear purpose before development begins.',
+        rightDescription:
+          'Detailed designs establish typography, imagery, hierarchy, navigation and interactive states across desktop and mobile. Where useful, prototypes can also help review important flows before development, allowing the team to resolve usability questions earlier and give developers a clearer implementation target.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'shopify-web-design-brand',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Bespoke Shopify Web Design',
+        heading: 'Design built around your brand',
+        description: [
+          'A custom Shopify design gives the storefront room to reflect the brand without being restricted by the visual structure of an existing theme. Page hierarchy, navigation, product discovery and content placement can be planned around the specific catalogue and customer journey.',
+          'The design process can cover core templates such as the homepage, collection pages, product pages and content-led landing pages, alongside reusable sections that give the internal team practical flexibility after launch.',
+        ],
+        buttons: [
+          {
+            label: 'Explore New Store Services',
+            href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'shopify-web-design-theme-customisation',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Theme Design',
+        heading: 'Theme customisation & ad-hoc design',
+        description: [
+          'Not every Shopify project requires a complete redesign. Existing themes can be updated with new page layouts, revised navigation, landing pages, UI improvements and additional sections while preserving parts of the storefront that are already working well.',
+          'This approach can suit brands that need focused changes to specific customer journeys or want to improve the presentation of collections, products, campaigns and editorial content without replacing the whole storefront.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'shopify-web-design-discovery',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Web Design Discovery',
+        heading: 'Discovery & research',
+        description: [
+          'Design decisions start with understanding the business, product range, customer needs and existing storefront. Reviewing analytics, navigation patterns, content, brand direction and competing stores can reveal where users need clearer paths and where the new design needs stronger hierarchy.',
+          'The findings provide direction for page structure, content priorities and the customer journeys that should receive the most attention during wireframing and visual design.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Case Studies',
+            href: SERVICE_PAGE_ROUTES.work,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'shopify-web-design-customer-journeys',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Customer Journey Design',
+        heading: 'Wireframing & customer journeys',
+        description: [
+          'Wireframes establish the structure of important Shopify pages before visual styling is applied. They help define where products, collection filters, navigation, calls to action, supporting content and merchandising elements should sit across the storefront.',
+          'Customer-journey planning also considers how different visitors arrive and move through the site. New customers, returning customers and visitors entering through product, collection or campaign pages may each need different routes to useful information.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-seo-geo'),
+      },
+      {
+        id: 'shopify-web-design-ui-ux',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify UI & UX Design',
+        heading: 'High-fidelity design & prototyping',
+        description: [
+          'Once page structures are agreed, high-fidelity designs bring the storefront into its final visual direction using the approved typography, imagery, interface elements and brand system. Desktop and mobile layouts can be reviewed together so responsive behaviour is considered before development.',
+          'Interactive prototypes can be used for important flows where reviewing navigation, buttons, forms and page transitions before development helps the team validate the experience and clarify implementation details.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'shopify-web-design-development-support',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Website Design & Development Services',
+        heading: 'Development, Support & Growth',
+        description: [
+          'Once the design work is approved, the same project can move into Shopify development using custom theme work or targeted updates to an existing theme. Development can cover reusable sections, product and collection experiences, integrations and other storefront functionality required by the project.',
+          'After launch, ongoing development and support can be used for new landing pages, theme updates, technical fixes, feature improvements and planned storefront changes as business requirements evolve.',
+          'Design and CRO work can also continue after launch by reviewing customer behaviour and identifying areas of the storefront that need clearer navigation, stronger merchandising or improved page structure.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Retainers',
+            href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
           },
         ],
         media: reuseHomeFeatureMedia('shopify-design'),
