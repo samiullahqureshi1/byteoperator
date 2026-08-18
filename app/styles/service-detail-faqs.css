@@ -1,0 +1,211 @@
+.ft-service-detail-faqs,
+.ft-service-detail-faqs * {
+  box-sizing: border-box;
+}
+
+.ft-service-detail-faqs {
+  width: 100%;
+  padding: 4rem 0;
+  overflow: hidden;
+  background: var(--ft-white, #ffffff);
+  color: var(--ft-text, #0b252d);
+}
+
+.ft-service-detail-faqs__container {
+  width: 100%;
+  padding-inline: 1.25rem;
+}
+
+.ft-service-detail-faqs__header {
+  margin-bottom: 3.5rem;
+}
+
+.ft-service-detail-faqs__header p {
+  margin: 0;
+  font-family: 'Season Serif', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ft-text, #0b252d);
+}
+
+.ft-service-detail-faqs__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  gap: 3rem;
+}
+
+.ft-service-detail-faqs__left,
+.ft-service-detail-faqs__list {
+  min-width: 0;
+}
+
+.ft-service-detail-faqs__title {
+  margin: 0;
+  font-family: 'Season Sans', sans-serif;
+  font-size: clamp(2rem, 8vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ft-text, #0b252d);
+  overflow-wrap: anywhere;
+}
+
+.ft-service-detail-faqs__list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+.ft-service-detail-faqs__item {
+  width: 100%;
+  min-width: 0;
+}
+
+.ft-service-detail-faqs__trigger {
+  appearance: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--ft-text, #0b252d);
+  font-family: 'Season Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ft-service-detail-faqs__trigger span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ft-service-detail-faqs__plus {
+  display: block;
+  flex: 0 0 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: currentColor;
+  transition: transform 250ms ease;
+}
+
+.ft-service-detail-faqs__item[data-open='true']
+  .ft-service-detail-faqs__plus {
+  transform: rotate(45deg);
+}
+
+.ft-service-detail-faqs__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 250ms ease;
+}
+
+.ft-service-detail-faqs__item[data-open='true']
+  .ft-service-detail-faqs__panel {
+  grid-template-rows: 1fr;
+}
+
+.ft-service-detail-faqs__panel-inner {
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.ft-service-detail-faqs__item[data-open='true']
+  .ft-service-detail-faqs__panel-inner {
+  opacity: 1;
+}
+
+.ft-service-detail-faqs__answer {
+  max-width: 48rem;
+  margin: 1.5rem 0 0.75rem;
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ft-text, #0b252d);
+  overflow-wrap: anywhere;
+}
+
+.ft-service-detail-faqs__trigger:focus-visible {
+  outline: 0.125rem solid var(--ft-text, #0b252d);
+  outline-offset: 0.25rem;
+}
+
+@media (min-width: 48rem) {
+  .ft-service-detail-faqs__container {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-service-detail-faqs {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    margin-bottom: 2rem;
+  }
+
+  .ft-service-detail-faqs__container {
+    padding-inline: 3rem;
+  }
+
+  .ft-service-detail-faqs__header {
+    margin-bottom: 6rem;
+  }
+
+  .ft-service-detail-faqs__inner {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8rem;
+  }
+
+  .ft-service-detail-faqs__left {
+    grid-column: span 1;
+  }
+
+  .ft-service-detail-faqs__list {
+    grid-column: span 3;
+  }
+
+  .ft-service-detail-faqs__title {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+  }
+
+  .ft-service-detail-faqs__trigger {
+    font-size: 2.5rem;
+    line-height: 1.075;
+  }
+
+  .ft-service-detail-faqs__plus {
+    flex-basis: 2rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .ft-service-detail-faqs__answer {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  .ft-service-detail-faqs__inner {
+    gap: 12rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-service-detail-faqs__plus,
+  .ft-service-detail-faqs__panel,
+  .ft-service-detail-faqs__panel-inner {
+    transition: none;
+  }
+}

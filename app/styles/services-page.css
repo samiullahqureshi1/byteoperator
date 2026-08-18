@@ -17,6 +17,10 @@
 .ft-services-experts > section {
   background: var(--ft-dark-deep, #01151b);
 }
+.ft-service-detail-experts,
+.ft-service-detail-experts .ft-home-experts {
+  background: var(--ft-dark-deep, #01151b);
+}
 @media (min-width: 64rem) {
   .ft-services-case-study .ft-work-testimonial {
     padding-right: 5vw;

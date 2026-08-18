@@ -20,11 +20,13 @@ import homeExpertsStyles from '~/styles/home-experts.css?url';
 import servicesPageStyles from '~/styles/services-page.css?url';
 import homePartnersStyles from '~/styles/home-partners.css?url';
 import serviceAboutSectionStyles from '~/styles/service-about-section.css?url';
+import serviceDetailFaqStyles from '~/styles/service-detail-faqs.css?url';
 import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
 import {
   SERVICE_PAGE_CONFIGS,
   type ServicePageHandle,
 } from '~/data/servicePages';
+import type {ServiceDetailFaqItem} from '~/components/services/detail/ServiceDetailFaqs';
 
 export const meta: Route.MetaFunction = ({data}) => {
   return [{title: `Hydrogen | ${data?.page.title ?? ''}`}];
@@ -94,6 +96,10 @@ export const links: Route.LinksFunction = () => [
   rel: 'stylesheet',
   href: serviceAboutSectionStyles,
 },
+{
+  rel: 'stylesheet',
+  href: serviceDetailFaqStyles,
+},
 ];
 export async function loader(args: Route.LoaderArgs) {
   if (!args.params.handle) {
@@ -155,7 +161,10 @@ export async function loadPageData({
   redirectIfHandleIsLocalized(request, {handle, data: page});
 
   return {
-    page,
+    page: {
+      ...page,
+      faqs: parseFaqs(page.faq?.value),
+    },
     featuredArticles:
       featuredBlogData.blog?.articles.nodes ?? [],
     topCaseStudyArticles:
@@ -209,6 +218,36 @@ export default function Page() {
   const data = useLoaderData<typeof loader>();
 
   return <PageContent data={data} />;
+}
+
+function parseFaqs(value: string | undefined): ServiceDetailFaqItem[] {
+  if (!value?.trim()) return [];
+
+  try {
+    const parsed: unknown = JSON.parse(value);
+
+    if (!Array.isArray(parsed)) return [];
+
+    return parsed.flatMap((item): ServiceDetailFaqItem[] => {
+      if (
+        typeof item !== 'object' ||
+        item === null ||
+        !('question' in item) ||
+        !('answer' in item) ||
+        typeof item.question !== 'string' ||
+        typeof item.answer !== 'string'
+      ) {
+        return [];
+      }
+
+      const question = item.question.trim();
+      const answer = item.answer.trim();
+
+      return question && answer ? [{question, answer}] : [];
+    });
+  } catch {
+    return [];
+  }
 }
 
 export function PageContent({
@@ -277,6 +316,9 @@ const PAGE_QUERY = `#graphql
       id
       title
       body
+      faq: metafield(namespace: "custom", key: "faqs") {
+        value
+      }
       seo {
         description
         title
