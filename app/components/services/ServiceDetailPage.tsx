@@ -1,6 +1,7 @@
 import type {ServicePageConfig} from '~/data/servicePages';
 import {HomeFeature} from '~/components/HomeFeature';
 import {HomeExperts} from '~/components/HomeExperts';
+import {HomePartners} from '~/components/HomePartners';
 import {WorkTestimonial} from '~/components/work/WorkTestimonial';
 import {ServiceHero} from './ServiceHero';
 import {
@@ -26,26 +27,32 @@ export function ServiceDetailPage({
     <main data-page-handle={page.handle}>
       <ServiceHero {...config.hero} />
 
-      {config.about ? (
-        <ServiceAboutSection data={config.about} />
-      ) : null}
+      {config.heroOnly ? null : (
+        <>
+          {config.about ? (
+            <ServiceAboutSection data={config.about} />
+          ) : null}
 
-      {config.features?.map((feature) => (
-        <HomeFeature key={feature.id} feature={feature} />
-      ))}
+          {config.features?.map((feature) => (
+            <HomeFeature key={feature.id} feature={feature} />
+          ))}
 
-      {page.faqs?.length ? (
-        <ServiceDetailFaqs
-          title={config.faqTitle ?? page.title}
-          faqs={page.faqs}
-        />
-      ) : null}
+          {config.showPartners ? <HomePartners /> : null}
 
-      <WorkTestimonial />
+          {page.faqs?.length ? (
+            <ServiceDetailFaqs
+              title={config.faqTitle ?? page.title}
+              faqs={page.faqs}
+            />
+          ) : null}
 
-      <div className="ft-service-detail-experts">
-        <HomeExperts />
-      </div>
+          <WorkTestimonial />
+
+          <div className="ft-service-detail-experts">
+            <HomeExperts />
+          </div>
+        </>
+      )}
     </main>
   );
 }

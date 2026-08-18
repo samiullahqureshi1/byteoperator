@@ -1,4 +1,5 @@
 import {NavLink} from 'react-router';
+import {SHOPIFY_SEO_CLEAN_PATH} from '~/lib/route-mappings';
 
 const HERO_SERVICES = [
   {
@@ -14,7 +15,7 @@ const HERO_SERVICES = [
   {
     title: 'SEO & AI Visibility',
     description: 'Organic search & AI visibility',
-    url: '/pages/shopify-seo',
+    url: SHOPIFY_SEO_CLEAN_PATH,
   },
   {
     title: 'Email & SMS',

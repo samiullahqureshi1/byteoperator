@@ -2,6 +2,7 @@ import {
   HOME_FEATURES,
   type HomeFeatureData,
 } from './homeFeatures';
+import {SHOPIFY_SEO_CLEAN_PATH} from '~/lib/route-mappings';
 
 const SERVICES_FEATURE_CONFIG = [
   {
@@ -33,7 +34,7 @@ const SERVICES_FEATURE_CONFIG = [
     heading: 'Shopify SEO Services',
     button: {
       label: 'Explore SEO',
-      href: '/pages/shopify-seo',
+      href: SHOPIFY_SEO_CLEAN_PATH,
     },
     description: [
       'Our Shopify SEO work brings technical optimisation, content strategy and site structure together to strengthen organic visibility. We review current performance, competitors and search opportunities across the storefront.',

@@ -412,7 +412,7 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       {
         title: 'Shopify SEO',
         description: 'SEO for Shopify stores',
-        url: '/pages/shopify-seo',
+        url: '/pages/seo-agency',
       },
       {
         title: 'Ecommerce SEO',

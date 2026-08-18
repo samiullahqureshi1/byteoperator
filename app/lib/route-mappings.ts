@@ -1,6 +1,9 @@
 export const SHOPIFY_PLUS_PAGE_HANDLE = 'shopify-plus-agency';
 export const SHOPIFY_PLUS_CLEAN_PATH = '/shopify-plus-agency';
 
+export const SHOPIFY_SEO_PAGE_HANDLE = 'seo-agency';
+export const SHOPIFY_SEO_CLEAN_PATH = '/seo-agency';
+
 export const OLD_TO_CLEAN_PATHS = {
   '/pages/services': '/services',
   '/pages/work': '/work',
@@ -20,7 +23,9 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/shopify-app-development': '/shopify-app-development',
   '/pages/shopify-integrations': '/shopify-integrations',
   '/pages/integrations': '/integrations',
-  '/pages/shopify-seo': '/shopify-seo',
+  [`/pages/${SHOPIFY_SEO_PAGE_HANDLE}`]: SHOPIFY_SEO_CLEAN_PATH,
+  '/pages/shopify-seo': SHOPIFY_SEO_CLEAN_PATH,
+  '/shopify-seo': SHOPIFY_SEO_CLEAN_PATH,
   '/pages/ecommerce-seo': '/ecommerce-seo',
   '/pages/ecommerce-ai-seo': '/ecommerce-ai-seo',
   '/pages/ecommerce-geo': '/ecommerce-geo',

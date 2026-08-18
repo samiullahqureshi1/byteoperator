@@ -7,6 +7,18 @@ export type ServiceHeroCta = {
   href: string;
 };
 
+export type ServiceHeroChip =
+  | string
+  | {
+      label: string;
+      href?: string;
+    };
+
+export type ServiceHeroLogo = {
+  src: string;
+  alt: string;
+};
+
 export type ServiceHeroVariant =
   | 'standard'
   | 'shopify-plus';
@@ -18,8 +30,10 @@ export interface ServiceHeroProps {
   heading: string;
   description?: string;
   descriptionHtml?: string;
-  chips?: readonly string[];
+  chips?: readonly ServiceHeroChip[];
   primaryCta?: ServiceHeroCta;
+  promoLink?: ServiceHeroCta;
+  bottomLogo?: ServiceHeroLogo;
   showPartnerLogos?: boolean;
   showClientProof?: boolean;
   clientProofLabel?: string;
@@ -34,6 +48,8 @@ export function ServiceHero({
   descriptionHtml,
   chips = [],
   primaryCta,
+  promoLink,
+  bottomLogo,
   showPartnerLogos = false,
   showClientProof = false,
   clientProofLabel,
@@ -42,6 +58,7 @@ export function ServiceHero({
 }: ServiceHeroProps) {
   const hasRightContent = Boolean(
     showPartnerLogos ||
+      promoLink ||
       descriptionHtml ||
       description ||
       primaryCta,
@@ -75,15 +92,41 @@ export function ServiceHero({
 
             {chips.length ? (
               <div className="ft-services-hero__chips">
-                {chips.map((chip) => (
-                  <span
-                    className="ft-services-hero__chip"
-                    key={chip}
-                  >
-                    {chip}
-                  </span>
-                ))}
+                {chips.map((chip) => {
+                  const label =
+                    typeof chip === 'string' ? chip : chip.label;
+                  const href =
+                    typeof chip === 'string' ? undefined : chip.href;
+
+                  return href ? (
+                    <Link
+                      className="ft-services-hero__chip"
+                      key={label}
+                      to={href}
+                      prefetch="intent"
+                    >
+                      {label}
+                    </Link>
+                  ) : (
+                    <span
+                      className="ft-services-hero__chip"
+                      key={label}
+                    >
+                      {label}
+                    </span>
+                  );
+                })}
               </div>
+            ) : null}
+
+            {bottomLogo ? (
+              <img
+                className="ft-services-hero__bottom-logo"
+                src={bottomLogo.src}
+                alt={bottomLogo.alt}
+                loading="lazy"
+                decoding="async"
+              />
             ) : null}
 
             {showClientProof ? (
@@ -102,6 +145,16 @@ export function ServiceHero({
 
           {hasRightContent ? (
             <div className="ft-services-hero__right">
+              {promoLink ? (
+                <Link
+                  className="ft-services-hero__promo-link"
+                  to={promoLink.href}
+                  prefetch="intent"
+                >
+                  {promoLink.label}
+                </Link>
+              ) : null}
+
               {showPartnerLogos ? (
                 <div className="ft-services-hero__partners">
                   <img

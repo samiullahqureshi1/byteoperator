@@ -1,5 +1,6 @@
 import {useEffect, useRef} from 'react';
 import {Link} from 'react-router';
+import {SHOPIFY_SEO_CLEAN_PATH} from '~/lib/route-mappings';
 
 /* =========================================================
    TEMPORARY REFERENCE ASSETS
@@ -115,7 +116,7 @@ const SERVICES = [
     title: 'SEO & GEO',
     description:
       'Organic search, AI visibility and local reach to drive long-term traffic growth.',
-    href: '/pages/shopify-seo',
+    href: SHOPIFY_SEO_CLEAN_PATH,
     badge:
       '/images/home-services/badges/logo-search-white.svg',
     badgeAlt: 'Search',
@@ -206,7 +207,7 @@ const SERVICES = [
 const SERVICE_PRODUCTS = [
   {
     label: 'Search',
-    href: '/pages/shopify-seo',
+    href: SHOPIFY_SEO_CLEAN_PATH,
     logo:
       '/images/home-services/badges/logo-search-white.svg',
   },

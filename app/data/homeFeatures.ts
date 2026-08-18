@@ -1,3 +1,5 @@
+import {SHOPIFY_SEO_CLEAN_PATH} from '~/lib/route-mappings';
+
 /* =========================================================
    FOLDTECH — HOME FEATURE DATA
 
@@ -89,7 +91,7 @@ export type HomeFeatureData = {
 const ROUTES = {
   caseStudies: '/pages/case-studies',
 
-  seo: '/pages/shopify-seo',
+  seo: SHOPIFY_SEO_CLEAN_PATH,
 
   development: '/pages/shopify-development',
 

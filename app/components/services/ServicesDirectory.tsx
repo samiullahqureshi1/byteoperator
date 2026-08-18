@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {Link} from 'react-router';
+import {SHOPIFY_SEO_CLEAN_PATH} from '~/lib/route-mappings';
 
 type ServiceDirectoryLink = {
   label: string;
@@ -19,7 +20,7 @@ const SERVICE_GROUPS: ServiceDirectoryGroup[] = [
     links: [
       {
         label: 'Search Engine Optimisation',
-        href: '/pages/shopify-seo',
+        href: SHOPIFY_SEO_CLEAN_PATH,
       },
       {
         label: 'GEO / AI Search Optimisation',

@@ -8,7 +8,10 @@ import {
   HOME_FEATURES,
   type HomeFeatureData,
 } from '~/data/homeFeatures';
-import {resolveCleanPath} from '~/lib/route-mappings';
+import {
+  resolveCleanPath,
+  SHOPIFY_SEO_CLEAN_PATH,
+} from '~/lib/route-mappings';
 
 const ROUTES = {
   contact: resolveCleanPath('/pages/contact'),
@@ -19,7 +22,7 @@ const ROUTES = {
   migrations: resolveCleanPath('/pages/shopify-migrations'),
   maintenance: resolveCleanPath('/pages/shopify-maintenance'),
   cro: resolveCleanPath('/pages/conversion-rate-optimisation'),
-  seo: resolveCleanPath('/pages/shopify-seo'),
+  seo: SHOPIFY_SEO_CLEAN_PATH,
   emailMarketing: resolveCleanPath('/pages/email-sms-marketing'),
 } as const;
 

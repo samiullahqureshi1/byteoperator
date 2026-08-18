@@ -4,9 +4,16 @@ import {
   HOME_FEATURES,
   type HomeFeatureData,
 } from '~/data/homeFeatures';
-import {resolveCleanPath} from '~/lib/route-mappings';
+import {
+  resolveCleanPath,
+  SHOPIFY_SEO_PAGE_HANDLE,
+} from '~/lib/route-mappings';
 
 const SERVICE_PAGE_ROUTES = {
+  ai: resolveCleanPath('/pages/ai'),
+  ecommerceAiSeo: resolveCleanPath('/pages/ecommerce-ai-seo'),
+  ecommerceSeo: resolveCleanPath('/pages/ecommerce-seo'),
+  seoMigrations: resolveCleanPath('/pages/seo-migrations'),
   work: resolveCleanPath('/pages/work'),
   contact: resolveCleanPath('/pages/contact'),
   shopifyDevelopment: resolveCleanPath(
@@ -15,7 +22,9 @@ const SERVICE_PAGE_ROUTES = {
   shopifyMaintenance: resolveCleanPath(
     '/pages/shopify-maintenance',
   ),
-  shopifySeo: resolveCleanPath('/pages/shopify-seo'),
+  shopifySeo: resolveCleanPath(
+    `/pages/${SHOPIFY_SEO_PAGE_HANDLE}`,
+  ),
   shopifyAppDevelopment: resolveCleanPath(
     '/pages/shopify-app-development',
   ),
@@ -70,12 +79,289 @@ export const SERVICES_LANDING_HERO = {
 
 export interface ServicePageConfig {
   hero: ServiceHeroProps;
+  heroOnly?: boolean;
+  showPartners?: boolean;
   about?: ServiceAboutSectionData;
   features?: readonly HomeFeatureData[];
   faqTitle?: string;
 }
 
 export const SERVICE_PAGE_CONFIGS = {
+  [SHOPIFY_SEO_PAGE_HANDLE]: {
+    faqTitle: 'Shopify SEO Agency',
+    hero: {
+      eyebrow: 'Shopify SEO Agency',
+      heading:
+        'Shopify SEO services for ecommerce growth and stronger organic visibility.',
+      chips: [
+        {
+          label: 'AI SEO',
+          href: SERVICE_PAGE_ROUTES.ecommerceAiSeo,
+        },
+        {
+          label: 'Ecommerce SEO',
+          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+        },
+        {
+          label: 'SEO Migrations',
+          href: SERVICE_PAGE_ROUTES.seoMigrations,
+        },
+      ],
+      bottomLogo: {
+        src: '/images/home-services/badges/logo-search-white.svg',
+        alt: 'Search',
+      },
+      promoLink: {
+        label: 'Looking to improve AI Visibility? Explore AI →',
+        href: SERVICE_PAGE_ROUTES.ai,
+      },
+      description:
+        'FoldTech helps Shopify and Shopify Plus stores improve organic visibility through technical SEO, collection and product optimisation, content strategy and search-focused site improvements.',
+      primaryCta: {
+        label: 'Explore SEO Services',
+        href: SERVICE_PAGE_ROUTES.shopifySeo,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'Shopify SEO built around how customers search, discover and buy.',
+        description:
+          'FoldTech combines technical SEO, collection and product optimisation, internal linking and search-focused content to help Shopify stores improve organic visibility. We focus on the parts of a Shopify store that affect how search engines understand pages and how customers discover products through search.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt: 'Shopify SEO ecommerce project',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt: 'Shopify ecommerce optimisation project',
+      },
+      process: {
+        heading:
+          'SEO planning that connects technical health, content and ecommerce structure.',
+        leftDescription:
+          'We review collections, products, navigation, internal linking and site structure alongside keyword opportunities. This helps identify pages that need stronger search targeting and technical issues that may affect crawling, indexation or organic visibility.',
+        rightDescription:
+          'The resulting SEO work can include collection and product improvements, technical fixes, content planning, structured data, internal linking and ongoing optimisation as the store and catalogue develop.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'seo-agency-services',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Shopify SEO Services',
+        heading:
+          'SEO support designed around Shopify ecommerce stores.',
+        description: [
+          'FoldTech approaches Shopify SEO across the full storefront, from technical foundations and site structure to collections, products and supporting content.',
+          'We look at how search demand connects with the catalogue and customer journey, then prioritise improvements that make important pages easier to discover, understand and navigate.',
+        ],
+        badges: [
+          {
+            label: 'Technical SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+          {
+            label: 'Collection SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+          {
+            label: 'Product SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-seo-geo'),
+      },
+      {
+        id: 'seo-agency-keyword-research',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Keyword Research',
+        heading:
+          'Search research shaped around what customers are looking for.',
+        description: [
+          'Keyword research helps identify the searches connected with products, collections and customer needs.',
+          'We organise those opportunities around commercial relevance, page purpose and the existing store structure so target terms can be assigned to the right pages instead of competing across the site.',
+        ],
+        badges: [
+          {
+            label: 'Keyword Research',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+          {
+            label: 'Search Intent',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'seo-agency-collection-product-seo',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Collection & Product SEO',
+        heading:
+          'Improve how key ecommerce pages appear and perform in organic search.',
+        description: [
+          'Collections and product pages are central to ecommerce search visibility. FoldTech reviews page targeting, headings, copy, metadata, internal links and supporting content around these areas.',
+          'The work should improve page relevance while keeping product discovery and the shopping experience clear for customers.',
+        ],
+        badges: [
+          {
+            label: 'Collection SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+          {
+            label: 'Product SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'seo-agency-content-internal-linking',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'SEO Content & Internal Linking',
+        heading:
+          'Connect useful content with the pages that matter across your store.',
+        description: [
+          'Search content should support the wider ecommerce site instead of sitting in isolation. We plan content around useful customer searches and connect it with relevant products, collections and services.',
+          'Internal linking is reviewed alongside content so search engines and customers can move through related areas of the site more clearly.',
+        ],
+        badges: [
+          {
+            label: 'SEO Content',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+          {
+            label: 'Internal Linking',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'seo-agency-technical-seo',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Technical SEO',
+        heading:
+          'Find and fix technical issues that can restrict organic visibility.',
+        description: [
+          'Technical SEO reviews how the Shopify storefront is crawled, indexed and understood by search engines.',
+          'FoldTech can review areas such as indexation, redirects, canonical handling, structured data, internal links, page templates and performance-related issues, then prioritise fixes based on their relevance to the store.',
+        ],
+        badges: [
+          {
+            label: 'Technical SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'seo-agency-migrations',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Ecommerce SEO Migrations',
+        heading:
+          'Protect search visibility when moving or restructuring an ecommerce store.',
+        description: [
+          'SEO needs to be considered before URLs, navigation or page structures change. Migration planning helps identify important existing URLs and how they should map into the new storefront.',
+          'FoldTech can coordinate redirects, metadata, internal linking, technical checks and post-launch review as part of a Shopify migration or major site restructure.',
+        ],
+        badges: [
+          {
+            label: 'SEO Migrations',
+            href: SERVICE_PAGE_ROUTES.seoMigrations,
+          },
+          {
+            label: 'Redirect Planning',
+            href: SERVICE_PAGE_ROUTES.seoMigrations,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'seo-agency-ongoing-support',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Ongoing Shopify SEO',
+        heading:
+          'Keep improving search visibility as your Shopify store changes.',
+        description: [
+          'Ecommerce stores continuously add products, collections, campaigns and content. Ongoing SEO support helps review those changes and identify new technical and search opportunities over time.',
+          'FoldTech can combine recurring technical reviews, content recommendations, on-page improvements and search analysis with the wider ecommerce roadmap.',
+        ],
+        badges: [
+          {
+            label: 'Ongoing SEO',
+            href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+    ],
+    showPartners: true,
+  },
   'shopify-developers': {
     faqTitle: 'Shopify Developers',
     hero: {
