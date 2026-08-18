@@ -13,6 +13,7 @@
 
 .ft-service-detail-faqs__container {
   width: 100%;
+  margin-inline: auto;
   padding-inline: 1.25rem;
 }
 
@@ -49,7 +50,8 @@
   line-height: 1;
   letter-spacing: -0.04em;
   color: var(--ft-text, #0b252d);
-  overflow-wrap: anywhere;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 .ft-service-detail-faqs__list {
@@ -199,6 +201,12 @@
 @media (min-width: 80rem) {
   .ft-service-detail-faqs__inner {
     gap: 12rem;
+  }
+}
+
+@media (min-width: 96rem) {
+  .ft-service-detail-faqs__container {
+    max-width: 96rem;
   }
 }
 
