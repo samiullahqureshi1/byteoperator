@@ -65,6 +65,30 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/agentic-commerce': '/agentic-commerce',
   '/pages/ab-testing': '/ab-testing',
   '/pages/shopify-consultant': '/shopify-consultant',
+  '/pages/magento-shopify-migrations':
+    '/magento-shopify-migrations/',
+  '/services/magento-shopify-migrations':
+    '/magento-shopify-migrations/',
+  '/services/magento-shopify-migrations/':
+    '/magento-shopify-migrations/',
+  '/pages/woocommerce-shopify-migrations':
+    '/woocommerce-shopify-migrations/',
+  '/services/woocommerce-shopify-migrations':
+    '/woocommerce-shopify-migrations/',
+  '/services/woocommerce-shopify-migrations/':
+    '/woocommerce-shopify-migrations/',
+  '/pages/bigcommerce-shopify-migrations':
+    '/bigcommerce-shopify-migrations/',
+  '/services/bigcommerce-shopify-migrations':
+    '/bigcommerce-shopify-migrations/',
+  '/services/bigcommerce-shopify-migrations/':
+    '/bigcommerce-shopify-migrations/',
+  '/pages/salesforce-shopify-migrations':
+    '/salesforce-shopify-migrations/',
+  '/services/salesforce-shopify-migrations':
+    '/salesforce-shopify-migrations/',
+  '/services/salesforce-shopify-migrations/':
+    '/salesforce-shopify-migrations/',
   // Keep the canonical Shopify page handle before the retired alias so the
   // clean-route resolver loads the service detail config for this page.
   '/pages/shopify-theme-development-builds':

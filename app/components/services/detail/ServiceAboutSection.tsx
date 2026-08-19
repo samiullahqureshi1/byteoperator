@@ -40,7 +40,7 @@ export function ServiceAboutSection({
   return (
     <section className="ft-service-about">
       <div className="ft-service-about__container">
-        <div className="ft-service-about__content">
+        <div className="ft-service-about__content ft-service-about__content--intro">
           <div className="ft-service-about__left">
             <h2 className="ft-service-about__heading">
               {data.intro.heading}

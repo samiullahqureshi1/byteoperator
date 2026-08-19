@@ -42,3 +42,103 @@
 .ft-service-detail--shopify-migrations .ft-home-partners {
   background: var(--ft-dark-deep, #01151b);
 }
+
+/* =========================================================
+   WOOCOMMERCE TO SHOPIFY MIGRATIONS (page scoped)
+========================================================= */
+
+/* The intro heading on this page is shorter than on the other service
+   pages, which left an oversized empty gap before the lower content. */
+.ft-service-detail--woocommerce-shopify-migrations
+  .ft-service-about__content {
+  row-gap: 1.25rem;
+}
+
+.ft-service-detail--woocommerce-shopify-migrations
+  .ft-service-about__images {
+  margin-block: 2.5rem;
+}
+
+/* Dark sections use the FoldTech dark palette instead of black. */
+.ft-service-detail--woocommerce-shopify-migrations .ft-home-feature,
+.ft-service-detail--woocommerce-shopify-migrations .ft-home-feature--dark,
+.ft-service-detail--woocommerce-shopify-migrations .ft-home-partners {
+  background: var(--ft-dark-deep, #01151b);
+}
+.ft-service-detail--woocommerce-shopify-migrations
+.ft-service-about__content--intro
+.ft-service-about__left {
+  align-self: end;
+}
+.ft-service-detail--woocommerce-shopify-migrations
+.ft-services-hero__inner {
+  align-items: flex-start;
+}
+
+/* =========================================================
+   BIGCOMMERCE TO SHOPIFY MIGRATIONS (page scoped)
+   Mirrors the finalized WooCommerce migration page treatment.
+========================================================= */
+
+/* The intro heading on this page is shorter than on the other service
+   pages, which left an oversized empty gap before the lower content. */
+.ft-service-detail--bigcommerce-shopify-migrations
+  .ft-service-about__content {
+  row-gap: 1.25rem;
+}
+
+.ft-service-detail--bigcommerce-shopify-migrations
+  .ft-service-about__images {
+  margin-block: 2.5rem;
+}
+
+/* Dark sections use the FoldTech dark palette instead of black. */
+.ft-service-detail--bigcommerce-shopify-migrations .ft-home-feature,
+.ft-service-detail--bigcommerce-shopify-migrations .ft-home-feature--dark,
+.ft-service-detail--bigcommerce-shopify-migrations .ft-home-partners {
+  background: var(--ft-dark-deep, #01151b);
+}
+.ft-service-detail--bigcommerce-shopify-migrations
+.ft-service-about__content--intro
+.ft-service-about__left {
+  align-self: end;
+}
+.ft-service-detail--bigcommerce-shopify-migrations
+.ft-services-hero__inner {
+  align-items: flex-start;
+}
+
+/* =========================================================
+   SALESFORCE COMMERCE CLOUD TO SHOPIFY MIGRATIONS (page scoped)
+   Mirrors the finalized WooCommerce/BigCommerce migration treatment.
+========================================================= */
+
+/* The intro heading on this page is shorter than on the other service
+   pages, which left an oversized empty gap before the lower content. */
+.ft-service-detail--salesforce-shopify-migrations
+  .ft-service-about__content {
+  row-gap: 1.25rem;
+}
+
+.ft-service-detail--salesforce-shopify-migrations
+  .ft-service-about__images {
+  margin-block: 2.5rem;
+}
+
+/* Dark sections use the FoldTech dark palette instead of black. */
+.ft-service-detail--salesforce-shopify-migrations .ft-home-feature,
+.ft-service-detail--salesforce-shopify-migrations .ft-home-feature--dark,
+.ft-service-detail--salesforce-shopify-migrations .ft-home-partners {
+  background: var(--ft-dark-deep, #01151b);
+}
+/* The intro heading aligns to the top of the row so any spare space from a
+   shorter heading falls below it instead of above it. */
+.ft-service-detail--salesforce-shopify-migrations
+.ft-service-about__content--intro
+.ft-service-about__left {
+  align-self: start;
+}
+.ft-service-detail--salesforce-shopify-migrations
+.ft-services-hero__inner {
+  align-items: flex-start;
+}
