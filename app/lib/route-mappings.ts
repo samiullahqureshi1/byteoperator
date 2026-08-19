@@ -7,7 +7,7 @@ export const SHOPIFY_SEO_CLEAN_PATH = '/seo-agency';
 export const ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE =
   'ecommerce-seo-migrations';
 export const ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH =
-  '/services/ecommerce-seo-migrations/';
+  '/ecommerce-seo-migrations/';
 
 export const OLD_TO_CLEAN_PATHS = {
   '/pages/services': '/services',
@@ -42,6 +42,10 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
   '/seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
   '/ecommerce-seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
+  '/services/ecommerce-seo-migrations':
+    ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
+  '/services/ecommerce-seo-migrations/':
+    ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
   '/pages/headless-commerce': '/headless-commerce',
   '/pages/conversion-rate-optimisation': '/conversion-rate-optimisation',
   '/pages/shopify-maintenance': '/shopify-maintenance',
@@ -64,12 +68,14 @@ export const OLD_TO_CLEAN_PATHS = {
   // Keep the canonical Shopify page handle before the retired alias so the
   // clean-route resolver loads the service detail config for this page.
   '/pages/shopify-theme-development-builds':
-    '/services/shopify-theme-development-builds/',
+    '/shopify-theme-development-builds/',
   '/pages/theme-development':
-    '/services/shopify-theme-development-builds/',
-  '/theme-development': '/services/shopify-theme-development-builds/',
+    '/shopify-theme-development-builds/',
+  '/theme-development': '/shopify-theme-development-builds/',
   '/services/shopify-theme-development-builds':
-    '/services/shopify-theme-development-builds/',
+    '/shopify-theme-development-builds/',
+  '/services/shopify-theme-development-builds/':
+    '/shopify-theme-development-builds/',
   '/pages/memberships': '/memberships',
   '/pages/search-first': '/search-first',
   '/pages/shopify-experts': '/shopify-experts',
