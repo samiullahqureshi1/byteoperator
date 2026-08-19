@@ -4,6 +4,11 @@ export const SHOPIFY_PLUS_CLEAN_PATH = '/shopify-plus-agency';
 export const SHOPIFY_SEO_PAGE_HANDLE = 'seo-agency';
 export const SHOPIFY_SEO_CLEAN_PATH = '/seo-agency';
 
+export const ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE =
+  'ecommerce-seo-migrations';
+export const ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH =
+  '/services/ecommerce-seo-migrations/';
+
 export const OLD_TO_CLEAN_PATHS = {
   '/pages/services': '/services',
   '/pages/work': '/work',
@@ -29,8 +34,14 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/ecommerce-seo': '/ecommerce-seo',
   '/pages/ecommerce-ai-seo': '/ecommerce-ai-seo',
   '/pages/ecommerce-geo': '/ecommerce-geo',
-  '/pages/seo-migrations': '/seo-migrations',
-  '/pages/ecommerce-seo-migrations': '/ecommerce-seo-migrations',
+  // Canonical Shopify handle first: `resolveLegacyPath` returns the first
+  // `/pages/*` entry that points at a clean path, so the retired
+  // `/pages/seo-migrations` alias must stay below this line.
+  [`/pages/${ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE}`]:
+    ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
+  '/pages/seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
+  '/seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
+  '/ecommerce-seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
   '/pages/headless-commerce': '/headless-commerce',
   '/pages/conversion-rate-optimisation': '/conversion-rate-optimisation',
   '/pages/shopify-maintenance': '/shopify-maintenance',
@@ -76,10 +87,19 @@ export function resolveCleanPath(pathname: string): string {
 }
 
 export function resolveLegacyPath(pathname: string): ShopifyPagePath | null {
+  const target = trimTrailingSlash(pathname);
+
   const match = Object.entries(OLD_TO_CLEAN_PATHS).find(
     ([legacyPath, cleanPath]) =>
-      legacyPath.startsWith('/pages/') && cleanPath === pathname,
+      legacyPath.startsWith('/pages/') &&
+      trimTrailingSlash(cleanPath) === target,
   );
 
   return (match?.[0] as ShopifyPagePath | undefined) ?? null;
+}
+
+function trimTrailingSlash(pathname: string): string {
+  return pathname.length > 1 && pathname.endsWith('/')
+    ? pathname.slice(0, -1)
+    : pathname;
 }

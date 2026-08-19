@@ -17,7 +17,7 @@ import servicesDirectoryStyles from '~/styles/services-directory.css?url';
 import servicesWideImageStyles from '~/styles/services-wide-image.css?url';
 import {ServicesPage} from '~/components/ServicesPage';
 import servicesHeroStyles from '~/styles/services-hero.css?url';
-import {useLoaderData} from 'react-router';
+import {redirect, useLoaderData} from 'react-router';
 import type {Route} from './+types/pages.$handle';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {WorkPage} from '~/components/WorkPage';
@@ -35,7 +35,10 @@ import {
   type ServicePageHandle,
 } from '~/data/servicePages';
 import type {ServiceDetailFaqItem} from '~/components/services/detail/ServiceDetailFaqs';
-import {SHOPIFY_PLUS_PAGE_HANDLE} from '~/lib/route-mappings';
+import {
+  resolveCleanPath,
+  SHOPIFY_PLUS_PAGE_HANDLE,
+} from '~/lib/route-mappings';
 
 export const meta: Route.MetaFunction = ({data}) => {
   return [{title: `Hydrogen | ${data?.page.title ?? ''}`}];
@@ -141,6 +144,15 @@ export const links: Route.LinksFunction = () => [
 export async function loader(args: Route.LoaderArgs) {
   if (!args.params.handle) {
     throw new Error('Missing page handle');
+  }
+
+  // Legacy /pages/* URLs move to their explicit clean path using
+  // the centralized route mappings.
+  const requestUrl = new URL(args.request.url);
+  const cleanPath = resolveCleanPath(requestUrl.pathname);
+
+  if (cleanPath !== requestUrl.pathname) {
+    throw redirect(cleanPath + requestUrl.search, 301);
   }
 
   // Start fetching non-critical data without blocking time to first byte

@@ -14,6 +14,10 @@ const SERVICE_PAGE_ROUTES = {
   ecommerceAiSeo: resolveCleanPath('/pages/ecommerce-ai-seo'),
   ecommerceSeo: resolveCleanPath('/pages/ecommerce-seo'),
   seoMigrations: resolveCleanPath('/pages/seo-migrations'),
+  shopifyMigrations: resolveCleanPath(
+    '/pages/shopify-migrations',
+  ),
+  services: resolveCleanPath('/pages/services'),
   work: resolveCleanPath('/pages/work'),
   contact: resolveCleanPath('/pages/contact'),
   shopifyDevelopment: resolveCleanPath(
@@ -701,6 +705,282 @@ export const SERVICE_PAGE_CONFIGS = {
         media: reuseHomeFeatureMedia('shopify-design'),
       },
     ],
+  },
+  'ecommerce-seo-migrations': {
+    faqTitle: 'Ecommerce SEO Migrations',
+    hero: {
+      eyebrow: 'Ecommerce SEO Migration Services',
+      heading:
+        'SEO migration support for ecommerce platform moves and site changes.',
+      chips: [
+        {
+          label: 'AI SEO',
+          href: SERVICE_PAGE_ROUTES.ecommerceAiSeo,
+        },
+        {
+          label: 'Ecommerce SEO Agency',
+          href: SERVICE_PAGE_ROUTES.shopifySeo,
+        },
+        {
+          label: 'Shopify Services',
+          href: SERVICE_PAGE_ROUTES.services,
+        },
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+      ],
+      bottomLogo: {
+        src: '/images/home-services/badges/logo-search-white.svg',
+        alt: 'Search',
+      },
+      description:
+        'FoldTech helps ecommerce brands plan and manage SEO during platform migrations, store rebuilds and major site changes. We review URLs, content, redirects, technical setup and search-critical pages before and after launch to reduce avoidable migration risks.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'Ecommerce SEO migration planning built around your existing search footprint.',
+        description:
+          'A platform move can change URLs, navigation, templates, internal links, metadata and content structure at the same time. FoldTech reviews the existing store and the planned new structure so important SEO elements can be accounted for before development and launch decisions are finalised.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt: 'Ecommerce SEO migration project review',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt:
+          'FoldTech team planning an ecommerce migration',
+      },
+      process: {
+        heading:
+          'Plan the migration before URLs, content and technical signals change.',
+        leftDescription:
+          'We review existing pages, search visibility, site structure and URL patterns, then map how important areas should move into the new storefront. This provides a clearer framework for redirects, metadata, internal linking and content migration.',
+        rightDescription:
+          'After launch, technical checks and search data can be reviewed to identify redirect problems, indexation issues, missing pages or other migration-related changes that require attention.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'ecommerce-seo-migrations-services',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Ecommerce SEO Migration Services',
+        heading:
+          'SEO planning for ecommerce migrations and major storefront changes.',
+        description: [
+          'FoldTech supports migrations where ecommerce URLs, page templates, content or platform architecture are changing.',
+          'The migration plan connects SEO requirements with the development process so redirects, content, metadata and technical considerations are addressed at the right stage.',
+        ],
+        badges: [
+          {
+            label: 'SEO Migration',
+            href: SERVICE_PAGE_ROUTES.seoMigrations,
+          },
+          {
+            label: 'Migration Planning',
+            href: SERVICE_PAGE_ROUTES.shopifyMigrations,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'ecommerce-seo-migrations-pre-migration',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Pre-Migration SEO Planning',
+        heading:
+          'Review the current store before the migration begins.',
+        description: [
+          'Before major changes are made, we review important URLs, collections, products, content, internal links and existing search signals.',
+          'This creates a baseline for planning the new structure and helps identify areas that need to be retained, redirected, improved or reviewed during migration.',
+        ],
+        badges: [
+          {
+            label: 'SEO Audit',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+          {
+            label: 'URL Planning',
+            href: SERVICE_PAGE_ROUTES.seoMigrations,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-seo-geo'),
+      },
+      {
+        id: 'ecommerce-seo-migrations-url-redirects',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'URL & Redirect Strategy',
+        heading:
+          'Map old and new URLs before the new ecommerce store goes live.',
+        description: [
+          'URL changes need clear planning during an ecommerce migration. FoldTech can map existing pages to their intended destinations and identify URLs that require redirects.',
+          'Redirect implementation can then be checked alongside navigation and internal links so customers and search engines reach the intended pages after launch.',
+        ],
+        badges: [
+          {
+            label: 'Redirect Strategy',
+            href: SERVICE_PAGE_ROUTES.seoMigrations,
+          },
+          {
+            label: 'URL Mapping',
+            href: SERVICE_PAGE_ROUTES.seoMigrations,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'ecommerce-seo-migrations-content-on-page',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Content & On-Page Migration',
+        heading:
+          'Move important ecommerce content and on-page SEO into the new store.',
+        description: [
+          'Collections, products and supporting content often carry headings, metadata, copy and internal links that need to be considered during migration.',
+          'FoldTech reviews how these elements should transfer into the new storefront and identifies opportunities where content or page targeting should be updated.',
+        ],
+        badges: [
+          {
+            label: 'Content Migration',
+            href: SERVICE_PAGE_ROUTES.shopifyMigrations,
+          },
+          {
+            label: 'On-Page SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'ecommerce-seo-migrations-post-migration-review',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Post-Migration SEO Review',
+        heading:
+          'Check the new storefront after launch for migration-related SEO issues.',
+        description: [
+          'After launch, the new site can be reviewed for redirect behaviour, indexation, crawl issues, missing pages, metadata changes and internal-link problems.',
+          'Search and analytics data can then help identify areas that need further review as search engines process the new store structure.',
+        ],
+        badges: [
+          {
+            label: 'Post-Launch Review',
+            href: SERVICE_PAGE_ROUTES.seoMigrations,
+          },
+          {
+            label: 'Technical SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'ecommerce-seo-migrations-technical-checks',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Technical Migration Checks',
+        heading:
+          'Review technical SEO across the new ecommerce structure.',
+        description: [
+          'Platform migrations can affect canonical handling, structured data, crawl paths, page templates, internal links and other technical elements.',
+          'FoldTech reviews the relevant technical setup and works alongside development changes where fixes are required.',
+        ],
+        badges: [
+          {
+            label: 'Technical SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+          {
+            label: 'Site Structure',
+            href: SERVICE_PAGE_ROUTES.shopifySeo,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'ecommerce-seo-migrations-ongoing-seo',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Ongoing SEO After Migration',
+        heading:
+          'Continue improving the store once the migration is complete.',
+        description: [
+          'Migration work does not necessarily stop at launch. New pages, content changes and technical findings may appear as the new storefront is crawled and used by customers.',
+          'Ongoing SEO support can combine technical reviews, on-page improvements, internal linking and search analysis with the wider ecommerce roadmap.',
+        ],
+        badges: [
+          {
+            label: 'Ongoing SEO',
+            href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+          },
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+    ],
+    showPartners: true,
   },
 } as const satisfies Record<string, ServicePageConfig>;
 
