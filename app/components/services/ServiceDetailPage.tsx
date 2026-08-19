@@ -9,6 +9,7 @@ import {
   type ServiceDetailFaqItem,
 } from './detail/ServiceDetailFaqs';
 import {ServiceAboutSection} from './detail/ServiceAboutSection';
+import {MigrationPlatformsAccordion} from './detail/MigrationPlatformsAccordion';
 
 interface ServiceDetailPageProps {
   page: {
@@ -32,7 +33,16 @@ export function ServiceDetailPage({
       {config.heroOnly ? null : (
         <>
           {config.about ? (
-            <ServiceAboutSection data={config.about} />
+            <ServiceAboutSection
+              data={config.about}
+              afterMedia={
+                config.platforms ? (
+                  <MigrationPlatformsAccordion
+                    data={config.platforms}
+                  />
+                ) : null
+              }
+            />
           ) : null}
 
           {config.features?.map((feature) => (

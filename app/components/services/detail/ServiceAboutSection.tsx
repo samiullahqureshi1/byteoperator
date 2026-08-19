@@ -1,4 +1,5 @@
 import {Link} from 'react-router';
+import type {ReactNode} from 'react';
 
 type ServiceAboutCta = {
   label: string;
@@ -6,10 +7,14 @@ type ServiceAboutCta = {
 };
 
 export type ServiceAboutSectionData = {
-  intro: {
-    heading: string;
-    description: string;
-    cta?: ServiceAboutCta;
+intro: {
+  heading: string;
+  description?: string;
+  descriptionHtml?: string;
+  cta?: {
+    label: string;
+    href: string;
+  };
   };
   media: {
     primary: string;
@@ -27,8 +32,10 @@ export type ServiceAboutSectionData = {
 
 export function ServiceAboutSection({
   data,
+  afterMedia,
 }: {
   data: ServiceAboutSectionData;
+  afterMedia?: ReactNode;
 }) {
   return (
     <section className="ft-service-about">
@@ -40,15 +47,24 @@ export function ServiceAboutSection({
             </h2>
           </div>
 
-          <div className="ft-service-about__right">
-            <p className="ft-service-about__description">
-              {data.intro.description}
-            </p>
+        <div className="ft-service-about__right">
+  {data.intro.descriptionHtml ? (
+    <div
+      className="ft-service-about__description"
+      dangerouslySetInnerHTML={{
+        __html: data.intro.descriptionHtml,
+      }}
+    />
+  ) : data.intro.description ? (
+    <p className="ft-service-about__description">
+      {data.intro.description}
+    </p>
+  ) : null}
 
-            {data.intro.cta ? (
-              <ServiceAboutLink cta={data.intro.cta} />
-            ) : null}
-          </div>
+  {data.intro.cta ? (
+    <ServiceAboutLink cta={data.intro.cta} />
+  ) : null}
+</div>
         </div>
 
         <div className="ft-service-about__images">
@@ -70,6 +86,8 @@ export function ServiceAboutSection({
             />
           </div>
         </div>
+
+        {afterMedia}
 
         <div className="ft-service-about__content">
           <div className="ft-service-about__left">

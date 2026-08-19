@@ -34,3 +34,11 @@
 .ft-service-detail--ecommerce-seo-migrations .ft-home-partners {
   background: var(--ft-dark-deep, #01151b);
 }
+.ft-service-detail--seo-agency .ft-home-feature--dark,
+.ft-service-detail--seo-agency .ft-home-partners {
+  background: var(--ft-dark-deep, #01151b);
+}
+.ft-service-detail--shopify-migrations .ft-home-feature--dark,
+.ft-service-detail--shopify-migrations .ft-home-partners {
+  background: var(--ft-dark-deep, #01151b);
+}

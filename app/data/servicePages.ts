@@ -1,5 +1,6 @@
 import type {ServiceHeroProps} from '~/components/services/ServiceHero';
 import type {ServiceAboutSectionData} from '~/components/services/detail/ServiceAboutSection';
+import type {MigrationPlatformsData} from '~/components/services/detail/MigrationPlatformsAccordion';
 import {
   HOME_FEATURES,
   type HomeFeatureData,
@@ -89,6 +90,7 @@ export interface ServicePageConfig {
   heroOnly?: boolean;
   showPartners?: boolean;
   about?: ServiceAboutSectionData;
+  platforms?: MigrationPlatformsData;
   features?: readonly HomeFeatureData[];
   faqTitle?: string;
 }
@@ -117,6 +119,7 @@ export const SERVICE_PAGE_CONFIGS = {
       bottomLogo: {
         src: '/images/home-services/badges/logo-search-white.svg',
         alt: 'Search',
+        text: 'FoldTech',
       },
       promoLink: {
         label: 'Looking to improve AI Visibility? Explore AI →',
@@ -708,6 +711,259 @@ export const SERVICE_PAGE_CONFIGS = {
         media: reuseHomeFeatureMedia('shopify-design'),
       },
     ],
+  },
+  'shopify-migrations': {
+    faqTitle: 'Shopify Migration Agency',
+    hero: {
+      eyebrow: 'Shopify Migration Agency Services',
+      heading:
+        'Shopify migration services for ecommerce stores moving to Shopify and Shopify Plus.',
+      chips: [
+        {
+          label: 'Shopify Development',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce SEO Migrations',
+          href: SERVICE_PAGE_ROUTES.seoMigrations,
+        },
+        {
+          label: 'Shopify Web Design',
+          href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+        },
+        {
+          label: 'Support & Maintenance',
+          href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+        },
+      ],
+      bottomLogo: {
+        text: 'FoldTech',
+        src: '/images/home-services/badges/logo-launch-white.svg',
+        alt: 'Launch',
+      },
+      description:
+        'FoldTech supports ecommerce migrations to Shopify and Shopify Plus, bringing together planning, storefront development, data migration, integrations, technical SEO considerations and launch preparation.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'Shopify migrations planned around the store, data and customer experience you need to carry forward.',
+        descriptionHtml: `FoldTech supports ecommerce brands moving or re-platforming from <a href="/magento-shopify-migrations/">Magento</a>, <a href="/woocommerce-shopify-migrations/">WooCommerce</a>, <a href="/bigcommerce-shopify-migrations/">BigCommerce</a>, <a href="/salesforce-shopify-migrations/">Salesforce</a>, <a href="/visualsoft-shopify-agency/">Visualsoft</a> and other ecommerce platforms to Shopify or Shopify Plus.`,
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt: 'Shopify migration planning session',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt: 'FoldTech team planning an ecommerce migration',
+      },
+      // A future MigrationPlatformsAccordion belongs after this section and
+      // before the feature sequence in ServiceDetailPage.
+      process: {
+        heading: 'Our Shopify migration process',
+        leftDescription:
+          'We begin with discovery to understand the current platform, business objectives, functionality, data and risks. This creates a practical migration plan that connects architecture, storefront requirements and launch preparation.',
+        rightDescription:
+          'The work then moves through data analysis, design and development, imports, integrations and SEO planning. Each stage is reviewed against the next so the new Shopify store is prepared for testing, launch and continued improvement.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    platforms: {
+  heading: 'Platforms we migrate from',
+  eyebrow: 'Platforms',
+  items: [
+    {
+      title: 'Magento',
+      descriptionHtml: `
+        <p>
+          FoldTech supports ecommerce teams moving from Magento to Shopify or Shopify Plus, including storefront requirements, product and customer data, integrations and launch planning. Learn more about our <a href="/magento-shopify-migrations/">Magento to Shopify migrations</a>.
+        </p>
+      `,
+      cta: {
+        label: 'Magento vs Shopify',
+        href: '/articles/shopify-vs-magento/',
+      },
+    },
+    {
+      title: 'WooCommerce',
+      descriptionHtml: `
+        <p>
+          We support businesses moving from WordPress and WooCommerce to Shopify, with migration planning covering store data, storefront functionality, integrations and the customer experience. Learn more about our <a href="/woocommerce-shopify-migrations/">WooCommerce migration services</a>.
+        </p>
+      `,
+      cta: {
+        label: 'WooCommerce vs Shopify',
+        href: '/articles/shopify-vs-wordpress/',
+      },
+    },
+    {
+      title: 'BigCommerce',
+      descriptionHtml: `
+        <p>
+          FoldTech can support a move from BigCommerce to Shopify or Shopify Plus, including data requirements, theme development, integrations and launch preparation. Learn more about our <a href="/bigcommerce-shopify-migrations/">BigCommerce to Shopify migration services</a>.
+        </p>
+      `,
+      cta: {
+        label: 'BigCommerce vs Shopify',
+        href: '/articles/shopify-vs-bigcommerce/',
+      },
+    },
+    {
+      title: 'Custom Platforms',
+      descriptionHtml: `
+        <p>
+          Businesses using custom ecommerce platforms can move to Shopify with a migration plan built around their existing data, storefront requirements, integrations and operational needs.
+        </p>
+      `,
+      cta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    {
+      title: 'Salesforce',
+      descriptionHtml: `
+        <p>
+          FoldTech can support businesses moving from Salesforce Commerce Cloud to Shopify Plus, including storefront development, ecommerce data, integrations and migration planning. Learn more about our <a href="/salesforce-shopify-migrations/">Salesforce to Shopify migrations</a>.
+        </p>
+      `,
+      cta: {
+        label: 'Salesforce vs Shopify',
+        href: '/articles/shopify-vs-salesforce-commerce-cloud/',
+      },
+    },
+    {
+      title: 'More',
+      descriptionHtml: `
+        <p>
+          Migration requirements are not limited to the platforms listed above. FoldTech can review moves from other ecommerce systems, including <a href="/visualsoft-shopify-agency/">Visualsoft</a>, as well as custom or less common platforms.
+        </p>
+      `,
+      cta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+  ],
+},
+    features: [
+      {
+        id: 'shopify-migrations-discovery',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Shopify Migration Discovery',
+        heading: 'Discovery',
+        description: [
+          'Migration discovery reviews the current platform, business goals, customer journeys and the functionality the new Shopify store needs to support.',
+          'We identify dependencies, migration risks and project priorities early so the delivery plan is grounded in the way the business operates.',
+        ],
+        buttons: [
+          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'shopify-migrations-data-architecture',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Migration Data Planning',
+        heading: 'Data Analysis & Architecture',
+        description: [
+          'We analyse products, customers, orders, collections, content and URLs to understand what needs to move and how it should be structured in Shopify.',
+          'This work helps establish practical data requirements, content ownership and a store architecture that supports the new catalogue and customer experience.',
+        ],
+        buttons: [
+          {label: 'Explore Case Studies', href: SERVICE_PAGE_ROUTES.work},
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'shopify-migrations-theme-development',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Storefront Build',
+        heading: 'Theme Design & Development',
+        description: [
+          'The new Shopify storefront is designed and developed around the agreed customer journeys, content and merchandising needs. Key templates and reusable sections are built for a responsive experience across devices.',
+          'Required storefront functionality is planned alongside the theme so the implementation supports both launch requirements and future development.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Development Services',
+            href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'shopify-migrations-data-integrations',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Data Import & Integrations',
+        heading: 'Data Import & System Integrations',
+        description: [
+          'Data transfer is coordinated with the required ecommerce tools and operational systems, including the services that support fulfilment, customer service, marketing and reporting.',
+          'We plan imports and integrations around the agreed data structure, then test relevant flows before launch.',
+        ],
+        buttons: [
+          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'shopify-migrations-seo',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Ecommerce SEO Migration',
+        heading: 'SEO Migration',
+        description: [
+          'SEO migration planning considers URLs, redirects, metadata, crawlability and internal linking as the new Shopify store takes shape.',
+          'Technical SEO checks are coordinated with content and development changes so important search signals are reviewed before and after launch.',
+        ],
+        buttons: [
+          {
+            label: 'Explore SEO Migrations',
+            href: SERVICE_PAGE_ROUTES.seoMigrations,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-seo-geo'),
+      },
+      {
+        id: 'shopify-migrations-support-growth',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Post-Migration Support',
+        heading: 'Post-Migration Support & Growth',
+        description: [
+          'After launch, FoldTech can support post-migration checks, fixes and planned improvements as the team begins using the new Shopify store.',
+          'Ongoing development support can help prioritise future updates, performance work and storefront changes as requirements evolve.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Retainers',
+            href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+    ],
+    showPartners: true,
   },
   'shopify-theme-development-builds': {
     faqTitle: 'Shopify Theme Development',

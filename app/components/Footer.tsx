@@ -7,6 +7,20 @@ import type {
 } from 'storefrontapi.generated';
 import {normalizeMenuUrl} from '~/lib/normalize-menu-url';
 
+const DOCUMENT_NAVIGATION_PATHS = new Set([
+  '/ecommerce-seo-migrations',
+  '/shopify-theme-development-builds',
+]);
+
+function shouldUseDocumentNavigation(href: string) {
+  const pathname = href
+    .split('?')[0]
+    .split('#')[0]
+    .replace(/\/+$/, '');
+
+  return DOCUMENT_NAVIGATION_PATHS.has(pathname);
+}
+
 interface FooterProps {
   footer: Promise<FooterQuery | null>;
   header: HeaderQuery;
@@ -264,17 +278,20 @@ function FooterNavigation({
                 <ul className="ft-footer__nav-list">
                   {group.links.map((link) => (
                     <li key={link.id}>
-                      <NavLink
-                        className="ft-footer__nav-link"
-                        to={link.href}
-                        prefetch={
-                          link.href.startsWith('/')
-                            ? 'intent'
-                            : 'none'
-                        }
-                      >
-                        {link.label}
-                      </NavLink>
+                   <NavLink
+  className="ft-footer__nav-link"
+  to={link.href}
+  reloadDocument={shouldUseDocumentNavigation(link.href)}
+  prefetch={
+    shouldUseDocumentNavigation(link.href)
+      ? 'none'
+      : link.href.startsWith('/')
+        ? 'intent'
+        : 'none'
+  }
+>
+  {link.label}
+</NavLink>
                     </li>
                   ))}
                 </ul>

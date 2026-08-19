@@ -28,6 +28,7 @@ import shopifyPlusPageStyles from '~/styles/shopify-plus-page.css?url';
 import homePartnersStyles from '~/styles/home-partners.css?url';
 import serviceAboutSectionStyles from '~/styles/service-about-section.css?url';
 import serviceDetailFaqStyles from '~/styles/service-detail-faqs.css?url';
+import migrationPlatformsAccordionStyles from '~/styles/migration-platforms-accordion.css?url';
 import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
 import {ShopifyPlusPage} from '~/components/services/ShopifyPlusPage';
 import {
@@ -135,6 +136,10 @@ export const links: Route.LinksFunction = () => [
 {
   rel: 'stylesheet',
   href: serviceDetailFaqStyles,
+},
+{
+  rel: 'stylesheet',
+  href: migrationPlatformsAccordionStyles,
 },
 {
   rel: 'stylesheet',
