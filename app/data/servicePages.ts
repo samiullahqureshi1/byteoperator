@@ -35,6 +35,9 @@ const SERVICE_PAGE_ROUTES = {
   shopifyWebDesign: resolveCleanPath(
     '/pages/shopify-web-design',
   ),
+  ecommerceCro: resolveCleanPath(
+    '/pages/conversion-rate-optimisation',
+  ),
 } as const;
 
 function reuseHomeFeatureMedia(
@@ -706,6 +709,175 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
   },
+  'shopify-theme-development-builds': {
+    faqTitle: 'Shopify Theme Development',
+    hero: {
+      eyebrow: 'Shopify Theme Design and Build Projects',
+      heading:
+        'Custom Shopify theme development for Shopify and Shopify Plus projects',
+      chips: [
+        {label: 'AI-enabled', href: SERVICE_PAGE_ROUTES.ai},
+        {
+          label: 'Ecommerce SEO Agency',
+          href: SERVICE_PAGE_ROUTES.shopifySeo,
+        },
+        {
+          label: 'Shopify Store Builds',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce CRO',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+      ],
+      bottomLogo: {
+        text: 'FoldTech',
+        src: '/images/home-services/badges/logo-launch-white.svg',
+        alt: 'Launch',
+      },
+      description:
+        'FoldTech plans and delivers Shopify and Shopify Plus theme projects, from bespoke builds to tailored existing-theme work, with performance, usability and sustainable growth in mind.',
+      primaryCta: {
+        label: 'Tell Us About Your Project',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'We launch Shopify stores with experience, quality, performance & growth in mind for both template and bespoke Shopify themes.',
+        description:
+          'FoldTech helps brands choose the right approach for their Shopify theme project, whether that means a bespoke build or focused work within an existing theme. We turn project goals, content and customer needs into a clear plan for a useful, maintainable storefront.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt: 'Shopify theme development project',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt: 'FoldTech team planning a Shopify project',
+      },
+      process: {
+        heading: 'Our proven process',
+        leftDescription:
+          'We start with discovery, design direction and technical planning, agreeing the customer journeys, theme approach and requirements before development begins. Responsive implementation, performance and technical SEO are considered throughout the build rather than left until launch.',
+        rightDescription:
+          'Development moves through focused QA across templates, devices and key store journeys before launch. Once live, we can support performance reviews, technical SEO improvements and planned updates as the storefront, catalogue and business continue to grow.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'theme-development-store-projects',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Bespoke & Template Themes',
+        heading: 'Shopify Store Theme Projects',
+        description: [
+          'FoldTech delivers Shopify theme projects that fit the needs of the brand, catalogue and ecommerce team. This can include a bespoke storefront built around a defined design system or carefully customised work within an established Shopify theme.',
+          'The chosen route is planned around customer experience, operational needs and the flexibility required after launch.',
+        ],
+        buttons: [
+          {label: 'Explore Case Studies', href: SERVICE_PAGE_ROUTES.work},
+        ],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'theme-development-discovery',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Discovery, Strategy & Planning',
+        heading: 'Shopify Theme Projects',
+        description: [
+          'Every project begins by understanding the business, content, products, customer journeys and technical requirements. This gives the team a practical brief for the theme, integrations and the templates that matter most.',
+          'Planning early helps align design and development decisions before work moves into detailed delivery.',
+        ],
+        buttons: [
+          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-seo-geo'),
+      },
+      {
+        id: 'theme-development-design',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Store design and customer journeys',
+        heading: 'Shopify Theme Design',
+        description: [
+          'Shopify theme design brings brand direction, product discovery and customer journeys together across key templates. We consider navigation, merchandising, content hierarchy and the actions that help customers move confidently through the store.',
+          'Desktop and mobile experiences are designed as part of the same system, so responsive behaviour is clear before development starts.',
+        ],
+        buttons: [
+          {label: 'Explore Case Studies', href: SERVICE_PAGE_ROUTES.work},
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'theme-development-architecture',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Development & architecture',
+        heading: 'Custom Shopify Theme Development',
+        description: [
+          'We translate approved designs into reusable Shopify sections, templates and components that give ecommerce teams useful control over content without losing consistency across the storefront.',
+          'Theme architecture is organised for maintainability, performance and future development, with technical SEO and relevant integrations considered alongside the customer-facing experience.',
+        ],
+        buttons: [
+          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'theme-development-qa-launch',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Quality Assurance & Launch',
+        heading: 'Custom Shopify Theme Development',
+        description: [
+          'Before launch, we review key templates, responsive layouts, customer journeys and relevant integrations through focused quality assurance. This includes practical checks of navigation, product discovery, cart behaviour, forms and content management.',
+          'Performance and technical SEO are reviewed alongside the final release so the new theme has a stable, considered foundation when it goes live.',
+        ],
+        buttons: [
+          {label: 'Tell Us About Your Project', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'theme-development-support-growth',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Post-Launch Growth Strategy',
+        heading: 'Shopify Support & Growth',
+        description: [
+          'After launch, FoldTech can support ongoing theme updates, performance improvements and technical changes as new products, campaigns and customer needs emerge.',
+          'A planned roadmap helps prioritise practical development work alongside conversion, SEO and storefront improvements over time.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Retainers',
+            href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+    ],
+    showPartners: true,
+  },
   'ecommerce-seo-migrations': {
     faqTitle: 'Ecommerce SEO Migrations',
     hero: {
@@ -731,9 +903,10 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       ],
       bottomLogo: {
-        src: '/images/home-services/badges/logo-search-white.svg',
-        alt: 'Search',
-      },
+   text: 'FoldTech',
+   src: '/images/home-services/badges/logo-search-white.svg',     
+   alt: 'Search',
+},
       description:
         'FoldTech helps ecommerce brands plan and manage SEO during platform migrations, store rebuilds and major site changes. We review URLs, content, redirects, technical setup and search-critical pages before and after launch to reduce avoidable migration risks.',
       primaryCta: {

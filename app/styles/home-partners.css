@@ -502,3 +502,6 @@
     -webkit-line-clamp: 6;
   }
 }
+.ft-services-partners > .ft-home-partners {
+  background: var(--ft-dark-deep, #01151b);
+}

@@ -17,6 +17,7 @@ export type ServiceHeroChip =
 export type ServiceHeroLogo = {
   src: string;
   alt: string;
+  text?: string;
 };
 
 export type ServiceHeroVariant =
@@ -75,7 +76,10 @@ export function ServiceHero({
 
   return (
     <section className={sectionClasses}>
-      <div className="ft-services-hero__glow" aria-hidden="true" />
+      <div
+        className="ft-services-hero__glow"
+        aria-hidden="true"
+      />
 
       <div className="ft-services-hero__container">
         {eyebrow ? (
@@ -94,9 +98,14 @@ export function ServiceHero({
               <div className="ft-services-hero__chips">
                 {chips.map((chip) => {
                   const label =
-                    typeof chip === 'string' ? chip : chip.label;
+                    typeof chip === 'string'
+                      ? chip
+                      : chip.label;
+
                   const href =
-                    typeof chip === 'string' ? undefined : chip.href;
+                    typeof chip === 'string'
+                      ? undefined
+                      : chip.href;
 
                   return href ? (
                     <Link
@@ -119,15 +128,31 @@ export function ServiceHero({
               </div>
             ) : null}
 
-            {bottomLogo ? (
-              <img
-                className="ft-services-hero__bottom-logo"
-                src={bottomLogo.src}
-                alt={bottomLogo.alt}
-                loading="lazy"
-                decoding="async"
-              />
-            ) : null}
+           {bottomLogo ? (
+  bottomLogo.text ? (
+    <div className="ft-services-hero__bottom-brand">
+      <span className="ft-services-hero__bottom-brand-text">
+        {bottomLogo.text}
+      </span>
+
+      <img
+        className="ft-services-hero__bottom-brand-logo"
+        src={bottomLogo.src}
+        alt={bottomLogo.alt}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  ) : (
+    <img
+      className="ft-services-hero__bottom-logo"
+      src={bottomLogo.src}
+      alt={bottomLogo.alt}
+      loading="lazy"
+      decoding="async"
+    />
+  )
+) : null}
 
             {showClientProof ? (
               <div className="ft-services-hero__client-proof">

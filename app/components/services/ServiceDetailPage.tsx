@@ -24,7 +24,9 @@ export function ServiceDetailPage({
   config,
 }: ServiceDetailPageProps) {
   return (
-    <main data-page-handle={page.handle}>
+    <main    
+  className={`ft-service-detail ft-service-detail--${page.handle}`}
+    data-page-handle={page.handle}>
       <ServiceHero {...config.hero} />
 
       {config.heroOnly ? null : (

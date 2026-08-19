@@ -61,7 +61,15 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/agentic-commerce': '/agentic-commerce',
   '/pages/ab-testing': '/ab-testing',
   '/pages/shopify-consultant': '/shopify-consultant',
-  '/pages/theme-development': '/theme-development',
+  // Keep the canonical Shopify page handle before the retired alias so the
+  // clean-route resolver loads the service detail config for this page.
+  '/pages/shopify-theme-development-builds':
+    '/services/shopify-theme-development-builds/',
+  '/pages/theme-development':
+    '/services/shopify-theme-development-builds/',
+  '/theme-development': '/services/shopify-theme-development-builds/',
+  '/services/shopify-theme-development-builds':
+    '/services/shopify-theme-development-builds/',
   '/pages/memberships': '/memberships',
   '/pages/search-first': '/search-first',
   '/pages/shopify-experts': '/shopify-experts',

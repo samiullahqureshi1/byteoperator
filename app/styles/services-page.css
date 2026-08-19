@@ -27,3 +27,10 @@
     padding-left: 5vw;
   }
 }
+.ft-service-detail--ecommerce-seo-migrations
+.ft-home-feature--dark {
+  background: var(--ft-dark-deep, #01151b);
+}
+.ft-service-detail--ecommerce-seo-migrations .ft-home-partners {
+  background: var(--ft-dark-deep, #01151b);
+}

@@ -38,9 +38,9 @@
 }
 
 .ft-services-hero__eyebrow {
-  margin: 0 0 1rem;
+  margin: 0 0 2rem;
   font-family: 'Season Serif', serif;
-  font-size: 1rem;
+  font-size: clamp(1.125rem, 2vw, 2rem);
   font-weight: 400;
   line-height: 1;
   color: var(--ft-white, #ffffff);
@@ -74,7 +74,7 @@
   width: 100%;
   margin: 0;
   font-family: 'Season Sans', sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4.375rem);
+  font-size: clamp(2.125rem, 5vw, 3.75rem);
   font-weight: 300;
   line-height: 1.15;
   letter-spacing: -0.04em;
@@ -552,4 +552,29 @@
   .ft-services-hero__cta {
     transition: none;
   }
+}
+.ft-services-hero__bottom-brand {
+  padding-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  gap: 1rem;
+}
+
+.ft-services-hero__bottom-brand-logo {
+  display: block;
+
+   width: clamp(6rem, 7vw, 7.5rem);
+  height: auto;
+
+  object-fit: contain;
+}
+
+.ft-services-hero__bottom-brand-text {
+  font-family: 'Season Sans', sans-serif;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 500;
+  line-height: 1;
+
+  color: var(--ft-white, #ffffff);
 }
