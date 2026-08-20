@@ -41,6 +41,10 @@ const SERVICE_PAGE_ROUTES = {
   shopifyWebDesign: resolveCleanPath(
     '/pages/shopify-web-design',
   ),
+  shopifyDevelopers: resolveCleanPath(
+    '/pages/shopify-developers',
+  ),
+  shopifyAudits: resolveCleanPath('/pages/shopify-audits'),
   ecommerceCro: resolveCleanPath(
     '/pages/conversion-rate-optimisation',
   ),
@@ -3788,6 +3792,209 @@ export const SERVICE_PAGE_CONFIGS = {
         href: SERVICE_PAGE_ROUTES.shopifyPlus,
       },
     },
+  },
+  'ai-ecommerce-agency': {
+    faqTitle: 'AI Ecommerce Agency',
+    hero: {
+      eyebrow: 'AI Ecommerce & Shopify Agency',
+      heading:
+        'AI Ecommerce Agency Combining Human Expertise with AI',
+      chips: [
+        {
+          label: 'Design / Creative Services',
+          href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+        },
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopers,
+        },
+        {
+          label: 'Theme Development',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce CRO',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+      ],
+      description:
+        'FoldTech uses AI as part of how we work across ecommerce strategy, design, development, analysis, automation, SEO and AI-search discovery. It supports the people doing the work rather than replacing them, and everything it contributes is reviewed by the team before it reaches a store.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'AI Embedded Across Ecommerce Strategy, Design and Development',
+        description:
+          'AI is part of our day-to-day workflow rather than a separate service. It helps with research, drafting and analysis, surfaces patterns in data that would otherwise take longer to find, and assists with design exploration, development tasks, search and content work. Every output is reviewed by the strategists, designers and developers responsible for the work, because judgement about what suits a particular store still comes from the team.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt:
+          'FoldTech AI-assisted ecommerce project work',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt:
+          'FoldTech team reviewing AI-assisted ecommerce work',
+      },
+      process: {
+        heading:
+          'AI-assisted workflows with human expertise at every decision point.',
+        leftDescription:
+          'We use AI where it genuinely helps: gathering and summarising research, working through analytics and behavioural data, exploring design directions, assisting with code and documentation, and handling repetitive steps in ecommerce operations and content workflows.',
+        rightDescription:
+          'What it produces is treated as input, not output. Strategy, design decisions, code that ships and anything customer-facing goes through the same human review as work produced any other way, so the store reflects deliberate choices about the brand and its customers.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'ai-ecommerce-agency-delivery',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'AI for Ecommerce Delivery',
+        heading: 'Using AI to Create More Value Across Ecommerce',
+        description: [
+          'AI touches most stages of an ecommerce project. It supports strategy work by making research and analysis easier to get through, assists design and development during delivery, and helps with the optimisation and analysis that continues once a store is live.',
+          'Automation covers the parts of the process that are repetitive by nature. Applying AI selectively across those areas leaves the team more time for the decisions that need ecommerce experience, rather than changing what the team is responsible for.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'ai-ecommerce-agency-creative',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'AI in Creative Strategy and Execution',
+        heading: 'AI-Assisted Ideation, Design and Content Workflows',
+        description: [
+          'In creative work AI is useful early: generating ideas to react to, exploring layout and campaign concepts, and drafting content that gives the team something concrete to shape. It widens the range of directions considered before a decision is made.',
+          'Design exploration still resolves through the designers. Brand consistency, hierarchy, accessibility and how a layout actually behaves in a Shopify theme are judgements AI cannot make on its own, so every concept goes through human review before it becomes part of a store.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Design Services',
+            href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'ai-ecommerce-agency-development',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'AI in Development',
+        heading: 'AI-Assisted Shopify Development',
+        description: [
+          'During development, AI assists with scoping and documenting requirements, writing and reviewing code, working through debugging, and handling repetitive development tasks. It also supports QA by helping cover cases that are easy to overlook when working through a build.',
+          'Developers remain responsible for what ships. Suggested code is read, tested and adjusted to fit the theme and the store it belongs to, in the same way any other contribution to a codebase would be.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Development Services',
+            href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'ai-ecommerce-agency-analysis',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'AI in Strategy and Analysis',
+        heading: 'Using AI to Support Ecommerce Analysis',
+        description: [
+          'Ecommerce generates more data than most teams have time to read. AI helps work through analytics, behavioural data, heatmaps and session recordings, and commercial trends, pulling out patterns in customer behaviour that are worth a closer look.',
+          'That feeds into prioritisation. Audit insights and analysis become a clearer picture of where attention is best spent, which the team then weighs against what is realistic for the store and the business behind it.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Audits',
+            href: SERVICE_PAGE_ROUTES.shopifyAudits,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-cro'),
+      },
+      {
+        id: 'ai-ecommerce-agency-automation',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'AI Automation and Integration',
+        heading: 'AI Automation for Ecommerce Operations',
+        description: [
+          'Plenty of ecommerce work is process rather than decision: moving data between systems, preparing information for a team to act on, or repeating the same steps each time a campaign or product launch comes round. Those are the parts worth automating.',
+          'We build that automation into internal processes and connect it to the third-party tools and APIs a store already relies on, so marketing and development workflows fit together instead of being maintained by hand.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Integrations',
+            href: SERVICE_PAGE_ROUTES.shopifyIntegrations,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'ai-ecommerce-agency-seo-geo',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'AI SEO and GEO Optimisation',
+        heading: 'Preparing Ecommerce Content for AI-Driven Discovery',
+        description: [
+          'People increasingly reach products through AI search and conversational tools such as ChatGPT and Gemini, alongside traditional search engines. Those systems read content differently, which changes what makes a product or collection page easy to surface.',
+          'Ecommerce AI SEO and GEO work focuses on semantic relevance and structured content: describing products and categories in ways that are clear in context, and organising information so it holds together when a system is summarising rather than ranking. The aim is discoverability across both kinds of search.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce AI SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceAiSeo,
+          },
+          {
+            label: 'Explore Ecommerce GEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceGeo,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-seo-geo'),
+      },
+      {
+        id: 'ai-ecommerce-agency-why-foldtech',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Why FoldTech',
+        heading: 'Human Ecommerce Expertise Supported by AI',
+        description: [
+          'AI is only useful in ecommerce when the people using it understand the context around it. FoldTech brings together Shopify development, ecommerce strategy, design, SEO and GEO, automation and data analysis, so AI-assisted work is grounded in how stores are actually built and run.',
+          'That combination is the point. The tooling helps us cover more ground and look at more data, while decisions about a store still come from a team that works on ecommerce every day.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+    ],
   },
 } as const satisfies Record<string, ServicePageConfig>;
 

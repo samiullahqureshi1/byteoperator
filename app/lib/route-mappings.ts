@@ -19,7 +19,14 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/our-work': '/work',
   '/pages/about-us': '/about',
   '/pages/about': '/about',
-  '/pages/ai': '/ai',
+  // Root-level canonical URL for the AI ecommerce agency page. The Shopify
+  // source handle stays first so `resolveLegacyPath` keeps querying
+  // `ai-ecommerce-agency`; the retired `/ai` spellings are one-way aliases
+  // below it and resolve to the canonical path in a single hop.
+  '/pages/ai-ecommerce-agency': '/ai-ecommerce-agency/',
+  '/pages/ai': '/ai-ecommerce-agency/',
+  '/ai': '/ai-ecommerce-agency/',
+  '/ai/': '/ai-ecommerce-agency/',
   '/pages/contact': '/contact',
   '/pages/case-studies': '/case-studies',
   // Canonical Shopify source handle first: `resolveLegacyPath` returns the
