@@ -20,6 +20,11 @@ export type ServiceHeroLogo = {
   text?: string;
 };
 
+export type ServiceHeroBadge = {
+  src: string;
+  alt: string;
+};
+
 export type ServiceHeroVariant =
   | 'standard'
   | 'shopify-plus';
@@ -35,6 +40,11 @@ export interface ServiceHeroProps {
   primaryCta?: ServiceHeroCta;
   promoLink?: ServiceHeroCta;
   bottomLogo?: ServiceHeroLogo;
+  /**
+   * Optional badge shown beside the bottom brand lockup. Only rendered when
+   * a page supplies one, so heroes without it keep their existing markup.
+   */
+  bottomBadge?: ServiceHeroBadge;
   showPartnerLogos?: boolean;
   showClientProof?: boolean;
   clientProofLabel?: string;
@@ -51,6 +61,7 @@ export function ServiceHero({
   primaryCta,
   promoLink,
   bottomLogo,
+  bottomBadge,
   showPartnerLogos = false,
   showClientProof = false,
   clientProofLabel,
@@ -128,31 +139,51 @@ export function ServiceHero({
               </div>
             ) : null}
 
-           {bottomLogo ? (
-  bottomLogo.text ? (
-    <div className="ft-services-hero__bottom-brand">
-      <span className="ft-services-hero__bottom-brand-text">
-        {bottomLogo.text}
-      </span>
+           {(() => {
+              const brand = bottomLogo ? (
+                bottomLogo.text ? (
+                  <div className="ft-services-hero__bottom-brand">
+                    <span className="ft-services-hero__bottom-brand-text">
+                      {bottomLogo.text}
+                    </span>
 
-      <img
-        className="ft-services-hero__bottom-brand-logo"
-        src={bottomLogo.src}
-        alt={bottomLogo.alt}
-        loading="lazy"
-        decoding="async"
-      />
-    </div>
-  ) : (
-    <img
-      className="ft-services-hero__bottom-logo"
-      src={bottomLogo.src}
-      alt={bottomLogo.alt}
-      loading="lazy"
-      decoding="async"
-    />
-  )
-) : null}
+                    <img
+                      className="ft-services-hero__bottom-brand-logo"
+                      src={bottomLogo.src}
+                      alt={bottomLogo.alt}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ) : (
+                  <img
+                    className="ft-services-hero__bottom-logo"
+                    src={bottomLogo.src}
+                    alt={bottomLogo.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )
+              ) : null;
+
+              if (!bottomBadge) {
+                return brand;
+              }
+
+              return (
+                <div className="ft-services-hero__bottom-brand-row">
+                  {brand}
+
+                  <img
+                    className="ft-services-hero__bottom-badge"
+                    src={bottomBadge.src}
+                    alt={bottomBadge.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              );
+            })()}
 
             {showClientProof ? (
               <div className="ft-services-hero__client-proof">

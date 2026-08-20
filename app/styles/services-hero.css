@@ -578,3 +578,28 @@
 
   color: var(--ft-white, #ffffff);
 }
+/* Optional badge beside the bottom brand lockup. These classes are only
+   present when a hero supplies `bottomBadge`, so heroes without one are
+   unaffected. */
+.ft-services-hero__bottom-brand-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  padding-top: 1rem;
+  gap: 0.75rem 1.5rem;
+}
+
+.ft-services-hero__bottom-brand-row .ft-services-hero__bottom-brand {
+  padding-top: 0;
+}
+
+.ft-services-hero__bottom-badge {
+  display: block;
+  width: auto;
+  max-width: 7.5rem;
+  height: clamp(3rem, 4.5vw, 4.25rem);
+  object-fit: contain;
+  object-position: left center;
+}

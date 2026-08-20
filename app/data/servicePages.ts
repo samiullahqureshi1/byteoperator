@@ -49,6 +49,9 @@ const SERVICE_PAGE_ROUTES = {
     '/pages/conversion-rate-optimisation',
   ),
   klaviyoAgency: resolveCleanPath('/pages/klaviyo-agency'),
+  emailMarketingAgency: resolveCleanPath(
+    '/pages/email-marketing-agency',
+  ),
   shopifyIntegrations: resolveCleanPath(
     '/pages/shopify-integrations',
   ),
@@ -3993,6 +3996,196 @@ export const SERVICE_PAGE_CONFIGS = {
           },
         ],
         media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+    ],
+  },
+  'klaviyo-agency': {
+    faqTitle: 'Klaviyo Agency',
+    hero: {
+      eyebrow:
+        'Klaviyo Email Marketing Agency for Shopify and Shopify Plus',
+      heading:
+        'Klaviyo Expertise for Shopify Email, SMS and Retention',
+      chips: [
+        {
+          label: 'Email Marketing Agency',
+          href: SERVICE_PAGE_ROUTES.emailMarketingAgency,
+        },
+        {
+          label: 'Ecommerce SEO Agency',
+          href: SERVICE_PAGE_ROUTES.shopifySeo,
+        },
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce CRO',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+      ],
+      bottomLogo: {
+        text: 'FoldTech',
+        src: '/images/home-services/badges/logo-retain-white.svg',
+        alt: 'Retain',
+      },
+      bottomBadge: {
+        src: '/images/services/klaviyo/klaviyo-advisor-silver.webp',
+        alt: 'Klaviyo Advisor badge',
+      },
+      description:
+        'FoldTech works with Klaviyo on Shopify and Shopify Plus stores, covering email marketing, SMS, automated flows and the segmentation behind them. The aim is lifecycle communication that reflects how customers actually buy, using the store data Klaviyo already receives from Shopify.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'One Klaviyo Strategy for Email, SMS, Flows and Segmentation',
+        description:
+          'Email marketing, SMS and automated flows work better when they are planned as one programme rather than separate channels. We set up the segmentation that decides who hears what, connect it to the Shopify data Klaviyo syncs about products, orders and browsing, and build lifecycle communication around it. Retention comes from the whole sequence being coherent, from the first welcome message through to a win-back long after a customer last ordered.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt:
+          'FoldTech Klaviyo email marketing project work',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt:
+          'FoldTech team planning a Klaviyo retention programme',
+      },
+      process: {
+        heading:
+          'Klaviyo work planned around the store, its data and its customers.',
+        leftDescription:
+          'We start with the account itself: how Klaviyo is connected to Shopify, what data is flowing through, which flows already exist and how the list is segmented. That review usually explains why current messaging is or is not landing, and shows where the gaps in the customer journey are.',
+        rightDescription:
+          'From there we plan the flows, campaigns and segments worth building, design the templates they use, and add SMS where it fits alongside email rather than duplicating it. Once live, performance is reviewed and the programme keeps being adjusted as the catalogue and customer base change.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'klaviyo-agency-strategy',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Klaviyo Agency',
+        heading: 'Klaviyo Strategy for Shopify Brands',
+        description: [
+          'Klaviyo does a lot, and most accounts use a fraction of it. We look at what the store is actually trying to achieve — first orders, repeat purchases, reactivating lapsed customers — and build the Klaviyo setup around those objectives instead of switching on every available feature.',
+          'That covers the account structure, how email and SMS work together, which flows earn their place, and how campaigns fit alongside the automation. On Shopify and Shopify Plus it also means making sure Klaviyo is receiving the store data the strategy depends on.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('email-sms-retention'),
+      },
+      {
+        id: 'klaviyo-agency-flows',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Klaviyo Flows & Automation',
+        heading: 'Automated Klaviyo Flows for Customer Journeys',
+        description: [
+          'Flows carry most of the work in a retention programme because they respond to what a customer has just done. We build welcome flows for new subscribers, abandoned cart and browse abandonment flows for sessions that did not convert, post-purchase sequences after an order, and win-back flows for customers who have gone quiet.',
+          'Back-in-stock notifications are added where the catalogue makes them relevant. Each flow is set up with its own timing, entry conditions and exit rules, so customers are not pulled into several sequences at once or messaged about something they have already done.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Email Marketing',
+            href: SERVICE_PAGE_ROUTES.emailMarketingAgency,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'klaviyo-agency-segmentation',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Klaviyo Segmentation',
+        heading: 'More Relevant Customer Segmentation',
+        description: [
+          'Segmentation is what stops a Klaviyo account from sending the same message to everyone. Klaviyo holds purchase history, browsing behaviour, engagement and profile data from Shopify, which is enough to separate first-time buyers from regulars, recent customers from lapsed ones, and engaged subscribers from those who have stopped opening.',
+          'We build segments that a team can actually use week to week, then apply them to both campaigns and flows. Keeping messaging relevant also protects list health, since subscribers are far less likely to disengage when what arrives reflects their relationship with the store.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-cro'),
+      },
+      {
+        id: 'klaviyo-agency-email-design',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Klaviyo Email Design',
+        heading: 'Email Design That Fits Your Brand',
+        description: [
+          'Emails are part of the brand experience, so they should look like the store rather than a default template. We design Klaviyo templates around the existing brand: typography, colour, imagery and the way products are presented, with a clear hierarchy that works on a phone as well as a desktop inbox.',
+          'Templates are built to be reusable, so the team can put a campaign together without rebuilding a layout each time. Accessibility, readable type and sensible fallbacks are handled as part of the build rather than afterwards.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Design Services',
+            href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'klaviyo-agency-sms',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Klaviyo SMS',
+        heading: 'Connect SMS with Your Retention Strategy',
+        description: [
+          'SMS is a more immediate channel than email and a more intrusive one, so it works best when it is used sparingly and for messages that suit it: an order update, a short-window promotion, a back-in-stock alert. Running it inside Klaviyo means it shares the same profiles and segments as email.',
+          'We plan where SMS adds something rather than repeating an email, set up consent collection correctly, and build flows that use both channels in sequence. The result is a single retention programme rather than two that happen to run in parallel.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce CRO',
+            href: SERVICE_PAGE_ROUTES.ecommerceCro,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+      {
+        id: 'klaviyo-agency-integration',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Klaviyo Integration',
+        heading: 'Connect Klaviyo with Your Shopify Technology Stack',
+        description: [
+          'Klaviyo is only as useful as the data reaching it. The Shopify connection is the foundation, covering customers, orders, products and on-site behaviour, and it needs to be set up properly before anything built on top of it will behave as expected.',
+          'Beyond that, stores commonly connect loyalty, subscription, reviews and CRM or customer data platforms so that points balances, renewal dates, review requests and wider customer records can be used in segments and flows. Those are examples rather than a fixed list — we work through the integrations a particular store relies on and connect the ones the retention programme actually needs.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Integrations',
+            href: SERVICE_PAGE_ROUTES.shopifyIntegrations,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
       },
     ],
   },

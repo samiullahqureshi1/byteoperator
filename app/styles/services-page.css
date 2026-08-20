@@ -358,3 +358,25 @@
   align-self: flex-start;
   padding-top: 0;
 }
+
+/* =========================================================
+   KLAVIYO AGENCY (page scoped)
+========================================================= */
+
+/* Dark sections use the FoldTech dark palette instead of black. */
+.ft-service-detail--klaviyo-agency .ft-home-feature,
+.ft-service-detail--klaviyo-agency .ft-home-feature--dark {
+  background: var(--ft-dark-deep, #01151b);
+}
+
+/* The eyebrow on this page runs long enough to wrap, so it is kept tight to
+   the heading instead of leaving the gap this layout would otherwise produce. */
+.ft-service-detail--klaviyo-agency .ft-services-hero__eyebrow {
+  margin-bottom: 1rem;
+}
+
+.ft-service-detail--klaviyo-agency .ft-services-hero__left {
+  justify-content: flex-start;
+  align-self: flex-start;
+  padding-top: 0;
+}
