@@ -3405,6 +3405,166 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
   },
+  'subscriptions-on-shopify': {
+    faqTitle: 'Shopify Subscriptions',
+    hero: {
+      eyebrow: 'Shopify Subscription Specialists',
+      heading:
+        'Shopify Subscription Services for Ecommerce Brands',
+      chips: [
+        {
+          label: 'Shopify Store Builds',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce SEO',
+          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+        },
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce CRO',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+      ],
+      description:
+        'FoldTech implements and improves subscription experiences on Shopify and Shopify Plus, covering recurring purchase options, the signup journey, the customer account tools behind managing a subscription, and the integrations each of those depends on.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading: 'Shopify Subscription Solutions',
+        description:
+          'Subscriptions change how a store works. Products need a recurring option alongside the one-off purchase, customers need somewhere to pause, skip, swap or reschedule an order, and the store needs to keep billing, inventory and fulfilment in step with every renewal. FoldTech plans and builds those experiences on Shopify and Shopify Plus, choosing a subscription model that suits the products being sold and connecting the subscription platform to the storefront, customer accounts and the systems behind them.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt:
+          'FoldTech Shopify subscription ecommerce project work',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt:
+          'FoldTech team planning a Shopify subscription experience',
+      },
+      process: {
+        heading: 'Our Subscription Process',
+        leftDescription:
+          'We start with the subscription model itself: which products suit a recurring order, how often customers would realistically want them, whether the offer is a straight replenishment, a curated selection or a build-your-own box, and what discount or commitment sits behind it. That decides which platform and which storefront changes the store actually needs.',
+        rightDescription:
+          'From there we design the signup and management experience, build it out on Shopify or Shopify Plus with the chosen subscription technology, and connect it to customer accounts, fulfilment and the reporting a team relies on. Renewal, payment, and pause and cancel journeys are tested before launch, and we keep refining them once real subscribers are using the store.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'subscriptions-on-shopify-experts',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Shopify Subscription Experts',
+        heading:
+          'Subscription Experiences Built Around Your Customers',
+        description: [
+          'A subscription is a long relationship rather than a single transaction, so the experience has to hold up well beyond signup. Customers need to understand what they are committing to before they subscribe, and they need straightforward control over frequency, products, delivery dates and payment details afterwards.',
+          'FoldTech covers both sides of that: the setup and signup journey on the storefront, and the ongoing management experience in the customer account. Behind them sits the technical implementation, including how the subscription platform, Shopify and any connected systems exchange data as orders renew.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('email-sms-retention'),
+      },
+      {
+        id: 'subscriptions-on-shopify-process',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Subscription Agency',
+        heading: 'Our Subscription Process',
+        description: [
+          'Discovery sets the requirements and the subscription model: the products involved, delivery frequencies, pricing and discount rules, commitment or minimum terms, and how fulfilment and customer service will handle recurring orders. It also covers any existing subscribers who would need migrating.',
+          'Design then turns that into the signup and management UI, and development builds it on Shopify or Shopify Plus with the subscription platform and integrations it depends on. QA works through the full lifecycle, including renewals, failed payments, pauses and cancellations, before launch.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'subscriptions-on-shopify-technology',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Subscription Technology',
+        heading: 'Subscription Technology & Integrations',
+        description: [
+          'Shopify provides the subscription foundations, including selling plans and the contracts that recurring orders are billed against. Third-party platforms such as Recharge and Skio build on top of those foundations with their own management tools, portals and APIs, and each takes a different approach to how much of the experience can be customised.',
+          'We help choose the technology that fits the subscription model rather than the other way round, then build the integrations around it: connecting the subscription platform to Shopify customer accounts, to fulfilment, inventory and CRM systems, and to the reporting a team uses, working through each platform’s APIs where a standard app configuration is not enough.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Integrations',
+            href: SERVICE_PAGE_ROUTES.shopifyIntegrations,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'subscriptions-on-shopify-design',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Subscription Design',
+        heading: 'Custom Subscription Design & Experiences',
+        description: [
+          'Default subscription widgets rarely match the rest of a storefront. We design branded subscription UI instead: the one-off and recurring options on the product page, the way frequency and quantity are chosen, and the pricing and terms a customer sees before committing.',
+          'The same applies after signup. Customer portals and account areas need clear routes to pause, skip, swap products, change a delivery date or cancel, and build-a-box formats need an interface that makes selecting and editing a box straightforward. Where a platform’s hosted portal cannot support that, we build API-led custom implementations inside the store’s own account experience.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Design Services',
+            href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'subscriptions-on-shopify-benefits',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Subscription Benefits',
+        heading: 'Support Retention & Repeat Purchasing',
+        description: [
+          'Subscriptions suit products people buy again on a reasonably predictable cycle. For the customer, the convenience is that reordering happens without them having to think about it. For the store, recurring orders make repeat purchasing part of the normal rhythm of the business rather than something that has to be prompted each time.',
+          'That relationship only holds if the experience stays flexible. Customers who can easily pause, delay or adjust an order are far more likely to stay subscribed than customers whose only visible option is to cancel, so we treat those journeys as central to retention rather than as edge cases.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce CRO',
+            href: SERVICE_PAGE_ROUTES.ecommerceCro,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+    ],
+  },
 } as const satisfies Record<string, ServicePageConfig>;
 
 export type ServicePageHandle = keyof typeof SERVICE_PAGE_CONFIGS;

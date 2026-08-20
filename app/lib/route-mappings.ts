@@ -116,6 +116,10 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/subscriptions-on-shopify': '/subscriptions-on-shopify/',
   '/pages/shopify-subscriptions': '/subscriptions-on-shopify/',
   '/shopify-subscriptions': '/subscriptions-on-shopify/',
+  // The retired clean URL was linked with a trailing slash, which
+  // `resolveLegacyPath` cannot recover now the alias points elsewhere, so it is
+  // listed explicitly and redirects to the canonical path in one hop.
+  '/shopify-subscriptions/': '/subscriptions-on-shopify/',
   '/pages/subscriptions': '/subscriptions',
   // Canonical root-level service URL. `/services/agentic-commerce` was the
   // previous, incorrect canonical spelling; both of its forms stay here as
