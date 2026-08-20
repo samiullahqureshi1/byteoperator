@@ -1,6 +1,9 @@
 import {useEffect, useRef} from 'react';
 import {Link} from 'react-router';
-import {SHOPIFY_SEO_CLEAN_PATH} from '~/lib/route-mappings';
+import {
+  resolveCanonicalPath,
+  SHOPIFY_SEO_CLEAN_PATH,
+} from '~/lib/route-mappings';
 
 /* =========================================================
    TEMPORARY REFERENCE ASSETS
@@ -341,7 +344,7 @@ export function HomeServices() {
             <Link
               key={product.label}
               className="ft-home-services__product"
-              to={product.href}
+              to={resolveCanonicalPath(product.href)}
               prefetch="intent"
               aria-label={product.label}
             >
@@ -467,7 +470,7 @@ function ServiceCard({
     return (
       <Link
         className={className}
-        to={service.href}
+        to={resolveCanonicalPath(service.href)}
         prefetch="intent"
         data-service-animation="true"
       >
@@ -495,7 +498,7 @@ function ServiceCard({
   return (
     <Link
       className={className}
-      to={service.href}
+      to={resolveCanonicalPath(service.href)}
       prefetch="intent"
       data-service-animation={
         hasAnimation ? 'true' : undefined

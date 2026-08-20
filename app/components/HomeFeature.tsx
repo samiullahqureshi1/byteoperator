@@ -1,4 +1,5 @@
 import {Link} from 'react-router';
+import {resolveCanonicalPath} from '~/lib/route-mappings';
 
 import type {HomeFeatureData} from '~/data/homeFeatures';
 
@@ -81,7 +82,7 @@ export function HomeFeature({
                   <Link
                     className="ft-home-feature__badge"
                     key={`${feature.id}-${badge.label}`}
-                    to={badge.href}
+                    to={resolveCanonicalPath(badge.href)}
                     prefetch="intent"
                   >
                     {badge.label}
@@ -108,7 +109,7 @@ export function HomeFeature({
                 <Link
                   className="ft-home-feature__button"
                   key={`${feature.id}-${button.label}`}
-                  to={button.href}
+                  to={resolveCanonicalPath(button.href)}
                   prefetch="intent"
                 >
                   <span>{button.label}</span>
@@ -137,7 +138,7 @@ function FeatureMedia({
   return (
     <Link
       className="ft-home-feature__media"
-      to={feature.media.href}
+      to={resolveCanonicalPath(feature.media.href)}
       prefetch="intent"
       aria-label={`View ${feature.media.captionTitle} case study`}
     >

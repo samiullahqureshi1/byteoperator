@@ -8,7 +8,7 @@ import type {
 
 import {useAside} from '~/components/Aside';
 import {normalizeMenuUrl} from '~/lib/normalize-menu-url';
-import {resolveCleanPath} from '~/lib/route-mappings';
+import {resolveCanonicalPath} from '~/lib/route-mappings';
 
 interface HeaderProps {
   header: HeaderQuery;
@@ -252,11 +252,11 @@ function ServicesMegaMenu() {
                   className="ft-services-mega__link"
                   key={link.title}
                   prefetch={
-                    resolveCleanPath(link.url).startsWith('/')
+                    resolveCanonicalPath(link.url).startsWith('/')
                       ? 'intent'
                       : 'none'
                   }
-                  to={resolveCleanPath(link.url)}
+                  to={resolveCanonicalPath(link.url)}
                 >
                   <strong>{link.title}</strong>
 
@@ -281,7 +281,7 @@ function ServicesMegaMenu() {
                         className="ft-services-mega__link"
                         key={link.title}
                         prefetch="intent"
-                        to={resolveCleanPath(link.url)}
+                        to={resolveCanonicalPath(link.url)}
                       >
                         <strong>
                           {link.title}
@@ -355,7 +355,7 @@ function ResourcesMegaMenu() {
             className="ft-resources-mega__link"
             key={link.title}
             prefetch="intent"
-            to={resolveCleanPath(link.url)}
+            to={resolveCanonicalPath(link.url)}
           >
             <strong>{link.title}</strong>
 
@@ -457,12 +457,12 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       {
         title: 'Shopify App Development',
         description: 'Build custom Shopify apps',
-        url: '/services/shopify-app-development/',
+        url: '/shopify-app-development/',
       },
       {
         title: 'Integrations',
         description: 'Connect your store to other services',
-        url: '/services/shopify-integrations/',
+        url: '/shopify-integrations/',
       },
       {
         title: 'Headless Commerce',
@@ -853,9 +853,9 @@ function MobileHeaderMenu({
                             <NavLink
                               className="ft-mobile-services__link"
                               key={link.title}
-                              to={resolveCleanPath(link.url)}
+                              to={resolveCanonicalPath(link.url)}
                               prefetch={
-                                resolveCleanPath(link.url).startsWith('/')
+                                resolveCanonicalPath(link.url).startsWith('/')
                                   ? 'intent'
                                   : 'none'
                               }
@@ -894,7 +894,7 @@ function MobileHeaderMenu({
                                   key={
                                     link.title
                                   }
-                                  to={resolveCleanPath(link.url)}
+                                  to={resolveCanonicalPath(link.url)}
                                   prefetch="intent"
                                   onClick={
                                     closeMenu
@@ -965,7 +965,7 @@ function MobileHeaderMenu({
                     <NavLink
                       className="ft-mobile-resources__link"
                       key={link.title}
-                      to={resolveCleanPath(link.url)}
+                      to={resolveCanonicalPath(link.url)}
                       prefetch="intent"
                       onClick={closeMenu}
                     >

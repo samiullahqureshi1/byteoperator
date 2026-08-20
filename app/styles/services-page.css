@@ -56,6 +56,11 @@
   background: var(--ft-dark-deep, #01151b);
 }
 
+.ft-service-detail--agentic-commerce .ft-home-feature,
+.ft-service-detail--agentic-commerce .ft-home-feature--dark {
+  background: var(--ft-dark-deep, #01151b);
+}
+
 /* Shopify Integrations uses the established service layout with a slightly
    tighter hero introduction and more room after its image pair. */
 .ft-service-detail--shopify-integrations .ft-services-hero__eyebrow {
@@ -216,4 +221,17 @@
 .ft-services-hero__left {
   justify-content: flex-start;
   align-self: flex-start;
+}
+/* Shopify Audits — hero spacing */
+.ft-service-detail--shopify-audits
+.ft-services-hero__left {
+  justify-content: flex-start;
+  align-self: flex-start;
+  padding-top: 0;
+}
+
+/* Shopify Audits — FoldTech dark section color */
+.ft-service-detail--shopify-audits
+.ft-home-feature--dark {
+  background: var(--ft-dark-deep, #01151b);
 }

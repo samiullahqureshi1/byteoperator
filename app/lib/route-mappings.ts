@@ -9,6 +9,10 @@ export const ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE =
 export const ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH =
   '/ecommerce-seo-migrations/';
 
+const SERVICE_CONFIG_HANDLES_BY_SHOPIFY_HANDLE = {
+  'shopify-development': 'shopify-theme-development-builds',
+} as const;
+
 export const OLD_TO_CLEAN_PATHS = {
   '/pages/services': '/services',
   '/pages/work': '/work',
@@ -18,21 +22,31 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/ai': '/ai',
   '/pages/contact': '/contact',
   '/pages/case-studies': '/case-studies',
-  '/pages/shopify-development': '/shopify-development',
+  // Canonical Shopify source handle first: `resolveLegacyPath` returns the
+  // first `/pages/*` entry that points at a clean path, so the retired
+  // `shopify-development` / `theme-development` spellings must stay below it.
+  '/pages/shopify-theme-development-builds':
+    '/shopify-theme-development-builds/',
+  '/pages/shopify-development': '/shopify-theme-development-builds/',
+  '/shopify-development': '/shopify-theme-development-builds/',
   '/pages/shopify-developers': '/shopify-developers',
   '/pages/shopify-web-design': '/shopify-web-design',
   [`/pages/${SHOPIFY_PLUS_PAGE_HANDLE}`]: SHOPIFY_PLUS_CLEAN_PATH,
   '/pages/shopify-plus': SHOPIFY_PLUS_CLEAN_PATH,
   '/shopify-plus': SHOPIFY_PLUS_CLEAN_PATH,
-  '/pages/shopify-migrations': '/shopify-migrations',
-  // This service intentionally lives under `/services`; retain the previous
-  // clean URL as an explicit, page-specific permanent redirect.
-  '/pages/shopify-app-development':
-    '/services/shopify-app-development/',
-  '/shopify-app-development':
-    '/services/shopify-app-development/',
-  '/pages/shopify-integrations': '/services/shopify-integrations/',
-  '/shopify-integrations': '/services/shopify-integrations/',
+  '/pages/shopify-migrations': '/shopify-migrations/',
+  '/shopify-migrations': '/shopify-migrations/',
+  // Globally unique services use root-level canonical URLs. Every retired
+  // spelling is listed explicitly so the resolver never strips prefixes
+  // generically.
+  '/pages/shopify-app-development': '/shopify-app-development/',
+  '/services/shopify-app-development': '/shopify-app-development/',
+  '/services/shopify-app-development/': '/shopify-app-development/',
+  '/shopify-app-development': '/shopify-app-development/',
+  '/pages/shopify-integrations': '/shopify-integrations/',
+  '/services/shopify-integrations': '/shopify-integrations/',
+  '/services/shopify-integrations/': '/shopify-integrations/',
+  '/shopify-integrations': '/shopify-integrations/',
   '/pages/integrations': '/integrations',
   [`/pages/${SHOPIFY_SEO_PAGE_HANDLE}`]: SHOPIFY_SEO_CLEAN_PATH,
   '/pages/shopify-seo': SHOPIFY_SEO_CLEAN_PATH,
@@ -54,21 +68,37 @@ export const OLD_TO_CLEAN_PATHS = {
     ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
   '/pages/headless-commerce': '/headless-commerce',
   '/pages/conversion-rate-optimisation': '/conversion-rate-optimisation',
-  '/pages/shopify-maintenance': '/shopify-maintenance',
+  '/pages/support-and-maintenance': '/support-and-maintenance/',
+  '/pages/shopify-maintenance': '/support-and-maintenance/',
+  '/shopify-maintenance': '/support-and-maintenance/',
   '/pages/shopify-support': '/shopify-support',
   '/pages/support-maintenance': '/support-maintenance',
-  '/pages/shopify-audits': '/shopify-audits',
+  // Shopify audits keeps its canonical URL under `/services/*`, so the
+  // retired root-level spelling is the alias here, not the target.
+  '/pages/shopify-audits': '/services/shopify-audits/',
+  '/services/shopify-audits': '/services/shopify-audits/',
+  '/shopify-audits': '/services/shopify-audits/',
   '/pages/internationalisation': '/internationalisation',
   '/pages/email-sms-marketing': '/email-sms-marketing',
   '/pages/email-marketing-services-1': '/email-marketing-services-1',
-  '/pages/klaviyo': '/klaviyo',
-  '/pages/klaviyo-agency': '/klaviyo-agency',
+  '/pages/klaviyo-agency': '/klaviyo-agency/',
+  '/pages/klaviyo': '/klaviyo-agency/',
+  '/klaviyo': '/klaviyo-agency/',
   '/pages/cro-agency': '/cro-agency',
-  '/pages/shopify-b2b': '/shopify-b2b',
+  '/pages/shopify-b2b-wholesale': '/shopify-b2b-wholesale/',
+  '/pages/shopify-b2b': '/shopify-b2b-wholesale/',
+  '/shopify-b2b': '/shopify-b2b-wholesale/',
   '/pages/b2b': '/b2b',
-  '/pages/shopify-subscriptions': '/shopify-subscriptions',
+  '/pages/subscriptions-on-shopify': '/subscriptions-on-shopify/',
+  '/pages/shopify-subscriptions': '/subscriptions-on-shopify/',
+  '/shopify-subscriptions': '/subscriptions-on-shopify/',
   '/pages/subscriptions': '/subscriptions',
-  '/pages/agentic-commerce': '/agentic-commerce',
+  // Canonical root-level service URL. `/services/agentic-commerce` was the
+  // previous, incorrect canonical spelling; both of its forms stay here as
+  // one-way aliases so they resolve to the root path in a single hop.
+  '/pages/agentic-commerce': '/agentic-commerce/',
+  '/services/agentic-commerce': '/agentic-commerce/',
+  '/services/agentic-commerce/': '/agentic-commerce/',
   '/pages/ab-testing': '/ab-testing',
   '/pages/shopify-consultant': '/shopify-consultant',
   '/pages/magento-shopify-migrations':
@@ -95,10 +125,8 @@ export const OLD_TO_CLEAN_PATHS = {
     '/salesforce-shopify-migrations/',
   '/services/salesforce-shopify-migrations/':
     '/salesforce-shopify-migrations/',
-  // Keep the canonical Shopify page handle before the retired alias so the
-  // clean-route resolver loads the service detail config for this page.
-  '/pages/shopify-theme-development-builds':
-    '/shopify-theme-development-builds/',
+  // Retired spellings remain aliases below the canonical source handle above,
+  // so reverse resolution keeps querying `shopify-theme-development-builds`.
   '/pages/theme-development':
     '/shopify-theme-development-builds/',
   '/theme-development': '/shopify-theme-development-builds/',
@@ -128,6 +156,14 @@ export type ShopifyPagePath = Extract<
 
 export function resolveCleanPath(pathname: string): string {
   return OLD_TO_CLEAN_PATHS[pathname as LegacyPagePath] ?? pathname;
+}
+
+export function resolveServiceConfigHandle(shopifyHandle: string): string {
+  return (
+    SERVICE_CONFIG_HANDLES_BY_SHOPIFY_HANDLE[
+      shopifyHandle as keyof typeof SERVICE_CONFIG_HANDLES_BY_SHOPIFY_HANDLE
+    ] ?? shopifyHandle
+  );
 }
 
 /**

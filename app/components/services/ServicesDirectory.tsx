@@ -1,6 +1,9 @@
 import {useState} from 'react';
 import {Link} from 'react-router';
-import {SHOPIFY_SEO_CLEAN_PATH} from '~/lib/route-mappings';
+import {
+  resolveCanonicalPath,
+  SHOPIFY_SEO_CLEAN_PATH,
+} from '~/lib/route-mappings';
 
 type ServiceDirectoryLink = {
   label: string;
@@ -74,12 +77,12 @@ const SERVICE_GROUPS: ServiceDirectoryGroup[] = [
       },
       {
         label: 'System Integrations',
-        href: '/services/shopify-integrations/',
+        href: '/shopify-integrations/',
       },
       {label: 'AI Automation & Integration'},
       {
         label: 'App Development',
-        href: '/services/shopify-app-development/',
+        href: '/shopify-app-development/',
       },
       {
         label: 'Headless Commerce',
@@ -165,7 +168,7 @@ export function ServicesDirectory() {
                             {service.href ? (
                               <Link
                                 className="ft-services-directory__link"
-                                to={service.href}
+                                to={resolveCanonicalPath(service.href)}
                                 prefetch="intent"
                               >
                                 <span>{service.label}</span>

@@ -39,6 +39,7 @@ import {
 import type {ServiceDetailFaqItem} from '~/components/services/detail/ServiceDetailFaqs';
 import {
   resolveCleanPath,
+  resolveServiceConfigHandle,
   SHOPIFY_PLUS_PAGE_HANDLE,
 } from '~/lib/route-mappings';
 
@@ -341,7 +342,9 @@ export function PageContent({
   }
 
   const servicePageConfig =
-    SERVICE_PAGE_CONFIGS[page.handle as ServicePageHandle];
+    SERVICE_PAGE_CONFIGS[
+      resolveServiceConfigHandle(page.handle) as ServicePageHandle
+    ];
 
   if (servicePageConfig) {
     return (

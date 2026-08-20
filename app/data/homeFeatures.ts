@@ -1,4 +1,7 @@
-import {SHOPIFY_SEO_CLEAN_PATH} from '~/lib/route-mappings';
+import {
+  resolveCanonicalPath,
+  SHOPIFY_SEO_CLEAN_PATH,
+} from '~/lib/route-mappings';
 
 /* =========================================================
    FOLDTECH — HOME FEATURE DATA
@@ -106,8 +109,9 @@ const ROUTES = {
   internationalisation:
     '/pages/internationalisation',
 
-  appDevelopment:
-    '/services/shopify-app-development/',
+  appDevelopment: resolveCanonicalPath(
+    '/pages/shopify-app-development',
+  ),
 
   headless:
     '/pages/headless-commerce',

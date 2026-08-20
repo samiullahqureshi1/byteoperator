@@ -25,26 +25,30 @@ export const meta: Route.MetaFunction = ({data}) => [
  * 2. the clean path is resolved back to its Shopify page handle
  * 3. unknown clean paths 404
  *
- * A trailing-slash-only difference is never a redirect here: single fetch
- * requests `/foo/` as `/foo.data`, so this loader sees `/foo` during client
- * navigation. See `isSamePath`. Document requests are canonicalized in
+ * A trailing-slash-only difference is never a redirect here. React Router can
+ * include the single-fetch `.data` suffix in the route parameter, so every
+ * lookup uses the normalized public handle. See `isSamePath`. Document
+ * requests are canonicalized in
  * `getCleanUrlRedirect` before React Router ever runs.
  */
 export async function loadCleanPage({
   context,
   request,
+  pageHandle,
 }: {
   context: Route.LoaderArgs['context'];
   request: Request;
+  pageHandle: string;
 }) {
   const url = new URL(request.url);
-  const canonicalPath = resolveCanonicalPath(url.pathname);
+  const routePathname = `/${pageHandle}`;
+  const canonicalPath = resolveCanonicalPath(routePathname);
 
-  if (!isSamePath(canonicalPath, url.pathname)) {
+  if (!isSamePath(canonicalPath, routePathname)) {
     throw redirect(canonicalPath + url.search, 301);
   }
 
-  const legacyPath = resolveLegacyPath(url.pathname);
+  const legacyPath = resolveLegacyPath(routePathname);
 
   if (!legacyPath) {
     throw new Response('Not Found', {status: 404});
@@ -58,9 +62,15 @@ export async function loadCleanPage({
 }
 
 export async function loader(args: Route.LoaderArgs) {
+  const rawHandle = args.params.pageHandle ?? '';
+  const pageHandle = rawHandle.endsWith('.data')
+    ? rawHandle.slice(0, -'.data'.length)
+    : rawHandle;
+
   return loadCleanPage({
     context: args.context,
     request: args.request,
+    pageHandle,
   });
 }
 

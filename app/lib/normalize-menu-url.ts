@@ -1,4 +1,4 @@
-import {resolveCleanPath} from '~/lib/route-mappings';
+import {resolveCanonicalPath} from '~/lib/route-mappings';
 
 export function normalizeMenuUrl(
   url: string,
@@ -32,7 +32,7 @@ export function normalizeMenuUrl(
 }
 
 function normalizeInternalUrl(url: URL, menuItemTitle?: string) {
-  const pathname = resolveCleanPath(url.pathname);
+  const pathname = resolveCanonicalPath(url.pathname);
 
   if (url.pathname.startsWith('/pages/') && pathname === url.pathname) {
     console.warn(

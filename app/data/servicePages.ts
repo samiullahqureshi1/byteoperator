@@ -14,6 +14,7 @@ import {
 const SERVICE_PAGE_ROUTES = {
   ai: resolveCleanPath('/pages/ai'),
   ecommerceAiSeo: resolveCleanPath('/pages/ecommerce-ai-seo'),
+  ecommerceGeo: resolveCleanPath('/pages/ecommerce-geo'),
   ecommerceSeo: resolveCleanPath('/pages/ecommerce-seo'),
   seoMigrations: resolveCleanPath('/pages/seo-migrations'),
   shopifyMigrations: resolveCleanPath(
@@ -1092,6 +1093,184 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
         media: reuseHomeFeatureMedia('shopify-development'),
+      },
+    ],
+  },
+  'shopify-audits': {
+    faqTitle: 'Shopify Store Audits',
+    hero: {
+      eyebrow: 'Shopify Store Audits',
+      heading: 'Shopify Store Audit Services',
+      chips: [
+        {
+          label: 'Consultation Services',
+          href: SERVICE_PAGE_ROUTES.shopifyConsultant,
+        },
+        {label: 'Ecommerce CRO', href: SERVICE_PAGE_ROUTES.ecommerceCro},
+        {
+          label: 'Shopify Store Builds',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {label: 'AI Ecommerce', href: SERVICE_PAGE_ROUTES.ai},
+      ],
+      description:
+        'FoldTech audits Shopify and Shopify Plus stores across user experience, conversion, development, SEO and performance, then sets out the findings as a prioritised list of practical recommendations.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading: 'Shopify & Shopify Plus Auditing Services',
+        description:
+          'A Shopify audit reviews how a store actually works for the people using it and the team running it. FoldTech looks at UI and UX, site speed and performance, technical development, SEO and conversion together, because issues in one area usually show up in another.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt: 'FoldTech reviewing a Shopify storefront during an audit',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt: 'FoldTech team working through Shopify audit findings',
+      },
+      process: {
+        heading: 'Our Shopify Audit Process',
+        leftDescription:
+          'We start with the commercial context: what the store sells, who buys it and what the team is trying to improve. From there we review the storefront and theme code, the customer journey, analytics and search data, and the technical setup behind the store.',
+        rightDescription:
+          'Findings are written up as clear, prioritised recommendations rather than a raw list of issues, so each item can be weighed against effort and likely impact. We can then walk the team through the audit and support the work that follows.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'shopify-audits-expertise',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Our Shopify Auditing Expertise',
+        heading: 'Auditing Shopify and Shopify Plus Stores',
+        description: [
+          'FoldTech works across design, development, SEO and conversion, so an audit can look at a store from each of those angles instead of one in isolation. That matters because a slow template, a confusing checkout step and a thin category page often contribute to the same problem.',
+          'Audits can be scoped to a single area or run across the whole storefront, depending on what the team already knows and what needs verifying.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'shopify-audits-cro',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify CRO Audits',
+        heading: 'Conversion Rate Optimisation Audits',
+        description: [
+          'A CRO audit reviews the journey from landing page to completed order: product pages, collection filtering, search, cart, checkout and the messaging around delivery, returns and payment. We look at analytics alongside the storefront itself so observations are grounded in how customers actually move through the site.',
+          'The output is a set of prioritised opportunities, including which ones are worth testing properly and which are straightforward fixes.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce CRO',
+            href: SERVICE_PAGE_ROUTES.ecommerceCro,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-cro'),
+      },
+      {
+        id: 'shopify-audits-technical',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Technical Audits',
+        heading: 'Development & Technical Shopify Audits',
+        description: [
+          'A technical audit reviews theme code, app usage, custom functionality, integrations and the way the store has been extended over time. Accumulated app scripts, unused code and workarounds tend to make later changes slower and riskier than they need to be.',
+          'We report on code quality, maintainability and technical debt, and identify the areas that should be addressed before further development work is planned.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Development Services',
+            href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'shopify-audits-design',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Design Audits',
+        heading: 'UI UX Shopify Audits',
+        description: [
+          'A design audit reviews the interface and the experience around it: navigation and information architecture, page hierarchy, content clarity, mobile behaviour, accessibility considerations and consistency across templates.',
+          'We set out where the current design is making decisions harder for customers, and what could be improved through refinement of the existing theme versus a larger design project.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Design Services',
+            href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'shopify-audits-seo',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify SEO Audits',
+        heading: 'SEO & Ecommerce Organic Search Audits',
+        description: [
+          'An SEO audit covers technical foundations such as indexation, crawlability, site structure, internal linking, structured data, redirects and duplicate content, alongside on-page factors across collection, product and content pages.',
+          'We review the store against the search terms that matter commercially, then set out the technical and content work most likely to support organic visibility.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-seo-geo'),
+      },
+      {
+        id: 'shopify-audits-internationalisation',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Internationalisation Audits',
+        heading: 'Global Expansion Audits',
+        description: [
+          'An internationalisation audit reviews how a store handles multiple markets: Shopify Markets configuration, currencies, languages and translation, regional payment and delivery options, tax and duties messaging, and the hreflang and URL structure behind it.',
+          'We also look at how international stock, fulfilment and reporting are handled, so expansion plans account for operations as well as the storefront.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Internationalisation',
+            href: SERVICE_PAGE_ROUTES.internationalisation,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-internationalisation'),
+      },
+      {
+        id: 'shopify-audits-site-speed',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Site Speed Audits',
+        heading: 'Speed & Performance Audits',
+        description: [
+          'A site speed audit reviews what the browser is actually being asked to load: theme assets, images and media, third-party scripts, app injections, fonts and render-blocking resources, measured against Core Web Vitals on both mobile and desktop.',
+          'We separate the changes that are quick to make from the ones that need theme or template work, so performance improvements can be sequenced sensibly.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
       },
     ],
   },
@@ -2236,6 +2415,180 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
     showPartners: true,
+  },
+  'agentic-commerce': {
+    faqTitle: 'Agentic Commerce Agency',
+    hero: {
+      eyebrow: 'Agentic Commerce Agency',
+      heading:
+        'Prepare Your Brand for Agentic Commerce, the Future of AI-Powered Shopping',
+      chips: [
+        {label: 'GEO Services', href: SERVICE_PAGE_ROUTES.ecommerceGeo},
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce SEO',
+          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+        },
+        {
+          label: 'AI Ecommerce Agency',
+          href: SERVICE_PAGE_ROUTES.ecommerceAiSeo,
+        },
+      ],
+      bottomLogo: {
+        src: '/images/foldtech-logo.svg',
+        alt: 'FoldTech',
+      },
+      description:
+        'AI shopping agents can discover, compare and evaluate ecommerce products. FoldTech helps Shopify brands prepare with clear product information, structured data and catalogue content that is easier for machine-assisted shopping experiences to understand.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'We Help Ecommerce Brands Prepare for AI-Powered Shopping',
+        description:
+          'AI shopping agents are changing how products can be discovered and evaluated across platforms such as ChatGPT, Google Gemini and Microsoft Copilot. FoldTech helps Shopify and Shopify Plus brands review the structured ecommerce data, product attributes, catalogue quality and machine-readable information that support AI-search visibility and future readiness.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt: 'FoldTech ecommerce strategy planning',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt: 'FoldTech team discussing ecommerce data',
+      },
+      process: {
+        heading: 'A practical foundation for changing shopping journeys.',
+        leftDescription:
+          'We begin by reviewing how products, variants, attributes and content are organised across the store. This identifies where catalogue structure, schema, product information and supporting content may need more clarity for people and machine-assisted discovery alike.',
+        rightDescription:
+          'The resulting work can combine technical Shopify improvements, structured product data, ecommerce SEO and content planning. Priorities are shaped around the current catalogue and the areas of the store that need the strongest, most consistent information.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'agentic-commerce-storefront-readiness',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Agentic Commerce Readiness',
+        heading: 'Agentic Storefronts Are Coming. Will Your Store Be Ready?',
+        description: [
+          'AI-assisted commerce depends on Shopify storefront and product data being clear, current and consistently structured. Product availability, structured attributes and accurate information all help establish a more useful foundation for emerging shopping experiences.',
+          'Preparing the underlying ecommerce data now can make it easier to adapt as shoppers use more AI-assisted tools to research, compare and evaluate products.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'agentic-commerce-readiness-audits',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Readiness Audits',
+        heading: 'Agentic Readiness Audits',
+        description: [
+          'A readiness audit reviews catalogue structure, product-data quality, attributes, taxonomy consistency and content completeness. It can also assess GTIN availability where applicable and the existing schema implementation across important product and collection pages.',
+          'The review identifies data and content gaps, then provides prioritised recommendations that fit the current Shopify store and catalogue.',
+        ],
+        buttons: [
+          {label: 'Book a Readiness Audit', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-seo-geo'),
+      },
+      {
+        id: 'agentic-commerce-structured-data',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Data Foundation',
+        heading: 'Structured Data & Feed Optimisation',
+        description: [
+          'Structured product data, feeds and schema.org markup help make product identifiers, variants, taxonomy and attributes more consistent across an ecommerce catalogue. This improves the clarity of the information available to the systems that use it.',
+          'FoldTech can review how Shopify product data and machine-readable ecommerce content are organised, then plan practical improvements around the catalogue and its ongoing management.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'agentic-commerce-geo-discovery',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'GEO & AI Discovery',
+        heading: 'Help AI Systems Understand Your Products',
+        description: [
+          'Generative Engine Optimisation considers how product information can answer natural-language shopper questions. Clear descriptions, useful FAQs, semantic product information and relevant category context help create stronger signals for AI-search visibility.',
+          'The work complements technical SEO and catalogue improvements by focusing on the information shoppers and AI systems need to understand a product in context.',
+        ],
+        buttons: [
+          {
+            label: 'Explore GEO Services',
+            href: SERVICE_PAGE_ROUTES.ecommerceGeo,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'agentic-commerce-catalogue-content',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Catalogue & Content Optimisation',
+        heading: 'Answer the Questions Shopping Agents Need',
+        description: [
+          'Complete product specifications, materials, sizing, compatibility, availability and category context make a catalogue more useful to customers and easier to interpret consistently. Shipping, returns and FAQs can also add useful context where that information is available.',
+          'FoldTech helps structure product descriptions and attributes around the questions customers need answered before they can confidently choose a product.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'agentic-commerce-ongoing-readiness',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Ongoing Readiness & Monitoring',
+        heading: 'Stay Current as Agentic Commerce Evolves',
+        description: [
+          'AI shopping channels, schema requirements and catalogue needs will continue to change. Ongoing technical and content support can help keep product data, structured information and important store content up to date as the ecommerce operation evolves.',
+          'Regular reviews can identify product-data gaps, content updates and technical improvements that belong in the wider Shopify roadmap.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Support Options',
+            href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+      {
+        id: 'agentic-commerce-why-foldtech',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Why FoldTech',
+        heading: 'Search, Data and Ecommerce Working Together',
+        description: [
+          'Agentic commerce readiness sits across Shopify development, ecommerce SEO, AI and GEO work, structured product data and ecommerce architecture. FoldTech brings those connected areas into one practical view of the storefront and catalogue.',
+          'This helps teams prioritise changes that support clearer product information today while preparing the store for the ways shopping journeys may continue to develop.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+    ],
   },
   'ecommerce-seo-migrations': {
     faqTitle: 'Ecommerce SEO Migrations',
