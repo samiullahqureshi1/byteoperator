@@ -51,6 +51,44 @@
   background: var(--ft-dark-deep, #01151b);
 }
 
+.ft-service-detail--shopify-integrations .ft-home-feature,
+.ft-service-detail--shopify-integrations .ft-home-feature--dark {
+  background: var(--ft-dark-deep, #01151b);
+}
+
+/* Shopify Integrations uses the established service layout with a slightly
+   tighter hero introduction and more room after its image pair. */
+.ft-service-detail--shopify-integrations .ft-services-hero__eyebrow {
+  margin-bottom: 1rem;
+}
+
+.ft-service-detail--shopify-integrations .ft-service-about__images {
+  margin-bottom: 5rem;
+}
+
+/* Reduce the excess final whitespace without changing HomeExperts elsewhere. */
+.ft-service-detail--shopify-integrations .ft-home-experts {
+  padding-bottom: 40vh;
+}
+
+@media (min-width: 48rem) {
+  .ft-service-detail--shopify-integrations .ft-home-experts {
+    padding-bottom: 20vh;
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-service-detail--shopify-integrations .ft-home-experts {
+    padding-bottom: 24vh;
+  }
+}
+
+@media (min-width: 80rem) {
+  .ft-service-detail--shopify-integrations .ft-home-experts {
+    padding-bottom: 38vh;
+  }
+}
+
 /* Keep the final experts section generous, while reducing its excess space on
    the Shopify App Development page only. */
 .ft-service-detail--shopify-app-development .ft-home-experts {
@@ -173,4 +211,9 @@
 .ft-service-detail--salesforce-shopify-migrations
 .ft-services-hero__inner {
   align-items: flex-start;
+}
+.ft-service-detail--shopify-integrations
+.ft-services-hero__left {
+  justify-content: flex-start;
+  align-self: flex-start;
 }

@@ -35,6 +35,8 @@ const SERVICE_PAGE_ROUTES = {
     '/pages/shopify-app-development',
   ),
   shopifyPlus: resolveCleanPath('/pages/shopify-plus'),
+  internationalisation: resolveCleanPath('/pages/internationalisation'),
+  shopifyConsultant: resolveCleanPath('/pages/shopify-consultant'),
   shopifyWebDesign: resolveCleanPath(
     '/pages/shopify-web-design',
   ),
@@ -870,6 +872,228 @@ export const SERVICE_PAGE_CONFIGS = {
         href: SERVICE_PAGE_ROUTES.shopifyPlus,
       },
     },
+  },
+  'shopify-integrations': {
+    faqTitle: 'Shopify Integrations',
+    hero: {
+      eyebrow: 'Shopify Integration Experts',
+      heading: 'Shopify Integration Services',
+      chips: [
+        {
+          label: 'Consultation Services',
+          href: SERVICE_PAGE_ROUTES.shopifyConsultant,
+        },
+        {label: 'Ecommerce CRO', href: SERVICE_PAGE_ROUTES.ecommerceCro},
+        {
+          label: 'Shopify Store Builds',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce SEO Agency',
+          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+        },
+        {
+          label: 'Design Services',
+          href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+        },
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+      ],
+      description:
+        'FoldTech connects Shopify and Shopify Plus with the third-party systems that support ecommerce operations, including ERP, inventory, CRM, accounting, logistics, reporting, Shopify apps and custom business platforms.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'We connect Shopify and Shopify Plus with the systems that support your wider ecommerce operation.',
+        description:
+          'FoldTech plans and develops integrations between Shopify and third-party platforms such as ERP, inventory, CRM, accounting, logistics and custom business systems. We map the APIs and data flow between platforms so important product, order, customer and operational information can move through the right processes.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt: 'FoldTech ecommerce integration planning',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt: 'FoldTech team collaborating on a Shopify integration',
+      },
+      process: {
+        heading: 'Our Shopify Integration Process',
+        leftDescription:
+          'We begin by reviewing the current technology stack and the business workflows each system needs to support. This lets us map products, inventory, orders, customers and other data, identify the relevant APIs or middleware, and define the integration requirements before implementation begins.',
+        rightDescription:
+          'Implementation is followed by focused testing, data validation and launch preparation. We review how information behaves across the connected platforms, then provide practical support for monitoring, troubleshooting and future changes as business systems evolve.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'shopify-integrations-erp',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Shopify ERP Integrations',
+        heading: 'Integrating ERPs with Shopify Plus',
+        description: [
+          'ERP integrations can connect Shopify with the systems used to manage products, inventory, orders, customers, fulfilment and finance. The right setup depends on which system owns each part of the data and when information needs to be synchronised.',
+          'We scope the data flows and operational rules around the existing ERP and Shopify store, helping create an integration that reflects the needs of the wider ecommerce operation.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'shopify-integrations-inventory-finance',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Inventory, Payment & Accounting Integrations',
+        heading: 'Connecting Inventory, Finance and Payment Systems',
+        description: [
+          'Inventory management, stock synchronisation, accounting systems and payment providers all affect how orders move from the storefront into day-to-day operations. Integrations can keep relevant order and financial data available to the systems that need it.',
+          'Platforms such as Xero, QuickBooks and specialist inventory tools may be considered where appropriate, alongside the workflow and data requirements of the business.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'shopify-integrations-crm',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify CRM Integrations',
+        heading: 'Connecting CRM & Marketing Tools with Shopify',
+        description: [
+          'CRM, email marketing and customer-service integrations can connect Shopify customer and order information with the tools teams use to communicate, support and segment audiences.',
+          'The integration can be planned around customer data, consent, order history and the events each platform needs, including suitable ecommerce technologies already used by the store.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'shopify-integrations-analytics',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Analytics & Reporting Integrations',
+        heading: 'Connecting Analytics and Reporting with Shopify',
+        description: [
+          'Analytics and reporting integrations can connect Shopify data with GA4, Google Tag Manager, business-intelligence platforms and internal reporting workflows. The goal is to make important storefront and operational events available in the places teams use to review them.',
+          'We consider the events, data sources and reporting requirements together so tracking and data handoffs are clear across the wider stack.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-seo-geo'),
+      },
+      {
+        id: 'shopify-integrations-apps',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify App Integrations',
+        heading: 'Custom Shopify App Integrations',
+        description: [
+          'Third-party Shopify apps and custom functionality often need to work alongside the store’s customer experience and operational workflows. Integrations can cover loyalty, reviews, subscriptions and other customer-facing tools, as well as the APIs behind them.',
+          'FoldTech can assess how app functionality, custom logic and backend processes should connect so the experience remains practical for customers and the ecommerce team.',
+        ],
+        buttons: [
+          {
+            label: 'Explore App Development',
+            href: SERVICE_PAGE_ROUTES.shopifyAppDevelopment,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'shopify-integrations-logistics',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify 3PL, Shipping & Logistics Integrations',
+        heading: 'Connecting Shopify with Fulfilment and Logistics',
+        description: [
+          '3PL, shipping and logistics integrations can connect Shopify orders with fulfilment systems, warehouses, tracking services and returns processes. The integration can help define how orders are passed on and how inventory or fulfilment updates return to the storefront.',
+          'We plan the appropriate APIs or middleware around the operational flow, including multiple locations and the information customers and internal teams need to see.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'shopify-integrations-marketplace',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Multi-vendor Marketplace Integrations',
+        heading: 'Marketplace and Multi-vendor Shopify Integrations',
+        description: [
+          'Marketplace and multi-vendor integrations need to account for vendor onboarding, catalogues, stock, order routing and multiple fulfilment locations. The scope can also include commission or payout workflows where the marketplace model requires them.',
+          'We help map the platform responsibilities and the connections needed between Shopify, vendors and the systems that support the marketplace operation.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+      {
+        id: 'shopify-integrations-international',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Internationalisation Integrations',
+        heading: 'Integrations for Global Shopify Operations',
+        description: [
+          'International Shopify operations can require integrations around Shopify Markets, currencies, localisation, tax and duties, regional payments, international stock and fulfilment. Reporting also needs to account for how data is viewed across markets.',
+          'We consider the systems supporting each market alongside the storefront requirements, helping establish a connected approach that reflects how the business operates internationally.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Internationalisation',
+            href: SERVICE_PAGE_ROUTES.internationalisation,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'shopify-integrations-support',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Integration Ongoing Support',
+        heading: 'Integration Support & Maintenance',
+        description: [
+          'Integrations require ongoing attention as APIs, apps and business systems change. Support can cover troubleshooting, data-flow monitoring, maintenance, new connections and development work as the technology stack evolves.',
+          'A practical support plan helps keep integration requirements visible alongside the wider Shopify roadmap and day-to-day ecommerce priorities.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Support Options',
+            href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'shopify-integrations-middleware',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Integration Platforms & Middleware',
+        heading: 'Connecting Complex Ecommerce Systems',
+        description: [
+          'Integration platforms and middleware can provide a structured way to connect systems such as ERP, CRM, fulfilment, finance and inventory when direct connections are not the right fit. Tools such as Patchworks may be considered as one example, depending on the project requirements.',
+          'We assess the systems, workflows and data transformations involved before selecting an approach that fits the operational complexity of the store.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+    ],
   },
   'magento-shopify-migrations': {
     faqTitle: 'Magento to Shopify Migration',

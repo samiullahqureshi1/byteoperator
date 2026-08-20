@@ -251,7 +251,11 @@ function ServicesMegaMenu() {
                 <NavLink
                   className="ft-services-mega__link"
                   key={link.title}
-                  prefetch="intent"
+                  prefetch={
+                    resolveCleanPath(link.url).startsWith('/')
+                      ? 'intent'
+                      : 'none'
+                  }
                   to={resolveCleanPath(link.url)}
                 >
                   <strong>{link.title}</strong>
@@ -458,7 +462,7 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       {
         title: 'Integrations',
         description: 'Connect your store to other services',
-        url: '/pages/shopify-integrations',
+        url: '/services/shopify-integrations/',
       },
       {
         title: 'Headless Commerce',
@@ -850,7 +854,11 @@ function MobileHeaderMenu({
                               className="ft-mobile-services__link"
                               key={link.title}
                               to={resolveCleanPath(link.url)}
-                              prefetch="intent"
+                              prefetch={
+                                resolveCleanPath(link.url).startsWith('/')
+                                  ? 'intent'
+                                  : 'none'
+                              }
                               onClick={closeMenu}
                             >
                               <strong>

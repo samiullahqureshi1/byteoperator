@@ -1,7 +1,8 @@
 import {redirect, useLoaderData} from 'react-router';
 import type {Route} from './+types/$pageHandle';
 import {
-  resolveCleanPath,
+  isSamePath,
+  resolveCanonicalPath,
   resolveLegacyPath,
 } from '~/lib/route-mappings';
 import {
@@ -20,9 +21,14 @@ export const meta: Route.MetaFunction = ({data}) => [
  * Shared loader for every clean (non `/pages/*`) page route.
  *
  * Resolution order, all driven by the centralized route mappings:
- * 1. retired clean URLs are permanently redirected to their current path
+ * 1. retired clean URLs are permanently redirected to their canonical path
  * 2. the clean path is resolved back to its Shopify page handle
- * 3. non-canonical spellings of the clean path are permanently redirected
+ * 3. unknown clean paths 404
+ *
+ * A trailing-slash-only difference is never a redirect here: single fetch
+ * requests `/foo/` as `/foo.data`, so this loader sees `/foo` during client
+ * navigation. See `isSamePath`. Document requests are canonicalized in
+ * `getCleanUrlRedirect` before React Router ever runs.
  */
 export async function loadCleanPage({
   context,
@@ -32,22 +38,16 @@ export async function loadCleanPage({
   request: Request;
 }) {
   const url = new URL(request.url);
-  const mappedPath = resolveCleanPath(url.pathname);
+  const canonicalPath = resolveCanonicalPath(url.pathname);
 
-  if (mappedPath !== url.pathname) {
-    throw redirect(mappedPath + url.search, 301);
+  if (!isSamePath(canonicalPath, url.pathname)) {
+    throw redirect(canonicalPath + url.search, 301);
   }
 
   const legacyPath = resolveLegacyPath(url.pathname);
 
   if (!legacyPath) {
     throw new Response('Not Found', {status: 404});
-  }
-
-  const canonicalPath = resolveCleanPath(legacyPath);
-
-  if (canonicalPath !== url.pathname) {
-    throw redirect(canonicalPath + url.search, 301);
   }
 
   return loadPageData({

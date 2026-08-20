@@ -31,7 +31,8 @@ export const OLD_TO_CLEAN_PATHS = {
     '/services/shopify-app-development/',
   '/shopify-app-development':
     '/services/shopify-app-development/',
-  '/pages/shopify-integrations': '/shopify-integrations',
+  '/pages/shopify-integrations': '/services/shopify-integrations/',
+  '/shopify-integrations': '/services/shopify-integrations/',
   '/pages/integrations': '/integrations',
   [`/pages/${SHOPIFY_SEO_PAGE_HANDLE}`]: SHOPIFY_SEO_CLEAN_PATH,
   '/pages/shopify-seo': SHOPIFY_SEO_CLEAN_PATH,
@@ -127,6 +128,38 @@ export type ShopifyPagePath = Extract<
 
 export function resolveCleanPath(pathname: string): string {
   return OLD_TO_CLEAN_PATHS[pathname as LegacyPagePath] ?? pathname;
+}
+
+/**
+ * Resolve the single canonical public path for any known spelling of a page
+ * URL: a legacy `/pages/*` path, a retired clean URL, or the canonical path
+ * itself (including its trailing-slash-less spelling).
+ */
+export function resolveCanonicalPath(pathname: string): string {
+  const mappedPath = resolveCleanPath(pathname);
+
+  if (mappedPath !== pathname) {
+    return mappedPath;
+  }
+
+  const legacyPath = resolveLegacyPath(pathname);
+
+  return legacyPath ? resolveCleanPath(legacyPath) : pathname;
+}
+
+/**
+ * True when two paths differ by nothing more than a trailing slash.
+ *
+ * React Router's single fetch drops the trailing slash when it builds the
+ * `.data` URL for a client navigation, so `/services/x/` is requested as
+ * `/services/x.data` and reaches loaders as `/services/x`. Loaders must treat
+ * both spellings as the same path: redirecting on that difference sends the
+ * client straight back to the URL it is already navigating to, which loops
+ * forever. Trailing-slash canonicalization happens once, for document
+ * requests only, in `getCleanUrlRedirect`.
+ */
+export function isSamePath(a: string, b: string): boolean {
+  return trimTrailingSlash(a) === trimTrailingSlash(b);
 }
 
 export function resolveLegacyPath(pathname: string): ShopifyPagePath | null {

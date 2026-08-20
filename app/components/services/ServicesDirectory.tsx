@@ -74,7 +74,7 @@ const SERVICE_GROUPS: ServiceDirectoryGroup[] = [
       },
       {
         label: 'System Integrations',
-        href: '/pages/shopify-integrations',
+        href: '/services/shopify-integrations/',
       },
       {label: 'AI Automation & Integration'},
       {
