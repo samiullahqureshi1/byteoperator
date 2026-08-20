@@ -453,7 +453,7 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       {
         title: 'Shopify App Development',
         description: 'Build custom Shopify apps',
-        url: '/pages/shopify-app-development',
+        url: '/services/shopify-app-development/',
       },
       {
         title: 'Integrations',

@@ -107,7 +107,7 @@ const ROUTES = {
     '/pages/internationalisation',
 
   appDevelopment:
-    '/pages/shopify-app-development',
+    '/services/shopify-app-development/',
 
   headless:
     '/pages/headless-commerce',

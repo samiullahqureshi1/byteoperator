@@ -46,3 +46,35 @@
     padding-bottom: 2rem;
   }
 }
+@media (min-width: 80rem) {
+  .ft-service-plus-agency-cta {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .ft-service-plus-agency-cta__container {
+    width: 100%;
+    max-width: 96rem;
+    margin-inline: auto;
+    padding-inline: 3rem;
+    box-sizing: border-box;
+  }
+
+  .ft-service-plus-agency-cta__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    column-gap: 4vw;
+    align-items: center;
+    width: 100%;
+  }
+
+  .ft-service-plus-agency-cta__left,
+  .ft-service-plus-agency-cta__right {
+    min-width: 0;
+  }
+
+  .ft-service-plus-agency-cta__right {
+    width: 100%;
+    padding-left: 0;
+  }
+}

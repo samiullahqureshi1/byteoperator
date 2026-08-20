@@ -1,6 +1,7 @@
 import type {ServiceHeroProps} from '~/components/services/ServiceHero';
 import type {ServiceAboutSectionData} from '~/components/services/detail/ServiceAboutSection';
 import type {MigrationPlatformsData} from '~/components/services/detail/MigrationPlatformsAccordion';
+import type {ServicePlusAgencyCtaData} from '~/components/services/detail/ServicePlusAgencyCta';
 import {
   HOME_FEATURES,
   type HomeFeatureData,
@@ -33,6 +34,7 @@ const SERVICE_PAGE_ROUTES = {
   shopifyAppDevelopment: resolveCleanPath(
     '/pages/shopify-app-development',
   ),
+  shopifyPlus: resolveCleanPath('/pages/shopify-plus'),
   shopifyWebDesign: resolveCleanPath(
     '/pages/shopify-web-design',
   ),
@@ -93,6 +95,7 @@ export interface ServicePageConfig {
   platforms?: MigrationPlatformsData;
   features?: readonly HomeFeatureData[];
   faqTitle?: string;
+  plusAgencyCta?: ServicePlusAgencyCtaData;
 }
 
 export const SERVICE_PAGE_CONFIGS = {
@@ -711,6 +714,162 @@ export const SERVICE_PAGE_CONFIGS = {
         media: reuseHomeFeatureMedia('shopify-design'),
       },
     ],
+  },
+  'shopify-app-development': {
+    faqTitle: 'Shopify App Development',
+    hero: {
+      eyebrow: 'Shopify App Development Services',
+      heading:
+        'Custom Shopify apps and advanced functionality, built around your business.',
+      chips: [
+        {
+          label: 'Shopify Retainer / Support',
+          href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+        },
+        {
+          label: 'Shopify Design',
+          href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+        },
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce CRO',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+      ],
+      description:
+        'FoldTech develops custom Shopify apps and functionality for requirements that standard themes and off-the-shelf apps do not fully cover, from customer-facing experiences to connected operational workflows.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'We design and develop custom Shopify apps around specific ecommerce requirements.',
+        description:
+          'FoldTech creates custom Shopify app functionality across the storefront and the systems behind it. That can include Shopify APIs, third-party integrations, customer experiences, data handling and workflows designed around how your team manages the store.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt: 'FoldTech Shopify app development planning',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt: 'FoldTech team collaborating on an ecommerce project',
+      },
+      process: {
+        heading: 'App development planned around the whole ecommerce operation.',
+        leftDescription:
+          'We start by understanding the customer journey, operational process and systems the app needs to support. This helps separate essential requirements from useful future improvements and establishes the right Shopify architecture before development begins.',
+        rightDescription:
+          'Frontend functionality, backend workflows, data flows and integrations are considered together. The result is a practical implementation plan that works with the existing store, gives the team clear ownership and can evolve as business requirements change.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'shopify-app-development-services',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Custom Shopify App Development Services',
+        heading: 'Apps Built Around Your Business Requirements',
+        description: [
+          'Custom app development is suited to functionality that is not available through the current theme or is only partly addressed by an existing Shopify app. We scope the customer-facing experience alongside the operational work needed behind the scenes.',
+          'Projects can include tailored frontend interactions, backend workflows, data handling, Shopify APIs and third-party integrations, with the solution planned around the way the store actually operates.',
+        ],
+        buttons: [
+          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'shopify-app-development-architecture',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify App Development Agency',
+        heading: 'Shopify App Architecture That Keeps Your Team in Control',
+        description: [
+          'A useful app should give ecommerce teams configurable functionality without making everyday administration harder. We plan the right balance between customer account experiences, store administration and the rules that support shipping, fulfilment and other workflows.',
+          'Data management, operational functionality and integrations are designed with the people using them in mind, so the store can remain manageable as requirements develop.',
+        ],
+        buttons: [
+          {
+            label: 'Discuss Your App Project',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'shopify-app-product-registration',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify App Use Case',
+        heading: 'Product Registration & Customer Account Workflows',
+        description: [
+          'Product registration is one example of functionality a custom Shopify app can support. Registration and form data can be connected to customer records and store administration where the business process requires it.',
+          'The experience can be shaped around the information customers need to provide, how internal teams review it and which systems need access to the resulting data.',
+        ],
+        buttons: [
+          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'shopify-app-product-builder',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify App Use Case',
+        heading: 'Product Builder & Build-a-Box Experiences',
+        description: [
+          'A custom Shopify app can support product selection, bundling and configuration when a standard product page does not reflect how the business sells. The customer experience can guide suitable choices while keeping the underlying product and order data clear.',
+          'Where relevant, this functionality can also connect with subscription services, inventory rules or other integrations that need to work alongside the bundle or configured order.',
+        ],
+        buttons: [
+          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'shopify-app-custom-development',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Custom Shopify App Development',
+        heading: 'Bespoke Functionality for Shopify and Shopify Plus',
+        description: [
+          'Custom development can connect storefront functionality with backend workflows, APIs, customer accounts and fulfilment or operational requirements. It can also support subscription, bundle and integration needs where they are relevant to the store.',
+          'FoldTech scopes the solution around the capabilities of Shopify or Shopify Plus, creating functionality that fits the platform as well as the requirements of the business.',
+        ],
+        buttons: [
+          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+    ],
+    showPartners: true,
+    plusAgencyCta: {
+      heading: 'Looking for a Shopify Plus Agency?',
+      descriptionHtml:
+        `Upgrade or migrate to <a href="${SERVICE_PAGE_ROUTES.shopifyPlus}">Shopify Plus</a> with FoldTech. Our team can support Shopify Plus projects including store builds, migrations, development and ongoing ecommerce requirements.`,
+      cta: {
+        label: 'Upgrade to Shopify Plus with FoldTech',
+        href: SERVICE_PAGE_ROUTES.shopifyPlus,
+      },
+    },
   },
   'magento-shopify-migrations': {
     faqTitle: 'Magento to Shopify Migration',

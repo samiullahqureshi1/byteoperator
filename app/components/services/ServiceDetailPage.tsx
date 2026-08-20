@@ -10,6 +10,7 @@ import {
 } from './detail/ServiceDetailFaqs';
 import {ServiceAboutSection} from './detail/ServiceAboutSection';
 import {MigrationPlatformsAccordion} from './detail/MigrationPlatformsAccordion';
+import {ServicePlusAgencyCta} from './detail/ServicePlusAgencyCta';
 
 interface ServiceDetailPageProps {
   page: {
@@ -59,6 +60,10 @@ export function ServiceDetailPage({
           ) : null}
 
           <WorkTestimonial />
+
+          {config.plusAgencyCta ? (
+            <ServicePlusAgencyCta data={config.plusAgencyCta} />
+          ) : null}
 
           <div className="ft-service-detail-experts">
             <HomeExperts />

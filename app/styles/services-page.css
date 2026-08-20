@@ -43,6 +43,38 @@
   background: var(--ft-dark-deep, #01151b);
 }
 
+/* Shopify app development uses the shared feature and partner components with
+   the FoldTech dark palette, without affecting their use on other pages. */
+.ft-service-detail--shopify-app-development .ft-home-feature,
+.ft-service-detail--shopify-app-development .ft-home-feature--dark,
+.ft-service-detail--shopify-app-development .ft-home-partners {
+  background: var(--ft-dark-deep, #01151b);
+}
+
+/* Keep the final experts section generous, while reducing its excess space on
+   the Shopify App Development page only. */
+.ft-service-detail--shopify-app-development .ft-home-experts {
+  padding-bottom: 40vh;
+}
+
+@media (min-width: 48rem) {
+  .ft-service-detail--shopify-app-development .ft-home-experts {
+    padding-bottom: 20vh;
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-service-detail--shopify-app-development .ft-home-experts {
+    padding-bottom: 24vh;
+  }
+}
+
+@media (min-width: 80rem) {
+  .ft-service-detail--shopify-app-development .ft-home-experts {
+    padding-bottom: 38vh;
+  }
+}
+
 /* =========================================================
    WOOCOMMERCE TO SHOPIFY MIGRATIONS (page scoped)
 ========================================================= */

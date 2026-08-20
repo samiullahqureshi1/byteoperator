@@ -79,7 +79,7 @@ const SERVICE_GROUPS: ServiceDirectoryGroup[] = [
       {label: 'AI Automation & Integration'},
       {
         label: 'App Development',
-        href: '/pages/shopify-app-development',
+        href: '/services/shopify-app-development/',
       },
       {
         label: 'Headless Commerce',

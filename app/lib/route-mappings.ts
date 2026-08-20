@@ -25,7 +25,12 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/shopify-plus': SHOPIFY_PLUS_CLEAN_PATH,
   '/shopify-plus': SHOPIFY_PLUS_CLEAN_PATH,
   '/pages/shopify-migrations': '/shopify-migrations',
-  '/pages/shopify-app-development': '/shopify-app-development',
+  // This service intentionally lives under `/services`; retain the previous
+  // clean URL as an explicit, page-specific permanent redirect.
+  '/pages/shopify-app-development':
+    '/services/shopify-app-development/',
+  '/shopify-app-development':
+    '/services/shopify-app-development/',
   '/pages/shopify-integrations': '/shopify-integrations',
   '/pages/integrations': '/integrations',
   [`/pages/${SHOPIFY_SEO_PAGE_HANDLE}`]: SHOPIFY_SEO_CLEAN_PATH,
