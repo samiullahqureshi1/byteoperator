@@ -45,6 +45,9 @@ const SERVICE_PAGE_ROUTES = {
     '/pages/conversion-rate-optimisation',
   ),
   klaviyoAgency: resolveCleanPath('/pages/klaviyo-agency'),
+  shopifyIntegrations: resolveCleanPath(
+    '/pages/shopify-integrations',
+  ),
 } as const;
 
 function reuseHomeFeatureMedia(
@@ -3232,6 +3235,173 @@ export const SERVICE_PAGE_CONFIGS = {
           },
         ],
         media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+    ],
+  },
+  'shopify-b2b-wholesale': {
+    faqTitle: 'Shopify B2B & Wholesale',
+    hero: {
+      eyebrow: 'B2B Ecommerce Agency',
+      heading:
+        'Shopify B2B & Wholesale Ecommerce Solutions',
+      chips: [
+        {
+          label: 'Shopify Store Builds',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce SEO',
+          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+        },
+        {
+          label: 'Design Services',
+          href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+        },
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce CRO',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+      ],
+      description:
+        'FoldTech designs and builds Shopify and Shopify Plus stores for businesses selling to trade and business customers, covering wholesale ordering, company accounts, customer-specific pricing and the integrations that keep B2B operations in step with the storefront.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'Shopify B2B & Wholesale Ecommerce Services',
+        description:
+          'Selling to business customers on Shopify means account-based experiences: buyers sign in to a company account, see the pricing agreed with them, order in the quantities their business works to, and expect the storefront to reflect how the trading relationship already runs. FoldTech builds those experiences on Shopify and Shopify Plus, including stores that serve DTC and B2B audiences from the same catalogue, and connects them to the systems that hold pricing, stock and customer records.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt:
+          'FoldTech Shopify B2B and wholesale ecommerce project work',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt:
+          'FoldTech team planning a Shopify wholesale storefront',
+      },
+      process: {
+        heading: 'Our Shopify B2B Project Process',
+        leftDescription:
+          'We begin with how the wholesale side of the business currently operates: who the customer accounts are, how prices are agreed, how orders arrive today, what the minimum order requirements are, and where the ordering process still depends on spreadsheets, email or phone. That picture decides what belongs in the storefront and what stays in the systems behind it.',
+        rightDescription:
+          'From there we design the logged-in buying experience, build it on Shopify or Shopify Plus alongside the required integrations, and test the pricing, ordering and account journeys with real customer scenarios before launch. Where a store serves both DTC and B2B audiences, both experiences are planned together rather than bolted on separately.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'shopify-b2b-wholesale-solutions',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'B2B Ecommerce Agency Solutions',
+        heading:
+          'Shopify B2B Solutions Built Around Your Business',
+        description: [
+          'Business customers buy differently to consumers. They return to reorder known products, work to account terms that were agreed before they reached the storefront, and often need approval or purchase order details recorded against an order. Mapping that journey first shows which parts of the experience need to sit behind a login and which can stay public.',
+          'FoldTech plans Shopify B2B builds around those journeys: what a trade customer sees before signing in, what unlocks once their company account is recognised, how access to catalogues and pricing is controlled, and which frontend and backend requirements each of those decisions creates.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'shopify-b2b-wholesale-process',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Our Shopify B2B Project Process',
+        heading:
+          'Planning, Designing & Building Shopify B2B',
+        description: [
+          'Discovery covers the operational detail: account structures, price lists and discount rules, order minimums, payment arrangements, delivery expectations and the systems that already hold this information. It also covers the manual steps a team would like the storefront to take over.',
+          'Design then turns that into the UI a logged-in wholesale buyer works with, and development builds it out on Shopify or Shopify Plus with the integrations it depends on. QA works through pricing, account and checkout scenarios across devices before launch, and we stay involved afterwards as catalogues, accounts and requirements change.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'shopify-b2b-wholesale-technology',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'B2B Technology & Integrations',
+        heading: 'Shopify B2B Technology & Integrations',
+        description: [
+          'Shopify includes native B2B capabilities on Plus, covering company profiles, buyer accounts, price lists and B2B-specific catalogues. Wholesale apps such as SparkLayer extend those foundations, and some requirements are better met with a custom build. Which route fits depends on the pricing rules, catalogue structure and ordering behaviour a business needs to support.',
+          'Most wholesale operations also depend on systems outside Shopify: ERP, inventory, CRM, accounting and fulfilment platforms that hold the authoritative record of stock, customers and orders. FoldTech connects those systems to the storefront through their APIs, whether by configuring an existing app or building a custom integration, so account data, pricing and order flow stay consistent on both sides.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Integrations',
+            href: SERVICE_PAGE_ROUTES.shopifyIntegrations,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'shopify-b2b-wholesale-pricing-payments',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify B2B Pricing, Payments & Features',
+        heading: 'Pricing, Ordering & Payment Experiences',
+        description: [
+          'Wholesale pricing rarely fits a single public price. Customer-specific price lists, volume breaks that reward larger quantities, minimum and maximum order requirements, case sizes and account-level discounts all need to be reflected accurately on the product page, in the cart and at checkout.',
+          'Payment works differently too. Company accounts can carry agreed terms, orders may be placed for approval or invoicing rather than immediate card payment, and some businesses keep an offline or manual payment step in the process. We configure and build these pricing, ordering and payment rules so the checkout matches the terms a customer already trades on.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-cro'),
+      },
+      {
+        id: 'shopify-b2b-wholesale-design',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify B2B Design & Customer Experience',
+        heading:
+          'Designing Better Wholesale Buying Experiences',
+        description: [
+          'A B2B storefront has two states to design for. Logged out, it needs to explain the trade offer and lead to an account application. Logged in, it needs to show the right pricing, the right catalogue and the tools a buyer uses regularly: order history, reordering, quantity-led product interfaces and a clear view of volume price breaks.',
+          'FoldTech designs those interfaces alongside the account areas, B2B-specific content and responsive layouts trade buyers use on desktop in the office and on mobile on site. The result is a customer-specific experience that reflects each account rather than a consumer storefront with wholesale prices applied to it.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Design Services',
+            href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
       },
     ],
   },
