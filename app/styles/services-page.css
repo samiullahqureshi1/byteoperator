@@ -306,3 +306,33 @@
   align-self: flex-start;
   padding-top: 0;
 }
+
+/* =========================================================
+   SHOPIFY SUPPORT & MAINTENANCE (page scoped)
+========================================================= */
+
+/* Dark sections use the FoldTech dark palette instead of black. The shared
+   HomePartners component is reused as-is and only re-coloured here. */
+.ft-service-detail--support-and-maintenance .ft-home-feature,
+.ft-service-detail--support-and-maintenance .ft-home-feature--dark,
+.ft-service-detail--support-and-maintenance .ft-home-partners {
+  background: var(--ft-dark-deep, #01151b);
+}
+
+/* Keep the hero eyebrow close to the heading instead of leaving the oversized
+   gap this layout produces with a short eyebrow line. */
+.ft-service-detail--support-and-maintenance .ft-services-hero__eyebrow {
+  margin-bottom: 1rem;
+}
+
+.ft-service-detail--support-and-maintenance .ft-services-hero__left {
+  justify-content: flex-start;
+  align-self: flex-start;
+  padding-top: 0;
+}
+
+/* The About section ends at the image pair on this page, so the images need
+   the closing space the lower process block would otherwise provide. */
+.ft-service-detail--support-and-maintenance .ft-service-about__images {
+  margin-bottom: 0;
+}

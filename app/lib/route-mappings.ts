@@ -68,9 +68,15 @@ export const OLD_TO_CLEAN_PATHS = {
     ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
   '/pages/headless-commerce': '/headless-commerce',
   '/pages/conversion-rate-optimisation': '/conversion-rate-optimisation',
+  // Root-level canonical URL for support & maintenance. The Shopify source
+  // handle stays first so `resolveLegacyPath` keeps querying
+  // `support-and-maintenance`; every retired spelling below is a one-way
+  // alias that resolves to the canonical path in a single hop.
   '/pages/support-and-maintenance': '/support-and-maintenance/',
   '/pages/shopify-maintenance': '/support-and-maintenance/',
   '/shopify-maintenance': '/support-and-maintenance/',
+  '/services/support-and-maintenance': '/support-and-maintenance/',
+  '/services/support-and-maintenance/': '/support-and-maintenance/',
   '/pages/shopify-support': '/shopify-support',
   '/pages/support-maintenance': '/support-maintenance',
   // Shopify audits keeps its canonical URL under `/services/*`, so the

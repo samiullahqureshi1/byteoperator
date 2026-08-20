@@ -22,7 +22,12 @@ intro: {
     secondary: string;
     secondaryAlt: string;
   };
-  process: {
+  /**
+   * Optional lower process block, rendered beneath the image pair. Pages that
+   * end the About section at the images omit it; every other service page
+   * keeps it by supplying the data.
+   */
+  process?: {
     heading: string;
     leftDescription: string;
     rightDescription: string;
@@ -89,27 +94,30 @@ export function ServiceAboutSection({
 
         {afterMedia}
 
-        <div className="ft-service-about__content">
-          <div className="ft-service-about__left">
-            <h2 className="ft-service-about__heading">
-              {data.process.heading}
-            </h2>
+        {data.process ? (
+          <div className="ft-service-about__content">
+            <div className="ft-service-about__left">
+              <h2 className="ft-service-about__heading">
+                {data.process.heading}
+              </h2>
 
-            <p className="ft-service-about__description">
-              {data.process.leftDescription}
-            </p>
+              <p className="ft-service-about__description">
+                {data.process.leftDescription}
+              </p>
+            </div>
+
+            <div className="ft-service-about__right">
+              <p className="ft-service-about__description">
+                {data.process.rightDescription}
+              </p>
+
+              {data.process.cta ? (
+                <ServiceAboutLink cta={data.process.cta} />
+              ) : null}
+            </div>
           </div>
+        ) : null}
 
-          <div className="ft-service-about__right">
-            <p className="ft-service-about__description">
-              {data.process.rightDescription}
-            </p>
-
-            {data.process.cta ? (
-              <ServiceAboutLink cta={data.process.cta} />
-            ) : null}
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -3565,6 +3565,230 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
   },
+  'support-and-maintenance': {
+    faqTitle: 'Shopify Support and Maintenance',
+    hero: {
+      eyebrow: 'Shopify Support and Maintenance Services',
+      heading:
+        'Shopify Support and Maintenance Services for Growing Ecommerce Stores',
+      chips: [
+        {
+          label: 'Shopify Store Builds',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce CRO',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+        {
+          label: 'Shopify App Development',
+          href: SERVICE_PAGE_ROUTES.shopifyAppDevelopment,
+        },
+        {
+          label: 'Shopify Integrations',
+          href: SERVICE_PAGE_ROUTES.shopifyIntegrations,
+        },
+      ],
+      bottomLogo: {
+        text: 'FoldTech',
+        src: '/images/home-services/badges/logo-helpdesk-white.svg',
+        alt: 'HelpDesk',
+      },
+      description:
+        'FoldTech provides ongoing Shopify support and maintenance for stores that keep changing after launch: bug fixes, troubleshooting, theme changes, app and integration support, and performance improvements, across both Shopify and Shopify Plus.',
+      primaryCta: {
+        label: 'Talk to Our Shopify Support Team',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    // The About section on this page deliberately ends after the image pair,
+    // so the optional lower `process` block is omitted here only. Every other
+    // service page still supplies it.
+    about: {
+      intro: {
+        heading:
+          'What’s Included in Our Shopify Support & Maintenance Services',
+        description:
+          'Support and maintenance covers the everyday work of keeping a Shopify store running well and moving forward. That includes general store maintenance, fixing bugs and troubleshooting reported issues, theme updates and UX changes, configuring apps and the integrations connected to them, working on performance, and providing ongoing technical support to the team managing the store.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt:
+          'FoldTech Shopify support and maintenance project work',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt:
+          'FoldTech team working on ongoing Shopify store support',
+      },
+    },
+    features: [
+      {
+        id: 'support-and-maintenance-what-is-it',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'What Are Shopify Support and Maintenance Services?',
+        heading:
+          'Ongoing Store Support for a Stable and Improving Shopify Store',
+        description: [
+          'Shopify support and maintenance is the ongoing work that happens after a store is live. Themes get edited, apps get added and removed, products and campaigns change, and Shopify itself keeps developing. Each of those is a point where something can break or drift away from how it was built.',
+          'FoldTech works across Shopify and Shopify Plus on that ongoing layer: fixing issues as they are reported, making the theme and UX changes a team needs, keeping apps and integrations behaving as expected, and improving performance where the store would benefit from it.',
+        ],
+        buttons: [
+          {
+            label: 'Talk to Our Shopify Support Team',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+      {
+        id: 'support-and-maintenance-partner',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Why Work With a Shopify Support & Maintenance Partner?',
+        heading: 'Consistent Support for Your Shopify Store',
+        description: [
+          'Store issues rarely arrive at a convenient moment, and they are harder to resolve when nobody has context on how the store was built. Working with a support partner means the people making changes already understand the theme, the apps in use and the integrations behind them.',
+          'That continuity also makes it easier to decide what is worth doing. Small fixes get handled as they come up, while larger changes can be scoped properly rather than being rushed into the theme, so the store stays maintainable as it grows.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'support-and-maintenance-common-problems',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Common Shopify Problems We Solve',
+        heading: 'Fixing Store Issues and Protecting Performance',
+        description: [
+          'Typical support work includes cart and checkout issues, functionality that has stopped working as expected, responsive and layout problems across devices, and bugs introduced by theme edits. App conflicts are another regular cause, particularly where several apps inject scripts into the same templates.',
+          'Alongside those, we work on tracking and analytics that has stopped reporting correctly, site speed that has degraded over time, and custom code that no longer fits the rest of the theme. Each is investigated to find the underlying cause rather than patched at the surface.',
+        ],
+        buttons: [
+          {
+            label: 'Report a Store Issue',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'support-and-maintenance-how-it-works',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'How Our Shopify Support & Maintenance Works',
+        heading: 'A Structured Approach to Ongoing Shopify Support',
+        description: [
+          'Requests are reviewed first, so the actual problem or requirement is understood before any work starts. From there they are prioritised alongside everything else in progress, balancing issues that affect the storefront now against improvements that can be planned into a wider piece of work.',
+          'Development and design support then delivers the change, it is tested, and it is implemented on the live store. Recurring issues and things worth improving feed back into the ongoing work rather than being closed and forgotten.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'support-and-maintenance-monitor-improve',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'What We Monitor and Improve',
+        heading: 'Keeping Your Shopify Store Stable and Performing',
+        description: [
+          'Ongoing maintenance means paying attention to the store between requests: site speed, theme stability after edits, how installed apps are behaving, and whether backend functionality is still doing what it was built to do.',
+          'Bugs that surface are worked through, and performance data is used to decide where effort is best spent. Treating store health as continuous work keeps small problems from turning into ones that need a much larger fix.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-cro'),
+      },
+      {
+        id: 'support-and-maintenance-themes-apps',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Theme Updates and App Management',
+        heading: 'Keeping Themes, Apps and Integrations Updated',
+        description: [
+          'Theme updates and app changes are where most stores pick up problems. We handle theme updates, app installations and removals, and the integrations connected to them, including the leftover code an uninstalled app often leaves behind.',
+          'Compatibility is checked against existing custom code so conflicts are found before they reach customers, and changes are tested before going live rather than after a problem is reported.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Integrations',
+            href: SERVICE_PAGE_ROUTES.shopifyIntegrations,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'support-and-maintenance-store-health',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Performance and Store Health',
+        heading: 'Supporting Speed, Stability and Reliability',
+        description: [
+          'Performance work looks at what the storefront is actually loading: scripts stacked up by successive app installs, code conflicts between customisations, and features that have quietly broken along the way.',
+          'Integrations are checked as part of the same picture, since a slow or failing connection to another system affects the store as much as the theme does. Technical maintenance keeps all of that in a reliable state as the store keeps changing.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'support-and-maintenance-vs-cro',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Support & Maintenance vs CRO',
+        heading: 'Choosing the Right Type of Shopify Support',
+        description: [
+          'Support and maintenance is about stability. It covers fixes, theme and app updates, and the ongoing technical support that keeps a store working as intended for the people using it and the team running it.',
+          'CRO is a different kind of work. It is experimentation and UX improvement aimed at conversion, using research and testing to change how the store performs commercially. Most stores need both, but they are separate engagements with separate goals.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce CRO',
+            href: SERVICE_PAGE_ROUTES.ecommerceCro,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-seo-geo'),
+      },
+    ],
+    showPartners: true,
+    plusAgencyCta: {
+      heading: 'Looking for a Shopify Plus Agency?',
+      descriptionHtml: `Move up to <a href="${SERVICE_PAGE_ROUTES.shopifyPlus}">Shopify Plus</a> with FoldTech. Alongside ongoing support and maintenance, our team works on Shopify Plus builds, migrations and development for stores that have outgrown their current setup.`,
+      cta: {
+        label: 'Upgrade to Shopify Plus with FoldTech',
+        href: SERVICE_PAGE_ROUTES.shopifyPlus,
+      },
+    },
+  },
 } as const satisfies Record<string, ServicePageConfig>;
 
 export type ServicePageHandle = keyof typeof SERVICE_PAGE_CONFIGS;
