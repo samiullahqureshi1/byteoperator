@@ -235,3 +235,9 @@
 .ft-home-feature--dark {
   background: var(--ft-dark-deep, #01151b);
 }
+.ft-service-detail--shopify-internationalisation
+.ft-home-feature,
+.ft-service-detail--shopify-internationalisation
+.ft-home-feature--dark {
+  background: var(--ft-dark-deep, #01151b);
+}

@@ -1096,6 +1096,187 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
   },
+  'shopify-internationalisation': {
+    faqTitle: 'Shopify Internationalisation',
+    hero: {
+      eyebrow: 'Shopify Internationalisation Experts',
+      heading: 'Shopify Internationalisation Services',
+      chips: [
+        {
+          label: 'Consultation Services',
+          href: SERVICE_PAGE_ROUTES.shopifyConsultant,
+        },
+        {
+          label: 'Shopify Store Builds',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce SEO Agency',
+          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+        },
+        {
+          label: 'Design Services',
+          href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+        },
+        {label: 'Ecommerce CRO', href: SERVICE_PAGE_ROUTES.ecommerceCro},
+        {
+          label: 'Shopify Migrations',
+          href: SERVICE_PAGE_ROUTES.shopifyMigrations,
+        },
+      ],
+      description:
+        'FoldTech helps Shopify and Shopify Plus merchants sell into new regions, covering Shopify Markets, localisation, currencies and payments, international SEO, and the operational detail behind serving customers in more than one market.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'We help Shopify and Shopify Plus stores expand into new markets with a setup that reflects how each region actually buys.',
+        description:
+          'FoldTech plans and builds international Shopify storefronts around Shopify Markets, translation and localisation, regional pricing and payment methods, tax and duties messaging, and the URL and hreflang structure behind each market. We look at the commercial goals for every region alongside the technical setup so the store presents a relevant experience wherever a customer lands.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt: 'FoldTech Shopify internationalisation planning',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt:
+          'FoldTech team reviewing a multi-market Shopify setup',
+      },
+      process: {
+        heading: 'Our Shopify Internationalisation Process',
+        leftDescription:
+          'We start by reviewing the markets the business wants to serve and what each one requires: languages, currencies, payment methods, delivery expectations, tax and duties handling, and any regional legal or content differences. That review shapes the market structure, domain approach and Shopify Markets configuration before build work begins.',
+        rightDescription:
+          'Implementation is followed by testing across markets, checking pricing, checkout, translated content, search visibility and fulfilment behaviour region by region. From there we support the rollout of further markets and the ongoing changes that come with trading internationally.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'shopify-internationalisation-expansion',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Shopify International Ecommerce',
+        heading: 'Selling Internationally with Shopify',
+        description: [
+          'International expansion asks a commercial question before a technical one: which markets are worth serving, and what does each of them need from the storefront. Demand, delivery, pricing, competition and local expectations all affect how a market should be approached.',
+          'FoldTech helps assess the opportunity for each region and translate it into a Shopify setup, so expansion happens in a considered order rather than all at once.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-internationalisation'),
+      },
+      {
+        id: 'shopify-internationalisation-markets',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Markets',
+        heading: 'Setting Up and Structuring Shopify Markets',
+        description: [
+          'Shopify Markets defines how regions, catalogues, pricing, domains and settings are grouped within a single store. The structure chosen early on affects how easily further markets can be added and how much of the setup can be managed centrally.',
+          'We plan market groupings, domain or subfolder structure and catalogue availability around the regions in scope, including the Shopify Plus capabilities where a store has them.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'shopify-internationalisation-localisation',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Localisation & Translation',
+        heading: 'Regional Customer Experience & Content',
+        description: [
+          'Localisation covers more than translated product copy. Navigation, size and measurement conventions, imagery, delivery and returns messaging, support information and legal content all contribute to whether a storefront feels relevant in a given region.',
+          'We plan how translated and market-specific content is managed in Shopify, including which elements stay global and which are adapted per market, so the experience stays consistent as regions are added.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Design Services',
+            href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'shopify-internationalisation-currencies',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Currencies, Pricing & Payments',
+        heading: 'Multi-currency Pricing and Regional Checkout',
+        description: [
+          'Multi-currency pricing, price rounding, market-specific price lists, local payment methods, and tax and duties presentation all shape how customers read cost and how confident they feel at checkout.',
+          'We work through currency handling, pricing rules, regional payment providers and duties messaging together, so the storefront and checkout stay clear about what a customer pays in their market.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-cro'),
+      },
+      {
+        id: 'shopify-internationalisation-seo',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'International Shopify SEO',
+        heading: 'Market Structure, Domains and Hreflang',
+        description: [
+          'International SEO depends on how markets are structured in the first place: country domains or subfolders, hreflang and canonical handling, indexation of translated content, and how each market is presented to search engines.',
+          'We review the URL structure, hreflang implementation and regional content alongside the wider SEO approach, so new markets are discoverable without competing against the existing storefront.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-seo-geo'),
+      },
+      {
+        id: 'shopify-internationalisation-operations',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Global Operations & Fulfilment',
+        heading: 'Fulfilment, Stock and Delivery Across Markets',
+        description: [
+          'Trading in several regions raises operational questions around inventory locations, shipping rates and carriers, customs and duties handling, returns routes, and the delivery expectations customers are shown before they buy.',
+          'We consider the systems supporting each market, including fulfilment, stock and reporting, so international orders can be handled with the same clarity as domestic ones.',
+        ],
+        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'shopify-internationalisation-support',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Internationalisation Support',
+        heading: 'Ongoing Support for Multi-market Stores',
+        description: [
+          'Multi-market stores keep changing: new regions launch, catalogues and pricing shift, translated content needs updating, and tax, duties or payment requirements move on. Support can cover monitoring, troubleshooting and the development work behind those changes.',
+          'A practical support plan keeps international requirements visible alongside the wider Shopify roadmap, rather than treating each new market as a separate project.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Support Options',
+            href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+    ],
+  },
   'shopify-audits': {
     faqTitle: 'Shopify Store Audits',
     hero: {

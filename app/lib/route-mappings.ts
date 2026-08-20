@@ -78,7 +78,18 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/shopify-audits': '/services/shopify-audits/',
   '/services/shopify-audits': '/services/shopify-audits/',
   '/shopify-audits': '/services/shopify-audits/',
-  '/pages/internationalisation': '/internationalisation',
+  // The public URL is root-level while Shopify keeps its explicit source
+  // handle. Keep the source mapping first for reverse route resolution.
+  '/pages/shopify-internationalisation':
+    '/shopify-internationalisation/',
+  '/pages/internationalisation': '/shopify-internationalisation/',
+  '/shopify-internationalisation': '/shopify-internationalisation/',
+  '/internationalisation': '/shopify-internationalisation/',
+  '/internationalisation/': '/shopify-internationalisation/',
+  '/services/shopify-internationalisation':
+    '/shopify-internationalisation/',
+  '/services/shopify-internationalisation/':
+    '/shopify-internationalisation/',
   '/pages/email-sms-marketing': '/email-sms-marketing',
   '/pages/email-marketing-services-1': '/email-marketing-services-1',
   '/pages/klaviyo-agency': '/klaviyo-agency/',
