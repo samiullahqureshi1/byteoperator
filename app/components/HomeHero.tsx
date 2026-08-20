@@ -1,5 +1,8 @@
 import {NavLink} from 'react-router';
-import {SHOPIFY_SEO_CLEAN_PATH} from '~/lib/route-mappings';
+import {
+  resolveCleanPath,
+  SHOPIFY_SEO_CLEAN_PATH,
+} from '~/lib/route-mappings';
 
 const HERO_SERVICES = [
   {
@@ -20,7 +23,7 @@ const HERO_SERVICES = [
   {
     title: 'Email & SMS',
     description: 'Retention & lifecycle growth',
-    url: '/pages/email-sms-marketing',
+    url: resolveCleanPath('/pages/email-marketing-agency'),
   },
 ] as const;
 

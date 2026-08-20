@@ -44,6 +44,7 @@ const SERVICE_PAGE_ROUTES = {
   ecommerceCro: resolveCleanPath(
     '/pages/conversion-rate-optimisation',
   ),
+  klaviyoAgency: resolveCleanPath('/pages/klaviyo-agency'),
 } as const;
 
 function reuseHomeFeatureMedia(
@@ -3047,6 +3048,192 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
     showPartners: true,
+  },
+  'email-marketing-agency': {
+    faqTitle: 'Shopify Email Marketing',
+    hero: {
+      eyebrow: 'Shopify Email Marketing Agency',
+      heading:
+        'Shopify Email Marketing Agency for Ecommerce Brands',
+      chips: [
+        {
+          label: 'Klaviyo Agency',
+          href: SERVICE_PAGE_ROUTES.klaviyoAgency,
+        },
+        {
+          label: 'Ecommerce CRO',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce SEO',
+          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+        },
+      ],
+      bottomLogo: {
+        text: 'FoldTech',
+        src: '/images/home-services/badges/logo-retain-white.svg',
+        alt: 'Retain',
+      },
+      description:
+        'FoldTech works on retention for Shopify and Shopify Plus stores through email and SMS, covering segmentation, automated lifecycle flows, campaign planning, and the loyalty and subscription experiences that sit behind repeat purchases.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'Email Marketing & Retention for Shopify Brands',
+        description:
+          'Retention work brings together email strategy, SMS, customer segmentation and automation so returning customers hear from a store at points that make sense to them. FoldTech plans campaigns and automated flows around the buying journey, connects them to loyalty programmes and subscription products where a store runs them, and keeps the customer data behind segmentation in step with the Shopify storefront.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt:
+          'FoldTech Shopify email marketing and retention planning',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt:
+          'FoldTech team reviewing Shopify email and SMS campaigns',
+      },
+      process: {
+        heading: 'Our Shopify Email Marketing Process',
+        leftDescription:
+          'We start with the customer data a store already holds: how people first buy, what they buy again, how long the gap between orders tends to be, and which lists, flows and campaigns are running today. That picture shapes the segmentation model, the flows worth building first and the messages each audience should receive.',
+        rightDescription:
+          'From there we plan the campaign calendar and automation alongside design and build work, then review performance in the platform reporting to refine timing, segments and content. Loyalty, reviews and subscription tools are connected to the same programme so retention activity develops with the store rather than separately from it.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'email-marketing-agency-strategy',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Shopify Email Marketing Agency',
+        heading:
+          'Email Marketing Built Around the Customer Journey',
+        description: [
+          'Email works best when it follows how customers actually move through a store: browsing, first purchase, the weeks that follow, and the point where a repeat order becomes likely. Mapping those stages first makes it clear which messages are missing and which are simply repeated too often.',
+          'FoldTech plans an email programme around that journey, setting out the campaigns, automated flows and audiences for each stage, so retention activity is planned alongside acquisition rather than added afterwards.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('email-sms-retention'),
+      },
+      {
+        id: 'email-marketing-agency-segmentation',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Email Segmentation',
+        heading: 'Create More Relevant Customer Segments',
+        description: [
+          'Segmentation decides who receives a message and what it should say. Purchase history, product category, order frequency, average order value, engagement and time since the last order can all be used to group customers in ways that reflect how they buy.',
+          'We work through the customer data available in Shopify and the email platform, define the segments worth maintaining, and keep them updated as behaviour changes, so campaigns are sent to a considered audience instead of the whole list.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Klaviyo Services',
+            href: SERVICE_PAGE_ROUTES.klaviyoAgency,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-cro'),
+      },
+      {
+        id: 'email-marketing-agency-automation',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Email Automation',
+        heading: 'Automated Email Flows for Shopify',
+        description: [
+          'Automated flows respond to what a customer does. Welcome sequences introduce a brand, browse and abandoned cart flows follow up on unfinished sessions, post-purchase messages cover delivery and product care, and re-engagement flows reach customers who have gone quiet.',
+          'FoldTech builds and maintains these lifecycle flows in the store’s email platform, covering the trigger, timing, branching and content of each step, and reviews them as products, audiences and the storefront change.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+      {
+        id: 'email-marketing-agency-design',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Email Marketing Design Services',
+        heading: 'Email Design That Fits Your Brand',
+        description: [
+          'Emails are read across a wide mix of devices, inbox clients and display settings, so templates need to hold up in each of them while still looking like the rest of the brand. Layout, typography, imagery, accessibility and clear calls to action all affect how an email reads.',
+          'We design and build reusable email templates that follow the storefront design, making campaigns quicker to produce and keeping the experience consistent from inbox to product page.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Design Services',
+            href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'email-marketing-agency-sms',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify SMS Marketing',
+        heading: 'Connect SMS with Your Retention Strategy',
+        description: [
+          'SMS suits short, timely messages: a launch, a restock, a delivery update or a reminder that sits alongside an email rather than repeating it. It also carries different consent, frequency and regional requirements to email, which shape how it can be used.',
+          'We plan SMS as part of the same retention programme, deciding which moments belong in SMS, which stay in email, and how sign-up, consent and sending frequency are handled across both channels.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'email-marketing-agency-loyalty-subscriptions',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Loyalty & Subscriptions',
+        heading:
+          'Connect Email, Loyalty and Subscription Experiences',
+        description: [
+          'Loyalty programmes, reviews and subscriptions generate their own customer moments: points earned, rewards available, a renewal approaching, a delivery about to ship or a subscription at risk of being cancelled. Each of them can be communicated through email and SMS.',
+          'FoldTech connects these tools to the retention programme so their data feeds segmentation and their events trigger the right messages, giving repeat customers a joined-up experience across the storefront, their account and their inbox.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce CRO',
+            href: SERVICE_PAGE_ROUTES.ecommerceCro,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+    ],
   },
 } as const satisfies Record<string, ServicePageConfig>;
 

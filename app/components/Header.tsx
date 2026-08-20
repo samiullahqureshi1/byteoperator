@@ -504,7 +504,7 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       {
         title: 'Email & SMS Marketing',
         description: 'Retain and grow customers',
-        url: '/pages/email-sms-marketing',
+        url: '/pages/email-marketing-agency',
       },
       {
         title: 'Klaviyo Services',

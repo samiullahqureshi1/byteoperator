@@ -90,7 +90,20 @@ export const OLD_TO_CLEAN_PATHS = {
     '/shopify-internationalisation/',
   '/services/shopify-internationalisation/':
     '/shopify-internationalisation/',
-  '/pages/email-sms-marketing': '/email-sms-marketing',
+  // Root-level canonical URL for the email marketing service. The Shopify
+  // source handle stays first so `resolveLegacyPath` keeps querying
+  // `email-marketing-agency`; the retired `email-sms-marketing` spellings are
+  // one-way aliases below it and resolve to the canonical path in one hop.
+  '/pages/email-marketing-agency': '/email-marketing-agency/',
+  '/email-marketing-agency': '/email-marketing-agency/',
+  '/services/email-marketing-agency': '/email-marketing-agency/',
+  '/services/email-marketing-agency/': '/email-marketing-agency/',
+  '/pages/email-sms-marketing': '/email-marketing-agency/',
+  '/email-sms-marketing': '/email-marketing-agency/',
+  // The retired clean URL was linked with a trailing slash, and
+  // `resolveLegacyPath` can no longer recover that spelling now the alias
+  // points elsewhere, so it is listed explicitly.
+  '/email-sms-marketing/': '/email-marketing-agency/',
   '/pages/email-marketing-services-1': '/email-marketing-services-1',
   '/pages/klaviyo-agency': '/klaviyo-agency/',
   '/pages/klaviyo': '/klaviyo-agency/',
