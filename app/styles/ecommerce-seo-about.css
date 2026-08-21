@@ -1,0 +1,260 @@
+/* =========================================================
+   FOLDTECH — ECOMMERCE SEO ABOUT STATEMENT
+========================================================= */
+
+.ft-ecommerce-seo-about {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  padding: 0rem 0 0;
+  background: var(--ft-white, #ffffff);
+  color: var(--ft-text, #0b252d);
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  box-sizing: border-box;
+}
+
+.ft-ecommerce-seo-about__left,
+.ft-ecommerce-seo-about__right {
+  min-width: 0;
+}
+.ft-ecommerce-seo-about,
+.ft-ecommerce-seo-about__left,
+.ft-ecommerce-seo-about__right {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.ft-ecommerce-seo-about__heading {
+  width: 100%;
+  margin: 0;
+  color: #000000;
+  font-family: 'Season Sans', sans-serif;
+  font-size: clamp(2rem, 5.5vw, 3.875rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.ft-ecommerce-seo-about__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.ft-ecommerce-seo-about__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  background: #f0f0f0;
+  color: #555555;
+  font-family: 'Season Serif', serif;
+  font-size: 0.875rem;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.ft-ecommerce-seo-about__pill:hover {
+  background: #e6e6e6;
+  color: #000000;
+}
+
+/* =========================================================
+   SEO GUIDE
+========================================================= */
+
+.ft-ecommerce-seo-about__guide {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.875rem;
+  width: min(100%, 25rem);
+  margin-top: 1.75rem;
+  padding: 0.875rem 1.25rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.625rem;
+  background: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.25s ease;
+}
+
+.ft-ecommerce-seo-about__guide:hover {
+  background: #1a1a1a;
+}
+
+.ft-ecommerce-seo-about__guide-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.ft-ecommerce-seo-about__guide-icon svg {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.ft-ecommerce-seo-about__guide-content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.ft-ecommerce-seo-about__guide-content strong {
+  color: #ffffff;
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.ft-ecommerce-seo-about__guide-content span {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+.ft-ecommerce-seo-about__guide-arrow {
+  display: flex;
+  flex-shrink: 0;
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.ft-ecommerce-seo-about__guide-arrow svg {
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+/* =========================================================
+   RIGHT
+========================================================= */
+
+.ft-ecommerce-seo-about__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.ft-ecommerce-seo-about__subheading {
+  margin: 0 0 0.25rem;
+  color: #000000;
+  font-family: 'Season Sans', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.ft-ecommerce-seo-about__body {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.55);
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.ft-ecommerce-seo-about__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 0.25rem;
+  padding: 0.85rem 1.25rem 0.85rem 1.5rem;
+  border-radius: 999rem;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Season Serif', serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.ft-ecommerce-seo-about__cta:hover {
+  opacity: 0.82;
+}
+
+.ft-ecommerce-seo-about__cta svg {
+  display: block;
+  flex-shrink: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 64rem) {
+  .ft-ecommerce-seo-about {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 4rem;
+    padding-top: 1rem;
+    padding-left: 3rem;
+    padding-right:3rem;
+    padding-bottom: 7rem;
+  }
+
+  .ft-ecommerce-seo-about__heading {
+    position: sticky;
+    top: 8.75rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  .ft-ecommerce-seo-about {
+    gap: 6rem;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 47.9375rem) {
+  .ft-ecommerce-seo-about {
+    gap: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .ft-ecommerce-seo-about__heading {
+    font-size: clamp(2rem, 10vw, 2.75rem);
+  }
+
+  .ft-ecommerce-seo-about__guide {
+    width: 100%;
+  }
+
+  .ft-ecommerce-seo-about__right {
+    gap: 1.15rem;
+  }
+}

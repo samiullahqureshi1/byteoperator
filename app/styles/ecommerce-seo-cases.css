@@ -1,0 +1,24 @@
+.ft-ecommerce-seo-cases {
+  width: 100%;
+  background: var(--ft-white, #ffffff);
+  border-radius: 2.5rem 2.5rem 0 0;
+  overflow: hidden;
+}
+.ft-ecommerce-seo-cases .ft-work-featured {
+  background: var(--ft-white, #ffffff);
+}
+.ft-ecommerce-seo-cases .ft-work-featured {
+  padding: 2rem 5.33vw 5rem;
+}
+
+@media (min-width: 48rem) {
+  .ft-ecommerce-seo-cases .ft-work-featured {
+    padding: 2.5rem 3vw 6rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-ecommerce-seo-cases .ft-work-featured {
+    padding: 0.5rem 2.5vw 7vh;
+  }
+}

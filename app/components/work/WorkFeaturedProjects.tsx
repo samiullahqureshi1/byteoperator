@@ -5,12 +5,18 @@ export type WorkFeaturedArticle = NonNullable<
   WorkFeaturedProjectsQuery['blog']
 >['articles']['nodes'][number];
 
+export type WorkFeaturedProject = WorkFeaturedArticle & {
+  href?: string;
+};
+
 interface WorkFeaturedProjectsProps {
-  articles: WorkFeaturedArticle[];
+  articles: WorkFeaturedProject[];
+  showThumbnail?: boolean;
 }
 
 export function WorkFeaturedProjects({
   articles,
+  showThumbnail = true,
 }: WorkFeaturedProjectsProps) {
   return (
     <section className="ft-work-featured">
@@ -23,7 +29,7 @@ export function WorkFeaturedProjects({
           return (
             <Link
               className="ft-work-featured__card"
-              to={`/work/${article.handle}`}
+              to={article.href ?? `/work/${article.handle}`}
               key={article.handle}
             >
               {article.image ? (
@@ -47,7 +53,7 @@ export function WorkFeaturedProjects({
               ) : null}
 
               <div className="ft-work-featured__content">
-                {logo ? (
+                {showThumbnail && logo ? (
                   <img
                     className="ft-work-featured__logo"
                     src={logo.url}

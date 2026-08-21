@@ -31,9 +31,14 @@ import serviceDetailFaqStyles from '~/styles/service-detail-faqs.css?url';
 import migrationPlatformsAccordionStyles from '~/styles/migration-platforms-accordion.css?url';
 import servicePlusAgencyCtaStyles from '~/styles/service-plus-agency-cta.css?url';
 import ecommerceSeoHeroStyles from '~/styles/ecommerce-seo-hero.css?url';
+import ecommerceSeoCasesStyles from '~/styles/ecommerce-seo-cases.css?url';
+import ecommerceSeoAboutStyles from '~/styles/ecommerce-seo-about.css?url';
+import ecommerceSeoProcessStyles from '~/styles/ecommerce-seo-process.css?url';
 import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
 import {ShopifyPlusPage} from '~/components/services/ShopifyPlusPage';
 import {EcommerceSeoHero} from '~/components/seo/EcommerceSeoHero';
+import {EcommerceSeoCases} from '~/components/seo/EcommerceSeoCases';
+import {EcommerceSeoProcess} from '~/components/seo/EcommerceSeoProcess';
 import {
   SERVICE_PAGE_CONFIGS,
   type ServicePageHandle,
@@ -157,6 +162,18 @@ export const links: Route.LinksFunction = () => [
   rel: 'stylesheet',
   href: ecommerceSeoHeroStyles,
 },
+{
+  rel: 'stylesheet',
+  href: ecommerceSeoCasesStyles,
+},
+{
+  rel: 'stylesheet',
+  href: ecommerceSeoAboutStyles,
+},
+{
+  rel: 'stylesheet',
+  href: ecommerceSeoProcessStyles,
+},
 ];
 export async function loader(args: Route.LoaderArgs) {
   if (!args.params.handle) {
@@ -209,13 +226,13 @@ export async function loadPageData({
         handle,
       },
     }),
-    handle === 'work'
+    handle === 'work' || handle === 'ecommerce-seo-agency'
       ? context.storefront.query(FEATURED_PROJECTS_QUERY)
       : Promise.resolve({blog: null}),
     handle === 'work'
       ? context.storefront.query(TOP_CASE_STUDIES_QUERY)
       : Promise.resolve({blog: null}),
-    handle === 'work'
+    handle === 'work' || handle === 'ecommerce-seo-agency'
       ? loadAllCaseStudies(context)
       : Promise.resolve([]),
   ]);
@@ -348,7 +365,17 @@ export function PageContent({
   }
 
   if (page.handle === 'ecommerce-seo-agency') {
-    return <EcommerceSeoHero />;
+    return (
+      <>
+        <EcommerceSeoHero />
+        <EcommerceSeoCases
+          pageTag={page.handle}
+          articles={caseStudyArticles}
+          featuredArticles={featuredArticles}
+        />
+        <EcommerceSeoProcess />
+      </>
+    );
   }
 
   const servicePageConfig =
