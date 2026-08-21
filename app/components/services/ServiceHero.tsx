@@ -262,7 +262,7 @@ export function ServiceHero({
   );
 }
 
-function ServiceHeroCtaArrow() {
+export function ServiceHeroCtaArrow() {
   return (
     <svg
       className="ft-services-hero__cta-arrow"

@@ -4,6 +4,9 @@ export const SHOPIFY_PLUS_CLEAN_PATH = '/shopify-plus-agency';
 export const SHOPIFY_SEO_PAGE_HANDLE = 'seo-agency';
 export const SHOPIFY_SEO_CLEAN_PATH = '/seo-agency';
 
+export const ECOMMERCE_SEO_PAGE_HANDLE = 'ecommerce-seo-agency';
+export const ECOMMERCE_SEO_CLEAN_PATH = '/ecommerce-seo-agency/';
+
 export const ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE =
   'ecommerce-seo-migrations';
 export const ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH =
@@ -58,7 +61,12 @@ export const OLD_TO_CLEAN_PATHS = {
   [`/pages/${SHOPIFY_SEO_PAGE_HANDLE}`]: SHOPIFY_SEO_CLEAN_PATH,
   '/pages/shopify-seo': SHOPIFY_SEO_CLEAN_PATH,
   '/shopify-seo': SHOPIFY_SEO_CLEAN_PATH,
-  '/pages/ecommerce-seo': '/ecommerce-seo',
+  // The Shopify source handle is the canonical public route. Retired
+  // Shopify and clean spellings below remain one-way aliases.
+  [`/pages/${ECOMMERCE_SEO_PAGE_HANDLE}`]: ECOMMERCE_SEO_CLEAN_PATH,
+  '/pages/ecommerce-seo': ECOMMERCE_SEO_CLEAN_PATH,
+  '/ecommerce-seo': ECOMMERCE_SEO_CLEAN_PATH,
+  '/ecommerce-seo/': ECOMMERCE_SEO_CLEAN_PATH,
   '/pages/ecommerce-ai-seo': '/ecommerce-ai-seo',
   '/pages/ecommerce-geo': '/ecommerce-geo',
   // Canonical Shopify handle first: `resolveLegacyPath` returns the first

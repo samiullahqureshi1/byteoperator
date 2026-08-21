@@ -97,7 +97,7 @@ interface CountUpNumberProps {
   decimals?: number;
 }
 
-function CountUpNumber({
+export function CountUpNumber({
   target,
   prefix = '',
   suffix = '',

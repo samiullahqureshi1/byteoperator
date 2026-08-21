@@ -30,8 +30,10 @@ import serviceAboutSectionStyles from '~/styles/service-about-section.css?url';
 import serviceDetailFaqStyles from '~/styles/service-detail-faqs.css?url';
 import migrationPlatformsAccordionStyles from '~/styles/migration-platforms-accordion.css?url';
 import servicePlusAgencyCtaStyles from '~/styles/service-plus-agency-cta.css?url';
+import ecommerceSeoHeroStyles from '~/styles/ecommerce-seo-hero.css?url';
 import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
 import {ShopifyPlusPage} from '~/components/services/ShopifyPlusPage';
+import {EcommerceSeoHero} from '~/components/seo/EcommerceSeoHero';
 import {
   SERVICE_PAGE_CONFIGS,
   type ServicePageHandle,
@@ -147,9 +149,13 @@ export const links: Route.LinksFunction = () => [
   rel: 'stylesheet',
   href: servicePlusAgencyCtaStyles,
 },
+  {
+    rel: 'stylesheet',
+    href: shopifyPlusPageStyles,
+},
 {
   rel: 'stylesheet',
-  href: shopifyPlusPageStyles,
+  href: ecommerceSeoHeroStyles,
 },
 ];
 export async function loader(args: Route.LoaderArgs) {
@@ -339,6 +345,10 @@ export function PageContent({
 
   if (page.handle === SHOPIFY_PLUS_PAGE_HANDLE) {
     return <ShopifyPlusPage />;
+  }
+
+  if (page.handle === 'ecommerce-seo-agency') {
+    return <EcommerceSeoHero />;
   }
 
   const servicePageConfig =
