@@ -1,0 +1,496 @@
+/* =========================================================
+   FOLDTECH — ECOMMERCE SEO TECH STACK
+========================================================= */
+
+.ft-ecommerce-seo-stack {
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 0;
+  background:
+    radial-gradient(
+      ellipse 56.25rem 56.25rem at 12% 50%,
+      rgba(64, 173, 170, 0.14) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 43.75rem 43.75rem at 7% 60%,
+      rgba(175, 221, 220, 0.08) 0%,
+      transparent 70%
+    ),
+    var(--ft-dark-deep, #01151b);
+  color: var(--ft-white, #ffffff);
+}
+
+.ft-ecommerce-seo-stack__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ft-ecommerce-seo-stack__container {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 10vw), 90rem);
+  margin-inline: auto;
+}
+
+.ft-ecommerce-seo-stack__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* =========================================================
+   ORBIT
+========================================================= */
+
+.ft-ecommerce-seo-stack__orbit-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 2rem 0;
+}
+
+.ft-ecommerce-seo-stack__orbit {
+  position: relative;
+  width: min(21.25rem, 88vw);
+  aspect-ratio: 1;
+}
+
+/* Rings */
+
+.ft-ecommerce-seo-stack__ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 0.0625rem solid rgba(175, 221, 220, 0.18);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.ft-ecommerce-seo-stack__ring--inner {
+  width: 58%;
+  height: 58%;
+}
+
+.ft-ecommerce-seo-stack__ring--outer {
+  width: 92%;
+  height: 92%;
+}
+
+.ft-ecommerce-seo-stack__ring--inner::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  content: '';
+  background: radial-gradient(
+    circle,
+    rgba(64, 173, 170, 0.08) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* =========================================================
+   SHOPIFY HUB
+========================================================= */
+
+.ft-ecommerce-seo-stack__hub {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: 5.625rem;
+  height: 5.625rem;
+  align-items: center;
+  justify-content: center;
+  border: 0.0625rem solid rgba(64, 173, 170, 0.28);
+  border-radius: 50%;
+  background: rgba(64, 173, 170, 0.18);
+  backdrop-filter: blur(0.5rem);
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.ft-ecommerce-seo-stack__hub:hover {
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+.ft-ecommerce-seo-stack__hub-logo {
+  display: block;
+  width: 3.625rem;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.88;
+}
+
+/* =========================================================
+   ROTATING TRACKS
+========================================================= */
+
+.ft-ecommerce-seo-stack__track {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ft-ecommerce-seo-stack__track--inner {
+  animation: ftSeoOrbitInner 35s linear infinite;
+}
+
+.ft-ecommerce-seo-stack__track--outer {
+  animation: ftSeoOrbitOuter 50s linear infinite;
+}
+
+/* Keep nodes visually upright while orbit rotates */
+
+.ft-ecommerce-seo-stack__track--inner
+  .ft-ecommerce-seo-stack__orbit-item {
+  animation: ftSeoOrbitInnerCounter 35s linear infinite;
+}
+
+.ft-ecommerce-seo-stack__track--outer
+  .ft-ecommerce-seo-stack__orbit-item {
+  animation: ftSeoOrbitOuterCounter 50s linear infinite;
+}
+
+@keyframes ftSeoOrbitInner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ftSeoOrbitInnerCounter {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes ftSeoOrbitOuter {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes ftSeoOrbitOuterCounter {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   ORBIT NODES
+========================================================= */
+
+.ft-ecommerce-seo-stack__orbit-item {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ft-ecommerce-seo-stack__node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.0625rem solid rgba(175, 221, 220, 0.16);
+  border-radius: 50%;
+  background: rgba(64, 173, 170, 0.1);
+  box-shadow:
+    inset 0 0 1.5rem rgba(64, 173, 170, 0.035),
+    0 0 2rem rgba(64, 173, 170, 0.025);
+  color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(0.35rem);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+  pointer-events: auto;
+}
+
+.ft-ecommerce-seo-stack__node:hover {
+  transform: scale(1.12);
+}
+
+.ft-ecommerce-seo-stack__node--inner {
+  width: 5rem;
+  height: 5rem;
+  background: rgba(64, 173, 170, 0.14);
+}
+
+.ft-ecommerce-seo-stack__node--outer {
+  width: 4rem;
+  height: 4rem;
+  background: rgba(4, 31, 39, 0.88);
+}
+
+.ft-ecommerce-seo-stack__node span {
+  display: block;
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.ft-ecommerce-seo-stack__node--outer span {
+  font-size: 0.6875rem;
+}
+
+/* =========================================================
+   INNER ORBIT POSITIONS
+========================================================= */
+
+.ft-ecommerce-seo-stack__node--inner-one {
+  top: calc(21% - 2.5rem);
+  left: calc(50% - 2.5rem);
+}
+
+.ft-ecommerce-seo-stack__node--inner-two {
+  top: calc(79% - 2.5rem);
+  left: calc(50% - 2.5rem);
+}
+
+/* =========================================================
+   OUTER ORBIT POSITIONS
+========================================================= */
+
+.ft-ecommerce-seo-stack__node--outer-one {
+  top: calc(4% - 2rem);
+  left: calc(50% - 2rem);
+}
+
+.ft-ecommerce-seo-stack__node--outer-two {
+  top: calc(35.8% - 2rem);
+  left: calc(93.7% - 2rem);
+}
+
+.ft-ecommerce-seo-stack__node--outer-three {
+  top: calc(87.2% - 2rem);
+  left: calc(77% - 2rem);
+}
+
+.ft-ecommerce-seo-stack__node--outer-four {
+  top: calc(87.2% - 2rem);
+  left: calc(23% - 2rem);
+}
+
+.ft-ecommerce-seo-stack__node--outer-five {
+  top: calc(35.8% - 2rem);
+  left: calc(6.3% - 2rem);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.ft-ecommerce-seo-stack__content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ft-ecommerce-seo-stack__eyebrow {
+  margin: 0 0 1.5rem;
+  color: rgba(175, 221, 220, 0.75);
+  font-family: 'Season Serif', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.ft-ecommerce-seo-stack__title {
+  max-width: 13.5em;
+  margin: 0 0 2rem;
+  color: var(--ft-white, #ffffff);
+  font-family: 'Season Sans', sans-serif;
+  font-size: clamp(2.125rem, 4.3vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.ft-ecommerce-seo-stack__description {
+  max-width: 48rem;
+  margin: 0 0 2rem;
+  color: rgba(255, 255, 255, 0.58);
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.ft-ecommerce-seo-stack__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 0.875rem 1.3rem 0.875rem 1.5rem;
+  border-radius: 999rem;
+  background: var(--ft-white, #ffffff);
+  color: var(--ft-dark-deep, #01151b);
+  font-family: 'Season Serif', serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.ft-ecommerce-seo-stack__cta:hover {
+  opacity: 0.88;
+  transform: translateY(-0.125rem);
+}
+
+.ft-ecommerce-seo-stack__cta svg {
+  display: block;
+  width: 0.8125rem;
+  height: 0.8125rem;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 48rem) {
+  .ft-ecommerce-seo-stack {
+    padding: 5rem 0;
+  }
+
+  .ft-ecommerce-seo-stack__orbit {
+    width: 26.25rem;
+  }
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 64rem) {
+  .ft-ecommerce-seo-stack {
+    padding: 6rem 0;
+  }
+
+  .ft-ecommerce-seo-stack__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 5vw;
+  }
+
+  .ft-ecommerce-seo-stack__orbit {
+    width: min(30rem, 38vw);
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 47.9375rem) {
+  .ft-ecommerce-seo-stack__container {
+    width: calc(100% - 2.5rem);
+  }
+
+  .ft-ecommerce-seo-stack__orbit-wrap {
+    padding: 0.5rem 0 1rem;
+  }
+
+  .ft-ecommerce-seo-stack__layout {
+    gap: 2.5rem;
+  }
+
+  .ft-ecommerce-seo-stack__title {
+    font-size: clamp(2.125rem, 10vw, 3rem);
+  }
+
+  .ft-ecommerce-seo-stack__description {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-ecommerce-seo-stack__track,
+  .ft-ecommerce-seo-stack__orbit-item {
+    animation: none !important;
+  }
+
+  .ft-ecommerce-seo-stack__node,
+  .ft-ecommerce-seo-stack__hub,
+  .ft-ecommerce-seo-stack__cta {
+    transition: none;
+  }
+}
+/* =========================================================
+   REFERENCE NODE COLORS
+========================================================= */
+
+/* Ahrefs — Blue */
+.ft-ecommerce-seo-stack__node--inner-one
+  .ft-ecommerce-seo-stack__node {
+  background: rgba(60, 80, 200, 0.15);
+  border-color: rgba(60, 80, 200, 0.2);
+}
+
+/* Screaming Frog — Green */
+.ft-ecommerce-seo-stack__node--inner-two
+  .ft-ecommerce-seo-stack__node {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+/* Search Console — Bright Blue */
+.ft-ecommerce-seo-stack__node--outer-one
+  .ft-ecommerce-seo-stack__node {
+  background: rgba(50, 140, 255, 0.18);
+  border-color: rgba(50, 140, 255, 0.25);
+}
+
+/* GA4 — Dark Orange */
+.ft-ecommerce-seo-stack__node--outer-two
+  .ft-ecommerce-seo-stack__node {
+  background: rgba(220, 90, 20, 0.18);
+  border-color: rgba(220, 90, 20, 0.22);
+}
+
+/* Semrush — Orange */
+.ft-ecommerce-seo-stack__node--outer-three
+  .ft-ecommerce-seo-stack__node {
+  background: rgba(255, 120, 50, 0.15);
+  border-color: rgba(255, 120, 50, 0.2);
+}
+
+/* Clarity — Bright Blue */
+.ft-ecommerce-seo-stack__node--outer-four
+  .ft-ecommerce-seo-stack__node {
+  background: rgba(50, 140, 255, 0.18);
+  border-color: rgba(50, 140, 255, 0.25);
+}
+
+/* PeecAI — Yellow */
+.ft-ecommerce-seo-stack__node--outer-five
+  .ft-ecommerce-seo-stack__node {
+  background: rgba(240, 200, 40, 0.15);
+  border-color: rgba(240, 200, 40, 0.2);
+}

@@ -35,12 +35,14 @@ import ecommerceSeoCasesStyles from '~/styles/ecommerce-seo-cases.css?url';
 import ecommerceSeoAboutStyles from '~/styles/ecommerce-seo-about.css?url';
 import ecommerceSeoProcessStyles from '~/styles/ecommerce-seo-process.css?url';
 import ecommerceSeoServicesStyles from '~/styles/ecommerce-seo-services.css?url';
+import ecommerceSeoTechStackStyles from '~/styles/ecommerce-seo-tech-stack.css?url';
 import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
 import {ShopifyPlusPage} from '~/components/services/ShopifyPlusPage';
 import {EcommerceSeoHero} from '~/components/seo/EcommerceSeoHero';
 import {EcommerceSeoCases} from '~/components/seo/EcommerceSeoCases';
 import {EcommerceSeoProcess} from '~/components/seo/EcommerceSeoProcess';
 import {EcommerceSeoServices} from '~/components/seo/EcommerceSeoServices';
+import {EcommerceSeoTechStack} from '~/components/seo/EcommerceSeoTechStack';
 import {
   SERVICE_PAGE_CONFIGS,
   type ServicePageHandle,
@@ -179,6 +181,10 @@ export const links: Route.LinksFunction = () => [
 {
   rel: 'stylesheet',
   href: ecommerceSeoServicesStyles,
+},
+{
+  rel: 'stylesheet',
+  href: ecommerceSeoTechStackStyles,
 },
 ];
 export async function loader(args: Route.LoaderArgs) {
@@ -381,6 +387,7 @@ export function PageContent({
         />
         <EcommerceSeoProcess />
         <EcommerceSeoServices />
+        <EcommerceSeoTechStack />
       </>
     );
   }
