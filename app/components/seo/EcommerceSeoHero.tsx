@@ -1,6 +1,10 @@
 import {Link} from 'react-router';
 import {WORK_HERO_LOGOS} from '~/data/workHeroProof';
 import {CountUpNumber} from '~/components/work/WorkResults';
+import {
+  ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS,
+  EcommerceSeoProofStrip,
+} from './EcommerceSeoProofStrip';
 
 /* =========================================================
    FOLDTECH — ECOMMERCE SEO HERO
@@ -30,24 +34,7 @@ const STATS = [
  * keyword counts) currently exist in the repository, so the strip stays
  * disabled until real data is supplied.
  */
-const PROOF_ITEMS = [
-  {
-    type: 'rating',
-    text: '4.8/5 on Google',
-  },
-  {
-    type: 'shopify-partners',
-    text: 'Shopify Plus Partner',
-  },
-  {
-    type: 'text',
-    text: 'Est. 2018',
-  },
-  {
-    type: 'text',
-    text: '15,000+ page 1 keywords',
-  },
-] as const;
+
 
 /**
  * The marquee spans the full viewport width, so the logo set is repeated
@@ -172,60 +159,7 @@ export function EcommerceSeoHero() {
             </div>
           </div>
 
-          {PROOF_ITEMS.length ? (
-     <ul className="ft-ecommerce-seo-hero__proof">
-  {PROOF_ITEMS.map((item, index) => (
-    <li
-      className="ft-ecommerce-seo-hero__proof-entry"
-      key={item.text}
-    >
-      {index > 0 ? (
-        <span
-          className="ft-ecommerce-seo-hero__proof-divider"
-          aria-hidden="true"
-        />
-      ) : null}
-
-      <span className="ft-ecommerce-seo-hero__proof-item">
-        {item.type === 'rating' ? (
-          <span
-            className="ft-ecommerce-seo-hero__stars"
-            aria-hidden="true"
-          >
-            {Array.from({length: 5}).map((_, starIndex) => (
-              <svg
-                key={starIndex}
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.62l5.34-.78z" />
-              </svg>
-            ))}
-          </span>
-        ) : null}
-
-       {item.type === 'shopify-partners' ? (
-  <span className="ft-ecommerce-seo-hero__proof-logos">
-    <img
-      className="ft-ecommerce-seo-hero__proof-logo"
-      src="/images/home-partners/shopify-plus.svg"
-      alt="Shopify Plus"
-    />
-
-    <img
-      className="ft-ecommerce-seo-hero__proof-logo ft-ecommerce-seo-hero__proof-logo--shopify"
-      src="/images/home-partners/shopify.svg"
-      alt="Shopify"
-    />
-  </span>
-) : null}
-
-       {item.type !== 'shopify-partners' ? item.text : null}
-      </span>
-    </li>
-  ))}
-</ul>
-          ) : null}
+          <EcommerceSeoProofStrip items={ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS} />
         </div>
       </section>
     </main>

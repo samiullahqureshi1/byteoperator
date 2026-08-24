@@ -22,11 +22,27 @@ const EXPERT_MEDIA = [
     className: 'ft-home-experts__media--four',
   },
 ] as const;
+type HomeExpertsProps = {
+  eyebrow?: string;
+  heading?: string;
+  description?: string;
+  ctaLabel?: string;
+  ctaTo?: string;
+  variant?: 'default' | 'ecommerce-seo';
+};
 
-export function HomeExperts() {
+
+export function HomeExperts({
+  eyebrow = 'Shopify experts',
+  heading = 'Let\'s talk ecommerce, Shopify & Shopify Plus solutions.',
+  description = 'FoldTech helps ecommerce brands design, develop, launch, support and grow Shopify stores. From new builds and migrations to ongoing development, SEO and conversion improvement, our team can help plan the right approach for your next Shopify project.',
+  ctaLabel = 'Get in touch',
+  ctaTo = '/pages/contact',
+  variant = 'default',
+}: HomeExpertsProps) {
   return (
     <section
-      className="ft-home-experts"
+      className={`ft-home-experts${variant === 'ecommerce-seo' ? ' ft-home-experts--ecommerce-seo' : ''}`}
       aria-labelledby="ft-home-experts-title"
     >
       {EXPERT_MEDIA.map((media) => (
@@ -50,33 +66,26 @@ export function HomeExperts() {
       <div className="ft-home-experts__container">
         <div className="ft-home-experts__inner">
           <p className="ft-home-experts__subtitle">
-            Shopify experts
+            {eyebrow}
           </p>
 
           <h2
             className="ft-home-experts__title"
             id="ft-home-experts-title"
           >
-            Let&apos;s talk ecommerce, Shopify &amp;
-            Shopify Plus solutions.
+            {heading}
           </h2>
 
           <p className="ft-home-experts__description">
-            FoldTech helps ecommerce brands design,
-            develop, launch, support and grow Shopify
-            stores. From new builds and migrations to
-            ongoing development, SEO and conversion
-            improvement, our team can help plan the
-            right approach for your next Shopify
-            project.
+            {description}
           </p>
 
           <Link
             className="ft-home-experts__button"
-            to="/pages/contact"
+            to={ctaTo}
             prefetch="intent"
           >
-            <span>Get in touch</span>
+            <span>{ctaLabel}</span>
 
             <svg
               className="ft-home-experts__button-arrow"

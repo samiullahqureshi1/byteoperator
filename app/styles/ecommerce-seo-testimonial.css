@@ -1,0 +1,17 @@
+.ft-ecommerce-seo-testimonial {
+  margin-top: 0;
+}
+
+@media (min-width: 64rem) {
+  .ft-ecommerce-seo-testimonial {
+    margin-top: 2rem;
+  }
+
+  .ft-ecommerce-seo-testimonial .ft-work-testimonial {
+    border-radius: 0;
+  }
+
+  .ft-ecommerce-seo-testimonial .ft-work-testimonial__inner {
+    border-radius: 0 0 1.75rem 1.75rem;
+  }
+}

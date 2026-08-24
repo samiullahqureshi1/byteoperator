@@ -1,0 +1,271 @@
+/* =========================================================
+   FOLDTECH — SHOPIFY SPECIALISM
+========================================================= */
+
+.ft-ecommerce-seo-specialism {
+  width: 100%;
+  padding: 4rem 0;
+  background: var(--ft-white, #ffffff);
+  color: #000000;
+}
+
+.ft-ecommerce-seo-specialism__container {
+  width: min(calc(100% - 10vw), 90rem);
+  margin-inline: auto;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.ft-ecommerce-seo-specialism__intro {
+  max-width: 48.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.ft-ecommerce-seo-specialism__eyebrow {
+  margin: 0 0 1rem;
+  color: rgba(0, 0, 0, 0.45);
+  font-family: 'Season Serif', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.ft-ecommerce-seo-specialism__title {
+  margin: 0 0 1.5rem;
+  color: #000000;
+  font-family: 'Season Sans', sans-serif;
+  font-size: clamp(2.125rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.ft-ecommerce-seo-specialism__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ft-ecommerce-seo-specialism__copy p {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: 'Season Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.ft-ecommerce-seo-specialism__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.ft-ecommerce-seo-specialism__card {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: #f7f7f7;
+}
+
+.ft-ecommerce-seo-specialism__card-title {
+  margin: 0 0 0.5rem;
+  color: #000000;
+  font-family: 'Season Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.ft-ecommerce-seo-specialism__card-description {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.55);
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   TABLET / DESKTOP
+========================================================= */
+
+@media (min-width: 48rem) {
+  .ft-ecommerce-seo-specialism__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-ecommerce-seo-specialism {
+    padding: 4rem 0;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 47.9375rem) {
+  .ft-ecommerce-seo-specialism__container {
+    width: calc(100% - 2.5rem);
+  }
+
+  .ft-ecommerce-seo-specialism__intro {
+    margin-bottom: 2rem;
+  }
+
+  .ft-ecommerce-seo-specialism__title {
+    font-size: clamp(2.125rem, 10vw, 3rem);
+  }
+
+  .ft-ecommerce-seo-specialism__copy p {
+    font-size: 0.9375rem;
+  }
+
+  .ft-ecommerce-seo-specialism__card {
+    padding: 1.5rem;
+  }
+}
+
+/* =========================================================
+   ECOMMERCE SEO ONLY — REUSED PARTNERS SECTION
+   Dark FoldTech theme, tile-free logo grid, and a proof
+   strip that reads as a footer row of the partners block.
+   Scoped to .ft-ecommerce-seo-partners so Home / Work and
+   every other HomePartners instance keep their defaults.
+========================================================= */
+
+.ft-ecommerce-seo-partners {
+  background: var(--ft-dark-deep, #01151b);
+  padding-bottom: 6rem;
+}
+
+.ft-ecommerce-seo-partners .ft-home-partners {
+  background: var(--ft-dark-deep, #01151b);
+  color: var(--ft-white, #ffffff);
+  padding-bottom: 0;
+}
+
+.ft-ecommerce-seo-partners .ft-home-partners__label,
+.ft-ecommerce-seo-partners .ft-home-partners__description,
+.ft-ecommerce-seo-partners .ft-home-partners__read-more {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.ft-ecommerce-seo-partners .ft-home-partners__title {
+  color: var(--ft-white, #ffffff);
+}
+
+/* ---------------------------------------------------------
+   LOGO GRID — logos sit directly on the dark background
+--------------------------------------------------------- */
+
+.ft-ecommerce-seo-partners .ft-home-partners__logos {
+  align-items: center;
+  justify-items: center;
+}
+
+.ft-ecommerce-seo-partners .ft-home-partners__logo {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.ft-ecommerce-seo-partners .ft-home-partners__logo img {
+  filter: brightness(0) invert(1);
+}
+
+/* ---------------------------------------------------------
+   PROOF STRIP — footer row, inset to the container width
+--------------------------------------------------------- */
+
+.ft-ecommerce-seo-partners .ft-ecommerce-seo-proof {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: auto;
+  margin: 2.5rem 5.33vw 0;
+  padding-top: 2rem;
+  padding-bottom: 0;
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.08);
+}
+
+.ft-ecommerce-seo-partners .ft-ecommerce-seo-proof__item {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8125rem;
+}
+
+.ft-ecommerce-seo-partners .ft-ecommerce-seo-proof__stars svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.ft-ecommerce-seo-partners .ft-ecommerce-seo-proof__logo {
+  width: auto;
+  height: 1rem;
+}
+
+.ft-ecommerce-seo-partners .ft-ecommerce-seo-proof__logo--shopify {
+  height: 1.125rem;
+}
+
+.ft-ecommerce-seo-partners .ft-ecommerce-seo-proof__divider {
+  width: 0.0625rem;
+  height: 1rem;
+  margin: 0 2rem 0 0;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ---------------------------------------------------------
+   DESKTOP — 3-column grid, generous spacing
+--------------------------------------------------------- */
+
+@media (min-width: 64rem) {
+  .ft-ecommerce-seo-partners .ft-home-partners__logos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 3rem;
+    row-gap: 2.5rem;
+  }
+
+  .ft-ecommerce-seo-partners .ft-home-partners__logo img {
+    max-height: 2.25rem;
+  }
+
+  .ft-ecommerce-seo-partners .ft-ecommerce-seo-proof {
+    margin-inline: 7vw;
+  }
+}
+
+/* ---------------------------------------------------------
+   MOBILE — preserve wrapping strip, no dividers
+--------------------------------------------------------- */
+
+@media (max-width: 47.9375rem) {
+  .ft-ecommerce-seo-partners {
+    padding-bottom: 5rem;
+  }
+
+  .ft-ecommerce-seo-partners .ft-ecommerce-seo-proof {
+    gap: 0.9rem 1.4rem;
+    margin-top: 2rem;
+    padding-top: 2.5rem;
+  }
+
+  .ft-ecommerce-seo-partners .ft-ecommerce-seo-proof__item {
+    font-size: 0.7rem;
+  }
+
+  .ft-ecommerce-seo-partners .ft-ecommerce-seo-proof__divider {
+    display: none;
+  }
+}

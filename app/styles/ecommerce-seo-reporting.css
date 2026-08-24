@@ -1,0 +1,95 @@
+/* =========================================================
+   FOLDTECH — ECOMMERCE SEO REPORTING
+========================================================= */
+
+.ft-ecommerce-seo-reporting {
+  padding: 5rem 0;
+  background: #f7f7f7;
+  color: #000000;
+}
+
+.ft-ecommerce-seo-reporting__container {
+  width: min(calc(100% - 10vw), 90rem);
+  margin-inline: auto;
+}
+
+.ft-ecommerce-seo-reporting__eyebrow {
+  margin: 0 0 1rem;
+  color: rgba(0, 0, 0, 0.45);
+  font-family: 'Season Serif', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.ft-ecommerce-seo-reporting__title {
+  max-width: 45rem;
+  margin: 0 0 1.5rem;
+  color: #000000;
+  font-family: 'Season Sans', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.ft-ecommerce-seo-reporting__intro {
+  max-width: 48rem;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.55);
+  font-family: 'Season Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.ft-ecommerce-seo-reporting__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 4rem;
+}
+
+.ft-ecommerce-seo-reporting__card {
+  min-width: 0;
+  padding: 1.5rem;
+  border: 0.0625rem solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+.ft-ecommerce-seo-reporting__card-title {
+  margin: 0 0 0.5rem;
+  color: #000000;
+  font-family: 'Season Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.ft-ecommerce-seo-reporting__card-description {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.55);
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+@media (min-width: 48rem) {
+  .ft-ecommerce-seo-reporting__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-ecommerce-seo-reporting__cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .ft-ecommerce-seo-reporting__container {
+    width: calc(100% - 2.5rem);
+  }
+}

@@ -1,0 +1,87 @@
+/* =========================================================
+   FOLDTECH — ECOMMERCE SEO FAQ
+========================================================= */
+
+.ft-ecommerce-seo-faq .ft-service-detail-faqs {
+  margin: 0;
+  padding: 5rem 0;
+  background: #ffffff;
+  color: #000000;
+}
+
+.ft-ecommerce-seo-faq .ft-service-detail-faqs__container {
+  width: min(calc(100% - 10vw), 90rem);
+  padding-inline: 0;
+}
+
+.ft-ecommerce-seo-faq .ft-service-detail-faqs__header {
+  margin-bottom: 2rem;
+}
+
+.ft-ecommerce-seo-faq .ft-service-detail-faqs__header p {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.ft-ecommerce-seo-faq .ft-service-detail-faqs__inner {
+  gap: 3rem;
+}
+
+.ft-ecommerce-seo-faq .ft-service-detail-faqs__title {
+  max-width: 9.5ch;
+  color: #000000;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.ft-ecommerce-seo-faq .ft-service-detail-faqs__list {
+  gap: 0;
+}
+
+.ft-ecommerce-seo-faq .ft-service-detail-faqs__item {
+  padding: 1.5rem 0;
+  border-top: 0.0625rem solid rgba(0, 0, 0, 0.1);
+}
+
+.ft-ecommerce-seo-faq .ft-service-detail-faqs__item:last-child {
+  border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
+}
+
+.ft-ecommerce-seo-faq .ft-service-detail-faqs__trigger {
+  color: #000000;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.ft-ecommerce-seo-faq .ft-service-detail-faqs__plus {
+  flex-basis: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.ft-ecommerce-seo-faq .ft-service-detail-faqs__answer {
+  margin: 1rem 0 0;
+  color: rgba(0, 0, 0, 0.55);
+  font-weight: 300;
+}
+
+@media (min-width: 64rem) {
+  .ft-ecommerce-seo-faq .ft-service-detail-faqs__inner {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 8vw;
+  }
+
+  .ft-ecommerce-seo-faq .ft-service-detail-faqs__left,
+  .ft-ecommerce-seo-faq .ft-service-detail-faqs__list {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .ft-ecommerce-seo-faq .ft-service-detail-faqs__container {
+    width: calc(100% - 2.5rem);
+  }
+}

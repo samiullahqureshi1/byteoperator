@@ -36,6 +36,14 @@ import ecommerceSeoAboutStyles from '~/styles/ecommerce-seo-about.css?url';
 import ecommerceSeoProcessStyles from '~/styles/ecommerce-seo-process.css?url';
 import ecommerceSeoServicesStyles from '~/styles/ecommerce-seo-services.css?url';
 import ecommerceSeoTechStackStyles from '~/styles/ecommerce-seo-tech-stack.css?url';
+import ecommerceSeoEducationStyles from '~/styles/ecommerce-seo-education.css?url';
+import ecommerceSeoReportingStyles from '~/styles/ecommerce-seo-reporting.css?url';
+import ecommerceSeoFaqStyles from '~/styles/ecommerce-seo-faq.css?url';
+import ecommerceSeoTestimonialStyles from '~/styles/ecommerce-seo-testimonial.css?url';
+import ecommerceSeoExpertsStyles from '~/styles/ecommerce-seo-experts.css?url';
+import ecommerceSeoResultsStyles from '~/styles/ecommerce-seo-results.css?url';
+import ecommerceSeoWhoItsForStyles from '~/styles/ecommerce-seo-who-its-for.css?url';
+import ecommerceSeoShopifySpecialismStyles from '~/styles/ecommerce-seo-shopify-specialism.css?url';
 import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
 import {ShopifyPlusPage} from '~/components/services/ShopifyPlusPage';
 import {EcommerceSeoHero} from '~/components/seo/EcommerceSeoHero';
@@ -43,6 +51,22 @@ import {EcommerceSeoCases} from '~/components/seo/EcommerceSeoCases';
 import {EcommerceSeoProcess} from '~/components/seo/EcommerceSeoProcess';
 import {EcommerceSeoServices} from '~/components/seo/EcommerceSeoServices';
 import {EcommerceSeoTechStack} from '~/components/seo/EcommerceSeoTechStack';
+import {EcommerceSeoEducation} from '~/components/seo/EcommerceSeoEducation';
+import {EcommerceSeoReporting} from '~/components/seo/EcommerceSeoReporting';
+import {ServiceDetailFaqs} from '~/components/services/detail/ServiceDetailFaqs';
+import {WorkTestimonial} from '~/components/work/WorkTestimonial';
+import {EcommerceSeoResults} from '~/components/seo/EcommerceSeoResults';
+import {HomeExperts} from '~/components/HomeExperts';
+import {ServicePlusAgencyCta} from '~/components/services/detail/ServicePlusAgencyCta';
+import {EcommerceSeoShopifySpecialism} from '~/components/seo/EcommerceSeoShopifySpecialism';
+import {
+  ECOMMERCE_SEO_PARTNER_LOGOS,
+  HomePartners,
+} from '~/components/HomePartners';
+import {
+  ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS,
+  EcommerceSeoProofStrip,
+} from '~/components/seo/EcommerceSeoProofStrip';
 import {
   SERVICE_PAGE_CONFIGS,
   type ServicePageHandle,
@@ -185,6 +209,38 @@ export const links: Route.LinksFunction = () => [
 {
   rel: 'stylesheet',
   href: ecommerceSeoTechStackStyles,
+},
+{
+  rel: 'stylesheet',
+  href: ecommerceSeoEducationStyles,
+},
+{
+  rel: 'stylesheet',
+  href: ecommerceSeoReportingStyles,
+},
+{
+  rel: 'stylesheet',
+  href: ecommerceSeoFaqStyles,
+},
+{
+  rel: 'stylesheet',
+  href: ecommerceSeoTestimonialStyles,
+},
+{
+  rel: 'stylesheet',
+  href: ecommerceSeoExpertsStyles,
+},
+{
+  rel: 'stylesheet',
+  href: ecommerceSeoResultsStyles,
+},
+{
+  rel: 'stylesheet',
+  href: ecommerceSeoWhoItsForStyles,
+},
+{
+  rel: 'stylesheet',
+  href: ecommerceSeoShopifySpecialismStyles,
 },
 ];
 export async function loader(args: Route.LoaderArgs) {
@@ -388,6 +444,49 @@ export function PageContent({
         <EcommerceSeoProcess />
         <EcommerceSeoServices />
         <EcommerceSeoTechStack />
+        <EcommerceSeoResults />
+        <HomeExperts
+          variant="ecommerce-seo"
+          eyebrow="Is Ecommerce SEO Right for You?"
+          heading="SEO Works Best for Brands Ready to Invest in Sustainable Growth"
+          description="Our ecommerce SEO services are designed for online stores that want organic search to become a reliable, long-term growth channel. The strongest fit is with ecommerce teams that are ready to invest consistently in technical improvements, content, site structure and ongoing optimisation rather than looking for short-term ranking fixes. We work alongside businesses that want SEO decisions connected to their wider ecommerce goals, development roadmap and customer journey."
+          ctaLabel="See if we're a good fit"
+          ctaTo="/contact"
+        />
+        <EcommerceSeoShopifySpecialism />
+        <div className="ft-ecommerce-seo-partners">
+          <HomePartners
+            label="Our SEO & Analytics Stack"
+            heading="The Platforms Behind Every Ecommerce SEO Campaign We Deliver"
+            description={[
+              'Effective ecommerce SEO requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to audit technical performance, understand search demand, measure user behaviour and turn data into clear optimisation priorities for ecommerce stores.',
+            ]}
+            logos={ECOMMERCE_SEO_PARTNER_LOGOS}
+            showCta={false}
+          />
+          <EcommerceSeoProofStrip items={ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS} />
+        </div>
+        <EcommerceSeoEducation html={page.body} />
+        <EcommerceSeoReporting />
+        {page.faqs.length ? (
+          <div className="ft-ecommerce-seo-faq">
+            <ServiceDetailFaqs
+              title="Ecommerce SEO Services"
+              faqs={page.faqs}
+            />
+          </div>
+        ) : null}
+        <div className="ft-ecommerce-seo-testimonial">
+          <WorkTestimonial />
+        </div>
+        {SERVICE_PAGE_CONFIGS['shopify-app-development'].plusAgencyCta ? (
+          <ServicePlusAgencyCta
+            data={SERVICE_PAGE_CONFIGS['shopify-app-development'].plusAgencyCta}
+          />
+        ) : null}
+        <div className="ft-ecommerce-seo-experts">
+          <HomeExperts />
+        </div>
       </>
     );
   }

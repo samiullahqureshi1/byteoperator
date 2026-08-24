@@ -1,0 +1,157 @@
+/* =========================================================
+   FOLDTECH — ECOMMERCE SEO RESULTS
+========================================================= */
+
+.ft-ecommerce-seo-results {
+  width: 100%;
+  padding: 3.5rem 0;
+  overflow: hidden;
+  background: var(--ft-white, #ffffff);
+  color: #000000;
+}
+
+.ft-ecommerce-seo-results__container {
+  width: min(calc(100% - 10vw), 90rem);
+  margin-inline: auto;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.ft-ecommerce-seo-results__header {
+  max-width: 42.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.ft-ecommerce-seo-results__eyebrow {
+  margin: 0 0 1rem;
+  color: rgba(0, 0, 0, 0.45);
+  font-family: 'Season Serif', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.ft-ecommerce-seo-results__title {
+  margin: 0;
+  color: #000000;
+  font-family: 'Season Sans', sans-serif;
+  font-size: clamp(2.125rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.ft-ecommerce-seo-results__cards {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ft-ecommerce-seo-results__cards::-webkit-scrollbar {
+  display: none;
+}
+
+.ft-ecommerce-seo-results__card {
+  display: flex;
+  flex: 0 0 82%;
+  min-width: 16.25rem;
+  max-width: 18.75rem;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: #f7f7f7;
+  scroll-snap-align: start;
+}
+
+.ft-ecommerce-seo-results__stat {
+  flex-shrink: 0;
+  color: #000000;
+  font-family: 'Season Serif', serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.ft-ecommerce-seo-results__card-content {
+  min-width: 0;
+}
+
+.ft-ecommerce-seo-results__card-title {
+  margin: 0 0 0.35rem;
+  color: #000000;
+  font-family: 'Season Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.ft-ecommerce-seo-results__description {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.55);
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   TABLET / DESKTOP
+========================================================= */
+
+@media (min-width: 48rem) {
+  .ft-ecommerce-seo-results__cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow-x: visible;
+    padding-bottom: 0;
+    scroll-snap-type: none;
+  }
+
+  .ft-ecommerce-seo-results__card {
+    min-width: 0;
+    max-width: none;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 47.9375rem) {
+  .ft-ecommerce-seo-results {
+    padding: 3.5rem 0;
+  }
+
+  .ft-ecommerce-seo-results__container {
+    width: calc(100% - 2.5rem);
+  }
+
+  .ft-ecommerce-seo-results__header {
+    margin-bottom: 2rem;
+  }
+
+  .ft-ecommerce-seo-results__title {
+    font-size: clamp(2.125rem, 10vw, 3rem);
+  }
+
+  .ft-ecommerce-seo-results__card {
+     flex: 0 0 min(80vw, 18.75rem);
+    width: auto;
+    min-width: 16.25rem;
+    max-width: 18.75rem;
+    box-sizing: border-box;
+  }
+}

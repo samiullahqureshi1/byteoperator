@@ -1,0 +1,81 @@
+/* Ecommerce SEO only: FoldTech treatment for the final HomeExperts media section. */
+.ft-ecommerce-seo-experts {
+  --ft-dark: #041f27;
+  --ft-dark-deep: #01151b;
+  --ft-teal: #40adaa;
+  --ft-teal-light: #afdddc;
+
+  background: var(--ft-dark-deep);
+}
+
+/* =========================================================
+   SEAMLESS JOIN WITH .ft-service-plus-agency-cta ABOVE
+
+   The CTA above is #01151b lifted by two glow circles that
+   both bleed into its bottom edge, so that edge is NOT flat
+   #01151b -- it fades from ~#041f27 on the left towards
+   #01151b on the right, with a faint teal tail near 80% x.
+
+   This section reproduces both circles, offset upwards by the
+   distance from each circle's centre to the CTA's bottom edge,
+   so the two edges meet on identical pixels and the tone then
+   falls away to --ft-dark-deep on its own. --ft-seam-carry is
+   the teal circle; its offset is 80% of the CTA's height, so
+   it is re-tuned wherever that height changes materially.
+========================================================= */
+
+.ft-ecommerce-seo-experts .ft-home-experts {
+  /* continuation of the CTA's "circle at 80% 20%" teal glow */
+  --ft-seam-carry: -32.75rem;
+
+  margin-top: 0;
+  border-top: 0;
+  box-shadow: none;
+  background:
+    radial-gradient(
+      circle 32rem at 80% var(--ft-seam-carry),
+      color-mix(in srgb, var(--ft-teal-light) 20%, transparent),
+      transparent
+    ),
+    radial-gradient(
+      circle 36rem at 16% -1.5rem,
+      color-mix(in srgb, var(--ft-dark) 90%, transparent),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 18% 42%,
+      rgba(64, 173, 170, 0.14),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse at 82% 82%,
+      rgba(4, 31, 39, 0.82),
+      transparent 52%
+    ),
+    var(--ft-dark-deep);
+}
+
+@media (max-width: 47.9375rem) {
+  .ft-ecommerce-seo-experts .ft-home-experts {
+    --ft-seam-carry: -29.65rem;
+  }
+}
+
+@media (max-width: 22.5rem) {
+  .ft-ecommerce-seo-experts .ft-home-experts {
+    --ft-seam-carry: -33.25rem;
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 63.9375rem) {
+  .ft-ecommerce-seo-experts .ft-home-experts {
+    --ft-seam-carry: -28.4rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-ecommerce-seo-experts .ft-home-experts {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}

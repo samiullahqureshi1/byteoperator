@@ -79,7 +79,40 @@ const PARTNER_LOGOS = [
   },
 ] as const;
 
-export function HomePartners() {
+type PartnerLogo = (typeof PARTNER_LOGOS)[number];
+
+export const ECOMMERCE_SEO_PARTNER_LOGOS: readonly PartnerLogo[] =
+  PARTNER_LOGOS.filter(({alt}) =>
+    [
+      'Shopify Plus',
+      'Shopify',
+      'Klaviyo',
+      'Triple Whale',
+      'Gorgias',
+      'Yotpo',
+      'Recharge',
+      'Skio',
+    ].includes(alt),
+  );
+
+interface HomePartnersProps {
+  description?: readonly string[];
+  heading?: string;
+  label?: string;
+  logos?: readonly PartnerLogo[];
+  showCta?: boolean;
+}
+
+export function HomePartners({
+  description = [
+    'Shopify stores often rely on a wider technology stack to support marketing, customer service, subscriptions, reviews, analytics and day-to-day ecommerce operations. FoldTech works across Shopify and a range of leading ecommerce platforms to help businesses choose solutions that fit their store, team and customer journey.',
+    'From retention and customer support to testing, reporting and store integrations, we can connect the right tools with Shopify while keeping the storefront experience consistent, manageable and focused on business needs.',
+  ],
+  heading = 'We work with Shopify and leading ecommerce technologies.',
+  label = 'Partners',
+  logos = PARTNER_LOGOS,
+  showCta = true,
+}: HomePartnersProps) {
   const [isExpanded, setIsExpanded] =
     useState(false);
 
@@ -90,7 +123,7 @@ export function HomePartners() {
     >
       <div className="ft-home-partners__container">
         <h2 className="ft-home-partners__label">
-          Partners
+          {label}
         </h2>
 
         <div className="ft-home-partners__inner">
@@ -112,42 +145,24 @@ export function HomePartners() {
               ].join(' ')}
               id="ft-home-partners-description"
             >
-              <p>
-                Shopify stores often rely on a wider
-                technology stack to support marketing,
-                customer service, subscriptions,
-                reviews, analytics and day-to-day
-                ecommerce operations. FoldTech works
-                across Shopify and a range of leading
-                ecommerce platforms to help businesses
-                choose solutions that fit their store,
-                team and customer journey.
-              </p>
-
-              <p>
-                From retention and customer support to
-                testing, reporting and store
-                integrations, we can connect the right
-                tools with Shopify while keeping the
-                storefront experience consistent,
-                manageable and focused on business
-                needs.
-              </p>
+              {description.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
 
-            <button
-              className="ft-home-partners__read-more"
-              type="button"
-              aria-expanded={isExpanded}
-              aria-controls="ft-home-partners-description"
-              onClick={() =>
-                setIsExpanded((current) => !current)
-              }
-            >
-              {isExpanded
-                ? 'Read less'
-                : 'Read more'}
-            </button>
+            {showCta ? (
+              <button
+                className="ft-home-partners__read-more"
+                type="button"
+                aria-expanded={isExpanded}
+                aria-controls="ft-home-partners-description"
+                onClick={() =>
+                  setIsExpanded((current) => !current)
+                }
+              >
+                {isExpanded ? 'Read less' : 'Read more'}
+              </button>
+            ) : null}
           </div>
 
           <div className="ft-home-partners__right">
@@ -155,7 +170,7 @@ export function HomePartners() {
               className="ft-home-partners__logos"
               aria-label="Ecommerce technology logos"
             >
-              {PARTNER_LOGOS.map((logo) => (
+              {logos.map((logo) => (
                 <div
                   className="ft-home-partners__logo"
                   key={logo.src}
