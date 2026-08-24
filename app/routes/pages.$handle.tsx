@@ -75,6 +75,7 @@ import type {ServiceDetailFaqItem} from '~/components/services/detail/ServiceDet
 import {
   resolveCleanPath,
   resolveServiceConfigHandle,
+  AI_SEO_PAGE_HANDLE,
   SHOPIFY_PLUS_PAGE_HANDLE,
 } from '~/lib/route-mappings';
 
@@ -294,13 +295,17 @@ export async function loadPageData({
         handle,
       },
     }),
-    handle === 'work' || handle === 'ecommerce-seo-agency'
+    handle === 'work' ||
+      handle === 'ecommerce-seo-agency' ||
+      handle === AI_SEO_PAGE_HANDLE
       ? context.storefront.query(FEATURED_PROJECTS_QUERY)
       : Promise.resolve({blog: null}),
     handle === 'work'
       ? context.storefront.query(TOP_CASE_STUDIES_QUERY)
       : Promise.resolve({blog: null}),
-    handle === 'work' || handle === 'ecommerce-seo-agency'
+    handle === 'work' ||
+      handle === 'ecommerce-seo-agency' ||
+      handle === AI_SEO_PAGE_HANDLE
       ? loadAllCaseStudies(context)
       : Promise.resolve([]),
   ]);
@@ -432,10 +437,41 @@ export function PageContent({
     return <ShopifyPlusPage />;
   }
 
-  if (page.handle === 'ecommerce-seo-agency') {
+  if (
+    page.handle === 'ecommerce-seo-agency' ||
+    page.handle === AI_SEO_PAGE_HANDLE
+  ) {
+    const isAiSeo = page.handle === AI_SEO_PAGE_HANDLE;
+
     return (
       <>
-        <EcommerceSeoHero />
+        <EcommerceSeoHero
+          title={
+            isAiSeo
+              ? 'AI SEO Agency Built for Ecommerce Discovery'
+              : undefined
+          }
+          description={
+            isAiSeo
+              ? 'FoldTech helps ecommerce brands improve visibility across AI-powered search through technical foundations, structured content and search-led optimisation.'
+              : undefined
+          }
+          pillLabel={
+            isAiSeo
+              ? 'Looking to improve organic visibility? Explore Ecommerce SEO'
+              : undefined
+          }
+          pillTo={isAiSeo ? '/ecommerce-seo-agency/' : undefined}
+          ctaLabel={isAiSeo ? 'Talk to our AI SEO team' : undefined}
+          secondaryCta={
+            isAiSeo
+              ? {
+                  label: 'Looking for Ecommerce SEO? Click here →',
+                  to: '/ecommerce-seo-agency/',
+                }
+              : undefined
+          }
+        />
         <EcommerceSeoCases
           pageTag={page.handle}
           articles={caseStudyArticles}
@@ -444,22 +480,53 @@ export function PageContent({
         <EcommerceSeoProcess />
         <EcommerceSeoServices />
         <EcommerceSeoTechStack />
-        <EcommerceSeoResults />
+        <EcommerceSeoResults
+          eyebrow={isAiSeo ? 'AI Search Visibility' : undefined}
+          title={
+            isAiSeo
+              ? 'A Clear View of AI Search Opportunities'
+              : undefined
+          }
+          results={
+            isAiSeo
+              ? [
+                  {
+                    stat: '—',
+                    title: 'AI Visibility Baseline',
+                    description:
+                      'Establish a clear baseline for how your brand and content appear across relevant AI-powered search experiences.',
+                  },
+                  {
+                    stat: '—',
+                    title: 'Structured Content Priorities',
+                    description:
+                      'Identify the technical and content improvements that can make product and category information clearer to AI systems.',
+                  },
+                  {
+                    stat: '—',
+                    title: 'Ongoing AI Search Review',
+                    description:
+                      'Review changing search behaviour and prioritise the next practical opportunities as AI search develops.',
+                  },
+                ]
+              : undefined
+          }
+        />
         <HomeExperts
           variant="ecommerce-seo"
-          eyebrow="Is Ecommerce SEO Right for You?"
-          heading="SEO Works Best for Brands Ready to Invest in Sustainable Growth"
-          description="Our ecommerce SEO services are designed for online stores that want organic search to become a reliable, long-term growth channel. The strongest fit is with ecommerce teams that are ready to invest consistently in technical improvements, content, site structure and ongoing optimisation rather than looking for short-term ranking fixes. We work alongside businesses that want SEO decisions connected to their wider ecommerce goals, development roadmap and customer journey."
+          eyebrow={isAiSeo ? 'Is AI SEO Right for You?' : 'Is Ecommerce SEO Right for You?'}
+          heading={isAiSeo ? 'AI SEO Works Best for Brands Ready to Build Search Resilience' : 'SEO Works Best for Brands Ready to Invest in Sustainable Growth'}
+          description={isAiSeo ? 'Our AI SEO services are designed for ecommerce teams that want to prepare their stores for changing search behaviour. The strongest fit is with brands ready to invest in clear product information, technical foundations, structured content and ongoing optimisation.' : 'Our ecommerce SEO services are designed for online stores that want organic search to become a reliable, long-term growth channel. The strongest fit is with ecommerce teams that are ready to invest consistently in technical improvements, content, site structure and ongoing optimisation rather than looking for short-term ranking fixes. We work alongside businesses that want SEO decisions connected to their wider ecommerce goals, development roadmap and customer journey.'}
           ctaLabel="See if we're a good fit"
           ctaTo="/contact"
         />
         <EcommerceSeoShopifySpecialism />
         <div className="ft-ecommerce-seo-partners">
           <HomePartners
-            label="Our SEO & Analytics Stack"
-            heading="The Platforms Behind Every Ecommerce SEO Campaign We Deliver"
+            label={isAiSeo ? 'Our AI SEO & Analytics Stack' : 'Our SEO & Analytics Stack'}
+            heading={isAiSeo ? 'The Platforms Behind Every AI SEO Campaign We Deliver' : 'The Platforms Behind Every Ecommerce SEO Campaign We Deliver'}
             description={[
-              'Effective ecommerce SEO requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to audit technical performance, understand search demand, measure user behaviour and turn data into clear optimisation priorities for ecommerce stores.',
+              isAiSeo ? 'Effective AI SEO requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to review technical performance, understand search demand and turn data into clear optimisation priorities for ecommerce stores.' : 'Effective ecommerce SEO requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to audit technical performance, understand search demand, measure user behaviour and turn data into clear optimisation priorities for ecommerce stores.',
             ]}
             logos={ECOMMERCE_SEO_PARTNER_LOGOS}
             showCta={false}
@@ -467,11 +534,19 @@ export function PageContent({
           <EcommerceSeoProofStrip items={ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS} />
         </div>
         <EcommerceSeoEducation html={page.body} />
-        <EcommerceSeoReporting />
+        <EcommerceSeoReporting
+          eyebrow={isAiSeo ? 'Transparency & Reporting' : undefined}
+          title={isAiSeo ? 'How We Measure AI SEO Success' : undefined}
+          intro={
+            isAiSeo
+              ? 'Effective AI SEO should be measured against meaningful search and commercial signals, not isolated vanity metrics. We review AI search visibility alongside organic performance to understand what is improving, where opportunities remain and what should be prioritised next.'
+              : undefined
+          }
+        />
         {page.faqs.length ? (
           <div className="ft-ecommerce-seo-faq">
             <ServiceDetailFaqs
-              title="Ecommerce SEO Services"
+              title={isAiSeo ? 'AI SEO Services' : 'Ecommerce SEO Services'}
               faqs={page.faqs}
             />
           </div>

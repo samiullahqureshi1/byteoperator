@@ -426,7 +426,7 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       {
         title: 'Ecommerce AI SEO',
         description: 'AI-powered search optimisation',
-        url: '/pages/ecommerce-ai-seo',
+        url: '/ai-seo-agency/',
       },
       {
         title: 'Ecommerce GEO',

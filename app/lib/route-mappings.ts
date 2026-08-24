@@ -7,6 +7,9 @@ export const SHOPIFY_SEO_CLEAN_PATH = '/seo-agency';
 export const ECOMMERCE_SEO_PAGE_HANDLE = 'ecommerce-seo-agency';
 export const ECOMMERCE_SEO_CLEAN_PATH = '/ecommerce-seo-agency/';
 
+export const AI_SEO_PAGE_HANDLE = 'ai-seo-agency';
+export const AI_SEO_CLEAN_PATH = '/ai-seo-agency/';
+
 export const ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE =
   'ecommerce-seo-migrations';
 export const ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH =
@@ -67,7 +70,13 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/ecommerce-seo': ECOMMERCE_SEO_CLEAN_PATH,
   '/ecommerce-seo': ECOMMERCE_SEO_CLEAN_PATH,
   '/ecommerce-seo/': ECOMMERCE_SEO_CLEAN_PATH,
-  '/pages/ecommerce-ai-seo': '/ecommerce-ai-seo',
+  // The Shopify source handle is canonical; the retired ecommerce-ai-seo
+  // spellings remain one-way aliases so redirects complete in one hop.
+  [`/pages/${AI_SEO_PAGE_HANDLE}`]: AI_SEO_CLEAN_PATH,
+  '/pages/ecommerce-ai-seo': AI_SEO_CLEAN_PATH,
+  '/ecommerce-ai-seo': AI_SEO_CLEAN_PATH,
+  '/ecommerce-ai-seo/': AI_SEO_CLEAN_PATH,
+  '/ai-seo-agency': AI_SEO_CLEAN_PATH,
   '/pages/ecommerce-geo': '/ecommerce-geo',
   // Canonical Shopify handle first: `resolveLegacyPath` returns the first
   // `/pages/*` entry that points at a clean path, so the retired

@@ -48,7 +48,25 @@ const MARQUEE_LOGOS = Array.from(
   () => WORK_HERO_LOGOS,
 ).flat();
 
-export function EcommerceSeoHero() {
+type EcommerceSeoHeroProps = {
+  ctaLabel?: string;
+  description?: string;
+  pillLabel?: string;
+  pillTo?: string;
+  secondaryCta?: {label: string; to: string};
+  showStats?: boolean;
+  title?: string;
+};
+
+export function EcommerceSeoHero({
+  ctaLabel = 'Talk to our SEO team',
+  description = 'FoldTech helps ecommerce brands improve organic visibility through technical SEO, content strategy, on-page optimisation, ecommerce architecture and search-led growth work.',
+  pillLabel = 'Looking to improve AI visibility? Explore AI SEO',
+  pillTo = '/ai-seo-agency/',
+  secondaryCta,
+  showStats = true,
+  title = 'Ecommerce SEO Agency Built for Organic Revenue Growth',
+}: EcommerceSeoHeroProps) {
   return (
     <main className="ft-ecommerce-seo-hero">
       <section
@@ -75,51 +93,61 @@ export function EcommerceSeoHero() {
                 className="ft-ecommerce-seo-hero__title"
                 id="ecommerce-seo-hero-title"
               >
-                Ecommerce SEO Agency Built for Organic Revenue Growth
+                {title}
               </h1>
 
-              <dl
-                className="ft-ecommerce-seo-hero__stats"
-                aria-label="FoldTech results"
-              >
-                {STATS.map((stat) => (
-                  <div
-                    className="ft-ecommerce-seo-hero__stat"
-                    key={stat.label}
-                  >
-                    <dt className="ft-ecommerce-seo-hero__stat-value">
-                      <CountUpNumber
-                        target={stat.target}
-                        prefix={'prefix' in stat ? stat.prefix : undefined}
-                        suffix={stat.suffix}
-                        decimals={
-                          'decimals' in stat ? stat.decimals : undefined
-                        }
-                      />
-                    </dt>
+              {showStats ? (
+                <dl
+                  className="ft-ecommerce-seo-hero__stats"
+                  aria-label="FoldTech results"
+                >
+                  {STATS.map((stat) => (
+                    <div
+                      className="ft-ecommerce-seo-hero__stat"
+                      key={stat.label}
+                    >
+                      <dt className="ft-ecommerce-seo-hero__stat-value">
+                        <CountUpNumber
+                          target={stat.target}
+                          prefix={'prefix' in stat ? stat.prefix : undefined}
+                          suffix={stat.suffix}
+                          decimals={
+                            'decimals' in stat ? stat.decimals : undefined
+                          }
+                        />
+                      </dt>
 
-                    <dd className="ft-ecommerce-seo-hero__stat-label">
-                      {stat.label}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+                      <dd className="ft-ecommerce-seo-hero__stat-label">
+                        {stat.label}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              ) : null}
+
+              {secondaryCta ? (
+                <Link
+                  className="ft-ecommerce-seo-hero__secondary-cta"
+                  to={secondaryCta.to}
+                  prefetch="intent"
+                >
+                  {secondaryCta.label}
+                </Link>
+              ) : null}
             </div>
 
             <div className="ft-ecommerce-seo-hero__right">
               <Link
                 className="ft-ecommerce-seo-hero__pill"
-                to="/ecommerce-ai-seo/"
+                to={pillTo}
                 prefetch="intent"
               >
-                Looking to improve AI visibility? Explore AI SEO
+                {pillLabel}
                 <span aria-hidden="true">→</span>
               </Link>
 
               <p className="ft-ecommerce-seo-hero__description">
-                FoldTech helps ecommerce brands improve organic visibility
-                through technical SEO, content strategy, on-page optimisation,
-                ecommerce architecture and search-led growth work.
+                {description}
               </p>
 
               <Link
@@ -127,7 +155,7 @@ export function EcommerceSeoHero() {
                 to="/contact"
                 prefetch="intent"
               >
-                <span>Talk to our SEO team</span>
+                <span>{ctaLabel}</span>
 
                 <HeroCtaArrow />
               </Link>

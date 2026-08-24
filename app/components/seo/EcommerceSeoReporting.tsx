@@ -21,7 +21,17 @@ const REPORTING_CARDS = [
   },
 ] as const;
 
-export function EcommerceSeoReporting() {
+type EcommerceSeoReportingProps = {
+  eyebrow?: string;
+  intro?: string;
+  title?: string;
+};
+
+export function EcommerceSeoReporting({
+  eyebrow = 'Transparency & Reporting',
+  intro = 'Effective ecommerce SEO should be measured against meaningful search and commercial performance, not isolated vanity metrics. We combine search visibility, organic traffic, rankings and ecommerce performance data to understand what is improving, where opportunities remain and what should be prioritised next.',
+  title = 'How We Measure Ecommerce SEO Success',
+}: EcommerceSeoReportingProps) {
   return (
     <section
       className="ft-ecommerce-seo-reporting"
@@ -29,24 +39,18 @@ export function EcommerceSeoReporting() {
     >
       <div className="ft-ecommerce-seo-reporting__container">
         <p className="ft-ecommerce-seo-reporting__eyebrow">
-          Transparency &amp; Reporting
+          {eyebrow}
         </p>
 
         <h2
           className="ft-ecommerce-seo-reporting__title"
           id="ft-ecommerce-seo-reporting-title"
         >
-          How We Measure
-          <br />
-          Ecommerce SEO Success
+          {title}
         </h2>
 
         <p className="ft-ecommerce-seo-reporting__intro">
-          Effective ecommerce SEO should be measured against meaningful search
-          and commercial performance, not isolated vanity metrics. We combine
-          search visibility, organic traffic, rankings and ecommerce
-          performance data to understand what is improving, where opportunities
-          remain and what should be prioritised next.
+          {intro}
         </p>
 
         <div className="ft-ecommerce-seo-reporting__cards">

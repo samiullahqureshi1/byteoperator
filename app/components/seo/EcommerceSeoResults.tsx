@@ -19,7 +19,23 @@ const RESULTS = [
   },
 ] as const;
 
-export function EcommerceSeoResults() {
+type EcommerceSeoResult = {
+  stat: string;
+  title: string;
+  description: string;
+};
+
+type EcommerceSeoResultsProps = {
+  eyebrow?: string;
+  results?: readonly EcommerceSeoResult[];
+  title?: string;
+};
+
+export function EcommerceSeoResults({
+  eyebrow = 'Our Track Record',
+  results: resultItems = RESULTS,
+  title = 'Ecommerce Experience Built at Scale',
+}: EcommerceSeoResultsProps) {
   return (
     <section
       className="ft-ecommerce-seo-results"
@@ -28,19 +44,19 @@ export function EcommerceSeoResults() {
       <div className="ft-ecommerce-seo-results__container">
         <div className="ft-ecommerce-seo-results__header">
           <p className="ft-ecommerce-seo-results__eyebrow">
-            Our Track Record
+            {eyebrow}
           </p>
 
           <h2
             className="ft-ecommerce-seo-results__title"
             id="ft-ecommerce-seo-results-title"
           >
-            Ecommerce Experience Built at Scale
+            {title}
           </h2>
         </div>
 
         <div className="ft-ecommerce-seo-results__cards">
-          {RESULTS.map((result) => (
+          {resultItems.map((result) => (
             <article
               className="ft-ecommerce-seo-results__card"
               key={result.title}

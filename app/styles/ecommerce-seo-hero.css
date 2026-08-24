@@ -544,3 +544,24 @@
     animation: none;
   }
 }
+
+.ft-ecommerce-seo-hero__secondary-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 0.55rem 0.9rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  border-radius: 999rem;
+  background: rgba(1, 21, 27, 0.32);
+  color: var(--ft-white, #ffffff);
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.ft-ecommerce-seo-hero__secondary-cta:hover {
+  border-color: rgba(175, 221, 220, 0.65);
+  color: var(--ft-teal-light, #afdddc);
+}
