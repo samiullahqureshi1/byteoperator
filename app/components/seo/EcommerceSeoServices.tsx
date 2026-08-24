@@ -1,12 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
 
-type PillarKey =
-  | 'technical'
-  | 'collections'
-  | 'product'
-  | 'content'
-  | 'pr'
-  | 'international';
+type PillarKey = string;
 
 type SeoPillar = {
   key: PillarKey;
@@ -116,10 +110,20 @@ const SEO_PILLARS: readonly SeoPillar[] = [
   },
 ] as const;
 
-export function EcommerceSeoServices() {
-  const [activeKey, setActiveKey] = useState<PillarKey>('technical');
+type EcommerceSeoServicesProps = {
+  label?: string;
+  pillars?: readonly SeoPillar[];
+  title?: string;
+};
+
+export function EcommerceSeoServices({
+  label = 'Our Ecommerce SEO Services',
+  pillars = SEO_PILLARS,
+  title = 'Every Layer of Ecommerce SEO. Covered.',
+}: EcommerceSeoServicesProps) {
+  const [activeKey, setActiveKey] = useState<PillarKey>(pillars[0]?.key ?? 'technical');
   const [previewKey, setPreviewKey] =
-    useState<PillarKey>('technical');
+    useState<PillarKey>(pillars[0]?.key ?? 'technical');
   const [previewVisible, setPreviewVisible] = useState(true);
 
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
@@ -127,8 +131,8 @@ export function EcommerceSeoServices() {
   );
 
   const preview =
-    SEO_PILLARS.find((pillar) => pillar.key === previewKey) ??
-    SEO_PILLARS[0];
+    pillars.find((pillar) => pillar.key === previewKey) ??
+    pillars[0] ?? SEO_PILLARS[0];
 
   useEffect(() => {
     return () => {
@@ -166,18 +170,18 @@ export function EcommerceSeoServices() {
         <div className="ft-ecommerce-seo-services__layout">
           <div className="ft-ecommerce-seo-services__left">
             <p className="ft-ecommerce-seo-services__label">
-              Our Ecommerce SEO Services
+              {label}
             </p>
 
             <h2
               className="ft-ecommerce-seo-services__title"
               id="ft-ecommerce-seo-services-title"
             >
-              Every Layer of Ecommerce SEO. Covered.
+              {title}
             </h2>
 
             <ul className="ft-ecommerce-seo-services__list">
-              {SEO_PILLARS.map((pillar) => {
+              {pillars.map((pillar) => {
                 const active = activeKey === pillar.key;
 
                 return (

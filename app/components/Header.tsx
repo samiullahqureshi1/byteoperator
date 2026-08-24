@@ -431,7 +431,7 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       {
         title: 'Ecommerce GEO',
         description: 'Generative engine optimisation',
-        url: '/pages/ecommerce-geo',
+        url: '/geo-agency/',
       },
       {
         title: 'Ecommerce SEO Migration',

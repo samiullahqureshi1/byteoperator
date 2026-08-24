@@ -27,7 +27,7 @@ const SERVICE_GROUPS: ServiceDirectoryGroup[] = [
       },
       {
         label: 'GEO / AI Search Optimisation',
-        href: '/pages/ecommerce-geo',
+        href: '/geo-agency/',
       },
     ],
   },

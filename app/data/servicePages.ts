@@ -14,7 +14,7 @@ import {
 const SERVICE_PAGE_ROUTES = {
   ai: resolveCleanPath('/pages/ai'),
   ecommerceAiSeo: resolveCleanPath('/pages/ai-seo-agency'),
-  ecommerceGeo: resolveCleanPath('/pages/ecommerce-geo'),
+  ecommerceGeo: resolveCleanPath('/pages/geo-agency'),
   ecommerceSeo: resolveCleanPath('/pages/ecommerce-seo'),
   seoMigrations: resolveCleanPath('/pages/seo-migrations'),
   shopifyMigrations: resolveCleanPath(

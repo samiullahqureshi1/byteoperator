@@ -10,6 +10,9 @@ export const ECOMMERCE_SEO_CLEAN_PATH = '/ecommerce-seo-agency/';
 export const AI_SEO_PAGE_HANDLE = 'ai-seo-agency';
 export const AI_SEO_CLEAN_PATH = '/ai-seo-agency/';
 
+export const GEO_PAGE_HANDLE = 'geo-agency';
+export const GEO_CLEAN_PATH = '/geo-agency/';
+
 export const ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE =
   'ecommerce-seo-migrations';
 export const ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH =
@@ -77,7 +80,11 @@ export const OLD_TO_CLEAN_PATHS = {
   '/ecommerce-ai-seo': AI_SEO_CLEAN_PATH,
   '/ecommerce-ai-seo/': AI_SEO_CLEAN_PATH,
   '/ai-seo-agency': AI_SEO_CLEAN_PATH,
-  '/pages/ecommerce-geo': '/ecommerce-geo',
+  '/pages/geo-agency': GEO_CLEAN_PATH,
+  '/pages/ecommerce-geo': GEO_CLEAN_PATH,
+  '/ecommerce-geo': GEO_CLEAN_PATH,
+  '/ecommerce-geo/': GEO_CLEAN_PATH,
+  '/geo-agency': GEO_CLEAN_PATH,
   // Canonical Shopify handle first: `resolveLegacyPath` returns the first
   // `/pages/*` entry that points at a clean path, so the retired
   // `/pages/seo-migrations` alias must stay below this line.

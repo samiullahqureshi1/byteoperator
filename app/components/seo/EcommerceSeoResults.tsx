@@ -29,16 +29,18 @@ type EcommerceSeoResultsProps = {
   eyebrow?: string;
   results?: readonly EcommerceSeoResult[];
   title?: string;
+  variant?: 'ai';
 };
 
 export function EcommerceSeoResults({
   eyebrow = 'Our Track Record',
   results: resultItems = RESULTS,
   title = 'Ecommerce Experience Built at Scale',
+  variant,
 }: EcommerceSeoResultsProps) {
   return (
     <section
-      className="ft-ecommerce-seo-results"
+      className={`ft-ecommerce-seo-results${variant === 'ai' ? ' ft-ecommerce-seo-results--ai' : ''}`}
       aria-labelledby="ft-ecommerce-seo-results-title"
     >
       <div className="ft-ecommerce-seo-results__container">
