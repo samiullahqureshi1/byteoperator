@@ -44,12 +44,14 @@ import ecommerceSeoExpertsStyles from '~/styles/ecommerce-seo-experts.css?url';
 import ecommerceSeoResultsStyles from '~/styles/ecommerce-seo-results.css?url';
 import ecommerceSeoWhoItsForStyles from '~/styles/ecommerce-seo-who-its-for.css?url';
 import ecommerceSeoShopifySpecialismStyles from '~/styles/ecommerce-seo-shopify-specialism.css?url';
+import shopifyCroOptimiseStyles from '~/styles/shopify-cro-optimise.css?url';
 import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
 import {ShopifyPlusPage} from '~/components/services/ShopifyPlusPage';
 import {EcommerceSeoHero} from '~/components/seo/EcommerceSeoHero';
 import {EcommerceSeoCases} from '~/components/seo/EcommerceSeoCases';
 import {EcommerceSeoProcess} from '~/components/seo/EcommerceSeoProcess';
 import {EcommerceSeoServices} from '~/components/seo/EcommerceSeoServices';
+import {ShopifyCroOptimise} from '~/components/cro/ShopifyCroOptimise';
 import {EcommerceSeoTechStack} from '~/components/seo/EcommerceSeoTechStack';
 import {EcommerceSeoEducation} from '~/components/seo/EcommerceSeoEducation';
 import {EcommerceSeoReporting} from '~/components/seo/EcommerceSeoReporting';
@@ -73,10 +75,12 @@ import {
 } from '~/data/servicePages';
 import type {ServiceDetailFaqItem} from '~/components/services/detail/ServiceDetailFaqs';
 import {
+  isSamePath,
   resolveCleanPath,
   resolveServiceConfigHandle,
   AI_SEO_PAGE_HANDLE,
   GEO_PAGE_HANDLE,
+  CRO_PAGE_HANDLE,
   SHOPIFY_PLUS_PAGE_HANDLE,
 } from '~/lib/route-mappings';
 
@@ -90,6 +94,23 @@ const GEO_SERVICE_PILLARS = [
   {key: 'digital-pr', number: '07', title: 'Digital PR & Citation Building', accordionDescription: 'We identify credible opportunities to build useful references and supporting signals around your brand and ecommerce offering.', previewDescription: 'Relevant third-party references can help establish clearer context around a brand, its products and its expertise.', checks: ['Relevant reference opportunities', 'Brand mention review', 'Credible outreach priorities']},
   {key: 'geo-reporting', number: '08', title: 'GEO Reporting & Citation Tracking', accordionDescription: 'We document generative search observations, ongoing work and the priorities that should shape the next phase of optimisation.', previewDescription: 'Clear reporting turns evolving GEO signals into practical actions for ecommerce teams.', checks: ['Generative visibility review', 'Citation monitoring', 'Prioritised next steps']},
 ] as const;
+
+const CRO_PROCESS_STEPS = [
+  {number: '01', title: 'Audit & Discovery', description: 'Review customer journeys, analytics and storefront behaviour to identify practical conversion opportunities.'},
+  {number: '02', title: 'Hypothesise & Prioritise', description: 'Turn observations into clear hypotheses, then prioritise the changes worth testing first.'},
+  {number: '03', title: 'Test & Iterate', description: 'Improve key journeys through structured testing and learn from how customers respond.'},
+  {number: '04', title: 'Scale & Compound', description: 'Apply validated learnings across the store and use them to guide the next optimisation cycle.'},
+] as const;
+
+const CRO_SERVICE_PILLARS = [
+  {key: 'product-pages', number: '01', title: 'Product Pages & Collections', accordionDescription: 'We review product and collection experiences for clarity, confidence and easier decision-making.', previewDescription: 'Product and collection pages are key commercial touchpoints where clearer information can support conversion.', checks: ['Product information review', 'Collection journey checks', 'Merchandising priorities']},
+  {key: 'checkout-flow', number: '02', title: 'Checkout & Cart Flow', accordionDescription: 'We examine cart and checkout journeys for friction, reassurance and opportunities to make completing an order feel simpler.', previewDescription: 'A focused review of cart and checkout helps identify practical improvements in the path to purchase.', checks: ['Cart journey review', 'Checkout friction checks', 'Reassurance opportunities']},
+  {key: 'landing-pages', number: '03', title: 'Homepage & Landing Pages', accordionDescription: 'We improve key entry pages so messaging, navigation and calls to action support the visitor journey.', previewDescription: 'Landing experiences should make the next step clear for visitors arriving from different channels.', checks: ['Message clarity', 'Call-to-action review', 'Entry-page journeys']},
+  {key: 'navigation', number: '04', title: 'Navigation & Site Search', accordionDescription: 'We assess navigation, filtering and search journeys to make product discovery easier and more intuitive.', previewDescription: 'Customers need to find relevant products quickly, especially in larger ecommerce catalogues.', checks: ['Navigation review', 'Search experience checks', 'Filter usability']},
+  {key: 'mobile', number: '05', title: 'Mobile Experience', accordionDescription: 'We review the mobile storefront for readable, usable journeys that support shoppers on smaller screens.', previewDescription: 'Mobile optimisation focuses on the details that make browsing and buying feel straightforward on any device.', checks: ['Mobile journey review', 'Touchpoint usability', 'Responsive content checks']},
+  {key: 'pricing', number: '06', title: 'Pricing & Promotions', accordionDescription: 'We assess how price, value, delivery and promotional information is presented throughout the buying journey.', previewDescription: 'Clear commercial information helps customers understand value before they commit to a purchase.', checks: ['Value communication', 'Promotion clarity', 'Delivery information']},
+] as const;
+
 export const meta: Route.MetaFunction = ({data}) => {
   return [{title: `Hydrogen | ${data?.page.title ?? ''}`}];
 };
@@ -254,29 +275,38 @@ export const links: Route.LinksFunction = () => [
   rel: 'stylesheet',
   href: ecommerceSeoShopifySpecialismStyles,
 },
+{
+  rel: 'stylesheet',
+  href: shopifyCroOptimiseStyles,
+},
 ];
 export async function loader(args: Route.LoaderArgs) {
-  if (!args.params.handle) {
+  const rawHandle = args.params.handle;
+
+  if (!rawHandle) {
     throw new Error('Missing page handle');
   }
 
-  // Legacy /pages/* URLs move to their explicit clean path using
-  // the centralized route mappings.
+  // Single-fetch data requests may expose the `.data` suffix as part of the
+  // parameter. Canonicalize the public route handle, never the raw data URL.
+  const handle = rawHandle.endsWith('.data')
+    ? rawHandle.slice(0, -'.data'.length)
+    : rawHandle;
   const requestUrl = new URL(args.request.url);
-  const cleanPath = resolveCleanPath(requestUrl.pathname);
+  const pagePath = `/pages/${handle}`;
+  const cleanPath = resolveCleanPath(pagePath);
 
-  if (cleanPath !== requestUrl.pathname) {
+  // Ignore a trailing-slash-only difference for React Router single fetches.
+  // A genuine alias still redirects once to its canonical public URL.
+  if (!isSamePath(cleanPath, pagePath)) {
     throw redirect(cleanPath + requestUrl.search, 301);
   }
 
-  // Start fetching non-critical data without blocking time to first byte
   const deferredData = loadDeferredData(args);
-
-  // Await the critical data required to render initial state of the page
   const criticalData = await loadPageData({
     context: args.context,
     request: args.request,
-    handle: args.params.handle,
+    handle,
   });
 
   return {...deferredData, ...criticalData};
@@ -309,7 +339,8 @@ export async function loadPageData({
     handle === 'work' ||
       handle === 'ecommerce-seo-agency' ||
       handle === AI_SEO_PAGE_HANDLE ||
-      handle === GEO_PAGE_HANDLE
+      handle === GEO_PAGE_HANDLE ||
+      handle === CRO_PAGE_HANDLE
       ? context.storefront.query(FEATURED_PROJECTS_QUERY)
       : Promise.resolve({blog: null}),
     handle === 'work'
@@ -318,7 +349,8 @@ export async function loadPageData({
     handle === 'work' ||
       handle === 'ecommerce-seo-agency' ||
       handle === AI_SEO_PAGE_HANDLE ||
-      handle === GEO_PAGE_HANDLE
+      handle === GEO_PAGE_HANDLE ||
+      handle === CRO_PAGE_HANDLE
       ? loadAllCaseStudies(context)
       : Promise.resolve([]),
   ]);
@@ -350,14 +382,13 @@ async function loadAllCaseStudies(
   context: Route.LoaderArgs['context'],
 ): Promise<WorkCaseStudyArticle[]> {
   const articles: WorkCaseStudyArticle[] = [];
+  const seenCursors = new Set<string>();
   let after: string | null = null;
 
   do {
     const data: WorkCaseStudiesQuery = await context.storefront.query(
       CASE_STUDIES_QUERY,
-      {
-      variables: {after},
-      },
+      {variables: {after}},
     );
     const connection: NonNullable<
       WorkCaseStudiesQuery['blog']
@@ -366,9 +397,15 @@ async function loadAllCaseStudies(
     if (!connection) break;
 
     articles.push(...connection.nodes);
-    after = connection.pageInfo.hasNextPage
-      ? (connection.pageInfo.endCursor ?? null)
+
+    const nextCursor = connection.pageInfo.hasNextPage
+      ? connection.pageInfo.endCursor
       : null;
+
+    if (!nextCursor || seenCursors.has(nextCursor)) break;
+
+    seenCursors.add(nextCursor);
+    after = nextCursor;
   } while (after);
 
   return articles;
@@ -453,10 +490,12 @@ export function PageContent({
   if (
     page.handle === 'ecommerce-seo-agency' ||
     page.handle === AI_SEO_PAGE_HANDLE ||
-    page.handle === GEO_PAGE_HANDLE
+    page.handle === GEO_PAGE_HANDLE ||
+    page.handle === CRO_PAGE_HANDLE
   ) {
     const isAiSeo = page.handle === AI_SEO_PAGE_HANDLE;
     const isGeoSeo = page.handle === GEO_PAGE_HANDLE;
+    const isCro = page.handle === CRO_PAGE_HANDLE;
     const isGenerativeSeo = isAiSeo || isGeoSeo;
     const generativeResults = isGeoSeo ? [
       {stat: '01', title: 'Generative Search Baseline', description: 'Establish a clear baseline for how your brand, products and content appear across relevant generative search experiences.'},
@@ -471,55 +510,65 @@ export function PageContent({
     return (
       <>
         <EcommerceSeoHero
-          title={isGeoSeo ? 'Generative Engine Optimisation for Ecommerce. Built for Shopify. Ready for AI Search.' : isAiSeo ? 'AI SEO Agency Built for Ecommerce Discovery' : undefined}
-          description={isGeoSeo ? 'FoldTech helps ecommerce brands make their products, content and brand information clearer for generative search through structured, search-led optimisation.' : isAiSeo ? 'FoldTech helps ecommerce brands improve visibility across AI-powered search through technical foundations, structured content and search-led optimisation.' : undefined}
+          croInteractive={isCro}
+          title={isCro ? 'Shopify CRO Agency Built for Ecommerce Conversion Growth' : isGeoSeo ? 'Generative Engine Optimisation for Ecommerce. Built for Shopify. Ready for AI Search.' : isAiSeo ? 'AI SEO Agency Built for Ecommerce Discovery' : undefined}
+          description={isCro ? 'FoldTech helps ecommerce brands improve key customer journeys through research-led optimisation, practical testing and continuous learning.' : isGeoSeo ? 'FoldTech helps ecommerce brands make their products, content and brand information clearer for generative search through structured, search-led optimisation.' : isAiSeo ? 'FoldTech helps ecommerce brands improve visibility across AI-powered search through technical foundations, structured content and search-led optimisation.' : undefined}
           pillLabel={isGeoSeo ? 'Preparing ecommerce stores for generative search' : isAiSeo ? 'Looking to improve organic visibility? Explore Ecommerce SEO' : undefined}
           pillTo={isGeoSeo ? '/ai-seo-agency/' : isAiSeo ? '/ecommerce-seo-agency/' : undefined}
-          ctaLabel={isGeoSeo ? 'Talk to our GEO team' : isAiSeo ? 'Talk to our AI SEO team' : undefined}
+          ctaLabel={isCro ? 'Talk to our CRO team' : isGeoSeo ? 'Talk to our GEO team' : isAiSeo ? 'Talk to our AI SEO team' : undefined}
           secondaryCta={isGeoSeo ? {label: 'Looking for AI SEO? Click here →', to: '/ai-seo-agency/'} : isAiSeo ? {label: 'Looking for Ecommerce SEO? Click here →', to: '/ecommerce-seo-agency/'} : undefined}
         />
         <EcommerceSeoCases pageTag={page.handle} articles={caseStudyArticles} featuredArticles={featuredArticles} />
-        <EcommerceSeoProcess />
-        <EcommerceSeoServices
-          label={isGeoSeo ? 'Our GEO Services' : undefined}
-          title={isGeoSeo ? 'Every Layer of Generative Engine Optimisation. Covered.' : undefined}
-          pillars={isGeoSeo ? GEO_SERVICE_PILLARS : undefined}
+        <EcommerceSeoProcess
+          compactTestimonial={isCro}
+          label={isCro ? 'Our CRO Process' : undefined}
+          title={isCro ? 'How We Optimise Ecommerce Conversion' : undefined}
+          subtitle={isCro ? 'A structured four-step process connects customer insight, testing and continuous improvement.' : undefined}
+          steps={isCro ? CRO_PROCESS_STEPS : undefined}
         />
+        {isCro ? <ShopifyCroOptimise /> : null}
+        {!isCro ? (
+          <EcommerceSeoServices
+            label={isGeoSeo ? 'Our GEO Services' : undefined}
+            title={isGeoSeo ? 'Every Layer of Generative Engine Optimisation. Covered.' : undefined}
+            pillars={isGeoSeo ? GEO_SERVICE_PILLARS : undefined}
+          />
+        ) : null}
         <EcommerceSeoTechStack />
         <EcommerceSeoResults
-          variant={isGenerativeSeo ? 'ai' : undefined}
-          eyebrow={isGeoSeo ? 'Generative Search Visibility' : isAiSeo ? 'AI Search Visibility' : undefined}
-          title={isGeoSeo ? 'A Clear View of Generative Search Opportunities' : isAiSeo ? 'A Clear View of AI Search Opportunities' : undefined}
-          results={isGenerativeSeo ? generativeResults : undefined}
+          variant={isGenerativeSeo || isCro ? 'ai' : undefined}
+          eyebrow={isCro ? 'Conversion Performance' : isGeoSeo ? 'Generative Search Visibility' : isAiSeo ? 'AI Search Visibility' : undefined}
+          title={isCro ? 'A Clear View of Ecommerce Optimisation Opportunities' : isGeoSeo ? 'A Clear View of Generative Search Opportunities' : isAiSeo ? 'A Clear View of AI Search Opportunities' : undefined}
+          results={isCro ? [{stat: '01', title: 'Journey Baseline', description: 'Understand how customers currently move through key ecommerce journeys.'}, {stat: '02', title: 'Prioritised Hypotheses', description: 'Focus optimisation work on clear, testable opportunities.'}, {stat: '03', title: 'Ongoing Learning', description: 'Use each iteration to inform the next practical improvement.'}] : isGenerativeSeo ? generativeResults : undefined}
         />
         <HomeExperts
           variant="ecommerce-seo"
-          eyebrow={isGeoSeo ? 'Is GEO Right for You?' : isAiSeo ? 'Is AI SEO Right for You?' : 'Is Ecommerce SEO Right for You?'}
-          heading={isGeoSeo ? 'GEO Works Best for Brands Ready to Make Their Information Clearer' : isAiSeo ? 'AI SEO Works Best for Brands Ready to Build Search Resilience' : 'SEO Works Best for Brands Ready to Invest in Sustainable Growth'}
-          description={isGeoSeo ? 'Our GEO services are designed for ecommerce teams preparing their stores for generative search. The strongest fit is with brands ready to invest in clear product information, structured content, entity signals and ongoing optimisation.' : isAiSeo ? 'Our AI SEO services are designed for ecommerce teams that want to prepare their stores for changing search behaviour. The strongest fit is with brands ready to invest in clear product information, technical foundations, structured content and ongoing optimisation.' : 'Our ecommerce SEO services are designed for online stores that want organic search to become a reliable, long-term growth channel. The strongest fit is with ecommerce teams that are ready to invest consistently in technical improvements, content, site structure and ongoing optimisation rather than looking for short-term ranking fixes. We work alongside businesses that want SEO decisions connected to their wider ecommerce goals, development roadmap and customer journey.'}
+          eyebrow={isCro ? 'Is CRO Right for You?' : isGeoSeo ? 'Is GEO Right for You?' : isAiSeo ? 'Is AI SEO Right for You?' : 'Is Ecommerce SEO Right for You?'}
+          heading={isCro ? 'CRO Works Best for Brands Ready to Scale With Data' : isGeoSeo ? 'GEO Works Best for Brands Ready to Make Their Information Clearer' : isAiSeo ? 'AI SEO Works Best for Brands Ready to Build Search Resilience' : 'SEO Works Best for Brands Ready to Invest in Sustainable Growth'}
+          description={isCro ? 'Our CRO services are designed for ecommerce teams ready to learn from customer behaviour, improve key journeys and build a more deliberate optimisation programme.' : isGeoSeo ? 'Our GEO services are designed for ecommerce teams preparing their stores for generative search. The strongest fit is with brands ready to invest in clear product information, structured content, entity signals and ongoing optimisation.' : isAiSeo ? 'Our AI SEO services are designed for ecommerce teams that want to prepare their stores for changing search behaviour. The strongest fit is with brands ready to invest in clear product information, technical foundations, structured content and ongoing optimisation.' : 'Our ecommerce SEO services are designed for online stores that want organic search to become a reliable, long-term growth channel. The strongest fit is with ecommerce teams that are ready to invest consistently in technical improvements, content, site structure and ongoing optimisation rather than looking for short-term ranking fixes. We work alongside businesses that want SEO decisions connected to their wider ecommerce goals, development roadmap and customer journey.'}
           ctaLabel="See if we're a good fit"
           ctaTo="/contact"
         />
-        <EcommerceSeoShopifySpecialism />
+        {!isCro ? <EcommerceSeoShopifySpecialism /> : null}
         <div className="ft-ecommerce-seo-partners">
           <HomePartners
-            label={isGeoSeo ? 'Our GEO & Analytics Stack' : isAiSeo ? 'Our AI SEO & Analytics Stack' : 'Our SEO & Analytics Stack'}
-            heading={isGeoSeo ? 'The Platforms Behind Every GEO Campaign We Deliver' : isAiSeo ? 'The Platforms Behind Every AI SEO Campaign We Deliver' : 'The Platforms Behind Every Ecommerce SEO Campaign We Deliver'}
-            description={[isGeoSeo ? 'Effective generative engine optimisation requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to review technical performance, understand search demand and turn data into clear optimisation priorities for ecommerce stores.' : isAiSeo ? 'Effective AI SEO requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to review technical performance, understand search demand and turn data into clear optimisation priorities for ecommerce stores.' : 'Effective ecommerce SEO requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to audit technical performance, understand search demand, measure user behaviour and turn data into clear optimisation priorities for ecommerce stores.']}
+            label={isCro ? 'Our CRO & Analytics Stack' : isGeoSeo ? 'Our GEO & Analytics Stack' : isAiSeo ? 'Our AI SEO & Analytics Stack' : 'Our SEO & Analytics Stack'}
+            heading={isCro ? 'The Platforms Behind Every Optimisation We Deliver' : isGeoSeo ? 'The Platforms Behind Every GEO Campaign We Deliver' : isAiSeo ? 'The Platforms Behind Every AI SEO Campaign We Deliver' : 'The Platforms Behind Every Ecommerce SEO Campaign We Deliver'}
+            description={[isCro ? 'Effective conversion optimisation requires the right combination of analytics, research and experimentation tools. Our stack helps us understand customer behaviour, review key journeys and turn data into clear optimisation priorities for ecommerce stores.' : isGeoSeo ? 'Effective generative engine optimisation requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to review technical performance, understand search demand and turn data into clear optimisation priorities for ecommerce stores.' : isAiSeo ? 'Effective AI SEO requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to review technical performance, understand search demand and turn data into clear optimisation priorities for ecommerce stores.' : 'Effective ecommerce SEO requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to audit technical performance, understand search demand, measure user behaviour and turn data into clear optimisation priorities for ecommerce stores.']}
             logos={ECOMMERCE_SEO_PARTNER_LOGOS}
             showCta={false}
           />
           <EcommerceSeoProofStrip items={ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS} />
         </div>
         <EcommerceSeoEducation html={page.body} />
-        <EcommerceSeoReporting
+        {!isCro ? <EcommerceSeoReporting
           eyebrow={isGenerativeSeo ? 'Transparency & Reporting' : undefined}
           title={isGeoSeo ? 'How We Measure GEO Success' : isAiSeo ? 'How We Measure AI SEO Success' : undefined}
           intro={isGeoSeo ? 'Effective GEO should be measured against meaningful search and commercial signals, not isolated vanity metrics. We review generative search visibility alongside organic performance to understand what is improving, where opportunities remain and what should be prioritised next.' : isAiSeo ? 'Effective AI SEO should be measured against meaningful search and commercial signals, not isolated vanity metrics. We review AI search visibility alongside organic performance to understand what is improving, where opportunities remain and what should be prioritised next.' : undefined}
-        />
+        /> : null}
         {page.faqs.length ? (
           <div className="ft-ecommerce-seo-faq">
-            <ServiceDetailFaqs title={isGeoSeo ? 'GEO Services' : isAiSeo ? 'AI SEO Services' : 'Ecommerce SEO Services'} faqs={page.faqs} />
+            <ServiceDetailFaqs title={isCro ? 'Shopify CRO Services' : isGeoSeo ? 'GEO Services' : isAiSeo ? 'AI SEO Services' : 'Ecommerce SEO Services'} faqs={page.faqs} />
           </div>
         ) : null}
         <div className="ft-ecommerce-seo-testimonial"><WorkTestimonial /></div>

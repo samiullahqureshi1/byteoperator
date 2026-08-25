@@ -1,4 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
+import {ClientProof} from '~/components/shared/ClientProof';
+import {WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
 
 const PROCESS_STEPS = [
   {
@@ -27,7 +29,27 @@ const PROCESS_STEPS = [
   },
 ] as const;
 
-export function EcommerceSeoProcess() {
+type ProcessStep = {
+  description: string;
+  number: string;
+  title: string;
+};
+
+type EcommerceSeoProcessProps = {
+  compactTestimonial?: boolean;
+  label?: string;
+  steps?: readonly ProcessStep[];
+  subtitle?: string;
+  title?: string;
+};
+
+export function EcommerceSeoProcess({
+  compactTestimonial = false,
+  label = 'Our SEO Process',
+  steps = PROCESS_STEPS,
+  subtitle = 'Every engagement follows a structured four-step process built around your business goals, search opportunities and commercial priorities. The focus stays on measurable improvements rather than vanity metrics.',
+  title = 'How We Grow Organic Revenue for Ecommerce Brands',
+}: EcommerceSeoProcessProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const serpRef = useRef<HTMLDivElement>(null);
 
@@ -107,14 +129,14 @@ export function EcommerceSeoProcess() {
         <div className="ft-ecommerce-seo-process__header">
           <div className="ft-ecommerce-seo-process__header-text">
             <p className="ft-ecommerce-seo-process__label">
-              Our SEO Process
+              {label}
             </p>
 
             <h2
               className="ft-ecommerce-seo-process__title"
               id="ecommerce-seo-process-title"
             >
-              How We Grow Organic Revenue for Ecommerce Brands
+              {title}
             </h2>
 
             <p className="ft-ecommerce-seo-process__subtitle">
@@ -126,10 +148,14 @@ export function EcommerceSeoProcess() {
           </div>
 
           <div
-            ref={serpRef}
-            className="ft-ecommerce-seo-process__serp-wrap"
+            ref={compactTestimonial ? undefined : serpRef}
+            className={`ft-ecommerce-seo-process__serp-wrap${compactTestimonial ? ' ft-ecommerce-seo-process__serp-wrap--testimonial' : ''}`}
           >
-            <SerpWireframe active={serpActive} />
+            {compactTestimonial ? (
+              <ClientProof testimonial={WORK_HERO_TESTIMONIAL} triggerLabel="Hear from our client" />
+            ) : (
+              <SerpWireframe active={serpActive} />
+            )}
           </div>
         </div>
 
@@ -143,7 +169,7 @@ export function EcommerceSeoProcess() {
             </div>
           </div>
 
-          {PROCESS_STEPS.map((step, index) => (
+          {steps.map((step, index) => (
             <article
               className="ft-ecommerce-seo-process__step"
               data-step={index + 1}

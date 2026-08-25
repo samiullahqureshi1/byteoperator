@@ -13,6 +13,9 @@ export const AI_SEO_CLEAN_PATH = '/ai-seo-agency/';
 export const GEO_PAGE_HANDLE = 'geo-agency';
 export const GEO_CLEAN_PATH = '/geo-agency/';
 
+export const CRO_PAGE_HANDLE = 'shopify-cro-agency';
+export const CRO_CLEAN_PATH = '/shopify-cro-agency/';
+
 export const ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE =
   'ecommerce-seo-migrations';
 export const ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH =
@@ -145,7 +148,11 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/klaviyo-agency': '/klaviyo-agency/',
   '/pages/klaviyo': '/klaviyo-agency/',
   '/klaviyo': '/klaviyo-agency/',
-  '/pages/cro-agency': '/cro-agency',
+  '/pages/shopify-cro-agency': CRO_CLEAN_PATH,
+  '/pages/cro-agency': CRO_CLEAN_PATH,
+  '/cro-agency': CRO_CLEAN_PATH,
+  '/cro-agency/': CRO_CLEAN_PATH,
+  '/shopify-cro-agency': CRO_CLEAN_PATH,
   '/pages/shopify-b2b-wholesale': '/shopify-b2b-wholesale/',
   '/pages/shopify-b2b': '/shopify-b2b-wholesale/',
   '/shopify-b2b': '/shopify-b2b-wholesale/',

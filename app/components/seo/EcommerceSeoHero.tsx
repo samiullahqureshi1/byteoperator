@@ -1,5 +1,7 @@
+import {useState} from 'react';
 import {Link} from 'react-router';
-import {WORK_HERO_LOGOS} from '~/data/workHeroProof';
+import {ClientProof} from '~/components/shared/ClientProof';
+import {WORK_HERO_LOGOS, WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
 import {CountUpNumber} from '~/components/work/WorkResults';
 import {
   ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS,
@@ -49,6 +51,7 @@ const MARQUEE_LOGOS = Array.from(
 ).flat();
 
 type EcommerceSeoHeroProps = {
+  croInteractive?: boolean;
   ctaLabel?: string;
   description?: string;
   pillLabel?: string;
@@ -59,6 +62,7 @@ type EcommerceSeoHeroProps = {
 };
 
 export function EcommerceSeoHero({
+  croInteractive = false,
   ctaLabel = 'Talk to our SEO team',
   description = 'FoldTech helps ecommerce brands improve organic visibility through technical SEO, content strategy, on-page optimisation, ecommerce architecture and search-led growth work.',
   pillLabel = 'Looking to improve AI visibility? Explore AI SEO',
@@ -67,8 +71,10 @@ export function EcommerceSeoHero({
   showStats = true,
   title = 'Ecommerce SEO Agency Built for Organic Revenue Growth',
 }: EcommerceSeoHeroProps) {
+  const [isVariant, setIsVariant] = useState(false);
+
   return (
-    <main className="ft-ecommerce-seo-hero">
+    <main className={`ft-ecommerce-seo-hero${croInteractive ? ' ft-ecommerce-seo-hero--cro' : ''}${isVariant ? ' is-variant' : ''}`}>
       <section
         className="ft-ecommerce-seo-hero__section"
         aria-labelledby="ecommerce-seo-hero-title"
@@ -90,12 +96,20 @@ export function EcommerceSeoHero({
           <div className="ft-ecommerce-seo-hero__main">
             <div className="ft-ecommerce-seo-hero__left">
               <h1
-                className="ft-ecommerce-seo-hero__title"
+                className={`ft-ecommerce-seo-hero__title${isVariant ? ' is-compact' : ''}`}
                 id="ecommerce-seo-hero-title"
               >
                 {title}
               </h1>
 
+              {croInteractive && isVariant ? (
+                <div className="ft-ecommerce-seo-hero__variant-testimonial">
+                  <ClientProof
+                    testimonial={WORK_HERO_TESTIMONIAL}
+                    triggerLabel="Hear from our client"
+                  />
+                </div>
+              ) : null}
               {showStats ? (
                 <dl
                   className="ft-ecommerce-seo-hero__stats"
@@ -137,17 +151,19 @@ export function EcommerceSeoHero({
             </div>
 
             <div className="ft-ecommerce-seo-hero__right">
-              <Link
-                className="ft-ecommerce-seo-hero__pill"
-                to={pillTo}
-                prefetch="intent"
-              >
-                {pillLabel}
-                <span aria-hidden="true">→</span>
-              </Link>
+              {croInteractive ? (
+                <div className="ft-ecommerce-seo-hero__ab-demo">
+                  <span className="ft-ecommerce-seo-hero__ab-demo-pill"><span aria-hidden="true" />See CRO in action</span>
+                  <div className="ft-ecommerce-seo-hero__ab-demo-toggle" aria-label="CRO hero view">
+                    <button type="button" aria-pressed={!isVariant} className={!isVariant ? 'is-active' : undefined} onClick={() => setIsVariant(false)}>Control</button>
+                    <button type="button" aria-pressed={isVariant} className={isVariant ? 'is-active' : undefined} onClick={() => setIsVariant(true)}>Variant</button>
+                  </div>
+                </div>
+              ) : (
+                <Link className="ft-ecommerce-seo-hero__pill" to={pillTo} prefetch="intent">{pillLabel}<span aria-hidden="true">→</span></Link>
+              )}
 
-              <p className="ft-ecommerce-seo-hero__description">
-                {description}
+              <p className="ft-ecommerce-seo-hero__description">                {description}
               </p>
 
               <Link

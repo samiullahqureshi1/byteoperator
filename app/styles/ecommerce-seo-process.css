@@ -477,6 +477,27 @@
   .ft-ecommerce-seo-process__serp-wrap {
     max-width: 24rem;
   }
+
+  /* Swipe hint: one card fills almost the whole scroller and the next
+     card peeks in past the 1.5rem gap, so the row reads as swipeable.
+     border-box is required here because the section is content-box, so
+     the card's 1.5rem side padding + border would otherwise be added
+     on top of the flex-basis and push the peek off screen. */
+  .ft-ecommerce-seo-process__step {
+    box-sizing: border-box;
+    flex: 0 0 calc(100% - 3.5rem);
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    scroll-snap-align: start;
+  }
+
+  /* End space so the fourth card can still snap flush to the left edge.
+     A trailing margin rather than padding on the scroller: padding would
+     shrink the flex container's content box and inflate the peek. */
+  .ft-ecommerce-seo-process__step:last-child {
+    margin-inline-end: 3.5rem;
+  }
 }
 
 /* =========================================================
@@ -491,5 +512,38 @@
     animation-duration: 0.01ms !important;
     animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+/* CRO process header: reuse the shared compact ClientProof in place of the SERP visual. */
+.ft-ecommerce-seo-process__serp-wrap--testimonial .ft-work-hero__right { display: block; }
+.ft-ecommerce-seo-process__serp-wrap--testimonial .ft-work-hero__testimonial { display: flex; width: 100%; min-height: 0; padding: 1rem; border: 0.0625rem solid rgba(175, 221, 220, 0.22); border-radius: 0.875rem; background: rgba(1, 21, 27, 0.34); color: var(--ft-white, #ffffff); text-align: left; }
+.ft-ecommerce-seo-process__serp-wrap--testimonial .ft-work-hero__testimonial-image { width: 3rem; height: 3rem; border-radius: 50%; }
+.ft-ecommerce-seo-process__serp-wrap--testimonial .ft-work-hero__testimonial-content p { display: block; color: rgba(255, 255, 255, 0.9); font-size: 0.875rem; line-height: 1.45; }
+.ft-ecommerce-seo-process__serp-wrap--testimonial .ft-work-hero__testimonial-content > span { margin-top: 0.55rem; color: var(--ft-teal-light, #afdddc); font-size: 0.75rem; }
+@media (max-width: 63.9375rem) { .ft-ecommerce-seo-process__serp-wrap--testimonial { max-width: none; } }
+@media (min-width: 64rem) {
+  .ft-ecommerce-seo-process__header:has(.ft-ecommerce-seo-process__serp-wrap--testimonial) {
+    gap: 3rem;
+  }
+
+  .ft-ecommerce-seo-process__header:has(.ft-ecommerce-seo-process__serp-wrap--testimonial) .ft-ecommerce-seo-process__header-text {
+    flex: 0 1 40rem;
+  }
+
+  .ft-ecommerce-seo-process__serp-wrap--testimonial {
+    flex: 0 0 23.75rem;
+    width: 23.75rem;
+    max-width: 23.75rem;
+    margin-top: 0;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 63.9375rem) {
+  .ft-ecommerce-seo-process__serp-wrap--testimonial {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 1.5rem;
+    margin-left: 0;
   }
 }
