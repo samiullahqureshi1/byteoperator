@@ -15,6 +15,7 @@ interface HeaderProps {
   cart: Promise<CartApiQueryFragment | null>;
   isLoggedIn: Promise<boolean>;
   publicStoreDomain: string;
+  variant?: 'default' | 'light';
 }
 
 type Viewport = 'desktop' | 'mobile';
@@ -24,6 +25,7 @@ const STICKY_SCROLL_POSITION = 45;
 export function Header({
   header,
   publicStoreDomain,
+  variant = 'default',
 }: HeaderProps) {
   const {isSticky, isVisible} = useStickyHeader(
   STICKY_SCROLL_POSITION,
@@ -36,6 +38,9 @@ export function Header({
       <header
   className={[
     'charle-header',
+    variant === 'light'
+      ? 'charle-header--light'
+      : '',
     isSticky
       ? 'charle-header--sticky'
       : '',

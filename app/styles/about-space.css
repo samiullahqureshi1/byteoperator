@@ -1,0 +1,258 @@
+.ft-about-space {
+  position: relative;
+  width: 100vw;
+  padding-block: 2.5rem;
+  overflow: hidden;
+  background: #01151b;
+  color: #ffffff;
+}
+
+.ft-about-space *,
+.ft-about-space *::before,
+.ft-about-space *::after {
+  box-sizing: border-box;
+}
+
+.ft-about-space__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   CAROUSEL
+========================= */
+
+.ft-about-space__carousel {
+  position: relative;
+  width: 100%;
+  padding-inline: 1.25rem;
+}
+
+.ft-about-space__scroller {
+  display: flex;
+  gap: 0.75rem;
+
+  width: 100%;
+  padding-inline: 0;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.ft-about-space__scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.ft-about-space__slide {
+  flex: 0 0 calc(100% - 2.25rem);
+  min-width: 0;
+
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* =========================
+   IMAGE CARD
+========================= */
+
+.ft-about-space__item {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 18 / 25;
+
+  overflow: hidden;
+
+  border-radius: clamp(
+    1.5625rem,
+    5vw,
+    3.125rem
+  );
+}
+
+.ft-about-space__item-image {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.ft-about-space__heading {
+  position: relative;
+  z-index: 3;
+
+  max-width: 75%;
+
+  margin: -1rem 0 0;
+  padding-inline: 1.25rem;
+
+  font-family: "Season Sans", sans-serif;
+  font-size: clamp(
+    3.125rem,
+    5vw,
+    6.25rem
+  );
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.035em;
+
+  color: #ffffff;
+}
+
+/* =========================
+   ARROWS
+========================= */
+
+.ft-about-space__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 3.125rem;
+  height: 3.125rem;
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: #071b21;
+
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.ft-about-space__arrow:hover {
+  background: #afdddc;
+}
+
+.ft-about-space__arrow:focus-visible {
+  outline: 0.125rem solid #40adaa;
+  outline-offset: 0.25rem;
+}
+
+.ft-about-space__arrow svg {
+  width: 0.6875rem;
+  height: 1.1875rem;
+}
+
+.ft-about-space__arrow--prev {
+  left: 0.75rem;
+}
+
+.ft-about-space__arrow--next {
+  right: 0.75rem;
+}
+
+/* =========================
+   TABLET
+   Reference: 1.75 slides
+========================= */
+
+@media (min-width: 48rem) {
+  .ft-about-space {
+    padding-block: 5rem;
+  }
+
+  .ft-about-space__scroller {
+    gap: 1.5rem;
+  }
+
+  .ft-about-space__slide {
+    flex-basis:
+      calc(
+        (100vw - 2.5rem - 1.5rem)
+        / 1.75
+      );
+  }
+
+  .ft-about-space__item {
+    aspect-ratio: 8 / 5;
+  }
+
+  .ft-about-space__heading {
+    max-width: 100%;
+    padding-inline: 2rem;
+  }
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 64rem) {
+  .ft-about-space {
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+  }
+
+  .ft-about-space__carousel {
+    padding-inline: 3rem;
+  }
+
+  .ft-about-space__scroller {
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  .ft-about-space__slide {
+    flex-basis:
+      calc(
+        (100vw - 6rem - 1.5rem)
+        / 1.75
+      );
+  }
+
+  .ft-about-space__heading {
+    margin-top: -2rem;
+    padding-inline: 3rem;
+  }
+
+  .ft-about-space__arrow {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+
+  .ft-about-space__arrow--prev {
+    left: 4.5rem;
+  }
+
+  .ft-about-space__arrow--next {
+    right: 4.5rem;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 29.9375rem) {
+  .ft-about-space__heading {
+    max-width: 90%;
+  }
+}

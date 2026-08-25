@@ -9,7 +9,7 @@
 
   overflow: hidden;
 
-  background: #041f27;
+  background: #0d2c30;
   color: #ffffff;
 }
 
@@ -385,22 +385,7 @@
 
   border-radius: 5vw;
 
-  background:
-    linear-gradient(
-      160deg,
-      rgba(
-        255,
-        255,
-        255,
-        0.065
-      ),
-      rgba(
-        255,
-        255,
-        255,
-        0.018
-      )
-    );
+  background: #16383b;
 }
 
 

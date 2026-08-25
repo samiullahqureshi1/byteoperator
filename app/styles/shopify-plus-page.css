@@ -29,10 +29,6 @@
   background: var(--ft-dark-deep, #01151b);
 }
 
-.ft-shopify-plus-page > .ft-home-observatory {
-  background-color: var(--ft-dark, #041f27);
-}
-
 @media (max-width: 63.999rem) {
   .ft-shopify-plus-page
     .ft-services-hero--shopify-plus.ft-services-hero--theme-dark {

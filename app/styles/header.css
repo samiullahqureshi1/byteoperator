@@ -68,6 +68,48 @@
   backdrop-filter: blur(0.75rem);
 }
 
+/* About page: light initial state; sticky state remains global. */
+
+.charle-header--light:not(.charle-header--sticky) {
+  color: var(--charle-header-black);
+  background: #ffffff;
+}
+
+.charle-header--light:not(.charle-header--sticky)
+  .charle-header__logo {
+  filter: brightness(0) saturate(100%);
+}
+
+.charle-header--light:not(.charle-header--sticky)
+  .charle-header__nav-link {
+  color: var(--charle-header-black);
+}
+
+.charle-header--light:not(.charle-header--sticky)
+  .charle-header__badge {
+  color: #ffffff;
+  background: var(--charle-header-black);
+}
+
+.charle-header--light:not(.charle-header--sticky)
+  .charle-header__cta {
+  color: #ffffff;
+  background: var(--charle-header-black);
+  border-color: var(--charle-header-black);
+}
+
+.charle-header--light:not(.charle-header--sticky)
+  .charle-header__cta:hover,
+.charle-header--light:not(.charle-header--sticky)
+  .charle-header__cta:focus-visible {
+  color: var(--charle-header-black);
+  background: transparent;
+}
+
+.charle-header--light:not(.charle-header--sticky)
+  .charle-header__mobile-button {
+  color: var(--charle-header-black);
+}
 /* Inner layout */
 
 .charle-header__inner {

@@ -1,14 +1,20 @@
 import {useEffect, useRef} from 'react';
 import {Link} from 'react-router';
 
-export function HomeSideRail() {
+interface HomeSideRailProps {
+  heroSelector?: string;
+}
+
+export function HomeSideRail({
+  heroSelector = '.ft-home-hero',
+}: HomeSideRailProps = {}) {
   const horizontalRef = useRef<HTMLAnchorElement>(null);
   const verticalRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const horizontalTab = horizontalRef.current;
     const verticalTab = verticalRef.current;
-    const hero = document.querySelector<HTMLElement>('.ft-home-hero');
+    const hero = document.querySelector<HTMLElement>(heroSelector);
 
     if (!horizontalTab || !verticalTab || !hero) return;
 
@@ -146,7 +152,7 @@ export function HomeSideRail() {
         cancelAnimationFrame(frameId);
       }
     };
-  }, []);
+  }, [heroSelector]);
 
   return (
     <>

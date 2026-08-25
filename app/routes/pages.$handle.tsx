@@ -45,6 +45,14 @@ import ecommerceSeoResultsStyles from '~/styles/ecommerce-seo-results.css?url';
 import ecommerceSeoWhoItsForStyles from '~/styles/ecommerce-seo-who-its-for.css?url';
 import ecommerceSeoShopifySpecialismStyles from '~/styles/ecommerce-seo-shopify-specialism.css?url';
 import shopifyCroOptimiseStyles from '~/styles/shopify-cro-optimise.css?url';
+import aboutHeroStyles from '~/styles/about-hero.css?url';
+import aboutStoryStatsStyles from '~/styles/about-story-stats.css?url';
+import aboutValuesStyles from '~/styles/about-values.css?url';
+import aboutTestimonialsStyles from '~/styles/about-testimonials.css?url';
+import aboutSpaceStyles from '~/styles/about-space.css?url';
+import aboutTeamStyles from '~/styles/about-team.css?url';
+import aboutJoinStyles from '~/styles/about-join.css?url';
+import homeSideRailStyles from '~/styles/home-side-rail.css?url';
 import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
 import {ShopifyPlusPage} from '~/components/services/ShopifyPlusPage';
 import {EcommerceSeoHero} from '~/components/seo/EcommerceSeoHero';
@@ -52,6 +60,15 @@ import {EcommerceSeoCases} from '~/components/seo/EcommerceSeoCases';
 import {EcommerceSeoProcess} from '~/components/seo/EcommerceSeoProcess';
 import {EcommerceSeoServices} from '~/components/seo/EcommerceSeoServices';
 import {ShopifyCroOptimise} from '~/components/cro/ShopifyCroOptimise';
+import {AboutHero} from '~/components/about/AboutHero';
+import {AboutStoryStats} from '~/components/about/AboutStoryStats';
+import {AboutValues} from '~/components/about/AboutValues';
+import {AboutTestimonials} from '~/components/about/AboutTestimonials';
+import {AboutSpace} from '~/components/about/AboutSpace';
+import {AboutTeam} from '~/components/about/AboutTeam';
+import {AboutJoin} from '~/components/about/AboutJoin';
+import {HomeObservatory} from '~/components/HomeObservatory';
+import {HomeSideRail} from '~/components/HomeSideRail';
 import {EcommerceSeoTechStack} from '~/components/seo/EcommerceSeoTechStack';
 import {EcommerceSeoEducation} from '~/components/seo/EcommerceSeoEducation';
 import {EcommerceSeoReporting} from '~/components/seo/EcommerceSeoReporting';
@@ -279,6 +296,38 @@ export const links: Route.LinksFunction = () => [
   rel: 'stylesheet',
   href: shopifyCroOptimiseStyles,
 },
+{
+  rel: 'stylesheet',
+  href: aboutHeroStyles,
+},
+{
+  rel: 'stylesheet',
+  href: aboutStoryStatsStyles,
+},
+{
+  rel: 'stylesheet',
+  href: aboutValuesStyles,
+},
+{
+  rel: 'stylesheet',
+  href: aboutTestimonialsStyles,
+},
+{
+  rel: 'stylesheet',
+  href: aboutSpaceStyles,
+},
+{
+  rel: 'stylesheet',
+  href: aboutTeamStyles,
+},
+{
+  rel: 'stylesheet',
+  href: aboutJoinStyles,
+},
+{
+  rel: 'stylesheet',
+  href: homeSideRailStyles,
+},
 ];
 export async function loader(args: Route.LoaderArgs) {
   const rawHandle = args.params.handle;
@@ -481,6 +530,22 @@ export function PageContent({
 
   if (page.handle === 'services') {
     return <ServicesPage page={page} />;
+  }
+
+  if (page.handle === 'about-us' || page.handle === 'about') {
+    return (
+      <>
+        <HomeSideRail heroSelector=".ft-about-hero" />
+        <AboutHero />
+        <AboutStoryStats />
+        <AboutValues />
+        <AboutTestimonials />
+        <AboutSpace />
+        <AboutTeam />
+        <AboutJoin />
+        <HomeObservatory />
+      </>
+    );
   }
 
   if (page.handle === SHOPIFY_PLUS_PAGE_HANDLE) {

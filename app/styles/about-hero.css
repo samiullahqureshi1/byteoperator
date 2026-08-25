@@ -1,0 +1,154 @@
+.ft-about-hero {
+  position: relative;
+  padding: 10rem 0 4rem;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.ft-about-hero *,
+.ft-about-hero *::before,
+.ft-about-hero *::after {
+  box-sizing: border-box;
+}
+
+.ft-about-hero__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 60vw 55vw at 8% 18%,
+      rgba(175, 221, 220, 0.34) 0%,
+      rgba(175, 221, 220, 0.12) 45%,
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 55vw 50vw at 18% 90%,
+      rgba(211, 204, 255, 0.35) 0%,
+      rgba(211, 204, 255, 0.12) 48%,
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 45vw 38vw at 95% 55%,
+      rgba(175, 221, 220, 0.12) 0%,
+      transparent 72%
+    );
+}
+
+.ft-about-hero__container {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 10vw), 90rem);
+  margin-inline: auto;
+}
+
+.ft-about-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.ft-about-hero__title {
+  margin: 0;
+
+  font-family: "Season Sans", sans-serif;
+  font-size: clamp(2.125rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+
+  color: #071b21;
+}
+
+.ft-about-hero__team-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-top: 0;
+  padding: 0.625rem 1.5rem 0.625rem 0.625rem;
+
+  border: 0;
+
+  border-radius: 999rem;
+
+  appearance: none;
+  background: #071b21;
+  color: #ffffff;
+
+  font: inherit;
+
+  text-decoration: none;
+
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.ft-about-hero__team-button:hover {
+  transform: translateY(-0.15rem);
+  background: #041f27;
+}
+
+.ft-about-hero__team-image {
+  width: 3rem;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.ft-about-hero__team-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.ft-about-hero__team-text {
+  font-family: "Season Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.ft-about-hero__team-arrow {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+
+  transition: transform 0.3s ease;
+}
+
+.ft-about-hero__team-button:hover .ft-about-hero__team-arrow {
+  transform: translate(0.15rem, -0.15rem);
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 64rem) {
+  .ft-about-hero {
+    padding: calc(10rem + 6.625rem) 0 8rem;
+  }
+}
+
+/* =========================
+   TABLET / MOBILE
+========================= */
+
+@media (max-width: 63.9375rem) {
+  .ft-about-hero__glow {
+    display: none;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .ft-about-hero__container {
+    width: calc(100% - 2.5rem);
+  }
+}

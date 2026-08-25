@@ -1,0 +1,298 @@
+.ft-about-join {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  background: #01151b;
+  color: #ffffff;
+}
+
+.ft-about-join *,
+.ft-about-join *::before,
+.ft-about-join *::after {
+  box-sizing: border-box;
+}
+
+.ft-about-join__container {
+  width: calc(100% - 2.5rem);
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.ft-about-join__inner {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2rem;
+
+  padding: 2rem;
+
+  background: #1a1b1e;
+  border-radius: 1.25rem;
+}
+
+.ft-about-join__left,
+.ft-about-join__right {
+  grid-column: span 5;
+}
+
+/* =========================
+   LEFT
+========================= */
+
+.ft-about-join__heading {
+  margin: 0;
+
+  font-family: "Season Sans", sans-serif;
+  font-size: clamp(2.125rem, 4.5vw, 4.375rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+
+  color: #ffffff;
+}
+
+/* =========================
+   RIGHT HEADER
+========================= */
+
+.ft-about-join__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding-bottom: 1.5rem;
+}
+
+.ft-about-join__header-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin: 0;
+
+  font-family: "Season Sans", sans-serif;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+
+  color: #ffffff;
+}
+
+/* =========================
+   GREEN VACANCY DOT
+========================= */
+
+.ft-about-join__status-dot {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  /* Keep reference green */
+  background: rgba(84, 191, 74, 0.5);
+}
+
+.ft-about-join__status-dot-inner {
+  display: block;
+
+  width: 0.625rem;
+  height: 0.625rem;
+
+  border-radius: 50%;
+
+  /* Exact reference green */
+  background: #54bf4a;
+}
+
+/* =========================
+   WHITE JOB BUTTON
+========================= */
+
+.ft-about-join__all-jobs,
+.ft-about-join__footer-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.875rem;
+
+  padding: 0.75rem 1.5rem;
+
+  border-radius: 999rem;
+
+  background: #ffffff;
+  color: #111111;
+
+  font-family: "Season Serif", serif;
+  font-size: 0.9375rem;
+  line-height: 1;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.ft-about-join__all-jobs:hover,
+.ft-about-join__footer-button:hover {
+  transform: translateY(-0.125rem);
+  background: #afdddc;
+}
+
+.ft-about-join__all-jobs svg,
+.ft-about-join__footer-button svg {
+  width: 0.8125rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+
+  transition: transform 0.3s ease;
+}
+
+.ft-about-join__all-jobs:hover svg,
+.ft-about-join__footer-button:hover svg {
+  transform: translateX(0.25rem);
+}
+
+/* Reference:
+   desktop button hidden on mobile,
+   footer button shown instead
+*/
+
+.ft-about-join__all-jobs {
+  display: none;
+}
+
+/* =========================
+   VACANCIES
+========================= */
+
+.ft-about-join__list {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.ft-about-join__item {
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.2);
+}
+
+.ft-about-join__item:last-child {
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.2);
+}
+
+.ft-about-join__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  width: 100%;
+  padding: 1.5rem 0;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  transition: opacity 0.25s ease;
+}
+
+.ft-about-join__link:hover {
+  opacity: 0.65;
+}
+
+.ft-about-join__link-title,
+.ft-about-join__link-type {
+  font-family: "Season Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.ft-about-join__link-title {
+  font-weight: 400;
+}
+
+.ft-about-join__link-type {
+  text-align: right;
+}
+
+/* =========================
+   MOBILE FOOTER BUTTON
+========================= */
+
+.ft-about-join__footer {
+  display: flex;
+  align-items: center;
+
+  margin-top: 1rem;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 64rem) {
+  .ft-about-join__container {
+    width: calc(100% - 8rem);
+  }
+
+  .ft-about-join__inner {
+    gap: 5rem;
+  }
+
+  .ft-about-join__left {
+    grid-column: span 2;
+  }
+
+  .ft-about-join__right {
+    grid-column: span 3;
+  }
+
+  .ft-about-join__all-jobs {
+    display: inline-flex;
+  }
+
+  .ft-about-join__footer {
+    display: none;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 47.9375rem) {
+  .ft-about-join__inner {
+    padding: 1.5rem;
+  }
+
+  .ft-about-join__link {
+    align-items: flex-start;
+  }
+
+  .ft-about-join__link-title {
+    max-width: 60%;
+  }
+
+  .ft-about-join__link-type {
+    max-width: 40%;
+  }
+
+  .ft-about-join__footer-button {
+    width: 100%;
+  }
+}

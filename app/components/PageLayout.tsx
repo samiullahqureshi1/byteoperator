@@ -1,4 +1,4 @@
-import {Await, Link} from 'react-router';
+import {Await, Link, useLocation} from 'react-router';
 import {Suspense, useId} from 'react';
 import {FloatingContactCta} from './FloatingContactCta';
 import type {
@@ -33,6 +33,9 @@ export function PageLayout({
   isLoggedIn,
   publicStoreDomain,
 }: PageLayoutProps) {
+  const {pathname} = useLocation();
+  const isAboutPage = pathname.replace(/\/+$/, '') === '/about';
+
   return (
     <Aside.Provider>
       <CartAside cart={cart} />
@@ -44,6 +47,7 @@ export function PageLayout({
           cart={cart}
           isLoggedIn={isLoggedIn}
           publicStoreDomain={publicStoreDomain}
+          variant={isAboutPage ? 'light' : 'default'}
         />
       )}
       <main>{children}</main>

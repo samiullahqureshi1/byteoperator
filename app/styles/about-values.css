@@ -1,0 +1,269 @@
+.ft-about-values {
+  --ft-about-values-radius: 1.875rem;
+
+  position: relative;
+  z-index: 2;
+  margin-top: calc(-1 * var(--ft-about-values-radius));
+  padding: 1.5rem 0 3rem;
+  overflow: hidden;
+
+  border-radius: var(--ft-about-values-radius);
+  background: #ffffff;
+}
+
+.ft-about-values *,
+.ft-about-values *::before,
+.ft-about-values *::after {
+  box-sizing: border-box;
+}
+
+/* =========================
+   BACKGROUND GLOWS
+========================= */
+
+.ft-about-values::before,
+.ft-about-values::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    rgba(64, 173, 170, 0.1) 0%,
+    rgba(175, 221, 220, 0.18) 52%,
+    rgba(211, 204, 255, 0.16) 100%
+  );
+
+  filter: blur(6.25rem);
+}
+
+.ft-about-values::before {
+  top: 25%;
+  right: 5%;
+}
+
+.ft-about-values::after {
+  top: 40%;
+  left: -10%;
+}
+
+/* =========================
+   CONTAINERS
+========================= */
+
+.ft-about-values__fluid,
+.ft-about-values__container {
+  position: relative;
+  z-index: 1;
+}
+
+.ft-about-values__fluid {
+  width: calc(100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.ft-about-values__container {
+  width: calc(100% - 2.5rem);
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+/* =========================
+   TOP TEAM IMAGE
+========================= */
+
+.ft-about-values__image {
+  width: 100%;
+  aspect-ratio: 1 / 1.25;
+  margin-bottom: 3rem;
+
+  overflow: hidden;
+  border-radius: 1.25rem;
+}
+
+.ft-about-values__image-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =========================
+   VALUES LAYOUT
+========================= */
+
+.ft-about-values__inner {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.ft-about-values__left {
+  grid-column: span 5;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ft-about-values__right {
+  grid-column: span 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.ft-about-values__heading {
+  margin: 0;
+
+  font-family: "Season Sans", sans-serif;
+  font-size: clamp(2.125rem, 5vw, 3.75rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+
+  color: #071b21;
+}
+
+.ft-about-values__subheading {
+  margin: 0;
+
+  font-family: "Season Sans", sans-serif;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+
+  color: #071b21;
+}
+
+.ft-about-values__description {
+  margin: 0;
+
+  max-width: 52rem;
+
+  font-family: "Season Sans", sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  font-weight: 300;
+  line-height: 1.5;
+
+  color: #071b21;
+}
+
+.ft-about-values__subheading
+  + .ft-about-values__description {
+  margin-top: 1rem;
+}
+
+.ft-about-values__description
+  + .ft-about-values__subheading {
+  margin-top: 3rem;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 48rem) {
+  .ft-about-values {
+    --ft-about-values-radius: 3.125rem;
+
+    padding: 2rem 0 4rem;
+  }
+
+  .ft-about-values__fluid,
+  .ft-about-values__container {
+    width: calc(100% - 4rem);
+  }
+
+  .ft-about-values__image {
+    aspect-ratio: 167 / 70;
+  }
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 64rem) {
+    .ft-about-values__container{
+    padding: 0 3rem;
+    }
+  .ft-about-values {
+    padding: 2rem 0 5rem;
+  }
+
+  .ft-about-values__fluid {
+    width: calc(100% - 4rem);
+  }
+
+  .ft-about-values__image {
+    margin-bottom: 10rem;
+    border-radius: 1.875rem;
+  }
+
+  .ft-about-values__subheading
+    + .ft-about-values__description {
+    margin-top: 1.5rem;
+  }
+
+  .ft-about-values__description
+    + .ft-about-values__subheading {
+    margin-top: 3.75rem;
+  }
+}
+
+/* =========================
+   LARGE DESKTOP
+========================= */
+
+@media (min-width: 80rem) {
+  .ft-about-values__inner {
+    gap: 8rem;
+  }
+
+  .ft-about-values__left {
+    grid-column: span 2;
+    gap: 3rem;
+  }
+
+  .ft-about-values__right {
+    grid-column: span 3;
+  }
+}
+
+/* =========================
+   MOBILE — reference removes glows
+========================= */
+
+@media (max-width: 63.9375rem) {
+  .ft-about-values::before,
+  .ft-about-values::after {
+    display: none;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .ft-about-values__heading {
+    font-size: clamp(2.125rem, 11vw, 3rem);
+  }
+
+  .ft-about-values__subheading {
+    font-size: clamp(1.75rem, 8vw, 2.25rem);
+  }
+
+  .ft-about-values__description {
+    max-width: none;
+  }
+}
