@@ -7,6 +7,10 @@ import {
   type PredictiveSearchReturn,
 } from '~/lib/search';
 import {useAside} from './Aside';
+import {
+  getArticlePath,
+  ARTICLES_BLOG_HANDLE,
+} from '~/lib/route-mappings';
 
 type PredictiveSearchItems = PredictiveSearchReturn['result']['items'];
 
@@ -93,7 +97,10 @@ function SearchResultsPredictiveArticles({
       <ul>
         {articles.map((article) => {
           const articleUrl = urlWithTrackingParams({
-            baseUrl: `/blogs/${article.blog.handle}/${article.handle}`,
+            baseUrl:
+              article.blog.handle === ARTICLES_BLOG_HANDLE
+                ? getArticlePath(article.handle)
+                : `/blogs/${article.blog.handle}/${article.handle}`,
             trackingParams: article.trackingParameters,
             term: term.current ?? '',
           });

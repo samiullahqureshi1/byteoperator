@@ -28,7 +28,7 @@ export type CaseStudyArticle = {
   id: string;
   title: string;
   handle: string;
-  tags: string[];
+  tags?: string[];
   image?: ShopifyImage | null;
   excerpt?: string | null;
   excerptHtml?: string | null;
@@ -61,9 +61,26 @@ const FIELD_KEYS = {
 
 interface CaseStudyDetailProps {
   article: CaseStudyArticle;
+  variant?: 'case-study' | 'article';
+  eyebrow?: string;
+  subtitle?: string | null;
 }
 
-export function CaseStudyDetail({article}: CaseStudyDetailProps) {
+export function CaseStudyDetail({
+  article,
+  variant = 'case-study',
+  eyebrow,
+  subtitle,
+}: CaseStudyDetailProps) {
+  if (variant === 'article') {
+    return (
+      <ArticlePresentation
+        article={article}
+        eyebrow={eyebrow || 'Ecommerce Insights'}
+        subtitle={subtitle}
+      />
+    );
+  }
   const fields = new Map(
     (article.caseStudyBlogDetails?.reference?.fields ?? []).map((field) => [
       field.key,
@@ -78,7 +95,9 @@ export function CaseStudyDetail({article}: CaseStudyDetailProps) {
     getFieldImage(fields.get(`hero_image_${index + 1}`)),
   );
   const sectionCount = Math.max(heroImages.length, remainingContent.length);
-  const articleTags = article.tags.map((tag) => tag.trim()).filter(Boolean);
+  const articleTags = (article.tags ?? [])
+    .map((tag) => tag.trim())
+    .filter(Boolean);
   const industry = INDUSTRIES.find((value) => articleTags.includes(value));
   const technologies = Array.from(
     new Map(
@@ -195,6 +214,56 @@ export function CaseStudyDetail({article}: CaseStudyDetailProps) {
   );
 }
 
+function ArticlePresentation({
+  article,
+  eyebrow,
+  subtitle,
+}: {
+  article: CaseStudyArticle;
+  eyebrow: string;
+  subtitle?: string | null;
+}) {
+  const contentSections = splitArticleContent(article.contentHtml);
+  const briefHtml = contentSections[0] ?? '';
+  const remainingContent = contentSections.slice(1);
+
+  return (
+    <main className="ft-case-detail">
+      <header className="ft-case-detail__hero">
+        <p className="ft-case-detail__eyebrow">{eyebrow}</p>
+        <h1>{article.title}</h1>
+        {subtitle ? <p className="ft-case-detail__intro">{subtitle}</p> : null}
+      </header>
+
+      {article.image ? (
+        <ProjectImage image={article.image} fallbackAlt={article.title} eager />
+      ) : null}
+
+      {briefHtml ? (
+        <section
+          className="ft-case-detail__brief"
+          aria-label="Article introduction"
+        >
+          <div className="ft-case-detail__copy">
+            <RichText html={briefHtml} />
+          </div>
+        </section>
+      ) : null}
+
+      <div className="ft-case-detail__sequence">
+        {remainingContent.map((html, index) => (
+          <section className="ft-case-detail__chapter" key={index}>
+            <RichText html={html} />
+          </section>
+        ))}
+      </div>
+
+      <div className="ft-case-detail__experts">
+        <HomeExperts />
+      </div>
+    </main>
+  );
+}
 function ProjectImage({
   image,
   fallbackAlt,

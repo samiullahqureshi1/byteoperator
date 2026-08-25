@@ -2,12 +2,18 @@ import {useLoaderData} from 'react-router';
 import type {Route} from './+types/blogs.$blogHandle.$articleHandle';
 import {Image} from '@shopify/hydrogen';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
+import {getArticlesUrlRedirect} from '~/services/redirects.server';
 
 export const meta: Route.MetaFunction = ({data}) => {
   return [{title: `Hydrogen | ${data?.article.title ?? ''} article`}];
 };
 
 export async function loader(args: Route.LoaderArgs) {
+  const articlesRedirect = getArticlesUrlRedirect(args.request);
+
+  if (articlesRedirect) {
+    throw articlesRedirect;
+  }
   // Start fetching non-critical data without blocking time to first byte
   const deferredData = loadDeferredData(args);
 

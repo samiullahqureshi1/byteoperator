@@ -7,12 +7,22 @@ import {Image, getPaginationVariables} from '@shopify/hydrogen';
 import type {ArticleItemFragment} from 'storefrontapi.generated';
 import {PaginatedResourceSection} from '~/components/PaginatedResourceSection';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
+import {getArticlesUrlRedirect} from '~/services/redirects.server';
+import {
+  getArticlePath,
+  ARTICLES_BLOG_HANDLE,
+} from '~/lib/route-mappings';
 
 export const meta: Route.MetaFunction = ({data}) => {
   return [{title: `Hydrogen | ${data?.blog.title ?? ''} blog`}];
 };
 
 export async function loader(args: Route.LoaderArgs) {
+  const articlesRedirect = getArticlesUrlRedirect(args.request);
+
+  if (articlesRedirect) {
+    throw articlesRedirect;
+  }
   // Start fetching non-critical data without blocking time to first byte
   const deferredData = loadDeferredData(args);
 
@@ -103,7 +113,13 @@ function ArticleItem({
   }).format(new Date(article.publishedAt!));
   return (
     <div className="blog-article" key={article.id}>
-      <Link to={`/blogs/${article.blog.handle}/${article.handle}`}>
+      <Link
+        to={
+          article.blog.handle === ARTICLES_BLOG_HANDLE
+            ? getArticlePath(article.handle)
+            : `/blogs/${article.blog.handle}/${article.handle}`
+        }
+      >
         {article.image && (
           <div className="blog-article-image">
             <Image

@@ -1,6 +1,10 @@
 import {Link} from 'react-router';
 import {Image, Money, Pagination} from '@shopify/hydrogen';
 import {urlWithTrackingParams, type RegularSearchReturn} from '~/lib/search';
+import {
+  getArticlePath,
+  ARTICLES_BLOG_HANDLE,
+} from '~/lib/route-mappings';
 
 type SearchItems = RegularSearchReturn['result']['items'];
 type PartialSearchResult<ItemType extends keyof SearchItems> = Pick<
@@ -44,7 +48,10 @@ function SearchResultsArticles({
       <div>
         {articles?.nodes?.map((article) => {
           const articleUrl = urlWithTrackingParams({
-            baseUrl: `/blogs/${article.handle}`,
+            baseUrl:
+              article.blog.handle === ARTICLES_BLOG_HANDLE
+                ? getArticlePath(article.handle)
+                : `/blogs/${article.blog.handle}/${article.handle}`,
             trackingParams: article.trackingParameters,
             term,
           });

@@ -6,6 +6,10 @@ import type {Route} from './+types/blogs._index';
 import {getPaginationVariables} from '@shopify/hydrogen';
 import {PaginatedResourceSection} from '~/components/PaginatedResourceSection';
 import type {BlogsQuery} from 'storefrontapi.generated';
+import {
+  ARTICLES_CLEAN_PATH,
+  ARTICLES_BLOG_HANDLE,
+} from '~/lib/route-mappings';
 
 type BlogNode = BlogsQuery['blogs']['nodes'][0];
 
@@ -66,7 +70,11 @@ export default function Blogs() {
               className="blog"
               key={blog.handle}
               prefetch="intent"
-              to={`/blogs/${blog.handle}`}
+              to={
+                blog.handle === ARTICLES_BLOG_HANDLE
+                  ? ARTICLES_CLEAN_PATH
+                  : `/blogs/${blog.handle}`
+              }
             >
               <h2>{blog.title}</h2>
             </Link>

@@ -1,4 +1,7 @@
-import {resolveCanonicalPath} from '~/lib/route-mappings';
+import {
+  resolveCanonicalPath,
+  resolveArticlesPath,
+} from '~/lib/route-mappings';
 
 /**
  * Canonical URL redirect for full document requests.
@@ -30,6 +33,25 @@ export function getCleanUrlRedirect(request: Request): Response | null {
   return Response.redirect(url.toString(), 301);
 }
 
+/**
+ * Route-loader redirect for the Articles source blog and legacy Journal URLs. Unlike the document-level
+ * canonicalizer, this also runs for React Router data navigations.
+ */
+export function getArticlesUrlRedirect(request: Request): Response | null {
+  const url = new URL(request.url);
+  const routePathname = isDataRequest(url.pathname)
+    ? url.pathname.slice(0, -'.data'.length)
+    : url.pathname;
+  const canonicalPath = resolveArticlesPath(routePathname);
+
+  if (!canonicalPath || canonicalPath === routePathname) {
+    return null;
+  }
+
+  url.pathname = canonicalPath;
+
+  return Response.redirect(url.toString(), 301);
+}
 function isDataRequest(pathname: string): boolean {
   return pathname.endsWith('.data');
 }

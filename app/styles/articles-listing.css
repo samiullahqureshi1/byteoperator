@@ -1,0 +1,207 @@
+.ft-articles-listing {
+  position: relative;
+  isolation: isolate;
+
+  padding-top: 0;
+  padding-bottom: clamp(2rem, 5vw, 5rem);
+
+  background: #01151b;
+  color: #fff;
+}
+
+/* =========================
+   SUBTLE BRAND GLOW
+   Sits behind Featured + cards
+========================= */
+
+.ft-articles-listing::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 68% 42%,
+      rgba(64, 173, 170, 0.09) 0%,
+      rgba(64, 173, 170, 0.035) 28%,
+      transparent 55%
+    );
+
+  filter: blur(3rem);
+}
+
+.ft-articles-listing *,
+.ft-articles-listing *::before,
+.ft-articles-listing *::after {
+  box-sizing: border-box;
+}
+
+.ft-articles-listing__container {
+  width: calc(100% - 2.5rem);
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+/* =========================
+   FEATURED
+========================= */
+
+.ft-articles-featured {
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.ft-articles-featured__link {
+  display: grid;
+  gap: 1.5rem;
+  color: inherit;
+}
+
+/* Featured media wrapper owns the dimensions */
+.ft-articles-featured__image {
+  display: block;
+  overflow: hidden;
+
+  aspect-ratio: 16 / 10;
+  border-radius: 0.75rem;
+}
+
+/*
+  Hydrogen <Image> renders a bare <img> with NO class and an inline
+  style of {width, aspectRatio} built from the Shopify intrinsic
+  dimensions. Target the real element and beat the inline style so the
+  wrapper controls sizing, never the Shopify asset.
+*/
+.ft-articles-featured__image > img {
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: auto !important;
+
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+/* Only the image inside its fixed wrapper zooms */
+.ft-articles-featured__image:hover > img {
+  transform: scale(1.03);
+}
+
+.ft-articles-card__content {
+  padding-top: 1rem;
+}
+
+.ft-articles-featured h2,
+.ft-articles-card h2,
+.ft-articles-featured p,
+.ft-articles-card p {
+  margin-top: 0;
+}
+
+.ft-articles-listing__type {
+  color: #afdddc;
+}
+
+.ft-articles-featured__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin-top: 1rem;
+
+  color: #afdddc;
+}
+
+.ft-articles-featured__link:hover .ft-articles-featured__cta {
+  text-decoration: underline;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.ft-articles-listing__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  column-gap: 0.75rem;
+  row-gap: 3rem;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.ft-articles-card {
+  transition: opacity 0.3s ease;
+}
+
+.ft-articles-card:hover {
+  opacity: 0.85;
+}
+
+.ft-articles-card a {
+  color: inherit;
+}
+
+/* Square media wrapper owns the dimensions */
+.ft-articles-card__image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+
+  aspect-ratio: 1 / 1;
+  border-radius: 0.9375rem;
+
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+/* Same note as Featured: real <img>, inline style overridden */
+.ft-articles-card__image > img {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: auto !important;
+
+  object-fit: cover;
+
+  transform: translateZ(0);
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.ft-articles-card:hover .ft-articles-card__image > img {
+  transform: scale(1.03) translateZ(0);
+}
+
+@media (min-width: 48rem) {
+  .ft-articles-featured__link {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-articles-listing__container {
+    width: calc(100% - 6rem);
+    max-width: 90rem;
+    margin-inline: auto;
+  }
+
+  .ft-articles-listing__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    column-gap: 2rem;
+    row-gap: 4rem;
+  }
+}

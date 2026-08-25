@@ -32,6 +32,8 @@ export function normalizeMenuUrl(
 }
 
 function normalizeInternalUrl(url: URL, menuItemTitle?: string) {
+  // News and legacy Journal URLs supplied by Shopify are normalized to
+  // their public /articles/* equivalents.
   const pathname = resolveCanonicalPath(url.pathname);
 
   if (url.pathname.startsWith('/pages/') && pathname === url.pathname) {

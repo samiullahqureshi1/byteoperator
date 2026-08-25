@@ -372,7 +372,7 @@ function ResourcesMegaMenu() {
       <NavLink
         className="ft-resources-mega__featured"
         prefetch="intent"
-        to="/blogs/journal"
+        to="/articles/"
       >
         <div className="ft-resources-mega__featured-image">
           <img
@@ -546,7 +546,7 @@ const RESOURCE_MEGA_LINKS: MegaLink[] = [
   {
     title: 'Articles',
     description: 'Explore our latest articles',
-    url: '/blogs/journal',
+    url: '/articles/',
   },
   {
     title: 'Podcast',
@@ -988,7 +988,7 @@ function MobileHeaderMenu({
 
               {/* <NavLink
                 className="ft-mobile-resources__featured test"
-                to="/blogs/journal"
+                to="/articles/"
                 prefetch="intent"
                 onClick={closeMenu}
               >
@@ -1316,7 +1316,7 @@ const FALLBACK_HEADER_MENU = {
       tags: [],
       title: 'Resources',
       type: 'HTTP',
-      url: '/blogs/journal',
+      url: '/articles/',
       items: [],
     },
     {

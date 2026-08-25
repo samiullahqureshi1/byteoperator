@@ -137,6 +137,9 @@ const SEARCH_ARTICLE_FRAGMENT = `#graphql
     handle
     id
     title
+    blog {
+      handle
+    }
     trackingParameters
   }
 ` as const;

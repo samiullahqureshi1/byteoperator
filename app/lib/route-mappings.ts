@@ -1,6 +1,10 @@
 export const SHOPIFY_PLUS_PAGE_HANDLE = 'shopify-plus-agency';
 export const SHOPIFY_PLUS_CLEAN_PATH = '/shopify-plus-agency';
 
+export const ARTICLES_BLOG_HANDLE = 'news';
+export const LEGACY_JOURNAL_BLOG_HANDLE = 'journal';
+export const ARTICLES_CLEAN_PATH = '/articles/';
+
 export const SHOPIFY_SEO_PAGE_HANDLE = 'seo-agency';
 export const SHOPIFY_SEO_CLEAN_PATH = '/seo-agency';
 
@@ -226,6 +230,49 @@ export type ShopifyPagePath = Extract<
   `/pages/${string}`
 >;
 
+export function getArticlePath(articleHandle: string): string {
+  return `${ARTICLES_CLEAN_PATH}${articleHandle}/`;
+}
+
+export function resolveArticlesPath(pathname: string): string | null {
+  const normalizedPath = trimTrailingSlash(pathname);
+
+  if (
+    normalizedPath === `/blogs/${ARTICLES_BLOG_HANDLE}` ||
+    normalizedPath === `/blogs/${LEGACY_JOURNAL_BLOG_HANDLE}` ||
+    normalizedPath === trimTrailingSlash(ARTICLES_CLEAN_PATH)
+  ) {
+    return ARTICLES_CLEAN_PATH;
+  }
+
+  for (const blogHandle of [
+    ARTICLES_BLOG_HANDLE,
+    LEGACY_JOURNAL_BLOG_HANDLE,
+  ]) {
+    const legacyArticlePrefix = `/blogs/${blogHandle}/`;
+
+    if (normalizedPath.startsWith(legacyArticlePrefix)) {
+      const articleHandle = normalizedPath.slice(legacyArticlePrefix.length);
+
+      if (articleHandle && !articleHandle.includes('/')) {
+        return getArticlePath(articleHandle);
+      }
+    }
+  }
+
+  const articlePrefix = `${trimTrailingSlash(ARTICLES_CLEAN_PATH)}/`;
+
+  if (normalizedPath.startsWith(articlePrefix)) {
+    const articleHandle = normalizedPath.slice(articlePrefix.length);
+
+    if (articleHandle && !articleHandle.includes('/')) {
+      return getArticlePath(articleHandle);
+    }
+  }
+
+  return null;
+}
+
 export function resolveCleanPath(pathname: string): string {
   return OLD_TO_CLEAN_PATHS[pathname as LegacyPagePath] ?? pathname;
 }
@@ -244,6 +291,12 @@ export function resolveServiceConfigHandle(shopifyHandle: string): string {
  * itself (including its trailing-slash-less spelling).
  */
 export function resolveCanonicalPath(pathname: string): string {
+  const articlesPath = resolveArticlesPath(pathname);
+
+  if (articlesPath) {
+    return articlesPath;
+  }
+
   const mappedPath = resolveCleanPath(pathname);
 
   if (mappedPath !== pathname) {
