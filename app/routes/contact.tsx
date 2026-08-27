@@ -9,9 +9,13 @@ import {
 import {loadPageData} from './pages.$handle';
 
 import {ContactHero} from '~/components/contact/ContactHero';
+import {ContactInfo} from '~/components/contact/ContactInfo';
+import {ContactPartners} from '~/components/contact/ContactPartners';
 import {WorkFeaturedProjects} from '~/components/work/WorkFeaturedProjects';
 
 import contactHeroStyles from '~/styles/contact-hero.css?url';
+import contactInfoStyles from '~/styles/contact-info.css?url';
+import contactPartnersStyles from '~/styles/contact-partners.css?url';
 import workFeaturedProjectsStyles from '~/styles/work-featured-projects.css?url';
 import workHeroStyles from '~/styles/work-hero.css?url';
 
@@ -27,6 +31,14 @@ export const links = () => [
   {
     rel: 'stylesheet',
     href: contactHeroStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: contactPartnersStyles,
+  },
+  {
+    rel: 'stylesheet',
+    href: contactInfoStyles,
   },
 ];
 
@@ -90,6 +102,9 @@ export default function ContactPage() {
           </Link>
         </div>
       </section>
+
+      <ContactPartners />
+      <ContactInfo />
     </main>
   );
 }

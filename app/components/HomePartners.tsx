@@ -81,6 +81,18 @@ const PARTNER_LOGOS = [
 
 type PartnerLogo = (typeof PARTNER_LOGOS)[number];
 
+export const CONTACT_PARTNER_LOGOS: readonly PartnerLogo[] =
+  PARTNER_LOGOS.filter(({alt}) =>
+    [
+      'Shopify Plus',
+      'Shopify',
+      'Klaviyo',
+      'Yotpo',
+      'Gorgias',
+      'Recharge',
+    ].includes(alt),
+  );
+
 export const ECOMMERCE_SEO_PARTNER_LOGOS: readonly PartnerLogo[] =
   PARTNER_LOGOS.filter(({alt}) =>
     [
