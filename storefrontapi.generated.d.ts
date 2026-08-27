@@ -516,6 +516,45 @@ export type RecommendedProductsQuery = {
   };
 };
 
+export type CaseStudyImageFragment = Pick<
+  StorefrontAPI.Image,
+  'url' | 'altText' | 'width' | 'height'
+>;
+
+type CaseStudyMediaReference_Lc9p2qAkfOql545OMxgpSyumgqz6lEgbbAqn276jlNs_Fragment =
+  {};
+
+type CaseStudyMediaReference_GenericFile_Fragment = Pick<
+  StorefrontAPI.GenericFile,
+  'alt' | 'mimeType' | 'url'
+> & {
+  previewImage?: StorefrontAPI.Maybe<
+    Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+  >;
+};
+
+type CaseStudyMediaReference_MediaImage_Fragment = {
+  image?: StorefrontAPI.Maybe<
+    Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+  >;
+};
+
+type CaseStudyMediaReference_Video_Fragment = Pick<
+  StorefrontAPI.Video,
+  'alt'
+> & {
+  previewImage?: StorefrontAPI.Maybe<
+    Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
+  >;
+  sources: Array<Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>>;
+};
+
+export type CaseStudyMediaReferenceFragment =
+  | CaseStudyMediaReference_Lc9p2qAkfOql545OMxgpSyumgqz6lEgbbAqn276jlNs_Fragment
+  | CaseStudyMediaReference_GenericFile_Fragment
+  | CaseStudyMediaReference_MediaImage_Fragment
+  | CaseStudyMediaReference_Video_Fragment;
+
 export type JournalArticleQueryVariables = StorefrontAPI.Exact<{
   articleHandle: StorefrontAPI.Scalars['String']['input'];
   blogHandle: StorefrontAPI.Scalars['String']['input'];
@@ -529,7 +568,13 @@ export type JournalArticleQuery = {
       articleByHandle?: StorefrontAPI.Maybe<
         Pick<
           StorefrontAPI.Article,
-          'id' | 'handle' | 'title' | 'excerpt' | 'contentHtml' | 'publishedAt'
+          | 'id'
+          | 'handle'
+          | 'title'
+          | 'tags'
+          | 'excerpt'
+          | 'contentHtml'
+          | 'publishedAt'
         > & {
           image?: StorefrontAPI.Maybe<
             Pick<
@@ -543,6 +588,95 @@ export type JournalArticleQuery = {
           articleType?: StorefrontAPI.Maybe<
             Pick<StorefrontAPI.Metafield, 'value'>
           >;
+          services?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Metafield, 'value'>
+          >;
+          platform?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Metafield, 'value'>
+          >;
+          caseStudyTitle?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Metafield, 'value'>
+          >;
+          caseStudySubheading?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Metafield, 'value'>
+          >;
+          caseStudyBlogDetails?: StorefrontAPI.Maybe<{
+            reference?: StorefrontAPI.Maybe<{
+              fields: Array<
+                Pick<
+                  StorefrontAPI.MetaobjectField,
+                  'key' | 'type' | 'value'
+                > & {
+                  reference?: StorefrontAPI.Maybe<
+                    | (Pick<
+                        StorefrontAPI.GenericFile,
+                        'alt' | 'mimeType' | 'url'
+                      > & {
+                        previewImage?: StorefrontAPI.Maybe<
+                          Pick<
+                            StorefrontAPI.Image,
+                            'url' | 'altText' | 'width' | 'height'
+                          >
+                        >;
+                      })
+                    | {
+                        image?: StorefrontAPI.Maybe<
+                          Pick<
+                            StorefrontAPI.Image,
+                            'url' | 'altText' | 'width' | 'height'
+                          >
+                        >;
+                      }
+                    | (Pick<StorefrontAPI.Video, 'alt'> & {
+                        previewImage?: StorefrontAPI.Maybe<
+                          Pick<
+                            StorefrontAPI.Image,
+                            'url' | 'altText' | 'width' | 'height'
+                          >
+                        >;
+                        sources: Array<
+                          Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>
+                        >;
+                      })
+                  >;
+                  references?: StorefrontAPI.Maybe<{
+                    nodes: Array<
+                      | (Pick<
+                          StorefrontAPI.GenericFile,
+                          'alt' | 'mimeType' | 'url'
+                        > & {
+                          previewImage?: StorefrontAPI.Maybe<
+                            Pick<
+                              StorefrontAPI.Image,
+                              'url' | 'altText' | 'width' | 'height'
+                            >
+                          >;
+                        })
+                      | {
+                          image?: StorefrontAPI.Maybe<
+                            Pick<
+                              StorefrontAPI.Image,
+                              'url' | 'altText' | 'width' | 'height'
+                            >
+                          >;
+                        }
+                      | (Pick<StorefrontAPI.Video, 'alt'> & {
+                          previewImage?: StorefrontAPI.Maybe<
+                            Pick<
+                              StorefrontAPI.Image,
+                              'url' | 'altText' | 'width' | 'height'
+                            >
+                          >;
+                          sources: Array<
+                            Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>
+                          >;
+                        })
+                    >;
+                  }>;
+                }
+              >;
+            }>;
+          }>;
         }
       >;
     }
@@ -1483,45 +1617,6 @@ export type PredictiveSearchQuery = {
   }>;
 };
 
-export type CaseStudyImageFragment = Pick<
-  StorefrontAPI.Image,
-  'url' | 'altText' | 'width' | 'height'
->;
-
-type CaseStudyMediaReference_Lc9p2qAkfOql545OMxgpSyumgqz6lEgbbAqn276jlNs_Fragment =
-  {};
-
-type CaseStudyMediaReference_GenericFile_Fragment = Pick<
-  StorefrontAPI.GenericFile,
-  'alt' | 'mimeType' | 'url'
-> & {
-  previewImage?: StorefrontAPI.Maybe<
-    Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
-  >;
-};
-
-type CaseStudyMediaReference_MediaImage_Fragment = {
-  image?: StorefrontAPI.Maybe<
-    Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
-  >;
-};
-
-type CaseStudyMediaReference_Video_Fragment = Pick<
-  StorefrontAPI.Video,
-  'alt'
-> & {
-  previewImage?: StorefrontAPI.Maybe<
-    Pick<StorefrontAPI.Image, 'url' | 'altText' | 'width' | 'height'>
-  >;
-  sources: Array<Pick<StorefrontAPI.VideoSource, 'url' | 'mimeType'>>;
-};
-
-export type CaseStudyMediaReferenceFragment =
-  | CaseStudyMediaReference_Lc9p2qAkfOql545OMxgpSyumgqz6lEgbbAqn276jlNs_Fragment
-  | CaseStudyMediaReference_GenericFile_Fragment
-  | CaseStudyMediaReference_MediaImage_Fragment
-  | CaseStudyMediaReference_Video_Fragment;
-
 export type CaseStudyArticleFragment = Pick<
   StorefrontAPI.Article,
   | 'id'
@@ -1963,7 +2058,7 @@ interface GeneratedQueryTypes {
     return: RecommendedProductsQuery;
     variables: RecommendedProductsQueryVariables;
   };
-  '#graphql\n  query JournalArticle(\n    $articleHandle: String!\n    $blogHandle: String!\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    blog(handle: $blogHandle) {\n      handle\n      articleByHandle(handle: $articleHandle) {\n        id\n        handle\n        title\n        excerpt\n        contentHtml\n        publishedAt\n        image {\n          id\n          altText\n          url\n          width\n          height\n        }\n        seo {\n          description\n          title\n        }\n        articleType: metafield(namespace: "custom", key: "article_type") {\n          value\n        }\n      }\n    }\n  }\n': {
+  '#graphql\n  fragment CaseStudyImage on Image {\n    url\n    altText\n    width\n    height\n  }\n\n  fragment CaseStudyMediaReference on MetafieldReference {\n    ... on MediaImage {\n      image {\n        ...CaseStudyImage\n      }\n    }\n    ... on Video {\n      alt\n      previewImage {\n        ...CaseStudyImage\n      }\n      sources {\n        url\n        mimeType\n      }\n    }\n    ... on GenericFile {\n      alt\n      mimeType\n      url\n      previewImage {\n        ...CaseStudyImage\n      }\n    }\n  }\n\n  query JournalArticle(\n    $articleHandle: String!\n    $blogHandle: String!\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    blog(handle: $blogHandle) {\n      handle\n      articleByHandle(handle: $articleHandle) {\n        id\n        handle\n        title\n        tags\n        excerpt\n        contentHtml\n        publishedAt\n        image {\n          id\n          altText\n          url\n          width\n          height\n        }\n        seo {\n          description\n          title\n        }\n        articleType: metafield(namespace: "custom", key: "article_type") {\n          value\n        }\n        services: metafield(namespace: "custom", key: "services") {\n          value\n        }\n        platform: metafield(namespace: "custom", key: "platform") {\n          value\n        }\n        caseStudyTitle: metafield(\n          namespace: "custom"\n          key: "case_study_title"\n        ) {\n          value\n        }\n        caseStudySubheading: metafield(\n          namespace: "custom"\n          key: "case_study_subheading"\n        ) {\n          value\n        }\n        caseStudyBlogDetails: metafield(\n          namespace: "custom"\n          key: "case_study_blog_post"\n        ) {\n          reference {\n            ... on Metaobject {\n              fields {\n                key\n                type\n                value\n                reference {\n                  ...CaseStudyMediaReference\n                }\n                references(first: 20) {\n                  nodes {\n                    ...CaseStudyMediaReference\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n': {
     return: JournalArticleQuery;
     variables: JournalArticleQueryVariables;
   };

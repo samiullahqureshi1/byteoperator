@@ -235,3 +235,13 @@
     gap: 2rem;
   }
 }
+
+/* =========================================================
+   ARTICLE DETAIL — SHOPIFY EXPERTS SECTION BACKGROUND
+   Scoped to /articles/:articleHandle only. /work/:handle
+   does not render the .ft-article-detail-page wrapper.
+========================================================= */
+
+.ft-article-detail-page .ft-case-detail__experts .ft-home-experts {
+  background: #01151b;
+}

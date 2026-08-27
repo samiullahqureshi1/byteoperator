@@ -71,20 +71,54 @@ function loadDeferredData({context}: Route.LoaderArgs) {
 
 export default function Article() {
   const {article} = useLoaderData<typeof loader>();
-  const eyebrow = article.articleType?.value.trim() || 'Ecommerce Insights';
-  const subtitle = article.excerpt?.trim() || null;
 
   return (
-    <CaseStudyDetail
-      article={article}
-      variant="article"
-      eyebrow={eyebrow}
-      subtitle={subtitle}
-    />
+    <div className="ft-article-detail-page">
+      <CaseStudyDetail
+        article={article}
+        fallbackEyebrow={
+          article.articleType?.value.trim() || 'Ecommerce Insights'
+        }
+        fallbackSubtitle={article.excerpt}
+      />
+    </div>
   );
 }
 
 const ARTICLE_QUERY = `#graphql
+  fragment CaseStudyImage on Image {
+    url
+    altText
+    width
+    height
+  }
+
+  fragment CaseStudyMediaReference on MetafieldReference {
+    ... on MediaImage {
+      image {
+        ...CaseStudyImage
+      }
+    }
+    ... on Video {
+      alt
+      previewImage {
+        ...CaseStudyImage
+      }
+      sources {
+        url
+        mimeType
+      }
+    }
+    ... on GenericFile {
+      alt
+      mimeType
+      url
+      previewImage {
+        ...CaseStudyImage
+      }
+    }
+  }
+
   query JournalArticle(
     $articleHandle: String!
     $blogHandle: String!
@@ -97,6 +131,7 @@ const ARTICLE_QUERY = `#graphql
         id
         handle
         title
+        tags
         excerpt
         contentHtml
         publishedAt
@@ -113,6 +148,46 @@ const ARTICLE_QUERY = `#graphql
         }
         articleType: metafield(namespace: "custom", key: "article_type") {
           value
+        }
+        services: metafield(namespace: "custom", key: "services") {
+          value
+        }
+        platform: metafield(namespace: "custom", key: "platform") {
+          value
+        }
+        caseStudyTitle: metafield(
+          namespace: "custom"
+          key: "case_study_title"
+        ) {
+          value
+        }
+        caseStudySubheading: metafield(
+          namespace: "custom"
+          key: "case_study_subheading"
+        ) {
+          value
+        }
+        caseStudyBlogDetails: metafield(
+          namespace: "custom"
+          key: "case_study_blog_post"
+        ) {
+          reference {
+            ... on Metaobject {
+              fields {
+                key
+                type
+                value
+                reference {
+                  ...CaseStudyMediaReference
+                }
+                references(first: 20) {
+                  nodes {
+                    ...CaseStudyMediaReference
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

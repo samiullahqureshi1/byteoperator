@@ -5,6 +5,9 @@ export const ARTICLES_BLOG_HANDLE = 'news';
 export const LEGACY_JOURNAL_BLOG_HANDLE = 'journal';
 export const ARTICLES_CLEAN_PATH = '/articles/';
 
+export const CONTACT_PAGE_HANDLE = 'contact';
+export const CONTACT_CLEAN_PATH = '/contact/';
+
 export const SHOPIFY_SEO_PAGE_HANDLE = 'seo-agency';
 export const SHOPIFY_SEO_CLEAN_PATH = '/seo-agency';
 
@@ -43,7 +46,9 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/ai': '/ai-ecommerce-agency/',
   '/ai': '/ai-ecommerce-agency/',
   '/ai/': '/ai-ecommerce-agency/',
-  '/pages/contact': '/contact',
+  [`/pages/${CONTACT_PAGE_HANDLE}`]: CONTACT_CLEAN_PATH,
+  '/pages/contact-us': CONTACT_CLEAN_PATH,
+  '/pages/contact-us/': CONTACT_CLEAN_PATH,
   '/pages/case-studies': '/case-studies',
   // Canonical Shopify source handle first: `resolveLegacyPath` returns the
   // first `/pages/*` entry that points at a clean path, so the retired

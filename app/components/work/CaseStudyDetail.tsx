@@ -61,26 +61,15 @@ const FIELD_KEYS = {
 
 interface CaseStudyDetailProps {
   article: CaseStudyArticle;
-  variant?: 'case-study' | 'article';
-  eyebrow?: string;
-  subtitle?: string | null;
+  fallbackEyebrow?: string;
+  fallbackSubtitle?: string | null;
 }
 
 export function CaseStudyDetail({
   article,
-  variant = 'case-study',
-  eyebrow,
-  subtitle,
+  fallbackEyebrow,
+  fallbackSubtitle,
 }: CaseStudyDetailProps) {
-  if (variant === 'article') {
-    return (
-      <ArticlePresentation
-        article={article}
-        eyebrow={eyebrow || 'Ecommerce Insights'}
-        subtitle={subtitle}
-      />
-    );
-  }
   const fields = new Map(
     (article.caseStudyBlogDetails?.reference?.fields ?? []).map((field) => [
       field.key,
@@ -88,7 +77,8 @@ export function CaseStudyDetail({
     ]),
   );
   const contentSections = splitArticleContent(article.contentHtml);
-  const caseStudySubheading = article.caseStudySubheading?.value.trim();
+  const caseStudySubheading =
+    article.caseStudySubheading?.value.trim() || fallbackSubtitle?.trim();
   const briefHtml = contentSections[0] ?? '';
   const remainingContent = contentSections.slice(1);
   const heroImages = Array.from({length: 5}, (_, index) =>
@@ -110,7 +100,8 @@ export function CaseStudyDetail({
   const platform = formatMetafieldValue(article.platform?.value);
   const websiteText = fields.get(FIELD_KEYS.urlText)?.value?.trim();
   const websiteUrl = fields.get(FIELD_KEYS.url)?.value?.trim();
-  const caseStudyTitle = article.caseStudyTitle?.value.trim();
+  const caseStudyTitle =
+    article.caseStudyTitle?.value.trim() || fallbackEyebrow?.trim();
   const videos = getVideos(fields.get(FIELD_KEYS.videos));
   const infoRows = [
     industry ? {label: 'Industry', value: industry} : null,
@@ -214,56 +205,6 @@ export function CaseStudyDetail({
   );
 }
 
-function ArticlePresentation({
-  article,
-  eyebrow,
-  subtitle,
-}: {
-  article: CaseStudyArticle;
-  eyebrow: string;
-  subtitle?: string | null;
-}) {
-  const contentSections = splitArticleContent(article.contentHtml);
-  const briefHtml = contentSections[0] ?? '';
-  const remainingContent = contentSections.slice(1);
-
-  return (
-    <main className="ft-case-detail">
-      <header className="ft-case-detail__hero">
-        <p className="ft-case-detail__eyebrow">{eyebrow}</p>
-        <h1>{article.title}</h1>
-        {subtitle ? <p className="ft-case-detail__intro">{subtitle}</p> : null}
-      </header>
-
-      {article.image ? (
-        <ProjectImage image={article.image} fallbackAlt={article.title} eager />
-      ) : null}
-
-      {briefHtml ? (
-        <section
-          className="ft-case-detail__brief"
-          aria-label="Article introduction"
-        >
-          <div className="ft-case-detail__copy">
-            <RichText html={briefHtml} />
-          </div>
-        </section>
-      ) : null}
-
-      <div className="ft-case-detail__sequence">
-        {remainingContent.map((html, index) => (
-          <section className="ft-case-detail__chapter" key={index}>
-            <RichText html={html} />
-          </section>
-        ))}
-      </div>
-
-      <div className="ft-case-detail__experts">
-        <HomeExperts />
-      </div>
-    </main>
-  );
-}
 function ProjectImage({
   image,
   fallbackAlt,

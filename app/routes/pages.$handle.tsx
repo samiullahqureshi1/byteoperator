@@ -95,6 +95,7 @@ import {
   isSamePath,
   resolveCleanPath,
   resolveServiceConfigHandle,
+  CONTACT_PAGE_HANDLE,
   AI_SEO_PAGE_HANDLE,
   GEO_PAGE_HANDLE,
   CRO_PAGE_HANDLE,
@@ -386,6 +387,7 @@ export async function loadPageData({
       },
     }),
     handle === 'work' ||
+      handle === CONTACT_PAGE_HANDLE ||
       handle === 'ecommerce-seo-agency' ||
       handle === AI_SEO_PAGE_HANDLE ||
       handle === GEO_PAGE_HANDLE ||
