@@ -5,7 +5,7 @@
   padding-top: 0;
   padding-bottom: clamp(2rem, 5vw, 5rem);
 
-  background: #01151b;
+  background: transparent;
   color: #fff;
 }
 
@@ -117,7 +117,7 @@
   color: #afdddc;
 }
 
-.ft-articles-featured__link:hover .ft-articles-featured__cta {
+.ft-articles-featured__cta:hover {
   text-decoration: underline;
 }
 
@@ -204,4 +204,12 @@
     column-gap: 2rem;
     row-gap: 4rem;
   }
+}
+
+/* =========================================================
+   ARTICLES — SHOPIFY EXPERTS CTA BACKGROUND OVERRIDE
+========================================================= */
+
+.ft-articles-experts .ft-home-experts {
+  background: #01151b;
 }

@@ -4,7 +4,7 @@
   padding-top: 1.25rem;
   padding-bottom: 1rem;
   overflow: visible;
-  background: #01151b;
+  background: transparent;
   color: #ffffff;
 }
 
@@ -21,8 +21,14 @@
 .ft-articles-intro__gradient {
   position: absolute;
   inset: 0;
-  overflow: hidden;
   pointer-events: none;
+
+  /* The glow circle extends well below this section. Clipping it vertically
+     cut it off mid-fade and drew a hard horizontal line at the section seam,
+     so let it spill onto the shared page canvas and fade out on its own.
+     overflow-x stays clipped to keep the page free of horizontal overflow. */
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .ft-articles-intro__gradient::before {
@@ -152,8 +158,12 @@
 }
 
 .ft-articles-newsletter__input {
-  flex: 1;
+  flex: 1 1 auto;
   min-width: 0;
+
+  /* reset.css `input {}` sets margin-top/bottom, which inflates the flex
+     line and makes the button stretch taller than the input. */
+  margin: 0;
 
   padding: 0.6rem 1.1rem;
 
@@ -234,7 +244,7 @@
 }
 
 .ft-articles-newsletter__privacy {
-  margin: 0.4rem 0 0;
+  margin: 0.4rem 0 0 !important;
 
   font-family: "Season Sans", sans-serif;
   font-size: 0.6rem;

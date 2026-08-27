@@ -6,14 +6,20 @@ import {
   type ArticleFilter,
 } from '~/components/articles/ArticlesIntro';
 import {ArticlesListing} from '~/components/articles/ArticlesListing';
+import {HomeExperts} from '~/components/HomeExperts';
+import {WorkTestimonial} from '~/components/work/WorkTestimonial';
 import {getArticlesPageData} from '~/lib/articles-data.server';
 import {ARTICLES_CLEAN_PATH} from '~/lib/route-mappings';
 import articlesIntroStyles from '~/styles/articles-intro.css?url';
 import articlesListingStyles from '~/styles/articles-listing.css?url';
+import homeExpertsStyles from '~/styles/home-experts.css?url';
+import workTestimonialStyles from '~/styles/work-testimonial.css?url';
 
 export const links: Route.LinksFunction = () => [
   {rel: 'stylesheet', href: articlesIntroStyles},
   {rel: 'stylesheet', href: articlesListingStyles},
+  {rel: 'stylesheet', href: homeExpertsStyles},
+  {rel: 'stylesheet', href: workTestimonialStyles},
 ];
 
 export const meta: Route.MetaFunction = ({data}) => {
@@ -46,6 +52,10 @@ export default function Articles() {
         articles={articles}
         featuredArticle={featuredArticle}
       />
+      <WorkTestimonial />
+      <div className="ft-articles-experts">
+        <HomeExperts />
+      </div>
     </>
   );
 }

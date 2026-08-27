@@ -79,21 +79,22 @@ export function ArticlesListing({
 }
 
 function FeaturedArticle({article}: {article: ArticlesListingArticle}) {
+  const articlePath = getArticlePath(article.handle);
+
+  // Only the image and the "Read article" link navigate. The wrapper is a
+  // plain <div> so the label, title, excerpt and surrounding space are inert.
   return (
     <article className="ft-articles-featured">
-      <Link
-        className="ft-articles-featured__link"
-        to={getArticlePath(article.handle)}
-      >
+      <div className="ft-articles-featured__link">
         {article.image ? (
-          <div className="ft-articles-featured__image">
+          <Link className="ft-articles-featured__image" to={articlePath}>
             <Image
               alt={article.image.altText || article.title}
               data={article.image}
               loading="eager"
               sizes="(min-width: 768px) 60vw, 100vw"
             />
-          </div>
+          </Link>
         ) : null}
 
         <div className="ft-articles-featured__content">
@@ -101,12 +102,12 @@ function FeaturedArticle({article}: {article: ArticlesListingArticle}) {
           <h2>{article.title}</h2>
           {article.excerpt ? <p>{article.excerpt}</p> : null}
 
-          <span className="ft-articles-featured__cta">
+          <Link className="ft-articles-featured__cta" to={articlePath}>
             Read article
             <span aria-hidden="true">&rarr;</span>
-          </span>
+          </Link>
         </div>
-      </Link>
+      </div>
     </article>
   );
 }
