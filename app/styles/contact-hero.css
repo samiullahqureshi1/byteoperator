@@ -742,6 +742,157 @@
   text-decoration: none;
 }
 
+/* =========================================================
+   FILE UPLOAD
+========================================================= */
+
+.ft-contact-form__row--file {
+  margin-bottom: 0.35rem;
+}
+
+.ft-contact-form__hint {
+  margin: 0 0 0.5rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.75rem;
+  font-weight: 300;
+
+  line-height: 1.35;
+
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.ft-contact-form__file-input {
+  position: absolute;
+
+  width: 0.0625rem;
+  height: 0.0625rem;
+
+  margin: -0.0625rem;
+  padding: 0;
+
+  overflow: hidden;
+
+  clip-path: inset(50%);
+
+  white-space: nowrap;
+}
+
+.ft-contact-form__file-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 0.35rem 0.6rem;
+}
+
+.ft-contact-form__file-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.45rem 0.9rem;
+
+  border: 0;
+  border-radius: 999rem;
+
+  background: #eeeeee;
+  color: #000000;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.75rem;
+  font-weight: 400;
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition: background-color 220ms ease;
+}
+
+.ft-contact-form__file-trigger:hover {
+  background: #e3e3e3;
+}
+
+.ft-contact-form__file-input:focus-visible
++ .ft-contact-form__file-row
+.ft-contact-form__file-trigger {
+  outline: 0.125rem solid var(--ft-dark-deep, #01151b);
+  outline-offset: 0.125rem;
+}
+
+.ft-contact-form__file-name {
+  min-width: 0;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.75rem;
+  font-weight: 300;
+
+  line-height: 1.4;
+
+  color: rgba(0, 0, 0, 0.45);
+
+  overflow-wrap: anywhere;
+}
+
+.ft-contact-form__file-remove {
+  appearance: none;
+
+  padding: 0;
+
+  border: 0;
+
+  background: none;
+  color: rgba(0, 0, 0, 0.45);
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.75rem;
+  font-weight: 300;
+
+  line-height: 1.4;
+
+  text-decoration: underline;
+  text-underline-offset: 0.15rem;
+
+  cursor: pointer;
+}
+
+.ft-contact-form__file-remove:hover:not(:disabled) {
+  color: #000000;
+
+  text-decoration: none;
+}
+
+.ft-contact-form__file-remove:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+.ft-contact-form__file-error {
+  margin: 0.4rem 0 0;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.75rem;
+  font-weight: 300;
+
+  line-height: 1.4;
+
+  color: #b3261e;
+}
+
+.ft-contact-form__submit:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
 
 /* =========================================================
    SUBMIT BUTTON
@@ -818,6 +969,93 @@
   line-height: 1.4;
 
   color: #666666;
+}
+
+/* =========================================================
+   SUBMIT ERROR + THANK YOU
+========================================================= */
+
+.ft-contact-form[hidden] {
+  display: none;
+}
+
+.ft-contact-form__error {
+  margin: 0.8rem 0 0;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.8125rem;
+  font-weight: 300;
+
+  line-height: 1.4;
+
+  color: #b3261e;
+}
+
+.ft-contact-form__thanks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+
+  padding: 1.5rem 0;
+
+  box-sizing: border-box;
+}
+
+.ft-contact-form__thanks-title {
+  margin: 0 0 0.65rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 1.35rem;
+  font-weight: 300;
+
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+
+  color: #000000;
+}
+
+.ft-contact-form__thanks-text {
+  margin: 0 0 1.25rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.9375rem;
+  font-weight: 300;
+
+  line-height: 1.55;
+
+  color: #4a4a4a;
+}
+
+.ft-contact-form__thanks-reset {
+  appearance: none;
+
+  padding: 0;
+
+  border: 0;
+
+  background: none;
+  color: #000000;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.8125rem;
+  font-weight: 300;
+
+  line-height: 1.4;
+
+  text-decoration: underline;
+  text-underline-offset: 0.15rem;
+
+  cursor: pointer;
+}
+
+.ft-contact-form__thanks-reset:hover {
+  text-decoration: none;
 }
 
 

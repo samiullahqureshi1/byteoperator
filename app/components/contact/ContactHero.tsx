@@ -1,6 +1,8 @@
 import {
   useCallback,
+  useRef,
   useState,
+  type ChangeEvent,
   type FormEvent,
 } from 'react';
 import {VideoModal} from '~/components/shared/VideoModal';
@@ -59,16 +61,171 @@ const SOURCE_OPTIONS = [
   'Other',
 ] as const;
 
+const MAX_UPLOAD_SIZE = 10 * 1024 * 1024;
+
+const ALLOWED_UPLOAD_EXTENSIONS = [
+  'jpg',
+  'jpeg',
+  'png',
+  'webp',
+  'pdf',
+  'doc',
+  'docx',
+];
+
+const UPLOAD_ACCEPT = [
+  '.jpg',
+  '.jpeg',
+  '.png',
+  '.webp',
+  '.pdf',
+  '.doc',
+  '.docx',
+  'image/jpeg',
+  'image/png',
+  'image/webp',
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+].join(',');
+
+const UPLOAD_TYPE_ERROR =
+  'That file type is not supported. Please upload a JPG, PNG, WEBP, PDF, DOC or DOCX file.';
+
+const UPLOAD_SIZE_ERROR =
+  'That file is larger than 10MB. Please upload a smaller file.';
+
+function getUploadExtension(fileName: string) {
+  const lastDot = fileName.lastIndexOf('.');
+
+  if (lastDot < 0) {
+    return '';
+  }
+
+  return fileName.slice(lastDot + 1).toLowerCase();
+}
+
 export function ContactHero() {
   const [videoOpen, setVideoOpen] = useState(false);
   const [status, setStatus] = useState('');
+  const [file, setFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const isBusy = isUploading || isSubmitting;
 
   const closeVideo = useCallback(() => {
     setVideoOpen(false);
   }, []);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleFileChange(event: ChangeEvent<HTMLInputElement>) {
+    const selected = event.currentTarget.files?.[0] ?? null;
+
+    if (!selected) {
+      setFile(null);
+      setFileError('');
+      return;
+    }
+
+    if (
+      !ALLOWED_UPLOAD_EXTENSIONS.includes(getUploadExtension(selected.name))
+    ) {
+      setFile(null);
+      setFileError(UPLOAD_TYPE_ERROR);
+
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+
+      return;
+    }
+
+    if (selected.size > MAX_UPLOAD_SIZE) {
+      setFile(null);
+      setFileError(UPLOAD_SIZE_ERROR);
+
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+
+      return;
+    }
+
+    setFile(selected);
+    setFileError('');
+  }
+
+  function removeFile() {
+    setFile(null);
+    setFileError('');
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+
+    fileInputRef.current?.focus();
+  }
+
+  async function uploadFile(selected: File) {
+    const payload = new FormData();
+    payload.append('file', selected);
+
+    const response = await fetch('/api/contact-upload', {
+      method: 'POST',
+      body: payload,
+    });
+
+    let result: {url?: string; error?: string} = {};
+
+    try {
+      result = (await response.json()) as {url?: string; error?: string};
+    } catch {
+      result = {};
+    }
+
+    if (!response.ok || !result.url) {
+      throw new Error(
+        result.error ||
+          'The upload failed. Please try again or email your file to info@thefoldtech.com.',
+      );
+    }
+
+    return result.url;
+  }
+
+  async function submitEnquiry(data: FormData) {
+    const response = await fetch('/api/contact-submit', {
+      method: 'POST',
+      body: data,
+    });
+
+    let result: {ok?: boolean; error?: string} = {};
+
+    try {
+      result = (await response.json()) as {ok?: boolean; error?: string};
+    } catch {
+      result = {};
+    }
+
+    if (!response.ok || !result.ok) {
+      throw new Error(
+        result.error ||
+          'We could not send your enquiry. Please try again or email info@thefoldtech.com.',
+      );
+    }
+  }
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (isUploading || isSubmitting) {
+      return;
+    }
 
     const form = event.currentTarget;
 
@@ -79,44 +236,67 @@ export function ContactHero() {
 
     const data = new FormData(form);
 
-    const firstName = String(data.get('firstName') ?? '').trim();
-    const lastName = String(data.get('lastName') ?? '').trim();
-    const company = String(data.get('company') ?? '').trim();
-    const email = String(data.get('email') ?? '').trim();
-    const phone = String(data.get('phone') ?? '').trim();
-    const budget = String(data.get('budget') ?? '').trim();
-    const service = String(data.get('service') ?? '').trim();
-    const source = String(data.get('source') ?? '').trim();
-    const message = String(data.get('message') ?? '').trim();
-    const marketing =
-      data.get('marketingConsent') === 'on' ? 'Yes' : 'No';
+    setSubmitError('');
 
-    const subject = 'New FoldTech Website Enquiry';
+    let uploadedUrl = '';
 
-    const body = [
-      'New enquiry from the FoldTech website',
-      '',
-      `Name: ${firstName} ${lastName}`,
-      `Company: ${company}`,
-      `Email: ${email}`,
-      `Phone: ${phone}`,
-      `Budget: ${budget}`,
-      `Service: ${service || 'Not selected'}`,
-      `How they found us: ${source}`,
-      `Marketing consent: ${marketing}`,
-      '',
-      'Project details:',
-      message,
-    ].join('\n');
+    if (file) {
+      setFileError('');
+      setIsUploading(true);
+      setStatus('Uploading your file…');
 
-    const mailtoUrl =
-      `mailto:info@thefoldtech.com` +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
+      try {
+        uploadedUrl = await uploadFile(file);
+      } catch (error) {
+        setIsUploading(false);
+        setStatus('');
+        setFileError(
+          error instanceof Error
+            ? error.message
+            : 'The upload failed. Please try again.',
+        );
 
-    setStatus('Opening your email app…');
+        // Upload failed — do not send an enquiry with a missing file.
+        return;
+      }
 
-    window.location.href = mailtoUrl;
+      setIsUploading(false);
+    }
+
+    if (uploadedUrl) {
+      data.set('uploadedUrl', uploadedUrl);
+    }
+
+    setIsSubmitting(true);
+    setStatus('Sending your enquiry…');
+
+    try {
+      await submitEnquiry(data);
+    } catch (error) {
+      setIsSubmitting(false);
+      setStatus('');
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : 'We could not send your enquiry. Please try again.',
+      );
+
+      // Submission failed — keep the form intact so it can be retried.
+      return;
+    }
+
+    setIsSubmitting(false);
+    setStatus('');
+    setSubmitError('');
+    setIsSubmitted(true);
+
+    form.reset();
+    setFile(null);
+    setFileError('');
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   }
 
   return (
@@ -232,9 +412,37 @@ export function ContactHero() {
             </div>
 
             <div className="ft-contact-hero__form-card">
+              {isSubmitted ? (
+                <div
+                  className="ft-contact-form__thanks"
+                  role="status"
+                  aria-live="polite"
+                >
+                  <h2 className="ft-contact-form__thanks-title">
+                    Thank you for getting in touch
+                  </h2>
+
+                  <p className="ft-contact-form__thanks-text">
+                    We&apos;ve received your enquiry and a member of the
+                    FoldTech team will reply within 24 hours.
+                  </p>
+
+                  <button
+                    type="button"
+                    className="ft-contact-form__thanks-reset"
+                    onClick={() => setIsSubmitted(false)}
+                  >
+                    Send another enquiry
+                  </button>
+                </div>
+              ) : null}
+
               <form
+                hidden={isSubmitted}
                 className="ft-contact-form"
-                onSubmit={handleSubmit}
+                onSubmit={(event) => {
+                  void handleSubmit(event);
+                }}
               >
                 <div className="ft-contact-form__row ft-contact-form__row--split">
                   <ContactInput
@@ -325,6 +533,69 @@ export function ContactHero() {
                   />
                 </div>
 
+                <div className="ft-contact-form__row ft-contact-form__row--file">
+                  <label
+                    className="ft-contact-form__label"
+                    htmlFor="ft-contact-file"
+                  >
+                    Attach files (optional)
+                  </label>
+
+                  <p
+                    className="ft-contact-form__hint"
+                    id="ft-contact-file-hint"
+                  >
+                    If you have a brief or relevant files you&apos;d like
+                    to attach, please add them here.
+                  </p>
+
+                  <input
+                    ref={fileInputRef}
+                    id="ft-contact-file"
+                    className="ft-contact-form__file-input"
+                    type="file"
+                    accept={UPLOAD_ACCEPT}
+                    aria-describedby="ft-contact-file-hint"
+                    onChange={handleFileChange}
+                  />
+
+                  <div className="ft-contact-form__file-row">
+                    <label
+                      className="ft-contact-form__file-trigger"
+                      htmlFor="ft-contact-file"
+                    >
+                      Choose Files
+                    </label>
+
+                    <span
+                      className="ft-contact-form__file-name"
+                      aria-live="polite"
+                    >
+                      {file ? file.name : 'No file chosen'}
+                    </span>
+
+                    {file ? (
+                      <button
+                        type="button"
+                        className="ft-contact-form__file-remove"
+                        onClick={removeFile}
+                        disabled={isBusy}
+                      >
+                        Remove
+                      </button>
+                    ) : null}
+                  </div>
+
+                  {fileError ? (
+                    <p
+                      className="ft-contact-form__file-error"
+                      role="alert"
+                    >
+                      {fileError}
+                    </p>
+                  ) : null}
+                </div>
+
                 <div
                   className="ft-contact-form__honeypot"
                   aria-hidden="true"
@@ -367,8 +638,13 @@ export function ContactHero() {
                 <button
                   type="submit"
                   className="ft-contact-form__submit"
+                  disabled={isBusy}
                 >
-                  Submit Enquiry
+                  {isUploading
+                    ? 'Uploading file…'
+                    : isSubmitting
+                      ? 'Sending…'
+                      : 'Submit Enquiry'}
 
                   <ArrowIcon />
                 </button>
@@ -379,6 +655,15 @@ export function ContactHero() {
                     aria-live="polite"
                   >
                     {status}
+                  </p>
+                ) : null}
+
+                {submitError ? (
+                  <p
+                    className="ft-contact-form__error"
+                    role="alert"
+                  >
+                    {submitError}
                   </p>
                 ) : null}
               </form>
