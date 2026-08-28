@@ -338,7 +338,9 @@
   display: block;
 
   width: auto;
-  height: auto;
+  height: 6vh;
+
+  aspect-ratio: 257 / 93;
 
   max-width: 58vw;
   max-height: 6vh;
