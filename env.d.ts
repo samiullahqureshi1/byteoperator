@@ -16,7 +16,10 @@ declare global {
     CLOUDINARY_CLOUD_NAME: string;
     CLOUDINARY_API_KEY: string;
     CLOUDINARY_API_SECRET: string;
-    /** Resend — used by /api/contact-submit. */
-    RESEND_API_KEY: string;
+    /** EmailJS — used by /api/contact-submit. */
+    SERVICE_ID: string;
+    TEMPLETE_ID: string;
+    PUBLIC_MAILJS_API_KEY: string;
+    PRIVATE_MAILJS_API_KEY: string;
   }
 }

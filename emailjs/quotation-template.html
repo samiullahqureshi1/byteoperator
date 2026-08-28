@@ -1,0 +1,77 @@
+<!--
+  EmailJS template source for template_ycsqblq ("FoldTech Quotation Request").
+
+  This file lives only as a version-controlled record of what's configured
+  in the EmailJS dashboard — EmailJS has no API to push templates, so it
+  must be pasted in by hand at emailjs.com/admin (Email Templates ->
+  template_ycsqblq -> Content, in HTML mode).
+
+  Dashboard settings (Settings tab of the template):
+    Subject:    New Quotation Request — {{full_name}} ({{company}})
+    To Email:   {{to_email}}
+    From Name:  FoldTech Website
+    Reply To:   {{reply_to}}
+
+  template_params sent by app/routes/api.contact-submit.tsx:
+    to_email, reply_to, first_name, last_name, full_name, company, email,
+    phone, budget, service, source, marketing_consent, message,
+    uploaded_url, attachment_row
+
+  attachment_row is pre-built server-side as either an empty string or a
+  full <tr> block (see escapeHtml/attachmentRow in api.contact-submit.tsx),
+  so it can be dropped straight into the table below as a raw placeholder —
+  EmailJS does not support conditionals, this is how the "uploaded file"
+  row is made optional. All other values arrive already HTML-escaped.
+-->
+<div style="background-color:#0b1120;padding:32px 16px;font-family:Arial,Helvetica,sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;margin:0 auto;background-color:#ffffff;border-radius:12px;overflow:hidden;">
+    <tr>
+      <td style="background-color:#0f766e;padding:20px 28px;">
+        <span style="color:#ffffff;font-size:18px;font-weight:700;letter-spacing:0.3px;">FoldTech</span>
+        <span style="color:#a7f3d0;font-size:13px;display:block;margin-top:2px;">New quotation request from the website</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:28px;">
+        <h1 style="margin:0 0 4px;font-size:20px;line-height:1.3;color:#0f172a;font-family:Arial,Helvetica,sans-serif;">{{full_name}}</h1>
+        <p style="margin:0 0 20px;font-size:14px;color:#64748b;">{{company}}</p>
+
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;color:#0f172a;border-collapse:collapse;">
+          <tr>
+            <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;color:#64748b;width:150px;vertical-align:top;">Email</td>
+            <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;"><a href="mailto:{{email}}" style="color:#0f766e;text-decoration:none;">{{email}}</a></td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;color:#64748b;vertical-align:top;">Phone</td>
+            <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;">{{phone}}</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;color:#64748b;vertical-align:top;">Budget</td>
+            <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;">{{budget}}</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;color:#64748b;vertical-align:top;">Service of interest</td>
+            <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;">{{service}}</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;color:#64748b;vertical-align:top;">How they found us</td>
+            <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;">{{source}}</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;color:#64748b;vertical-align:top;">Marketing consent</td>
+            <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;">{{marketing_consent}}</td>
+          </tr>
+          {{attachment_row}}
+        </table>
+
+        <p style="margin:24px 0 8px;font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.4px;">Project details</p>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:#0f172a;white-space:pre-wrap;">{{message}}</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:16px 28px;background-color:#f8fafc;">
+        <p style="margin:0;font-size:12px;color:#94a3b8;">Sent automatically from the FoldTech website contact form. Reply to this email to respond directly to {{first_name}}.</p>
+      </td>
+    </tr>
+  </table>
+</div>

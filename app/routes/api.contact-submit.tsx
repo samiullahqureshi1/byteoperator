@@ -2,13 +2,11 @@ import type {Route} from './+types/api.contact-submit';
 
 const RECIPIENT = '2009tabontech@gmail.com';
 
-const FROM_ADDRESS = 'FoldTech Website <onboarding@resend.dev>';
-
-const SUBJECT = 'New FoldTech Website Enquiry';
-
 const CLOUDINARY_URL_PREFIX = 'https://res.cloudinary.com/';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const EMAILJS_ENDPOINT = 'https://api.emailjs.com/api/v1.0/email/send';
 
 const REQUIRED_FIELDS = [
   {name: 'firstName', label: 'First name'},
@@ -20,11 +18,6 @@ const REQUIRED_FIELDS = [
   {name: 'source', label: 'How did you find us'},
   {name: 'message', label: 'Project details'},
 ] as const;
-
-interface ResendErrorResponse {
-  message?: string;
-  name?: string;
-}
 
 function jsonResponse(data: unknown, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -48,6 +41,20 @@ function readField(form: FormData, name: string) {
  */
 function sanitizeHeaderValue(value: string) {
   return value.replace(/[\r\n]+/g, ' ').trim();
+}
+
+/**
+ * EmailJS inserts template_params into the template HTML with a raw string
+ * substitution (no escaping), so untrusted form values must be escaped here
+ * or a submission could inject markup into the outgoing email.
+ */
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 export async function loader() {
@@ -117,11 +124,25 @@ export async function action({context, request}: Route.ActionArgs) {
     return jsonResponse({error: 'That file link is not valid.'}, 400);
   }
 
-  const apiKey = context.env.RESEND_API_KEY;
+  const serviceId = context.env.SERVICE_ID;
+  const templateId = context.env.TEMPLETE_ID;
+  const publicKey = context.env.PUBLIC_MAILJS_API_KEY;
+  const privateKey = context.env.PRIVATE_MAILJS_API_KEY;
 
-  if (!apiKey) {
+  if (!serviceId || !templateId || !publicKey || !privateKey) {
+    console.error(
+      '[contact-submit] FAIL — EmailJS is not configured. Missing env var(s):',
+      {
+        SERVICE_ID: Boolean(serviceId),
+        TEMPLETE_ID: Boolean(templateId),
+        PUBLIC_MAILJS_API_KEY: Boolean(publicKey),
+        PRIVATE_MAILJS_API_KEY: Boolean(privateKey),
+      },
+    );
+
     return jsonResponse(
       {
+        ok: false,
         error: `Enquiries are not available right now. Please email ${RECIPIENT} instead.`,
       },
       500,
@@ -131,46 +152,57 @@ export async function action({context, request}: Route.ActionArgs) {
   const marketing =
     marketingConsent && marketingConsent !== 'off' ? 'Yes' : 'No';
 
-  const lines = [
-    'New enquiry from the FoldTech website',
-    '',
-    `Name: ${firstName} ${lastName}`,
-    `Company: ${company}`,
-    `Email: ${email}`,
-    `Phone: ${phone}`,
-    `Budget: ${budget}`,
-    `Service: ${service || 'Not selected'}`,
-    `How they found us: ${source}`,
-    `Marketing consent: ${marketing}`,
-    '',
-    'Project details:',
-    message,
-  ];
+  const attachmentRow = uploadedUrl
+    ? `<tr><td style="padding:8px 0;color:#64748b;">Uploaded file</td><td style="padding:8px 0;"><a href="${escapeHtml(uploadedUrl)}" style="color:#0f766e;text-decoration:none;word-break:break-all;">${escapeHtml(uploadedUrl)}</a></td></tr>`
+    : '';
 
-  if (uploadedUrl) {
-    lines.push('', 'Uploaded file:', uploadedUrl);
-  }
+  const templateParams = {
+    to_email: RECIPIENT,
+    reply_to: sanitizeHeaderValue(email),
+    first_name: escapeHtml(firstName),
+    last_name: escapeHtml(lastName),
+    full_name: escapeHtml(`${firstName} ${lastName}`),
+    company: escapeHtml(company),
+    email: escapeHtml(email),
+    phone: escapeHtml(phone),
+    budget: escapeHtml(budget),
+    service: escapeHtml(service || 'Not selected'),
+    source: escapeHtml(source),
+    marketing_consent: marketing,
+    message: escapeHtml(message),
+    uploaded_url: uploadedUrl ? escapeHtml(uploadedUrl) : 'No file attached',
+    attachment_row: attachmentRow,
+  };
 
   let response: Response;
+  let responseText = '';
 
   try {
-    response = await fetch('https://api.resend.com/emails', {
+    response = await fetch(EMAILJS_ENDPOINT, {
       method: 'POST',
       headers: {
-        authorization: `Bearer ${apiKey}`,
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        from: FROM_ADDRESS,
-        to: [RECIPIENT],
-        reply_to: sanitizeHeaderValue(email),
-        subject: SUBJECT,
-        text: lines.join('\n'),
+        service_id: serviceId,
+        template_id: templateId,
+        user_id: publicKey,
+        accessToken: privateKey,
+        template_params: templateParams,
       }),
     });
-  } catch {
+
+    responseText = await response.text();
+  } catch (error) {
+    console.error(
+      `[contact-submit] FAIL — could not reach EmailJS. Reason: ${
+        error instanceof Error ? error.message : String(error)
+      }`,
+    );
+
     return jsonResponse(
       {
+        ok: false,
         error: `We could not send your enquiry. Please try again or email ${RECIPIENT}.`,
       },
       502,
@@ -178,13 +210,24 @@ export async function action({context, request}: Route.ActionArgs) {
   }
 
   if (!response.ok) {
+    console.error(
+      `[contact-submit] FAIL — EmailJS rejected the send. HTTP ${response.status} ${response.statusText}. Reason: ${
+        responseText || '(empty response body)'
+      }`,
+    );
+
     return jsonResponse(
       {
+        ok: false,
         error: 'We could not send your enquiry. Please try again.',
       },
       502,
     );
   }
+
+  console.log(
+    `[contact-submit] SUCCESS — EmailJS accepted the enquiry from "${email}" for ${RECIPIENT}. HTTP ${response.status}: ${responseText}`,
+  );
 
   return jsonResponse({ok: true});
 }
