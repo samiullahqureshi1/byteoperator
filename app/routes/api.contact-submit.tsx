@@ -149,29 +149,31 @@ export async function action({context, request}: Route.ActionArgs) {
     );
   }
 
-  const marketing =
+  const newsletter =
     marketingConsent && marketingConsent !== 'off' ? 'Yes' : 'No';
 
-  const attachmentRow = uploadedUrl
-    ? `<tr><td style="padding:8px 0;color:#64748b;">Uploaded file</td><td style="padding:8px 0;"><a href="${escapeHtml(uploadedUrl)}" style="color:#0f766e;text-decoration:none;word-break:break-all;">${escapeHtml(uploadedUrl)}</a></td></tr>`
-    : '';
+  // The template's `message` variable is the only place left to surface an
+  // uploaded file link — the fixed template_params list below has no
+  // dedicated attachment variable, so this is how attachment support stays
+  // intact without inventing a variable the template doesn't expect.
+  const messageWithAttachment = uploadedUrl
+    ? `${message}\n\nUploaded file: ${uploadedUrl}`
+    : message;
 
   const templateParams = {
     to_email: RECIPIENT,
     reply_to: sanitizeHeaderValue(email),
     first_name: escapeHtml(firstName),
     last_name: escapeHtml(lastName),
-    full_name: escapeHtml(`${firstName} ${lastName}`),
     company: escapeHtml(company),
     email: escapeHtml(email),
     phone: escapeHtml(phone),
     budget: escapeHtml(budget),
     service: escapeHtml(service || 'Not selected'),
-    source: escapeHtml(source),
-    marketing_consent: marketing,
-    message: escapeHtml(message),
-    uploaded_url: uploadedUrl ? escapeHtml(uploadedUrl) : 'No file attached',
-    attachment_row: attachmentRow,
+    referral: escapeHtml(source),
+    message: escapeHtml(messageWithAttachment),
+    newsletter,
+    time: new Date().toISOString(),
   };
 
   let response: Response;

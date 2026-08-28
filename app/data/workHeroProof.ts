@@ -14,27 +14,27 @@ export const WORK_HERO_TESTIMONIAL: ClientProofTestimonial = {
 
 export const WORK_HERO_LOGOS: ClientProofLogo[] = [
   {
-    src: '/images/home-projects/cambridge/logo.svg',
-    alt: 'Cambridge Satchel',
+    src: '/images/home-services/clients/logo-1.svg',
+    alt: '',
   },
   {
-    src: '/images/home-services/clients/billionaire-boys-club.svg',
-    alt: 'Billionaire Boys Club',
+    src: '/images/home-services/clients/logo-2.svg',
+    alt: '',
   },
   {
-    src: '/images/home-projects/111skin/logo.svg',
-    alt: '111SKIN',
+    src: '/images/home-services/clients/logo-3.svg',
+    alt: '',
   },
   {
-    src: '/images/home-services/clients/candy-kittens.svg',
-    alt: 'Candy Kittens',
+    src: '/images/home-services/clients/logo-4.svg',
+    alt: '',
   },
   {
-    src: '/images/home-services/clients/muc-off.svg',
-    alt: 'Muc-Off',
+    src: '/images/home-services/clients/logo-5.svg',
+    alt: '',
   },
   {
-    src: '/images/home-projects/case/logo.svg',
-    alt: 'Case Furniture',
+    src: '/images/home-services/clients/logo-6.svg',
+    alt: '',
   },
 ];

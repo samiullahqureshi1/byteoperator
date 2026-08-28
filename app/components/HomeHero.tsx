@@ -99,25 +99,10 @@ function HeroMark() {
       className="ft-home-hero__mark"
       aria-hidden="true"
     >
-      <svg
-        width="1em"
-        height="1em"
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect
-          width="48"
-          height="48"
-          rx="10"
-          fill="currentColor"
-        />
-
-        <path
-          d="M24 8.8C24.9 17.2 30.8 23.1 39.2 24C30.8 24.9 24.9 30.8 24 39.2C23.1 30.8 17.2 24.9 8.8 24C17.2 23.1 23.1 17.2 24 8.8Z"
-          fill="#01151B"
-        />
-      </svg>
+      <img
+        src="/images/foldtech-mark.svg"
+        alt=""
+      />
     </span>
   );
 }

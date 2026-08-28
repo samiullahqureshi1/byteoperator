@@ -36,7 +36,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     image:
       '/images/home-projects/bbc/image.webp',
     logo:
-      '/images/home-services/clients/billionaire-boys-club.svg',
+      '/images/home-services/clients/logo-1.svg',
     thumbnail:
       '/images/home-projects/bbc/thumbnail.webp',
     logoWidth: '21%',
@@ -78,7 +78,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     image:
       '/images/home-projects/candy-kittens/image.webp',
     logo:
-      '/images/home-services/clients/candy-kittens.svg',
+      '/images/home-services/clients/logo-2.svg',
     thumbnail:
       '/images/home-projects/candy-kittens/thumbnail.webp',
     logoWidth: '17%',
