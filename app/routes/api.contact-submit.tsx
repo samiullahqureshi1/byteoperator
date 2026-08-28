@@ -1,6 +1,6 @@
 import type {Route} from './+types/api.contact-submit';
 
-const RECIPIENT = 'info@thefoldtech.com';
+const RECIPIENT = '2009tabontech@gmail.com';
 
 const FROM_ADDRESS = 'FoldTech Website <onboarding@resend.dev>';
 
@@ -178,19 +178,9 @@ export async function action({context, request}: Route.ActionArgs) {
   }
 
   if (!response.ok) {
-    let result: ResendErrorResponse = {};
-
-    try {
-      result = (await response.json()) as ResendErrorResponse;
-    } catch {
-      result = {};
-    }
-
     return jsonResponse(
       {
-        error:
-          result.message ||
-          `We could not send your enquiry. Please try again or email ${RECIPIENT}.`,
+        error: 'We could not send your enquiry. Please try again.',
       },
       502,
     );
