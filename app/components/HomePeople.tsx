@@ -9,7 +9,7 @@ export function HomePeople() {
       <div className="ft-home-people__container">
         <div className="ft-home-people__image">
           <img
-            src="/images/home-people/people.jpeg"
+            src="/images/home-people/people.webp"
             alt="FoldTech team working together"
             width="1668"
             height="700"

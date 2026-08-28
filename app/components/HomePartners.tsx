@@ -6,75 +6,69 @@ import {useState} from 'react';
 
 const PARTNER_LOGOS = [
   {
+    src: '/images/home-partners/shopify.svg',
+    alt: 'Shopify',
+    width: 160,
+    height: 36,
+  },
+  {
     src: '/images/home-partners/shopify-plus.svg',
     alt: 'Shopify Plus',
     width: 176,
     height: 36,
   },
   {
-    src: '/images/home-partners/shopify.svg',
-    alt: 'Shopify',
-    width: 127,
+    src: '/images/home-partners/bigcommerce.svg',
+    alt: 'BigCommerce',
+    width: 160,
     height: 36,
   },
   {
-    src: '/images/home-partners/klaviyo.svg',
-    alt: 'Klaviyo',
-    width: 112,
-    height: 32,
-  },
-  {
-    src: '/images/home-partners/yotpo.svg',
-    alt: 'Yotpo',
-    width: 112,
-    height: 32,
-  },
-  {
-    src: '/images/home-partners/gorgias.svg',
-    alt: 'Gorgias',
-    width: 157,
-    height: 34,
-  },
-  {
-    src: '/images/home-partners/skio.svg',
-    alt: 'Skio',
-    width: 157,
-    height: 34,
-  },
-  {
-    src: '/images/home-partners/triple-whale.svg',
-    alt: 'Triple Whale',
-    width: 205,
-    height: 27,
-  },
-  {
-    src: '/images/home-partners/shoplift.svg',
-    alt: 'Shoplift',
-    width: 150,
-    height: 30,
-  },
-  {
-    src: '/images/home-partners/recharge.svg',
-    alt: 'Recharge',
-    width: 150,
-    height: 30,
-  },
-  {
-    src: '/images/home-partners/brightpearl.svg',
-    alt: 'Brightpearl',
-    width: 144,
-    height: 30,
-  },
-  {
-    src: '/images/home-partners/loyalty-lion.svg',
-    alt: 'LoyaltyLion',
-    width: 150,
+    src: '/images/home-partners/woocommerce.svg',
+    alt: 'WooCommerce',
+    width: 160,
     height: 36,
   },
   {
-    src: '/images/home-partners/voyado.svg',
-    alt: 'Voyado',
-    width: 150,
+    src: '/images/home-partners/magento.svg',
+    alt: 'Magento',
+    width: 160,
+    height: 36,
+  },
+  {
+    src: '/images/home-partners/salesforce-commerce-cloud.svg',
+    alt: 'Salesforce Commerce Cloud',
+    width: 160,
+    height: 36,
+  },
+  {
+    src: '/images/home-partners/shopware.svg',
+    alt: 'Shopware',
+    width: 160,
+    height: 36,
+  },
+  {
+    src: '/images/home-partners/prestashop.svg',
+    alt: 'PrestaShop',
+    width: 160,
+    height: 36,
+  },
+  {
+    src: '/images/home-partners/opencart.svg',
+    alt: 'OpenCart',
+    width: 160,
+    height: 36,
+  },
+  {
+    src: '/images/home-partners/squarespace.svg',
+    alt: 'Squarespace',
+    width: 160,
+    height: 36,
+  },
+  {
+    src: '/images/home-partners/wix.svg',
+    alt: 'Wix',
+    width: 160,
     height: 36,
   },
 ] as const;
@@ -82,30 +76,10 @@ const PARTNER_LOGOS = [
 type PartnerLogo = (typeof PARTNER_LOGOS)[number];
 
 export const CONTACT_PARTNER_LOGOS: readonly PartnerLogo[] =
-  PARTNER_LOGOS.filter(({alt}) =>
-    [
-      'Shopify Plus',
-      'Shopify',
-      'Klaviyo',
-      'Yotpo',
-      'Gorgias',
-      'Recharge',
-    ].includes(alt),
-  );
+  PARTNER_LOGOS;
 
 export const ECOMMERCE_SEO_PARTNER_LOGOS: readonly PartnerLogo[] =
-  PARTNER_LOGOS.filter(({alt}) =>
-    [
-      'Shopify Plus',
-      'Shopify',
-      'Klaviyo',
-      'Triple Whale',
-      'Gorgias',
-      'Yotpo',
-      'Recharge',
-      'Skio',
-    ].includes(alt),
-  );
+  PARTNER_LOGOS;
 
 interface HomePartnersProps {
   description?: readonly string[];
