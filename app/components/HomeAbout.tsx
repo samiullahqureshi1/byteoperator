@@ -43,7 +43,7 @@ export const HOME_ABOUT_STATS = [
 const DEFAULT_HOME_ABOUT_DATA: HomeAboutData = {
   eyebrow: 'Trusted Ecommerce and Shopify Agency.',
   heading:
-    'test test test FoldTech helps ambitious ecommerce brands build, optimise and grow high-performing Shopify stores.',
+    'FoldTech helps ambitious ecommerce brands build, optimise and grow high-performing Shopify stores.',
   stats: HOME_ABOUT_STATS,
   rightHeading: {
     prefix: 'The',
