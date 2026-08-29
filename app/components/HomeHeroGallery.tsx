@@ -1,34 +1,38 @@
-import {Link} from 'react-router';
-
+/*
+ * Gallery navigation is temporarily disabled (see the render loop
+ * below, which renders a plain <div> instead of a <Link>). Each
+ * entry's `url` is intentionally kept here, unused, so navigation
+ * can be restored later by swapping the <div> back to a <Link to={project.url}>.
+ */
 const GALLERY_LAYERS = [
   [
     {
-      title: 'Project One',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-01.webp',
       url: '/pages/case-studies',
     },
     {
-      title: 'Project Two',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-02.webp',
       url: '/pages/case-studies',
     },
     {
-      title: 'Project Three',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-03.webp',
       url: '/pages/case-studies',
     },
     {
-      title: 'Project Four',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-04.webp',
       url: '/pages/case-studies',
     },
     {
-      title: 'Project Five',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-05.webp',
       url: '/pages/case-studies',
     },
     {
-      title: 'Project Six',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-06.webp',
       url: '/pages/case-studies',
     },
@@ -36,32 +40,32 @@ const GALLERY_LAYERS = [
 
   [
     {
-      title: 'Project Seven',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-07.webp',
       url: '/pages/case-studies',
     },
     {
-      title: 'Project Eight',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-08.webp',
       url: '/pages/case-studies',
     },
     {
-      title: 'Project Nine',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-09.webp',
       url: '/pages/case-studies',
     },
     {
-      title: 'Project Ten',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-10.webp',
       url: '/pages/case-studies',
     },
     {
-      title: 'Project Eleven',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-11.webp',
       url: '/pages/case-studies',
     },
     {
-      title: 'Project Twelve',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-12.webp',
       url: '/pages/case-studies',
     },
@@ -69,12 +73,12 @@ const GALLERY_LAYERS = [
 
   [
     {
-      title: 'Project Thirteen',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-13.webp',
       url: '/pages/case-studies',
     },
     {
-      title: 'Project Fourteen',
+      title: 'Featured Work',
       image: '/images/home-gallery/project-14.webp',
       url: '/pages/case-studies',
     },
@@ -95,12 +99,10 @@ export function HomeHeroGallery() {
               key={`gallery-layer-${layerIndex}`}
             >
               {layer.map((project) => (
-                <Link
+                // Navigation temporarily disabled: was <Link to={project.url} prefetch="intent">.
+                <div
                   className="ft-hero-gallery__item"
                   key={project.image}
-                  to={project.url}
-                  prefetch="intent"
-                  aria-label={`View ${project.title}`}
                 >
                   <img
                     className="ft-hero-gallery__item-image"
@@ -120,7 +122,7 @@ export function HomeHeroGallery() {
                       <ArrowIcon />
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           ))}
