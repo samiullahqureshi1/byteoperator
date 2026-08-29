@@ -115,7 +115,7 @@ export function HomeProjects({
   projects = HOME_PROJECTS,
   cta = {
     label: 'Explore Case Studies',
-    href: CASE_STUDIES_ROUTE,
+    href: '/articles',
   },
 }: HomeProjectsProps = {}) {
   const trackRef =

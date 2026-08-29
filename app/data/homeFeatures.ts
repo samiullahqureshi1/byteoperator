@@ -180,7 +180,7 @@ export const HOME_FEATURES = [
     buttons: [
       {
         label: 'Explore Case Studies',
-        href: ROUTES.caseStudies,
+        href: '/articles',
       },
     ],
 
@@ -785,9 +785,8 @@ export const HOME_FEATURES = [
     badges: [
       {
         label:
-          'Conversion Rate Optimisation',
-
-        href: ROUTES.cro,
+        'Conversion Rate Optimisation',
+         href: '/shopify-cro-agency/',
       },
       {
         label:

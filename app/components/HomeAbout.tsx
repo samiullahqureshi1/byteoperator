@@ -54,7 +54,7 @@ const DEFAULT_HOME_ABOUT_DATA: HomeAboutData = {
     'FoldTech is a Shopify and ecommerce growth agency helping ambitious brands design, build, migrate and grow high-performing Shopify and Shopify Plus stores. Our work brings together conversion-focused design, dependable development, SEO, AI visibility, email marketing and ongoing optimisation, supported by structured testing and clear growth strategies to improve performance across the customer journey.',
   cta: {
     label: 'Explore Our Work',
-    href: '/pages/case-studies',
+    href: '/pages//work',
   },
 };
 

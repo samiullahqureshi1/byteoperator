@@ -31,6 +31,19 @@
 
 
 /* =========================================================
+   HOMEPAGE — FOLDTECH DARK BACKGROUND
+
+   Scoped to the homepage wrapper only, since this component
+   is reused on other pages (Services, Work, Articles, Case
+   Studies, Contact) which keep their existing background.
+========================================================= */
+
+.home > .ft-home-experts {
+  background: var(--ft-dark-deep, #01151b);
+}
+
+
+/* =========================================================
    CONTAINER
 ========================================================= */
 
