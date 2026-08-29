@@ -1,8 +1,6 @@
 import {useRef} from 'react';
 import {Link} from 'react-router';
 
-const CASE_STUDIES_ROUTE = '/pages/case-studies';
-
 export type HomeProjectData = {
   title: string;
   type: string;
@@ -16,9 +14,9 @@ export type HomeProjectData = {
 
 export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
-    title: 'Cambridge Satchel',
+    title: 'SkinbySkin',
     type: 'SEO, Ecommerce design & development',
-    href: CASE_STUDIES_ROUTE,
+    href: '/articles/sun-chaser/',
     image:
       '/images/home-projects/cambridge/image.webp',
     logo:
@@ -26,13 +24,13 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     thumbnail:
       '/images/home-projects/cambridge/thumbnail.webp',
     logoWidth: '41%',
-    alt: 'Cambridge Satchel',
+    alt: 'SkinbySkin',
   },
 
   {
-    title: 'Billionaire Boys Club',
+    title: 'Love Luxury',
     type: 'Ecommerce design & development',
-    href: CASE_STUDIES_ROUTE,
+    href: '/articles/loony-legs/',
     image:
       '/images/home-projects/bbc/image.webp',
     logo:
@@ -40,13 +38,13 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     thumbnail:
       '/images/home-projects/bbc/thumbnail.webp',
     logoWidth: '21%',
-    alt: 'Billionaire Boys Club',
+    alt: 'Love Luxury',
   },
 
   {
-    title: '111SKIN',
+    title: 'Mellome',
     type: 'Ecommerce design & development',
-    href: CASE_STUDIES_ROUTE,
+    href: '/articles/macdanny-fashion/',
     image:
       '/images/home-projects/111skin/image.webp',
     logo:
@@ -54,13 +52,13 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     thumbnail:
       '/images/home-projects/111skin/thumbnail.webp',
     logoWidth: '25%',
-    alt: '111SKIN',
+    alt: 'Mellome',
   },
 
   {
-    title: 'Muc-Off',
+    title: 'Mann & Co Bake Shop',
     type: 'Ecommerce design & development',
-    href: CASE_STUDIES_ROUTE,
+    href: '/articles/brown-girl-jane/',
     image:
       '/images/home-projects/muc-off/image.webp',
     logo:
@@ -68,13 +66,13 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     thumbnail:
       '/images/home-projects/muc-off/thumbnail.webp',
     logoWidth: '28%',
-    alt: 'Muc-Off',
+    alt: 'Mann & Co Bake Shop',
   },
 
   {
-    title: 'Candy Kittens',
+    title: 'LifeProtectors',
     type: 'Ecommerce growth retainer',
-    href: CASE_STUDIES_ROUTE,
+    href: '/articles/lifeprotectors/',
     image:
       '/images/home-projects/candy-kittens/image.webp',
     logo:
@@ -82,13 +80,13 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     thumbnail:
       '/images/home-projects/candy-kittens/thumbnail.webp',
     logoWidth: '17%',
-    alt: 'Candy Kittens',
+    alt: 'LifeProtectors',
   },
 
   {
-    title: 'Case Furniture',
+    title: 'Branley Ventures',
     type: 'Ecommerce design & development',
-    href: CASE_STUDIES_ROUTE,
+    href: '/articles/top-tier-clothing/',
     image:
       '/images/home-projects/case/image.webp',
     logo:
@@ -96,7 +94,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     thumbnail:
       '/images/home-projects/case/thumbnail.webp',
     logoWidth: '17%',
-    alt: 'Case Furniture',
+    alt: 'Branley Ventures',
   },
 ] as const;
 

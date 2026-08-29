@@ -786,7 +786,7 @@ export const HOME_FEATURES = [
       {
         label:
         'Conversion Rate Optimisation',
-         href: '/shopify-cro-agency/',
+         href:'/shopify-cro-agency/',
       },
       {
         label:
@@ -813,7 +813,7 @@ export const HOME_FEATURES = [
         label:
           'Explore CRO Services',
 
-        href: ROUTES.cro,
+         href: '/shopify-cro-agency/',
       },
     ],
 
