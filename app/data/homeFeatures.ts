@@ -249,7 +249,7 @@ export const HOME_FEATURES = [
     buttons: [
       {
         label: 'Explore SiteLab',
-        href: ROUTES.cro,
+        href: '/pages/shopify-cro-agency',
       },
       {
         label: 'Explore HelpDesk',
