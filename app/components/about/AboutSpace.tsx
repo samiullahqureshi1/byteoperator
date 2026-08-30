@@ -2,15 +2,15 @@ import {useRef} from 'react';
 
 const SPACE_IMAGES = [
   {
-    src: '/images/about/space-01.jpeg',
+    src: '/images/about/space-01.jpg',
     alt: 'FoldTech team and workspace',
   },
   {
-    src: '/images/about/space-02.jpeg',
+    src: '/images/about/space-02.jpg',
     alt: 'FoldTech team collaborating',
   },
   {
-    src: '/images/about/space-03.jpeg',
+    src: '/images/about/space-03.jpg',
     alt: 'FoldTech workspace and culture',
   },
 ] as const;
