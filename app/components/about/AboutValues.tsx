@@ -4,7 +4,7 @@ export function AboutValues() {
       <div className="ft-about-values__fluid">
         <div className="ft-about-values__image">
           <img
-            src="/images/about/values-team.jpeg"
+            src="/images/about/values-team.webp"
             alt="FoldTech team working together"
             className="ft-about-values__image-image"
           />
