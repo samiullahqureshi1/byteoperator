@@ -102,6 +102,8 @@ import {
   AI_SEO_PAGE_HANDLE,
   GEO_PAGE_HANDLE,
   CRO_PAGE_HANDLE,
+  CRO_CLEAN_PATH,
+  AB_TESTING_PAGE_HANDLE,
   SHOPIFY_PLUS_PAGE_HANDLE,
 } from '~/lib/route-mappings';
 
@@ -114,6 +116,23 @@ const GEO_SERVICE_PILLARS = [
   {key: 'product-feed', number: '06', title: 'Product Feed & AI Readability', accordionDescription: 'We review product feeds and onsite information for clarity, consistency and the details customers need to compare products.', previewDescription: 'Readable product information supports more useful product discovery across changing search environments.', checks: ['Product attribute review', 'Feed clarity checks', 'Comparison-ready information']},
   {key: 'digital-pr', number: '07', title: 'Digital PR & Citation Building', accordionDescription: 'We identify credible opportunities to build useful references and supporting signals around your brand and ecommerce offering.', previewDescription: 'Relevant third-party references can help establish clearer context around a brand, its products and its expertise.', checks: ['Relevant reference opportunities', 'Brand mention review', 'Credible outreach priorities']},
   {key: 'geo-reporting', number: '08', title: 'GEO Reporting & Citation Tracking', accordionDescription: 'We document generative search observations, ongoing work and the priorities that should shape the next phase of optimisation.', previewDescription: 'Clear reporting turns evolving GEO signals into practical actions for ecommerce teams.', checks: ['Generative visibility review', 'Citation monitoring', 'Prioritised next steps']},
+] as const;
+
+const AB_TESTING_SERVICE_PILLARS = [
+  {key: 'ab-testing-strategy', number: '01', title: 'Shopify A/B Testing Strategy', accordionDescription: 'We define what is worth testing on your Shopify store, why it matters commercially, and how each experiment will be measured before any build work starts.', previewDescription: 'A testing programme works best when it answers real commercial questions. We prioritise experiments around revenue, customer journeys and the decisions your team actually needs to make.', checks: ['Experiment roadmap and prioritisation', 'Commercial goal and metric definition', 'Test scope and success criteria']},
+  {key: 'research-hypotheses', number: '02', title: 'Research & Hypotheses', accordionDescription: 'We combine analytics, heatmaps, session recordings and on-site behaviour to understand where customers hesitate, then turn those findings into clear, testable hypotheses.', previewDescription: 'Strong experiments start with evidence. Research shows where friction exists so tests address real customer behaviour rather than assumptions.', checks: ['Analytics and funnel review', 'Heatmaps and session recordings', 'Structured hypothesis writing']},
+  {key: 'landing-page-testing', number: '03', title: 'Landing Page Testing', accordionDescription: 'We test landing page structure, messaging hierarchy, proof, imagery and calls to action to understand what helps visitors move from interest to intent.', previewDescription: 'Landing pages carry campaign traffic. Testing their structure and messaging helps you learn which propositions and layouts genuinely support conversion.', checks: ['Headline and proposition testing', 'Page structure and content order', 'Call-to-action placement and wording']},
+  {key: 'product-page-testing', number: '04', title: 'Product Page Testing', accordionDescription: 'We run product page experiments across imagery, descriptions, variant selection, delivery information, reviews and add-to-cart journeys.', previewDescription: 'Product pages are where most purchase decisions happen. Testing the information and layout customers rely on can reduce hesitation at the point of choice.', checks: ['Imagery and gallery experiments', 'Product information and specification layout', 'Variant selection and add-to-cart journeys']},
+  {key: 'checkout-journey-testing', number: '05', title: 'Checkout & Customer Journey Testing', accordionDescription: 'We examine cart, checkout and wider customer journeys to find where customers drop out, then test practical changes within the limits of your Shopify plan.', previewDescription: 'Small amounts of friction late in the journey can be costly. Journey testing focuses on the steps between intent and completed order.', checks: ['Cart and mini-cart experiments', 'Checkout journey and friction review', 'Cross-device and mobile journey testing']},
+  {key: 'measurement-analysis', number: '06', title: 'Measurement & Analysis', accordionDescription: 'We set up reliable tracking, define sample and duration expectations up front, and analyse results against the commercial metrics that matter.', previewDescription: 'A test is only useful if the result can be trusted. Clear measurement and honest analysis separate genuine learning from noise.', checks: ['Tracking and event configuration', 'Sample size and duration planning', 'Result analysis and significance review']},
+  {key: 'experimentation-programme', number: '07', title: 'Ongoing Experimentation Programme', accordionDescription: 'We run testing as a continuous programme, documenting what was learned from each experiment so insight compounds across your store over time.', previewDescription: 'Experimentation works best as a habit rather than a one-off project. Each result informs the next hypothesis and builds a clearer picture of your customers.', checks: ['Documented experiment log', 'Learning reviews and next priorities', 'Roadmap iteration with your team']},
+] as const;
+
+const AB_TESTING_PROCESS_STEPS = [
+  {number: '01', title: 'Research & Baseline', description: 'Review analytics, customer behaviour and key ecommerce journeys to understand where friction exists and what a realistic baseline looks like.'},
+  {number: '02', title: 'Hypothesis & Prioritisation', description: 'Turn findings into clear, testable hypotheses and prioritise them against commercial impact, traffic levels and build effort.'},
+  {number: '03', title: 'Build & Run the Test', description: 'Implement the variant, confirm tracking is accurate, and run the experiment for a planned duration so the result can be interpreted fairly.'},
+  {number: '04', title: 'Analyse & Iterate', description: 'Review the outcome against the original hypothesis, document what was learned, and feed that insight into the next round of experiments.'},
 ] as const;
 
 const CRO_PROCESS_STEPS = [
@@ -454,8 +473,9 @@ export async function loadPageData({
       handle === 'ecommerce-seo-agency' ||
       handle === AI_SEO_PAGE_HANDLE ||
       handle === GEO_PAGE_HANDLE ||
-      handle === CRO_PAGE_HANDLE
-      ? context.storefront.query(FEATURED_PROJECTS_QUERY)
+      handle === CRO_PAGE_HANDLE ||
+      handle === AB_TESTING_PAGE_HANDLE
+      ?context.storefront.query(FEATURED_PROJECTS_QUERY)
       : Promise.resolve({blog: null}),
     handle === 'work'
       ? context.storefront.query(TOP_CASE_STUDIES_QUERY)
@@ -464,8 +484,9 @@ export async function loadPageData({
       handle === 'ecommerce-seo-agency' ||
       handle === AI_SEO_PAGE_HANDLE ||
       handle === GEO_PAGE_HANDLE ||
-      handle === CRO_PAGE_HANDLE
-      ? loadAllCaseStudies(context)
+      handle === CRO_PAGE_HANDLE ||
+      handle === AB_TESTING_PAGE_HANDLE
+      ?loadAllCaseStudies(context)
       : Promise.resolve([]),
   ]);
 
@@ -623,11 +644,13 @@ export function PageContent({
     page.handle === 'ecommerce-seo-agency' ||
     page.handle === AI_SEO_PAGE_HANDLE ||
     page.handle === GEO_PAGE_HANDLE ||
-    page.handle === CRO_PAGE_HANDLE
+    page.handle === CRO_PAGE_HANDLE ||
+    page.handle === AB_TESTING_PAGE_HANDLE
   ) {
     const isAiSeo = page.handle === AI_SEO_PAGE_HANDLE;
     const isGeoSeo = page.handle === GEO_PAGE_HANDLE;
     const isCro = page.handle === CRO_PAGE_HANDLE;
+    const isAbTesting = page.handle === AB_TESTING_PAGE_HANDLE;
     const isGenerativeSeo = isAiSeo || isGeoSeo;
     const generativeResults = isGeoSeo ? [
       {stat: '01', title: 'Generative Search Baseline', description: 'Establish a clear baseline for how your brand, products and content appear across relevant generative search experiences.'},
@@ -643,50 +666,55 @@ export function PageContent({
       <>
         <EcommerceSeoHero
           croInteractive={isCro}
-          title={isCro ? 'Shopify CRO Agency Built for Ecommerce Conversion Growth' : isGeoSeo ? 'Generative Engine Optimisation for Ecommerce. Built for Shopify. Ready for AI Search.' : isAiSeo ? 'AI SEO Agency Built for Ecommerce Discovery' : undefined}
-          description={isCro ? 'FoldTech helps ecommerce brands improve key customer journeys through research-led optimisation, practical testing and continuous learning.' : isGeoSeo ? 'FoldTech helps ecommerce brands make their products, content and brand information clearer for generative search through structured, search-led optimisation.' : isAiSeo ? 'FoldTech helps ecommerce brands improve visibility across AI-powered search through technical foundations, structured content and search-led optimisation.' : undefined}
-          pillLabel={isGeoSeo ? 'Preparing ecommerce stores for generative search' : isAiSeo ? 'Looking to improve organic visibility? Explore Ecommerce SEO' : undefined}
-          pillTo={isGeoSeo ? '/ai-seo-agency/' : isAiSeo ? '/ecommerce-seo-agency/' : undefined}
-          ctaLabel={isCro ? 'Talk to our CRO team' : isGeoSeo ? 'Talk to our GEO team' : isAiSeo ? 'Talk to our AI SEO team' : undefined}
+          title={isAbTesting ? 'Shopify A/B Testing Built on Evidence, Not Opinion' : isCro ? 'Shopify CRO Agency Built for Ecommerce Conversion Growth' : isGeoSeo ? 'Generative Engine Optimisation for Ecommerce. Built for Shopify. Ready for AI Search.' : isAiSeo ? 'AI SEO Agency Built for Ecommerce Discovery' : undefined}
+          description={isAbTesting ? 'FoldTech plans and runs ecommerce A/B testing programmes for Shopify brands, turning customer behaviour into clear hypotheses, structured experiments and decisions your team can act on.' : isCro ? 'FoldTech helps ecommerce brands improve key customer journeys through research-led optimisation, practical testing and continuous learning.' : isGeoSeo ? 'FoldTech helps ecommerce brands make their products, content and brand information clearer for generative search through structured, search-led optimisation.' : isAiSeo ? 'FoldTech helps ecommerce brands improve visibility across AI-powered search through technical foundations, structured content and search-led optimisation.' : undefined}
+          pillLabel={isAbTesting ? 'Looking for wider conversion work? Explore Shopify CRO' : isGeoSeo ? 'Preparing ecommerce stores for generative search' : isAiSeo ? 'Looking to improve organic visibility? Explore Ecommerce SEO' : undefined}
+          pillTo={isAbTesting ? CRO_CLEAN_PATH : isGeoSeo ? '/ai-seo-agency/' : isAiSeo ? '/ecommerce-seo-agency/' : undefined}
+          ctaLabel={isAbTesting ? 'Talk to our experimentation team' : isCro ? 'Talk to our CRO team' : isGeoSeo ? 'Talk to our GEO team' : isAiSeo ? 'Talk to our AI SEO team' : undefined}
           secondaryCta={isGeoSeo ? {label: 'Looking for AI SEO? Click here →', to: '/ai-seo-agency/'} : isAiSeo ? {label: 'Looking for Ecommerce SEO? Click here →', to: '/ecommerce-seo-agency/'} : undefined}
         />
         <EcommerceSeoCases pageTag={page.handle} articles={caseStudyArticles} featuredArticles={featuredArticles} />
         <EcommerceSeoProcess
           compactTestimonial={isCro}
-          label={isCro ? 'Our CRO Process' : undefined}
-          title={isCro ? 'How We Optimise Ecommerce Conversion' : undefined}
-          subtitle={isCro ? 'A structured four-step process connects customer insight, testing and continuous improvement.' : undefined}
-          steps={isCro ? CRO_PROCESS_STEPS : undefined}
+          label={isAbTesting ? 'Our Testing Process' : isCro ? 'Our CRO Process' : undefined}
+          title={isAbTesting ? 'How We Run Ecommerce Experiments' : isCro ? 'How We Optimise Ecommerce Conversion' : undefined}
+          subtitle={isAbTesting ? 'A structured four-step cycle turns customer research into experiments, results and the next set of priorities.' : isCro ? 'A structured four-step process connects customer insight, testing and continuous improvement.' : undefined}
+          steps={isAbTesting ? AB_TESTING_PROCESS_STEPS : isCro ? CRO_PROCESS_STEPS : undefined}
         />
         {isCro ? <ShopifyCroOptimise /> : null}
         {!isCro ? (
           <EcommerceSeoServices
-            label={isGeoSeo ? 'Our GEO Services' : undefined}
-            title={isGeoSeo ? 'Every Layer of Generative Engine Optimisation. Covered.' : undefined}
-            pillars={isGeoSeo ? GEO_SERVICE_PILLARS : undefined}
+            label={isAbTesting ? 'Our A/B Testing Services' : isGeoSeo ? 'Our GEO Services' : undefined}
+            title={isAbTesting ? 'Every Stage of Ecommerce Experimentation. Covered.' : isGeoSeo ? 'Every Layer of Generative Engine Optimisation. Covered.' : undefined}
+            pillars={isAbTesting ? AB_TESTING_SERVICE_PILLARS : isGeoSeo ? GEO_SERVICE_PILLARS : undefined}
           />
         ) : null}
         <EcommerceSeoTechStack />
         <EcommerceSeoResults
-          variant={isGenerativeSeo || isCro ? 'ai' : undefined}
-          eyebrow={isCro ? 'Conversion Performance' : isGeoSeo ? 'Generative Search Visibility' : isAiSeo ? 'AI Search Visibility' : undefined}
-          title={isCro ? 'A Clear View of Ecommerce Optimisation Opportunities' : isGeoSeo ? 'A Clear View of Generative Search Opportunities' : isAiSeo ? 'A Clear View of AI Search Opportunities' : undefined}
-          results={isCro ? [{stat: '01', title: 'Journey Baseline', description: 'Understand how customers currently move through key ecommerce journeys.'}, {stat: '02', title: 'Prioritised Hypotheses', description: 'Focus optimisation work on clear, testable opportunities.'}, {stat: '03', title: 'Ongoing Learning', description: 'Use each iteration to inform the next practical improvement.'}] : isGenerativeSeo ? generativeResults : undefined}
+          variant={isGenerativeSeo || isCro || isAbTesting ? 'ai' : undefined}
+          eyebrow={isAbTesting ? 'Experimentation Outcomes' : isCro ? 'Conversion Performance' : isGeoSeo ? 'Generative Search Visibility' : isAiSeo ? 'AI Search Visibility' : undefined}
+          title={isAbTesting ? 'What a Structured Testing Programme Gives You' : isCro ? 'A Clear View of Ecommerce Optimisation Opportunities' : isGeoSeo ? 'A Clear View of Generative Search Opportunities' : isAiSeo ? 'A Clear View of AI Search Opportunities' : undefined}
+          results={isAbTesting ? [{stat: '01', title: 'Evidence Over Opinion', description: 'Replace internal debate about design and copy with measured customer behaviour.'}, {stat: '02', title: 'Prioritised Experiment Roadmap', description: 'Know which tests are worth running next and why they matter commercially.'}, {stat: '03', title: 'Compounding Insight', description: 'Build a documented record of what works for your customers and what does not.'}] : isCro ? [{stat: '01', title: 'Journey Baseline', description: 'Understand how customers currently move through key ecommerce journeys.'}, {stat: '02', title: 'Prioritised Hypotheses', description: 'Focus optimisation work on clear, testable opportunities.'}, {stat: '03', title: 'Ongoing Learning', description: 'Use each iteration to inform the next practical improvement.'}] : isGenerativeSeo ? generativeResults : undefined}
         />
         <HomeExperts
           variant="ecommerce-seo"
-          eyebrow={isCro ? 'Is CRO Right for You?' : isGeoSeo ? 'Is GEO Right for You?' : isAiSeo ? 'Is AI SEO Right for You?' : 'Is Ecommerce SEO Right for You?'}
-          heading={isCro ? 'CRO Works Best for Brands Ready to Scale With Data' : isGeoSeo ? 'GEO Works Best for Brands Ready to Make Their Information Clearer' : isAiSeo ? 'AI SEO Works Best for Brands Ready to Build Search Resilience' : 'SEO Works Best for Brands Ready to Invest in Sustainable Growth'}
-          description={isCro ? 'Our CRO services are designed for ecommerce teams ready to learn from customer behaviour, improve key journeys and build a more deliberate optimisation programme.' : isGeoSeo ? 'Our GEO services are designed for ecommerce teams preparing their stores for generative search. The strongest fit is with brands ready to invest in clear product information, structured content, entity signals and ongoing optimisation.' : isAiSeo ? 'Our AI SEO services are designed for ecommerce teams that want to prepare their stores for changing search behaviour. The strongest fit is with brands ready to invest in clear product information, technical foundations, structured content and ongoing optimisation.' : 'Our ecommerce SEO services are designed for online stores that want organic search to become a reliable, long-term growth channel. The strongest fit is with ecommerce teams that are ready to invest consistently in technical improvements, content, site structure and ongoing optimisation rather than looking for short-term ranking fixes. We work alongside businesses that want SEO decisions connected to their wider ecommerce goals, development roadmap and customer journey.'}
+          eyebrow={isAbTesting ? 'Is A/B Testing Right for You?' : isCro ? 'Is CRO Right for You?' : isGeoSeo ? 'Is GEO Right for You?' : isAiSeo ? 'Is AI SEO Right for You?' : 'Is Ecommerce SEO Right for You?'}
+          heading={isAbTesting ? 'A/B Testing Works Best for Stores With Steady Traffic and Real Questions' : isCro ? 'CRO Works Best for Brands Ready to Scale With Data' : isGeoSeo ? 'GEO Works Best for Brands Ready to Make Their Information Clearer' : isAiSeo ? 'AI SEO Works Best for Brands Ready to Build Search Resilience' : 'SEO Works Best for Brands Ready to Invest in Sustainable Growth'}
+          description={isAbTesting ? 'Our A/B testing services suit ecommerce teams with enough traffic for experiments to reach a readable result, and a genuine question about how customers behave. If your store is still early in its growth, we will usually recommend broader conversion work first and tell you so directly rather than running tests that cannot conclude.' : isCro ?'Our CRO services are designed for ecommerce teams ready to learn from customer behaviour, improve key journeys and build a more deliberate optimisation programme.' : isGeoSeo ? 'Our GEO services are designed for ecommerce teams preparing their stores for generative search. The strongest fit is with brands ready to invest in clear product information, structured content, entity signals and ongoing optimisation.' : isAiSeo ? 'Our AI SEO services are designed for ecommerce teams that want to prepare their stores for changing search behaviour. The strongest fit is with brands ready to invest in clear product information, technical foundations, structured content and ongoing optimisation.' : 'Our ecommerce SEO services are designed for online stores that want organic search to become a reliable, long-term growth channel. The strongest fit is with ecommerce teams that are ready to invest consistently in technical improvements, content, site structure and ongoing optimisation rather than looking for short-term ranking fixes. We work alongside businesses that want SEO decisions connected to their wider ecommerce goals, development roadmap and customer journey.'}
           ctaLabel="See if we're a good fit"
           ctaTo="/contact"
         />
-        {!isCro ? <EcommerceSeoShopifySpecialism /> : null}
+        {/*
+          * The specialism section argues platform-specific *SEO* differences,
+          * so it stays off the A/B testing page rather than showing search
+          * copy under an experimentation heading.
+          */}
+        {!isCro && !isAbTesting ? <EcommerceSeoShopifySpecialism /> : null}
         <div className="ft-ecommerce-seo-partners">
           <HomePartners
-            label={isCro ? 'Our CRO & Analytics Stack' : isGeoSeo ? 'Our GEO & Analytics Stack' : isAiSeo ? 'Our AI SEO & Analytics Stack' : 'Our SEO & Analytics Stack'}
-            heading={isCro ? 'The Platforms Behind Every Optimisation We Deliver' : isGeoSeo ? 'The Platforms Behind Every GEO Campaign We Deliver' : isAiSeo ? 'The Platforms Behind Every AI SEO Campaign We Deliver' : 'The Platforms Behind Every Ecommerce SEO Campaign We Deliver'}
-            description={[isCro ? 'Effective conversion optimisation requires the right combination of analytics, research and experimentation tools. Our stack helps us understand customer behaviour, review key journeys and turn data into clear optimisation priorities for ecommerce stores.' : isGeoSeo ? 'Effective generative engine optimisation requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to review technical performance, understand search demand and turn data into clear optimisation priorities for ecommerce stores.' : isAiSeo ? 'Effective AI SEO requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to review technical performance, understand search demand and turn data into clear optimisation priorities for ecommerce stores.' : 'Effective ecommerce SEO requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to audit technical performance, understand search demand, measure user behaviour and turn data into clear optimisation priorities for ecommerce stores.']}
+            label={isAbTesting ? 'Our Testing & Analytics Stack' : isCro ? 'Our CRO & Analytics Stack' : isGeoSeo ? 'Our GEO & Analytics Stack' : isAiSeo ? 'Our AI SEO & Analytics Stack' : 'Our SEO & Analytics Stack'}
+            heading={isAbTesting ? 'The Platforms Behind Every Experiment We Run' : isCro ? 'The Platforms Behind Every Optimisation We Deliver' : isGeoSeo ? 'The Platforms Behind Every GEO Campaign We Deliver' : isAiSeo ? 'The Platforms Behind Every AI SEO Campaign We Deliver' : 'The Platforms Behind Every Ecommerce SEO Campaign We Deliver'}
+            description={[isAbTesting ? 'Reliable A/B testing depends on accurate measurement as much as on the experiment itself. Our stack brings together the analytics, behavioural research and experimentation tools we use to size tests, track them correctly and interpret the results honestly.' : isCro ?'Effective conversion optimisation requires the right combination of analytics, research and experimentation tools. Our stack helps us understand customer behaviour, review key journeys and turn data into clear optimisation priorities for ecommerce stores.' : isGeoSeo ? 'Effective generative engine optimisation requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to review technical performance, understand search demand and turn data into clear optimisation priorities for ecommerce stores.' : isAiSeo ? 'Effective AI SEO requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to review technical performance, understand search demand and turn data into clear optimisation priorities for ecommerce stores.' : 'Effective ecommerce SEO requires the right combination of crawling, analytics, research and content tools. Our stack brings together the platforms we use to audit technical performance, understand search demand, measure user behaviour and turn data into clear optimisation priorities for ecommerce stores.']}
             logos={ECOMMERCE_SEO_PARTNER_LOGOS}
             showCta={false}
           />
@@ -694,13 +722,13 @@ export function PageContent({
         </div>
         <EcommerceSeoEducation html={page.body} />
         {!isCro ? <EcommerceSeoReporting
-          eyebrow={isGenerativeSeo ? 'Transparency & Reporting' : undefined}
-          title={isGeoSeo ? 'How We Measure GEO Success' : isAiSeo ? 'How We Measure AI SEO Success' : undefined}
-          intro={isGeoSeo ? 'Effective GEO should be measured against meaningful search and commercial signals, not isolated vanity metrics. We review generative search visibility alongside organic performance to understand what is improving, where opportunities remain and what should be prioritised next.' : isAiSeo ? 'Effective AI SEO should be measured against meaningful search and commercial signals, not isolated vanity metrics. We review AI search visibility alongside organic performance to understand what is improving, where opportunities remain and what should be prioritised next.' : undefined}
+          eyebrow={isGenerativeSeo || isAbTesting ? 'Transparency & Reporting' : undefined}
+          title={isAbTesting ? 'How We Report on Experiments' : isGeoSeo ? 'How We Measure GEO Success' : isAiSeo ? 'How We Measure AI SEO Success' : undefined}
+          intro={isAbTesting ? 'Every experiment is reported against the hypothesis it set out to answer, including the tests that show no meaningful difference. We share what changed, how the result was measured, how confident we are in it, and what we recommend testing next.' : isGeoSeo ?'Effective GEO should be measured against meaningful search and commercial signals, not isolated vanity metrics. We review generative search visibility alongside organic performance to understand what is improving, where opportunities remain and what should be prioritised next.' : isAiSeo ? 'Effective AI SEO should be measured against meaningful search and commercial signals, not isolated vanity metrics. We review AI search visibility alongside organic performance to understand what is improving, where opportunities remain and what should be prioritised next.' : undefined}
         /> : null}
         {page.faqs.length ? (
           <div className="ft-ecommerce-seo-faq">
-            <ServiceDetailFaqs title={isCro ? 'Shopify CRO Services' : isGeoSeo ? 'GEO Services' : isAiSeo ? 'AI SEO Services' : 'Ecommerce SEO Services'} faqs={page.faqs} />
+            <ServiceDetailFaqs title={isAbTesting ? 'Shopify A/B Testing Services' : isCro ? 'Shopify CRO Services' : isGeoSeo ? 'GEO Services' : isAiSeo ? 'AI SEO Services' : 'Ecommerce SEO Services'} faqs={page.faqs} />
           </div>
         ) : null}
         <div className="ft-ecommerce-seo-testimonial"><WorkTestimonial /></div>

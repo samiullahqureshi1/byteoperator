@@ -48,6 +48,17 @@ export const meta: Route.MetaFunction = ({data}) => {
       {tagName: 'link', rel: 'canonical', href: '/guides'},
     ];
   }
+  if (data?.page.handle === 'ab-testing') {
+    return [
+      {title: 'Shopify A/B Testing Services | FoldTech'},
+      {
+        name: 'description',
+        content:
+          'FoldTech runs Shopify A/B testing and ecommerce experimentation programmes, from research and hypotheses to landing page, product page and checkout journey tests.',
+      },
+      {tagName: 'link', rel: 'canonical', href: '/ab-testing'},
+    ];
+  }
   if (data?.page.handle === 'headless-commerce') {
     return [
       {
