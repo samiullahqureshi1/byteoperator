@@ -66,7 +66,7 @@ export function ServiceDetailPage({
           ) : null}
 
           <div className="ft-service-detail-experts">
-            <HomeExperts />
+            <HomeExperts {...config.experts} />
           </div>
         </>
       )}

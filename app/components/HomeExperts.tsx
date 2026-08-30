@@ -22,7 +22,7 @@ const EXPERT_MEDIA = [
     className: 'ft-home-experts__media--four',
   },
 ] as const;
-type HomeExpertsProps = {
+export type HomeExpertsProps = {
   eyebrow?: string;
   heading?: string;
   description?: string;

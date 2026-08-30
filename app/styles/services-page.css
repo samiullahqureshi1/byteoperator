@@ -158,11 +158,15 @@
 /* The intro heading on this page is shorter than on the other service
    pages, which left an oversized empty gap before the lower content. */
 .ft-service-detail--bigcommerce-shopify-migrations
+  .ft-service-about__content,
+.ft-service-detail--headless-commerce
   .ft-service-about__content {
   row-gap: 1.25rem;
 }
 
 .ft-service-detail--bigcommerce-shopify-migrations
+  .ft-service-about__images,
+.ft-service-detail--headless-commerce
   .ft-service-about__images {
   margin-block: 2.5rem;
 }
@@ -170,15 +174,23 @@
 /* Dark sections use the FoldTech dark palette instead of black. */
 .ft-service-detail--bigcommerce-shopify-migrations .ft-home-feature,
 .ft-service-detail--bigcommerce-shopify-migrations .ft-home-feature--dark,
-.ft-service-detail--bigcommerce-shopify-migrations .ft-home-partners {
+.ft-service-detail--bigcommerce-shopify-migrations .ft-home-partners,
+.ft-service-detail--headless-commerce .ft-home-feature,
+.ft-service-detail--headless-commerce .ft-home-feature--dark,
+.ft-service-detail--headless-commerce .ft-home-partners {
   background: var(--ft-dark-deep, #01151b);
 }
 .ft-service-detail--bigcommerce-shopify-migrations
+.ft-service-about__content--intro
+.ft-service-about__left,
+.ft-service-detail--headless-commerce
 .ft-service-about__content--intro
 .ft-service-about__left {
   align-self: end;
 }
 .ft-service-detail--bigcommerce-shopify-migrations
+.ft-services-hero__inner,
+.ft-service-detail--headless-commerce
 .ft-services-hero__inner {
   align-items: flex-start;
 }

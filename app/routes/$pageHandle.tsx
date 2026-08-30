@@ -13,9 +13,27 @@ import {
 
 export const links = pageLinks;
 
-export const meta: Route.MetaFunction = ({data}) => [
-  {title: `Hydrogen | ${data?.page.title ?? ''}`},
-];
+export const meta: Route.MetaFunction = ({data}) => {
+  if (data?.page.handle === 'headless-commerce') {
+    return [
+      {
+        title: 'Headless Commerce Development for Shopify | FoldTech',
+      },
+      {
+        name: 'description',
+        content:
+          'Build faster, flexible Shopify storefronts with FoldTech headless commerce development, Hydrogen expertise, API integrations and ongoing support.',
+      },
+      {
+        tagName: 'link',
+        rel: 'canonical',
+        href: '/headless-commerce',
+      },
+    ];
+  }
+
+  return [{title: `Hydrogen | ${data?.page.title ?? ''}`}];
+};
 
 /**
  * Shared loader for every clean (non `/pages/*`) page route.

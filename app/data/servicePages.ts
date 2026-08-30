@@ -2,6 +2,7 @@ import type {ServiceHeroProps} from '~/components/services/ServiceHero';
 import type {ServiceAboutSectionData} from '~/components/services/detail/ServiceAboutSection';
 import type {MigrationPlatformsData} from '~/components/services/detail/MigrationPlatformsAccordion';
 import type {ServicePlusAgencyCtaData} from '~/components/services/detail/ServicePlusAgencyCta';
+import type {HomeExpertsProps} from '~/components/HomeExperts';
 import {
   HOME_FEATURES,
   type HomeFeatureData,
@@ -110,6 +111,7 @@ export interface ServicePageConfig {
   features?: readonly HomeFeatureData[];
   faqTitle?: string;
   plusAgencyCta?: ServicePlusAgencyCtaData;
+  experts?: HomeExpertsProps;
 }
 
 export const SERVICE_PAGE_CONFIGS = {
@@ -1807,6 +1809,205 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
     showPartners: true,
+  },
+  'headless-commerce': {
+    faqTitle: 'Headless Commerce Development',
+    hero: {
+      eyebrow: 'Headless Commerce Agency',
+      heading:
+        'Headless Commerce Development for High-Growth Ecommerce Brands',
+      chips: [
+        {
+          label: 'Headless Shopify Development',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Shopify Plus',
+          href: SERVICE_PAGE_ROUTES.shopifyPlus,
+        },
+        {
+          label: 'Hydrogen Storefronts',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'API Integrations',
+          href: SERVICE_PAGE_ROUTES.shopifyIntegrations,
+        },
+        {
+          label: 'Conversion Optimisation',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+      ],
+      description:
+        'FoldTech plans and builds custom headless storefronts for Shopify and Shopify Plus. Using Hydrogen, React and the Shopify Storefront API, we create flexible buying experiences around complex content, integration and international requirements without losing sight of day-to-day ecommerce operations.',
+      primaryCta: {
+        label: 'Discuss Your Headless Project',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'Headless commerce makes sense when a standard theme no longer supports the experience your business needs.',
+        description:
+          'A headless architecture separates the customer-facing storefront from Shopify’s commerce platform. This can give established ecommerce teams greater control over content, interfaces and integrations, but it also introduces additional technical ownership. FoldTech helps brands assess the commercial case, define the right architecture and build a storefront that remains practical to operate.',
+        cta: {
+          label: 'Explore Shopify Development',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt: 'Planning a headless Shopify storefront architecture',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt: 'FoldTech team planning a Hydrogen development project',
+      },
+      process: {
+        heading: 'Our Headless Commerce Development Process',
+        leftDescription:
+          'Discovery and architecture establish the business case, customer journeys, markets, content model and integration requirements. UX and technical planning then turn those priorities into a delivery roadmap before Hydrogen development begins.',
+        rightDescription:
+          'We connect the storefront to Shopify and required APIs, then complete quality assurance, accessibility and performance testing. Launch planning is followed by monitoring and ongoing optimisation so the new platform can continue to develop after release.',
+        cta: {
+          label: 'Plan Your Headless Build',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'headless-commerce-comparison',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Traditional Shopify vs Headless Commerce',
+        heading: 'Choosing the Right Storefront Architecture',
+        description: [
+          'A well-built Shopify theme is often the most efficient choice for stores with straightforward content, merchandising and integration needs. It keeps hosting, theme management and platform updates within a familiar operating model.',
+          'Headless Shopify becomes useful when the storefront needs a highly tailored frontend, complex content experiences, multiple commerce touchpoints or deeper control over APIs and integrations. We help teams weigh that flexibility against the added development and maintenance responsibility.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Development',
+            href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'headless-commerce-benefits',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'When Headless Commerce Makes Sense',
+        heading: 'More Frontend Control for Complex Ecommerce Requirements',
+        description: [
+          'Headless ecommerce can support brands that need distinctive content and product journeys, custom account experiences, multi-market storefronts or connections to systems that do not fit neatly into a conventional theme.',
+          'The value comes from shaping the frontend around real customer and operational needs. Architecture decisions are prioritised around maintainability, team workflows and measurable commercial goals rather than adopting headless technology for its own sake.',
+        ],
+        buttons: [
+          {label: 'Talk to Our Team', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-launch'),
+      },
+      {
+        id: 'headless-commerce-process',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Headless Development Process',
+        heading: 'From Architecture and UX to Launch and Optimisation',
+        description: [
+          'Our delivery process moves through discovery and architecture, UX and technical planning, Hydrogen development, Shopify and API integration, quality assurance and performance testing, then launch and ongoing optimisation.',
+          'Each stage has a defined purpose and review point. This keeps business owners, designers and developers aligned while complex storefront, data and integration requirements are developed together.',
+        ],
+        buttons: [
+          {label: 'Start Your Project', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'headless-commerce-technology',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Hydrogen Storefront Technology',
+        heading: 'A Shopify-Native Headless Technology Stack',
+        description: [
+          'Hydrogen provides a React-based framework for custom Shopify storefronts, with Shopify’s Storefront API supplying commerce data and Oxygen providing a deployment option designed for Hydrogen applications.',
+          'We structure frontend components, content delivery and API integrations so the storefront is fast to use and clear to maintain. Shopify or Shopify Plus continues to manage core commerce operations while the headless frontend controls the customer experience.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Integrations',
+            href: SERVICE_PAGE_ROUTES.shopifyIntegrations,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-seo-geo'),
+      },
+      {
+        id: 'headless-commerce-agency',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Why Work With FoldTech',
+        heading: 'Commerce, Frontend and Integration Thinking in One Team',
+        description: [
+          'A successful headless build needs more than frontend development. FoldTech connects Shopify architecture, UX, conversion journeys, technical SEO and integration planning so decisions are considered across the whole ecommerce experience.',
+          'We work with internal teams and technology partners to clarify ownership, document important decisions and create a delivery plan that supports both launch requirements and the longer-term storefront roadmap.',
+        ],
+        buttons: [
+          {label: 'Work With Our Team', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+      {
+        id: 'headless-commerce-performance',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Performance and Conversion',
+        heading: 'Fast, Conversion-Focused Headless Experiences',
+        description: [
+          'Headless architecture creates opportunities to control how storefront code, content and commerce data are delivered. We plan loading behaviour, responsive interfaces and customer journeys together to support strong ecommerce performance across devices.',
+          'Performance is treated as an ongoing discipline rather than a launch claim. Measurement, technical SEO, analytics and conversion insights help identify where the storefront should be refined after real customers begin using it.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Conversion Optimisation',
+            href: SERVICE_PAGE_ROUTES.ecommerceCro,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'headless-commerce-support',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Headless Commerce Support',
+        heading: 'Ongoing Development After Your Headless Launch',
+        description: [
+          'A custom storefront needs planned support across the frontend, Shopify platform and connected services. FoldTech can help with monitoring, maintenance, technical fixes and prioritised enhancements after launch.',
+          'Ongoing support can also cover new market requirements, API changes, performance improvements and conversion work, giving ecommerce teams a practical route for evolving the Hydrogen storefront over time.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Support Options',
+            href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-support-growth'),
+      },
+    ],
+    showPartners: true,
+    experts: {
+      eyebrow: 'Headless Shopify Experts',
+      heading: 'Plan a Headless Storefront Around Your Growth Strategy',
+      description:
+        'FoldTech helps ecommerce teams evaluate, design, build and support headless Shopify storefronts. Talk to us about Hydrogen development, complex integrations or moving an existing store to a headless architecture.',
+      ctaLabel: 'Get In Touch',
+    },
   },
   'bigcommerce-shopify-migrations': {
     faqTitle: 'BigCommerce to Shopify Migration',
