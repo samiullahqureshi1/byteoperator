@@ -1,7 +1,7 @@
 // TEMPORARY PLACEHOLDER COPY — replace with real client testimonial.
 const TESTIMONIAL = {
-  quote: 'Working with Charle Agency was an absolute dream, we really felt they had the time for us and the whole project was seamless start to finish',
-  author: 'Alexa - Marketing Manager | Doisy & Dam',
+  quote: 'Collaborating with The Fold Tech was a fantastic experience. They made us feel prioritised throughout, and the entire project ran smoothly from start to finish.',
+  author: '— Sarah, Marketing Manager at Doisy & Dam',
   image: '/images/work/testimonial.webp',
   alt: 'FoldTech client testimonial',
 };

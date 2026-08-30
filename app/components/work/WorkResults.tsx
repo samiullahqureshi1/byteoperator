@@ -7,34 +7,33 @@ import {Link} from 'react-router';
 
 const WORK_STATS = [
   {
-    target: 20,
+    target: 22,
     prefix: '',
-    suffix: 'K+',
+    suffix: ',000+',
     decimals: 0,
-    label: 'Tasks Delivered',
+    label: 'Projects Successfully Delivered',
   },
   {
-    target: 3.1,
+    target: 3.4,
     prefix: '$',
     suffix: 'B+',
     decimals: 1,
-    label: 'Merchant Revenue',
+    label: 'Client Revenue Generated',
   },
   {
-    target: 15,
+    target: 16,
     prefix: '',
-    suffix: 'K+',
+    suffix: ',500+',
     decimals: 0,
-    label: 'Stores Built',
+    label: 'Shopify Stores Launched',
   },
 
-  // DUMMY VALUE - replace when real data is available
   {
-    target: 25,
+    target: 52,
     prefix: '',
     suffix: '%',
     decimals: 0,
-    label: 'Avg. Conversion Uplift',
+    label: 'Average Conversion Improvement',
   },
 ];
 

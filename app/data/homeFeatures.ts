@@ -506,19 +506,19 @@ export const HOME_FEATURES = [
     badges: [
       {
         label: 'Shopify vs Magento',
-        href: ROUTES.migrations,
+        href: '/magento-shopify-migrations/',
       },
       {
         label: 'Shopify vs WooCommerce',
-        href: ROUTES.migrations,
+        href: '/woocommerce-shopify-migrations/',
       },
       {
         label: 'Shopify vs BigCommerce',
-        href: ROUTES.migrations,
+        href: '/bigcommerce-shopify-migrations/',
       },
       {
         label: 'Shopify vs Salesforce',
-        href: ROUTES.migrations,
+        href: '/salesforce-shopify-migrations/',
       },
     ],
 
@@ -546,7 +546,7 @@ export const HOME_FEATURES = [
          * section (see media.href below), so the secondary
          * CTA reuses it rather than introducing a new one.
          */
-        href: ROUTES.caseStudies,
+         href: '/pages/work',
       },
     ],
 

@@ -30,17 +30,23 @@ export function WorkTeamCta() {
     <section className="ft-work-team" aria-labelledby="ft-work-team-title">
       <div className="ft-work-team__inner">
         <div className="ft-work-team__content">
-          <p className="ft-work-team__eyebrow">Meet the team</p>
+          <p className="ft-work-team__eyebrow">
+            Meet the Team Behind High Growth Ecommerce Brands
+          </p>
 
           <h2 className="ft-work-team__title" id="ft-work-team-title">
-            Senior specialists across design, development, CRO, SEO, support and
-            retention marketing.
+            Senior specialists in Shopify development, conversion rate
+            optimisation (CRO), SEO, design, support and retention marketing
+            focused on turning your store into a scalable revenue engine.
           </h2>
 
           <p className="ft-work-team__description">
-            From Shopify builds and ongoing support to conversion optimisation,
-            organic search and retention marketing, our team brings focused
-            expertise across every stage of ecommerce growth.
+            From custom Shopify builds and ongoing technical support to
+            data-driven conversion optimisation, organic search growth and
+            retention marketing, our team delivers specialised expertise at every
+            stage of the ecommerce journey. We help brands increase traffic, raise
+            average order value, improve customer lifetime value and build systems
+            that keep growing long after launch.
           </p>
 
           <div className="ft-work-team__actions">

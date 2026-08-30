@@ -29,20 +29,27 @@ export function WorkHero({
 
       <div className="ft-work-hero__container">
         <p className="ft-work-hero__eyebrow">
-          Our work
+          Our Work
         </p>
 
         <div className="ft-work-hero__inner">
           <div className="ft-work-hero__left">
             <h1 className="ft-work-hero__title">
-              Real results for ambitious ecommerce brands.
+              Real Shopify Success Stories That Drive Measurable Growth
             </h1>
 
             <p className="ft-work-hero__description">
-              We combine Shopify design and development
-              with SEO, retention and ongoing optimisation
-              to help ecommerce brands grow with
-              measurable results.
+              Every ecommerce brand has unique goals, challenges, and
+              opportunities. Explore how FoldTech has helped businesses launch,
+              migrate, optimise, and scale their Shopify and Shopify Plus stores
+              through custom development, conversion optimisation, technical SEO,
+              AI search visibility, and long-term growth strategies.
+            </p>
+
+            <p className='ft-work-hero__description'>
+              From emerging brands to established ecommerce businesses, our work
+              is focused on delivering measurable results that increase traffic,
+              improve conversions, and maximise revenue.
             </p>
           </div>
 

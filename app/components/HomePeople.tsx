@@ -1,6 +1,7 @@
 import {Link} from 'react-router';
 
 type HomePeopleContent = {
+  eyebrow?: string;
   headingFirstLine: string;
   headingSecondLine: string;
   description: string;
@@ -8,6 +9,7 @@ type HomePeopleContent = {
 };
 
 const DEFAULT_HOME_PEOPLE_CONTENT: HomePeopleContent = {
+  eyebrow: 'Creative, Technical & Strategic',
   headingFirstLine: 'People-first',
   headingSecondLine: 'Shopify agency',
   description:
@@ -40,7 +42,7 @@ export function HomePeople({
         <div className="ft-home-people__inner">
           <div className="ft-home-people__left">
             <p className="ft-home-people__subtitle">
-              Creative, Technical &amp; Strategic
+              {content.eyebrow ?? DEFAULT_HOME_PEOPLE_CONTENT.eyebrow}
             </p>
 
             <h2

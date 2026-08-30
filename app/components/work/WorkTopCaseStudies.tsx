@@ -45,14 +45,13 @@ export function WorkTopCaseStudies({
       aria-labelledby="ft-work-industries-title"
     >
       <div className="ft-work-industries__header">
-        <p className="ft-work-industries__eyebrow">Explore by industry</p>
+        <p className="ft-work-industries__eyebrow">Industries We Serve</p>
 
         <h2
           className="ft-work-industries__title"
           id="ft-work-industries-title"
         >
-          Diverse experience across industries, bringing the best ideas from
-          every sector to your brand.
+          Shopify Growth Solutions Built for Every Ecommerce Industry
         </h2>
 
         <IndustryFilters
