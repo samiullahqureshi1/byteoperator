@@ -566,7 +566,7 @@ const RESOURCE_MEGA_LINKS: MegaLink[] = [
   {
     title: 'Join Our Newsletter',
     description: 'Get weekly ecommerce insights',
-    url: '/pages/newsletter',
+    url: '/contact',
   },
 ];
 

@@ -37,6 +37,17 @@ export const meta: Route.MetaFunction = ({data}) => {
       {tagName: 'link', rel: 'canonical', href: '/webinars'},
     ];
   }
+  if (data?.page.handle === 'guides') {
+    return [
+      {title: 'Shopify & Ecommerce Guides | FoldTech'},
+      {
+        name: 'description',
+        content:
+          'Explore FoldTech Shopify and ecommerce guides on growth strategy, SEO, CRO, development, migrations, Shopify Plus and retention.',
+      },
+      {tagName: 'link', rel: 'canonical', href: '/guides'},
+    ];
+  }
   if (data?.page.handle === 'headless-commerce') {
     return [
       {

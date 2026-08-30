@@ -3686,6 +3686,43 @@ export const SERVICE_PAGE_CONFIGS = {
       {id: 'webinars-ecommerce-strategy', layout: 'media-left', spacing: 'deep', theme: 'dark', eyebrow: 'Ecommerce Strategy', heading: 'A More Connected Ecommerce Strategy', description: ['The strongest ecommerce strategy connects the decisions customers can see with the systems and processes they cannot, across storefront, acquisition, conversion, retention and operations.', 'FoldTech webinars help teams focus on practical priorities that make a store more useful to customers and more effective for the business behind it.'], buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}], media: reuseHomeFeatureMedia('shopify-design')},
     ],
   },
+  guides: {
+    faqTitle: 'FoldTech Shopify & Ecommerce Guides',
+    hero: {
+      eyebrow: 'FoldTech Ecommerce Guides',
+      heading: 'Shopify & Ecommerce Guides for Growth-Focused Teams',
+      chips: [
+        {label: 'Shopify Guides', href: SERVICE_PAGE_ROUTES.shopifyDevelopment},
+        {label: 'Ecommerce SEO', href: SERVICE_PAGE_ROUTES.ecommerceSeo},
+        {label: 'Ecommerce CRO', href: SERVICE_PAGE_ROUTES.ecommerceCro},
+        {label: 'Shopify Plus', href: SERVICE_PAGE_ROUTES.shopifyPlus},
+        {label: 'Shopify Migrations', href: SERVICE_PAGE_ROUTES.shopifyMigrations},
+      ],
+      description: 'FoldTech Shopify and ecommerce guides help teams navigate growth strategy, SEO, CRO, development, migrations, Shopify Plus and customer retention.',
+      primaryCta: {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+    },
+    about: {
+      intro: {
+        heading: 'FoldTech Shopify & Ecommerce Guides',
+        description: 'Practical ecommerce guidance for teams building, improving and growing on Shopify. FoldTech guides explore the connected decisions behind sustainable ecommerce performance: development, product discovery, conversion, migration planning and retention.',
+        cta: {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+      },
+      media: {primary: '/images/services/services-wide.webp', primaryAlt: 'FoldTech Shopify ecommerce guide and strategy planning', secondary: '/images/mega-menu-team.webp', secondaryAlt: 'FoldTech team discussing ecommerce growth strategy'},
+      process: {
+        heading: 'Ecommerce Topics We Explore',
+        leftDescription: 'Our guides cover the work that shapes a Shopify store: Shopify and Shopify Plus development, technical and content SEO, conversion rate optimisation, migrations, customer retention and the commercial priorities that connect them.',
+        rightDescription: 'Each guide takes a connected view of ecommerce strategy, helping teams consider how development, acquisition, conversion, retention and platform decisions contribute to long-term growth.',
+        cta: {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+      },
+    },
+    features: [
+      {id: 'guides-shopify-growth', layout: 'media-left', spacing: 'first', theme: 'dark', eyebrow: 'Shopify Ecommerce Growth', heading: 'Shopify Growth Starts With the Store Experience', description: ['A Shopify storefront should make products easy to find, understand and buy while supporting the customer experience a brand needs as it expands.', 'Our guides explore the practical decisions behind store structure, merchandising and development priorities, connecting ecommerce strategy to better customer experiences.'], buttons: [{label: 'Explore Shopify Development', href: SERVICE_PAGE_ROUTES.shopifyDevelopment}], media: reuseHomeFeatureMedia('shopify-plus')},
+      {id: 'guides-seo-cro', layout: 'media-right', spacing: 'standard', theme: 'dark', eyebrow: 'Ecommerce SEO & CRO', heading: 'Helping Customers Discover and Convert', description: ['SEO and CRO are connected in ecommerce. Search visibility can bring the right people to a store, but product pages, collections, navigation and checkout journeys shape what happens next.', 'Our guides cover technical SEO, useful content, product discovery, customer research and the iterative improvements that make Shopify stores clearer and easier to buy from.'], buttons: [{label: 'Explore Ecommerce SEO', href: SERVICE_PAGE_ROUTES.ecommerceSeo}], media: reuseHomeFeatureMedia('shopify-development')},
+      {id: 'guides-shopify-plus-development', layout: 'media-left', spacing: 'deep', theme: 'dark', eyebrow: 'Shopify Plus & Development', heading: 'Building a Shopify Platform That Can Evolve', description: ['Shopify Plus and custom development create room to address more complex requirements, but the right solution depends on the business model, customer journeys and systems a store needs to support.', 'Our guides consider platform decisions, integrations, performance and flexibility, balancing immediate priorities with a dependable foundation for future growth.'], buttons: [{label: 'Explore Shopify Plus', href: SERVICE_PAGE_ROUTES.shopifyPlus}], media: reuseHomeFeatureMedia('shopify-migrations')},
+      {id: 'guides-migrations-retention', layout: 'media-right', spacing: 'standard', theme: 'dark', eyebrow: 'Migrations & Retention', heading: 'Supporting Change and Customer Relationships', description: ['A successful Shopify migration protects the customer experience while giving the business a stronger platform to build on. Retention depends on the useful interactions that follow every order.', 'We explore how ecommerce teams can plan store migrations and connect retention strategy to the rest of their Shopify activity.'], buttons: [{label: 'Explore Shopify Migrations', href: SERVICE_PAGE_ROUTES.shopifyMigrations}], media: reuseHomeFeatureMedia('shopify-cro')},
+      {id: 'guides-ecommerce-strategy', layout: 'media-left', spacing: 'deep', theme: 'dark', eyebrow: 'Ecommerce Strategy', heading: 'A More Connected Ecommerce Strategy', description: ['The strongest ecommerce strategy connects the decisions customers can see with the systems and processes they cannot, across storefront, acquisition, conversion, retention and operations.', 'FoldTech guides help teams focus on practical priorities that make a store more useful to customers and more effective for the business behind it.'], buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}], media: reuseHomeFeatureMedia('shopify-design')},
+    ],
+  },
   'subscriptions-on-shopify': {
     faqTitle: 'Shopify Subscriptions',
     hero: {
