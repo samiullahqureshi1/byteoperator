@@ -69,39 +69,83 @@ export const HOME_CLIENT_LOGOS: readonly ClientLogoMarqueeItem[] = [
     alt: '',
   },
   {
-    src: '/images/home-services/clients/logo-1.svg',
+    src: '/images/home-services/clients/logo-11.svg',
     alt: '',
   },
   {
-    src: '/images/home-services/clients/logo-2.svg',
+    src: '/images/home-services/clients/logo-12.svg',
     alt: '',
   },
   {
-    src: '/images/home-services/clients/logo-3.svg',
+    src: '/images/home-services/clients/logo-13.svg',
     alt: '',
   },
   {
-    src: '/images/home-services/clients/logo-4.svg',
+    src: '/images/home-services/clients/logo-14.svg',
     alt: '',
   },
   {
-    src: '/images/home-services/clients/logo-5.svg',
+    src: '/images/home-services/clients/logo-15.svg',
     alt: '',
   },
   {
-    src: '/images/home-services/clients/logo-6.svg',
+    src: '/images/home-services/clients/logo-16.svg',
     alt: '',
   },
   {
-    src: '/images/home-services/clients/logo-7.svg',
+    src: '/images/home-services/clients/logo-17.svg',
     alt: '',
   },
   {
-    src: '/images/home-services/clients/logo-8.svg',
+    src: '/images/home-services/clients/logo-18.svg',
     alt: '',
   },
   {
-    src: '/images/home-services/clients/logo-9.svg',
+    src: '/images/home-services/clients/logo-19.svg',
+    alt: '',
+  },
+  {
+    src: '/images/home-services/clients/logo-20.svg',
+    alt: '',
+  },
+  {
+    src: '/images/home-services/clients/logo-21.svg',
+    alt: '',
+  },
+  {
+    src: '/images/home-services/clients/logo-22.svg',
+    alt: '',
+  },
+  {
+    src: '/images/home-services/clients/logo-23.svg',
+    alt: '',
+  },
+  {
+    src: '/images/home-services/clients/logo-24.svg',
+    alt: '',
+  },
+  {
+    src: '/images/home-services/clients/logo-25.svg',
+    alt: '',
+  },
+  {
+    src: '/images/home-services/clients/logo-26.svg',
+    alt: '',
+  },
+  {
+    src: '/images/home-services/clients/logo-27.svg',
+    alt: '',
+  },
+  {
+    src: '/images/home-services/clients/logo-28.svg',
+    alt: '',
+  },
+  {
+    src: '/images/home-services/clients/logo-29.svg',
+    alt: '',
+  },
+  {
+    src: '/images/home-services/clients/logo-30.svg',
     alt: '',
   },
 ] as const;

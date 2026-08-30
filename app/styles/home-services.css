@@ -1813,3 +1813,6 @@
     transition: none;
   }
 }
+.ft-home-services__logo-image[src$="/logo-11.svg"] {
+  transform: scale(3.2);
+}
