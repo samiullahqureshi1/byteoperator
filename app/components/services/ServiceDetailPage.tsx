@@ -26,7 +26,7 @@ export function ServiceDetailPage({
   config,
 }: ServiceDetailPageProps) {
   return (
-    <main    
+    <div    
   className={`ft-service-detail ft-service-detail--${page.handle}`}
     data-page-handle={page.handle}>
       <ServiceHero {...config.hero} />
@@ -70,6 +70,6 @@ export function ServiceDetailPage({
           </div>
         </>
       )}
-    </main>
+    </div>
   );
 }

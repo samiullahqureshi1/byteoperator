@@ -6,6 +6,7 @@ import {
   resolveLegacyPath,
 } from '~/lib/route-mappings';
 import {
+  buildPageMeta,
   links as pageLinks,
   loadPageData,
   PageContent,
@@ -32,7 +33,12 @@ export const meta: Route.MetaFunction = ({data}) => {
     ];
   }
 
-  return [{title: `Hydrogen | ${data?.page.title ?? ''}`}];
+  /*
+   * Every other clean page reuses the shared builder so it gets the
+   * Shopify SEO title/description and a canonical pointing at the clean
+   * public URL rather than the `/pages/*` implementation route.
+   */
+  return buildPageMeta(data?.page);
 };
 
 /**

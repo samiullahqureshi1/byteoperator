@@ -17,11 +17,41 @@ import {ProductForm} from '~/components/ProductForm';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 
 export const meta: Route.MetaFunction = ({data}) => {
+  const product = data?.product;
+
+  /*
+   * `PRODUCT_QUERY` already requests the Shopify `seo` fields, so the title
+   * and description come from the values approved in Shopify and only fall
+   * back to the product's own title/description when those are unset.
+   */
+  const title = product?.seo?.title || `${product?.title ?? ''} | FoldTech`;
+
+  const description = product?.seo?.description || product?.description;
+
   return [
-    {title: `Hydrogen | ${data?.product.title ?? ''}`},
+    {title},
+
+    ...(description ? [{name: 'description', content: description}] : []),
+
+    {property: 'og:type', content: 'product'},
+    {property: 'og:title', content: title},
+
+    ...(description
+      ? [{property: 'og:description', content: description}]
+      : []),
+
     {
+      /*
+       * Without `tagName`, React Router renders this as a <meta rel="...">
+       * tag, which search engines ignore. Canonicals must be <link> tags.
+       *
+       * The href deliberately omits the selected-option query params that
+       * `useSelectedOptionInUrlParam` writes, so every variant URL points at
+       * the single product URL instead of being indexed separately.
+       */
+      tagName: 'link',
       rel: 'canonical',
-      href: `/products/${data?.product.handle}`,
+      href: `/products/${product?.handle}`,
     },
   ];
 };
@@ -106,7 +136,10 @@ export default function Product() {
 
   return (
     <div className="product">
-      <ProductImage image={selectedVariant?.image} />
+      <ProductImage
+        image={selectedVariant?.image}
+        productTitle={title}
+      />
       <div className="product-main">
         <h1>{title}</h1>
         <ProductPrice

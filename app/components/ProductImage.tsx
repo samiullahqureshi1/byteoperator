@@ -3,8 +3,10 @@ import {Image} from '@shopify/hydrogen';
 
 export function ProductImage({
   image,
+  productTitle,
 }: {
   image: ProductVariantFragment['image'];
+  productTitle?: string;
 }) {
   if (!image) {
     return <div className="product-image" />;
@@ -12,7 +14,11 @@ export function ProductImage({
   return (
     <div className="product-image">
       <Image
-        alt={image.altText || 'Product Image'}
+        /*
+         * Falls back to the product name rather than the generic
+         * "Product Image", which tells a screen reader nothing.
+         */
+        alt={image.altText || productTitle || 'Product Image'}
         aspectRatio="1/1"
         data={image}
         key={image.id}

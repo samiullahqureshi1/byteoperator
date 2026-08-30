@@ -35,7 +35,7 @@ export function ServicesPage({
   const closeCaseStudy = useCallback(() => setIsCaseStudyOpen(false), []);
 
   return (
-    <main
+    <div
       className="ft-services-page"
       data-page-handle={page.handle}
     >
@@ -49,8 +49,8 @@ export function ServicesPage({
       <div className="ft-services-people">
         <HomePeople
           content={{
-            headingFirstLine: 'People-First Shopify Agency',
-            headingSecondLine: 'for Ecommerce Growth',
+            headingFirstLine: 'People-First Shopify Growth ',
+            headingSecondLine: 'Agency',
             description:
               'A specialised Shopify team focused on design, development, SEO and growth. We help ecommerce brands plan, build and continuously improve high-performing online stores that drive more traffic, higher conversions and long-term revenue.',
             buttonLabel: 'Our Story',
@@ -90,6 +90,6 @@ export function ServicesPage({
       <div className="ft-services-experts">
   <HomeExperts />
 </div>
-    </main>
+    </div>
   );
 }

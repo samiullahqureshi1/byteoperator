@@ -7,7 +7,25 @@ import {ProductItem} from '~/components/ProductItem';
 import type {ProductItemFragment} from 'storefrontapi.generated';
 
 export const meta: Route.MetaFunction = ({data}) => {
-  return [{title: `Hydrogen | ${data?.collection.title ?? ''} Collection`}];
+  const collection = data?.collection;
+
+  return [
+    {title: `${collection?.title ?? ''} Collection | FoldTech`},
+
+    ...(collection?.description
+      ? [{name: 'description', content: collection.description}]
+      : []),
+
+    ...(collection?.handle
+      ? [
+          {
+            tagName: 'link',
+            rel: 'canonical',
+            href: `/collections/${collection.handle}`,
+          },
+        ]
+      : []),
+  ];
 };
 
 export async function loader(args: Route.LoaderArgs) {

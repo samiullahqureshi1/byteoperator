@@ -77,8 +77,28 @@ import type {
 } from 'storefrontapi.generated';
 import {ProductItem} from '~/components/ProductItem';
 
+/*
+ * Metadata is derived from the approved hero copy rendered by
+ * <HomeHero />, so the title and description match the page.
+ */
+const HOME_TITLE =
+  'FoldTech | The Shopify Agency That Drives Real Growth';
+
+const HOME_DESCRIPTION =
+  'High-performing Shopify stores, backed by proven CRO, SEO, and AI visibility strategies that deliver measurable results.';
+
 export const meta: Route.MetaFunction = () => {
-  return [{title: 'Hydrogen | Home'}];
+  return [
+    {title: HOME_TITLE},
+    {name: 'description', content: HOME_DESCRIPTION},
+    {property: 'og:type', content: 'website'},
+    {property: 'og:title', content: HOME_TITLE},
+    {
+      property: 'og:description',
+      content: HOME_DESCRIPTION,
+    },
+    {tagName: 'link', rel: 'canonical', href: '/'},
+  ];
 };
 
 export async function loader(args: Route.LoaderArgs) {

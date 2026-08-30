@@ -182,11 +182,13 @@
 }
 .ft-service-detail--bigcommerce-shopify-migrations
 .ft-service-about__content--intro
-.ft-service-about__left,
+.ft-service-about__left {
+  align-self: end;
+}
 .ft-service-detail--headless-commerce
 .ft-service-about__content--intro
 .ft-service-about__left {
-  align-self: end;
+  align-self: start;
 }
 .ft-service-detail--bigcommerce-shopify-migrations
 .ft-services-hero__inner,

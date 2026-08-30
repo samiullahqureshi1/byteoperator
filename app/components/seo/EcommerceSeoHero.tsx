@@ -74,7 +74,7 @@ export function EcommerceSeoHero({
   const [isVariant, setIsVariant] = useState(false);
 
   return (
-    <main className={`ft-ecommerce-seo-hero${croInteractive ? ' ft-ecommerce-seo-hero--cro' : ''}${isVariant ? ' is-variant' : ''}`}>
+    <div className={`ft-ecommerce-seo-hero${croInteractive ? ' ft-ecommerce-seo-hero--cro' : ''}${isVariant ? ' is-variant' : ''}`}>
       <section
         className="ft-ecommerce-seo-hero__section"
         aria-labelledby="ecommerce-seo-hero-title"
@@ -206,7 +206,7 @@ export function EcommerceSeoHero({
           <EcommerceSeoProofStrip items={ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS} />
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

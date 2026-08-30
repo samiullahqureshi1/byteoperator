@@ -15,7 +15,7 @@ export const links: Route.LinksFunction = () => [
 export const meta: Route.MetaFunction = ({data}) => {
   const title =
     data?.article.seo?.title ||
-    `Hydrogen | ${data?.article.title ?? ''} article`;
+    `${data?.article.title ?? ''} | FoldTech`;
   const description = data?.article.seo?.description;
   const canonical = data?.article.handle
     ? getArticlePath(data.article.handle)

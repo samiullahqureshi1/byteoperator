@@ -1,6 +1,11 @@
 import {redirect, useLoaderData} from 'react-router';
 import type {Route} from './+types/services.$serviceHandle';
-import {links as pageLinks, loadPageData, PageContent} from './pages.$handle';
+import {
+  buildPageMeta,
+  links as pageLinks,
+  loadPageData,
+  PageContent,
+} from './pages.$handle';
 import {
   SERVICE_PAGE_CONFIGS,
   type ServicePageHandle,
@@ -9,9 +14,8 @@ import {isSamePath, resolveCleanPath} from '~/lib/route-mappings';
 
 export const links = pageLinks;
 
-export const meta: Route.MetaFunction = ({data}) => [
-  {title: `Hydrogen | ${data?.page.title ?? ''}`},
-];
+export const meta: Route.MetaFunction = ({data}) =>
+  buildPageMeta(data?.page);
 
 export async function loader(args: Route.LoaderArgs) {
   const serviceHandle = args.params.serviceHandle;

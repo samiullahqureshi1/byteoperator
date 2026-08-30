@@ -57,7 +57,12 @@ export function CaseStudyCard({article}: CaseStudyCardProps) {
             <img
               className="ft-case-study-card__logo"
               src={logo.url}
-              alt={article.title}
+              /*
+               * Decorative: the brand name is already announced by the
+               * card title below, so a duplicate alt would repeat it.
+               */
+              alt=""
+              aria-hidden="true"
               width={logo.width ?? undefined}
               height={logo.height ?? undefined}
               loading="lazy"

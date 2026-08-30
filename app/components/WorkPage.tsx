@@ -42,7 +42,7 @@ export function WorkPage({
   const showNormalCaseStudies = selectedIndustry === 'All';
 
   return (
-    <main
+    <div
       className="ft-work-page"
       data-page-handle={page.handle}
     >
@@ -66,8 +66,8 @@ export function WorkPage({
   <HomePeople
     content={{
       eyebrow: 'Creative, Technical & Strategic Shopify Experts',
-      headingFirstLine: 'People First Shopify Agency',
-      headingSecondLine: 'Helping Brands Scale',
+      headingFirstLine: 'Shopify Agency for',
+      headingSecondLine: 'Growing Brands',
       description:
         'A dedicated Shopify team specialising in design, development, SEO and growth marketing. We partner with ecommerce brands to plan, build and optimise high-converting online stores delivering better user experience, stronger organic visibility and measurable revenue growth.',
       buttonLabel: 'Our Story',
@@ -85,6 +85,6 @@ export function WorkPage({
 </div>
         </>
       ) : null}
-    </main>
+    </div>
   );
 }

@@ -14,10 +14,30 @@ export const meta: Route.MetaFunction = ({data}) => {
 
   if (!article) return [{title: 'Case study not found | FoldTech'}];
 
+  const title = article.seo?.title || `${article.title} | FoldTech`;
+
+  const description = article.seo?.description;
+
   return [
-    {title: article.seo?.title || `${article.title} | FoldTech`},
-    ...(article.seo?.description
-      ? [{name: 'description', content: article.seo.description}]
+    {title},
+
+    ...(description ? [{name: 'description', content: description}] : []),
+
+    {property: 'og:type', content: 'article'},
+    {property: 'og:title', content: title},
+
+    ...(description
+      ? [{property: 'og:description', content: description}]
+      : []),
+
+    ...(article.handle
+      ? [
+          {
+            tagName: 'link',
+            rel: 'canonical',
+            href: `/work/${article.handle}`,
+          },
+        ]
       : []),
   ];
 };

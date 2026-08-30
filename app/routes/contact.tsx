@@ -6,7 +6,7 @@ import {
   CONTACT_PAGE_HANDLE,
 } from '~/lib/route-mappings';
 
-import {loadPageData} from './pages.$handle';
+import {buildPageMeta, loadPageData} from './pages.$handle';
 
 import {ContactHero} from '~/components/contact/ContactHero';
 import {ContactInfo} from '~/components/contact/ContactInfo';
@@ -42,16 +42,8 @@ export const links = () => [
   },
 ];
 
-export const meta: Route.MetaFunction = ({data}) => [
-  {
-    title: `Hydrogen | ${data?.page.title ?? 'Contact'}`,
-  },
-  {
-    tagName: 'link',
-    rel: 'canonical',
-    href: CONTACT_CLEAN_PATH,
-  },
-];
+export const meta: Route.MetaFunction = ({data}) =>
+  buildPageMeta(data?.page, CONTACT_CLEAN_PATH);
 
 export async function loader({
   context,
@@ -68,7 +60,7 @@ export default function ContactPage() {
   const {featuredArticles} = useLoaderData<typeof loader>();
 
   return (
-    <main className="ft-contact-page">
+    <div className="ft-contact-page">
       <ContactHero />
 
       <section
@@ -105,6 +97,6 @@ export default function ContactPage() {
 
       <ContactPartners />
       <ContactInfo />
-    </main>
+    </div>
   );
 }

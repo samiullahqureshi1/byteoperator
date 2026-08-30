@@ -114,7 +114,7 @@ export function CaseStudyDetail({
   ].filter(Boolean) as Array<{label: string; value: string; href?: string}>;
 
   return (
-    <main className="ft-case-detail">
+    <div className="ft-case-detail">
       <header className="ft-case-detail__hero">
         {caseStudyTitle ? (
           <p className="ft-case-detail__eyebrow">{caseStudyTitle}</p>
@@ -201,7 +201,7 @@ export function CaseStudyDetail({
       <div className="ft-case-detail__experts">
         <HomeExperts />
       </div>
-    </main>
+    </div>
   );
 }
 

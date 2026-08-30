@@ -583,6 +583,23 @@ button.reset:hover:not(:has(> *)) {
 }
 
 /*
+ * The byline was moved out of the <h1> for valid markup. These values
+ * reproduce exactly what it rendered with before: the typography it
+ * inherited from `h1` in reset.css, and the same 2rem gap that the h1's
+ * own bottom margin used to provide below it.
+ */
+.article h1:has(+ .article__byline) {
+  margin-bottom: 0;
+}
+
+.article__byline {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+
+/*
 * --------------------------------------------------
 * routes/account
 * --------------------------------------------------

@@ -108,18 +108,18 @@ export function HomePartners({
       aria-labelledby="ft-home-partners-title"
     >
       <div className="ft-home-partners__container">
-        <h2 className="ft-home-partners__label">
+        <p className="ft-home-partners__label">
           {label}
-        </h2>
+        </p>
 
         <div className="ft-home-partners__inner">
           <div className="ft-home-partners__left">
-            <h3
+            <h2
               className="ft-home-partners__title"
               id="ft-home-partners-title"
             >
               {heading}
-            </h3>
+            </h2>
 
             <div
               className={[

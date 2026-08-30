@@ -14,7 +14,28 @@ import {
 } from '~/lib/route-mappings';
 
 export const meta: Route.MetaFunction = ({data}) => {
-  return [{title: `Hydrogen | ${data?.blog.title ?? ''} blog`}];
+  const blog = data?.blog;
+
+  /* `BLOGS_QUERY` already requests the blog's Shopify `seo` fields. */
+  const title = blog?.seo?.title || `${blog?.title ?? ''} blog | FoldTech`;
+
+  const description = blog?.seo?.description;
+
+  return [
+    {title},
+
+    ...(description ? [{name: 'description', content: description}] : []),
+
+    ...(blog?.handle
+      ? [
+          {
+            tagName: 'link',
+            rel: 'canonical',
+            href: `/blogs/${blog.handle}`,
+          },
+        ]
+      : []),
+  ];
 };
 
 export async function loader(args: Route.LoaderArgs) {

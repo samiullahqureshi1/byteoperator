@@ -14,7 +14,10 @@ import {
 type BlogNode = BlogsQuery['blogs']['nodes'][0];
 
 export const meta: Route.MetaFunction = () => {
-  return [{title: `Hydrogen | Blogs`}];
+  return [
+    {title: 'Blogs | FoldTech'},
+    {tagName: 'link', rel: 'canonical', href: '/blogs'},
+  ];
 };
 
 export async function loader(args: Route.LoaderArgs) {

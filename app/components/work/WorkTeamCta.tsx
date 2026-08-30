@@ -35,9 +35,7 @@ export function WorkTeamCta() {
           </p>
 
           <h2 className="ft-work-team__title" id="ft-work-team-title">
-            Senior specialists in Shopify development, conversion rate
-            optimisation (CRO), SEO, design, support and retention marketing
-            focused on turning your store into a scalable revenue engine.
+            Shopify Specialists for Scalable Growth Turning Shopify Stores into Revenue Engines
           </h2>
 
           <p className="ft-work-team__description">

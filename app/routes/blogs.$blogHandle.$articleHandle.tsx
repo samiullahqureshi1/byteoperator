@@ -4,8 +4,36 @@ import {Image} from '@shopify/hydrogen';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {getArticlesUrlRedirect} from '~/services/redirects.server';
 
-export const meta: Route.MetaFunction = ({data}) => {
-  return [{title: `Hydrogen | ${data?.article.title ?? ''} article`}];
+export const meta: Route.MetaFunction = ({data, params}) => {
+  const article = data?.article;
+
+  /* `ARTICLE_QUERY` already requests the article's Shopify `seo` fields. */
+  const title =
+    article?.seo?.title || `${article?.title ?? ''} | FoldTech`;
+
+  const description = article?.seo?.description;
+
+  const canonical =
+    params.blogHandle && article?.handle
+      ? `/blogs/${params.blogHandle}/${article.handle}`
+      : undefined;
+
+  return [
+    {title},
+
+    ...(description ? [{name: 'description', content: description}] : []),
+
+    {property: 'og:type', content: 'article'},
+    {property: 'og:title', content: title},
+
+    ...(description
+      ? [{property: 'og:description', content: description}]
+      : []),
+
+    ...(canonical
+      ? [{tagName: 'link', rel: 'canonical', href: canonical}]
+      : []),
+  ];
 };
 
 export async function loader(args: Route.LoaderArgs) {
@@ -83,13 +111,19 @@ export default function Article() {
 
   return (
     <div className="article">
-      <h1>
-        {title}
-        <div>
-          <time dateTime={article.publishedAt}>{publishedDate}</time> &middot;{' '}
-          <address>{author?.name}</address>
-        </div>
-      </h1>
+      {/*
+        * The byline used to sit inside the <h1>, which put the date and
+        * author into the page's primary heading and nested flow content
+        * (<div>, <address>) inside a heading that only permits phrasing
+        * content. It is now a sibling; `.article__byline` restates the
+        * typography it previously inherited from the <h1>.
+        */}
+      <h1>{title}</h1>
+
+      <div className="article__byline">
+        <time dateTime={article.publishedAt}>{publishedDate}</time> &middot;{' '}
+        <address>{author?.name}</address>
+      </div>
 
       {image && <Image data={image} sizes="90vw" loading="eager" />}
       <div

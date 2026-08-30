@@ -40,7 +40,12 @@
   margin-bottom: 3.5rem;
 }
 
-.ft-services-directory__header p {
+/*
+ * Selector follows the section title from <p> to <h2>. Every property the
+ * global reset applies to h2 (font-size, font-weight, line-height, margin)
+ * is restated here, so the rendered result is unchanged.
+ */
+.ft-services-directory__header h2 {
   margin: 0;
   font-family: 'Season Serif', serif;
   font-size: 2rem;

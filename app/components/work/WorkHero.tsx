@@ -46,11 +46,11 @@ export function WorkHero({
               AI search visibility, and long-term growth strategies.
             </p>
 
-            <p className='ft-work-hero__description'>
+            {/* <p className='ft-work-hero__description'>
               From emerging brands to established ecommerce businesses, our work
               is focused on delivering measurable results that increase traffic,
               improve conversions, and maximise revenue.
-            </p>
+            </p> */}
           </div>
 
           {hasSideContent ? (

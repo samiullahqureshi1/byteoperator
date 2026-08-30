@@ -128,7 +128,7 @@ export function ServicesDirectory() {
 
       <div className="ft-services-directory__container">
         <header className="ft-services-directory__header">
-          <p>Our Services</p>
+          <h2>Our Services</h2>
         </header>
 
         <div className="ft-services-directory__content">

@@ -1,6 +1,9 @@
 export function ContactInfo() {
   return (
-    <section className="ft-contact-info">
+    <section
+      className="ft-contact-info"
+      aria-label="Contact details"
+    >
       <div className="ft-contact-info__container">
         <div className="ft-contact-info__grid">
           <div className="ft-contact-info__block">

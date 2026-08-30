@@ -95,6 +95,7 @@ import {
 import type {ServiceDetailFaqItem} from '~/components/services/detail/ServiceDetailFaqs';
 import {
   isSamePath,
+  resolveCanonicalPath,
   resolveCleanPath,
   resolveServiceConfigHandle,
   CONTACT_PAGE_HANDLE,
@@ -131,8 +132,68 @@ const CRO_SERVICE_PILLARS = [
   {key: 'pricing', number: '06', title: 'Pricing & Promotions', accordionDescription: 'We assess how price, value, delivery and promotional information is presented throughout the buying journey.', previewDescription: 'Clear commercial information helps customers understand value before they commit to a purchase.', checks: ['Value communication', 'Promotion clarity', 'Delivery information']},
 ] as const;
 
+/*
+ * Shared page metadata builder.
+ *
+ * `PAGE_QUERY` already requests the Shopify `seo` fields, so titles and
+ * descriptions come from the content that has been approved in Shopify and
+ * fall back to the page title only when no SEO title is set.
+ *
+ * The canonical href is resolved through `resolveCanonicalPath` so a page
+ * reachable at both `/pages/x` and its clean URL always points at the single
+ * public URL, rather than at the implementation route.
+ */
+type PageSeoSource = {
+  handle?: string | null;
+  title?: string | null;
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+  } | null;
+};
+
+export function buildPageMeta(
+  page: PageSeoSource | undefined,
+  canonicalPath?: string,
+): ReturnType<Route.MetaFunction> {
+  if (!page) {
+    return [{title: 'FoldTech'}];
+  }
+
+  const title =
+    page.seo?.title ||
+    (page.title ? `${page.title} | FoldTech` : 'FoldTech');
+
+  const description = page.seo?.description ?? undefined;
+
+  const canonical =
+    canonicalPath ??
+    (page.handle
+      ? resolveCanonicalPath(`/pages/${page.handle}`)
+      : undefined);
+
+  return [
+    {title},
+
+    ...(description
+      ? [{name: 'description', content: description}]
+      : []),
+
+    {property: 'og:type', content: 'website'},
+    {property: 'og:title', content: title},
+
+    ...(description
+      ? [{property: 'og:description', content: description}]
+      : []),
+
+    ...(canonical
+      ? [{tagName: 'link', rel: 'canonical', href: canonical}]
+      : []),
+  ];
+}
+
 export const meta: Route.MetaFunction = ({data}) => {
-  return [{title: `Hydrogen | ${data?.page.title ?? ''}`}];
+  return buildPageMeta(data?.page);
 };
 export const links: Route.LinksFunction = () => [
   {
@@ -669,7 +730,7 @@ export function PageContent({
         <h1>{page.title}</h1>
       </header>
 
-      <main
+      <div
         dangerouslySetInnerHTML={{
           __html: page.body,
         }}

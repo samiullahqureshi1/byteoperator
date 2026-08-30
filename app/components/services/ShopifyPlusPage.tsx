@@ -11,7 +11,7 @@ import {ServiceHero} from './ServiceHero';
 
 export function ShopifyPlusPage() {
   return (
-    <main
+    <div
       className="ft-shopify-plus-page"
       data-page-handle="shopify-plus"
     >
@@ -46,6 +46,6 @@ export function ShopifyPlusPage() {
       </div>
 
       <HomeObservatory />
-    </main>
+    </div>
   );
 }

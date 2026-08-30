@@ -41,12 +41,12 @@ export function WorkTestimonial({
           <div className="ft-work-testimonial__overlay" aria-hidden="true" />
 
           <figcaption className="ft-work-testimonial__content">
-            <h3
+            <h2
               className="ft-work-testimonial__quote"
               id="ft-work-testimonial-quote"
             >
               {heading}
-            </h3>
+            </h2>
 
             <p className="ft-work-testimonial__author">{meta}</p>
 
