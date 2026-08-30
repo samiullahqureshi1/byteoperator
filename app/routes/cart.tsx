@@ -9,7 +9,11 @@ import {CartForm} from '@shopify/hydrogen';
 import {CartMain} from '~/components/CartMain';
 
 export const meta: Route.MetaFunction = () => {
-  return [{title: `Hydrogen | Cart`}];
+  return [
+    {title: 'Cart | FoldTech'},
+    /* Transactional page: never a search result. */
+    {name: 'robots', content: 'noindex, follow'},
+  ];
 };
 
 export const headers: HeadersFunction = ({actionHeaders}) => actionHeaders;

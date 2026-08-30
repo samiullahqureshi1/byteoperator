@@ -13,7 +13,15 @@ import {
 import type {RegularSearchQuery, PredictiveSearchQuery} from 'storefrontapi.generated';
 
 export const meta: Route.MetaFunction = () => {
-  return [{title: `Hydrogen | Search`}];
+  return [
+    {title: 'Search | FoldTech'},
+    /*
+     * Internal search result pages should never rank. robots.txt already
+     * disallows /search; this is the second signal for any crawler that
+     * reaches the page directly.
+     */
+    {name: 'robots', content: 'noindex, follow'},
+  ];
 };
 
 export async function loader({request, context}: Route.LoaderArgs) {
