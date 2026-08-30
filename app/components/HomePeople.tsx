@@ -1,6 +1,25 @@
 import {Link} from 'react-router';
 
-export function HomePeople() {
+type HomePeopleContent = {
+  headingFirstLine: string;
+  headingSecondLine: string;
+  description: string;
+  buttonLabel: string;
+};
+
+const DEFAULT_HOME_PEOPLE_CONTENT: HomePeopleContent = {
+  headingFirstLine: 'People-first',
+  headingSecondLine: 'Shopify agency',
+  description:
+    'A Shopify team focused on design, development, SEO and growth, helping ecommerce brands plan, build and improve better online stores.',
+  buttonLabel: 'Our Story',
+};
+
+export function HomePeople({
+  content = DEFAULT_HOME_PEOPLE_CONTENT,
+}: {
+  content?: HomePeopleContent;
+} = {}) {
   return (
     <section
       className="ft-home-people"
@@ -28,18 +47,15 @@ export function HomePeople() {
               className="ft-home-people__title"
               id="ft-home-people-title"
             >
-              People-first
+              {content.headingFirstLine}
               <br />
-              Shopify agency
+              {content.headingSecondLine}
             </h2>
           </div>
 
           <div className="ft-home-people__right">
             <p className="ft-home-people__description">
-              A Shopify team focused on design,
-              development, SEO and growth, helping
-              ecommerce brands plan, build and improve
-              better online stores.
+              {content.description}
             </p>
 
             <Link
@@ -47,7 +63,7 @@ export function HomePeople() {
               to="/pages/about"
               prefetch="intent"
             >
-              <span>Our Story</span>
+              <span>{content.buttonLabel}</span>
 
               <svg
                 className="ft-home-people__button-arrow"

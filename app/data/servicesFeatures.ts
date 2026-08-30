@@ -7,57 +7,60 @@ import {SHOPIFY_SEO_CLEAN_PATH} from '~/lib/route-mappings';
 const SERVICES_FEATURE_CONFIG = [
   {
     id: 'shopify-launch',
+    eyebrow: 'Shopify Agency',
     heading: 'Design & Development Services',
     button: {
       label: 'Explore New Store Services',
       href: '/pages/shopify-development',
     },
     description: [
-      'FoldTech brings Shopify store design, development and technical implementation together for new builds and existing themes. We plan storefront structure, buying journeys and functionality around the needs of the brand and its customers.',
-      'Each build considers user experience, performance, SEO foundations and maintainability, giving ecommerce teams a practical base for future campaigns, integrations and ongoing development.',
+      'The Fold Tech brings Shopify store design, development and technical implementation together for new builds and existing themes. We carefully plan storefront structure, buying journeys and functionality around your brand and customers.',
+      'Every build is designed with user experience, performance, SEO foundations and long-term maintainability in mind giving ecommerce teams a strong base for future campaigns, integrations and ongoing growth.',
     ],
   },
   {
     id: 'shopify-support-growth',
+    eyebrow: 'Shopify Monthly Support Agency',
     heading: 'Support & CRO Retainers',
     button: {
       label: 'Explore Retainers',
       href: '/pages/shopify-maintenance',
     },
     description: [
-      'FoldTech supports Shopify stores through ongoing maintenance, development updates and conversion improvement. Retainers can cover day-to-day fixes, smaller development requirements and planned enhancements that keep the storefront dependable and easier to manage.',
-      'CRO work uses performance analysis, customer behaviour and testing opportunities to improve the buying journey over time, connecting practical store changes with the commercial priorities of the ecommerce team.',
+      'The Fold Tech provides ongoing Shopify support, maintenance and conversion rate optimisation through flexible monthly retainers. Our retainers cover day-to-day fixes, smaller development tasks and planned enhancements that keep your storefront reliable and easy to manage.',
+      'CRO work combines performance analysis, customer behaviour insights and structured testing to continuously improve the buying journey — aligning practical store changes with your commercial goals.',
     ],
   },
   {
     id: 'shopify-seo-geo',
+    eyebrow: 'Shopify SEO & GEO Agency',
     heading: 'Shopify SEO Services',
     button: {
       label: 'Explore SEO',
       href: SHOPIFY_SEO_CLEAN_PATH,
     },
     description: [
-      'Our Shopify SEO work brings technical optimisation, content strategy and site structure together to strengthen organic visibility. We review current performance, competitors and search opportunities across the storefront.',
-      'This includes traditional search and AI-driven discovery, with recommendations shaped around both visibility and customer experience. The aim is to make improvements practical for the wider content, development and ecommerce teams.',
+      'The Fold Tech delivers complete Shopify SEO services that combine technical optimization, content strategy and smart site structure to improve organic visibility. We analyze current performance, competitors and search opportunities across your entire storefront.',
     ],
   },
   {
     id: 'email-sms-retention',
-    heading: 'Email & SMS Marketing',
+    eyebrow: 'Shopify Email & SMS Marketing Agency',
+    heading: 'Email & SMS Marketing for Ecommerce Growth',
     button: {
       label: 'Explore Email Marketing',
       href: '/pages/email-sms-marketing',
     },
     description: [
-      'FoldTech plans email and SMS activity around relevant moments in the customer journey. Work can include audience segmentation, targeted campaigns, automated lifecycle flows and triggered communications that support retention alongside the Shopify store.',
-      'We can also consider how email and SMS connect with subscriptions, reviews, loyalty programmes and other ecommerce systems, helping campaigns and automations work as part of a joined-up customer experience.',
+      'We design email and SMS strategies that engage customers at the right moments in their journey. From audience segmentation and targeted campaigns to automated flows and triggered messages, our work helps increase retention and repeat purchases.',
+      'Our approach also integrates email and SMS with subscriptions, loyalty programmes and other Shopify systems delivering a seamless customer experience that drives measurable results.',
     ],
   },
 ] as const;
 
 export const SERVICES_FEATURES: readonly HomeFeatureData[] =
   SERVICES_FEATURE_CONFIG.map(
-    ({id, heading, description, button}) => {
+    ({id, eyebrow, heading, description, button}) => {
       const feature = HOME_FEATURES.find(
         (candidate) => candidate.id === id,
       );
@@ -74,6 +77,7 @@ export const SERVICES_FEATURES: readonly HomeFeatureData[] =
 
       return {
         ...featureWithoutLogos,
+        eyebrow,
         heading,
         description,
         buttons: [button],

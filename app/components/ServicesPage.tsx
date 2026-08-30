@@ -28,7 +28,9 @@ function getFirstParagraph(html: string) {
 export function ServicesPage({
   page,
 }: ServicesPageProps) {
-  const heroDescription = getFirstParagraph(page.body);
+  const heroDescription = getFirstParagraph(
+    '<p>The Fold Tech delivers end-to-end Shopify solutions — from custom theme design and development to SEO, conversion rate optimization, migrations and ongoing support. We help ecommerce brands launch faster, convert better and scale smarter with expert Shopify and Shopify Plus services.</p>',
+  );
   const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
   const closeCaseStudy = useCallback(() => setIsCaseStudyOpen(false), []);
 
@@ -45,7 +47,15 @@ export function ServicesPage({
       <ServicesDirectory />
 
       <div className="ft-services-people">
-        <HomePeople />
+        <HomePeople
+          content={{
+            headingFirstLine: 'People-First Shopify Agency',
+            headingSecondLine: 'for Ecommerce Growth',
+            description:
+              'A specialised Shopify team focused on design, development, SEO and growth. We help ecommerce brands plan, build and continuously improve high-performing online stores that drive more traffic, higher conversions and long-term revenue.',
+            buttonLabel: 'Our Story',
+          }}
+        />
       </div>
 
       <div className="ft-services-features">

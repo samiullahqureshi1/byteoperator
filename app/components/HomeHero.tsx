@@ -15,7 +15,7 @@ const HERO_SERVICES = [
     title: 'Revenue Acceleration',
     description:
       'Continuous CRO, performance optimization & growth support.',
-    url: '/pages/shopify-support',
+    url: '/pages/shopify-cro-agency',
   },
   {
     title: 'Search & Discovery',
