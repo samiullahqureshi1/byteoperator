@@ -1,4 +1,5 @@
 import {
+  CRO_CLEAN_PATH,
   resolveCanonicalPath,
   SHOPIFY_SEO_CLEAN_PATH,
 } from '~/lib/route-mappings';
@@ -100,7 +101,7 @@ const ROUTES = {
 
   migrations: '/pages/shopify-migrations',
 
-  cro: '/pages/conversion-rate-optimisation',
+  cro: CRO_CLEAN_PATH,
 
   maintenance: '/pages/shopify-maintenance',
 

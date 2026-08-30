@@ -8,6 +8,7 @@ import {
   type HomeFeatureData,
 } from '~/data/homeFeatures';
 import {
+  CRO_CLEAN_PATH,
   resolveCleanPath,
   SHOPIFY_SEO_PAGE_HANDLE,
 } from '~/lib/route-mappings';
@@ -46,9 +47,7 @@ const SERVICE_PAGE_ROUTES = {
     '/pages/shopify-developers',
   ),
   shopifyAudits: resolveCleanPath('/pages/shopify-audits'),
-  ecommerceCro: resolveCleanPath(
-    '/pages/conversion-rate-optimisation',
-  ),
+  ecommerceCro: CRO_CLEAN_PATH,
   klaviyoAgency: resolveCleanPath('/pages/klaviyo-agency'),
   emailMarketingAgency: resolveCleanPath(
     '/pages/email-marketing-agency',

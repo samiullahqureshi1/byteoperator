@@ -110,7 +110,8 @@ export const OLD_TO_CLEAN_PATHS = {
   '/services/ecommerce-seo-migrations/':
     ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
   '/pages/headless-commerce': '/headless-commerce',
-  '/pages/conversion-rate-optimisation': '/conversion-rate-optimisation',
+  '/conversion-rate-optimisation': CRO_CLEAN_PATH,
+  '/conversion-rate-optimisation/': CRO_CLEAN_PATH,
   // Root-level canonical URL for support & maintenance. The Shopify source
   // handle stays first so `resolveLegacyPath` keeps querying
   // `support-and-maintenance`; every retired spelling below is a one-way
@@ -157,7 +158,10 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/klaviyo-agency': '/klaviyo-agency/',
   '/pages/klaviyo': '/klaviyo-agency/',
   '/klaviyo': '/klaviyo-agency/',
-  '/pages/shopify-cro-agency': CRO_CLEAN_PATH,
+  // Keep the canonical Shopify CRO handle before retired aliases so reverse
+  // resolution loads the existing custom CRO page implementation.
+  [`/pages/${CRO_PAGE_HANDLE}`]: CRO_CLEAN_PATH,
+  '/pages/conversion-rate-optimisation': CRO_CLEAN_PATH,
   '/pages/cro-agency': CRO_CLEAN_PATH,
   '/cro-agency': CRO_CLEAN_PATH,
   '/cro-agency/': CRO_CLEAN_PATH,

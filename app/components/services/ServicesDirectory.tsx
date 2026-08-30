@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {Link} from 'react-router';
 import {
+  CRO_CLEAN_PATH,
   resolveCanonicalPath,
   SHOPIFY_SEO_CLEAN_PATH,
 } from '~/lib/route-mappings';
@@ -37,7 +38,7 @@ const SERVICE_GROUPS: ServiceDirectoryGroup[] = [
     links: [
       {
         label: 'Conversion Rate Optimisation',
-        href: '/pages/conversion-rate-optimisation',
+        href: CRO_CLEAN_PATH,
       },
       {label: 'Data-Driven Strategies'},
       {

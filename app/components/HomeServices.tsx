@@ -1,6 +1,7 @@
 import {useEffect, useRef} from 'react';
 import {Link} from 'react-router';
 import {
+  CRO_CLEAN_PATH,
   resolveCanonicalPath,
   SHOPIFY_SEO_CLEAN_PATH,
 } from '~/lib/route-mappings';
@@ -196,7 +197,7 @@ const SERVICES = [
     title: 'Conversion Rate Optimisation',
     description:
       'Data-driven testing and optimisation to turn more visitors into customers.',
-    href: '/pages/conversion-rate-optimisation',
+    href: CRO_CLEAN_PATH,
     badge:
       '/images/home-services/badges/logo-sitelab-white.svg',
     badgeAlt: 'Sitelab',
@@ -268,7 +269,7 @@ const SERVICE_PRODUCTS = [
 
   {
     label: 'Sitelab',
-    href: '/pages/conversion-rate-optimisation',
+    href: CRO_CLEAN_PATH,
     logo:
       '/images/home-services/badges/logo-sitelab-white.svg',
   },

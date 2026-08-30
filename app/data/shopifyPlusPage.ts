@@ -9,6 +9,7 @@ import {
   type HomeFeatureData,
 } from '~/data/homeFeatures';
 import {
+  CRO_CLEAN_PATH,
   resolveCleanPath,
   SHOPIFY_SEO_CLEAN_PATH,
 } from '~/lib/route-mappings';
@@ -21,7 +22,7 @@ const ROUTES = {
   integrations: resolveCleanPath('/pages/shopify-integrations'),
   migrations: resolveCleanPath('/pages/shopify-migrations'),
   maintenance: resolveCleanPath('/pages/shopify-maintenance'),
-  cro: resolveCleanPath('/pages/conversion-rate-optimisation'),
+  cro: CRO_CLEAN_PATH,
   seo: SHOPIFY_SEO_CLEAN_PATH,
   emailMarketing: resolveCleanPath('/pages/email-sms-marketing'),
 } as const;
