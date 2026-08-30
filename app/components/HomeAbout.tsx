@@ -23,35 +23,36 @@ export type HomeAboutData = {
 
 export const HOME_ABOUT_STATS = [
   {
-    value: '20K+',
-    label: 'Tasks Delivered',
+    value: '22,000+',
+    label: 'Projects Completed',
   },
   {
-    value: '15K+',
-    label: 'Stores Built',
+    value: '16,500+',
+    label: 'Shopify Stores Launched',
   },
   {
-    value: '$3.1B+',
-    label: 'Merchant Revenue',
+    value: '$3.4B+',
+    label: 'in Client Sales Generated',
   },
   {
-    value: 'XX%',
-    label: 'Avg. Conversion Uplift',
+    value: '52%',
+    label: 'Average Conversion Improvement',
   },
 ] as const;
 
 const DEFAULT_HOME_ABOUT_DATA: HomeAboutData = {
-  eyebrow: 'Trusted Ecommerce and Shopify Agency.',
+  eyebrow:
+    'Premier Shopify Growth Partners for Ambitious Brands',
   heading:
-    'FoldTech helps ambitious ecommerce brands build, optimise and grow high-performing Shopify stores.',
+    'We Design, Develop & Scale Shopify Stores for Growth',
   stats: HOME_ABOUT_STATS,
   rightHeading: {
-    prefix: 'The',
-    emphasis: 'Growth-First',
-    suffix: 'Shopify Agency',
+    prefix: 'Your',
+    emphasis: 'Performance-Focused',
+    suffix: 'Shopify Partner',
   },
   description:
-    'FoldTech is a Shopify and ecommerce growth agency helping ambitious brands design, build, migrate and grow high-performing Shopify and Shopify Plus stores. Our work brings together conversion-focused design, dependable development, SEO, AI visibility, email marketing and ongoing optimisation, supported by structured testing and clear growth strategies to improve performance across the customer journey.',
+    'At FoldTech, we specialize in creating high-converting Shopify and Shopify Plus experiences for brands ready to scale. From custom store builds and seamless migrations to advanced conversion optimization, technical SEO, AI-driven discovery, and retention systems every solution is engineered to maximize revenue and long-term customer value.',
   cta: {
     label: 'Explore Our Work',
     href: '/pages//work',

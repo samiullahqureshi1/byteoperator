@@ -91,11 +91,11 @@ interface HomePartnersProps {
 
 export function HomePartners({
   description = [
-    'Shopify stores often rely on a wider technology stack to support marketing, customer service, subscriptions, reviews, analytics and day-to-day ecommerce operations. FoldTech works across Shopify and a range of leading ecommerce platforms to help businesses choose solutions that fit their store, team and customer journey.',
-    'From retention and customer support to testing, reporting and store integrations, we can connect the right tools with Shopify while keeping the storefront experience consistent, manageable and focused on business needs.',
+    'FoldTech works across a diverse range of ecommerce platforms and digital technologies, helping brands build, migrate, optimize and grow their online stores around their specific business requirements.',
+    'Our experience spans Shopify, Shopify Plus, WordPress, Magento, BigCommerce, Wix eCommerce, Squarespace, PrestaShop, Ecwid, Shopware, Big Cartel, Volusion and Salesforce. We help businesses select, connect and optimize the technology that best supports their storefront, customer experience and long-term ecommerce goals.',
   ],
-  heading = 'We work with Shopify and leading ecommerce technologies.',
-  label = 'Partners',
+  heading = 'We Work Across Leading Ecommerce Platforms and Technologies',
+  label = 'Platforms & Technologies',
   logos = PARTNER_LOGOS,
   showCta = true,
 }: HomePartnersProps) {
@@ -118,8 +118,7 @@ export function HomePartners({
               className="ft-home-partners__title"
               id="ft-home-partners-title"
             >
-              We work with Shopify and leading
-              ecommerce technologies.
+              {heading}
             </h3>
 
             <div

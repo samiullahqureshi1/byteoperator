@@ -159,7 +159,7 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'Shopify Agency',
+      'High-performing Shopify stores built to scale',
 
     logos: [
       {
@@ -169,17 +169,17 @@ export const HOME_FEATURES = [
     ],
 
     heading:
-      'We partner with brands to design, develop, launch & grow Shopify stores to amplify growth.',
+      'Custom Shopify Stores Built for Growth',
 
     description: [
-      'We help brands plan and launch Shopify and Shopify Plus stores by bringing store design, development and technical implementation together. Projects can include custom storefronts or adapting existing Shopify themes around the needs of the brand and its customers.',
+      'We design and develop custom Shopify stores that combine premium user experience with high-performance code. From complete Shopify migrations to custom app development, integrations, and headless commerce using Shopify Hydrogen, we build ecommerce experiences that scale with your business.',
 
-      'Our approach connects user experience, store architecture, performance, SEO foundations and development so each Shopify build has a clear base for future campaigns, integrations and continued ecommerce growth.',
+      'Every project is optimised for performance, SEO, accessibility and future growth.',
     ],
 
     buttons: [
       {
-        label: 'Explore Case Studies',
+        label: 'Start Your Shopify Project',
         href: '/articles',
       },
     ],
@@ -236,10 +236,14 @@ export const HOME_FEATURES = [
     ],
 
     heading:
-      'Your Shopify agency for support & growth every month.',
+      'More Than a Shopify Agency. Your Ecommerce Growth Partner.',
 
     description: [
-      'Beyond new Shopify launches, FoldTech can support stores through maintenance, development updates and ongoing conversion improvement. Maintenance covers day-to-day fixes, updates and smaller development requirements, while conversion optimisation focuses on testing, performance analysis and improving the customer journey over time.',
+      'Strategy, technology, search and conversion expertise working together to turn your Shopify store into a growth engine.',
+
+      "Great ecommerce performance doesn't come from design or development alone. It comes from having the right strategy behind every part of the customer journey.",
+
+      'FoldTech brings Shopify development, conversion optimisation, technical SEO, AI search visibility, performance and retention together under one growth-focused approach. That means fewer disconnected agencies, clearer priorities, and a Shopify store built to perform today and scale tomorrow.',
     ],
 
     buttons: [
@@ -291,7 +295,7 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'Shopify SEO & GEO Agency',
+      'Rank higher on Google and AI search.',
 
     logos: [
       {
@@ -301,15 +305,17 @@ export const HOME_FEATURES = [
     ],
 
     heading:
-      'Maximise Organic Search with Shopify SEO & GEO',
+      'Shopify SEO That Drives Qualified Organic Revenue',
 
     description: [
-      'Our Shopify SEO and GEO work connects technical optimisation, content strategy, site structure and search visibility. We review competitors, organic performance and opportunities across traditional search and AI-driven discovery so improvements support both visibility and the customer experience.',
+      'Your Shopify store deserves more than basic keyword optimization. We build long-term organic growth through technical Shopify SEO, on-page optimisation, AI search visibility, Generative Engine Optimisation (GEO), content strategy, and SEO migrations.',
+
+      "Whether you're launching a new store or scaling an established ecommerce brand, our team helps increase rankings, attract high-intent shoppers, and generate sustainable revenue without relying solely on paid advertising.",
     ],
 
     buttons: [
       {
-        label: 'Explore SEO Services',
+        label: 'Grow Your Organic Traffic',
         href: ROUTES.seo,
       },
     ],
@@ -352,10 +358,10 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'Shopify Development Agency',
+      'Shopify Apps & Integrations',
 
     heading:
-      'We develop Shopify stores & apps with the very best technology & skill.',
+      'Connect, Automate & Extend Your Shopify Store',
 
     badges: [
       {
@@ -373,15 +379,17 @@ export const HOME_FEATURES = [
     ],
 
     description: [
-      'FoldTech develops Shopify themes, storefront functionality and apps using platform-native features and modern web tooling. Projects can include custom theme development, integrations, headless commerce and Shopify app experiences.',
+      'Custom Shopify apps, integrations and automation built to streamline operations and unlock new ecommerce capabilities.',
 
-      'Development decisions consider performance, technical SEO, maintainability and quality assurance so ecommerce and marketing teams can manage their store while retaining flexibility for future development.',
+      'Your Shopify store should work seamlessly with the tools and systems your business relies on. FoldTech builds custom Shopify apps and integrations that connect your store with ERP, CRM, inventory, marketing, payment, fulfilment and other third-party platforms.',
+
+      'We also develop custom functionality and automation to reduce manual processes, improve operational efficiency and create better customer experiences. Every solution is built with performance, security, scalability and long-term maintainability in mind.',
     ],
 
     buttons: [
       {
         label:
-          'Explore Development Services',
+          'Build Your Shopify Solution',
 
         href: ROUTES.development,
       },
@@ -425,21 +433,21 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'Shopify Web Design Agency',
+      'Shopify store design that looks as good as your brand',
 
     heading:
-      'We design Shopify stores to engage & convert customers.',
+      'Shopify Store Design That Reflects Your Brand',
 
     description: [
-      'Our Shopify design process uses research, competitor review and wireframes to define page structure before moving into high-fidelity design. The focus is on product discovery, navigation, buying journeys and making important actions clear across the storefront.',
+      "Your Shopify store is often a customer's first impression of your brand and it should look like it. We create distinctive visual identities for Shopify stores: considered typography, color systems, imagery direction and layout choices that make your store instantly recognisable and on-brand across every page.",
 
-      'UI and UX decisions are aligned with the visual identity of the brand while considering conversion, usability, mobile behaviour and the capabilities available within Shopify.',
+      'From homepage to product pages, every design decision is made to reinforce your brand story while keeping the experience clean, premium and easy to shop giving your store a look that stands out from template-based competitors.',
     ],
 
     buttons: [
       {
         label:
-          'Explore Design Services',
+          'See Our Design Work',
 
         href: ROUTES.development,
       },
@@ -493,7 +501,7 @@ export const HOME_FEATURES = [
     ],
 
     heading:
-      'Why migrate & grow with Shopify?',
+      'Everything Your Shopify Store Needs to Scale',
 
     badges: [
       {
@@ -515,17 +523,30 @@ export const HOME_FEATURES = [
     ],
 
     description: [
-      'We help ecommerce brands migrate to Shopify and Shopify Plus while preserving the important parts of their existing store, content and customer experience. Migration planning can cover products, customers, orders, content, integrations, redirects and international requirements.',
+      'From strategy and design to SEO, AI visibility, development, CRO and retention we become your long-term ecommerce growth partner.',
 
-      'The move is also an opportunity to review store structure, performance and functionality so the new Shopify setup is easier to manage and better prepared for future development and growth.',
+      "We don't just build Shopify stores, we create high-performing ecommerce ecosystems that attract more visitors, convert more customers, and generate sustainable growth.",
+
+      "Whether you're launching your first Shopify store or managing an established ecommerce brand, our team delivers measurable results through expert strategy, development, marketing, and ongoing optimisation.",
     ],
 
     buttons: [
       {
         label:
-          'Explore Migration Services',
+          'Book a Growth Strategy Call',
 
         href: ROUTES.migrations,
+      },
+      {
+        label:
+          'View Our Shopify Work',
+
+        /*
+         * Case studies is already the route wired to this
+         * section (see media.href below), so the secondary
+         * CTA reuses it rather than introducing a new one.
+         */
+        href: ROUTES.caseStudies,
       },
     ],
 
@@ -570,7 +591,7 @@ export const HOME_FEATURES = [
       'Shopify Plus Services',
 
     heading:
-      'Looking for a Shopify Plus Agency?',
+      'Shopify Plus Development & Services',
 
     badges: [
       {
@@ -588,9 +609,11 @@ export const HOME_FEATURES = [
     ],
 
     description: [
-      'For brands evaluating Shopify Plus, FoldTech can support platform planning, store architecture, development and migration requirements. The focus is on understanding which Shopify Plus capabilities are relevant to the business and how they connect with existing systems and ecommerce operations.',
+      'Build a Scalable Ecommerce Store with Shopify Plus',
 
-      'The same approach can support brands upgrading from standard Shopify or moving from another platform, with development decisions based around scalability, integrations, international requirements and future store management.',
+      'Our Shopify Plus development services help growing and enterprise ecommerce brands build faster, more flexible, and scalable online stores. We handle Shopify Plus migrations, custom development, integrations, B2B functionality, automation, internationalisation, and ongoing optimisation to create an ecommerce platform ready for growth.',
+
+      'From initial strategy and store architecture to development and long-term support, we help you get more from Shopify Plus while creating a seamless experience for both your customers and internal teams.',
     ],
 
     buttons: [
@@ -654,12 +677,14 @@ export const HOME_FEATURES = [
     ],
 
     heading:
-      'Keep customers coming back with email, SMS & retention marketing.',
+      'Turn First Time Buyers Into Loyal Customers',
 
     description: [
-      'Our retention work focuses on communicating with customers at relevant points throughout the buying journey. Strategies can include customer segmentation, targeted email campaigns, automated lifecycle flows and SMS communication for both campaigns and triggered journeys.',
+      'Retention marketing that increases repeat purchases and customer lifetime value.',
 
-      'Email and SMS can also connect with subscriptions, reviews, loyalty programmes and other ecommerce systems so retention activity works alongside the wider Shopify store rather than operating separately.',
+      'Acquiring customers is expensive, keeping them is where real growth happens. We create automated email and SMS marketing strategies powered by Klaviyo to nurture customers, recover abandoned carts, promote repeat purchases, and build long-term brand loyalty.',
+
+      'We also help businesses launch subscription models and B2B ecommerce experiences to unlock recurring revenue.',
     ],
 
     buttons: [
@@ -710,18 +735,18 @@ export const HOME_FEATURES = [
       'International Shopify Strategy',
 
     heading:
-      'Shopify International Expansion',
+      'Expand Your Shopify Store Worldwide',
 
     description: [
-      'FoldTech can support international Shopify strategies across single-store and multi-store setups. Planning can include currencies, territories, geolocation, local content, catalogue requirements and how different regional experiences should be managed inside Shopify.',
+      'Launch internationally with confidence using localisation and scalable ecommerce strategies.',
 
-      'The goal is to choose an international store structure that fits the operational needs of the business while giving ecommerce teams appropriate control over regional customer experiences.',
+      'Ready to reach customers beyond your home market? We help Shopify brands expand internationally with multilingual storefronts, multi-currency experiences, regional SEO strategies, and localisation tailored to global audiences. From market entry planning to international optimization, we help brands grow across borders.',
     ],
 
     buttons: [
       {
         label:
-          'Free Internationalisation Guide',
+          'Scale Internationally',
 
         /*
          * No separate Guide route currently exists,
@@ -770,7 +795,7 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'Shopify Growth Strategy',
+      "Improve every stage of your customer's buying journey with data-driven optimization.",
 
     logos: [
       {
@@ -780,7 +805,7 @@ export const HOME_FEATURES = [
     ],
 
     heading:
-      'Data-driven strategies for Shopify & Shopify Plus.',
+      'Turn More Visitors Into Paying Customers',
 
     badges: [
       {
@@ -803,9 +828,9 @@ export const HOME_FEATURES = [
     ],
 
     description: [
-      'Our conversion work combines analytics, customer behaviour and ecommerce experience to identify opportunities across the Shopify customer journey. Reviews can include engagement, product performance, purchase behaviour, traffic acquisition, heatmaps and visitor recordings.',
+      'Driving traffic is only half the equation. We analyse customer behaviour, optimise landing pages, improve checkout experiences, and increase conversion rates through continuous testing and performance improvements.',
 
-      'These insights can inform testing, page improvements, content changes and wider growth activity across CRO, SEO and retention marketing, with progress measured against commercial metrics that matter to the store.',
+      'Our CRO specialists identify growth opportunities that maximise your existing traffic and increase revenue without increasing advertising spend.',
     ],
 
     buttons: [

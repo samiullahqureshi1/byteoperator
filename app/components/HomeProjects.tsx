@@ -109,7 +109,7 @@ export type HomeProjectsProps = {
 
 export function HomeProjects({
   heading =
-    'We support brands through transformative ecommerce strategies with Shopify expertise combined with search-first values.',
+    'We partner with growing brands to deliver high-impact ecommerce strategies combining proven Shopify expertise with a search-first growth mindset.',
   projects = HOME_PROJECTS,
   cta = {
     label: 'Explore Case Studies',
