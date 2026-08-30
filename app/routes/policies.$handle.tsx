@@ -4,6 +4,11 @@ import {
 } from 'react-router';
 import type {Route} from './+types/policies.$handle';
 import {type Shop} from '@shopify/hydrogen/storefront-api-types';
+import policyPageStyles from '~/styles/policy-page.css?url';
+
+export const links: Route.LinksFunction = () => [
+  {rel: 'stylesheet', href: policyPageStyles},
+];
 
 type SelectedPolicies = keyof Pick<
   Shop,
@@ -48,15 +53,27 @@ export default function Policy() {
   const {policy} = useLoaderData<typeof loader>();
 
   return (
-    <div className="policy">
-      <br />
-      <br />
-      <div>
-        <Link to="/policies">← Back to Policies</Link>
+    <div className="ft-policy-page">
+      <header className="ft-policy-hero">
+        <div className="ft-policy-hero__inner">
+          <h1 className="ft-policy-hero__title">
+            {policy.title}
+          </h1>
+        </div>
+      </header>
+
+      <div className="ft-policy-panel">
+        <div className="ft-policy-panel__inner">
+          <div className="ft-policy-back">
+            <Link to="/policies">← Back to Policies</Link>
+          </div>
+
+          <div
+            className="ft-policy-content"
+            dangerouslySetInnerHTML={{__html: policy.body}}
+          />
+        </div>
       </div>
-      <br />
-      <h1>{policy.title}</h1>
-      <div dangerouslySetInnerHTML={{__html: policy.body}} />
     </div>
   );
 }

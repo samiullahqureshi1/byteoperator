@@ -154,7 +154,9 @@ export const OLD_TO_CLEAN_PATHS = {
   // `resolveLegacyPath` can no longer recover that spelling now the alias
   // points elsewhere, so it is listed explicitly.
   '/email-sms-marketing/': '/email-marketing-agency/',
-  '/pages/email-marketing-services-1': '/email-marketing-services-1',
+  '/pages/email-marketing-services-1': '/email-marketing-agency/',
+  '/email-marketing-services-1': '/email-marketing-agency/',
+  '/email-marketing-services-1/': '/email-marketing-agency/',
   '/pages/klaviyo-agency': '/klaviyo-agency/',
   '/pages/klaviyo': '/klaviyo-agency/',
   '/klaviyo': '/klaviyo-agency/',

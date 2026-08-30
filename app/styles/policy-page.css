@@ -1,0 +1,251 @@
+/* =========================================================
+   POLICY PAGES — SHARED LAYOUT
+   Route: app/routes/policies.$handle.tsx
+
+   One layout serves every policy handle (privacy-policy,
+   terms-of-service, shipping-policy, refund-policy):
+   dark navy hero with a centred H1, then a full-width white
+   panel with large rounded top corners holding the content.
+
+   Layout and colour only. No font-family is declared here,
+   so all type continues to inherit the global FoldTech stack.
+========================================================= */
+
+.ft-policy-page {
+  /* Keeps the navy visible behind the hero and beside the panel. */
+  background: var(--ft-dark-deep, #01151b);
+
+  /* Nothing in a policy body may widen the page. */
+  overflow-x: hidden;
+}
+
+.ft-policy-page *,
+.ft-policy-page *::before,
+.ft-policy-page *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ft-policy-hero {
+  background: var(--ft-dark-deep, #01151b);
+
+  /*
+   * The header is fixed and renders no spacer, so the hero
+   * clears it the same way the other FoldTech heroes do.
+   */
+  padding-top: calc(
+    var(--charle-header-height, 6.75rem) + clamp(2.5rem, 6vw, 4.5rem)
+  );
+
+  padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  padding-inline: 1.25rem;
+}
+
+.ft-policy-hero__inner {
+  width: 100%;
+  max-width: 60rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.ft-policy-hero__title {
+  margin: 0;
+
+  color: var(--ft-white, #ffffff);
+
+  font-size: clamp(2rem, 5.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   WHITE CONTENT PANEL
+========================================================= */
+
+.ft-policy-panel {
+  background: var(--ft-white, #ffffff);
+
+  border-start-start-radius: clamp(1.5rem, 4vw, 2.5rem);
+  border-start-end-radius: clamp(1.5rem, 4vw, 2.5rem);
+
+  padding-inline: 1.25rem;
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.ft-policy-panel__inner {
+  width: 100%;
+  max-width: 48rem;
+  margin-inline: auto;
+
+  color: #0d1b1f;
+}
+
+/* =========================================================
+   BACK LINK
+========================================================= */
+
+.ft-policy-back {
+  margin-block-end: 2rem;
+}
+
+.ft-policy-back a {
+  color: #0d1b1f;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.ft-policy-back a:hover,
+.ft-policy-back a:focus-visible {
+  opacity: 0.7;
+}
+
+/* =========================================================
+   POLICY BODY
+
+   The body is merchant-authored HTML from Shopify, so every
+   element it can emit is given a readable dark-on-white
+   treatment and kept inside the panel.
+========================================================= */
+
+.ft-policy-content {
+  color: #0d1b1f;
+}
+
+.ft-policy-content h1,
+.ft-policy-content h2,
+.ft-policy-content h3,
+.ft-policy-content h4,
+.ft-policy-content h5,
+.ft-policy-content h6,
+.ft-policy-content p,
+.ft-policy-content li,
+.ft-policy-content span,
+.ft-policy-content strong,
+.ft-policy-content em,
+.ft-policy-content td,
+.ft-policy-content th,
+.ft-policy-content dt,
+.ft-policy-content dd,
+.ft-policy-content blockquote {
+  color: #0d1b1f;
+}
+
+.ft-policy-content h2,
+.ft-policy-content h3,
+.ft-policy-content h4,
+.ft-policy-content h5,
+.ft-policy-content h6 {
+  margin-block: 1.75em 0.5em;
+  line-height: 1.3;
+}
+
+.ft-policy-content > :first-child {
+  margin-block-start: 0;
+}
+
+.ft-policy-content p,
+.ft-policy-content ul,
+.ft-policy-content ol {
+  margin-block: 0 1em;
+  line-height: 1.75;
+}
+
+.ft-policy-content ul,
+.ft-policy-content ol {
+  padding-inline-start: 1.5rem;
+}
+
+.ft-policy-content li {
+  margin-block-end: 0.5em;
+  line-height: 1.75;
+}
+
+.ft-policy-content a {
+  color: #0d1b1f;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.ft-policy-content a:hover,
+.ft-policy-content a:focus-visible {
+  opacity: 0.7;
+}
+
+.ft-policy-content blockquote {
+  margin-inline: 0;
+  padding-inline-start: 1rem;
+  border-inline-start: 2px solid rgba(13, 27, 31, 0.25);
+}
+
+.ft-policy-content hr {
+  border: 0;
+  border-top: 1px solid rgba(13, 27, 31, 0.15);
+  margin-block: 2rem;
+}
+
+/* Media and long strings must never push the page wider than the viewport */
+.ft-policy-content img,
+.ft-policy-content video,
+.ft-policy-content iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.ft-policy-content pre {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.ft-policy-content p,
+.ft-policy-content li,
+.ft-policy-content h1,
+.ft-policy-content h2,
+.ft-policy-content h3 {
+  overflow-wrap: anywhere;
+}
+
+/* Tables scroll inside their own container instead of overflowing the page */
+.ft-policy-content table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin-block-end: 1.5rem;
+}
+
+.ft-policy-content th,
+.ft-policy-content td {
+  border: 1px solid rgba(13, 27, 31, 0.2);
+  padding: 0.625rem 0.875rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.ft-policy-content thead th {
+  background: rgba(13, 27, 31, 0.04);
+}
+
+/* =========================================================
+   TABLET / DESKTOP
+========================================================= */
+
+@media (min-width: 48rem) {
+  .ft-policy-hero,
+  .ft-policy-panel {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-policy-hero,
+  .ft-policy-panel {
+    padding-inline: 4rem;
+  }
+}
