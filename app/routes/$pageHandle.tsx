@@ -15,6 +15,17 @@ import {
 export const links = pageLinks;
 
 export const meta: Route.MetaFunction = ({data}) => {
+  if (data?.page.handle === 'podcast') {
+    return [
+      {title: 'Shopify Ecommerce Podcast | FoldTech'},
+      {
+        name: 'description',
+        content:
+          'Explore Shopify ecommerce conversations from FoldTech on growth, SEO, CRO, development, Shopify Plus, retention and ecommerce strategy.',
+      },
+      {tagName: 'link', rel: 'canonical', href: '/podcast'},
+    ];
+  }
   if (data?.page.handle === 'headless-commerce') {
     return [
       {

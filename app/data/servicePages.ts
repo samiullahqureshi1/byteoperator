@@ -3612,6 +3612,43 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
   },
+  podcast: {
+    faqTitle: 'FoldTech Shopify Ecommerce Podcast',
+    hero: {
+      eyebrow: 'FoldTech Ecommerce Podcast',
+      heading: 'Shopify Ecommerce Podcast for Growth-Focused Teams',
+      chips: [
+        {label: 'Shopify Growth', href: SERVICE_PAGE_ROUTES.shopifyDevelopment},
+        {label: 'Ecommerce SEO', href: SERVICE_PAGE_ROUTES.ecommerceSeo},
+        {label: 'Ecommerce CRO', href: SERVICE_PAGE_ROUTES.ecommerceCro},
+        {label: 'Shopify Plus', href: SERVICE_PAGE_ROUTES.shopifyPlus},
+        {label: 'Retention Strategy', href: SERVICE_PAGE_ROUTES.emailMarketingAgency},
+      ],
+      description: 'The FoldTech Shopify Ecommerce Podcast shares practical conversations and perspectives for ecommerce teams navigating Shopify growth, SEO, CRO, development, retention and ecommerce strategy.',
+      primaryCta: {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+    },
+    about: {
+      intro: {
+        heading: 'The FoldTech Shopify Ecommerce Podcast',
+        description: 'Insights and ecommerce conversations for teams building, improving and growing on Shopify. The FoldTech podcast explores the connected decisions behind sustainable ecommerce performance: development, product discovery, conversion and retention.',
+        cta: {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+      },
+      media: {primary: '/images/services/services-wide.webp', primaryAlt: 'FoldTech ecommerce podcast and Shopify strategy discussion', secondary: '/images/mega-menu-team.webp', secondaryAlt: 'FoldTech team discussing ecommerce strategy'},
+      process: {
+        heading: 'Ecommerce Topics We Explore',
+        leftDescription: 'The conversation starts with Shopify and Shopify Plus development, technical and content SEO, conversion rate optimisation, customer retention and the commercial priorities that connect them.',
+        rightDescription: 'The podcast focuses on how development, acquisition, conversion and retention support a clearer customer journey and a stronger long-term ecommerce growth strategy.',
+        cta: {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+      },
+    },
+    features: [
+      {id: 'podcast-shopify-growth', layout: 'media-left', spacing: 'first', theme: 'dark', eyebrow: 'Shopify Ecommerce Growth', heading: 'Shopify Growth Starts With the Store Experience', description: ['Growth on Shopify is shaped by more than traffic. The storefront needs to make products easy to find, understand and buy, while the technology behind it supports the customer experience a brand needs as it expands.', 'The FoldTech podcast examines store structure, merchandising and development priorities, connecting ecommerce strategy to an experience customers can use with confidence.'], buttons: [{label: 'Explore Shopify Development', href: SERVICE_PAGE_ROUTES.shopifyDevelopment}], media: reuseHomeFeatureMedia('shopify-plus')},
+      {id: 'podcast-seo-cro', layout: 'media-right', spacing: 'standard', theme: 'dark', eyebrow: 'Ecommerce SEO & CRO', heading: 'Helping Customers Discover and Convert', description: ['SEO and CRO are closely connected in ecommerce. Search visibility can bring the right people to a store, but product pages, collections, navigation, value messaging and checkout journeys all affect what happens next.', 'Our ecommerce conversations look at technical SEO, useful content, product discovery, customer research and the iterative improvements that make a Shopify store clearer and easier to buy from.'], buttons: [{label: 'Explore Ecommerce SEO', href: SERVICE_PAGE_ROUTES.ecommerceSeo}], media: reuseHomeFeatureMedia('shopify-development')},
+      {id: 'podcast-shopify-plus-development', layout: 'media-left', spacing: 'deep', theme: 'dark', eyebrow: 'Shopify Plus & Development', heading: 'Building a Shopify Platform That Can Evolve', description: ['Shopify Plus and custom development give ecommerce teams room to address more complex requirements, but the right solution depends on the business model, customer journeys and systems a store needs to support.', 'The podcast covers platform decisions, integrations, performance and flexibility, balancing the need to move quickly now with a dependable foundation for future growth.'], buttons: [{label: 'Explore Shopify Plus', href: SERVICE_PAGE_ROUTES.shopifyPlus}], media: reuseHomeFeatureMedia('shopify-migrations')},
+      {id: 'podcast-retention', layout: 'media-right', spacing: 'standard', theme: 'dark', eyebrow: 'Customer Retention', heading: 'Retention Is Part of the Ecommerce Journey', description: ['Retention begins with the promise a customer sees before placing an order and continues through every useful interaction after it. Product information, onsite experience and post-purchase communication all contribute to whether a customer returns.', 'We explore how ecommerce teams can connect retention strategy to the rest of their Shopify activity, using customer understanding and relevant communication to build relationships beyond a single transaction.'], buttons: [{label: 'Explore Email Marketing', href: SERVICE_PAGE_ROUTES.emailMarketingAgency}], media: reuseHomeFeatureMedia('shopify-cro')},
+      {id: 'podcast-ecommerce-strategy', layout: 'media-left', spacing: 'deep', theme: 'dark', eyebrow: 'Ecommerce Strategy', heading: 'A More Connected Ecommerce Strategy', description: ['The strongest ecommerce strategy connects the decisions customers can see with the systems and processes they cannot. It gives teams a shared view of improvements across the storefront, acquisition, conversion, retention and operations.', 'The FoldTech Shopify Ecommerce Podcast helps teams focus on practical priorities that make a store more useful to customers and more effective for the business behind it.'], buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}], media: reuseHomeFeatureMedia('shopify-design')},
+    ],
+  },
   'subscriptions-on-shopify': {
     faqTitle: 'Shopify Subscriptions',
     hero: {

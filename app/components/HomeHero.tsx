@@ -56,7 +56,7 @@ export function HomeHero() {
 
             <HeroMark />
 
-            {/* <strong>Shopify Agency</strong> */}
+            <strong>Shopify Agency</strong>
           </span>
 
           <span className="ft-home-hero__title-line">
