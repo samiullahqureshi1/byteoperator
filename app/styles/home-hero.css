@@ -155,9 +155,16 @@
   align-items: center;
   justify-content: center;
 
+  /*
+   * The headline stays on its intended lines at desktop and
+   * tablet widths; wrapping is allowed so the longer copy
+   * cannot overflow the hero on narrow viewports.
+   */
+  flex-wrap: wrap;
+
   gap: 0.875rem;
 
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .ft-home-hero__title strong {
@@ -303,7 +310,7 @@
 
   letter-spacing: -0.035em;
 
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .ft-home-hero__service span {
@@ -321,7 +328,12 @@
 
   letter-spacing: -0.025em;
 
-  white-space: nowrap;
+  /*
+   * Pillar descriptions are full sentences, so they wrap
+   * inside the existing card instead of being clipped by
+   * the card grid's overflow.
+   */
+  white-space: normal;
 }
 
 

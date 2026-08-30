@@ -6,23 +6,27 @@ import {
 
 const HERO_SERVICES = [
   {
-    title: 'New Projects',
-    description: 'Shopify design & development',
+    title: 'Store Creation',
+    description:
+      'Custom Shopify design & development that converts from day one.',
     url: '/pages/shopify-development',
   },
   {
-    title: 'Growth & Support',
-    description: 'CRO, optimisation & support',
+    title: 'Revenue Acceleration',
+    description:
+      'Continuous CRO, performance optimization & growth support.',
     url: '/pages/shopify-support',
   },
   {
-    title: 'SEO & AI Visibility',
-    description: 'Organic search & AI visibility',
+    title: 'Search & Discovery',
+    description:
+      'Technical SEO + AI search visibility that drives qualified traffic.',
     url: SHOPIFY_SEO_CLEAN_PATH,
   },
   {
-    title: 'Email & SMS',
-    description: 'Retention & lifecycle growth',
+    title: 'Customer Retention',
+    description:
+      'Email, SMS & lifecycle systems that increase repeat purchases.',
     url: resolveCleanPath('/pages/email-marketing-agency'),
   },
 ] as const;
@@ -39,9 +43,9 @@ export function HomeHero() {
       />
 
       <div className="ft-home-hero__content">
-       <p className="ft-home-hero__eyebrow">
- Leading Shopify & Ecommerce Agency
-</p>
+        <p className="ft-home-hero__eyebrow">
+          Trusted Shopify Development & Growth Partner
+        </p>
 
         <h1
           className="ft-home-hero__title"
@@ -52,18 +56,18 @@ export function HomeHero() {
 
             <HeroMark />
 
-            <strong>Growth-First</strong>
+            <strong>Shopify Agency</strong>
           </span>
 
           <span className="ft-home-hero__title-line">
-            Shopify Agency
+            That Drives Real Growth
           </span>
         </h1>
 
         <p className="ft-home-hero__description">
-          Driving ecommerce growth through high-performing
-          Shopify stores, conversion strategy, SEO and AI
-          visibility.
+          High-performing Shopify stores, backed by proven
+          CRO, SEO, and AI visibility strategies that
+          deliver measurable results.
         </p>
 
         <div className="ft-home-hero__services">
