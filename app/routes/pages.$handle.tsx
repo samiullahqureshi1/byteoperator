@@ -65,7 +65,9 @@ import {AboutStoryStats} from '~/components/about/AboutStoryStats';
 import {AboutValues} from '~/components/about/AboutValues';
 import {AboutTestimonials} from '~/components/about/AboutTestimonials';
 import {AboutSpace} from '~/components/about/AboutSpace';
-import {AboutTeam} from '~/components/about/AboutTeam';
+// TEMPORARILY DISABLED: "Our Leadership Team" section.
+// To restore, uncomment this import and the <AboutTeam /> render below.
+// import {AboutTeam} from '~/components/about/AboutTeam';
 import {AboutJoin} from '~/components/about/AboutJoin';
 import {HomeObservatory} from '~/components/HomeObservatory';
 import {HomeSideRail} from '~/components/HomeSideRail';
@@ -543,7 +545,9 @@ export function PageContent({
         <AboutValues />
         <AboutTestimonials />
         <AboutSpace />
-        <AboutTeam />
+        {/* TEMPORARILY DISABLED: "Our Leadership Team" section. */}
+        {/* To restore, uncomment this line and its import above. */}
+        {/* <AboutTeam /> */}
         <AboutJoin />
         <HomeObservatory />
       </>

@@ -8,7 +8,7 @@ export const WORK_HERO_TESTIMONIAL: ClientProofTestimonial = {
     'FoldTech helped us create a stronger ecommerce experience built around growth and performance.',
   person: 'Client Name',
   company: 'Company Name',
-  image: '/images/home-people/people.webp',
+ image: '/images/work/review-person.webp',
   video: '/videos/foldtech-hero-video.mp4',
 };
 
