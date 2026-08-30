@@ -48,6 +48,17 @@ export const meta: Route.MetaFunction = ({data}) => {
       {tagName: 'link', rel: 'canonical', href: '/guides'},
     ];
   }
+  if (data?.page.handle === 'shopify-consultant') {
+    return [
+      {title: 'Shopify Consultant & Ecommerce Strategy | FoldTech'},
+      {
+        name: 'description',
+        content:
+          'FoldTech works as a Shopify and Shopify Plus consultant, covering store audits, ecommerce growth strategy, SEO and CRO priorities, migrations, integrations and ongoing support.',
+      },
+      {tagName: 'link', rel: 'canonical', href: '/shopify-consultant'},
+    ];
+  }
   if (data?.page.handle === 'ab-testing') {
     return [
       {title: 'Shopify A/B Testing Services | FoldTech'},

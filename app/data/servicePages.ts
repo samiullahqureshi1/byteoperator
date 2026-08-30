@@ -3445,6 +3445,175 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
   },
+  'shopify-consultant': {
+    faqTitle: 'Shopify Consulting Services',
+    hero: {
+      eyebrow: 'Shopify Consultancy',
+      heading:
+        'Shopify Consultant & Ecommerce Strategy Support',
+      chips: [
+        {
+          label: 'Ecommerce Audits',
+          href: SERVICE_PAGE_ROUTES.shopifyAudits,
+        },
+        {
+          label: 'Ecommerce SEO',
+          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+        },
+        {
+          label: 'Ecommerce CRO',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+        {
+          label: 'Shopify Migrations',
+          href: SERVICE_PAGE_ROUTES.shopifyMigrations,
+        },
+        {
+          label: 'Shopify Plus',
+          href: SERVICE_PAGE_ROUTES.shopifyPlus,
+        },
+      ],
+      description:
+        'FoldTech works as a Shopify consultant for ecommerce teams that need a clear plan before they commit budget: store audits, platform and migration decisions, SEO and CRO priorities, integration planning and a roadmap that sequences the work in a sensible order.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'Shopify Consulting Services for Ecommerce Teams',
+        description:
+          'Most ecommerce teams do not lack ideas. They have a backlog of competing ones, limited development time, and no shared view of which will move the numbers that matter. Shopify consulting is the work of turning that into a decision: understanding how the store performs today, where the real constraints sit, and what should happen first. FoldTech advises on Shopify and Shopify Plus as a consultant, and can also deliver the work once the direction is agreed.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt:
+          'FoldTech Shopify consulting and ecommerce strategy work',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt:
+          'FoldTech team planning a Shopify ecommerce roadmap',
+      },
+      process: {
+        heading: 'How Our Shopify Consultancy Works',
+        leftDescription:
+          'We start by understanding the commercial picture: what the business is trying to achieve over the next period, how the store performs against that today, and which constraints are technical, operational or resourcing. That means reviewing analytics, customer journeys, the theme and app stack, and how the store connects to the systems behind it.',
+        rightDescription:
+          'From there we set out a prioritised roadmap: what to fix, what to build, what to test and what to leave alone for now, with the reasoning behind each call. Teams can take that plan and run it internally, or ask us to deliver against it. Where we think a piece of work is not worth the investment yet, we will say so.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'shopify-consultant-audits',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Shopify Store Audits',
+        heading:
+          'Understand the Store Before Changing It',
+        description: [
+          'A Shopify audit establishes where a store actually stands: how it performs technically, how customers move through key journeys, how products are found and compared, and where the theme, apps or integrations are creating friction that shows up in the numbers.',
+          'We review the storefront alongside analytics and search data so findings are grounded in evidence rather than opinion, then separate what is genuinely costing revenue from what is simply on someone’s wish list.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce Audits',
+            href: SERVICE_PAGE_ROUTES.shopifyAudits,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'shopify-consultant-strategy',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Ecommerce & Shopify Growth Strategy',
+        heading:
+          'A Roadmap That Sequences the Work',
+        description: [
+          'Ecommerce strategy is mostly sequencing. Rebuilding navigation before fixing indexation, or running conversion tests before there is enough traffic to read them, wastes effort that could have gone somewhere useful. A roadmap makes those dependencies visible.',
+          'FoldTech sets out a prioritised plan across storefront, acquisition, conversion and retention, with the commercial reasoning for the order. It is written to be used by the people doing the work, whether that is your team, ours, or both.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Our Services',
+            href: SERVICE_PAGE_ROUTES.services,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'shopify-consultant-platform',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Plus Consultant & Platform Planning',
+        heading:
+          'Platform, Migration & Integration Decisions',
+        description: [
+          'Platform questions carry long consequences. Whether to move to Shopify Plus, whether a replatform is justified yet, whether a requirement is better served by an app, a custom build or a change to process — these decisions are easier with someone who has seen how each option behaves after launch.',
+          'As a Shopify Plus consultant, FoldTech advises on migration planning, store architecture, and the ERP, CRM, inventory and fulfilment integrations a store depends on, including what to keep as-is and what genuinely needs rebuilding.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Migrations',
+            href: SERVICE_PAGE_ROUTES.shopifyMigrations,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'shopify-consultant-seo-cro',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'SEO & Conversion Priorities',
+        heading:
+          'Connecting Discovery and Conversion',
+        description: [
+          'Search visibility and conversion are usually treated as separate projects, but they act on the same pages. Collection structure, product information, page performance and internal linking affect how a store is found and whether visitors go on to buy.',
+          'Our consulting work identifies the technical SEO foundations worth fixing first, the conversion opportunities worth testing, and the changes that serve both — so effort is not spent twice on the same templates.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce CRO',
+            href: SERVICE_PAGE_ROUTES.ecommerceCro,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-cro'),
+      },
+      {
+        id: 'shopify-consultant-ongoing-support',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Ongoing Ecommerce Support',
+        heading:
+          'Consultancy That Continues Past the Recommendation',
+        description: [
+          'A roadmap written once tends to drift. Priorities change, results come in, and new requirements arrive from elsewhere in the business. Ongoing consultancy keeps the plan current as those things happen.',
+          'FoldTech can stay involved as a technical and strategic partner: reviewing performance, advising on new requirements, supporting internal teams and developers, and adjusting priorities as the store and the business evolve.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Support & Growth',
+            href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+    ],
+  },
   'shopify-b2b-wholesale': {
     faqTitle: 'Shopify B2B & Wholesale',
     hero: {
