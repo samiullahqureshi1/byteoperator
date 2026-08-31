@@ -32,6 +32,18 @@ export async function loader({context, request}: Route.LoaderArgs) {
   const redirectUri = context.env.SHOPIFY_ADMIN_REDIRECT_URI;
   const sessionSecret = context.env.SESSION_SECRET;
 
+  /*
+   * TEMPORARY DIAGNOSTIC — remove once the OAuth flow has run.
+   * Presence only. No value is ever logged.
+   */
+  console.error('[shopify-oauth/start] env presence:', {
+    SHOPIFY_ADMIN_CLIENT_ID: Boolean(clientId),
+    SHOPIFY_ADMIN_CLIENT_SECRET: Boolean(clientSecret),
+    SHOPIFY_ADMIN_SHOP: Boolean(shop),
+    SHOPIFY_ADMIN_REDIRECT_URI: Boolean(redirectUri),
+    SESSION_SECRET: Boolean(sessionSecret),
+  });
+
   const missing = missingEnvNames({
     SHOPIFY_ADMIN_CLIENT_ID: clientId,
     SHOPIFY_ADMIN_CLIENT_SECRET: clientSecret,
