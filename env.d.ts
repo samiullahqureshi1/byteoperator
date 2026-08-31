@@ -16,6 +16,13 @@ declare global {
     CLOUDINARY_CLOUD_NAME: string;
     CLOUDINARY_API_KEY: string;
     CLOUDINARY_API_SECRET: string;
+    /**
+     * Shopify Admin API — used by /api/newsletter-subscribe.
+     * Access token for a custom app with `read_customers` and
+     * `write_customers` scopes. Paired with `PUBLIC_STORE_DOMAIN`, which
+     * Hydrogen already declares.
+     */
+    PRIVATE_ADMIN_API_ACCESS_TOKEN: string;
     /** EmailJS — used by /api/contact-submit. */
     SERVICE_ID: string;
     TEMPLETE_ID: string;

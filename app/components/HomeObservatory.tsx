@@ -1,22 +1,81 @@
 import {useState, type FormEvent} from 'react';
 import {Link} from 'react-router';
 
-type FormStatus = 'idle' | 'pending';
+type FormStatus =
+  | 'idle'
+  | 'pending'
+  | 'success'
+  | 'error';
+
+const FALLBACK_ERROR =
+  'We could not sign you up right now. Please try again.';
 
 export function HomeObservatory() {
   const [status, setStatus] =
     useState<FormStatus>('idle');
+  const [message, setMessage] = useState('');
 
-  function handleSubmit(
+  async function handleSubmit(
     event: FormEvent<HTMLFormElement>,
   ) {
     event.preventDefault();
 
-    /*
-     * Newsletter backend is not connected yet.
-     * Do not show a fake subscription success state.
-     */
+    if (status === 'pending') {
+      return;
+    }
+
+    const form = event.currentTarget;
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
     setStatus('pending');
+    setMessage('Signing you up…');
+
+    try {
+      const response = await fetch(
+        '/api/newsletter-subscribe',
+        {
+          method: 'POST',
+          body: new FormData(form),
+        },
+      );
+
+      let result: {
+        ok?: boolean;
+        error?: string;
+      } = {};
+
+      try {
+        result = (await response.json()) as {
+          ok?: boolean;
+          error?: string;
+        };
+      } catch {
+        result = {};
+      }
+
+      if (!response.ok || !result.ok) {
+        throw new Error(
+          result.error || FALLBACK_ERROR,
+        );
+      }
+
+      form.reset();
+      setStatus('success');
+      setMessage(
+        'You are on the list. The next monthly report lands in your inbox.',
+      );
+    } catch (error) {
+      setStatus('error');
+      setMessage(
+        error instanceof Error
+          ? error.message
+          : FALLBACK_ERROR,
+      );
+    }
   }
 
   return (
@@ -86,7 +145,9 @@ export function HomeObservatory() {
 
           <form
             className="ft-home-observatory__form"
-            onSubmit={handleSubmit}
+            onSubmit={(event) => {
+              void handleSubmit(event);
+            }}
           >
             <label
               className="ft-home-observatory__sr-only"
@@ -114,12 +175,12 @@ export function HomeObservatory() {
               <ArrowIcon />
             </button>
 
-            {status === 'pending' ? (
+            {message ? (
               <p
                 className="ft-home-observatory__status"
                 role="status"
               >
-                Newsletter signup is being connected.
+                {message}
               </p>
             ) : null}
           </form>
