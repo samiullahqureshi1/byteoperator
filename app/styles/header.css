@@ -195,6 +195,26 @@
     opacity 160ms ease;
 }
 
+/*
+ * Menu triggers that open a mega menu rather than navigating are <button>
+ * elements. This only strips the browser's default button chrome so they
+ * render identically to the surrounding nav links — every visual property
+ * still comes from `.charle-header__nav-link` above.
+ */
+.charle-header__nav-link--trigger {
+  appearance: none;
+  -webkit-appearance: none;
+
+  margin: 0;
+  padding: 0;
+
+  background: none;
+  border: 0;
+
+  text-align: inherit;
+  cursor: pointer;
+}
+
 .charle-header__nav-link:hover,
 .charle-header__nav-link:focus-visible {
   color: #ffffff;

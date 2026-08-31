@@ -48,6 +48,17 @@ export const meta: Route.MetaFunction = ({data}) => {
       {tagName: 'link', rel: 'canonical', href: '/guides'},
     ];
   }
+  if (data?.page.handle === 'memberships') {
+    return [
+      {title: 'Shopify Retainers & Ongoing Support | FoldTech'},
+      {
+        name: 'description',
+        content:
+          'FoldTech memberships are monthly Shopify retainers covering ongoing support, maintenance, development time, CRO and technical work for growing ecommerce and Shopify Plus stores.',
+      },
+      {tagName: 'link', rel: 'canonical', href: '/memberships'},
+    ];
+  }
   if (data?.page.handle === 'shopify-consultant') {
     return [
       {title: 'Shopify Consultant & Ecommerce Strategy | FoldTech'},

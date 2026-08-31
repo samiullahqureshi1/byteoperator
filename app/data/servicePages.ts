@@ -3445,6 +3445,175 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
   },
+  memberships: {
+    faqTitle: 'Shopify Retainers & Memberships',
+    hero: {
+      eyebrow: 'Shopify Retainers & Memberships',
+      heading:
+        'Shopify Retainers for Ongoing Support & Growth',
+      chips: [
+        {
+          label: 'Support & Maintenance',
+          href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+        },
+        {
+          label: 'Ecommerce CRO',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce SEO',
+          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+        },
+        {
+          label: 'Shopify Plus',
+          href: SERVICE_PAGE_ROUTES.shopifyPlus,
+        },
+      ],
+      description:
+        'FoldTech memberships are monthly Shopify retainers for brands that need continuous support rather than one-off projects: maintenance, development time, conversion work and technical help from a team that already knows the store.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'Monthly Shopify Support & Optimisation Retainers',
+        description:
+          'A store is rarely finished at launch. Product ranges change, campaigns need landing pages, apps update, browsers move on, and the improvements identified during a build often sit waiting for someone to pick them up. A FoldTech membership gives ecommerce teams a predictable amount of Shopify time each month for exactly that work, covering maintenance, development, conversion and technical support without opening a new project every time something needs doing.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt:
+          'FoldTech Shopify retainer and ongoing ecommerce support work',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt:
+          'FoldTech team planning ongoing Shopify store improvements',
+      },
+      process: {
+        heading: 'How Our Shopify Retainers Work',
+        leftDescription:
+          'We start by understanding the store and the team around it: how it is built, which apps and integrations it depends on, what is already on the backlog, and where the business wants to get to. That gives us a working list of priorities rather than a queue of unrelated tickets.',
+        rightDescription:
+          'Each month we agree what the time goes towards, deliver it, and review what changed and what should come next. Priorities can move as commercial needs shift, and where a request is better handled as a separate project we will say so rather than absorbing it into the retainer and delivering it slowly.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'memberships-support-maintenance',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Shopify Support & Maintenance',
+        heading:
+          'Keep the Store Healthy Month to Month',
+        description: [
+          'Shopify maintenance is the work that keeps a store dependable: fixing issues as they appear, keeping themes and apps in good order, checking that key journeys still behave after platform or third-party updates, and resolving the small faults that quietly cost orders.',
+          'A membership gives that work a home. Instead of issues waiting for a free window, they go into an agreed monthly rhythm with a team that already understands how the store is built.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Support & Maintenance',
+            href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'memberships-development-support',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Ongoing Development Support',
+        heading:
+          'Development Time Without a New Project',
+        description: [
+          'Most stores accumulate a backlog of changes that are too small to scope as projects but too involved for a marketing team to build alone: new sections and templates, campaign landing pages, product page adjustments, app configuration and integration tweaks.',
+          'Retained development time covers that work. Requests are prioritised together, built and tested against the existing theme, and released without the overhead of starting a separate engagement each time.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Development Services',
+            href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'memberships-cro-optimisation',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'CRO & Ecommerce Optimisation',
+        heading:
+          'Continuous Improvement, Not One-Off Fixes',
+        description: [
+          'Conversion work rewards consistency. Reviewing customer behaviour, improving key journeys, refining product and collection pages and testing changes produces more over several months than any single round of amends does on its own.',
+          'A CRO retainer keeps that cycle running: research, prioritised changes, measurement and the next set of improvements, with each month building on what the previous one established about your customers.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce CRO',
+            href: SERVICE_PAGE_ROUTES.ecommerceCro,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-cro'),
+      },
+      {
+        id: 'memberships-technical-performance',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Technical Support & Performance',
+        heading:
+          'Technical Help When the Store Needs It',
+        description: [
+          'Stores develop technical debt as they grow. Apps are added and never removed, scripts accumulate, page performance drifts, and SEO foundations laid at launch stop matching how the store is now merchandised.',
+          'Retained technical support covers page speed and Core Web Vitals work, app and script review, integration troubleshooting, and the technical SEO housekeeping that keeps a store crawlable and understandable as its catalogue and content change.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'memberships-shopify-plus-partnership',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Plus Support & Partnership',
+        heading:
+          'A Long-Term Partner as the Store Scales',
+        description: [
+          'Shopify Plus stores tend to carry more moving parts: additional integrations, international requirements, B2B alongside DTC, and internal teams who need decisions supported rather than made for them. Ongoing support suits that better than isolated projects.',
+          'FoldTech works as a retained partner across those requirements, advising on priorities, supporting internal teams and developers, and delivering the improvements the store needs as the business grows.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Plus',
+            href: SERVICE_PAGE_ROUTES.shopifyPlus,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+    ],
+  },
   'shopify-consultant': {
     faqTitle: 'Shopify Consulting Services',
     hero: {

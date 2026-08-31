@@ -171,27 +171,42 @@ export function HeaderMenu({
             }`}
             key={item.id}
           >
-            <NavLink
-              className="charle-header__nav-link"
-              end
-              prefetch={
-                url.startsWith('/')
-                  ? 'intent'
-                  : 'none'
-              }
-              to={url}
-            >
-              <span>{item.title}</span>
+            {isResources ? (
+              /*
+               * Resources is a menu trigger, not a destination. It keeps
+               * the nav-link class so its appearance is unchanged, and
+               * stays focusable so the mega menu still opens on keyboard
+               * focus via the existing :focus-within rule.
+               */
+              <button
+                className="charle-header__nav-link charle-header__nav-link--trigger"
+                type="button"
+              >
+                <span>{item.title}</span>
+              </button>
+            ) : (
+              <NavLink
+                className="charle-header__nav-link"
+                end
+                prefetch={
+                  url.startsWith('/')
+                    ? 'intent'
+                    : 'none'
+                }
+                to={url}
+              >
+                <span>{item.title}</span>
 
-              {isServices ? (
-                <span
-                  className="charle-header__badge"
-                  aria-label={`${SERVICES_BADGE_COUNT} services`}
-                >
-                  {SERVICES_BADGE_COUNT}
-                </span>
-              ) : null}
-            </NavLink>
+                {isServices ? (
+                  <span
+                    className="charle-header__badge"
+                    aria-label={`${SERVICES_BADGE_COUNT} services`}
+                  >
+                    {SERVICES_BADGE_COUNT}
+                  </span>
+                ) : null}
+              </NavLink>
+            )}
 
             {isServices ? (
               <ServicesMegaMenu />
