@@ -59,6 +59,17 @@ export const meta: Route.MetaFunction = ({data}) => {
       {tagName: 'link', rel: 'canonical', href: '/search-first'},
     ];
   }
+  if (data?.page.handle === 'shopify-experts') {
+    return [
+      {title: 'Shopify Experts & Development Agency | FoldTech'},
+      {
+        name: 'description',
+        content:
+          'FoldTech is a team of Shopify and Shopify Plus experts covering store design, development, migrations, integrations, SEO, CRO and ongoing ecommerce support.',
+      },
+      {tagName: 'link', rel: 'canonical', href: '/shopify-experts'},
+    ];
+  }
   if (data?.page.handle === 'memberships') {
     return [
       {title: 'Shopify Retainers & Ongoing Support | FoldTech'},

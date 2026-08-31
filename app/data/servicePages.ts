@@ -3445,6 +3445,175 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
   },
+  'shopify-experts': {
+    faqTitle: 'Shopify Experts & Development',
+    hero: {
+      eyebrow: 'Shopify Experts',
+      heading:
+        'Shopify Experts for Design, Development & Growth',
+      chips: [
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Design Services',
+          href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
+        },
+        {
+          label: 'Ecommerce SEO',
+          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+        },
+        {
+          label: 'Ecommerce CRO',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+        {
+          label: 'Shopify Plus',
+          href: SERVICE_PAGE_ROUTES.shopifyPlus,
+        },
+      ],
+      description:
+        'FoldTech is a team of Shopify experts covering design, development, migrations, integrations, SEO and conversion work for brands building and growing on Shopify and Shopify Plus.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'Shopify Experts for Every Stage of Your Store',
+        description:
+          '"Shopify expert" covers a wide range of work, and most stores need more than one kind of it. A build needs design and development. A migration needs data, redirects and integration planning. Growth needs SEO, conversion work and someone maintaining the store while it happens. FoldTech brings those disciplines together so decisions in one area account for their effect on the others, rather than being handed between separate suppliers who each see a different part of the store.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt:
+          'FoldTech Shopify experts working on ecommerce store projects',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt:
+          'FoldTech Shopify development and design team',
+      },
+      process: {
+        heading: 'How We Work as Your Shopify Experts',
+        leftDescription:
+          'We start by understanding the store, the team around it and the commercial goal. That covers how the theme is built, which apps and integrations it depends on, where the current setup is holding things back, and what the business needs the store to do over the next period rather than in the abstract.',
+        rightDescription:
+          'From there we agree the work and the order it should happen in, then deliver it — design, development, migration, SEO, conversion or a combination. Where a requirement is better solved by a change to process or configuration than by custom development, we will say so rather than building something that adds maintenance for no gain.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'shopify-experts-design-development',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Shopify Design & Development',
+        heading:
+          'Stores Designed and Built by the Same Team',
+        description: [
+          'Design and development work best when they are not separated by a handover. Decisions about layout, merchandising and interaction affect how a theme is built, and the constraints of the platform affect what is worth designing in the first place.',
+          'FoldTech designs and develops Shopify and Shopify Plus storefronts together: custom themes, bespoke sections merchandising teams can use without a developer, and frontend built with performance, accessibility and long-term maintainability in mind.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Development Services',
+            href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'shopify-experts-migrations-integrations',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Migrations & Integrations',
+        heading:
+          'Moving to Shopify and Connecting What Surrounds It',
+        description: [
+          'Migrations are where detail matters most. Products, variants, customers, orders, content and URL structures all have to arrive intact, with redirects mapped so existing search visibility is carried across rather than rebuilt from scratch.',
+          'Integration work continues past launch. We connect Shopify with the ERP, CRM, inventory, fulfilment and marketing systems a business already runs on, and build custom functionality where an app does not fit the requirement.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Migrations',
+            href: SERVICE_PAGE_ROUTES.shopifyMigrations,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'shopify-experts-seo-cro',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'SEO & Conversion Expertise',
+        heading:
+          'Helping Customers Find You and Buy From You',
+        description: [
+          'Search visibility and conversion act on the same templates. Collection structure, product information, internal linking and page performance decide how a store is found, and the same pages decide whether visitors go on to buy.',
+          'Our SEO and CRO specialists work alongside the developers building the store, so technical foundations, content structure and conversion improvements are planned together instead of arriving as competing change requests.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'shopify-experts-shopify-plus',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Shopify Plus Experts',
+        heading:
+          'Expertise for More Complex Ecommerce Requirements',
+        description: [
+          'Shopify Plus stores tend to carry more moving parts: additional integrations, international and multi-currency requirements, B2B alongside DTC, and internal teams who need their own workflows supported.',
+          'As Shopify Plus experts we advise on platform decisions and store architecture, build the customisations those requirements need, and keep the setup practical for the people managing it day to day.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Plus',
+            href: SERVICE_PAGE_ROUTES.shopifyPlus,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-cro'),
+      },
+      {
+        id: 'shopify-experts-ongoing-support',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Ongoing Support & Ecommerce Growth',
+        heading:
+          'Experts Who Stay With the Store After Launch',
+        description: [
+          'Launch is the start of the work, not the end of it. Ranges change, campaigns need new pages, apps update, and the improvements identified during a build need someone to pick them up.',
+          'FoldTech continues as a long-term partner through maintenance, development time, conversion work and technical support, so the store keeps improving instead of slowly drifting between projects.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Support & Growth',
+            href: SERVICE_PAGE_ROUTES.shopifyMaintenance,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+    ],
+  },
   memberships: {
     faqTitle: 'Shopify Retainers & Memberships',
     hero: {
