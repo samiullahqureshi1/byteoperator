@@ -46,6 +46,16 @@ export function escapeHtml(value: string) {
 }
 
 /**
+ * Names of the variables that are absent or empty on `context.env`, in the
+ * order given. Names only — a value is never returned or rendered.
+ */
+export function missingEnvNames(values: Record<string, string | undefined>) {
+  return Object.entries(values)
+    .filter(([, value]) => !value)
+    .map(([name]) => name);
+}
+
+/**
  * Signed, httpOnly cookie holding the CSRF state between the start redirect
  * and the callback. Signed with `SESSION_SECRET`, the same secret the app's
  * session cookie already uses. `sameSite: 'lax'` still sends the cookie on

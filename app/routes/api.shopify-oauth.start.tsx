@@ -5,6 +5,7 @@ import {
   createStateCookie,
   generateState,
   htmlResponse,
+  missingEnvNames,
 } from '~/lib/shopify-oauth.server';
 
 /**
@@ -31,26 +32,23 @@ export async function loader({context, request}: Route.LoaderArgs) {
   const redirectUri = context.env.SHOPIFY_ADMIN_REDIRECT_URI;
   const sessionSecret = context.env.SESSION_SECRET;
 
-  if (
-    !clientId ||
-    !clientSecret ||
-    !shop ||
-    !redirectUri ||
-    !sessionSecret
-  ) {
+  const missing = missingEnvNames({
+    SHOPIFY_ADMIN_CLIENT_ID: clientId,
+    SHOPIFY_ADMIN_CLIENT_SECRET: clientSecret,
+    SHOPIFY_ADMIN_SHOP: shop,
+    SHOPIFY_ADMIN_REDIRECT_URI: redirectUri,
+    SESSION_SECRET: sessionSecret,
+  });
+
+  if (missing.length) {
     console.error(
-      '[shopify-oauth/start] FAIL — the OAuth flow is not configured. Missing env var(s):',
-      {
-        SHOPIFY_ADMIN_CLIENT_ID: Boolean(clientId),
-        SHOPIFY_ADMIN_CLIENT_SECRET: Boolean(clientSecret),
-        SHOPIFY_ADMIN_SHOP: Boolean(shop),
-        SHOPIFY_ADMIN_REDIRECT_URI: Boolean(redirectUri),
-        SESSION_SECRET: Boolean(sessionSecret),
-      },
+      `[shopify-oauth/start] FAIL — the OAuth flow is not configured. Missing env var(s): ${missing.join(
+        ', ',
+      )}`,
     );
 
     return htmlResponse(
-      '<h1>Not configured</h1><p>The Shopify OAuth environment variables are not all set. Check the server log for which one is missing.</p>',
+      '<h1>Not configured</h1><p>The Shopify OAuth environment variables are not all set for this deployment. The deployment log names the missing variable.</p>',
       500,
     );
   }

@@ -5,6 +5,7 @@ import {
   createStateCookie,
   escapeHtml,
   htmlResponse,
+  missingEnvNames,
   safeEqual,
   verifyCallbackHmac,
 } from '~/lib/shopify-oauth.server';
@@ -53,18 +54,21 @@ export async function loader({context, request}: Route.LoaderArgs) {
   const clientSecret = context.env.SHOPIFY_ADMIN_CLIENT_SECRET;
   const sessionSecret = context.env.SESSION_SECRET;
 
-  if (!clientId || !clientSecret || !sessionSecret) {
+  const missing = missingEnvNames({
+    SHOPIFY_ADMIN_CLIENT_ID: clientId,
+    SHOPIFY_ADMIN_CLIENT_SECRET: clientSecret,
+    SESSION_SECRET: sessionSecret,
+  });
+
+  if (missing.length) {
     console.error(
-      '[shopify-oauth/callback] FAIL — the OAuth flow is not configured. Missing env var(s):',
-      {
-        SHOPIFY_ADMIN_CLIENT_ID: Boolean(clientId),
-        SHOPIFY_ADMIN_CLIENT_SECRET: Boolean(clientSecret),
-        SESSION_SECRET: Boolean(sessionSecret),
-      },
+      `[shopify-oauth/callback] FAIL — the OAuth flow is not configured. Missing env var(s): ${missing.join(
+        ', ',
+      )}`,
     );
 
     return htmlResponse(
-      '<h1>Not configured</h1><p>The Shopify OAuth environment variables are not all set.</p>',
+      '<h1>Not configured</h1><p>The Shopify OAuth environment variables are not all set for this deployment.</p>',
       500,
     );
   }
