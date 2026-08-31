@@ -23,6 +23,16 @@ declare global {
      * Hydrogen already declares.
      */
     PRIVATE_ADMIN_API_ACCESS_TOKEN: string;
+    /**
+     * Shopify custom-distribution app credentials — used only by the one-time
+     * OAuth flow at /api/shopify-oauth/start and /api/shopify-oauth/callback
+     * that mints the offline token above. SHOPIFY_ADMIN_CLIENT_SECRET is
+     * server-only and must never be exposed to the browser.
+     */
+    SHOPIFY_ADMIN_CLIENT_ID: string;
+    SHOPIFY_ADMIN_CLIENT_SECRET: string;
+    SHOPIFY_ADMIN_SHOP: string;
+    SHOPIFY_ADMIN_REDIRECT_URI: string;
     /** EmailJS — used by /api/contact-submit. */
     SERVICE_ID: string;
     TEMPLETE_ID: string;
