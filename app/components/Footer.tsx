@@ -171,23 +171,7 @@ export function Footer({
 
           <div className="ft-footer__bottom-right">
             <DefaultPolicyLinks />
-            <div className="ft-footer__socials ft-footer__socials--bottom">
-  <span className="ft-footer__social" aria-label="Instagram" role="img">
-    <InstagramIcon />
-  </span>
-
-  <span className="ft-footer__social" aria-label="LinkedIn" role="img">
-    <LinkedInIcon />
-  </span>
-
-  <span className="ft-footer__social" aria-label="TikTok" role="img">
-    <TikTokIcon />
-  </span>
-
-  <span className="ft-footer__social" aria-label="YouTube" role="img">
-    <YouTubeIcon />
-  </span>
-</div>
+            <FooterSocials variant="bottom" />
           </div>
         </div>
       </div>
@@ -278,39 +262,7 @@ function FooterNavigation({
                 </ul>
 
                 {showSocials ? (
-                  <div className="ft-footer__socials ft-footer__socials--nav">
-                    <span
-                      className="ft-footer__social"
-                      aria-label="Instagram"
-                      role="img"
-                    >
-                      <InstagramIcon />
-                    </span>
-
-                    <span
-                      className="ft-footer__social"
-                      aria-label="LinkedIn"
-                      role="img"
-                    >
-                      <LinkedInIcon />
-                    </span>
-
-                    <span
-                      className="ft-footer__social"
-                      aria-label="TikTok"
-                      role="img"
-                    >
-                      <TikTokIcon />
-                    </span>
-
-                    <span
-                      className="ft-footer__social"
-                      aria-label="YouTube"
-                      role="img"
-                    >
-                      <YouTubeIcon />
-                    </span>
-                  </div>
+                  <FooterSocials variant="nav" />
                 ) : null}
               </div>
             </div>
@@ -384,6 +336,91 @@ function PlusIcon() {
     </svg>
   );
 }
+/* =========================================================
+   FOOTER SOCIAL LINKS
+
+   Single source for both the nav (desktop) and bottom
+   (mobile) social rows, so they can never drift apart.
+========================================================= */
+
+const FOOTER_SOCIAL_LINKS = [
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/thefoldtech',
+    Icon: FacebookIcon,
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/thefoldtech/',
+    Icon: InstagramIcon,
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/thefoldtech',
+    Icon: LinkedInIcon,
+  },
+] as const;
+
+function FooterSocials({
+  variant,
+}: {
+  variant: 'nav' | 'bottom';
+}) {
+  return (
+    <div
+      className={`ft-footer__socials ft-footer__socials--${variant}`}
+    >
+      {FOOTER_SOCIAL_LINKS.map(({label, href, Icon}) => (
+        <a
+          className="ft-footer__social"
+          key={label}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={label}
+        >
+          <Icon />
+        </a>
+      ))}
+    </div>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="2"
+        y="2"
+        width="20"
+        height="20"
+        rx="5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+
+      <path
+        d="M15 7.5h-1.5A2.5 2.5 0 0 0 11 10v12"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M8.75 13h5.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 function InstagramIcon() {
   return (
     <svg
@@ -449,50 +486,6 @@ function LinkedInIcon() {
         r="2"
         stroke="currentColor"
         strokeWidth="1.5"
-      />
-    </svg>
-  );
-}
-
-function TikTokIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function YouTubeIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      <path
-        d="m9.75 15.02 5.75-3.27-5.75-3.27v6.54Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
       />
     </svg>
   );

@@ -59,6 +59,17 @@ export const meta: Route.MetaFunction = ({data}) => {
       {tagName: 'link', rel: 'canonical', href: '/search-first'},
     ];
   }
+  if (data?.page.handle === 'why-shopify') {
+    return [
+      {title: 'Why Shopify for Ecommerce Growth | FoldTech'},
+      {
+        name: 'description',
+        content:
+          'Why ecommerce brands choose Shopify and Shopify Plus: hosted infrastructure, scalability, integrations, international commerce, custom development and the flexibility SEO and CRO work depend on.',
+      },
+      {tagName: 'link', rel: 'canonical', href: '/why-shopify'},
+    ];
+  }
   if (data?.page.handle === 'shopify-experts') {
     return [
       {title: 'Shopify Experts & Development Agency | FoldTech'},

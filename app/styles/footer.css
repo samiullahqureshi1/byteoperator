@@ -1166,6 +1166,13 @@
   color:
     rgba(255, 255, 255, 0.52);
 
+  /*
+   * The icons are now <a> elements. This only cancels the global
+   * `a:hover { text-decoration: underline }` so their appearance is
+   * unchanged; every other property above still applies as before.
+   */
+  text-decoration: none;
+
   transition:
     border-color 0.3s ease,
     color 0.3s ease,

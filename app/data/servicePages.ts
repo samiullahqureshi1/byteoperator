@@ -3445,6 +3445,175 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
   },
+  'why-shopify': {
+    faqTitle: 'Why Shopify',
+    hero: {
+      eyebrow: 'Why Shopify',
+      heading:
+        'Why Ecommerce Brands Choose Shopify & Shopify Plus',
+      chips: [
+        {
+          label: 'Shopify Plus',
+          href: SERVICE_PAGE_ROUTES.shopifyPlus,
+        },
+        {
+          label: 'Shopify Migrations',
+          href: SERVICE_PAGE_ROUTES.shopifyMigrations,
+        },
+        {
+          label: 'Development Services',
+          href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+        },
+        {
+          label: 'Ecommerce SEO',
+          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+        },
+        {
+          label: 'Ecommerce CRO',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+      ],
+      description:
+        'A practical look at what Shopify and Shopify Plus offer ecommerce brands: hosted infrastructure, room for custom development, integrations with the systems a business already runs on, and the flexibility SEO and conversion work depend on.',
+      primaryCta: {
+        label: 'Get In Touch',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'Why Choose Shopify as Your Ecommerce Platform',
+        description:
+          'Choosing an ecommerce platform is mostly a question of where you want to spend your effort. Every platform demands attention somewhere: hosting and security, custom development, integrations, or working around constraints the business has outgrown. Shopify takes on the infrastructure — hosting, PCI compliance, platform updates and checkout — so teams can spend more of their time on merchandising, customer experience and growth. That trade-off suits most ecommerce brands well, and it is worth understanding properly rather than assuming.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+      media: {
+        primary: '/images/services/services-wide.webp',
+        primaryAlt:
+          'FoldTech Shopify ecommerce platform project work',
+        secondary: '/images/mega-menu-team.webp',
+        secondaryAlt:
+          'FoldTech team reviewing Shopify ecommerce platform requirements',
+      },
+      process: {
+        heading: 'How We Help You Evaluate Shopify',
+        leftDescription:
+          'We start with the requirements that actually constrain the decision: catalogue size and structure, the systems that hold pricing, stock and customer records, international and B2B needs, and the internal workflows a platform has to support. Those details decide whether Shopify fits, and whether standard Shopify or Shopify Plus is the right level.',
+        rightDescription:
+          'From there we set out what the platform handles natively, what needs custom development or integration work, and what a migration would realistically involve. If Shopify is not the right fit for a particular requirement, we would rather say so at this stage than discover it mid-build.',
+        cta: {
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'why-shopify-platform-reliability',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Platform, Security & Reliability',
+        heading:
+          'Infrastructure You Do Not Have to Maintain',
+        description: [
+          'Shopify is a hosted platform, so hosting, security patching, PCI compliance for checkout and platform updates are handled for you. For most ecommerce teams that removes a category of work — and a category of risk — that would otherwise need in-house attention or an ongoing retainer just to stand still.',
+          'It also means peak trading periods are the platform’s problem rather than yours. Capacity for traffic spikes is part of what you are buying, which changes how a team plans for launches, campaigns and seasonal demand.',
+        ],
+        buttons: [
+          {
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-plus'),
+      },
+      {
+        id: 'why-shopify-scalability-plus',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Scalability & Shopify Plus',
+        heading:
+          'Room to Grow Without Changing Platform Again',
+        description: [
+          'Standard Shopify covers a great deal, and most brands do not need more from day one. Shopify Plus becomes relevant when specific requirements appear: more control over checkout, higher API limits, multiple storefronts, B2B alongside DTC, or automation across the systems around the store.',
+          'Because both sit on the same platform, moving up is a change of capability rather than a replatform. That matters when you are choosing where to start: the decision does not have to carry the weight of predicting the next five years.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Plus',
+            href: SERVICE_PAGE_ROUTES.shopifyPlus,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-migrations'),
+      },
+      {
+        id: 'why-shopify-custom-integrations',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Custom Development & Integrations',
+        heading:
+          'Flexible Where It Needs to Be',
+        description: [
+          'A hosted platform is only useful if it still bends to how your business works. Shopify supports custom theme development, private and custom apps, and a well-documented API surface, so functionality that does not exist off the shelf can be built rather than worked around.',
+          'The wider ecosystem covers most common requirements through apps, and the API handles the rest: connecting ERP, CRM, inventory, fulfilment and marketing systems so the storefront reflects what the business already holds elsewhere.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Development Services',
+            href: SERVICE_PAGE_ROUTES.shopifyDevelopment,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-development'),
+      },
+      {
+        id: 'why-shopify-performance-seo-cro',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Performance, SEO & CRO Flexibility',
+        heading:
+          'Enough Control for Search and Conversion Work',
+        description: [
+          'Ecommerce performance depends on being able to change the things that matter. Shopify gives control over templates, page structure, metadata, redirects and site speed work, which is what technical SEO and conversion optimisation actually need access to.',
+          'There are platform conventions to work within — URL structures and checkout among them — and it is better to understand those upfront. In practice they rarely limit the SEO and CRO work that moves commercial numbers.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Ecommerce SEO',
+            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-cro'),
+      },
+      {
+        id: 'why-shopify-international-growth',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'International Commerce & Ongoing Growth',
+        heading:
+          'A Platform That Supports the Next Stage',
+        description: [
+          'International selling brings currencies, languages, regional catalogues and market-specific pricing. Shopify supports multi-currency and multi-language storefronts, with different structural options depending on how much regional independence a business needs.',
+          'Beyond launch, what matters is how easily a store keeps improving. Merchandising changes, new landing pages, integrations and optimisation work should not each require a development project, and the platform decision has a lot to do with whether they do.',
+        ],
+        buttons: [
+          {
+            label: 'Explore Shopify Migrations',
+            href: SERVICE_PAGE_ROUTES.shopifyMigrations,
+          },
+        ],
+        media: reuseHomeFeatureMedia('shopify-design'),
+      },
+    ],
+  },
   'shopify-experts': {
     faqTitle: 'Shopify Experts & Development',
     hero: {
