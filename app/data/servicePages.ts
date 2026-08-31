@@ -2426,7 +2426,7 @@ export const SERVICE_PAGE_CONFIGS = {
       intro: {
         heading:
           'Shopify migrations planned around the store, data and customer experience you need to carry forward.',
-        descriptionHtml: `FoldTech supports ecommerce brands moving or re-platforming from <a href="/magento-shopify-migrations/">Magento</a>, <a href="/woocommerce-shopify-migrations/">WooCommerce</a>, <a href="/bigcommerce-shopify-migrations/">BigCommerce</a>, <a href="/salesforce-shopify-migrations/">Salesforce</a>, <a href="/visualsoft-shopify-agency/">Visualsoft</a> and other ecommerce platforms to Shopify or Shopify Plus.`,
+        descriptionHtml: `FoldTech supports ecommerce brands moving or re-platforming from <a href="/magento-shopify-migrations/">Magento</a>, <a href="/woocommerce-shopify-migrations/">WooCommerce</a>, <a href="/bigcommerce-shopify-migrations/">BigCommerce</a>, <a href="/salesforce-shopify-migrations/">Salesforce</a> and other ecommerce platforms to Shopify or Shopify Plus.`,
         cta: {
           label: 'Get In Touch',
           href: SERVICE_PAGE_ROUTES.contact,
@@ -2465,7 +2465,7 @@ export const SERVICE_PAGE_CONFIGS = {
       `,
       cta: {
         label: 'Magento vs Shopify',
-        href: '/articles/shopify-vs-magento/',
+        href: '/magento-shopify-migrations/',
       },
     },
     {
@@ -2477,7 +2477,7 @@ export const SERVICE_PAGE_CONFIGS = {
       `,
       cta: {
         label: 'WooCommerce vs Shopify',
-        href: '/articles/shopify-vs-wordpress/',
+        href: '/woocommerce-shopify-migrations/',
       },
     },
     {
@@ -2489,7 +2489,7 @@ export const SERVICE_PAGE_CONFIGS = {
       `,
       cta: {
         label: 'BigCommerce vs Shopify',
-        href: '/articles/shopify-vs-bigcommerce/',
+        href: '/bigcommerce-shopify-migrations/',
       },
     },
     {
@@ -2513,14 +2513,14 @@ export const SERVICE_PAGE_CONFIGS = {
       `,
       cta: {
         label: 'Salesforce vs Shopify',
-        href: '/articles/shopify-vs-salesforce-commerce-cloud/',
+        href: '/salesforce-shopify-migrations/',
       },
     },
     {
       title: 'More',
       descriptionHtml: `
         <p>
-          Migration requirements are not limited to the platforms listed above. FoldTech can review moves from other ecommerce systems, including <a href="/visualsoft-shopify-agency/">Visualsoft</a>, as well as custom or less common platforms.
+          Migration requirements are not limited to the platforms listed above. FoldTech can review moves from other ecommerce systems, including Visualsoft, as well as custom or less common platforms.
         </p>
       `,
       cta: {
