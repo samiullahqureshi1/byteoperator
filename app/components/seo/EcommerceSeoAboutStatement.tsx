@@ -45,7 +45,7 @@ export function EcommerceSeoAboutStatement() {
 
         <Link
           className="ft-ecommerce-seo-about__guide"
-          to="/articles/shopify-seo-guide/"
+          to="/ecommerce-seo-agency/"
           prefetch="intent"
         >
           <span
