@@ -48,6 +48,17 @@ export const meta: Route.MetaFunction = ({data}) => {
       {tagName: 'link', rel: 'canonical', href: '/guides'},
     ];
   }
+  if (data?.page.handle === 'search-first') {
+    return [
+      {title: 'Shopify Search & Product Discovery | FoldTech'},
+      {
+        name: 'description',
+        content:
+          'FoldTech improves ecommerce site search and product discovery on Shopify, covering search UX, relevance, merchandising, filtering and search-led customer journeys.',
+      },
+      {tagName: 'link', rel: 'canonical', href: '/search-first'},
+    ];
+  }
   if (data?.page.handle === 'memberships') {
     return [
       {title: 'Shopify Retainers & Ongoing Support | FoldTech'},

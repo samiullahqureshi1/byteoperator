@@ -1,4 +1,4 @@
-import {useId, useState} from 'react';
+import {Fragment, useId, useState} from 'react';
 
 type CroOptimiseItem = {
   id: string;
@@ -45,9 +45,42 @@ const CRO_OPTIMISE_ITEMS: CroOptimiseItem[] = [
   },
 ];
 
-export function ShopifyCroOptimise() {
+/*
+ * Every label is a prop with the original CRO value as its default, so
+ * /shopify-cro-agency/ renders exactly as before while other pages can
+ * reuse this same section, toggle behaviour and wireframe.
+ */
+type ShopifyCroOptimiseProps = {
+  afterLabel?: string;
+  afterWireframeLabel?: string;
+  beforeLabel?: string;
+  beforeWireframeLabel?: string;
+  ctaTag?: string;
+  eyebrow?: string;
+  gridTag?: string;
+  headlineTag?: string;
+  items?: readonly CroOptimiseItem[];
+  titleLines?: readonly string[];
+  toggleGroupLabel?: string;
+  toggleHint?: string;
+};
+
+export function ShopifyCroOptimise({
+  afterLabel = 'After CRO',
+  afterWireframeLabel = 'After CRO ecommerce wireframe',
+  beforeLabel = 'Before',
+  beforeWireframeLabel = 'Before CRO ecommerce wireframe',
+  ctaTag = 'Stronger CTA',
+  eyebrow = 'What We Optimise',
+  gridTag = 'Optimised layout',
+  headlineTag = 'Clearer headline',
+  items = CRO_OPTIMISE_ITEMS,
+  titleLines = ['Every Part of Your Store.', 'Optimised With Purpose.'],
+  toggleGroupLabel = 'CRO optimisation preview',
+  toggleHint = 'Toggle to see the optimisation',
+}: ShopifyCroOptimiseProps = {}) {
   const [activeItem, setActiveItem] = useState(
-    CRO_OPTIMISE_ITEMS[0]?.id ?? 'product',
+    items[0]?.id ?? 'product',
   );
   const [previewMode, setPreviewMode] = useState<'before' | 'after'>('before');
   const accordionId = useId();
@@ -62,19 +95,24 @@ export function ShopifyCroOptimise() {
       <div className="ft-cro-optimise__container">
         <div className="ft-cro-optimise__layout">
           <div className="ft-cro-optimise__left">
-            <p className="ft-cro-optimise__eyebrow">What We Optimise</p>
+            <p className="ft-cro-optimise__eyebrow">{eyebrow}</p>
 
             <h2
               className="ft-cro-optimise__title"
               id="ft-cro-optimise-title"
             >
-              Every Part of Your Store.
-              <br />
-              Optimised With Purpose.
+              {/* Fragment, not a wrapper element, so the rendered
+                  markup stays text + <br /> exactly as before. */}
+              {titleLines.map((line, index) => (
+                <Fragment key={line}>
+                  {index > 0 ? <br /> : null}
+                  {line}
+                </Fragment>
+              ))}
             </h2>
 
             <ul className="ft-cro-optimise__list">
-              {CRO_OPTIMISE_ITEMS.map((item) => {
+              {items.map((item) => {
                 const isActive = activeItem === item.id;
                 const triggerId = `${accordionId}-${item.id}-trigger`;
                 const panelId = `${accordionId}-${item.id}-panel`;
@@ -121,7 +159,7 @@ export function ShopifyCroOptimise() {
             <div
               className="ft-cro-optimise__toggle-bar"
               role="group"
-              aria-label="CRO optimisation preview"
+              aria-label={toggleGroupLabel}
             >
               <button
                 type="button"
@@ -131,7 +169,7 @@ export function ShopifyCroOptimise() {
                 aria-pressed={previewMode === 'before'}
                 onClick={() => setPreviewMode('before')}
               >
-                Before
+                {beforeLabel}
               </button>
 
               <button
@@ -142,20 +180,18 @@ export function ShopifyCroOptimise() {
                 aria-pressed={previewMode === 'after'}
                 onClick={() => setPreviewMode('after')}
               >
-                After CRO
+                {afterLabel}
               </button>
 
               <span className="ft-cro-optimise__toggle-label">
-                Toggle to see the optimisation
+                {toggleHint}
               </span>
             </div>
 
             <div
               className={`ft-cro-wireframe${isAfter ? ' is-variant' : ''}`}
               aria-label={
-                isAfter
-                  ? 'After CRO ecommerce wireframe'
-                  : 'Before CRO ecommerce wireframe'
+                isAfter ? afterWireframeLabel : beforeWireframeLabel
               }
             >
               <div className="ft-cro-wireframe__browser">
@@ -183,11 +219,11 @@ export function ShopifyCroOptimise() {
 
               <div className="ft-cro-wireframe__hero ft-cro-wireframe__section">
                 <span className="ft-cro-wireframe__change-tag ft-cro-wireframe__change-tag--headline">
-                  Clearer headline
+                  {headlineTag}
                 </span>
 
                 <span className="ft-cro-wireframe__change-tag ft-cro-wireframe__change-tag--cta">
-                  Stronger CTA
+                  {ctaTag}
                 </span>
 
                 <div className="ft-cro-wireframe__hero-image" />
@@ -206,7 +242,7 @@ export function ShopifyCroOptimise() {
 
               <div className="ft-cro-wireframe__products ft-cro-wireframe__section">
                 <span className="ft-cro-wireframe__change-tag ft-cro-wireframe__change-tag--grid">
-                  Optimised layout
+                  {gridTag}
                 </span>
 
                 {[1, 2, 3].map((product) => (
