@@ -88,6 +88,7 @@ const GALLERY_LAYERS = [
 export function HomeHeroGallery() {
   return (
     <section
+      id="ft-home-hero-gallery"
       className="ft-hero-gallery"
       aria-label="Selected FoldTech ecommerce projects"
     >

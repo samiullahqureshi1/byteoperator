@@ -32,6 +32,24 @@ const HERO_SERVICES = [
 ] as const;
 
 export function HomeHero() {
+  const scrollToGallery = () => {
+    const gallery = document.getElementById(
+      'ft-home-hero-gallery',
+    );
+    const header = document.querySelector('.charle-header');
+
+    if (!gallery) return;
+
+    const headerHeight =
+      header?.getBoundingClientRect().height ?? 0;
+
+    window.scrollTo({
+      top: gallery.getBoundingClientRect().top +
+        window.scrollY -
+        headerHeight,
+      behavior: 'smooth',
+    });
+  };
   return (
     <section
       className="ft-home-hero"
@@ -84,14 +102,17 @@ export function HomeHero() {
           ))}
         </div>
 
-        <NavLink
+        <a
           className="ft-home-hero__work-link"
-          prefetch="intent"
-          to="/pages/case-studies"
+          href="#ft-home-hero-gallery"
+          onClick={(event) => {
+            event.preventDefault();
+            scrollToGallery();
+          }}
         >
           <span>See our work</span>
           <ArrowDownIcon />
-        </NavLink>
+        </a>
       </div>
     </section>
   );
