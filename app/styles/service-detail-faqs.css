@@ -210,6 +210,55 @@
   }
 }
 
+/* =========================================================
+   SCOPED: /shopify-internationalisation/
+
+   The shared FAQ grid gives the heading 1 of 4 tracks, which is
+   narrower than the single word "Internationalisation" at this
+   font size. Rather than shrink the type or force a mid-word
+   break, this page gets a genuine two-column split.
+
+   `minmax(min-content, …)` is the important part: the left track
+   can never be narrower than its longest word, so a
+   character-by-character break is impossible at any viewport
+   width, whatever the rendered font metrics turn out to be. The
+   `fr` above that lets the column take its share of the row so
+   the title settles on two natural lines — "Shopify" then
+   "Internationalisation" — broken at the space.
+
+   Scoped through the page-handle class that ServiceDetailPage
+   already puts on its root element, so no other page is touched.
+========================================================= */
+
+@media (min-width: 64rem) {
+  .ft-service-detail--shopify-internationalisation
+    .ft-service-detail-faqs__inner {
+    grid-template-columns:
+      minmax(min-content, 0.9fr)
+      minmax(0, 1fr);
+
+    gap: 5rem;
+  }
+
+  .ft-service-detail--shopify-internationalisation
+    .ft-service-detail-faqs__left,
+  .ft-service-detail--shopify-internationalisation
+    .ft-service-detail-faqs__list {
+    /* Replaces the shared 1-of-4 / 3-of-4 spans. */
+    grid-column: auto;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 80rem) {
+  .ft-service-detail--shopify-internationalisation
+    .ft-service-detail-faqs__inner {
+    /* Overrides the shared 12rem gap, which would squeeze the
+       heading column back below its natural width. */
+    gap: 6rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ft-service-detail-faqs__plus,
   .ft-service-detail-faqs__panel,
