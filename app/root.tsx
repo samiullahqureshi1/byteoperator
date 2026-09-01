@@ -145,10 +145,12 @@ function loadDeferredData({context}: Route.LoaderArgs) {
 }
 
 // The footer is never visible without scrolling, on any page, so its
-// stylesheet doesn't need to block initial render. It's loaded via
-// rel="preload" (fetched immediately, but non-blocking) and swapped to
-// rel="stylesheet" by DEFER_STYLES_SCRIPT below once it's downloaded, with
-// a <noscript> fallback for the no-JS case.
+// stylesheet doesn't need to block initial render. Same for the floating
+// contact button: it's `position: fixed`, so it never occupies document
+// flow and can't cause layout shift when its styles apply a moment late.
+// Both are loaded via rel="preload" (fetched immediately, but non-blocking)
+// and swapped to rel="stylesheet" by DEFER_STYLES_SCRIPT below once
+// downloaded, with a <noscript> fallback for the no-JS case.
 const DEFER_STYLES_SCRIPT = `(function(){
   var links = document.querySelectorAll('link[rel="preload"][as="style"][data-defer]');
   function apply(link){ link.rel = 'stylesheet'; }
@@ -177,11 +179,17 @@ export function Layout({children}: {children?: React.ReactNode}) {
           href={footerStyles}
           data-defer=""
         ></link>
-        <link rel="stylesheet" href={floatingContactCtaStyles}></link>
+        <link
+          rel="preload"
+          as="style"
+          href={floatingContactCtaStyles}
+          data-defer=""
+        ></link>
         <Meta />
         <Links />
         <noscript>
           <link rel="stylesheet" href={footerStyles} />
+          <link rel="stylesheet" href={floatingContactCtaStyles} />
         </noscript>
         <script
           nonce={nonce}
