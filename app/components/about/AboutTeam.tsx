@@ -2,32 +2,32 @@ const TEAM_MEMBERS = [
   {
     name: 'Alex Morgan',
     role: 'CEO & Founder',
-    image: '/images/about/team-01.jpeg',
+    image: '/images/about/team-01.webp',
   },
   {
     name: 'Jordan Lee',
     role: 'Head of Growth',
-    image: '/images/about/team-02.jpeg',
+    image: '/images/about/team-02.webp',
   },
   {
     name: 'Taylor Smith',
     role: 'Head of Design',
-    image: '/images/about/team-03.jpeg',
+    image: '/images/about/team-03.webp',
   },
   {
     name: 'Chris Walker',
     role: 'Head of Operations',
-    image: '/images/about/team-04.jpeg',
+    image: '/images/about/team-04.webp',
   },
   {
     name: 'Sam Wilson',
     role: 'Head of Development',
-    image: '/images/about/team-05.jpeg',
+    image: '/images/about/team-05.webp',
   },
   {
     name: 'Jamie Brown',
     role: 'Head of People',
-    image: '/images/about/team-06.jpeg',
+    image: '/images/about/team-06.webp',
   },
 ] as const;
 

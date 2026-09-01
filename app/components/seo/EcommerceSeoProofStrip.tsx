@@ -47,11 +47,13 @@ export function EcommerceSeoProofStrip({
                   className="ft-ecommerce-seo-proof__logo"
                   src="/images/home-partners/shopify-plus.svg"
                   alt="Shopify Plus"
+                  loading="lazy"
                 />
                 <img
                   className="ft-ecommerce-seo-proof__logo ft-ecommerce-seo-proof__logo--shopify"
                   src="/images/home-partners/shopify.svg"
                   alt="Shopify"
+                  loading="lazy"
                 />
               </span>
             ) : item.text}

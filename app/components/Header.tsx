@@ -391,7 +391,7 @@ function ResourcesMegaMenu() {
       >
         <div className="ft-resources-mega__featured-image">
           <img
-            src="/images/mega-menu-resources.jpg"
+            src="/images/mega-menu-resources.webp"
             alt=""
             width="800"
             height="520"

@@ -222,6 +222,7 @@ function ProjectImage({
         width={image.width ?? undefined}
         height={image.height ?? undefined}
         loading={eager ? 'eager' : 'lazy'}
+        fetchPriority={eager ? 'high' : undefined}
         decoding="async"
       />
     </figure>

@@ -141,6 +141,7 @@ function AboutMark() {
       <img
         src="/images/foldtech-mark-black.svg"
         alt=""
+        loading="lazy"
       />
     </span>
   );

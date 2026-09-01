@@ -1,16 +1,25 @@
 import {useRef} from 'react';
 
+const SPACE_IMAGE_SIZES =
+  '(min-width: 64rem) calc((100vw - 7.5rem) / 1.75), (min-width: 48rem) calc((100vw - 4rem) / 1.75), calc(100vw - 2.25rem)';
+
 const SPACE_IMAGES = [
   {
-    src: '/images/about/space-01.jpg',
+    src: '/images/about/space-01-1400.webp',
+    srcSet:
+      '/images/about/space-01-700.webp 700w, /images/about/space-01-1400.webp 1400w',
     alt: 'FoldTech team and workspace',
   },
   {
-    src: '/images/about/space-02.jpg',
+    src: '/images/about/space-02-1400.webp',
+    srcSet:
+      '/images/about/space-02-700.webp 700w, /images/about/space-02-1400.webp 1400w',
     alt: 'FoldTech team collaborating',
   },
   {
-    src: '/images/about/space-03.jpg',
+    src: '/images/about/space-03-1400.webp',
+    srcSet:
+      '/images/about/space-03-700.webp 700w, /images/about/space-03-1400.webp 1400w',
     alt: 'FoldTech workspace and culture',
   },
 ] as const;
@@ -91,9 +100,12 @@ export function AboutSpace() {
                 <div className="ft-about-space__item">
                   <img
                     src={image.src}
+                    srcSet={image.srcSet}
+                    sizes={SPACE_IMAGE_SIZES}
                     alt={image.alt}
                     className="ft-about-space__item-image"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

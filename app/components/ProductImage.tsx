@@ -23,6 +23,8 @@ export function ProductImage({
         data={image}
         key={image.id}
         sizes="(min-width: 45em) 50vw, 100vw"
+        loading="eager"
+        fetchPriority="high"
       />
     </div>
   );

@@ -64,6 +64,7 @@ export function EcommerceSeoTechStack() {
                   src="/images/home-partners/shopify.svg"
                   alt="Shopify"
                   className="ft-ecommerce-seo-stack__hub-logo"
+                  loading="lazy"
                 />
               </div>
 

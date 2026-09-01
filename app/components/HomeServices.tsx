@@ -397,6 +397,7 @@ export function HomeServices() {
                 src={product.logo}
                 alt=""
                 aria-hidden="true"
+                loading="lazy"
                 decoding="async"
               />
             </Link>
@@ -467,6 +468,7 @@ export function ClientLogoMarquee({
                           ? logo.alt
                           : ''
                       }
+                      loading="lazy"
                       decoding="async"
                     />
                   </div>
@@ -601,6 +603,7 @@ function ServiceBadge({
         src={service.badge}
         alt=""
         aria-hidden="true"
+        loading="lazy"
         decoding="async"
       />
     </span>
