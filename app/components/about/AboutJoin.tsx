@@ -41,7 +41,9 @@ export function AboutJoin() {
               </h3>
 
               <a
-                href="/careers/"
+                href="https://www.linkedin.com/company/thefoldtech"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="ft-about-join__all-jobs"
               >
                 See all our jobs
@@ -83,7 +85,9 @@ export function AboutJoin() {
 
             <div className="ft-about-join__footer">
               <a
-                href="/careers/"
+                href="https://www.linkedin.com/company/thefoldtech"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="ft-about-join__footer-button"
               >
                 See all our jobs
