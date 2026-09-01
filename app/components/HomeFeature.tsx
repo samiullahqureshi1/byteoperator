@@ -60,6 +60,8 @@ export function HomeFeature({
                     <img
                       className="ft-home-feature__logo"
                       src={logo.src}
+                      width={logo.width}
+                      height={logo.height}
                       alt={logo.alt}
                       loading="lazy"
                       decoding="async"
@@ -145,6 +147,8 @@ function FeatureMedia({
       <div className="ft-home-feature__image ft-home-feature__image--primary">
         <img
           src={feature.media.primary}
+          width={feature.media.primaryWidth}
+          height={feature.media.primaryHeight}
           alt={feature.media.primaryAlt}
           loading="lazy"
           decoding="async"
@@ -155,6 +159,8 @@ function FeatureMedia({
         <div className="ft-home-feature__image ft-home-feature__image--secondary">
           <img
             src={feature.media.secondary}
+            width={feature.media.secondaryWidth}
+            height={feature.media.secondaryHeight}
             alt={feature.media.secondaryAlt}
             loading="lazy"
             decoding="async"

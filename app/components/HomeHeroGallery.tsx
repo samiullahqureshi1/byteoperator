@@ -9,31 +9,43 @@ const GALLERY_LAYERS = [
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-01.webp',
+      imageWidth: 750,
+      imageHeight: 750,
       url: '/pages/case-studies',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-02.webp',
+      imageWidth: 750,
+      imageHeight: 937,
       url: '/pages/case-studies',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-03.webp',
+      imageWidth: 750,
+      imageHeight: 750,
       url: '/pages/case-studies',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-04.webp',
+      imageWidth: 750,
+      imageHeight: 1127,
       url: '/pages/case-studies',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-05.webp',
+      imageWidth: 750,
+      imageHeight: 951,
       url: '/pages/case-studies',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-06.webp',
+      imageWidth: 750,
+      imageHeight: 750,
       url: '/pages/case-studies',
     },
   ],
@@ -42,31 +54,43 @@ const GALLERY_LAYERS = [
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-07.webp',
+      imageWidth: 750,
+      imageHeight: 1039,
       url: '/pages/case-studies',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-08.webp',
+      imageWidth: 750,
+      imageHeight: 606,
       url: '/pages/case-studies',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-09.webp',
+      imageWidth: 750,
+      imageHeight: 1000,
       url: '/pages/case-studies',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-10.webp',
+      imageWidth: 750,
+      imageHeight: 750,
       url: '/pages/case-studies',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-11.webp',
+      imageWidth: 750,
+      imageHeight: 1000,
       url: '/pages/case-studies',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-12.webp',
+      imageWidth: 750,
+      imageHeight: 937,
       url: '/pages/case-studies',
     },
   ],
@@ -75,11 +99,15 @@ const GALLERY_LAYERS = [
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-13.webp',
+      imageWidth: 750,
+      imageHeight: 1115,
       url: '/pages/case-studies',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-14.webp',
+      imageWidth: 750,
+      imageHeight: 1127,
       url: '/pages/case-studies',
     },
   ],
@@ -119,6 +147,8 @@ export function HomeHeroGallery() {
                       '-750.webp',
                     )} 750w`}
                     sizes="(min-width: 36rem) 20vw, 30vw"
+                    width={project.imageWidth}
+                    height={project.imageHeight}
                     alt={`${project.title} ecommerce project`}
                     loading="lazy"
                     decoding="async"

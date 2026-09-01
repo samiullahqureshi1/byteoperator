@@ -5,21 +5,29 @@ const EXPERT_MEDIA = [
     src: '/images/home-experts/01.webp',
     alt: 'Shopify ecommerce project',
     className: 'ft-home-experts__media--one',
+    width: 941,
+    height: 1672,
   },
   {
     src: '/images/home-experts/02.webp',
     alt: 'Shopify ecommerce brand project',
     className: 'ft-home-experts__media--two',
+    width: 896,
+    height: 1195,
   },
   {
     src: '/images/home-experts/03.webp',
     alt: 'Shopify beauty ecommerce project',
     className: 'ft-home-experts__media--three',
+    width: 1125,
+    height: 2000,
   },
   {
     src: '/images/home-experts/04.webp',
     alt: 'Shopify lifestyle ecommerce project',
     className: 'ft-home-experts__media--four',
+    width: 1086,
+    height: 1448,
   },
 ] as const;
 export type HomeExpertsProps = {
@@ -56,6 +64,8 @@ export function HomeExperts({
         >
           <img
             src={media.src}
+            width={media.width}
+            height={media.height}
             alt=""
             loading="lazy"
             decoding="async"

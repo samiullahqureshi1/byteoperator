@@ -135,7 +135,7 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       ],
       bottomLogo: {
-        src: '/images/home-services/badges/logo-search-white.svg',
+        src: '/images/home-services/badges/logo-search-white.svg', width: 130, height: 50,
         alt: 'Search',
         text: 'FoldTech',
       },
@@ -162,9 +162,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'Shopify SEO ecommerce project',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'Shopify ecommerce optimisation project',
       },
       process: {
@@ -424,9 +424,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'FoldTech Shopify storefront project',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team collaborating around a table',
       },
       process: {
@@ -595,9 +595,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'FoldTech Shopify storefront project',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team collaborating around a table',
       },
       process: {
@@ -773,9 +773,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'FoldTech Shopify app development planning',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team collaborating on an ecommerce project',
       },
       process: {
@@ -933,9 +933,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'FoldTech ecommerce integration planning',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team collaborating on a Shopify integration',
       },
       process: {
@@ -1155,9 +1155,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'FoldTech Shopify internationalisation planning',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt:
           'FoldTech team reviewing a multi-market Shopify setup',
       },
@@ -1324,9 +1324,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'FoldTech reviewing a Shopify storefront during an audit',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team working through Shopify audit findings',
       },
       process: {
@@ -1513,9 +1513,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'Magento to Shopify migration planning',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team planning an ecommerce migration',
       },
       process: {
@@ -1667,9 +1667,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'WooCommerce to Shopify migration planning',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team planning a WooCommerce migration',
       },
       process: {
@@ -1856,9 +1856,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'Planning a headless Shopify storefront architecture',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team planning a Hydrogen development project',
       },
       process: {
@@ -2054,9 +2054,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'BigCommerce to Shopify migration planning',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team planning a BigCommerce migration',
       },
       process: {
@@ -2243,9 +2243,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'Salesforce Commerce Cloud to Shopify migration planning',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team planning a Salesforce Commerce Cloud migration',
       },
       process: {
@@ -2412,7 +2412,7 @@ export const SERVICE_PAGE_CONFIGS = {
       ],
       bottomLogo: {
         text: 'FoldTech',
-        src: '/images/home-services/badges/logo-launch-white.svg',
+        src: '/images/home-services/badges/logo-launch-white.svg', width: 130, height: 50,
         alt: 'Launch',
       },
       description:
@@ -2433,9 +2433,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'Shopify migration planning session',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team planning an ecommerce migration',
       },
       // A future MigrationPlatformsAccordion belongs after this section and
@@ -2666,7 +2666,7 @@ export const SERVICE_PAGE_CONFIGS = {
       ],
       bottomLogo: {
         text: 'FoldTech',
-        src: '/images/home-services/badges/logo-launch-white.svg',
+        src: '/images/home-services/badges/logo-launch-white.svg', width: 130, height: 50,
         alt: 'Launch',
       },
       description:
@@ -2688,9 +2688,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'Shopify theme development project',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team planning a Shopify project',
       },
       process: {
@@ -2830,7 +2830,7 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       ],
       bottomLogo: {
-        src: '/images/foldtech-logo.svg',
+        src: '/images/foldtech-logo.svg', width: 842, height: 298,
         alt: 'FoldTech',
       },
       description:
@@ -2852,9 +2852,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'FoldTech ecommerce strategy planning',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt: 'FoldTech team discussing ecommerce data',
       },
       process: {
@@ -3008,7 +3008,7 @@ export const SERVICE_PAGE_CONFIGS = {
       ],
       bottomLogo: {
    text: 'FoldTech',
-   src: '/images/home-services/badges/logo-search-white.svg',     
+   src: '/images/home-services/badges/logo-search-white.svg', width: 130, height: 50,     
    alt: 'Search',
 },
       description:
@@ -3030,9 +3030,9 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt: 'Ecommerce SEO migration project review',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt:
           'FoldTech team planning an ecommerce migration',
       },
@@ -3285,7 +3285,7 @@ export const SERVICE_PAGE_CONFIGS = {
       ],
       bottomLogo: {
         text: 'FoldTech',
-        src: '/images/home-services/badges/logo-retain-white.svg',
+        src: '/images/home-services/badges/logo-retain-white.svg', width: 130, height: 50,
         alt: 'Retain',
       },
       description:
@@ -3307,10 +3307,10 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt:
           'FoldTech Shopify email marketing and retention planning',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt:
           'FoldTech team reviewing Shopify email and SMS campaigns',
       },
@@ -3492,10 +3492,10 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt:
           'FoldTech Shopify ecommerce platform project work',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt:
           'FoldTech team reviewing Shopify ecommerce platform requirements',
       },
@@ -3661,10 +3661,10 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt:
           'FoldTech Shopify experts working on ecommerce store projects',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt:
           'FoldTech Shopify development and design team',
       },
@@ -3830,10 +3830,10 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt:
           'FoldTech Shopify retainer and ongoing ecommerce support work',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt:
           'FoldTech team planning ongoing Shopify store improvements',
       },
@@ -3999,10 +3999,10 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt:
           'FoldTech Shopify consulting and ecommerce strategy work',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt:
           'FoldTech team planning a Shopify ecommerce roadmap',
       },
@@ -4168,10 +4168,10 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt:
           'FoldTech Shopify B2B and wholesale ecommerce project work',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt:
           'FoldTech team planning a Shopify wholesale storefront',
       },
@@ -4309,7 +4309,7 @@ export const SERVICE_PAGE_CONFIGS = {
         description: 'Insights and ecommerce conversations for teams building, improving and growing on Shopify. The FoldTech podcast explores the connected decisions behind sustainable ecommerce performance: development, product discovery, conversion and retention.',
         cta: {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
       },
-      media: {primary: '/images/services/services-wide.webp', primaryAlt: 'FoldTech ecommerce podcast and Shopify strategy discussion', secondary: '/images/mega-menu-team.webp', secondaryAlt: 'FoldTech team discussing ecommerce strategy'},
+      media: {primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941, primaryAlt: 'FoldTech ecommerce podcast and Shopify strategy discussion', secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306, secondaryAlt: 'FoldTech team discussing ecommerce strategy'},
       process: {
         heading: 'Ecommerce Topics We Explore',
         leftDescription: 'The conversation starts with Shopify and Shopify Plus development, technical and content SEO, conversion rate optimisation, customer retention and the commercial priorities that connect them.',
@@ -4346,7 +4346,7 @@ export const SERVICE_PAGE_CONFIGS = {
         description: 'Watch ecommerce sessions for teams building, improving and growing on Shopify. FoldTech webinars bring together the connected decisions behind sustainable ecommerce performance: development, product discovery, conversion and retention.',
         cta: {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
       },
-      media: {primary: '/images/services/services-wide.webp', primaryAlt: 'FoldTech Shopify ecommerce webinar session', secondary: '/images/mega-menu-team.webp', secondaryAlt: 'FoldTech team planning ecommerce strategy'},
+      media: {primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941, primaryAlt: 'FoldTech Shopify ecommerce webinar session', secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306, secondaryAlt: 'FoldTech team planning ecommerce strategy'},
       process: {
         heading: 'Ecommerce Topics We Cover',
         leftDescription: 'Our sessions cover the work that shapes a Shopify store: Shopify and Shopify Plus development, technical and content SEO, conversion rate optimisation, retention and the commercial priorities that connect them.',
@@ -4383,7 +4383,7 @@ export const SERVICE_PAGE_CONFIGS = {
         description: 'Practical ecommerce guidance for teams building, improving and growing on Shopify. FoldTech guides explore the connected decisions behind sustainable ecommerce performance: development, product discovery, conversion, migration planning and retention.',
         cta: {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
       },
-      media: {primary: '/images/services/services-wide.webp', primaryAlt: 'FoldTech Shopify ecommerce guide and strategy planning', secondary: '/images/mega-menu-team.webp', secondaryAlt: 'FoldTech team discussing ecommerce growth strategy'},
+      media: {primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941, primaryAlt: 'FoldTech Shopify ecommerce guide and strategy planning', secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306, secondaryAlt: 'FoldTech team discussing ecommerce growth strategy'},
       process: {
         heading: 'Ecommerce Topics We Explore',
         leftDescription: 'Our guides cover the work that shapes a Shopify store: Shopify and Shopify Plus development, technical and content SEO, conversion rate optimisation, migrations, customer retention and the commercial priorities that connect them.',
@@ -4441,10 +4441,10 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt:
           'FoldTech Shopify subscription ecommerce project work',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt:
           'FoldTech team planning a Shopify subscription experience',
       },
@@ -4585,7 +4585,7 @@ export const SERVICE_PAGE_CONFIGS = {
       ],
       bottomLogo: {
         text: 'FoldTech',
-        src: '/images/home-services/badges/logo-helpdesk-white.svg',
+        src: '/images/home-services/badges/logo-helpdesk-white.svg', width: 130, height: 50,
         alt: 'HelpDesk',
       },
       description:
@@ -4610,10 +4610,10 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt:
           'FoldTech Shopify support and maintenance project work',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt:
           'FoldTech team working on ongoing Shopify store support',
       },
@@ -4826,10 +4826,10 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt:
           'FoldTech AI-assisted ecommerce project work',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt:
           'FoldTech team reviewing AI-assisted ecommerce work',
       },
@@ -5013,11 +5013,11 @@ export const SERVICE_PAGE_CONFIGS = {
       ],
       bottomLogo: {
         text: 'FoldTech',
-        src: '/images/home-services/badges/logo-retain-white.svg',
+        src: '/images/home-services/badges/logo-retain-white.svg', width: 130, height: 50,
         alt: 'Retain',
       },
       bottomBadge: {
-        src: '/images/services/klaviyo/klaviyo-advisor-silver.webp',
+        src: '/images/services/klaviyo/klaviyo-advisor-silver.webp', width: 380, height: 160,
         alt: 'Klaviyo Advisor badge',
       },
       description:
@@ -5039,10 +5039,10 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp',
+        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
         primaryAlt:
           'FoldTech Klaviyo email marketing project work',
-        secondary: '/images/mega-menu-team.webp',
+        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
         secondaryAlt:
           'FoldTech team planning a Klaviyo retention programme',
       },

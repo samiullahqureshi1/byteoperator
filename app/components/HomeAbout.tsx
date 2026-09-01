@@ -140,6 +140,8 @@ function AboutMark() {
     >
       <img
         src="/images/foldtech-mark-black.svg"
+        width={500}
+        height={500}
         alt=""
         loading="lazy"
       />

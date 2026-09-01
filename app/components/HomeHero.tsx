@@ -126,6 +126,8 @@ function HeroMark() {
     >
       <img
         src="/images/foldtech-mark.svg"
+        width={500}
+        height={500}
         alt=""
       />
     </span>

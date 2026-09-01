@@ -1,10 +1,30 @@
 import {Link} from 'react-router';
 
 const TEAM_IMAGES = [
-  {src: '/images/work/team/01.webp', alt: 'FoldTech team member at work'},
-  {src: '/images/work/team/02.webp', alt: 'FoldTech team collaborating'},
-  {src: '/images/work/team/03.webp', alt: 'FoldTech team in the studio'},
-  {src: '/images/work/team/04.webp', alt: 'FoldTech team reviewing a project'},
+  {
+    src: '/images/work/team/01.webp',
+    alt: 'FoldTech team member at work',
+    width: 400,
+    height: 400,
+  },
+  {
+    src: '/images/work/team/02.webp',
+    alt: 'FoldTech team collaborating',
+    width: 600,
+    height: 750,
+  },
+  {
+    src: '/images/work/team/03.webp',
+    alt: 'FoldTech team in the studio',
+    width: 1536,
+    height: 2752,
+  },
+  {
+    src: '/images/work/team/04.webp',
+    alt: 'FoldTech team reviewing a project',
+    width: 1024,
+    height: 1024,
+  },
 ];
 
 function CtaArrow() {
@@ -74,6 +94,8 @@ export function WorkTeamCta() {
               <img
                 className="ft-work-team__image"
                 src={first.src}
+                width={first.width}
+                height={first.height}
                 alt={first.alt}
                 loading="lazy"
                 decoding="async"
@@ -84,6 +106,8 @@ export function WorkTeamCta() {
               <img
                 className="ft-work-team__image"
                 src={second.src}
+                width={second.width}
+                height={second.height}
                 alt={second.alt}
                 loading="lazy"
                 decoding="async"
@@ -96,6 +120,8 @@ export function WorkTeamCta() {
               <img
                 className="ft-work-team__image"
                 src={third.src}
+                width={third.width}
+                height={third.height}
                 alt={third.alt}
                 loading="lazy"
                 decoding="async"
@@ -106,6 +132,8 @@ export function WorkTeamCta() {
               <img
                 className="ft-work-team__image"
                 src={fourth.src}
+                width={fourth.width}
+                height={fourth.height}
                 alt={fourth.alt}
                 loading="lazy"
                 decoding="async"

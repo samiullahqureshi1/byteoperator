@@ -6,8 +6,14 @@ export type HomeProjectData = {
   type: string;
   href: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   logo: string;
+  logoImageWidth: number;
+  logoImageHeight: number;
   thumbnail: string;
+  thumbnailWidth: number;
+  thumbnailHeight: number;
   logoWidth: string;
   alt: string;
 };
@@ -19,10 +25,16 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     href: '/articles/sun-chaser/',
     image:
       '/images/home-projects/cambridge/image.webp',
+    imageWidth: 1086,
+    imageHeight: 1448,
     logo:
       '/images/home-projects/cambridge/logo.svg',
+    logoImageWidth: 2609,
+    logoImageHeight: 480,
     thumbnail:
       '/images/home-projects/cambridge/thumbnail.webp',
+    thumbnailWidth: 816,
+    thumbnailHeight: 1112,
     logoWidth: '41%',
     alt: 'SkinbySkin',
   },
@@ -33,10 +45,16 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     href: '/articles/loony-legs/',
     image:
       '/images/home-projects/bbc/image.webp',
+    imageWidth: 1160,
+    imageHeight: 800,
     logo:
       '/images/home-services/clients/logo-1.svg',
+    logoImageWidth: 438,
+    logoImageHeight: 48,
     thumbnail:
       '/images/home-projects/bbc/thumbnail.webp',
+    thumbnailWidth: 2560,
+    thumbnailHeight: 1707,
     logoWidth: '21%',
     alt: 'Love Luxury',
   },
@@ -47,10 +65,16 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     href: '/articles/macdanny-fashion/',
     image:
       '/images/home-projects/111skin/image.webp',
+    imageWidth: 600,
+    imageHeight: 405,
     logo:
       '/images/home-projects/111skin/logo.svg',
+    logoImageWidth: 267,
+    logoImageHeight: 48,
     thumbnail:
       '/images/home-projects/111skin/thumbnail.webp',
+    thumbnailWidth: 1000,
+    thumbnailHeight: 800,
     logoWidth: '25%',
     alt: 'Mellome',
   },
@@ -61,10 +85,16 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     href: '/articles/brown-girl-jane/',
     image:
       '/images/home-projects/muc-off/image.webp',
+    imageWidth: 3376,
+    imageHeight: 4220,
     logo:
       '/images/home-projects/muc-off/logo.svg',
+    logoImageWidth: 2789,
+    logoImageHeight: 965,
     thumbnail:
       '/images/home-projects/muc-off/thumbnail.webp',
+    thumbnailWidth: 2394,
+    thumbnailHeight: 2992,
     logoWidth: '28%',
     alt: 'Mann & Co Bake Shop',
   },
@@ -75,10 +105,16 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     href: '/articles/lifeprotectors/',
     image:
       '/images/home-projects/candy-kittens/image.webp',
+    imageWidth: 400,
+    imageHeight: 497,
     logo:
       '/images/home-projects/candy-kittens/logo.svg',
+    logoImageWidth: 180,
+    logoImageHeight: 180,
     thumbnail:
       '/images/home-projects/candy-kittens/thumbnail.webp',
+    thumbnailWidth: 1000,
+    thumbnailHeight: 800,
     logoWidth: '17%',
     alt: 'LifeProtectors',
   },
@@ -89,10 +125,16 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
     href: '/articles/top-tier-clothing/',
     image:
       '/images/home-projects/case/image.webp',
+    imageWidth: 600,
+    imageHeight: 600,
     logo:
       '/images/home-projects/case/logo.svg',
+    logoImageWidth: 120,
+    logoImageHeight: 100,
     thumbnail:
       '/images/home-projects/case/thumbnail.webp',
+    thumbnailWidth: 1000,
+    thumbnailHeight: 800,
     logoWidth: '17%',
     alt: 'Branley Ventures',
   },
@@ -375,6 +417,8 @@ export function HomeProjects({
                     <img
                       className="ft-home-projects__media-image"
                       src={project.image}
+                      width={project.imageWidth}
+                      height={project.imageHeight}
                       alt={project.alt}
                       loading="lazy"
                       decoding="async"
@@ -384,6 +428,8 @@ export function HomeProjects({
                     <img
                       className="ft-home-projects__project-logo"
                       src={project.logo}
+                      width={project.logoImageWidth}
+                      height={project.logoImageHeight}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -400,6 +446,8 @@ export function HomeProjects({
                     <div className="ft-home-projects__thumbnail">
                       <img
                         src={project.thumbnail}
+                        width={project.thumbnailWidth}
+                        height={project.thumbnailHeight}
                         alt=""
                         aria-hidden="true"
                         loading="lazy"

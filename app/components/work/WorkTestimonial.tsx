@@ -3,11 +3,15 @@ const TESTIMONIAL = {
   quote: 'Collaborating with The Fold Tech was a fantastic experience. They made us feel prioritised throughout, and the entire project ran smoothly from start to finish.',
   author: '— Sarah, Marketing Manager at Doisy & Dam',
   image: '/images/work/testimonial.webp',
+  imageWidth: 1530,
+  imageHeight: 650,
   alt: 'FoldTech client testimonial',
 };
 
 interface WorkTestimonialProps {
   image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   alt?: string;
   heading?: string;
   meta?: string;
@@ -17,6 +21,8 @@ interface WorkTestimonialProps {
 
 export function WorkTestimonial({
   image = TESTIMONIAL.image,
+  imageWidth = TESTIMONIAL.imageWidth,
+  imageHeight = TESTIMONIAL.imageHeight,
   alt = TESTIMONIAL.alt,
   heading = TESTIMONIAL.quote,
   meta = TESTIMONIAL.author,
@@ -33,6 +39,8 @@ export function WorkTestimonial({
           <img
             className="ft-work-testimonial__bg"
             src={image}
+            width={imageWidth}
+            height={imageHeight}
             alt={alt}
             loading="lazy"
             decoding="async"

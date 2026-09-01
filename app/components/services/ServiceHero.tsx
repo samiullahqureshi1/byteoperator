@@ -17,12 +17,16 @@ export type ServiceHeroChip =
 export type ServiceHeroLogo = {
   src: string;
   alt: string;
+  width: number;
+  height: number;
   text?: string;
 };
 
 export type ServiceHeroBadge = {
   src: string;
   alt: string;
+  width: number;
+  height: number;
 };
 
 export type ServiceHeroVariant =
@@ -150,6 +154,8 @@ export function ServiceHero({
                     <img
                       className="ft-services-hero__bottom-brand-logo"
                       src={bottomLogo.src}
+                      width={bottomLogo.width}
+                      height={bottomLogo.height}
                       alt={bottomLogo.alt}
                       loading="lazy"
                       decoding="async"
@@ -159,6 +165,8 @@ export function ServiceHero({
                   <img
                     className="ft-services-hero__bottom-logo"
                     src={bottomLogo.src}
+                    width={bottomLogo.width}
+                    height={bottomLogo.height}
                     alt={bottomLogo.alt}
                     loading="lazy"
                     decoding="async"
@@ -177,6 +185,8 @@ export function ServiceHero({
                   <img
                     className="ft-services-hero__bottom-badge"
                     src={bottomBadge.src}
+                    width={bottomBadge.width}
+                    height={bottomBadge.height}
                     alt={bottomBadge.alt}
                     loading="lazy"
                     decoding="async"

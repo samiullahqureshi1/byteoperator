@@ -193,6 +193,8 @@ export function EcommerceSeoHero({
                   >
                     <img
                       src={logo.src}
+                      width={logo.width}
+                      height={logo.height}
                       alt={index < WORK_HERO_LOGOS.length ? logo.alt : ''}
                       loading="lazy"
                       decoding="async"

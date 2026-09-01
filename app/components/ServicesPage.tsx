@@ -73,6 +73,8 @@ export function ServicesPage({
       <div className="ft-services-case-study">
         <WorkTestimonial
           image="/images/home-features/feature-01/primary.webp"
+          imageWidth={1086}
+          imageHeight={1448}
           alt="Cambridge Satchel ecommerce project"
           heading="Re-launching a heritage brand with the power of Shopify Plus"
           meta="Cambridge Satchel X FoldTech"

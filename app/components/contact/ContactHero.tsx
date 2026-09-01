@@ -341,6 +341,8 @@ export function ContactHero() {
                   <img
                     className="ft-contact-hero__testimonial-image"
                     src={WORK_HERO_TESTIMONIAL.image}
+                    width={WORK_HERO_TESTIMONIAL.imageWidth}
+                    height={WORK_HERO_TESTIMONIAL.imageHeight}
                     alt={`${WORK_HERO_TESTIMONIAL.person} - ${WORK_HERO_TESTIMONIAL.company}`}
                     loading="lazy"
                     decoding="async"
@@ -395,6 +397,8 @@ export function ContactHero() {
                         >
                           <img
                             src={logo.src}
+                            width={logo.width}
+                            height={logo.height}
                             alt={
                               index < WORK_HERO_LOGOS.length
                                 ? logo.alt

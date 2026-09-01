@@ -6,12 +6,16 @@ export type ClientProofTestimonial = {
   person: string;
   company: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   video: string;
 };
 
 export type ClientProofLogo = {
   src: string;
   alt: string;
+  width: number;
+  height: number;
 };
 
 interface ClientProofProps {
@@ -43,6 +47,8 @@ export function ClientProof({
             <img
               className="ft-work-hero__testimonial-image"
               src={testimonial.image}
+              width={testimonial.imageWidth}
+              height={testimonial.imageHeight}
               alt={`${testimonial.person} - ${testimonial.company}`}
               loading="lazy"
               decoding="async"
@@ -85,6 +91,8 @@ export function ClientProof({
                   >
                     <img
                       src={logo.src}
+                      width={logo.width}
+                      height={logo.height}
                       alt={index < logos.length ? logo.alt : ''}
                       loading="lazy"
                       decoding="async"

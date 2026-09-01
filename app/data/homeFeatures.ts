@@ -38,6 +38,8 @@ export type HomeFeatureTheme =
 export type HomeFeatureLogo = {
   src: string;
   alt: string;
+  width: number;
+  height: number;
 };
 
 export type HomeFeatureBadge = {
@@ -55,9 +57,13 @@ export type HomeFeatureMedia = {
 
   primary: string;
   primaryAlt: string;
+  primaryWidth: number;
+  primaryHeight: number;
 
   secondary: string;
   secondaryAlt: string;
+  secondaryWidth: number;
+  secondaryHeight: number;
 
   captionTitle: string;
   captionText: string;
@@ -166,6 +172,8 @@ export const HOME_FEATURES = [
       {
         src: LOGOS.launch,
         alt: 'Launch',
+        width: 257,
+        height: 93,
       },
     ],
 
@@ -194,11 +202,17 @@ export const HOME_FEATURES = [
       primaryAlt:
         'Cambridge Satchel ecommerce project',
 
+      primaryWidth: 1086,
+      primaryHeight: 1448,
+
       secondary:
         '/images/home-features/feature-01/secondary.webp',
 
       secondaryAlt:
         'Cambridge Satchel Shopify project',
+
+      secondaryWidth: 1086,
+      secondaryHeight: 1448,
 
       captionTitle:
         'Cambridge Satchel',
@@ -229,10 +243,14 @@ export const HOME_FEATURES = [
       {
         src: LOGOS.launch,
         alt: 'Launch',
+        width: 257,
+        height: 93,
       },
       {
         src: LOGOS.helpdesk,
         alt: 'Helpdesk',
+        width: 257,
+        height: 93,
       },
     ],
 
@@ -267,11 +285,17 @@ export const HOME_FEATURES = [
       primaryAlt:
         'Candy Kittens ecommerce project',
 
+      primaryWidth: 1086,
+      primaryHeight: 1448,
+
       secondary:
         '/images/home-features/feature-02/secondary.webp',
 
       secondaryAlt:
         'Candy Kittens Shopify support project',
+
+      secondaryWidth: 1122,
+      secondaryHeight: 1402,
 
       captionTitle:
         'Candy Kittens',
@@ -302,6 +326,8 @@ export const HOME_FEATURES = [
       {
         src: LOGOS.search,
         alt: 'Search',
+        width: 257,
+        height: 93,
       },
     ],
 
@@ -330,11 +356,17 @@ export const HOME_FEATURES = [
       primaryAlt:
         'CleanCo ecommerce store project',
 
+      primaryWidth: 896,
+      primaryHeight: 1195,
+
       secondary:
         '/images/home-features/feature-03/secondary.webp',
 
       secondaryAlt:
         'CleanCo ecommerce design project',
+
+      secondaryWidth: 896,
+      secondaryHeight: 1195,
 
       captionTitle:
         'CleanCo',
@@ -405,11 +437,17 @@ export const HOME_FEATURES = [
       primaryAlt:
         'RNLI ecommerce project',
 
+      primaryWidth: 1000,
+      primaryHeight: 1000,
+
       secondary:
         '/images/home-features/feature-04/secondary.webp',
 
       secondaryAlt:
         'RNLI Shopify project',
+
+      secondaryWidth: 1200,
+      secondaryHeight: 800,
 
       captionTitle:
         'RNLI',
@@ -463,11 +501,17 @@ export const HOME_FEATURES = [
       primaryAlt:
         'Harbour Lifestyle ecommerce project',
 
+      primaryWidth: 896,
+      primaryHeight: 1195,
+
       secondary:
         '/images/home-features/feature-05/secondary.webp',
 
       secondaryAlt:
         'Harbour Lifestyle Shopify design project',
+
+      secondaryWidth: 1024,
+      secondaryHeight: 768,
 
       captionTitle:
         'Harbour Lifestyle',
@@ -498,6 +542,8 @@ export const HOME_FEATURES = [
       {
         src: LOGOS.launch,
         alt: 'Launch',
+        width: 257,
+        height: 93,
       },
     ],
 
@@ -560,11 +606,17 @@ export const HOME_FEATURES = [
       primaryAlt:
         '111SKIN ecommerce project',
 
+      primaryWidth: 941,
+      primaryHeight: 1672,
+
       secondary:
         '/images/home-features/feature-06/secondary.webp',
 
       secondaryAlt:
         '111SKIN Shopify project',
+
+      secondaryWidth: 1086,
+      secondaryHeight: 1448,
 
       captionTitle:
         '111SKIN',
@@ -639,11 +691,17 @@ export const HOME_FEATURES = [
       primaryAlt:
         'Billionaire Boys Club ecommerce project',
 
+      primaryWidth: 1086,
+      primaryHeight: 1448,
+
       secondary:
         '/images/home-features/feature-07/secondary.webp',
 
       secondaryAlt:
         'Billionaire Boys Club Shopify project',
+
+      secondaryWidth: 896,
+      secondaryHeight: 1195,
 
       captionTitle:
         'Billionaire Boys Club',
@@ -674,6 +732,8 @@ export const HOME_FEATURES = [
       {
         src: LOGOS.retain,
         alt: 'Retain',
+        width: 257,
+        height: 93,
       },
     ],
 
@@ -704,11 +764,17 @@ export const HOME_FEATURES = [
       primaryAlt:
         'Vollebak ecommerce project',
 
+      primaryWidth: 1086,
+      primaryHeight: 1448,
+
       secondary:
         '/images/home-features/feature-08/secondary.webp',
 
       secondaryAlt:
         'Vollebak Shopify project',
+
+      secondaryWidth: 848,
+      secondaryHeight: 1261,
 
       captionTitle:
         'Vollebak',
@@ -767,11 +833,17 @@ export const HOME_FEATURES = [
       primaryAlt:
         'Sunnamusk ecommerce project',
 
+      primaryWidth: 1122,
+      primaryHeight: 1402,
+
       secondary:
         '/images/home-features/feature-09/secondary.webp',
 
       secondaryAlt:
         'Sunnamusk international Shopify project',
+
+      secondaryWidth: 780,
+      secondaryHeight: 1040,
 
       captionTitle:
         'Sunnamusk',
@@ -802,6 +874,8 @@ export const HOME_FEATURES = [
       {
         src: LOGOS.sitelab,
         alt: 'SiteLab',
+        width: 257,
+        height: 93,
       },
     ],
 
@@ -852,11 +926,17 @@ export const HOME_FEATURES = [
       primaryAlt:
         'Vollebak ecommerce growth project',
 
+      primaryWidth: 941,
+      primaryHeight: 1672,
+
       secondary:
         '/images/home-features/feature-10/secondary.webp',
 
       secondaryAlt:
         'Vollebak Shopify optimisation project',
+
+      secondaryWidth: 816,
+      secondaryHeight: 1456,
 
       captionTitle:
         'Vollebak',

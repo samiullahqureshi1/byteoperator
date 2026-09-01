@@ -75,6 +75,8 @@ export function AboutTestimonials() {
             <span className="ft-about-testimonials__hear-image">
               <img
                 src={WORK_HERO_TESTIMONIAL.image}
+                width={WORK_HERO_TESTIMONIAL.imageWidth}
+                height={WORK_HERO_TESTIMONIAL.imageHeight}
                 alt=""
                 aria-hidden="true"
               />

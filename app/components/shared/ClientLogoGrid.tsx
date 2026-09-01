@@ -1,6 +1,8 @@
 export type ClientLogoGridItem = {
   src: string;
   alt: string;
+  width: number;
+  height: number;
   size?: 'small' | 'large';
   noFilter?: boolean;
 };
@@ -48,6 +50,8 @@ export function ClientLogoGrid({
                 <img
                   className={`ft-client-logo-grid__image${filterClass}`}
                   src={logo.src}
+                  width={logo.width}
+                  height={logo.height}
                   alt={logo.alt}
                   loading="lazy"
                   decoding="async"

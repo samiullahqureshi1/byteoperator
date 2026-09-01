@@ -9,18 +9,24 @@ const SPACE_IMAGES = [
     srcSet:
       '/images/about/space-01-700.webp 700w, /images/about/space-01-1400.webp 1400w',
     alt: 'FoldTech team and workspace',
+    width: 1400,
+    height: 935,
   },
   {
     src: '/images/about/space-02-1400.webp',
     srcSet:
       '/images/about/space-02-700.webp 700w, /images/about/space-02-1400.webp 1400w',
     alt: 'FoldTech team collaborating',
+    width: 1400,
+    height: 788,
   },
   {
     src: '/images/about/space-03-1400.webp',
     srcSet:
       '/images/about/space-03-700.webp 700w, /images/about/space-03-1400.webp 1400w',
     alt: 'FoldTech workspace and culture',
+    width: 1400,
+    height: 933,
   },
 ] as const;
 
@@ -102,6 +108,8 @@ export function AboutSpace() {
                     src={image.src}
                     srcSet={image.srcSet}
                     sizes={SPACE_IMAGE_SIZES}
+                    width={image.width}
+                    height={image.height}
                     alt={image.alt}
                     className="ft-about-space__item-image"
                     loading="lazy"

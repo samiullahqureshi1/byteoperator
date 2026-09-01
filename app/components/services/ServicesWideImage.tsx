@@ -5,6 +5,8 @@ export function ServicesWideImage() {
         <div className="ft-services-wide-image__inner">
           <img
             src="/images/services/services-wide.webp"
+            width={1672}
+            height={941}
             alt="FoldTech Shopify ecommerce services"
             loading="lazy"
             decoding="async"

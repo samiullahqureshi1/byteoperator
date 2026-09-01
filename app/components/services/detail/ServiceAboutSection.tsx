@@ -19,8 +19,12 @@ intro: {
   media: {
     primary: string;
     primaryAlt: string;
+    primaryWidth: number;
+    primaryHeight: number;
     secondary: string;
     secondaryAlt: string;
+    secondaryWidth: number;
+    secondaryHeight: number;
   };
   /**
    * Optional lower process block, rendered beneath the image pair. Pages that
@@ -76,6 +80,8 @@ export function ServiceAboutSection({
           <div className="ft-service-about__images-left">
             <img
               src={data.media.primary}
+              width={data.media.primaryWidth}
+              height={data.media.primaryHeight}
               alt={data.media.primaryAlt}
               loading="lazy"
               decoding="async"
@@ -85,6 +91,8 @@ export function ServiceAboutSection({
           <div className="ft-service-about__images-right">
             <img
               src={data.media.secondary}
+              width={data.media.secondaryWidth}
+              height={data.media.secondaryHeight}
               alt={data.media.secondaryAlt}
               loading="lazy"
               decoding="async"

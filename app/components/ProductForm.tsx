@@ -132,6 +132,8 @@ function ProductOptionSwatch({
   name: string;
 }) {
   const image = swatch?.image?.previewImage?.url;
+  const imageWidth = swatch?.image?.previewImage?.width ?? undefined;
+  const imageHeight = swatch?.image?.previewImage?.height ?? undefined;
   const color = swatch?.color;
 
   if (!image && !color) return name;
@@ -144,7 +146,14 @@ function ProductOptionSwatch({
         backgroundColor: color || 'transparent',
       }}
     >
-      {!!image && <img src={image} alt={name} />}
+      {!!image && (
+        <img
+          src={image}
+          width={imageWidth}
+          height={imageHeight}
+          alt={name}
+        />
+      )}
     </div>
   );
 }

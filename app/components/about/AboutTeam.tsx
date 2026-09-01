@@ -88,6 +88,8 @@ export function AboutTeam() {
                 <div className="ft-about-team__item-image">
                   <img
                     src={member.image}
+                    width={290}
+                    height={378}
                     alt={member.name}
                     className="ft-about-team__item-image-image"
                     loading="lazy"

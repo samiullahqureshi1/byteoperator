@@ -27,6 +27,8 @@ export function AboutHero() {
             <span className="ft-about-hero__team-image">
               <img
                 src={WORK_HERO_TESTIMONIAL.image}
+                width={WORK_HERO_TESTIMONIAL.imageWidth}
+                height={WORK_HERO_TESTIMONIAL.imageHeight}
                 alt=""
                 aria-hidden="true"
               />
