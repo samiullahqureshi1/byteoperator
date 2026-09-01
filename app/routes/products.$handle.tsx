@@ -16,6 +16,12 @@ import {ProductImage} from '~/components/ProductImage';
 import {ProductForm} from '~/components/ProductForm';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 
+// Product images are served from Shopify's CDN, so this preconnect is only
+// declared on routes that actually render them (see app/root.tsx).
+export const links: Route.LinksFunction = () => [
+  {rel: 'preconnect', href: 'https://cdn.shopify.com'},
+];
+
 export const meta: Route.MetaFunction = ({data}) => {
   const product = data?.product;
 

@@ -4,6 +4,12 @@ import {getPaginationVariables, Image} from '@shopify/hydrogen';
 import type {CollectionFragment} from 'storefrontapi.generated';
 import {PaginatedResourceSection} from '~/components/PaginatedResourceSection';
 
+// Collection images are served from Shopify's CDN, so this preconnect is
+// only declared on routes that actually render them (see app/root.tsx).
+export const links: Route.LinksFunction = () => [
+  {rel: 'preconnect', href: 'https://cdn.shopify.com'},
+];
+
 export async function loader(args: Route.LoaderArgs) {
   // Start fetching non-critical data without blocking time to first byte
   const deferredData = loadDeferredData(args);

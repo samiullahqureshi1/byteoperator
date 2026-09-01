@@ -7,6 +7,12 @@ import type {
 } from 'customer-accountapi.generated';
 import {CUSTOMER_ORDER_QUERY} from '~/graphql/customer-account/CustomerOrderQuery';
 
+// Order line item images are served from Shopify's CDN, so this preconnect
+// is only declared on routes that actually render them (see app/root.tsx).
+export const links: Route.LinksFunction = () => [
+  {rel: 'preconnect', href: 'https://cdn.shopify.com'},
+];
+
 export const meta: Route.MetaFunction = ({data}) => {
   return [{title: `Order ${data?.order?.name}`}];
 };

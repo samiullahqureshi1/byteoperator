@@ -55,14 +55,11 @@ export const shouldRevalidate: ShouldRevalidateFunction = ({
  */
 export function links() {
   return [
-    {
-      rel: 'preconnect',
-      href: 'https://cdn.shopify.com',
-    },
-    {
-      rel: 'preconnect',
-      href: 'https://shop.app',
-    },
+    // No global preconnects here: cdn.shopify.com is only needed on routes
+    // that render Shopify-hosted images (products, collections, cart,
+    // search, account orders, blogs/articles) — those routes declare it
+    // themselves via their own links(). shop.app (Shop Pay) isn't used
+    // anywhere in this app, so it isn't preconnected at all.
     {rel: 'icon', type: 'image/png', href: favicon},
     {rel: 'shortcut icon', type: 'image/png', href: favicon},
   ];

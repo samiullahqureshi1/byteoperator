@@ -7,6 +7,12 @@ import {PaginatedResourceSection} from '~/components/PaginatedResourceSection';
 import {ProductItem} from '~/components/ProductItem';
 import type {CollectionItemFragment} from 'storefrontapi.generated';
 
+// Product images are served from Shopify's CDN, so this preconnect is only
+// declared on routes that actually render them (see app/root.tsx).
+export const links: Route.LinksFunction = () => [
+  {rel: 'preconnect', href: 'https://cdn.shopify.com'},
+];
+
 export const meta: Route.MetaFunction = () => {
   return [
     {title: 'Products | FoldTech'},

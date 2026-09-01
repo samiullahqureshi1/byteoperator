@@ -8,6 +8,10 @@ import caseStudyDetailStyles from '~/styles/case-study-detail.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
 
 export const links: Route.LinksFunction = () => [
+  // Article/case-study media is served from Shopify's CDN, so this
+  // preconnect is only declared on routes that actually render it (see
+  // app/root.tsx).
+  {rel: 'preconnect', href: 'https://cdn.shopify.com'},
   {rel: 'stylesheet', href: caseStudyDetailStyles},
   // <HomeExperts/> renders last, well below the fold on every article —
   // deferred (see DEFER_STYLES_SCRIPT in root.tsx).

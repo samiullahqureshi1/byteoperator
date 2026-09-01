@@ -8,6 +8,12 @@ import type {CartQueryDataReturn} from '@shopify/hydrogen';
 import {CartForm} from '@shopify/hydrogen';
 import {CartMain} from '~/components/CartMain';
 
+// Cart line item images are served from Shopify's CDN, so this preconnect
+// is only declared on routes that actually render them (see app/root.tsx).
+export const links: Route.LinksFunction = () => [
+  {rel: 'preconnect', href: 'https://cdn.shopify.com'},
+];
+
 export const meta: Route.MetaFunction = () => {
   return [
     {title: 'Cart | FoldTech'},

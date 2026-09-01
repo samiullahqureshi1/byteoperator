@@ -13,6 +13,12 @@ import {
   ARTICLES_BLOG_HANDLE,
 } from '~/lib/route-mappings';
 
+// Blog post images are served from Shopify's CDN, so this preconnect is
+// only declared on routes that actually render them (see app/root.tsx).
+export const links: Route.LinksFunction = () => [
+  {rel: 'preconnect', href: 'https://cdn.shopify.com'},
+];
+
 export const meta: Route.MetaFunction = ({data}) => {
   const blog = data?.blog;
 

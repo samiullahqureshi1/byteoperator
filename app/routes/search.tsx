@@ -12,6 +12,13 @@ import {
 } from '~/lib/search';
 import type {RegularSearchQuery, PredictiveSearchQuery} from 'storefrontapi.generated';
 
+// Search results can include product images served from Shopify's CDN, so
+// this preconnect is only declared on routes that actually render them
+// (see app/root.tsx).
+export const links: Route.LinksFunction = () => [
+  {rel: 'preconnect', href: 'https://cdn.shopify.com'},
+];
+
 export const meta: Route.MetaFunction = () => {
   return [
     {title: 'Search | FoldTech'},

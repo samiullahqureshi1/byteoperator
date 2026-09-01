@@ -16,6 +16,10 @@ import homeExpertsStyles from '~/styles/home-experts.css?url';
 import workTestimonialStyles from '~/styles/work-testimonial.css?url';
 
 export const links: Route.LinksFunction = () => [
+  // Article thumbnails are served from Shopify's CDN, so this preconnect
+  // is only declared on routes that actually render them (see
+  // app/root.tsx).
+  {rel: 'preconnect', href: 'https://cdn.shopify.com'},
   // Intro + the article listing grid are this page's primary content,
   // visible immediately — keep blocking.
   {rel: 'stylesheet', href: articlesIntroStyles},

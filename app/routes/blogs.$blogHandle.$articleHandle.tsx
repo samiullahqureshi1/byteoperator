@@ -4,6 +4,12 @@ import {Image} from '@shopify/hydrogen';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {getArticlesUrlRedirect} from '~/services/redirects.server';
 
+// Article images are served from Shopify's CDN, so this preconnect is only
+// declared on routes that actually render them (see app/root.tsx).
+export const links: Route.LinksFunction = () => [
+  {rel: 'preconnect', href: 'https://cdn.shopify.com'},
+];
+
 export const meta: Route.MetaFunction = ({data, params}) => {
   const article = data?.article;
 
