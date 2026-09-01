@@ -1,5 +1,5 @@
 import {Await, Link, useLocation} from 'react-router';
-import {Suspense, useId} from 'react';
+import {lazy, Suspense, useId} from 'react';
 import {FloatingContactCta} from './FloatingContactCta';
 import type {
   CartApiQueryFragment,
@@ -9,12 +9,23 @@ import type {
 import {Aside} from '~/components/Aside';
 import {Footer} from '~/components/Footer';
 import {Header, HeaderMenu} from '~/components/Header';
-import {CartMain} from '~/components/CartMain';
 import {
   SEARCH_ENDPOINT,
   SearchFormPredictive,
 } from '~/components/SearchFormPredictive';
 import {SearchResultsPredictive} from '~/components/SearchResultsPredictive';
+
+// CartMain (and everything it pulls in — Image/Money/CartForm from
+// @shopify/hydrogen, CartLineItem, CartSummary) is only ever rendered once
+// the cart aside is opened (see Aside.tsx's `hasOpened` gate below). Loading
+// it eagerly here would bundle that JS into every single page's initial
+// module graph, even though most page views never open the cart. Loading it
+// lazily keeps it out of the eager bundle without changing what's rendered
+// or when — the existing Suspense boundary around the cart's <Await> below
+// already covers the lazy-load itself, so the fallback UI is unchanged.
+const CartMain = lazy(() =>
+  import('~/components/CartMain').then((mod) => ({default: mod.CartMain})),
+);
 
 interface PageLayoutProps {
   cart: Promise<CartApiQueryFragment | null>;
