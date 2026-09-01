@@ -16,6 +16,7 @@ import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
 import resetStyles from '~/styles/reset.css?url';
 import appStyles from '~/styles/app.css?url';
 import headerStyles from '~/styles/header.css?url';
+import headerMenusStyles from '~/styles/header-menus.css?url';
 import {PageLayout} from './components/PageLayout';
 import footerStyles from '~/styles/footer.css?url';
 import floatingContactCtaStyles from '~/styles/floating-contact-cta.css?url';
@@ -145,9 +146,14 @@ function loadDeferredData({context}: Route.LoaderArgs) {
 // stylesheet doesn't need to block initial render. Same for the floating
 // contact button: it's `position: fixed`, so it never occupies document
 // flow and can't cause layout shift when its styles apply a moment late.
-// Both are loaded via rel="preload" (fetched immediately, but non-blocking)
-// and swapped to rel="stylesheet" by DEFER_STYLES_SCRIPT below once
-// downloaded, with a <noscript> fallback for the no-JS case.
+// header-menus.css (the desktop mega menu + mobile nav panel, split out of
+// header.css) is the same story: none of it is visible until a user
+// hovers a mega-menu trigger or opens the mobile menu, and the mobile
+// menu's own DOM isn't even mounted until first opened (see Aside.tsx),
+// so deferring it can't cause a flash of unstyled content either.
+// All three are loaded via rel="preload" (fetched immediately, but
+// non-blocking) and swapped to rel="stylesheet" by DEFER_STYLES_SCRIPT
+// below once downloaded, with a <noscript> fallback for the no-JS case.
 const DEFER_STYLES_SCRIPT = `(function(){
   var links = document.querySelectorAll('link[rel="preload"][as="style"][data-defer]');
   function apply(link){ link.rel = 'stylesheet'; }
@@ -173,6 +179,12 @@ export function Layout({children}: {children?: React.ReactNode}) {
         <link
           rel="preload"
           as="style"
+          href={headerMenusStyles}
+          data-defer=""
+        ></link>
+        <link
+          rel="preload"
+          as="style"
           href={footerStyles}
           data-defer=""
         ></link>
@@ -185,6 +197,7 @@ export function Layout({children}: {children?: React.ReactNode}) {
         <Meta />
         <Links />
         <noscript>
+          <link rel="stylesheet" href={headerMenusStyles} />
           <link rel="stylesheet" href={footerStyles} />
           <link rel="stylesheet" href={floatingContactCtaStyles} />
         </noscript>
