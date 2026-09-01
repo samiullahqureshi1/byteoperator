@@ -7,6 +7,7 @@ import {
 } from '~/lib/route-mappings';
 import {
   buildPageMeta,
+  getPageStylesheetLinks,
   links as pageLinks,
   loadPageData,
   PageContent,
@@ -15,6 +16,8 @@ import {
 export const links = pageLinks;
 
 export const meta: Route.MetaFunction = ({data}) => {
+  const stylesheetLinks = getPageStylesheetLinks(data?.page);
+
   if (data?.page.handle === 'podcast') {
     return [
       {title: 'Shopify Ecommerce Podcast | FoldTech'},
@@ -24,6 +27,7 @@ export const meta: Route.MetaFunction = ({data}) => {
           'Explore Shopify ecommerce conversations from FoldTech on growth, SEO, CRO, development, Shopify Plus, retention and ecommerce strategy.',
       },
       {tagName: 'link', rel: 'canonical', href: '/podcast'},
+      ...stylesheetLinks,
     ];
   }
   if (data?.page.handle === 'webinars') {
@@ -35,6 +39,7 @@ export const meta: Route.MetaFunction = ({data}) => {
           'Explore FoldTech Shopify ecommerce webinars on growth, SEO, CRO, development, Shopify Plus, retention and ecommerce strategy.',
       },
       {tagName: 'link', rel: 'canonical', href: '/webinars'},
+      ...stylesheetLinks,
     ];
   }
   if (data?.page.handle === 'guides') {
@@ -46,6 +51,7 @@ export const meta: Route.MetaFunction = ({data}) => {
           'Explore FoldTech Shopify and ecommerce guides on growth strategy, SEO, CRO, development, migrations, Shopify Plus and retention.',
       },
       {tagName: 'link', rel: 'canonical', href: '/guides'},
+      ...stylesheetLinks,
     ];
   }
   if (data?.page.handle === 'search-first') {
@@ -57,6 +63,7 @@ export const meta: Route.MetaFunction = ({data}) => {
           'FoldTech improves ecommerce site search and product discovery on Shopify, covering search UX, relevance, merchandising, filtering and search-led customer journeys.',
       },
       {tagName: 'link', rel: 'canonical', href: '/search-first'},
+      ...stylesheetLinks,
     ];
   }
   if (data?.page.handle === 'why-shopify') {
@@ -68,6 +75,7 @@ export const meta: Route.MetaFunction = ({data}) => {
           'Why ecommerce brands choose Shopify and Shopify Plus: hosted infrastructure, scalability, integrations, international commerce, custom development and the flexibility SEO and CRO work depend on.',
       },
       {tagName: 'link', rel: 'canonical', href: '/why-shopify'},
+      ...stylesheetLinks,
     ];
   }
   if (data?.page.handle === 'shopify-experts') {
@@ -79,6 +87,7 @@ export const meta: Route.MetaFunction = ({data}) => {
           'FoldTech is a team of Shopify and Shopify Plus experts covering store design, development, migrations, integrations, SEO, CRO and ongoing ecommerce support.',
       },
       {tagName: 'link', rel: 'canonical', href: '/shopify-experts'},
+      ...stylesheetLinks,
     ];
   }
   if (data?.page.handle === 'memberships') {
@@ -90,6 +99,7 @@ export const meta: Route.MetaFunction = ({data}) => {
           'FoldTech memberships are monthly Shopify retainers covering ongoing support, maintenance, development time, CRO and technical work for growing ecommerce and Shopify Plus stores.',
       },
       {tagName: 'link', rel: 'canonical', href: '/memberships'},
+      ...stylesheetLinks,
     ];
   }
   if (data?.page.handle === 'shopify-consultant') {
@@ -101,6 +111,7 @@ export const meta: Route.MetaFunction = ({data}) => {
           'FoldTech works as a Shopify and Shopify Plus consultant, covering store audits, ecommerce growth strategy, SEO and CRO priorities, migrations, integrations and ongoing support.',
       },
       {tagName: 'link', rel: 'canonical', href: '/shopify-consultant'},
+      ...stylesheetLinks,
     ];
   }
   if (data?.page.handle === 'ab-testing') {
@@ -112,6 +123,7 @@ export const meta: Route.MetaFunction = ({data}) => {
           'FoldTech runs Shopify A/B testing and ecommerce experimentation programmes, from research and hypotheses to landing page, product page and checkout journey tests.',
       },
       {tagName: 'link', rel: 'canonical', href: '/ab-testing'},
+      ...stylesheetLinks,
     ];
   }
   if (data?.page.handle === 'headless-commerce') {
@@ -129,6 +141,7 @@ export const meta: Route.MetaFunction = ({data}) => {
         rel: 'canonical',
         href: '/headless-commerce',
       },
+      ...stylesheetLinks,
     ];
   }
 
@@ -137,7 +150,7 @@ export const meta: Route.MetaFunction = ({data}) => {
    * Shopify SEO title/description and a canonical pointing at the clean
    * public URL rather than the `/pages/*` implementation route.
    */
-  return buildPageMeta(data?.page);
+  return [...buildPageMeta(data?.page), ...stylesheetLinks];
 };
 
 /**

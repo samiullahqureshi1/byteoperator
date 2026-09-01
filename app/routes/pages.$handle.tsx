@@ -90,6 +90,7 @@ import {
 } from '~/components/seo/EcommerceSeoProofStrip';
 import {
   SERVICE_PAGE_CONFIGS,
+  type ServicePageConfig,
   type ServicePageHandle,
 } from '~/data/servicePages';
 import type {ServiceDetailFaqItem} from '~/components/services/detail/ServiceDetailFaqs';
@@ -106,6 +107,204 @@ import {
   AB_TESTING_PAGE_HANDLE,
   SHOPIFY_PLUS_PAGE_HANDLE,
 } from '~/lib/route-mappings';
+
+/*
+ * `links()` has no access to loader data, so a static links() export can
+ * only ever be "load every stylesheet any branch of <PageContent> might
+ * need, on every request" — that used to mean downloading all ~49 section
+ * stylesheets below even for a page that only renders 8-10 of them.
+ *
+ * `meta()` *does* receive loader data, and <Meta/> is able to render
+ * `{tagName: 'link', ...}` entries (already used above for canonical
+ * links), so `getPageStylesheetLinks` mirrors the exact branching logic in
+ * <PageContent> and is called from `meta()` instead, letting each request
+ * download only the stylesheets its own branch actually renders.
+ *
+ * STYLESHEET_ORDER preserves the combined ordering the old static links()
+ * array used, so cascade order (rules of equal specificity) is unchanged.
+ */
+const STYLESHEET_ORDER: ReadonlyArray<readonly [string, string]> = [
+  ['work-hero', workHeroStyles],
+  ['work-results', workResultsStyles],
+  ['work-featured-projects', workFeaturedProjectsStyles],
+  ['work-top-case-studies', workTopCaseStudiesStyles],
+  ['work-team-cta', workTeamCtaStyles],
+  ['work-case-studies', workCaseStudiesStyles],
+  ['home-feature', homeFeatureStyles],
+  ['home-hero-gallery', homeHeroGalleryStyles],
+  ['home-about', homeAboutStyles],
+  ['home-services', homeServicesStyles],
+  ['client-logo-grid', clientLogoGridStyles],
+  ['home-projects', homeProjectsStyles],
+  ['home-people', homePeopleStyles],
+  ['work-testimonial', workTestimonialStyles],
+  ['home-experts', homeExpertsStyles],
+  ['home-observatory', homeObservatoryStyles],
+  ['services-hero', servicesHeroStyles],
+  ['services-wide-image', servicesWideImageStyles],
+  ['services-directory', servicesDirectoryStyles],
+  ['services-page', servicesPageStyles],
+  ['home-partners', homePartnersStyles],
+  ['service-about-section', serviceAboutSectionStyles],
+  ['service-detail-faqs', serviceDetailFaqStyles],
+  ['migration-platforms-accordion', migrationPlatformsAccordionStyles],
+  ['service-plus-agency-cta', servicePlusAgencyCtaStyles],
+  ['shopify-plus-page', shopifyPlusPageStyles],
+  ['ecommerce-seo-hero', ecommerceSeoHeroStyles],
+  ['ecommerce-seo-cases', ecommerceSeoCasesStyles],
+  ['ecommerce-seo-about', ecommerceSeoAboutStyles],
+  ['ecommerce-seo-process', ecommerceSeoProcessStyles],
+  ['ecommerce-seo-services', ecommerceSeoServicesStyles],
+  ['ecommerce-seo-tech-stack', ecommerceSeoTechStackStyles],
+  ['ecommerce-seo-education', ecommerceSeoEducationStyles],
+  ['ecommerce-seo-reporting', ecommerceSeoReportingStyles],
+  ['ecommerce-seo-faq', ecommerceSeoFaqStyles],
+  ['ecommerce-seo-testimonial', ecommerceSeoTestimonialStyles],
+  ['ecommerce-seo-experts', ecommerceSeoExpertsStyles],
+  ['ecommerce-seo-results', ecommerceSeoResultsStyles],
+  ['ecommerce-seo-who-its-for', ecommerceSeoWhoItsForStyles],
+  ['ecommerce-seo-shopify-specialism', ecommerceSeoShopifySpecialismStyles],
+  ['shopify-cro-optimise', shopifyCroOptimiseStyles],
+  ['about-hero', aboutHeroStyles],
+  ['about-story-stats', aboutStoryStatsStyles],
+  ['about-values', aboutValuesStyles],
+  ['about-testimonials', aboutTestimonialsStyles],
+  ['about-space', aboutSpaceStyles],
+  ['about-team', aboutTeamStyles],
+  ['about-join', aboutJoinStyles],
+  ['home-side-rail', homeSideRailStyles],
+];
+
+type PageStylesheetSource = {
+  handle?: string | null;
+  faqs?: readonly unknown[];
+};
+
+/**
+ * Mirrors the `page.handle` branching in <PageContent> below so each
+ * request's <head> only gets the stylesheets that branch actually renders.
+ * Keep this in sync with <PageContent> when that branching changes.
+ */
+export function getPageStylesheetLinks(page: PageStylesheetSource | undefined) {
+  const handle = page?.handle;
+  if (!handle) return [];
+
+  const hasFaqs = (page?.faqs?.length ?? 0) > 0;
+  const needed = new Set<string>();
+  const add = (...keys: string[]) => keys.forEach((key) => needed.add(key));
+
+  if (handle === 'work') {
+    add(
+      'work-hero',
+      'work-results',
+      'work-featured-projects',
+      'work-top-case-studies',
+      'work-team-cta',
+      'work-case-studies',
+      'work-testimonial',
+      'home-people',
+      'home-experts',
+    );
+  } else if (handle === 'services') {
+    add(
+      'services-hero',
+      'work-hero', // ServiceHero's ClientProof block on the services landing page
+      'services-wide-image',
+      'services-directory',
+      'home-people',
+      'home-feature',
+      'home-partners',
+      'work-testimonial',
+      'home-experts',
+      'services-page',
+    );
+  } else if (handle === 'about-us' || handle === 'about') {
+    add(
+      'home-side-rail',
+      'about-hero',
+      'work-hero', // VideoModal in AboutHero / AboutTestimonials
+      'about-story-stats',
+      'about-values',
+      'about-testimonials',
+      'about-space',
+      'about-team', // <AboutTeam/> is currently disabled but kept ready
+      'about-join',
+      'home-observatory',
+    );
+  } else if (handle === SHOPIFY_PLUS_PAGE_HANDLE) {
+    add(
+      'services-hero',
+      'work-hero', // both ServiceHero configs on this page set showClientProof
+      'home-hero-gallery',
+      'client-logo-grid',
+      'home-projects',
+      'home-feature',
+      'home-people',
+      'home-partners',
+      'home-experts',
+      'home-observatory',
+      'shopify-plus-page',
+    );
+  } else if (
+    handle === 'ecommerce-seo-agency' ||
+    handle === AI_SEO_PAGE_HANDLE ||
+    handle === GEO_PAGE_HANDLE ||
+    handle === CRO_PAGE_HANDLE ||
+    handle === AB_TESTING_PAGE_HANDLE ||
+    handle === 'search-first'
+  ) {
+    const isCro = handle === CRO_PAGE_HANDLE;
+    const isSearchFirst = handle === 'search-first';
+    const usesCroLayout = isCro || isSearchFirst;
+
+    add(
+      'ecommerce-seo-hero',
+      'ecommerce-seo-cases',
+      'ecommerce-seo-about', // EcommerceSeoAboutStatement, rendered inside EcommerceSeoCases
+      'work-featured-projects', // used inside EcommerceSeoCases
+      'ecommerce-seo-process',
+      'ecommerce-seo-tech-stack',
+      'ecommerce-seo-results',
+      'home-experts',
+      'ecommerce-seo-who-its-for', // HomeExperts variant="ecommerce-seo" overrides
+      'ecommerce-seo-shopify-specialism', // also carries the always-rendered partners/proof wrapper
+      'home-partners',
+      'ecommerce-seo-education',
+      'ecommerce-seo-testimonial',
+      'work-testimonial',
+      'ecommerce-seo-experts',
+    );
+
+    if (usesCroLayout) add('shopify-cro-optimise');
+    if (!usesCroLayout) add('ecommerce-seo-services', 'ecommerce-seo-reporting');
+    if (isCro) add('work-hero'); // EcommerceSeoProcess renders ClientProof when compactTestimonial
+    if (hasFaqs) add('service-detail-faqs', 'ecommerce-seo-faq');
+    if (SERVICE_PAGE_CONFIGS['shopify-app-development']?.plusAgencyCta) {
+      add('service-plus-agency-cta');
+    }
+  } else {
+    const config = SERVICE_PAGE_CONFIGS[
+      resolveServiceConfigHandle(handle) as ServicePageHandle
+    ] as ServicePageConfig | undefined;
+
+    if (config) {
+      add('services-hero', 'services-page', 'work-testimonial', 'home-experts');
+      if (config.hero?.showClientProof) add('work-hero');
+      if (config.about) add('service-about-section');
+      if (config.platforms) add('migration-platforms-accordion');
+      if (config.features?.length) add('home-feature');
+      if (config.showPartners) add('home-partners');
+      if (hasFaqs) add('service-detail-faqs');
+      if (config.plusAgencyCta) add('service-plus-agency-cta');
+    }
+  }
+
+  return STYLESHEET_ORDER.filter(([key]) => needed.has(key)).map(([, href]) => ({
+    tagName: 'link' as const,
+    rel: 'stylesheet' as const,
+    href,
+  }));
+}
 
 const GEO_SERVICE_PILLARS = [
   {key: 'geo-foundations', number: '01', title: 'GEO Services for Shopify', accordionDescription: 'We review Shopify foundations, product information and content structures that help generative engines understand an ecommerce store.', previewDescription: 'GEO starts with clear, accessible store information that can be accurately understood and surfaced by generative search systems.', checks: ['Generative search audit', 'Shopify information review', 'Machine-readable content foundations']},
@@ -245,206 +444,15 @@ export function buildPageMeta(
 }
 
 export const meta: Route.MetaFunction = ({data}) => {
-  return buildPageMeta(data?.page);
+  return [...buildPageMeta(data?.page), ...getPageStylesheetLinks(data?.page)];
 };
-export const links: Route.LinksFunction = () => [
-  {
-    rel: 'stylesheet',
-    href: workHeroStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: workResultsStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: workFeaturedProjectsStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: workTopCaseStudiesStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: workTeamCtaStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: workCaseStudiesStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: homeFeatureStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: homeHeroGalleryStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: homeAboutStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: homeServicesStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: clientLogoGridStyles,
-  },
-  {
-    rel: 'stylesheet',
-    href: homeProjectsStyles,
-  },
-  {
-  rel: 'stylesheet',
-  href: homePeopleStyles,
-},
-  {
-    rel: 'stylesheet',
-    href: workTestimonialStyles,
-  },
-  {
-  rel: 'stylesheet',
-  href: homeExpertsStyles,
-},
-  {
-    rel: 'stylesheet',
-    href: homeObservatoryStyles,
-  },
-{
-  rel: 'stylesheet',
-  href: servicesHeroStyles,
-},
-{
-  rel: 'stylesheet',
-  href: servicesWideImageStyles,
-},
-{
-  rel: 'stylesheet',
-  href: servicesDirectoryStyles,
-},
-{
-  rel: 'stylesheet',
-  href: servicesPageStyles,
-},
-{
-  rel: 'stylesheet',
-  href: homePartnersStyles,
-},
-{
-  rel: 'stylesheet',
-  href: serviceAboutSectionStyles,
-},
-{
-  rel: 'stylesheet',
-  href: serviceDetailFaqStyles,
-},
-{
-  rel: 'stylesheet',
-  href: migrationPlatformsAccordionStyles,
-},
-{
-  rel: 'stylesheet',
-  href: servicePlusAgencyCtaStyles,
-},
-  {
-    rel: 'stylesheet',
-    href: shopifyPlusPageStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoHeroStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoCasesStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoAboutStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoProcessStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoServicesStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoTechStackStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoEducationStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoReportingStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoFaqStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoTestimonialStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoExpertsStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoResultsStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoWhoItsForStyles,
-},
-{
-  rel: 'stylesheet',
-  href: ecommerceSeoShopifySpecialismStyles,
-},
-{
-  rel: 'stylesheet',
-  href: shopifyCroOptimiseStyles,
-},
-{
-  rel: 'stylesheet',
-  href: aboutHeroStyles,
-},
-{
-  rel: 'stylesheet',
-  href: aboutStoryStatsStyles,
-},
-{
-  rel: 'stylesheet',
-  href: aboutValuesStyles,
-},
-{
-  rel: 'stylesheet',
-  href: aboutTestimonialsStyles,
-},
-{
-  rel: 'stylesheet',
-  href: aboutSpaceStyles,
-},
-{
-  rel: 'stylesheet',
-  href: aboutTeamStyles,
-},
-{
-  rel: 'stylesheet',
-  href: aboutJoinStyles,
-},
-{
-  rel: 'stylesheet',
-  href: homeSideRailStyles,
-},
-];
+
+// Route-level stylesheets are loaded conditionally from `meta()` above
+// (see `getPageStylesheetLinks`), since `links()` has no access to loader
+// data and can't tell which of <PageContent>'s branches a given request
+// needs. Kept as an empty, exported function since `services.$serviceHandle.tsx`
+// re-exports it.
+export const links: Route.LinksFunction = () => [];
 export async function loader(args: Route.LoaderArgs) {
   const rawHandle = args.params.handle;
 

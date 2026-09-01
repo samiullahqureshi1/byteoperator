@@ -144,6 +144,22 @@ function loadDeferredData({context}: Route.LoaderArgs) {
   };
 }
 
+// The footer is never visible without scrolling, on any page, so its
+// stylesheet doesn't need to block initial render. It's loaded via
+// rel="preload" (fetched immediately, but non-blocking) and swapped to
+// rel="stylesheet" by DEFER_STYLES_SCRIPT below once it's downloaded, with
+// a <noscript> fallback for the no-JS case.
+const DEFER_STYLES_SCRIPT = `(function(){
+  var links = document.querySelectorAll('link[rel="preload"][as="style"][data-defer]');
+  function apply(link){ link.rel = 'stylesheet'; }
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('load', function () { apply(this); });
+  }
+  window.addEventListener('load', function () {
+    for (var i = 0; i < links.length; i++) apply(links[i]);
+  });
+})();`;
+
 export function Layout({children}: {children?: React.ReactNode}) {
   const nonce = useNonce();
 
@@ -155,10 +171,22 @@ export function Layout({children}: {children?: React.ReactNode}) {
         <link rel="stylesheet" href={resetStyles}></link>
         <link rel="stylesheet" href={appStyles}></link>
         <link rel="stylesheet" href={headerStyles}></link>
-        <link rel="stylesheet" href={footerStyles}></link>
+        <link
+          rel="preload"
+          as="style"
+          href={footerStyles}
+          data-defer=""
+        ></link>
         <link rel="stylesheet" href={floatingContactCtaStyles}></link>
         <Meta />
         <Links />
+        <noscript>
+          <link rel="stylesheet" href={footerStyles} />
+        </noscript>
+        <script
+          nonce={nonce}
+          dangerouslySetInnerHTML={{__html: DEFER_STYLES_SCRIPT}}
+        />
       </head>
       <body>
         {children}
