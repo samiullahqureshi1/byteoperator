@@ -16,10 +16,24 @@ import homeExpertsStyles from '~/styles/home-experts.css?url';
 import workTestimonialStyles from '~/styles/work-testimonial.css?url';
 
 export const links: Route.LinksFunction = () => [
+  // Intro + the article listing grid are this page's primary content,
+  // visible immediately — keep blocking.
   {rel: 'stylesheet', href: articlesIntroStyles},
   {rel: 'stylesheet', href: articlesListingStyles},
-  {rel: 'stylesheet', href: homeExpertsStyles},
-  {rel: 'stylesheet', href: workTestimonialStyles},
+  // WorkTestimonial + HomeExperts render last, below the fold — deferred
+  // (see DEFER_STYLES_SCRIPT in root.tsx).
+  {
+    rel: 'preload',
+    as: 'style',
+    href: workTestimonialStyles,
+    'data-defer': 'true',
+  },
+  {
+    rel: 'preload',
+    as: 'style',
+    href: homeExpertsStyles,
+    'data-defer': 'true',
+  },
 ];
 
 export const meta: Route.MetaFunction = ({data}) => {

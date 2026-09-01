@@ -6,7 +6,14 @@ import homeExpertsStyles from '~/styles/home-experts.css?url';
 
 export const links: Route.LinksFunction = () => [
   {rel: 'stylesheet', href: caseStudyDetailStyles},
-  {rel: 'stylesheet', href: homeExpertsStyles},
+  // <HomeExperts/> renders last, well below the fold on every case study —
+  // deferred (see DEFER_STYLES_SCRIPT in root.tsx).
+  {
+    rel: 'preload',
+    as: 'style',
+    href: homeExpertsStyles,
+    'data-defer': 'true',
+  },
 ];
 
 export const meta: Route.MetaFunction = ({data}) => {

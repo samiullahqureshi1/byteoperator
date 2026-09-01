@@ -20,25 +20,34 @@ import workFeaturedProjectsStyles from '~/styles/work-featured-projects.css?url'
 import workHeroStyles from '~/styles/work-hero.css?url';
 
 export const links = () => [
+  // ContactHero (and the ClientProof avatar/marquee it renders, styled by
+  // work-hero.css) is the first thing on the page — keep these blocking.
   {
     rel: 'stylesheet',
     href: workHeroStyles,
   },
   {
     rel: 'stylesheet',
-    href: workFeaturedProjectsStyles,
-  },
-  {
-    rel: 'stylesheet',
     href: contactHeroStyles,
   },
+  // Below-the-fold sections — deferred (see DEFER_STYLES_SCRIPT in root.tsx).
   {
-    rel: 'stylesheet',
-    href: contactPartnersStyles,
+    rel: 'preload',
+    as: 'style',
+    href: workFeaturedProjectsStyles,
+    'data-defer': 'true',
   },
   {
-    rel: 'stylesheet',
+    rel: 'preload',
+    as: 'style',
+    href: contactPartnersStyles,
+    'data-defer': 'true',
+  },
+  {
+    rel: 'preload',
+    as: 'style',
     href: contactInfoStyles,
+    'data-defer': 'true',
   },
 ];
 

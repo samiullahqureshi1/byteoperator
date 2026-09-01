@@ -22,6 +22,8 @@ import homePartnersStyles from '~/styles/home-partners.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
 import homeObservatoryStyles from '~/styles/home-observatory.css?url';
 export const links = () => [
+  // Hero + gallery are the first two sections on the page (visible at or
+  // just past the fold), so their CSS stays render-blocking to avoid FOUC.
   {
     rel: 'stylesheet',
     href: homeHeroGalleryStyles,
@@ -30,38 +32,57 @@ export const links = () => [
     rel: 'stylesheet',
     href: homeSideRailStyles,
   },
-    {
-    rel: 'stylesheet',
+  // Everything from here down is below the fold on first paint. Loaded via
+  // rel="preload" (fetched immediately, non-blocking) and swapped to
+  // rel="stylesheet" by DEFER_STYLES_SCRIPT in root.tsx once downloaded.
+  {
+    rel: 'preload',
+    as: 'style',
     href: homeAboutStyles,
+    'data-defer': 'true',
   },
   {
-  rel: 'stylesheet',
-  href: homeServicesStyles,
-},
-{
-  rel: 'stylesheet',
-  href: homeProjectsStyles,
-},
-{
-  rel: 'stylesheet',
-  href: homeFeatureStyles,
-},
-{
-  rel: 'stylesheet',
-  href: homePeopleStyles,
-},
-{
-  rel: 'stylesheet',
-  href: homePartnersStyles,
-},
-{
-  rel: 'stylesheet',
-  href: homeExpertsStyles,
-},
-{
-  rel: 'stylesheet',
-  href: homeObservatoryStyles,
-},
+    rel: 'preload',
+    as: 'style',
+    href: homeServicesStyles,
+    'data-defer': 'true',
+  },
+  {
+    rel: 'preload',
+    as: 'style',
+    href: homeProjectsStyles,
+    'data-defer': 'true',
+  },
+  {
+    rel: 'preload',
+    as: 'style',
+    href: homeFeatureStyles,
+    'data-defer': 'true',
+  },
+  {
+    rel: 'preload',
+    as: 'style',
+    href: homePeopleStyles,
+    'data-defer': 'true',
+  },
+  {
+    rel: 'preload',
+    as: 'style',
+    href: homePartnersStyles,
+    'data-defer': 'true',
+  },
+  {
+    rel: 'preload',
+    as: 'style',
+    href: homeExpertsStyles,
+    'data-defer': 'true',
+  },
+  {
+    rel: 'preload',
+    as: 'style',
+    href: homeObservatoryStyles,
+    'data-defer': 'true',
+  },
 ];
 import {
   Await,
