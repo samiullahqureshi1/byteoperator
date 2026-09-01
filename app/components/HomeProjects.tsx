@@ -1,4 +1,4 @@
-import {useRef} from 'react';
+import {useEffect, useRef} from 'react';
 import {Link} from 'react-router';
 
 export type HomeProjectData = {
@@ -126,6 +126,32 @@ export function HomeProjects({
     moved: false,
   });
 
+  // Pointermove can fire faster than the display refreshes, especially on
+  // mobile. Writing scrollLeft on every event forces extra layout/scroll
+  // work the browser never gets to paint. Coalescing to one write per
+  // animation frame keeps the drag tracking the finger 1:1 (the screen only
+  // repaints once per frame either way) while cutting that redundant work.
+  const pendingScrollLeft = useRef<number | null>(null);
+  const scrollLeftFrame = useRef<number | null>(null);
+
+  const flushScrollLeft = () => {
+    scrollLeftFrame.current = null;
+
+    const track = trackRef.current;
+
+    if (track && pendingScrollLeft.current !== null) {
+      track.scrollLeft = pendingScrollLeft.current;
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (scrollLeftFrame.current !== null) {
+        cancelAnimationFrame(scrollLeftFrame.current);
+      }
+    };
+  }, []);
+
   const getStep = () => {
     const track = trackRef.current;
 
@@ -225,6 +251,13 @@ export function HomeProjects({
       moved: false,
     };
 
+    if (scrollLeftFrame.current !== null) {
+      cancelAnimationFrame(scrollLeftFrame.current);
+      scrollLeftFrame.current = null;
+    }
+
+    pendingScrollLeft.current = null;
+
     track.setPointerCapture(
       event.pointerId,
     );
@@ -257,9 +290,14 @@ export function HomeProjects({
       dragState.current.moved = true;
     }
 
-    track.scrollLeft =
+    pendingScrollLeft.current =
       dragState.current.startScrollLeft -
       distance;
+
+    if (scrollLeftFrame.current === null) {
+      scrollLeftFrame.current =
+        requestAnimationFrame(flushScrollLeft);
+    }
   };
 
   const endDragging = (
