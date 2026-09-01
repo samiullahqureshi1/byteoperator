@@ -1,5 +1,6 @@
 import {Link} from 'react-router';
 import type {WorkFeaturedProjectsQuery} from 'storefrontapi.generated';
+import {shopifyImageSrcSet} from '~/lib/shopify-cdn-image';
 
 export type WorkFeaturedArticle = NonNullable<
   WorkFeaturedProjectsQuery['blog']
@@ -36,6 +37,10 @@ export function WorkFeaturedProjects({
                 <img
                   className="ft-work-featured__image"
                   src={article.image.url}
+                  srcSet={shopifyImageSrcSet(article.image.url, [
+                    500, 900,
+                  ])}
+                  sizes="(min-width: 48rem) 33vw, 80vw"
                   alt={article.image.altText || article.title}
                   width={article.image.width ?? undefined}
                   height={article.image.height ?? undefined}
@@ -57,6 +62,10 @@ export function WorkFeaturedProjects({
                   <img
                     className="ft-work-featured__logo"
                     src={logo.url}
+                    srcSet={shopifyImageSrcSet(logo.url, [
+                      120, 240,
+                    ])}
+                    sizes="120px"
                     /*
                      * Decorative: the brand name is already announced by
                      * the card title below, so a duplicate alt would

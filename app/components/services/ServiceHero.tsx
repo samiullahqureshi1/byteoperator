@@ -216,6 +216,8 @@ export function ServiceHero({
                   <img
                     src="/images/home-partners/shopify.svg"
                     alt="Shopify"
+                    width="179"
+                    height="76"
                     loading="lazy"
                     decoding="async"
                   />
@@ -225,6 +227,8 @@ export function ServiceHero({
                   <img
                     src="/images/home-partners/shopify-plus.svg"
                     alt="Shopify Plus"
+                    width="234"
+                    height="103"
                     loading="lazy"
                     decoding="async"
                   />

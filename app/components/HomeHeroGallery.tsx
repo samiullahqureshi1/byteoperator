@@ -107,7 +107,18 @@ export function HomeHeroGallery() {
                 >
                   <img
                     className="ft-hero-gallery__item-image"
-                    src={project.image}
+                    src={project.image.replace(
+                      /\.webp$/,
+                      '-750.webp',
+                    )}
+                    srcSet={`${project.image.replace(
+                      /\.webp$/,
+                      '-350.webp',
+                    )} 350w, ${project.image.replace(
+                      /\.webp$/,
+                      '-750.webp',
+                    )} 750w`}
+                    sizes="(min-width: 36rem) 20vw, 30vw"
                     alt={`${project.title} ecommerce project`}
                     loading="lazy"
                     decoding="async"

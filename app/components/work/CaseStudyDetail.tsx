@@ -1,4 +1,5 @@
 import {HomeExperts} from '../HomeExperts';
+import {shopifyImageSrcSet} from '~/lib/shopify-cdn-image';
 
 type ShopifyImage = {
   url: string;
@@ -218,6 +219,8 @@ function ProjectImage({
     <figure className="ft-case-detail__visual">
       <img
         src={image.url}
+        srcSet={shopifyImageSrcSet(image.url, [800, 1400, 2000])}
+        sizes="(min-width: 92rem) 92rem, 89vw"
         alt={image.altText || fallbackAlt}
         width={image.width ?? undefined}
         height={image.height ?? undefined}

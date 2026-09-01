@@ -47,12 +47,16 @@ export function EcommerceSeoProofStrip({
                   className="ft-ecommerce-seo-proof__logo"
                   src="/images/home-partners/shopify-plus.svg"
                   alt="Shopify Plus"
+                  width="234"
+                  height="103"
                   loading="lazy"
                 />
                 <img
                   className="ft-ecommerce-seo-proof__logo ft-ecommerce-seo-proof__logo--shopify"
                   src="/images/home-partners/shopify.svg"
                   alt="Shopify"
+                  width="179"
+                  height="76"
                   loading="lazy"
                 />
               </span>

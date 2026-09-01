@@ -158,6 +158,8 @@ export function Footer({
               <img
                 src="/images/foldtech-logo.svg"
                 alt="FoldTech"
+                width="160"
+                height="48"
                 loading="lazy"
                 decoding="async"
               />

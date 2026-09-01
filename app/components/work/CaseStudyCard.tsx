@@ -1,4 +1,5 @@
 import {Link} from 'react-router';
+import {shopifyImageSrcSet} from '~/lib/shopify-cdn-image';
 
 type CaseStudyImage = {
   url: string;
@@ -38,6 +39,10 @@ export function CaseStudyCard({article}: CaseStudyCardProps) {
           <img
             className="ft-case-study-card__image"
             src={article.image.url}
+            srcSet={shopifyImageSrcSet(article.image.url, [
+              400, 800,
+            ])}
+            sizes="(min-width: 48rem) 33vw, 50vw"
             alt={article.image.altText || article.title}
             width={article.image.width ?? undefined}
             height={article.image.height ?? undefined}
@@ -57,6 +62,8 @@ export function CaseStudyCard({article}: CaseStudyCardProps) {
             <img
               className="ft-case-study-card__logo"
               src={logo.url}
+              srcSet={shopifyImageSrcSet(logo.url, [80, 160])}
+              sizes="80px"
               /*
                * Decorative: the brand name is already announced by the
                * card title below, so a duplicate alt would repeat it.

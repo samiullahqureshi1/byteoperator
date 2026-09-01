@@ -35,6 +35,19 @@ export function Aside({
   const {type: activeType, close} = useAside();
   const expanded = type === activeType;
 
+  // The cart, search and mobile-menu asides are hidden overlays that most
+  // page views never open. Mounting their contents unconditionally forces
+  // React to render and hydrate all of it (cart line items, predictive
+  // search, the full mobile nav) on every single page load. Deferring the
+  // mount until the aside is opened for the first time removes that work
+  // from initial page load without changing how the aside behaves once
+  // opened, since it stays mounted afterwards.
+  const [hasOpened, setHasOpened] = useState(expanded);
+
+  if (expanded && !hasOpened) {
+    setHasOpened(true);
+  }
+
   useEffect(() => {
     const abortController = new AbortController();
 
@@ -66,7 +79,7 @@ export function Aside({
             &times;
           </button>
         </header>
-        <main>{children}</main>
+        <main>{hasOpened ? children : null}</main>
       </aside>
     </div>
   );

@@ -1205,7 +1205,11 @@ function useStickyHeader(threshold: number) {
   useEffect(() => {
     lastScrollY.current = window.scrollY;
 
-    const handleScroll = () => {
+    let frameId: number | undefined;
+
+    const updateHeaderState = () => {
+      frameId = undefined;
+
       const currentScrollY = window.scrollY;
 
       const directionTolerance =
@@ -1247,19 +1251,29 @@ function useStickyHeader(threshold: number) {
       lastScrollY.current = currentScrollY;
     };
 
+    const handleScroll = () => {
+      if (frameId !== undefined) return;
+
+      frameId = window.requestAnimationFrame(updateHeaderState);
+    };
+
     window.addEventListener(
       'scroll',
       handleScroll,
       {passive: true},
     );
 
-    handleScroll();
+    updateHeaderState();
 
     return () => {
       window.removeEventListener(
         'scroll',
         handleScroll,
       );
+
+      if (frameId !== undefined) {
+        cancelAnimationFrame(frameId);
+      }
     };
   }, [threshold]);
 
