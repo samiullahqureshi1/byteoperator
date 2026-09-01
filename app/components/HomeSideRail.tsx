@@ -22,6 +22,7 @@ export function HomeSideRail({
     let busy = false;
     let timeoutId: ReturnType<typeof setTimeout> | undefined;
     let frameId: number | undefined;
+    let revealFrameId: number | undefined;
 
     const transitionDuration = 350;
 
@@ -61,18 +62,25 @@ export function HomeSideRail({
         );
 
         /*
-         * Force the browser to register the initial
-         * off-screen state before starting the
-         * transition.
+         * Wait two animation frames so the browser paints the
+         * off-screen "mounted" state before the transition to
+         * "visible" starts. This produces the same result as
+         * forcing a synchronous reflow (reading
+         * getBoundingClientRect() right after the class change)
+         * without blocking the main thread with a forced layout.
          */
-        verticalTab.getBoundingClientRect();
+        revealFrameId = requestAnimationFrame(() => {
+          revealFrameId = requestAnimationFrame(() => {
+            revealFrameId = undefined;
 
-        verticalTab.classList.add(
-          'ft-home-side-tab--visible',
-        );
+            verticalTab.classList.add(
+              'ft-home-side-tab--visible',
+            );
 
-        mode = 'vertical';
-        busy = false;
+            mode = 'vertical';
+            busy = false;
+          });
+        });
       }, transitionDuration);
     };
 
@@ -95,21 +103,28 @@ export function HomeSideRail({
         );
 
         /*
-         * Put horizontal tab off-screen first
-         * without animation.
+         * Put horizontal tab off-screen first without animation,
+         * then wait two animation frames before removing the
+         * "pre" class so the browser paints that off-screen
+         * position first. Same outcome as forcing a synchronous
+         * reflow, without the forced layout.
          */
         horizontalTab.classList.add(
           'ft-home-side-tab--pre',
         );
 
-        horizontalTab.getBoundingClientRect();
+        revealFrameId = requestAnimationFrame(() => {
+          revealFrameId = requestAnimationFrame(() => {
+            revealFrameId = undefined;
 
-        horizontalTab.classList.remove(
-          'ft-home-side-tab--pre',
-        );
+            horizontalTab.classList.remove(
+              'ft-home-side-tab--pre',
+            );
 
-        mode = 'horizontal';
-        busy = false;
+            mode = 'horizontal';
+            busy = false;
+          });
+        });
       }, transitionDuration);
     };
 
@@ -150,6 +165,10 @@ export function HomeSideRail({
 
       if (frameId !== undefined) {
         cancelAnimationFrame(frameId);
+      }
+
+      if (revealFrameId !== undefined) {
+        cancelAnimationFrame(revealFrameId);
       }
     };
   }, [heroSelector]);
