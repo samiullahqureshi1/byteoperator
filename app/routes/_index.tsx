@@ -11,7 +11,7 @@ import {HomePeople} from '~/components/HomePeople';
 import {HomePartners} from '~/components/HomePartners';
 import {HomeExperts} from '~/components/HomeExperts';
 import {HomeObservatory} from '~/components/HomeObservatory';
-import '~/styles/home-hero.css';
+import homeHeroStyles from '~/styles/home-hero.css?url';
 import homeHeroGalleryStyles from '~/styles/home-hero-gallery.css?url';
 import homeAboutStyles from '~/styles/home-about.css?url';
 import homeServicesStyles from '~/styles/home-services.css?url';
@@ -24,13 +24,23 @@ import homeObservatoryStyles from '~/styles/home-observatory.css?url';
 export const links = () => [
   // Hero + gallery are the first two sections on the page (visible at or
   // just past the fold), so their CSS stays render-blocking to avoid FOUC.
+  // Listed in visual order (hero content, then gallery, then the side
+  // rail) so the browser's preload scanner and priority scheduler see the
+  // most immediately-visible styles first.
+  {
+    rel: 'stylesheet',
+    href: homeHeroStyles,
+    fetchpriority: 'high',
+  },
   {
     rel: 'stylesheet',
     href: homeHeroGalleryStyles,
+    fetchpriority: 'high',
   },
   {
     rel: 'stylesheet',
     href: homeSideRailStyles,
+    fetchpriority: 'high',
   },
   // Everything from here down is below the fold on first paint. Loaded via
   // rel="preload" (fetched immediately, non-blocking) and swapped to
