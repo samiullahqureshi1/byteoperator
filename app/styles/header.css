@@ -17,12 +17,6 @@
   box-sizing: border-box;
 }
 
-.charle-header-spacer {
-  width: 100%;
-  height: var(--charle-header-height);
-  background: var(--charle-header-black);
-}
-
 /* Header container */
 
 .charle-header {
@@ -398,10 +392,6 @@
     --charle-sticky-height: clamp(3.75rem, 8.25vh, 4.125rem);
   }
 
-  .charle-header-spacer {
-    height: var(--charle-header-height);
-  }
-
   .charle-header {
     height: var(--charle-header-height);
   }
@@ -507,6 +497,66 @@
   height: 100%;
 
   position: static;
+}
+
+/* =========================================================
+   MEGA MENU — HIDDEN-BY-DEFAULT STATE
+
+   This has to stay critical, not deferred: the mega-menu markup
+   is always in the DOM (ServicesMegaMenu / ResourcesMegaMenu
+   render unconditionally), so if only header-menus.css supplied
+   `position`/`opacity`/`visibility`, there would be a brief
+   window on page load — before that deferred stylesheet
+   finishes loading — where this content has no styling at all
+   and renders inline, fully visible, in normal document flow
+   right in the header. Keeping just the default (hidden) state
+   here prevents that flash; the hover-reveal transition and all
+   of the menu's internal layout/content styling stay deferred
+   in header-menus.css, since those only matter once a user
+   actually hovers a trigger.
+========================================================= */
+
+.charle-header__nav-item--mega
+  > .charle-header__nav-link::after {
+  content: '';
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -0.3125rem;
+
+  width: 0;
+  height: 0;
+
+  border-left: 0.625rem solid transparent;
+  border-right: 0.625rem solid transparent;
+  border-bottom: 0.6875rem solid var(--ft-dark);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  z-index: 1003;
+}
+
+.ft-mega-menu {
+  position: absolute;
+
+  top: calc(100% + 0.25rem);
+  left: 50%;
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transform:
+    translateX(-50%)
+    translateY(0.75rem);
+
+  transform-origin: top center;
+
+  z-index: 1002;
 }
 
 /* =========================================================
