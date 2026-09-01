@@ -24,7 +24,7 @@ export function AboutTestimonials() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
   const [isCrossfadeReady, setIsCrossfadeReady] = useState(false);
-  const closeVideo = useCallback(() => setIsVideoOpen(false), []);
+  const closeVideo = useCallback(() => setIsVideoOpen(false), []); 
 
   const goPrevious = useCallback(() => {
     setActiveIndex((current) =>

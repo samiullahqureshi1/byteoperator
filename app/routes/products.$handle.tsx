@@ -244,8 +244,6 @@ const PRODUCT_FRAGMENT = `#graphql
           image {
             previewImage {
               url
-              width
-              height
             }
           }
         }
