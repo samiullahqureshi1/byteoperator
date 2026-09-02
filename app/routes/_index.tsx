@@ -22,6 +22,19 @@ import homePartnersStyles from '~/styles/home-partners.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
 import homeObservatoryStyles from '~/styles/home-observatory.css?url';
 export const links = () => [
+  // The hero gallery's video poster is the page's LCP element. `<video>`
+  // doesn't support fetchpriority directly (browsers don't recognize it
+  // there), so the supported way to raise its priority is to preload the
+  // poster image itself with fetchpriority=high — this is the exact image
+  // the video paints before (and unless) playback starts, so prioritizing
+  // its fetch is what actually speeds up LCP.
+  {
+    rel: 'preload',
+    as: 'image',
+    href: '/images/home-gallery/hero-video-poster.webp',
+    type: 'image/webp',
+    fetchpriority: 'high',
+  },
   // Hero + gallery are the first two sections on the page (visible at or
   // just past the fold), so their CSS stays render-blocking to avoid FOUC.
   // Listed in visual order (hero content, then gallery, then the side
