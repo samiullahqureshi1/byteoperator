@@ -179,18 +179,21 @@ export function Layout({children}: {children?: React.ReactNode}) {
           as="style"
           href={headerMenusStyles}
           data-defer=""
+          fetchPriority="low"
         ></link>
         <link
           rel="preload"
           as="style"
           href={footerStyles}
           data-defer=""
+          fetchPriority="low"
         ></link>
         <link
           rel="preload"
           as="style"
           href={floatingContactCtaStyles}
           data-defer=""
+          fetchPriority="low"
         ></link>
         <Meta />
         <Links />
