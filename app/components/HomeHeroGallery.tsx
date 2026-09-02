@@ -143,6 +143,7 @@ export function HomeHeroGallery() {
             <video
               className="ft-hero-gallery__video"
               src="/videos/foldtech-hero-video.mp4"
+              poster="/images/home-gallery/hero-video-poster.webp"
               autoPlay
               muted
               loop
