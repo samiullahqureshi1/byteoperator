@@ -113,6 +113,9 @@ export function HomeHeroGallery() {
                     )}
                     srcSet={`${project.image.replace(
                       /\.webp$/,
+                      '-180.webp',
+                    )} 180w, ${project.image.replace(
+                      /\.webp$/,
                       '-350.webp',
                     )} 350w, ${project.image.replace(
                       /\.webp$/,
