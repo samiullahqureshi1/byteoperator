@@ -145,16 +145,9 @@ export function HomeSideRail({
     };
 
     /*
-     * Check initial page position as well. Deferred to the next
-     * animation frame rather than calling updateRail() synchronously
-     * here, so the getBoundingClientRect() read in isPastHero() doesn't
-     * run inside the same commit as every other component's mount
-     * effects, where it could force a synchronous layout flush of any
-     * pending DOM/style writes. Reuses `frameId` so it's covered by the
-     * existing cancelAnimationFrame cleanup below if the component
-     * unmounts before this first check runs.
+     * Check initial page position as well.
      */
-    frameId = window.requestAnimationFrame(updateRail);
+    updateRail();
 
     window.addEventListener('scroll', handleScroll, {
       passive: true,
