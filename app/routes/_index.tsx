@@ -42,56 +42,37 @@ export const links = () => [
     href: homeSideRailStyles,
     fetchpriority: 'high',
   },
-  // Everything from here down is below the fold on first paint. Loaded via
-  // rel="preload" (fetched immediately, non-blocking) and swapped to
-  // rel="stylesheet" by DEFER_STYLES_SCRIPT in root.tsx once downloaded.
   {
-    rel: 'preload',
-    as: 'style',
+    rel: 'stylesheet',
     href: homeAboutStyles,
-    'data-defer': 'true',
   },
   {
-    rel: 'preload',
-    as: 'style',
+    rel: 'stylesheet',
     href: homeServicesStyles,
-    'data-defer': 'true',
   },
   {
-    rel: 'preload',
-    as: 'style',
+    rel: 'stylesheet',
     href: homeProjectsStyles,
-    'data-defer': 'true',
   },
   {
-    rel: 'preload',
-    as: 'style',
+    rel: 'stylesheet',
     href: homeFeatureStyles,
-    'data-defer': 'true',
   },
   {
-    rel: 'preload',
-    as: 'style',
+    rel: 'stylesheet',
     href: homePeopleStyles,
-    'data-defer': 'true',
   },
   {
-    rel: 'preload',
-    as: 'style',
+    rel: 'stylesheet',
     href: homePartnersStyles,
-    'data-defer': 'true',
   },
   {
-    rel: 'preload',
-    as: 'style',
+    rel: 'stylesheet',
     href: homeExpertsStyles,
-    'data-defer': 'true',
   },
   {
-    rel: 'preload',
-    as: 'style',
+    rel: 'stylesheet',
     href: homeObservatoryStyles,
-    'data-defer': 'true',
   },
 ];
 import type {Route} from './+types/_index';

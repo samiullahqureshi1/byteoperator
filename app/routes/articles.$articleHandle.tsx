@@ -13,14 +13,7 @@ export const links: Route.LinksFunction = () => [
   // app/root.tsx).
   {rel: 'preconnect', href: 'https://cdn.shopify.com'},
   {rel: 'stylesheet', href: caseStudyDetailStyles},
-  // <HomeExperts/> renders last, well below the fold on every article —
-  // deferred (see DEFER_STYLES_SCRIPT in root.tsx).
-  {
-    rel: 'preload',
-    as: 'style',
-    href: homeExpertsStyles,
-    'data-defer': 'true',
-  },
+  {rel: 'stylesheet', href: homeExpertsStyles},
 ];
 
 export const meta: Route.MetaFunction = ({data}) => {

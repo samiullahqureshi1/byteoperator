@@ -24,20 +24,8 @@ export const links: Route.LinksFunction = () => [
   // visible immediately — keep blocking.
   {rel: 'stylesheet', href: articlesIntroStyles},
   {rel: 'stylesheet', href: articlesListingStyles},
-  // WorkTestimonial + HomeExperts render last, below the fold — deferred
-  // (see DEFER_STYLES_SCRIPT in root.tsx).
-  {
-    rel: 'preload',
-    as: 'style',
-    href: workTestimonialStyles,
-    'data-defer': 'true',
-  },
-  {
-    rel: 'preload',
-    as: 'style',
-    href: homeExpertsStyles,
-    'data-defer': 'true',
-  },
+  {rel: 'stylesheet', href: homeExpertsStyles},
+  {rel: 'stylesheet', href: workTestimonialStyles},
 ];
 
 export const meta: Route.MetaFunction = ({data}) => {
