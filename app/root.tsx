@@ -13,8 +13,7 @@ import {
 import type {Route} from './+types/root';
 import favicon from '/images/favicon_the_fold_tech.png';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
-import resetStyles from '~/styles/reset.css?url';
-import appStyles from '~/styles/app.css?url';
+import baseStyles from '~/styles/base.css?url';
 import headerStyles from '~/styles/header.css?url';
 import headerMenusStyles from '~/styles/header-menus.css?url';
 import {PageLayout} from './components/PageLayout';
@@ -173,8 +172,7 @@ export function Layout({children}: {children?: React.ReactNode}) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <link rel="stylesheet" href={resetStyles} fetchPriority="high"></link>
-        <link rel="stylesheet" href={appStyles} fetchPriority="high"></link>
+        <link rel="stylesheet" href={baseStyles} fetchPriority="high"></link>
         <link rel="stylesheet" href={headerStyles} fetchPriority="high"></link>
         <link
           rel="preload"
