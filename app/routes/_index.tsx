@@ -55,37 +55,60 @@ export const links = () => [
     href: homeSideRailStyles,
     fetchpriority: 'high',
   },
+  // Everything from here down is below the fold on first paint. Loaded via
+  // rel="preload" (fetched immediately, non-blocking) and swapped to
+  // rel="stylesheet" by DEFER_STYLES_SCRIPT in root.tsx once downloaded.
+  // A <noscript> fallback for each of these is rendered in the page body
+  // below (React Router's links()/<Links/> can't emit a <noscript>-wrapped
+  // link, since it only outputs a flat list of tags), so JS-disabled
+  // clients still get every one of these stylesheets.
   {
-    rel: 'stylesheet',
+    rel: 'preload',
+    as: 'style',
     href: homeAboutStyles,
+    'data-defer': 'true',
   },
   {
-    rel: 'stylesheet',
+    rel: 'preload',
+    as: 'style',
     href: homeServicesStyles,
+    'data-defer': 'true',
   },
   {
-    rel: 'stylesheet',
+    rel: 'preload',
+    as: 'style',
     href: homeProjectsStyles,
+    'data-defer': 'true',
   },
   {
-    rel: 'stylesheet',
+    rel: 'preload',
+    as: 'style',
     href: homeFeatureStyles,
+    'data-defer': 'true',
   },
   {
-    rel: 'stylesheet',
+    rel: 'preload',
+    as: 'style',
     href: homePeopleStyles,
+    'data-defer': 'true',
   },
   {
-    rel: 'stylesheet',
+    rel: 'preload',
+    as: 'style',
     href: homePartnersStyles,
+    'data-defer': 'true',
   },
   {
-    rel: 'stylesheet',
+    rel: 'preload',
+    as: 'style',
     href: homeExpertsStyles,
+    'data-defer': 'true',
   },
   {
-    rel: 'stylesheet',
+    rel: 'preload',
+    as: 'style',
     href: homeObservatoryStyles,
+    'data-defer': 'true',
   },
 ];
 import type {Route} from './+types/_index';
@@ -117,6 +140,25 @@ export const meta: Route.MetaFunction = () => {
 export default function Homepage() {
   return (
     <div className="home">
+      {/*
+       * Fallback for the 8 below-the-fold stylesheets deferred via
+       * rel="preload" in links() above. React Router's links() can only
+       * emit a flat list of <link> tags, so it can't wrap these in
+       * <noscript> itself — this is rendered here instead, in the same
+       * order as links(), so JS-disabled clients still get every one of
+       * these stylesheets rather than silently missing them.
+       */}
+      <noscript>
+        <link rel="stylesheet" href={homeAboutStyles} />
+        <link rel="stylesheet" href={homeServicesStyles} />
+        <link rel="stylesheet" href={homeProjectsStyles} />
+        <link rel="stylesheet" href={homeFeatureStyles} />
+        <link rel="stylesheet" href={homePeopleStyles} />
+        <link rel="stylesheet" href={homePartnersStyles} />
+        <link rel="stylesheet" href={homeExpertsStyles} />
+        <link rel="stylesheet" href={homeObservatoryStyles} />
+      </noscript>
+
       <HomeSideRail />
 
       <HomeHero />
