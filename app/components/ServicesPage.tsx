@@ -1,6 +1,5 @@
 import {useCallback, useState} from 'react';
 import {SERVICES_FEATURES} from '~/data/servicesFeatures';
-import {WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
 import {SERVICES_LANDING_HERO} from '~/data/servicePages';
 import {HomeFeature} from './HomeFeature';
 import {HomePeople} from './HomePeople';
@@ -83,9 +82,14 @@ export function ServicesPage({
         />
       </div>
 
+      {/*
+        TEMP placeholder — this is the Cambridge Satchel case study, not the
+        client review, so it deliberately does not follow the shared
+        testimonial. Swap in the real case study video when it exists.
+      */}
       <VideoModal
         open={isCaseStudyOpen}
-        src={WORK_HERO_TESTIMONIAL.video}
+        src="/videos/foldtech-hero-video.mp4"
         ariaLabel="Cambridge Satchel case study video"
         onClose={closeCaseStudy}
       />

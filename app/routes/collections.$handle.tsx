@@ -56,7 +56,9 @@ async function loadCriticalData({context, params, request}: Route.LoaderArgs) {
   });
 
   if (!handle) {
-    throw redirect('/collections');
+    // Straight to the homepage: `/collections` itself only redirects there,
+    // so routing through it would cost a second hop.
+    throw redirect('/');
   }
 
   const [{collection}] = await Promise.all([

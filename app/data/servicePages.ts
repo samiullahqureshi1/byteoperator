@@ -98,7 +98,6 @@ export const SERVICES_LANDING_HERO = {
   ],
   showPartnerLogos: true,
   showClientProof: true,
-  clientProofLabel: 'our clients',
 } as const satisfies ServiceHeroProps;
 
 export interface ServicePageConfig {

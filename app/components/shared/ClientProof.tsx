@@ -65,8 +65,7 @@ export function ClientProof({
                     <span>{triggerLabelLines[1]}</span>
                   </span>
                 ) : (
-                  triggerLabel ??
-                  `Hear from ${testimonial.person} - ${testimonial.company}`
+                  triggerLabel ?? `Hear from ${testimonial.person}`
                 )}
               </span>
             </div>

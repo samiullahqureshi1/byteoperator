@@ -11,6 +11,7 @@ import {
   WORK_HERO_TESTIMONIAL,
 } from '~/data/workHeroProof';
 
+
 // TEMP development placeholders — replace with verified FoldTech stats before launch.
 const CONTACT_STATS = [
   {

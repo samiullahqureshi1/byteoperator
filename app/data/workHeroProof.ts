@@ -3,15 +3,22 @@ import type {
   ClientProofTestimonial,
 } from '~/components/shared/ClientProof';
 
+/**
+ * The client review used across the site: hero badges, the about page, the
+ * contact card and every service page. The thumbnail is a still lifted from
+ * the video itself, so the face on the badge matches the one that plays.
+ *
+ * `quote` and `company` are still placeholders awaiting Liana's real copy.
+ */
 export const WORK_HERO_TESTIMONIAL: ClientProofTestimonial = {
   quote:
     'FoldTech helped us create a stronger ecommerce experience built around growth and performance.',
-  person: 'Client Name',
+  person: 'Liana',
   company: 'Company Name',
- image: '/images/work/review-person.webp',
+  image: '/images/work/liana-review.webp',
   imageWidth: 260,
   imageHeight: 260,
-  video: '/videos/foldtech-hero-video.mp4',
+  video: '/videos/lianareview.mp4',
 };
 
 export const WORK_HERO_LOGOS: ClientProofLogo[] = [

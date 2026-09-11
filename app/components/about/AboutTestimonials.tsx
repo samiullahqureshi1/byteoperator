@@ -69,7 +69,7 @@ export function AboutTestimonials() {
           <button
             type="button"
             className="ft-about-testimonials__hear-button"
-            aria-label="Hear from our clients"
+            aria-label={`Hear from ${WORK_HERO_TESTIMONIAL.person}`}
             onClick={() => setIsVideoOpen(true)}
           >
             <span className="ft-about-testimonials__hear-image">
@@ -85,7 +85,7 @@ export function AboutTestimonials() {
             <span className="ft-about-testimonials__hear-text">
               Hear from
               <br />
-              our clients
+              {WORK_HERO_TESTIMONIAL.person}
             </span>
 
             <svg
@@ -200,7 +200,7 @@ export function AboutTestimonials() {
       <VideoModal
         open={isVideoOpen}
         src={WORK_HERO_TESTIMONIAL.video}
-        ariaLabel="FoldTech client video"
+        ariaLabel={`${WORK_HERO_TESTIMONIAL.person} testimonial video`}
         onClose={closeVideo}
       />
     </section>

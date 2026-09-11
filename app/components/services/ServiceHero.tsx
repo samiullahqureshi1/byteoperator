@@ -199,11 +199,10 @@ export function ServiceHero({
               <div className="ft-services-hero__client-proof">
                 <ClientProof
                   testimonial={WORK_HERO_TESTIMONIAL}
-                  triggerLabelLines={
-                    clientProofLabel
-                      ? ['Hear from', clientProofLabel]
-                      : undefined
-                  }
+                  triggerLabelLines={[
+                    'Hear from',
+                    clientProofLabel ?? WORK_HERO_TESTIMONIAL.person,
+                  ]}
                 />
               </div>
             ) : null}

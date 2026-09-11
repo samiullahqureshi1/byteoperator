@@ -57,7 +57,6 @@ const hero = {
   },
   showPartnerLogos: true,
   showClientProof: true,
-  clientProofLabel: 'our team',
 } as const satisfies ServiceHeroProps;
 
 const lightHero = {
@@ -76,7 +75,6 @@ const lightHero = {
     href: ROUTES.services,
   },
   showClientProof: true,
-  clientProofLabel: 'our clients',
 } as const satisfies ServiceHeroProps;
 
 const trustedBrands = {

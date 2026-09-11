@@ -104,10 +104,7 @@ export function EcommerceSeoHero({
 
               {croInteractive && isVariant ? (
                 <div className="ft-ecommerce-seo-hero__variant-testimonial">
-                  <ClientProof
-                    testimonial={WORK_HERO_TESTIMONIAL}
-                    triggerLabel="Hear from our client"
-                  />
+                  <ClientProof testimonial={WORK_HERO_TESTIMONIAL} />
                 </div>
               ) : null}
               {showStats ? (

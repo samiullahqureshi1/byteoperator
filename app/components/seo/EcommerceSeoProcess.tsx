@@ -152,7 +152,7 @@ export function EcommerceSeoProcess({
             className={`ft-ecommerce-seo-process__serp-wrap${compactTestimonial ? ' ft-ecommerce-seo-process__serp-wrap--testimonial' : ''}`}
           >
             {compactTestimonial ? (
-              <ClientProof testimonial={WORK_HERO_TESTIMONIAL} triggerLabel="Hear from our client" />
+              <ClientProof testimonial={WORK_HERO_TESTIMONIAL} />
             ) : (
               <SerpWireframe active={serpActive} />
             )}
