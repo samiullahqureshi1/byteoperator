@@ -153,15 +153,69 @@ function loadDeferredData({context}: Route.LoaderArgs) {
 // All three are loaded via rel="preload" (fetched immediately, but
 // non-blocking) and swapped to rel="stylesheet" by DEFER_STYLES_SCRIPT
 // below once downloaded, with a <noscript> fallback for the no-JS case.
+//
+// Routes defer their own below-the-fold section CSS the same way (see the
+// links() export in routes/_index.tsx), and React Router mounts those
+// <link> elements fresh on every client-side navigation. So this script
+// cannot just snapshot the document once: a static querySelectorAll list
+// plus a one-shot window "load" listener would promote only the links
+// present during the initial head parse, leaving every link added by a
+// later client-side navigation stuck at rel="preload" — fetched but never
+// applied, i.e. an unstyled page below the fold. A MutationObserver keeps
+// watching <head> so links added after first paint are promoted too.
 const DEFER_STYLES_SCRIPT = `(function(){
-  var links = document.querySelectorAll('link[rel="preload"][as="style"][data-defer]');
-  function apply(link){ link.rel = 'stylesheet'; }
-  for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener('load', function () { apply(this); });
+  var SELECTOR = 'link[rel="preload"][as="style"][data-defer]';
+  var loaded = document.readyState === 'complete';
+
+  function apply(link){
+    if (link.rel !== 'stylesheet') link.rel = 'stylesheet';
   }
-  window.addEventListener('load', function () {
-    for (var i = 0; i < links.length; i++) apply(links[i]);
+
+  // Before first paint, wait for the preload to finish so promoting it
+  // can't block rendering. After load there is no first paint left to
+  // protect, so apply straight away — the styles are needed now.
+  function track(link){
+    if (loaded) {
+      apply(link);
+      return;
+    }
+    if (link.dataset.deferArmed) return;
+    link.dataset.deferArmed = '1';
+    link.addEventListener('load', function(){ apply(link); });
+    link.addEventListener('error', function(){ apply(link); });
+  }
+
+  function sweep(){
+    var links = document.querySelectorAll(SELECTOR);
+    for (var i = 0; i < links.length; i++) track(links[i]);
+  }
+
+  sweep();
+
+  window.addEventListener('load', function(){
+    loaded = true;
+    // Catches any link whose own load event fired before this script ran.
+    sweep();
   });
+
+  // Promote stylesheets that React Router adds on client-side navigation.
+  if (window.MutationObserver && document.head) {
+    new MutationObserver(function(records){
+      for (var r = 0; r < records.length; r++) {
+        var added = records[r].addedNodes;
+        for (var n = 0; n < added.length; n++) {
+          var node = added[n];
+          if (!node || node.nodeType !== 1) continue;
+          if (node.tagName === 'LINK') {
+            if (node.matches(SELECTOR)) track(node);
+          } else if (node.querySelectorAll) {
+            var nested = node.querySelectorAll(SELECTOR);
+            for (var k = 0; k < nested.length; k++) track(nested[k]);
+          }
+        }
+      }
+    }).observe(document.head, {childList: true, subtree: true});
+  }
 })();`;
 
 export function Layout({children}: {children?: React.ReactNode}) {
