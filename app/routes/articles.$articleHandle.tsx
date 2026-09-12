@@ -41,10 +41,12 @@ export const meta: Route.MetaFunction = ({data}) => {
           contentHtml: article.contentHtml,
           imageUrl: article.image?.url,
           publishedAt: article.publishedAt,
-          // The Storefront API exposes no `updatedAt` on Article, so
-          // `dateModified` is omitted rather than back-filled with
-          // publishedAt — see the note in lib/seo/jsonld.ts.
-          updatedAt: undefined,
+          // The Storefront API exposes no `updatedAt` on Article, so the
+          // refresh script records it in custom.last_modified instead. When
+          // it is absent — an article written since the last run — the field
+          // is omitted rather than back-filled with publishedAt, which would
+          // assert a modification date that isn't true.
+          updatedAt: article.lastModified?.value,
           authorName: article.authorV2?.name,
         })
       : []),
@@ -171,6 +173,12 @@ const ARTICLE_QUERY = `#graphql
         seo {
           description
           title
+        }
+        lastModified: metafield(
+          namespace: "custom"
+          key: "last_modified"
+        ) {
+          value
         }
         articleType: metafield(namespace: "custom", key: "article_type") {
           value
