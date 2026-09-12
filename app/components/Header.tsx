@@ -159,8 +159,23 @@ export function HeaderMenu({
         const isResources =
           normalizedTitle === 'resources';
 
+        /*
+         * Services and Resources have bespoke mega menus whose contents are
+         * authored in this file. Every other item renders whatever children
+         * the Shopify menu supplies, so a submenu added in the admin appears
+         * without a code change.
+         */
+        const submenuItems =
+          isServices || isResources
+            ? []
+            : (item.items ?? []).filter(
+                (child) => child.url,
+              );
+
+        const hasSubmenu = submenuItems.length > 0;
+
         const hasMegaMenu =
-          isServices || isResources;
+          isServices || isResources || hasSubmenu;
 
         return (
           <div
@@ -215,10 +230,67 @@ export function HeaderMenu({
             {isResources ? (
               <ResourcesMegaMenu />
             ) : null}
+
+            {hasSubmenu ? (
+              <SubMenu
+                items={submenuItems}
+                primaryDomainUrl={primaryDomainUrl}
+                publicStoreDomain={publicStoreDomain}
+              />
+            ) : null}
           </div>
         );
       })}
     </nav>
+  );
+}
+
+/**
+ * Dropdown for a top-level nav item whose children come straight from the
+ * Shopify menu. It reuses the shared `.ft-mega-menu` element so it inherits
+ * the existing hover/focus reveal, pointer bridge and hidden-by-default
+ * critical styles; only its internal layout is its own.
+ */
+function SubMenu({
+  items,
+  primaryDomainUrl,
+  publicStoreDomain,
+}: {
+  items: MenuChildItem[];
+  primaryDomainUrl: string;
+  publicStoreDomain: string;
+}) {
+  return (
+    <div className="ft-mega-menu ft-mega-menu--sub">
+      <ul className="ft-submenu__list">
+        {items.map((child) => {
+          if (!child.url) return null;
+
+          const childUrl = normalizeMenuUrl(
+            child.url,
+            primaryDomainUrl,
+            publicStoreDomain,
+            child.title,
+          );
+
+          return (
+            <li key={child.id}>
+              <NavLink
+                className="ft-submenu__link"
+                prefetch={
+                  childUrl.startsWith('/')
+                    ? 'intent'
+                    : 'none'
+                }
+                to={childUrl}
+              >
+                {child.title}
+              </NavLink>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }
 type MegaLink = {
@@ -623,10 +695,15 @@ type MobileMenuView =
   | 'services'
   | 'resources';
 
-type MobileMenuItem = {
+type MenuChildItem = {
   id: string;
   title: string;
   url?: string | null;
+};
+
+type MobileMenuItem = MenuChildItem & {
+  /** Children supplied by the Shopify menu, if any. */
+  items?: MenuChildItem[];
 };
 
 function MobileHeaderMenu({
@@ -767,21 +844,66 @@ function MobileHeaderMenu({
                     );
                   }
 
+                  /*
+                   * Children supplied by the Shopify menu render beneath
+                   * their parent, so a submenu added in the admin shows up
+                   * on mobile too.
+                   */
+                  const children = (
+                    item.items ?? []
+                  ).filter((child) => child.url);
+
                   return (
-                    <NavLink
-                      className="ft-mobile-menu__link"
-                      end
+                    <div
+                      className="ft-mobile-menu__group"
                       key={item.id}
-                      onClick={closeMenu}
-                      prefetch={
-                        url.startsWith('/')
-                          ? 'intent'
-                          : 'none'
-                      }
-                      to={url}
                     >
-                      {item.title}
-                    </NavLink>
+                      <NavLink
+                        className="ft-mobile-menu__link"
+                        end
+                        onClick={closeMenu}
+                        prefetch={
+                          url.startsWith('/')
+                            ? 'intent'
+                            : 'none'
+                        }
+                        to={url}
+                      >
+                        {item.title}
+                      </NavLink>
+
+                      {children.map((child) => {
+                        if (!child.url) return null;
+
+                        const childUrl =
+                          normalizeMenuUrl(
+                            child.url,
+                            primaryDomainUrl,
+                            publicStoreDomain,
+                            child.title,
+                          );
+
+                        return (
+                          <NavLink
+                            className="
+                              ft-mobile-menu__link
+                              ft-mobile-menu__link--child
+                            "
+                            end
+                            key={child.id}
+                            onClick={closeMenu}
+                            prefetch={
+                              childUrl.startsWith('/')
+                                ? 'intent'
+                                : 'none'
+                            }
+                            to={childUrl}
+                          >
+                            {child.title}
+                          </NavLink>
+                        );
+                      })}
+                    </div>
                   );
                 })}
               </div>

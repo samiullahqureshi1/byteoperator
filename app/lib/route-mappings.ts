@@ -49,6 +49,8 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/ai': '/ai-ecommerce-agency/',
   '/ai': '/ai-ecommerce-agency/',
   '/ai/': '/ai-ecommerce-agency/',
+  // Sits under AI in the Shopify main menu.
+  '/pages/ai-visibility-audit': '/ai-visibility-audit/',
   [`/pages/${CONTACT_PAGE_HANDLE}`]: CONTACT_CLEAN_PATH,
   '/pages/contact-us': CONTACT_CLEAN_PATH,
   '/pages/contact-us/': CONTACT_CLEAN_PATH,
