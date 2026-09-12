@@ -5,6 +5,7 @@ import {
   resolveCanonicalPath,
   resolveLegacyPath,
 } from '~/lib/route-mappings';
+import {serviceJsonLd} from '~/lib/seo/jsonld';
 import {
   buildPageMeta,
   getPageStylesheetLinks,
@@ -15,7 +16,7 @@ import {
 
 export const links = pageLinks;
 
-export const meta: Route.MetaFunction = ({data}) => {
+const basePageMeta: Route.MetaFunction = ({data}) => {
   const stylesheetLinks = getPageStylesheetLinks(data?.page);
 
   if (data?.page.handle === 'podcast') {
@@ -196,6 +197,16 @@ export async function loadCleanPage({
     handle: legacyPath.slice('/pages/'.length),
   });
 }
+
+/**
+ * Existing page meta, unchanged, plus structured data. This route serves 26 of
+ * the 28 paths in SERVICES (every root-level clean URL), so wiring it here
+ * covers them all; `serviceJsonLd` returns [] for any non-service page.
+ */
+export const meta: Route.MetaFunction = (args) => [
+  ...(basePageMeta(args) ?? []),
+  ...serviceJsonLd(args.location.pathname),
+];
 
 export async function loader(args: Route.LoaderArgs) {
   const rawHandle = args.params.pageHandle ?? '';

@@ -6,6 +6,7 @@ import {getIncludedArticleBlogs} from '~/lib/articles-data.server';
 import {CaseStudyDetail} from '~/components/work/CaseStudyDetail';
 import caseStudyDetailStyles from '~/styles/case-study-detail.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
+import {articleJsonLd} from '~/lib/seo/jsonld';
 
 export const links: Route.LinksFunction = () => [
   // Article/case-study media is served from Shopify's CDN, so this
@@ -25,10 +26,28 @@ export const meta: Route.MetaFunction = ({data}) => {
     ? getArticlePath(data.article.handle)
     : undefined;
 
+  const article = data?.article;
+
   return [
     {title},
     ...(description ? [{name: 'description', content: description}] : []),
     ...(canonical ? [{tagName: 'link', rel: 'canonical', href: canonical}] : []),
+    ...(article && canonical
+      ? articleJsonLd({
+          path: canonical,
+          title: article.title,
+          seoDescription: article.seo?.description,
+          excerpt: article.excerpt,
+          contentHtml: article.contentHtml,
+          imageUrl: article.image?.url,
+          publishedAt: article.publishedAt,
+          // The Storefront API exposes no `updatedAt` on Article, so
+          // `dateModified` is omitted rather than back-filled with
+          // publishedAt — see the note in lib/seo/jsonld.ts.
+          updatedAt: undefined,
+          authorName: article.authorV2?.name,
+        })
+      : []),
   ];
 };
 
@@ -139,6 +158,9 @@ const ARTICLE_QUERY = `#graphql
         excerpt
         contentHtml
         publishedAt
+        authorV2 {
+          name
+        }
         image {
           id
           altText

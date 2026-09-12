@@ -78,6 +78,12 @@ import {ServiceDetailFaqs} from '~/components/services/detail/ServiceDetailFaqs'
 import {WorkTestimonial} from '~/components/work/WorkTestimonial';
 import {EcommerceSeoResults} from '~/components/seo/EcommerceSeoResults';
 import {HomeExperts} from '~/components/HomeExperts';
+import {
+  caseStudyJsonLd,
+  clientNameFromHandle,
+  serviceJsonLd,
+  textFromHtml,
+} from '~/lib/seo/jsonld';
 import {ServicePlusAgencyCta} from '~/components/services/detail/ServicePlusAgencyCta';
 import {EcommerceSeoShopifySpecialism} from '~/components/seo/EcommerceSeoShopifySpecialism';
 import {
@@ -443,9 +449,40 @@ export function buildPageMeta(
   ];
 }
 
-export const meta: Route.MetaFunction = ({data}) => {
-  return [...buildPageMeta(data?.page), ...getPageStylesheetLinks(data?.page)];
+export const meta: Route.MetaFunction = (args) => {
+  const page = args.data?.page;
+
+  return [
+    ...buildPageMeta(page),
+    ...getPageStylesheetLinks(page),
+    ...pageJsonLd(args.location.pathname, page),
+  ];
 };
+
+/**
+ * Structured data for `/pages/*`. This route owns one SERVICES path
+ * (`/pages/custom-store-project`) and all 19 `/pages/cs-*` case studies, so
+ * both are handled here rather than in per-page route files.
+ */
+function pageJsonLd(
+  pathname: string,
+  page: PageSeoSource | undefined,
+): ReturnType<Route.MetaFunction> {
+  const service = serviceJsonLd(pathname);
+  if (service.length) return service;
+
+  if (!page?.handle?.startsWith('cs-')) return [];
+
+  return caseStudyJsonLd({
+    path: `/pages/${page.handle}`,
+    clientName: clientNameFromHandle(page.handle),
+    headline: page.seo?.title || page.title || '',
+    description:
+      page.seo?.description?.trim() ||
+      textFromHtml((page as {body?: string}).body) ||
+      '',
+  });
+}
 
 // Route-level stylesheets are loaded conditionally from `meta()` above
 // (see `getPageStylesheetLinks`), since `links()` has no access to loader

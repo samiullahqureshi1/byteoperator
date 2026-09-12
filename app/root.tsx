@@ -19,6 +19,7 @@ import headerMenusStyles from '~/styles/header-menus.css?url';
 import {PageLayout} from './components/PageLayout';
 import footerStyles from '~/styles/footer.css?url';
 import floatingContactCtaStyles from '~/styles/floating-contact-cta.css?url';
+import {SITEWIDE_GRAPH, jsonLdString} from '~/lib/seo/schema';
 export type RootLoader = typeof loader;
 
 /**
@@ -177,6 +178,18 @@ export function Layout({children}: {children?: React.ReactNode}) {
         ></link>
         <Meta />
         <Links />
+        {/*
+          Sitewide structured data: parent Organization, ProfessionalService
+          and WebSite as one @graph. Rendered here rather than via a route
+          meta() so it is present on every response including 404s and the
+          error boundary, which never reach a route's meta.
+        */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLdString(SITEWIDE_GRAPH),
+          }}
+        />
       </head>
       <body>
         {children}
