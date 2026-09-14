@@ -1,6 +1,21 @@
 import type {Route} from './+types/api.contact-submit';
+import {
+  toTagSlug,
+  upsertCustomerLead,
+  type LeadMetafield,
+} from '~/lib/shopify-admin.server';
 
 const RECIPIENT = '2009tabontech@gmail.com';
+
+const METAFIELD_NAMESPACE = 'custom';
+
+/**
+ * Applied to every contact enquiry, alongside the per-answer tags built below.
+ * `lead` is shared with the AI visibility audit form so both funnels can be
+ * segmented together; `contact-form` follows the store's existing
+ * `getting-started-form` convention for naming the originating form.
+ */
+const BASE_TAGS = ['contact-form', 'lead'] as const;
 
 const CLOUDINARY_URL_PREFIX = 'https://res.cloudinary.com/';
 
@@ -124,6 +139,170 @@ export async function action({context, request}: Route.ActionArgs) {
     return jsonResponse({error: 'That file link is not valid.'}, 400);
   }
 
+  const hasConsent = Boolean(marketingConsent) && marketingConsent !== 'off';
+
+  const newsletter = hasConsent ? 'Yes' : 'No';
+
+  const submittedAt = new Date().toISOString();
+
+  /*
+   * Every answer is stored twice on purpose: the metafield keeps the exact
+   * wording for a human to read, while the tag is a slug the team can segment
+   * and filter customers by in the admin.
+   */
+  const answers: {key: string; tagPrefix: string; value: string}[] = [
+    {key: 'contact_budget', tagPrefix: 'budget', value: budget},
+    {key: 'contact_service', tagPrefix: 'service', value: service},
+    {key: 'contact_source', tagPrefix: 'source', value: source},
+  ];
+
+  const leadMetafields: LeadMetafield[] = [
+    {
+      namespace: METAFIELD_NAMESPACE,
+      key: 'company_name',
+      type: 'single_line_text_field',
+      value: company,
+    },
+    {
+      namespace: METAFIELD_NAMESPACE,
+      key: 'contact_phone',
+      type: 'single_line_text_field',
+      value: phone,
+    },
+    {
+      namespace: METAFIELD_NAMESPACE,
+      key: 'messagerequirements',
+      type: 'multi_line_text_field',
+      value: message,
+    },
+    {
+      namespace: METAFIELD_NAMESPACE,
+      key: 'contact_submitted_at',
+      type: 'date_time',
+      value: submittedAt,
+    },
+    ...answers
+      .filter((answer) => answer.value)
+      .map((answer) => ({
+        namespace: METAFIELD_NAMESPACE,
+        key: answer.key,
+        type: 'single_line_text_field',
+        value: answer.value,
+      })),
+    ...(uploadedUrl
+      ? [
+          {
+            namespace: METAFIELD_NAMESPACE,
+            key: 'contact_file_url',
+            type: 'url',
+            value: uploadedUrl,
+          },
+        ]
+      : []),
+  ];
+
+  const leadTags = [
+    ...BASE_TAGS,
+    // Matches the tag the store already uses for newsletter subscribers.
+    ...(hasConsent ? ['newsletter'] : []),
+    ...answers
+      .map((answer) => toTagSlug(answer.tagPrefix, answer.value))
+      .filter(Boolean),
+  ];
+
+  const leadNote = [
+    'Website contact enquiry',
+    `Company: ${company}`,
+    `Phone: ${phone}`,
+    `Budget: ${budget}`,
+    service ? `Service: ${service}` : '',
+    `Found us via: ${source}`,
+    uploadedUrl ? `Uploaded file: ${uploadedUrl}` : '',
+    `Submitted: ${submittedAt}`,
+    '',
+    message,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  /*
+   * Deliberately started before — and independent of — the EmailJS send, so
+   * the enquiry is recorded against the customer even when email delivery is
+   * misconfigured or down. The two then run concurrently.
+   *
+   * The `.catch` keeps this from ever rejecting: several paths below return
+   * early, and an unawaited rejection would take down the worker.
+   */
+  const leadPromise = upsertCustomerLead(context.env, {
+    email,
+    firstName,
+    lastName,
+    phone,
+    note: leadNote,
+    tags: leadTags,
+    metafields: leadMetafields,
+    subscribeToMarketing: hasConsent,
+  }).catch((error: unknown) => ({
+    ok: false as const,
+    reason: error instanceof Error ? error.message : String(error),
+  }));
+
+  /**
+   * Awaits the customer write and logs the outcome. Called on every exit path
+   * so the request never resolves while the write is still in flight — a
+   * worker can be torn down the moment the response is returned.
+   */
+  async function settleLead() {
+    const lead = await leadPromise;
+
+    if (!lead.ok) {
+      console.error(
+        `[contact-submit] FAIL — the customer record was not saved for "${email}". Reason: ${lead.reason}`,
+      );
+
+      return false;
+    }
+
+    if (lead.consentWarning) {
+      console.error(
+        `[contact-submit] PARTIAL — customer ${lead.customerId} saved for "${email}" but marketing consent was rejected. Reason: ${lead.consentWarning}`,
+      );
+    }
+
+    console.log(
+      `[contact-submit] SUCCESS — ${
+        lead.created ? 'created' : 'updated'
+      } customer ${lead.customerId} for "${email}" with tags [${leadTags.join(
+        ', ',
+      )}].`,
+    );
+
+    return true;
+  }
+
+  /**
+   * Builds the response for a failed email send.
+   *
+   * The enquiry is stored against the Shopify customer independently of the
+   * email, so when that write succeeded the submission genuinely has been
+   * received and the visitor is told so — showing an error there would be
+   * untrue and would push them into sending a duplicate. Only a submission
+   * that reached neither the inbox nor the customer record is a real failure.
+   */
+  async function emailFailureResponse(visitorError: string, status: number) {
+    const leadSaved = await settleLead();
+
+    if (leadSaved) {
+      console.error(
+        `[contact-submit] DEGRADED — no email was sent for "${email}", but the enquiry is saved on the customer record. Check Shopify for leads tagged "contact-form".`,
+      );
+
+      return jsonResponse({ok: true});
+    }
+
+    return jsonResponse({ok: false, error: visitorError}, status);
+  }
+
   const serviceId = context.env.SERVICE_ID;
   const templateId = context.env.TEMPLETE_ID;
   const publicKey = context.env.PUBLIC_MAILJS_API_KEY;
@@ -140,17 +319,12 @@ export async function action({context, request}: Route.ActionArgs) {
       },
     );
 
-    return jsonResponse(
-      {
-        ok: false,
-        error: `Enquiries are not available right now. Please email ${RECIPIENT} instead.`,
-      },
+    return emailFailureResponse(
+      `Enquiries are not available right now. Please email ${RECIPIENT} instead.`,
       500,
     );
   }
 
-  const newsletter =
-    marketingConsent && marketingConsent !== 'off' ? 'Yes' : 'No';
 
   // The template's `message` variable is the only place left to surface an
   // uploaded file link — the fixed template_params list below has no
@@ -202,11 +376,8 @@ export async function action({context, request}: Route.ActionArgs) {
       }`,
     );
 
-    return jsonResponse(
-      {
-        ok: false,
-        error: `We could not send your enquiry. Please try again or email ${RECIPIENT}.`,
-      },
+    return emailFailureResponse(
+      `We could not send your enquiry. Please try again or email ${RECIPIENT}.`,
       502,
     );
   }
@@ -218,11 +389,8 @@ export async function action({context, request}: Route.ActionArgs) {
       }`,
     );
 
-    return jsonResponse(
-      {
-        ok: false,
-        error: 'We could not send your enquiry. Please try again.',
-      },
+    return emailFailureResponse(
+      'We could not send your enquiry. Please try again.',
       502,
     );
   }
@@ -230,6 +398,8 @@ export async function action({context, request}: Route.ActionArgs) {
   console.log(
     `[contact-submit] SUCCESS — EmailJS accepted the enquiry from "${email}" for ${RECIPIENT}. HTTP ${response.status}: ${responseText}`,
   );
+
+  await settleLead();
 
   return jsonResponse({ok: true});
 }

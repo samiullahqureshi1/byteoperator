@@ -21,5 +21,18 @@ declare global {
     TEMPLETE_ID: string;
     PUBLIC_MAILJS_API_KEY: string;
     PRIVATE_MAILJS_API_KEY: string;
+    /**
+     * Shopify Admin API (custom app) — used by /api/audit-signup to write
+     * leads into the customer database. Never expose these to the browser.
+     */
+    SHOPIFY_STORE_DOMAIN: string;
+    SHOPIFY_ADMIN_TOKEN: string;
+    SHOPIFY_API_VERSION: string;
+    /**
+     * Cloudflare Turnstile — bot protection for public forms. The CAPTCHA is
+     * enforced only when both are set; leave them unset to disable it.
+     */
+    PUBLIC_TURNSTILE_SITE_KEY?: string;
+    TURNSTILE_SECRET_KEY?: string;
   }
 }

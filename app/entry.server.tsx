@@ -7,6 +7,8 @@ import {
 } from '@shopify/hydrogen';
 import type {EntryContext} from 'react-router';
 
+const TURNSTILE_ORIGIN = 'https://challenges.cloudflare.com';
+
 export default async function handleRequest(
   request: Request,
   responseStatusCode: number,
@@ -19,6 +21,11 @@ export default async function handleRequest(
       checkoutDomain: context.env.PUBLIC_CHECKOUT_DOMAIN,
       storeDomain: context.env.PUBLIC_STORE_DOMAIN,
     },
+    // Cloudflare Turnstile (form bot protection): its script and challenge
+    // iframe fall under default-src; its telemetry under connect-src.
+    // Hydrogen merges these with its own defaults.
+    defaultSrc: [TURNSTILE_ORIGIN],
+    connectSrc: [TURNSTILE_ORIGIN],
   });
 
   const body = await renderToReadableStream(

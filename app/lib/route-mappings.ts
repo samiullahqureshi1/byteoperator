@@ -20,6 +20,9 @@ export const AI_SEO_CLEAN_PATH = '/ai-seo-agency/';
 export const GEO_PAGE_HANDLE = 'geo-agency';
 export const GEO_CLEAN_PATH = '/geo-agency/';
 
+export const AI_VISIBILITY_AUDIT_PAGE_HANDLE = 'ai-visibility-audit';
+export const AI_VISIBILITY_AUDIT_CLEAN_PATH = '/ai-visibility-audit/';
+
 export const CRO_PAGE_HANDLE = 'shopify-cro-agency';
 export const CRO_CLEAN_PATH = '/shopify-cro-agency/';
 
@@ -54,7 +57,16 @@ export const OLD_TO_CLEAN_PATHS = {
   [`/pages/${CONTACT_PAGE_HANDLE}`]: CONTACT_CLEAN_PATH,
   '/pages/contact-us': CONTACT_CLEAN_PATH,
   '/pages/contact-us/': CONTACT_CLEAN_PATH,
-  '/pages/case-studies': '/case-studies',
+  /*
+   * `/case-studies` was never a real page — no Shopify page carries that
+   * handle, so the clean URL 404'd while `/pages/case-studies` happily 301'd
+   * into it. The homepage feature grid links here ten times via
+   * `ROUTES.caseStudies`, so every one of those was a dead end.
+   *
+   * `/work` is the live case-study index. Kept below `/pages/work` so
+   * `resolveLegacyPath('/work')` still resolves to the `work` page handle.
+   */
+  '/pages/case-studies': '/work',
   // Canonical Shopify source handle first: `resolveLegacyPath` returns the
   // first `/pages/*` entry that points at a clean path, so the retired
   // `shopify-development` / `theme-development` spellings must stay below it.
@@ -241,6 +253,7 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/events': '/events',
   '/pages/careers': '/careers',
   '/pages/why-shopify': '/why-shopify',
+
 } as const;
 
 export type LegacyPagePath = keyof typeof OLD_TO_CLEAN_PATHS;

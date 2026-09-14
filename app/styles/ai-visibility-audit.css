@@ -1,0 +1,713 @@
+/* =========================================================
+   FOLDTECH — AI VISIBILITY AUDIT
+========================================================= */
+
+.ft-audit-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  padding:
+    calc(var(--charle-header-height) + 3.5rem)
+    7.1vw
+    5rem;
+
+  background: var(--ft-dark-deep, #01151b);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.ft-audit-hero__gradient {
+  pointer-events: none;
+
+  position: absolute;
+  top: 4rem;
+  left: 48%;
+
+  width: 58vw;
+  height: 55vh;
+
+  transform: translateX(-20%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(64, 173, 170, 0.16) 0%,
+      rgba(64, 173, 170, 0.07) 34%,
+      rgba(1, 21, 27, 0) 72%
+    );
+
+  filter: blur(5vw);
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.ft-audit-hero__container {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 94rem;
+
+  margin-inline: auto;
+}
+
+.ft-audit-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+}
+
+.ft-audit-hero__left {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   HERO COPY
+========================================================= */
+
+.ft-audit-hero__eyebrow {
+  margin: 0 0 1rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.8125rem;
+  font-weight: 400;
+
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: var(--ft-teal, #40adaa);
+}
+
+.ft-audit-hero__title {
+  max-width: none;
+
+  margin: 0 0 1.25rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 3.5rem;
+  font-weight: 300;
+
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+
+  color: #ffffff;
+}
+
+.ft-audit-hero__description {
+  max-width: 42rem;
+
+  margin: 0 0 2.5rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  font-weight: 300;
+
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+
+  color: rgba(255, 255, 255, 0.78);
+}
+
+
+/* =========================================================
+   WHAT THE AUDIT COVERS
+========================================================= */
+
+.ft-audit-hero__checks {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.14);
+}
+
+.ft-audit-hero__check {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 1.25rem;
+
+  padding: 1.35rem 0;
+
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.14);
+}
+
+.ft-audit-hero__check-number {
+  flex: 0 0 auto;
+
+  font-family: "Season Serif", serif;
+
+  font-size: 0.8125rem;
+  font-weight: 400;
+
+  line-height: 1.5;
+
+  color: var(--ft-teal, #40adaa);
+}
+
+.ft-audit-hero__check-body {
+  min-width: 0;
+}
+
+.ft-audit-hero__check-title {
+  margin: 0 0 0.35rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 1.0625rem;
+  font-weight: 400;
+
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+
+  color: #ffffff;
+}
+
+.ft-audit-hero__check-text {
+  margin: 0;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.9375rem;
+  font-weight: 300;
+
+  line-height: 1.55;
+
+  color: rgba(255, 255, 255, 0.66);
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.ft-audit-hero__form-card {
+  width: 100%;
+
+  padding: 1.5rem;
+
+  border-radius: 1.25rem;
+
+  background: #ffffff;
+  color: #000000;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.ft-audit-form {
+  display: block;
+
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  font-family: "Season Sans", sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ft-audit-form__title {
+  margin: 0 0 0.4rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 1.5rem;
+  font-weight: 300;
+
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+
+  color: #000000;
+}
+
+.ft-audit-form__subtitle {
+  margin: 0 0 1.6rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.875rem;
+  font-weight: 300;
+
+  line-height: 1.5;
+
+  color: #4a4a4a;
+}
+
+.ft-audit-form__row {
+  width: 100%;
+  max-width: none;
+
+  box-sizing: border-box;
+
+  margin-bottom: 0.95rem;
+}
+
+.ft-audit-form__row--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.95rem;
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+.ft-audit-form__label {
+  display: block;
+
+  margin: 0 0 0.35rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.95rem;
+  font-weight: 300;
+
+  line-height: 1;
+
+  color: #000000;
+
+  cursor: pointer;
+}
+
+.ft-audit-form__required {
+  margin-left: 0.15rem;
+
+  color: #d94742;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.ft-audit-form__input,
+.ft-audit-form__select {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  /* base.css applies a global `input` margin/padding - neutralise it here */
+  margin: 0;
+
+  min-height: 0;
+  height: auto;
+
+  padding: 0.45rem 0 0.5rem;
+
+  border: 0;
+  border-bottom:
+    0.0625rem
+    solid
+    #a1a1a1;
+
+  border-radius: 0;
+
+  outline: 0;
+
+  background: transparent;
+
+  font-family: "Season Serif", serif;
+
+  font-size: 0.875rem;
+  font-weight: 400;
+
+  line-height: 1.2;
+
+  color: #000000;
+
+  transition: border-color 0.3s ease;
+}
+
+.ft-audit-form__input:focus,
+.ft-audit-form__select:focus {
+  border-bottom-color: #000000;
+}
+
+.ft-audit-form__input::placeholder {
+  color: #c4c4c4;
+}
+
+.ft-audit-form__input:user-invalid,
+.ft-audit-form__select:user-invalid {
+  border-bottom-color: #d94742;
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.ft-audit-form__select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  padding-right: 1.5rem;
+
+  font-family: "Season Sans", sans-serif;
+  font-weight: 300;
+
+  color: #777777;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+  background-position: right 0.25rem center;
+  background-size: 0.625rem auto;
+}
+
+.ft-audit-form__select option {
+  color: #000000;
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   HONEYPOT
+========================================================= */
+
+.ft-audit-form__honeypot {
+  position: absolute !important;
+
+  left: -625rem !important;
+
+  width: 0.0625rem !important;
+  height: 0.0625rem !important;
+
+  overflow: hidden !important;
+}
+
+
+/* =========================================================
+   SECURITY CHECK (TURNSTILE)
+========================================================= */
+
+/* Collapses to nothing while the widget stays invisible. */
+.ft-audit-form__captcha:not(:empty) {
+  margin-top: 1.1rem;
+}
+
+
+/* =========================================================
+   MARKETING OPT-IN
+========================================================= */
+
+.ft-audit-form__consent {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 0.625rem;
+
+  margin: 1.35rem 0 1.35rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.8125rem;
+  font-weight: 300;
+
+  line-height: 1.55;
+
+  color: #4a4a4a;
+
+  cursor: pointer;
+}
+
+.ft-audit-form__consent input {
+  flex: 0 0 auto;
+
+  width: 0.875rem;
+  height: 0.875rem;
+
+  margin: 0.2rem 0 0;
+
+  accent-color: var(--ft-dark-deep, #01151b);
+
+  cursor: pointer;
+}
+
+.ft-audit-form__consent span {
+  flex: 1;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.ft-audit-form__error {
+  margin: 0 0 0.9rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.75rem;
+  font-weight: 300;
+
+  line-height: 1.4;
+
+  color: #b3261e;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.ft-audit-form__submit {
+  appearance: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.625rem;
+
+  min-height: 2.8rem;
+
+  padding: 0.8rem 1.75rem;
+
+  border: 0;
+  border-radius: 999rem;
+
+  background: var(--ft-dark-deep, #01151b);
+  color: #ffffff;
+
+  font-family: "Season Serif", serif;
+
+  font-size: 1rem;
+  font-weight: 400;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.2s ease,
+    background-color 0.3s ease;
+}
+
+.ft-audit-form__submit svg {
+  width: 0.8125rem;
+  height: 0.8125rem;
+
+  transition: transform 0.3s ease;
+}
+
+.ft-audit-form__submit:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+@media (hover: hover) {
+  .ft-audit-form__submit:not(:disabled):hover {
+    background: var(--ft-dark, #041f27);
+  }
+
+  .ft-audit-form__submit:not(:disabled):hover svg {
+    transform: translateX(0.2rem);
+  }
+}
+
+.ft-audit-form__submit:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+.ft-audit-form__note {
+  margin: 1rem 0 0;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.75rem;
+  font-weight: 300;
+
+  line-height: 1.5;
+
+  color: #777777;
+}
+
+
+/* =========================================================
+   SUCCESS STATE
+========================================================= */
+
+.ft-audit-form__thanks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 1rem 0;
+}
+
+.ft-audit-form__thanks-title {
+  margin: 0 0 0.75rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 1.75rem;
+  font-weight: 300;
+
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+
+  color: #000000;
+}
+
+.ft-audit-form__thanks-text {
+  margin: 0 0 1.5rem;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.9375rem;
+  font-weight: 300;
+
+  line-height: 1.55;
+
+  color: #4a4a4a;
+}
+
+.ft-audit-form__thanks-reset {
+  appearance: none;
+
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  font-family: "Season Sans", sans-serif;
+
+  font-size: 0.875rem;
+  font-weight: 300;
+
+  color: #000000;
+
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+
+  cursor: pointer;
+}
+
+.ft-audit-form__thanks-reset:hover {
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 30rem) {
+  .ft-audit-form__row--split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 64rem) {
+  .ft-audit-hero {
+    padding:
+      calc(var(--charle-header-height) + 3.5rem)
+      5.33vw
+      5rem;
+  }
+
+  .ft-audit-hero__grid {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    column-gap: 4rem;
+
+    align-items: start;
+  }
+
+  .ft-audit-hero__form-card {
+    padding: 2.5rem;
+  }
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 80rem) {
+  .ft-audit-hero__grid {
+    column-gap: 4.5rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 47.99rem) {
+  .ft-audit-hero {
+    padding:
+      calc(var(--charle-header-height) + 2.5rem)
+      1.5rem
+      3.5rem;
+  }
+
+  .ft-audit-hero__title {
+    font-size: 2.5rem;
+  }
+
+  .ft-audit-form__submit {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-audit-form__input,
+  .ft-audit-form__select,
+  .ft-audit-form__submit,
+  .ft-audit-form__submit svg {
+    transition: none;
+  }
+}

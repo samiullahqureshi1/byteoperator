@@ -6,6 +6,7 @@ import {
   resolveLegacyPath,
 } from '~/lib/route-mappings';
 import {serviceJsonLd} from '~/lib/seo/jsonld';
+import {shouldNoindex} from '~/lib/seo/empty-pages';
 import {
   buildPageMeta,
   getPageStylesheetLinks,
@@ -206,6 +207,15 @@ export async function loadCleanPage({
 export const meta: Route.MetaFunction = (args) => [
   ...(basePageMeta(args) ?? []),
   ...serviceJsonLd(args.location.pathname),
+  /*
+   * `noindex,follow` for the handful of pages that render nothing and have
+   * nothing pending (runbook 0.5, step C). Driven by an explicit allowlist in
+   * `empty-pages.ts` — never by a runtime check on content length, which would
+   * silently de-index a page the moment an editor trimmed it.
+   */
+  ...(shouldNoindex(args.location.pathname)
+    ? [{name: 'robots', content: 'noindex,follow'}]
+    : []),
 ];
 
 export async function loader(args: Route.LoaderArgs) {

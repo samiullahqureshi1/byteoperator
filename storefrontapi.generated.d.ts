@@ -442,25 +442,31 @@ export type FooterQuery = {
   >;
 };
 
+export type LlmsArticlesQueryVariables = StorefrontAPI.Exact<{
+  blogHandle: StorefrontAPI.Scalars['String']['input'];
+  country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
+  language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
+}>;
+
+export type LlmsArticlesQuery = {
+  blog?: StorefrontAPI.Maybe<{
+    articles: {
+      nodes: Array<
+        Pick<
+          StorefrontAPI.Article,
+          'handle' | 'title' | 'excerpt' | 'content' | 'publishedAt'
+        >
+      >;
+    };
+  }>;
+};
+
 export type StoreRobotsQueryVariables = StorefrontAPI.Exact<{
   country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
   language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
 }>;
 
 export type StoreRobotsQuery = {shop: Pick<StorefrontAPI.Shop, 'id'>};
-
-export type NewsletterCustomerCreateMutationVariables = StorefrontAPI.Exact<{
-  input: StorefrontAPI.CustomerCreateInput;
-}>;
-
-export type NewsletterCustomerCreateMutation = {
-  customerCreate?: StorefrontAPI.Maybe<{
-    customer?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Customer, 'id'>>;
-    customerUserErrors: Array<
-      Pick<StorefrontAPI.CustomerUserError, 'code' | 'field' | 'message'>
-    >;
-  }>;
-};
 
 export type CaseStudyImageFragment = Pick<
   StorefrontAPI.Image,
@@ -522,6 +528,9 @@ export type JournalArticleQuery = {
           | 'contentHtml'
           | 'publishedAt'
         > & {
+          authorV2?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.ArticleAuthor, 'name'>
+          >;
           image?: StorefrontAPI.Maybe<
             Pick<
               StorefrontAPI.Image,
@@ -530,6 +539,9 @@ export type JournalArticleQuery = {
           >;
           seo?: StorefrontAPI.Maybe<
             Pick<StorefrontAPI.Seo, 'description' | 'title'>
+          >;
+          lastModified?: StorefrontAPI.Maybe<
+            Pick<StorefrontAPI.Metafield, 'value'>
           >;
           articleType?: StorefrontAPI.Maybe<
             Pick<StorefrontAPI.Metafield, 'value'>
@@ -814,47 +826,6 @@ export type CollectionQuery = {
       };
     }
   >;
-};
-
-export type CollectionFragment = Pick<
-  StorefrontAPI.Collection,
-  'id' | 'title' | 'handle'
-> & {
-  image?: StorefrontAPI.Maybe<
-    Pick<StorefrontAPI.Image, 'id' | 'url' | 'altText' | 'width' | 'height'>
-  >;
-};
-
-export type StoreCollectionsQueryVariables = StorefrontAPI.Exact<{
-  country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
-  endCursor?: StorefrontAPI.InputMaybe<
-    StorefrontAPI.Scalars['String']['input']
-  >;
-  first?: StorefrontAPI.InputMaybe<StorefrontAPI.Scalars['Int']['input']>;
-  language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
-  last?: StorefrontAPI.InputMaybe<StorefrontAPI.Scalars['Int']['input']>;
-  startCursor?: StorefrontAPI.InputMaybe<
-    StorefrontAPI.Scalars['String']['input']
-  >;
-}>;
-
-export type StoreCollectionsQuery = {
-  collections: {
-    nodes: Array<
-      Pick<StorefrontAPI.Collection, 'id' | 'title' | 'handle'> & {
-        image?: StorefrontAPI.Maybe<
-          Pick<
-            StorefrontAPI.Image,
-            'id' | 'url' | 'altText' | 'width' | 'height'
-          >
-        >;
-      }
-    >;
-    pageInfo: Pick<
-      StorefrontAPI.PageInfo,
-      'hasNextPage' | 'hasPreviousPage' | 'startCursor' | 'endCursor'
-    >;
-  };
 };
 
 export type MoneyCollectionItemFragment = Pick<
@@ -1992,11 +1963,15 @@ interface GeneratedQueryTypes {
     return: FooterQuery;
     variables: FooterQueryVariables;
   };
+  '#graphql\n  query LlmsArticles(\n    $blogHandle: String!\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(country: $country, language: $language) {\n    blog(handle: $blogHandle) {\n      articles(first: 250, sortKey: PUBLISHED_AT, reverse: true) {\n        nodes {\n          handle\n          title\n          excerpt\n          content\n          publishedAt\n        }\n      }\n    }\n  }\n': {
+    return: LlmsArticlesQuery;
+    variables: LlmsArticlesQueryVariables;
+  };
   '#graphql\n  query StoreRobots($country: CountryCode, $language: LanguageCode)\n   @inContext(country: $country, language: $language) {\n    shop {\n      id\n    }\n  }\n': {
     return: StoreRobotsQuery;
     variables: StoreRobotsQueryVariables;
   };
-  '#graphql\n  fragment CaseStudyImage on Image {\n    url\n    altText\n    width\n    height\n  }\n\n  fragment CaseStudyMediaReference on MetafieldReference {\n    ... on MediaImage {\n      image {\n        ...CaseStudyImage\n      }\n    }\n    ... on Video {\n      alt\n      previewImage {\n        ...CaseStudyImage\n      }\n      sources {\n        url\n        mimeType\n      }\n    }\n    ... on GenericFile {\n      alt\n      mimeType\n      url\n      previewImage {\n        ...CaseStudyImage\n      }\n    }\n  }\n\n  query JournalArticle(\n    $articleHandle: String!\n    $blogHandle: String!\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    blog(handle: $blogHandle) {\n      handle\n      articleByHandle(handle: $articleHandle) {\n        id\n        handle\n        title\n        tags\n        excerpt\n        contentHtml\n        publishedAt\n        image {\n          id\n          altText\n          url\n          width\n          height\n        }\n        seo {\n          description\n          title\n        }\n        articleType: metafield(namespace: "custom", key: "article_type") {\n          value\n        }\n        services: metafield(namespace: "custom", key: "services") {\n          value\n        }\n        platform: metafield(namespace: "custom", key: "platform") {\n          value\n        }\n        caseStudyTitle: metafield(\n          namespace: "custom"\n          key: "case_study_title"\n        ) {\n          value\n        }\n        caseStudySubheading: metafield(\n          namespace: "custom"\n          key: "case_study_subheading"\n        ) {\n          value\n        }\n        caseStudyBlogDetails: metafield(\n          namespace: "custom"\n          key: "case_study_blog_post"\n        ) {\n          reference {\n            ... on Metaobject {\n              fields {\n                key\n                type\n                value\n                reference {\n                  ...CaseStudyMediaReference\n                }\n                references(first: 20) {\n                  nodes {\n                    ...CaseStudyMediaReference\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n': {
+  '#graphql\n  fragment CaseStudyImage on Image {\n    url\n    altText\n    width\n    height\n  }\n\n  fragment CaseStudyMediaReference on MetafieldReference {\n    ... on MediaImage {\n      image {\n        ...CaseStudyImage\n      }\n    }\n    ... on Video {\n      alt\n      previewImage {\n        ...CaseStudyImage\n      }\n      sources {\n        url\n        mimeType\n      }\n    }\n    ... on GenericFile {\n      alt\n      mimeType\n      url\n      previewImage {\n        ...CaseStudyImage\n      }\n    }\n  }\n\n  query JournalArticle(\n    $articleHandle: String!\n    $blogHandle: String!\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    blog(handle: $blogHandle) {\n      handle\n      articleByHandle(handle: $articleHandle) {\n        id\n        handle\n        title\n        tags\n        excerpt\n        contentHtml\n        publishedAt\n        authorV2 {\n          name\n        }\n        image {\n          id\n          altText\n          url\n          width\n          height\n        }\n        seo {\n          description\n          title\n        }\n        lastModified: metafield(\n          namespace: "custom"\n          key: "last_modified"\n        ) {\n          value\n        }\n        articleType: metafield(namespace: "custom", key: "article_type") {\n          value\n        }\n        services: metafield(namespace: "custom", key: "services") {\n          value\n        }\n        platform: metafield(namespace: "custom", key: "platform") {\n          value\n        }\n        caseStudyTitle: metafield(\n          namespace: "custom"\n          key: "case_study_title"\n        ) {\n          value\n        }\n        caseStudySubheading: metafield(\n          namespace: "custom"\n          key: "case_study_subheading"\n        ) {\n          value\n        }\n        caseStudyBlogDetails: metafield(\n          namespace: "custom"\n          key: "case_study_blog_post"\n        ) {\n          reference {\n            ... on Metaobject {\n              fields {\n                key\n                type\n                value\n                reference {\n                  ...CaseStudyMediaReference\n                }\n                references(first: 20) {\n                  nodes {\n                    ...CaseStudyMediaReference\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n': {
     return: JournalArticleQuery;
     variables: JournalArticleQueryVariables;
   };
@@ -2015,10 +1990,6 @@ interface GeneratedQueryTypes {
   '#graphql\n  #graphql\n  fragment MoneyProductItem on MoneyV2 {\n    amount\n    currencyCode\n  }\n  fragment ProductItem on Product {\n    id\n    handle\n    title\n    featuredImage {\n      id\n      altText\n      url\n      width\n      height\n    }\n    priceRange {\n      minVariantPrice {\n        ...MoneyProductItem\n      }\n      maxVariantPrice {\n        ...MoneyProductItem\n      }\n    }\n  }\n\n  query Collection(\n    $handle: String!\n    $country: CountryCode\n    $language: LanguageCode\n    $first: Int\n    $last: Int\n    $startCursor: String\n    $endCursor: String\n  ) @inContext(country: $country, language: $language) {\n    collection(handle: $handle) {\n      id\n      handle\n      title\n      description\n      products(\n        first: $first,\n        last: $last,\n        before: $startCursor,\n        after: $endCursor\n      ) {\n        nodes {\n          ...ProductItem\n        }\n        pageInfo {\n          hasPreviousPage\n          hasNextPage\n          endCursor\n          startCursor\n        }\n      }\n    }\n  }\n': {
     return: CollectionQuery;
     variables: CollectionQueryVariables;
-  };
-  '#graphql\n  fragment Collection on Collection {\n    id\n    title\n    handle\n    image {\n      id\n      url\n      altText\n      width\n      height\n    }\n  }\n  query StoreCollections(\n    $country: CountryCode\n    $endCursor: String\n    $first: Int\n    $language: LanguageCode\n    $last: Int\n    $startCursor: String\n  ) @inContext(country: $country, language: $language) {\n    collections(\n      first: $first,\n      last: $last,\n      before: $startCursor,\n      after: $endCursor\n    ) {\n      nodes {\n        ...Collection\n      }\n      pageInfo {\n        hasNextPage\n        hasPreviousPage\n        startCursor\n        endCursor\n      }\n    }\n  }\n': {
-    return: StoreCollectionsQuery;
-    variables: StoreCollectionsQueryVariables;
   };
   '#graphql\n  query Catalog(\n    $country: CountryCode\n    $language: LanguageCode\n    $first: Int\n    $last: Int\n    $startCursor: String\n    $endCursor: String\n  ) @inContext(country: $country, language: $language) {\n    products(first: $first, last: $last, before: $startCursor, after: $endCursor) {\n      nodes {\n        ...CollectionItem\n      }\n      pageInfo {\n        hasPreviousPage\n        hasNextPage\n        startCursor\n        endCursor\n      }\n    }\n  }\n  #graphql\n  fragment MoneyCollectionItem on MoneyV2 {\n    amount\n    currencyCode\n  }\n  fragment CollectionItem on Product {\n    id\n    handle\n    title\n    featuredImage {\n      id\n      altText\n      url\n      width\n      height\n    }\n    priceRange {\n      minVariantPrice {\n        ...MoneyCollectionItem\n      }\n      maxVariantPrice {\n        ...MoneyCollectionItem\n      }\n    }\n  }\n\n': {
     return: CatalogQuery;
@@ -2066,12 +2037,7 @@ interface GeneratedQueryTypes {
   };
 }
 
-interface GeneratedMutationTypes {
-  '#graphql\n  mutation NewsletterCustomerCreate($input: CustomerCreateInput!) {\n    customerCreate(input: $input) {\n      customer {\n        id\n      }\n      customerUserErrors {\n        code\n        field\n        message\n      }\n    }\n  }\n': {
-    return: NewsletterCustomerCreateMutation;
-    variables: NewsletterCustomerCreateMutationVariables;
-  };
-}
+interface GeneratedMutationTypes {}
 
 declare module '@shopify/hydrogen' {
   interface StorefrontQueries extends GeneratedQueryTypes {}

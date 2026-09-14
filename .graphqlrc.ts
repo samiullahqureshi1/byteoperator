@@ -17,6 +17,7 @@ const graphqlConfig: IGraphQLConfig = {
         // Admin API operations, not Storefront ones. Validating them against
         // the storefront schema reports fields like `customers` as unknown.
         '!./app/routes/api.newsletter-subscribe.tsx',
+        '!./app/lib/shopify-admin.server.ts',
       ],
     },
 

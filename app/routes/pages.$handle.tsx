@@ -53,6 +53,7 @@ import aboutSpaceStyles from '~/styles/about-space.css?url';
 import aboutTeamStyles from '~/styles/about-team.css?url';
 import aboutJoinStyles from '~/styles/about-join.css?url';
 import homeSideRailStyles from '~/styles/home-side-rail.css?url';
+import aiVisibilityAuditStyles from '~/styles/ai-visibility-audit.css?url';
 import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
 import {ShopifyPlusPage} from '~/components/services/ShopifyPlusPage';
 import {EcommerceSeoHero} from '~/components/seo/EcommerceSeoHero';
@@ -71,6 +72,7 @@ import {AboutSpace} from '~/components/about/AboutSpace';
 import {AboutJoin} from '~/components/about/AboutJoin';
 import {HomeObservatory} from '~/components/HomeObservatory';
 import {HomeSideRail} from '~/components/HomeSideRail';
+import {AiVisibilityAuditHero} from '~/components/audit/AiVisibilityAuditHero';
 import {EcommerceSeoTechStack} from '~/components/seo/EcommerceSeoTechStack';
 import {EcommerceSeoEducation} from '~/components/seo/EcommerceSeoEducation';
 import {EcommerceSeoReporting} from '~/components/seo/EcommerceSeoReporting';
@@ -84,6 +86,7 @@ import {
   serviceJsonLd,
   textFromHtml,
 } from '~/lib/seo/jsonld';
+import {isKnownEmptyPage} from '~/lib/seo/empty-pages';
 import {ServicePlusAgencyCta} from '~/components/services/detail/ServicePlusAgencyCta';
 import {EcommerceSeoShopifySpecialism} from '~/components/seo/EcommerceSeoShopifySpecialism';
 import {
@@ -108,6 +111,7 @@ import {
   CONTACT_PAGE_HANDLE,
   AI_SEO_PAGE_HANDLE,
   GEO_PAGE_HANDLE,
+  AI_VISIBILITY_AUDIT_PAGE_HANDLE,
   CRO_PAGE_HANDLE,
   CRO_CLEAN_PATH,
   AB_TESTING_PAGE_HANDLE,
@@ -179,6 +183,7 @@ const STYLESHEET_ORDER: ReadonlyArray<readonly [string, string]> = [
   ['about-team', aboutTeamStyles],
   ['about-join', aboutJoinStyles],
   ['home-side-rail', homeSideRailStyles],
+  ['ai-visibility-audit', aiVisibilityAuditStyles],
 ];
 
 type PageStylesheetSource = {
@@ -199,7 +204,9 @@ export function getPageStylesheetLinks(page: PageStylesheetSource | undefined) {
   const needed = new Set<string>();
   const add = (...keys: string[]) => keys.forEach((key) => needed.add(key));
 
-  if (handle === 'work') {
+  if (handle === AI_VISIBILITY_AUDIT_PAGE_HANDLE) {
+    add('ai-visibility-audit');
+  } else if (handle === 'work') {
     add(
       'work-hero',
       'work-results',
@@ -468,6 +475,16 @@ function pageJsonLd(
   pathname: string,
   page: PageSeoSource | undefined,
 ): ReturnType<Route.MetaFunction> {
+  /*
+   * 74 of the 128 pages in the sitemap render nothing but header and footer,
+   * including all 18 `/pages/cs-*` case studies (runbook 0.5). Describing a
+   * blank page as a Service or a CreativeWork asserts content that isn't
+   * there, so those pages get no structured data until they are built.
+   *
+   * Remove a path from KNOWN_EMPTY_PAGE_PATHS and its schema returns.
+   */
+  if (isKnownEmptyPage(pathname)) return [];
+
   const service = serviceJsonLd(pathname);
   if (service.length) return service;
 
@@ -682,6 +699,10 @@ export function PageContent({
     topCaseStudyArticles,
     caseStudyArticles,
   } = data;
+
+  if (page.handle === AI_VISIBILITY_AUDIT_PAGE_HANDLE) {
+    return <AiVisibilityAuditHero />;
+  }
 
   if (page.handle === 'work') {
     return (
