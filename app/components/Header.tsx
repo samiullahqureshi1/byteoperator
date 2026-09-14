@@ -1,5 +1,5 @@
 import {useEffect,useRef, useState} from 'react';
-import {NavLink} from 'react-router';
+import {NavLink, useLocation} from 'react-router';
 
 import type {
   CartApiQueryFragment,
@@ -106,7 +106,41 @@ export function HeaderMenu({
   viewport: Viewport;
   publicStoreDomain: HeaderProps['publicStoreDomain'];
 }) {
-  
+  const navRef = useRef<HTMLElement>(null);
+  const {pathname} = useLocation();
+
+  /*
+   * Client-side navigation keeps focus on the link that was used. If that
+   * link is inside a mega menu, keyboard focus would hold the menu open over
+   * the new page, so focus is released once the route changes.
+   */
+  useEffect(() => {
+    const active = document.activeElement;
+
+    if (active instanceof HTMLElement && navRef.current?.contains(active)) {
+      active.blur();
+    }
+  }, [pathname]);
+
+  // Escape closes a keyboard-opened menu, as users expect of any popup.
+  useEffect(() => {
+    const nav = navRef.current;
+
+    if (!nav) return;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (
+        event.key === 'Escape' &&
+        document.activeElement instanceof HTMLElement
+      ) {
+        document.activeElement.blur();
+      }
+    }
+
+    nav.addEventListener('keydown', handleKeyDown);
+
+    return () => nav.removeEventListener('keydown', handleKeyDown);
+  }, [viewport]);
 
   const menuItems =
     menu?.items && menu.items.length > 0
@@ -137,6 +171,7 @@ export function HeaderMenu({
 
   return (
     <nav
+      ref={navRef}
       className="charle-header__navigation"
       aria-label="Main navigation"
     >
@@ -191,7 +226,7 @@ export function HeaderMenu({
                * Resources is a menu trigger, not a destination. It keeps
                * the nav-link class so its appearance is unchanged, and
                * stays focusable so the mega menu still opens on keyboard
-               * focus via the existing :focus-within rule.
+               * focus via the `:has(:focus-visible)` rule.
                */
               <button
                 className="charle-header__nav-link charle-header__nav-link--trigger"

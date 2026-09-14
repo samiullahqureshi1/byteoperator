@@ -50,8 +50,22 @@
 
 
 .charle-header__nav-item--mega:hover
-  > .charle-header__nav-link::after,
-.charle-header__nav-item--mega:focus-within
+  > .charle-header__nav-link::after {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+/*
+ * Keyboard reveal. `:focus-visible`, not `:focus-within`: a mouse click
+ * leaves focus on the clicked link, and because client-side navigation
+ * never blurs it, `:focus-within` held the menu open after the pointer
+ * had left. Kept as its own rule so a browser without `:has()` drops
+ * only this rule, not the hover rule above.
+ */
+.charle-header__nav-item--mega:has(:focus-visible)
   > .charle-header__nav-link::after {
   opacity: 1;
 
@@ -116,8 +130,19 @@
 
 
 .charle-header__nav-item--mega:hover
-  > .ft-mega-menu,
-.charle-header__nav-item--mega:focus-within
+  > .ft-mega-menu {
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+/* Keyboard reveal — see the triangle rule above for why it's separate. */
+.charle-header__nav-item--mega:has(:focus-visible)
   > .ft-mega-menu {
   opacity: 1;
   visibility: visible;
