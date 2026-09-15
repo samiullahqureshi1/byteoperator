@@ -155,6 +155,10 @@ export function Layout({children}: {children?: React.ReactNode}) {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
+        <meta
+          name="google-site-verification"
+          content="google1b58bbfd0f5536d1"
+        />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="stylesheet" href={baseStyles} fetchPriority="high"></link>
         <link rel="stylesheet" href={headerStyles} fetchPriority="high"></link>
