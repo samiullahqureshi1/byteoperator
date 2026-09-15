@@ -57,6 +57,12 @@ export const OLD_TO_CLEAN_PATHS = {
   [`/pages/${CONTACT_PAGE_HANDLE}`]: CONTACT_CLEAN_PATH,
   '/pages/contact-us': CONTACT_CLEAN_PATH,
   '/pages/contact-us/': CONTACT_CLEAN_PATH,
+  // Keep these backend pages pointed to the main contact flow instead of
+  // rendering the Shopify-managed content.
+  '/pages/discovery-meeting-with-the-shopify-experts': CONTACT_CLEAN_PATH,
+  '/pages/discovery-meeting-with-the-shopify-experts/': CONTACT_CLEAN_PATH,
+  '/pages/shopify-experts': CONTACT_CLEAN_PATH,
+  '/pages/shopify-experts/': CONTACT_CLEAN_PATH,
   /*
    * `/case-studies` was never a real page — no Shopify page carries that
    * handle, so the clean URL 404'd while `/pages/case-studies` happily 301'd

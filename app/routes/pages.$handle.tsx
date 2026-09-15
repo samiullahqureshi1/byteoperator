@@ -521,6 +521,16 @@ export async function loader(args: Route.LoaderArgs) {
     : rawHandle;
   const requestUrl = new URL(args.request.url);
   const pagePath = `/pages/${handle}`;
+
+  // These backend booking pages intentionally route to the contact flow instead
+  // of rendering their content.
+  if (
+    handle === 'discovery-meeting-with-the-shopify-experts' ||
+    handle === 'shopify-experts'
+  ) {
+    throw redirect(CONTACT_CLEAN_PATH + requestUrl.search, 301);
+  }
+
   const cleanPath = resolveCleanPath(pagePath);
 
   // Ignore a trailing-slash-only difference for React Router single fetches.
