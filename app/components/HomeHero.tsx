@@ -3,6 +3,7 @@ import {
   resolveCleanPath,
   SHOPIFY_SEO_CLEAN_PATH,
 } from '~/lib/route-mappings';
+import {CalendlyButton} from '~/components/shared/CalendlyButton';
 
 const HERO_SERVICES = [
   {
@@ -102,7 +103,10 @@ export function HomeHero() {
           ))}
         </div>
 
-        <a
+        <div className="ft-home-hero__actions">
+          <CalendlyButton className="ft-home-hero__book-cta" />
+
+          <a
           className="ft-home-hero__work-link"
           href="#ft-home-hero-gallery"
           onClick={(event) => {
@@ -112,7 +116,8 @@ export function HomeHero() {
         >
           <span>See our work</span>
           <ArrowDownIcon />
-        </a>
+          </a>
+        </div>
       </div>
     </section>
   );

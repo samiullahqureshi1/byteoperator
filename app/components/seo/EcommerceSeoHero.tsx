@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 import {ClientProof} from '~/components/shared/ClientProof';
 import {WORK_HERO_LOGOS, WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
 import {TRACK_RECORD_FACTS} from '~/data/companyFacts';
+import {CalendlyButton} from '~/components/shared/CalendlyButton';
 import {CountUpNumber} from '~/components/work/WorkResults';
 import {
   ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS,
@@ -147,15 +148,23 @@ export function EcommerceSeoHero({
               <p className="ft-ecommerce-seo-hero__description">                {description}
               </p>
 
-              <Link
-                className="ft-ecommerce-seo-hero__cta"
-                to="/contact"
-                prefetch="intent"
-              >
-                <span>{ctaLabel}</span>
+              <div className="ft-ecommerce-seo-hero__ctas">
+                <Link
+                  className="ft-ecommerce-seo-hero__cta"
+                  to="/contact"
+                  prefetch="intent"
+                >
+                  <span>{ctaLabel}</span>
 
-                <HeroCtaArrow />
-              </Link>
+                  <HeroCtaArrow />
+                </Link>
+
+                <CalendlyButton className="ft-ecommerce-seo-hero__cta ft-ecommerce-seo-hero__cta--book">
+                  <span>Book a Call</span>
+
+                  <HeroCtaArrow />
+                </CalendlyButton>
+              </div>
             </div>
           </div>
 

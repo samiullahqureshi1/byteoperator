@@ -9,6 +9,10 @@ import type {EntryContext} from 'react-router';
 
 const TURNSTILE_ORIGIN = 'https://challenges.cloudflare.com';
 
+/** Calendly booking popup: widget.js and widget.css, plus the booking iframe. */
+const CALENDLY_ASSETS_ORIGIN = 'https://assets.calendly.com';
+const CALENDLY_ORIGIN = 'https://calendly.com';
+
 export default async function handleRequest(
   request: Request,
   responseStatusCode: number,
@@ -24,8 +28,19 @@ export default async function handleRequest(
     // Cloudflare Turnstile (form bot protection): its script and challenge
     // iframe fall under default-src; its telemetry under connect-src.
     // Hydrogen merges these with its own defaults.
-    defaultSrc: [TURNSTILE_ORIGIN],
-    connectSrc: [TURNSTILE_ORIGIN],
+    //
+    // Calendly rides the same route deliberately. Hydrogen sets no explicit
+    // script-src, img-src or frame-src, so all three fall back to default-src
+    // — naming any of them here would create the directive from scratch and
+    // drop Shopify's own origins and the Turnstile iframe with it. style-src
+    // IS explicit, so the stylesheet has to be granted separately below.
+    defaultSrc: [
+      TURNSTILE_ORIGIN,
+      CALENDLY_ASSETS_ORIGIN,
+      CALENDLY_ORIGIN,
+    ],
+    styleSrc: [CALENDLY_ASSETS_ORIGIN],
+    connectSrc: [TURNSTILE_ORIGIN, CALENDLY_ORIGIN],
   });
 
   const body = await renderToReadableStream(

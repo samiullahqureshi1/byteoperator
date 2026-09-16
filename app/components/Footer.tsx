@@ -6,6 +6,7 @@ import type {
   HeaderQuery,
 } from 'storefrontapi.generated';
 import {normalizeMenuUrl} from '~/lib/normalize-menu-url';
+import {CalendlyButton} from '~/components/shared/CalendlyButton';
 
 interface FooterProps {
   footer: Promise<FooterQuery | null>;
@@ -61,15 +62,23 @@ export function Footer({
               <em>ecommerce.</em>
             </h2>
 
-            <NavLink
-              className="ft-footer__primary-cta"
-              to="/contact"
-              prefetch="intent"
-            >
-              <span>Get in touch</span>
+            <div className="ft-footer__cta-group">
+              <CalendlyButton className="ft-footer__primary-cta">
+                <span>Book a Call</span>
 
-              <DiagonalArrow />
-            </NavLink>
+                <DiagonalArrow />
+              </CalendlyButton>
+
+              <NavLink
+                className="ft-footer__primary-cta ft-footer__primary-cta--secondary"
+                to="/contact"
+                prefetch="intent"
+              >
+                <span>Get in touch</span>
+
+                <DiagonalArrow />
+              </NavLink>
+            </div>
            
           </div>
 

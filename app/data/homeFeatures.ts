@@ -49,7 +49,9 @@ export type HomeFeatureBadge = {
 
 export type HomeFeatureButton = {
   label: string;
-  href: string;
+  /** Omitted on a booking button, which opens the Calendly popup instead. */
+  href?: string;
+  calendly?: boolean;
 };
 
 export type HomeFeatureMedia = {

@@ -2,6 +2,7 @@ import {Link} from 'react-router';
 import {resolveCanonicalPath} from '~/lib/route-mappings';
 
 import type {HomeFeatureData} from '~/data/homeFeatures';
+import {CalendlyButton} from '~/components/shared/CalendlyButton';
 
 /* =========================================================
    FOLDTECH — REUSABLE HOME FEATURE
@@ -107,18 +108,29 @@ export function HomeFeature({
             </div>
 
             <div className="ft-home-feature__buttons">
-              {feature.buttons.map((button) => (
-                <Link
-                  className="ft-home-feature__button"
-                  key={`${feature.id}-${button.label}`}
-                  to={resolveCanonicalPath(button.href)}
-                  prefetch="intent"
-                >
-                  <span>{button.label}</span>
+              {feature.buttons.map((button) =>
+                button.calendly ? (
+                  <CalendlyButton
+                    className="ft-home-feature__button"
+                    key={`${feature.id}-${button.label}`}
+                  >
+                    <span>{button.label}</span>
 
-                  <ButtonArrow />
-                </Link>
-              ))}
+                    <ButtonArrow />
+                  </CalendlyButton>
+                ) : (
+                  <Link
+                    className="ft-home-feature__button"
+                    key={`${feature.id}-${button.label}`}
+                    to={resolveCanonicalPath(button.href ?? '/contact')}
+                    prefetch="intent"
+                  >
+                    <span>{button.label}</span>
+
+                    <ButtonArrow />
+                  </Link>
+                ),
+              )}
             </div>
           </div>
         </div>

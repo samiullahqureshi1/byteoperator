@@ -211,6 +211,10 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Get In Touch',
             href: SERVICE_PAGE_ROUTES.contact,
           },
+          {
+            label: 'Book a Call',
+            calendly: true,
+          },
         ],
         media: reuseHomeFeatureMedia('shopify-seo-geo'),
       },
@@ -240,6 +244,10 @@ export const SERVICE_PAGE_CONFIGS = {
           {
             label: 'Get In Touch',
             href: SERVICE_PAGE_ROUTES.contact,
+          },
+          {
+            label: 'Book a Call',
+            calendly: true,
           },
         ],
         media: reuseHomeFeatureMedia('shopify-launch'),
@@ -271,6 +279,10 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Get In Touch',
             href: SERVICE_PAGE_ROUTES.contact,
           },
+          {
+            label: 'Book a Call',
+            calendly: true,
+          },
         ],
         media: reuseHomeFeatureMedia('shopify-development'),
       },
@@ -301,6 +313,10 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Get In Touch',
             href: SERVICE_PAGE_ROUTES.contact,
           },
+          {
+            label: 'Book a Call',
+            calendly: true,
+          },
         ],
         media: reuseHomeFeatureMedia('shopify-design'),
       },
@@ -326,6 +342,10 @@ export const SERVICE_PAGE_CONFIGS = {
           {
             label: 'Get In Touch',
             href: SERVICE_PAGE_ROUTES.contact,
+          },
+          {
+            label: 'Book a Call',
+            calendly: true,
           },
         ],
         media: reuseHomeFeatureMedia('shopify-plus'),
@@ -382,6 +402,10 @@ export const SERVICE_PAGE_CONFIGS = {
           {
             label: 'Get In Touch',
             href: SERVICE_PAGE_ROUTES.contact,
+          },
+          {
+            label: 'Book a Call',
+            calendly: true,
           },
         ],
         media: reuseHomeFeatureMedia('shopify-support-growth'),
@@ -2612,6 +2636,10 @@ export const SERVICE_PAGE_CONFIGS = {
           {
             label: 'Explore SEO Migrations',
             href: SERVICE_PAGE_ROUTES.seoMigrations,
+          },
+          {
+            label: 'Book a Call',
+            calendly: true,
           },
         ],
         media: reuseHomeFeatureMedia('shopify-seo-geo'),

@@ -11,6 +11,7 @@ import {
   WORK_HERO_TESTIMONIAL,
 } from '~/data/workHeroProof';
 import {CONTACT_FACTS} from '~/data/companyFacts';
+import {CalendlyButton} from '~/components/shared/CalendlyButton';
 
 
 const CONTACT_STATS = CONTACT_FACTS;
@@ -312,6 +313,17 @@ export function ContactHero() {
                   />
 
                   <span>Typically replies within 24 hours</span>
+                </div>
+
+                <div className="ft-contact-hero__alt-action">
+                  <span className="ft-contact-hero__alt-action-label">
+                    Prefer to talk it through?
+                  </span>
+
+                  <CalendlyButton
+                    className="ft-contact-hero__book-cta"
+                    label="Book a Call"
+                  />
                 </div>
               </div>
 

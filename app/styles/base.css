@@ -665,3 +665,62 @@ button.reset:hover:not(:has(> *)) {
   gap: 0.75rem;
   flex-wrap: wrap;
 }
+
+
+/* =========================================================
+   CALENDLY CTA
+
+   The Book a Call CTA is a <button> (the popup is a script
+   call, not navigation) but it wears whichever FoldTech CTA
+   class its section uses.
+
+   :where() holds this at zero specificity, so every one of
+   those classes wins on any property it sets. This only
+   clears the browser's default button chrome underneath.
+========================================================= */
+
+button:where(.ft-calendly-button) {
+  appearance: none;
+  -webkit-appearance: none;
+
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  background: none;
+  color: inherit;
+
+  font: inherit;
+  text-align: inherit;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   CALENDLY POPUP OVERLAY
+
+   The widget's own scrollbar sits inside the dark overlay,
+   beside the modal, and reads as a stray page scrollbar.
+
+   Hidden visually only — scrolling still works, which a
+   short viewport needs to reach the bottom of the booking
+   form. Never swap these for overflow: hidden.
+========================================================= */
+
+.calendly-overlay,
+.calendly-overlay .calendly-popup,
+.calendly-overlay .calendly-popup-content {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.calendly-overlay::-webkit-scrollbar,
+.calendly-overlay .calendly-popup::-webkit-scrollbar,
+.calendly-overlay .calendly-popup-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+
+  display: none;
+}
+

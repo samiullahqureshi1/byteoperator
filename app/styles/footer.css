@@ -1210,3 +1210,33 @@
     height: 1.15rem;
   }
 }
+
+
+/* =========================================================
+   FOOTER CTA PAIR
+
+   Book a Call leads; the contact-form link keeps its place
+   beside it as the outline variant.
+========================================================= */
+
+.ft-footer__cta-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 1rem 1.5vw;
+}
+
+.ft-footer__primary-cta--secondary {
+  background: transparent;
+  color: #ffffff;
+
+  border: 0.0625rem solid rgba(255, 255, 255, 0.4);
+}
+
+.ft-footer__primary-cta--secondary:hover,
+.ft-footer__primary-cta--secondary:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+
+  border-color: #ffffff;
+}

@@ -588,3 +588,35 @@
 @keyframes ft-cro-variant-in { from { opacity: 0; transform: translateY(0.625rem); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 47.9375rem) { .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo { gap: 0.5rem; } .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-pill { white-space: normal; } .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__title.is-compact { font-size: clamp(1.8rem, 8.8vw, 2.2rem); } .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial { width: 100%; margin-top: 1.25rem; } .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial .ft-work-hero__testimonial { padding: 0.75rem; } }
 @media (prefers-reduced-motion: reduce) { .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-pill > span, .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial { animation: none; } }
+
+
+/* =========================================================
+   HERO CTA PAIR
+
+   The contact CTA keeps its solid treatment; the booking
+   button is the outline twin beside it.
+========================================================= */
+
+.ft-ecommerce-seo-hero__ctas {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+}
+
+.ft-ecommerce-seo-hero__ctas .ft-ecommerce-seo-hero__cta--book {
+  background: transparent;
+  color: var(--ft-white, #ffffff);
+
+  border: 0.0625rem solid rgba(255, 255, 255, 0.4);
+}
+
+.ft-ecommerce-seo-hero__ctas .ft-ecommerce-seo-hero__cta--book:hover,
+.ft-ecommerce-seo-hero__ctas .ft-ecommerce-seo-hero__cta--book:focus-visible {
+  opacity: 1;
+
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--ft-white, #ffffff);
+}
+

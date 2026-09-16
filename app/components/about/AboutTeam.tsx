@@ -1,3 +1,5 @@
+import {CalendlyButton} from '~/components/shared/CalendlyButton';
+
 const TEAM_MEMBERS = [
   {
     name: 'Alex Morgan',
@@ -75,6 +77,11 @@ export function AboutTeam() {
               >
                 Get in touch
               </a>
+
+              <CalendlyButton
+                className="ft-about-team__badge"
+                label="Book a Call"
+              />
             </div>
           </div>
 

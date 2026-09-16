@@ -1444,3 +1444,59 @@
     transition: none;
   }
 }
+
+
+/* =========================================================
+   BOOKING ALTERNATIVE TO THE FORM
+========================================================= */
+
+.ft-contact-hero__alt-action {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 0.75rem 1rem;
+
+  margin-top: 1.5rem;
+}
+
+.ft-contact-hero__alt-action-label {
+  font-family: "Season Sans", sans-serif;
+  font-size: 0.8125rem;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ft-contact-hero__book-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 2.5rem;
+
+  padding: 0 1.5rem;
+
+  border-radius: 50vw;
+
+  background: transparent;
+  color: #ffffff;
+
+  border: 0.0625rem solid rgba(255, 255, 255, 0.4);
+
+  font-family: "Season Sans", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1;
+
+  white-space: nowrap;
+
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.ft-contact-hero__book-cta:hover,
+.ft-contact-hero__book-cta:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+
+  border-color: #ffffff;
+}
