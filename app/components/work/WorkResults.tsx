@@ -5,37 +5,10 @@ import {
 } from 'react';
 import {Link} from 'react-router';
 
-const WORK_STATS = [
-  {
-    target: 22,
-    prefix: '',
-    suffix: ',000+',
-    decimals: 0,
-    label: 'Projects Successfully Delivered',
-  },
-  {
-    target: 3.4,
-    prefix: '$',
-    suffix: 'B+',
-    decimals: 1,
-    label: 'Client Revenue Generated',
-  },
-  {
-    target: 16,
-    prefix: '',
-    suffix: ',500+',
-    decimals: 0,
-    label: 'Shopify Stores Launched',
-  },
+import {WORK_FACTS, type CompanyFact} from '~/data/companyFacts';
+import {formatStatValue} from '~/lib/useCountUp';
 
-  {
-    target: 52,
-    prefix: '',
-    suffix: '%',
-    decimals: 0,
-    label: 'Average Conversion Improvement',
-  },
-];
+const WORK_STATS = WORK_FACTS;
 
 export function WorkResults() {
   return (
@@ -48,12 +21,7 @@ export function WorkResults() {
               key={stat.label}
             >
               <p className="ft-work-results__number">
-                <CountUpNumber
-                  target={stat.target}
-                  prefix={stat.prefix}
-                  suffix={stat.suffix}
-                  decimals={stat.decimals}
-                />
+                <CountUpNumber fact={stat} />
               </p>
 
               <p className="ft-work-results__label">
@@ -90,18 +58,12 @@ export function WorkResults() {
 }
 
 interface CountUpNumberProps {
-  target: number;
-  prefix?: string;
-  suffix?: string;
-  decimals?: number;
+  fact: CompanyFact;
 }
 
-export function CountUpNumber({
-  target,
-  prefix = '',
-  suffix = '',
-  decimals = 0,
-}: CountUpNumberProps) {
+export function CountUpNumber({fact}: CountUpNumberProps) {
+  const {target} = fact;
+
   const elementRef = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
   const animationFrame = useRef<number | null>(null);
@@ -180,11 +142,5 @@ export function CountUpNumber({
     };
   }, [target]);
 
-  return (
-    <span ref={elementRef}>
-      {prefix}
-      {value.toFixed(decimals)}
-      {suffix}
-    </span>
-  );
+  return <span ref={elementRef}>{formatStatValue(fact, value)}</span>;
 }

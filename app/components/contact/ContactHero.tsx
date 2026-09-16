@@ -10,27 +10,10 @@ import {
   WORK_HERO_LOGOS,
   WORK_HERO_TESTIMONIAL,
 } from '~/data/workHeroProof';
+import {CONTACT_FACTS} from '~/data/companyFacts';
 
 
-// TEMP development placeholders — replace with verified FoldTech stats before launch.
-const CONTACT_STATS = [
-  {
-    value: '42%',
-    label: 'Avg. conversion uplift',
-  },
-  {
-    value: '120+',
-    label: 'Ecommerce projects supported',
-  },
-  {
-    value: '38%',
-    label: 'Avg. organic growth',
-  },
-  {
-    value: '27%',
-    label: 'Avg. customer growth',
-  },
-] as const;
+const CONTACT_STATS = CONTACT_FACTS;
 
 const BUDGET_OPTIONS = [
   'Under $5,000',

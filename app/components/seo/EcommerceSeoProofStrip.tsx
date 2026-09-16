@@ -1,13 +1,21 @@
+import {COMPANY_FACTS} from '~/data/companyFacts';
+
 export type EcommerceSeoProofItem =
   | {type: 'text'; text: string}
   | {type: 'rating'; text: string}
   | {type: 'shopify-logos'; text: string};
 
 export const ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS = [
-  {type: 'rating', text: '4.8/5 on Google'},
+  {
+    type: 'rating',
+    text: `${COMPANY_FACTS.reviews.value} from ${COMPANY_FACTS.reviews.label}`,
+  },
   {type: 'shopify-logos', text: 'Shopify Plus Partner'},
-  {type: 'text', text: 'Est. 2018'},
-  {type: 'text', text: '15,000+ page 1 keywords'},
+  {type: 'text', text: `Est. ${COMPANY_FACTS.founded.value}`},
+  {
+    type: 'text',
+    text: `${COMPANY_FACTS.jobSuccess.value} ${COMPANY_FACTS.jobSuccess.label}`,
+  },
 ] as const satisfies readonly EcommerceSeoProofItem[];
 
 interface EcommerceSeoProofStripProps {

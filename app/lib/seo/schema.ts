@@ -24,11 +24,12 @@
 /* Constants                                                           */
 /* ------------------------------------------------------------------ */
 
+import {COMPANY_FACTS} from '~/data/companyFacts';
+
 export const SITE_URL = 'https://thefoldtech.com';
 
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
-export const PARENT_ORG_ID = `${SITE_URL}/#tabontech`;
 
 export const LOGO_URL =
   'https://cdn.shopify.com/oxygen-v2/57096/165594/338611/4441171/images/favicon_the_fold_tech.png';
@@ -75,15 +76,6 @@ export interface ArticleInput {
 /* 1. Organization — emitted sitewide                                  */
 /* ------------------------------------------------------------------ */
 
-export const PARENT_ORGANIZATION: JsonLd = {
-  '@type': 'Organization',
-  '@id': PARENT_ORG_ID,
-  name: 'TAB ON TECH (PVT.) LTD',
-  url: SITE_URL,
-  description:
-    'TAB ON TECH (PVT.) LTD is the parent technology company behind The Fold Tech and its ecommerce, AI and automation products.',
-};
-
 export const ORGANIZATION: JsonLd = {
   '@type': 'ProfessionalService',
   '@id': ORG_ID,
@@ -103,9 +95,8 @@ export const ORGANIZATION: JsonLd = {
   foundingDate: '2010',
   numberOfEmployees: {
     '@type': 'QuantitativeValue',
-    value: 49,
+    value: COMPANY_FACTS.team.target,
   },
-  parentOrganization: {'@id': PARENT_ORG_ID},
   email: 'info@thefoldtech.com',
   telephone: '+1-512-387-6926',
   address: {
@@ -201,7 +192,7 @@ export const WEBSITE: JsonLd = {
 /** The two nodes every page carries, wrapped in one @graph. */
 export const SITEWIDE_GRAPH: JsonLd = {
   '@context': 'https://schema.org',
-  '@graph': [PARENT_ORGANIZATION, ORGANIZATION, WEBSITE],
+  '@graph': [ORGANIZATION, WEBSITE],
 };
 
 /* ------------------------------------------------------------------ */

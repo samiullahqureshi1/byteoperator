@@ -117,12 +117,13 @@
 .ft-home-about__stats {
   display: grid;
 
+  /* All five figures sit on one line across desktop. */
   grid-template-columns:
-    repeat(4, minmax(0, 1fr));
+    repeat(5, minmax(0, 1fr));
 
   width: 100%;
 
-  gap: 2vw;
+  gap: 3.4vh 1.2vw;
 
   margin-top: 0;
 
@@ -141,17 +142,25 @@
 }
 
 
-/* Reference-style serif numbers */
+/* Same treatment as .ft-home-about__heading — family, weight, tracking,
+   line-height and colour all match. Only the size scales: six figures on
+   one line cap out around 2.9rem, where the heading runs at 3.75rem. */
 .ft-home-about__stat-value {
   margin: 0;
 
- font-family: "Season Serif", serif;
+  font-family: "Season Sans", sans-serif;
 
-  font-size: 2.35rem;
-  font-weight: 400;
-  line-height: 1;
+  /* Sized against "53,797" and "4.9/5.0", the widest values, with enough
+     headroom that a brand face with wider digits than the Arial fallback
+     still fits the nowrap tile. */
+  font-size: clamp(1.6rem, 2.6vw, 3.25rem);
+  font-weight: 300;
+  line-height: 1.15;
 
-  letter-spacing: -0.035em;
+  letter-spacing: -0.045em;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   white-space: nowrap;
 
@@ -159,20 +168,29 @@
 }
 
 
-/* Small muted label below */
+/* Same family, weight, tracking and colour as .ft-home-about__description,
+   set two steps smaller — these are captions under a figure, not body copy. */
 .ft-home-about__stat-label {
   margin:
     1vh
     0
     0;
 
-  font-family: "Season Sans", sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: 0.75rem;
-  font-weight: 400;
-  line-height: 1.4;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.5;
 
-  color: rgba(0, 0, 0, 0.48);
+  letter-spacing: -0.025em;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: #000000;
 }
 
 
@@ -402,6 +420,7 @@ font-family: "Season Sans", sans-serif;
     font-size: 1rem;
   }
 
+
   .ft-home-about__mark {
     flex-basis: 2vw;
 
@@ -466,8 +485,6 @@ font-family: "Season Sans", sans-serif;
 
   .ft-home-about__stat-label {
     margin-top: 0.7vh;
-
-    font-size: 0.75rem;
   }
 
 
@@ -562,6 +579,7 @@ font-family: "Season Sans", sans-serif;
     font-size: 0.9375rem;
     line-height: 1.55;
   }
+
 }
 
 

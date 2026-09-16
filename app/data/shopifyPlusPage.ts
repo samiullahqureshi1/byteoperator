@@ -3,6 +3,7 @@ import {
   type HomeProjectsProps,
 } from '~/components/HomeProjects';
 import {HOME_CLIENT_LOGOS} from '~/components/HomeServices';
+import {TRACK_RECORD_FACTS} from '~/data/companyFacts';
 import type {ServiceHeroProps} from '~/components/services/ServiceHero';
 import {
   HOME_FEATURES,
@@ -63,11 +64,9 @@ const lightHero = {
   theme: 'light',
   heading:
     'FoldTech is a Shopify Plus agency helping ambitious ecommerce brands launch, improve and grow.',
-  chips: [
-    '20K+ Tasks Delivered',
-    '15K+ Stores Built',
-    '$3.1B+ Merchant Revenue',
-  ],
+  chips: TRACK_RECORD_FACTS.map(
+    ({value, label}) => `${value} ${label}`,
+  ),
   description:
     'We design, build, and optimise high-performance Shopify Plus stores, whether youre launching a new site, migrating platforms, or upgrading from standard Shopify. Our expert team delivers tailored solutions across design, development, SEO, and email marketing to help brands unlock the full potential of Shopify Plus.',
   primaryCta: {

@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {Link} from 'react-router';
 import {ClientProof} from '~/components/shared/ClientProof';
 import {WORK_HERO_LOGOS, WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
+import {TRACK_RECORD_FACTS} from '~/data/companyFacts';
 import {CountUpNumber} from '~/components/work/WorkResults';
 import {
   ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS,
@@ -16,17 +17,7 @@ import {
    global styles cannot reproduce the reference layout.
 ========================================================= */
 
-const STATS = [
-  {target: 20, suffix: 'K+', label: 'Tasks Delivered'},
-  {target: 15, suffix: 'K+', label: 'Stores Built'},
-  {
-    target: 3.1,
-    prefix: '$',
-    suffix: 'B+',
-    decimals: 1,
-    label: 'Merchant Revenue',
-  },
-] as const;
+const STATS = TRACK_RECORD_FACTS;
 
 /**
  * Social proof strip items.
@@ -118,14 +109,7 @@ export function EcommerceSeoHero({
                       key={stat.label}
                     >
                       <dt className="ft-ecommerce-seo-hero__stat-value">
-                        <CountUpNumber
-                          target={stat.target}
-                          prefix={'prefix' in stat ? stat.prefix : undefined}
-                          suffix={stat.suffix}
-                          decimals={
-                            'decimals' in stat ? stat.decimals : undefined
-                          }
-                        />
+                        <CountUpNumber fact={stat} />
                       </dt>
 
                       <dd className="ft-ecommerce-seo-hero__stat-label">

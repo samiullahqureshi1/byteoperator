@@ -1,145 +1,12 @@
-import {useEffect, useRef, useState} from 'react';
 import {Link} from 'react-router';
 
-const ABOUT_STATS = [
-  {
-    label: (
-      <>
-        Tasks
-        <br />
-        Delivered
-      </>
-    ),
-    value: '20K+',
-  },
-  {
-    label: (
-      <>
-        Stores
-        <br />
-        Built
-      </>
-    ),
-    value: '15K+',
-  },
-  {
-    label: (
-      <>
-        Merchant
-        <br />
-        Revenue
-      </>
-    ),
-    value: '$3.1B+',
-  },
-  {
-    label: (
-      <>
-        Established
-        <br />
-        Since
-      </>
-    ),
-    value: '2018',
-  },
-] as const;
-
-const COUNT_CONFIG = {
-  '20K+': {target: 20, prefix: '', suffix: 'K+', decimals: 0},
-  '15K+': {target: 15, prefix: '', suffix: 'K+', decimals: 0},
-  '$3.1B+': {target: 3.1, prefix: '$', suffix: 'B+', decimals: 1},
-  '2018': {target: 2018, prefix: '', suffix: '', decimals: 0},
-} as const;
-
-const COUNT_DURATION = 1350;
-
-function formatStatValue(
-  value: keyof typeof COUNT_CONFIG,
-  amount: number,
-) {
-  const config = COUNT_CONFIG[value];
-  const number =
-    config.decimals === 1
-      ? amount.toFixed(1)
-      : Math.round(amount).toString();
-
-  return `${config.prefix}${number}${config.suffix}`;
-}
+import {ABOUT_FACTS} from '~/data/companyFacts';
+import {useCountUp} from '~/lib/useCountUp';
 
 export function AboutStoryStats() {
-  const statsRef = useRef<HTMLElement>(null);
-  const hasAnimatedRef = useRef(false);
-  const [displayValues, setDisplayValues] = useState<string[]>(() =>
-    ABOUT_STATS.map((stat) => formatStatValue(stat.value, 0)),
-  );
+  const {ref: statsRef, displayValues} = useCountUp<HTMLElement>(ABOUT_FACTS);
 
-  useEffect(() => {
-    const stats = statsRef.current;
 
-    if (!stats) return;
-
-    const showFinalValues = () => {
-      hasAnimatedRef.current = true;
-      setDisplayValues(ABOUT_STATS.map((stat) => stat.value));
-    };
-
-    if (
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      !('IntersectionObserver' in window)
-    ) {
-      showFinalValues();
-      return;
-    }
-
-    let animationFrameId: number | undefined;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting || hasAnimatedRef.current) return;
-
-        hasAnimatedRef.current = true;
-        observer.disconnect();
-
-        const startTime = performance.now();
-
-        const animate = (currentTime: number) => {
-          const progress = Math.min(
-            (currentTime - startTime) / COUNT_DURATION,
-            1,
-          );
-          const easedProgress = 1 - Math.pow(1 - progress, 3);
-
-          setDisplayValues(
-            ABOUT_STATS.map((stat) =>
-              formatStatValue(
-                stat.value,
-                COUNT_CONFIG[stat.value].target * easedProgress,
-              ),
-            ),
-          );
-
-          if (progress < 1) {
-            animationFrameId = requestAnimationFrame(animate);
-          } else {
-            setDisplayValues(ABOUT_STATS.map((stat) => stat.value));
-          }
-        };
-
-        animationFrameId = requestAnimationFrame(animate);
-      },
-      {threshold: 0.15},
-    );
-
-    observer.observe(stats);
-
-    return () => {
-      observer.disconnect();
-
-      if (animationFrameId !== undefined) {
-        cancelAnimationFrame(animationFrameId);
-      }
-    };
-  }, []);
   return (
     <section className="ft-about-story-stats">
       {/* About Story */}
@@ -210,24 +77,24 @@ export function AboutStoryStats() {
           </h2>
 
           <div className="ft-about-stats__inner">
-            {ABOUT_STATS.map((stat, index) => (
+            {ABOUT_FACTS.map((fact, index) => (
               <article
                 className="ft-about-stats__item"
-                key={stat.value}
+                key={fact.value}
               >
                 <p className="ft-about-stats__item-title">
-                  {stat.label}
+                  {fact.label}
                 </p>
 
                 <span
                   className="ft-about-stats__item-value"
-                  aria-label={stat.value}
+                  aria-label={`${fact.value} ${fact.label}`}
                 >
                   <span
                     className="ft-about-stats__item-value-reserve"
                     aria-hidden="true"
                   >
-                    {stat.value}
+                    {fact.value}
                   </span>
                   <span
                     className="ft-about-stats__item-value-counter"

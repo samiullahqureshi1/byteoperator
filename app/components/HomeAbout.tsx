@@ -1,14 +1,12 @@
 import {Link} from 'react-router';
 
-export type HomeAboutStat = {
-  value: string;
-  label: string;
-};
+import {HOME_FACTS, type CompanyFact} from '~/data/companyFacts';
+import {useCountUp} from '~/lib/useCountUp';
 
 export type HomeAboutData = {
   eyebrow: string;
   heading: string;
-  stats: readonly HomeAboutStat[];
+  stats: readonly CompanyFact[];
   rightHeading: {
     prefix: string;
     emphasis: string;
@@ -21,31 +19,12 @@ export type HomeAboutData = {
   };
 };
 
-export const HOME_ABOUT_STATS = [
-  {
-    value: '22,000+',
-    label: 'Projects Completed',
-  },
-  {
-    value: '16,500+',
-    label: 'Shopify Stores Launched',
-  },
-  {
-    value: '$3.4B+',
-    label: 'in Client Sales Generated',
-  },
-  {
-    value: '52%',
-    label: 'Average Conversion Improvement',
-  },
-] as const;
-
 const DEFAULT_HOME_ABOUT_DATA: HomeAboutData = {
   eyebrow:
     'Premier Shopify Growth Partners for Ambitious Brands',
   heading:
     'We Design, Develop & Scale Shopify Stores for Growth',
-  stats: HOME_ABOUT_STATS,
+  stats: HOME_FACTS,
   rightHeading: {
     prefix: 'Your',
     emphasis: 'Performance-Focused',
@@ -64,6 +43,10 @@ export function HomeAbout({
 }: {
   data?: HomeAboutData;
 } = {}) {
+  const {ref: statsRef, displayValues} = useCountUp<HTMLDivElement>(
+    data.stats,
+  );
+
   return (
     <section
       className="ft-home-about"
@@ -85,14 +68,20 @@ export function HomeAbout({
           <div
             className="ft-home-about__stats"
             aria-label="FoldTech performance statistics"
+            ref={statsRef}
           >
-            {data.stats.map((stat) => (
+            {data.stats.map((stat, index) => (
               <div
                 className="ft-home-about__stat"
                 key={stat.label}
               >
-                <p className="ft-home-about__stat-value">
-                  {stat.value}
+                <p
+                  className="ft-home-about__stat-value"
+                  aria-label={`${stat.value} ${stat.label}`}
+                >
+                  <span aria-hidden="true">
+                    {displayValues[index]}
+                  </span>
                 </p>
 
                 <p className="ft-home-about__stat-label">

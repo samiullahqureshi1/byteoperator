@@ -1,23 +1,10 @@
-const RESULTS = [
-  {
-    stat: '20K+',
-    title: 'Tasks Delivered',
-    description:
-      'Thousands of ecommerce, development and optimisation tasks delivered across client projects, giving our team practical experience across complex storefront requirements.',
-  },
-  {
-    stat: '15K+',
-    title: 'Stores Built',
-    description:
-      'Experience across a large range of ecommerce stores helps us connect SEO recommendations with the technical and commercial realities of building and scaling online stores.',
-  },
-  {
-    stat: '$3.1B+',
-    title: 'Merchant Revenue',
-    description:
-      'Our wider ecommerce experience spans merchants operating at significant scale, helping us approach search, development and optimisation with commercial outcomes in mind.',
-  },
-] as const;
+import {TRACK_RECORD_FACTS} from '~/data/companyFacts';
+
+const RESULTS = TRACK_RECORD_FACTS.map(({value, label, description}) => ({
+  stat: value,
+  title: label,
+  description,
+}));
 
 type EcommerceSeoResult = {
   stat: string;
