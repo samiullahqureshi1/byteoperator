@@ -260,6 +260,79 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/careers': '/careers',
   '/pages/why-shopify': '/why-shopify',
 
+
+  /* =====================================================
+     EMPTY PAGES — see docs/empty-pages-redirect-plan.md
+
+     52 URLs that rendered header and footer and nothing
+     else, measured against the live site on 13 Sep 2026.
+     Each is a duplicate or predecessor of a page that is
+     actually built, so it redirects there rather than
+     serving a blank page.
+
+     NOT here, deliberately:
+       - the 18 /pages/cs-* case studies, whose copy is
+         recoverable and being restored
+       - /careers and /events, which are noindex
+       - /pages/premium-dropshipping-store, which must be
+         deleted in Shopify rather than redirected
+  ===================================================== */
+
+  // Reachable from a live menu — a visitor can click into these.
+  '/pages/ai-visibility': '/ai-visibility-audit/',
+  '/pages/ai-visibility-implementation': '/ai-visibility-audit/',
+  '/pages/ai-visibility-monitoring': '/ai-visibility-audit/',
+  '/pages/bigcommerce-to-shopify-migration': '/bigcommerce-shopify-migrations/',
+  '/pages/conversion-rate-optimization': '/shopify-cro-agency/',
+  '/pages/free-ai-visibility-snapshot': '/ai-visibility-audit/',
+  '/pages/join-our-newsletter': '/newsletter',
+  '/pages/resources': '/guides',
+  '/pages/reviews': '/work',
+  '/pages/shopify-design-services': '/shopify-web-design',
+  '/pages/shopify-development-services-1': '/shopify-developers',
+  '/pages/shopify-marketing-services': '/services',
+  '/pages/shopify-speed-optimization': '/shopify-developers',
+
+  // Not linked from a menu; reachable by search or old links.
+  '/pages/analytics-tracking': '/services',
+  '/pages/branding-creative-direction': '/services',
+  '/pages/cart-drawer': '/shopify-developers',
+  '/pages/case-studies-1': '/work',
+  '/pages/custom-store-project': '/shopify-web-design',
+  '/pages/digital-branding-creative-direction-services': '/services',
+  '/pages/free-shopify-audit': '/services/shopify-audits/',
+  '/pages/funnel-building-lead-generation': '/services',
+  '/pages/getting-started': '/contact/',
+  '/pages/launch': '/services',
+  '/pages/lead-generation-services-and-funnel-building': '/services',
+  '/pages/learn-more': '/about',
+  '/pages/magento-to-shopify-migration': '/magento-shopify-migrations/',
+  '/pages/marketing-analytics-and-tracking': '/services',
+  '/pages/marketing-automation': '/email-marketing-agency/',
+  '/pages/marketing-sales': '/services',
+  '/pages/paid-social-scaling': '/services',
+  '/pages/retain': '/support-and-maintenance/',
+  '/pages/search': '/search-first',
+  '/pages/search-engine-optimization-seo': '/seo-agency',
+  '/pages/shopify-app-development-services': '/shopify-app-development/',
+  '/pages/shopify-conversion-rate-optimization': '/shopify-cro-agency/',
+  '/pages/shopify-custom-solutions': '/services',
+  '/pages/shopify-maintenance-services-1': '/support-and-maintenance/',
+  '/pages/shopify-marketing-automation': '/email-marketing-agency/',
+  '/pages/shopify-marketing-seo': '/seo-agency',
+  '/pages/shopify-migration-services': '/shopify-migrations/',
+  '/pages/shopify-paid-social': '/services',
+  '/pages/shopify-plus-partner-agency': '/shopify-plus-agency',
+  '/pages/shopify-seo-services': '/seo-agency',
+  '/pages/shopify-theme-customization': '/shopify-theme-development-builds/',
+  '/pages/sitelab-helpdesk': '/support-and-maintenance/',
+  '/pages/testimonials': '/work',
+  '/pages/the-fold-tech-approach-to-cro': '/shopify-cro-agency/',
+  '/pages/website-audit-service': '/services/shopify-audits/',
+  '/pages/website-audit-services': '/services/shopify-audits/',
+  '/pages/wix-to-shopify-migration-1': '/shopify-migrations/',
+  '/pages/woocommerce-to-shopify': '/woocommerce-shopify-migrations/',
+  '/pages/woocommerce-to-shopify-migration': '/woocommerce-shopify-migrations/',
 } as const;
 
 export type LegacyPagePath = keyof typeof OLD_TO_CLEAN_PATHS;
