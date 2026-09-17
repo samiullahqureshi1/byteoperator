@@ -57,6 +57,18 @@ export const CART_QUERY_FRAGMENT = `#graphql
           name
           value
         }
+        sellingPlanAllocations(first: 1) {
+          nodes {
+            sellingPlan {
+              id
+            }
+            priceAdjustments {
+              price {
+                ...Money
+              }
+            }
+          }
+        }
       }
     }
     parentRelationship {
@@ -116,6 +128,18 @@ export const CART_QUERY_FRAGMENT = `#graphql
         selectedOptions {
           name
           value
+        }
+        sellingPlanAllocations(first: 1) {
+          nodes {
+            sellingPlan {
+              id
+            }
+            priceAdjustments {
+              price {
+                ...Money
+              }
+            }
+          }
         }
       }
     }

@@ -86,18 +86,15 @@
   line-height: 1.2;
 }
 
+/* Savings use one accent, red, so they stand out on every screen. */
 .ft-bulk-hours__saving {
   padding: 0.125rem 0.5rem;
   border-radius: 999rem;
-  color: var(--ft-teal-light, #afdddc);
-  background: rgba(64, 173, 170, 0.2);
+  color: var(--ft-white, #ffffff);
+  background: #d63b3b;
   font-family: 'Season Sans', sans-serif;
   font-size: 0.75rem;
-}
-
-.ft-bulk-hours__plan:has(input:checked) .ft-bulk-hours__saving {
-  color: #0b5f5d;
-  background: rgba(64, 173, 170, 0.18);
+  font-weight: 600;
 }
 
 .ft-bulk-hours__plan-price {
@@ -362,4 +359,41 @@
   .ft-bulk-hours__buy-arrow {
     transition: none;
   }
+}
+
+/* Plan rules and savings */
+
+.ft-bulk-hours__was {
+  margin-right: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.55em;
+  letter-spacing: -0.02em;
+  vertical-align: middle;
+}
+
+/* Saving note: one plain sentence, the amount in red. */
+.ft-bulk-hours__note {
+  margin: -0.75rem 0 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.0625rem;
+  line-height: 1.45;
+}
+
+.ft-bulk-hours__note strong {
+  color: #ff8a80;
+  font-weight: 700;
+}
+
+.ft-bulk-hours__note button {
+  padding: 0;
+  border: 0;
+  color: #ff8a80;
+  background: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ft-bulk-hours__note button:focus-visible {
+  outline: 0.125rem solid var(--ft-teal, #40adaa);
+  outline-offset: 0.25rem;
 }

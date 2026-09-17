@@ -6,8 +6,8 @@ import {
   getSubscription,
   type BulkHoursProduct,
 } from '~/components/BulkHours';
+import {MAX_HOURS} from '~/lib/bulk-hours';
 
-const MAX_HOURS = 100;
 const PRESETS = [10, 25, 40, 50, 60, 80, 100];
 const TICKS = Array.from({length: MAX_HOURS}, (_, index) => index + 1);
 

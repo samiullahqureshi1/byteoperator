@@ -91,8 +91,9 @@
 .ft-bulk-hours-cta__rates dt span {
   padding: 0.125rem 0.5rem;
   border-radius: 999rem;
-  color: #0b5f5d;
-  background: rgba(64, 173, 170, 0.16);
+  color: var(--ft-white, #ffffff);
+  background: #d63b3b;
+  font-weight: 600;
   font-family: 'Season Sans', sans-serif;
   font-size: 0.75rem;
 }

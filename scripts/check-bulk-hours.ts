@@ -1,0 +1,34 @@
+// Checks the bulk hours quantity and money rules. Run: node scripts/check-bulk-hours.ts
+import assert from 'node:assert/strict';
+import {
+  multiplyMoney,
+  snapHours,
+  stepHours,
+  subtractMoney,
+} from '../app/lib/bulk-hours.ts';
+
+// One-time: 1–100 in steps of 1.
+assert.equal(snapHours(0, false), 1);
+assert.equal(snapHours(Number.NaN, false), 1);
+assert.equal(snapHours(37, false), 37);
+assert.equal(snapHours(250, false), 100);
+assert.equal(stepHours(1, false, -1), 1);
+assert.equal(stepHours(37, false, 1), 38);
+
+// Monthly: 10–100 in steps of 5.
+assert.equal(snapHours(1, true), 10);
+assert.equal(snapHours(12, true), 10);
+assert.equal(snapHours(13, true), 15);
+assert.equal(snapHours(100, true), 100);
+assert.equal(stepHours(10, true, -1), 10);
+assert.equal(stepHours(10, true, 1), 15);
+assert.equal(stepHours(24, true, -1), 20); // off-step quantities land on a step
+assert.equal(stepHours(24, true, 1), 25);
+assert.equal(stepHours(100, true, 1), 100);
+
+// Money in cents.
+assert.equal(multiplyMoney({amount: '49.99'}, 15).amount, '749.85');
+assert.equal(multiplyMoney({amount: '100.00'}, 10).amount, '1000.00');
+assert.equal(subtractMoney({amount: '100.00'}, {amount: '50.00'}).amount, '50.00');
+
+console.log('bulk hours rules: ok');

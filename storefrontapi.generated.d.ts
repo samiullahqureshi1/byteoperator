@@ -132,6 +132,14 @@ export type CartLineFragment = Pick<
     selectedOptions: Array<
       Pick<StorefrontAPI.SelectedOption, 'name' | 'value'>
     >;
+    sellingPlanAllocations: {
+      nodes: Array<{
+        sellingPlan: Pick<StorefrontAPI.SellingPlan, 'id'>;
+        priceAdjustments: Array<{
+          price: Pick<StorefrontAPI.MoneyV2, 'currencyCode' | 'amount'>;
+        }>;
+      }>;
+    };
   };
   parentRelationship?: StorefrontAPI.Maybe<{
     parent: Pick<StorefrontAPI.CartLine, 'id'>;
@@ -168,6 +176,14 @@ export type CartLineComponentFragment = Pick<
     selectedOptions: Array<
       Pick<StorefrontAPI.SelectedOption, 'name' | 'value'>
     >;
+    sellingPlanAllocations: {
+      nodes: Array<{
+        sellingPlan: Pick<StorefrontAPI.SellingPlan, 'id'>;
+        priceAdjustments: Array<{
+          price: Pick<StorefrontAPI.MoneyV2, 'currencyCode' | 'amount'>;
+        }>;
+      }>;
+    };
   };
   lineComponents: Array<
     Pick<StorefrontAPI.CartLine, 'id' | 'quantity'> & {
@@ -206,6 +222,14 @@ export type CartLineComponentFragment = Pick<
         selectedOptions: Array<
           Pick<StorefrontAPI.SelectedOption, 'name' | 'value'>
         >;
+        sellingPlanAllocations: {
+          nodes: Array<{
+            sellingPlan: Pick<StorefrontAPI.SellingPlan, 'id'>;
+            priceAdjustments: Array<{
+              price: Pick<StorefrontAPI.MoneyV2, 'currencyCode' | 'amount'>;
+            }>;
+          }>;
+        };
       };
       parentRelationship?: StorefrontAPI.Maybe<{
         parent: Pick<StorefrontAPI.CartLine, 'id'>;
@@ -272,6 +296,14 @@ export type CartApiQueryFragment = Pick<
             selectedOptions: Array<
               Pick<StorefrontAPI.SelectedOption, 'name' | 'value'>
             >;
+            sellingPlanAllocations: {
+              nodes: Array<{
+                sellingPlan: Pick<StorefrontAPI.SellingPlan, 'id'>;
+                priceAdjustments: Array<{
+                  price: Pick<StorefrontAPI.MoneyV2, 'currencyCode' | 'amount'>;
+                }>;
+              }>;
+            };
           };
           parentRelationship?: StorefrontAPI.Maybe<{
             parent: Pick<StorefrontAPI.CartLine, 'id'>;
@@ -313,6 +345,14 @@ export type CartApiQueryFragment = Pick<
             selectedOptions: Array<
               Pick<StorefrontAPI.SelectedOption, 'name' | 'value'>
             >;
+            sellingPlanAllocations: {
+              nodes: Array<{
+                sellingPlan: Pick<StorefrontAPI.SellingPlan, 'id'>;
+                priceAdjustments: Array<{
+                  price: Pick<StorefrontAPI.MoneyV2, 'currencyCode' | 'amount'>;
+                }>;
+              }>;
+            };
           };
           lineComponents: Array<
             Pick<StorefrontAPI.CartLine, 'id' | 'quantity'> & {
@@ -354,6 +394,17 @@ export type CartApiQueryFragment = Pick<
                 selectedOptions: Array<
                   Pick<StorefrontAPI.SelectedOption, 'name' | 'value'>
                 >;
+                sellingPlanAllocations: {
+                  nodes: Array<{
+                    sellingPlan: Pick<StorefrontAPI.SellingPlan, 'id'>;
+                    priceAdjustments: Array<{
+                      price: Pick<
+                        StorefrontAPI.MoneyV2,
+                        'currencyCode' | 'amount'
+                      >;
+                    }>;
+                  }>;
+                };
               };
               parentRelationship?: StorefrontAPI.Maybe<{
                 parent: Pick<StorefrontAPI.CartLine, 'id'>;

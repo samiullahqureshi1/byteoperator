@@ -214,7 +214,7 @@ if (!STATIC_ONLY) {
  * the app 301s into its own 404 — invisible until someone follows an old link.
  *
  * Uses the Storefront API, so it runs without Admin credentials.
- */
+ */        
 async function checkDeadCleanTargets(env) {
   const domain = env.PUBLIC_STORE_DOMAIN;
   const token = env.PUBLIC_STOREFRONT_API_TOKEN;

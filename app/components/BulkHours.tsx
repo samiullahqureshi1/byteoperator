@@ -5,6 +5,14 @@ import type {BulkHoursQuery} from 'storefrontapi.generated';
 import {AddToCartButton} from './AddToCartButton';
 import {useAside} from './Aside';
 import {CONTACT_CLEAN_PATH} from '~/lib/route-mappings';
+import {
+  MAX_HOURS,
+  hourRules,
+  multiplyMoney,
+  snapHours,
+  stepHours,
+  subtractMoney,
+} from '~/lib/bulk-hours';
 
 /*
  * The one product sold on the site. Prices are read from Shopify, not set
@@ -27,18 +35,10 @@ export const BULK_HOURS_IMAGE = {
   height: 1306,
 };
 
-const MIN_HOURS = 1;
-const MAX_HOURS = 100;
-
 export type BulkHoursProduct = NonNullable<BulkHoursQuery['product']>;
 type BulkHoursVariant = NonNullable<
   BulkHoursProduct['selectedOrFirstAvailableVariant']
 >;
-
-export function clampHours(value: number) {
-  if (!Number.isFinite(value)) return MIN_HOURS;
-  return Math.min(MAX_HOURS, Math.max(MIN_HOURS, Math.round(value)));
-}
 
 export function getSubscription(variant: BulkHoursVariant) {
   const plan = variant.sellingPlanAllocations.nodes[0];
@@ -70,29 +70,54 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
   const [searchParams] = useSearchParams();
   // `?hours=25` preselects hours, e.g. from the service pages' hour presets.
   const [hours, setHours] = useState(() =>
-    clampHours(Number(searchParams.get('hours'))),
+    snapHours(Number(searchParams.get('hours')), false),
   );
   const [subscribe, setSubscribe] = useState(false);
+  // Text typed into the hours box, applied on blur or Enter so typing "15"
+  // is not snapped to 10 after the "1".
+  const [draft, setDraft] = useState<string | null>(null);
 
   if (!variant) return null;
 
   const subscription = getSubscription(variant);
   const isSubscription = subscribe && Boolean(subscription);
+  const rules = hourRules(isSubscription);
   const unitPrice =
     isSubscription && subscription ? subscription.price : variant.price;
-  const total = {
-    ...unitPrice,
-    amount: (Number(unitPrice.amount) * hours).toFixed(2),
-  };
+  const total = multiplyMoney(unitPrice, hours);
+  const oneTimeTotal = multiplyMoney(variant.price, hours);
+
+  // Prices compared on the nearest monthly amount of hours. When subscribed
+  // that is the chosen hours; on one-time it shows what switching would cost.
+  const monthlyHours = snapHours(hours, true);
+  const savingPerHour = subscription
+    ? subtractMoney(variant.price, subscription.price)
+    : null;
+  const saving =
+    subscription && savingPerHour && Number(savingPerHour.amount) > 0
+      ? multiplyMoney(savingPerHour, monthlyHours)
+      : null;
   const savingPercent = subscription
     ? Math.round(
-        (1 -
-          Number(subscription.price.amount) / Number(variant.price.amount)) *
+        (1 - Number(subscription.price.amount) / Number(variant.price.amount)) *
           100,
       )
     : 0;
-  const progress = (hours - MIN_HOURS) / (MAX_HOURS - MIN_HOURS);
+
+  const progress = (hours - rules.min) / (rules.max - rules.min);
   const hoursLabel = `${hours} ${hours === 1 ? 'hour' : 'hours'}`;
+
+  function choosePlan(monthly: boolean) {
+    setSubscribe(monthly);
+    setHours((current) => snapHours(current, monthly));
+    setDraft(null);
+  }
+
+  function applyDraft() {
+    if (draft === null) return;
+    setHours(snapHours(Number(draft), isSubscription));
+    setDraft(null);
+  }
 
   return (
     <div className="ft-bulk-hours">
@@ -103,7 +128,7 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
             type="radio"
             name="ft-bulk-hours-plan"
             checked={!isSubscription}
-            onChange={() => setSubscribe(false)}
+            onChange={() => choosePlan(false)}
           />
           <span className="ft-bulk-hours__plan-name">One-time</span>
           <span className="ft-bulk-hours__plan-price">
@@ -118,7 +143,7 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
               type="radio"
               name="ft-bulk-hours-plan"
               checked={isSubscription}
-              onChange={() => setSubscribe(true)}
+              onChange={() => choosePlan(true)}
             />
             <span className="ft-bulk-hours__plan-name">
               Monthly
@@ -140,27 +165,26 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
         className="ft-bulk-hours__hours"
         style={{'--progress': progress} as React.CSSProperties}
       >
-        <output
-          className="ft-bulk-hours__count"
-          htmlFor="ft-bulk-hours-range"
-        >
+        <output className="ft-bulk-hours__count" htmlFor="ft-bulk-hours-range">
           {hoursLabel}
         </output>
         <input
           id="ft-bulk-hours-range"
           className="ft-bulk-hours__range"
           type="range"
-          min={MIN_HOURS}
-          max={MAX_HOURS}
+          min={rules.min}
+          max={rules.max}
+          step={rules.step}
           value={hours}
           aria-label="Hours"
-          onChange={(event) =>
-            setHours(clampHours(event.target.valueAsNumber))
-          }
+          onChange={(event) => {
+            setHours(snapHours(event.target.valueAsNumber, isSubscription));
+            setDraft(null);
+          }}
         />
         <div className="ft-bulk-hours__scale" aria-hidden="true">
-          <span>{MIN_HOURS}</span>
-          <span>{MAX_HOURS}</span>
+          <span>{rules.min}</span>
+          <span>{rules.max}</span>
         </div>
       </div>
 
@@ -168,28 +192,41 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
         <div className="ft-bulk-hours__stepper">
           <button
             type="button"
-            aria-label="Remove an hour"
-            disabled={hours <= MIN_HOURS}
-            onClick={() => setHours(clampHours(hours - 1))}
+            aria-label={
+              isSubscription ? `Remove ${rules.step} hours` : 'Remove an hour'
+            }
+            disabled={hours <= rules.min}
+            onClick={() => {
+              setHours(stepHours(hours, isSubscription, -1));
+              setDraft(null);
+            }}
           >
             &minus;
           </button>
           <input
             type="number"
             inputMode="numeric"
-            min={MIN_HOURS}
-            max={MAX_HOURS}
-            value={hours}
+            min={rules.min}
+            max={rules.max}
+            step={rules.step}
+            value={draft ?? hours}
             aria-label="Number of hours"
-            onChange={(event) =>
-              setHours(clampHours(event.target.valueAsNumber))
-            }
+            onChange={(event) => setDraft(event.target.value)}
+            onBlur={applyDraft}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') applyDraft();
+            }}
           />
           <button
             type="button"
-            aria-label="Add an hour"
-            disabled={hours >= MAX_HOURS}
-            onClick={() => setHours(clampHours(hours + 1))}
+            aria-label={
+              isSubscription ? `Add ${rules.step} hours` : 'Add an hour'
+            }
+            disabled={hours >= rules.max}
+            onClick={() => {
+              setHours(stepHours(hours, isSubscription, 1));
+              setDraft(null);
+            }}
           >
             +
           </button>
@@ -202,9 +239,37 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
       <dl className="ft-bulk-hours__total">
         <dt>{isSubscription ? 'Today, then every month' : 'Total'}</dt>
         <dd>
+          {isSubscription && saving ? (
+            <s className="ft-bulk-hours__was">
+              <Money as="span" data={oneTimeTotal} />
+            </s>
+          ) : null}
           <Money as="span" data={total} />
         </dd>
       </dl>
+
+      {saving && isSubscription ? (
+        <p className="ft-bulk-hours__note">
+          You save{' '}
+          <strong>
+            <Money as="span" data={saving} />
+          </strong>{' '}
+          a month with the monthly plan.
+        </p>
+      ) : null}
+
+      {saving && !isSubscription ? (
+        <p className="ft-bulk-hours__note">
+          <button type="button" onClick={() => choosePlan(true)}>
+            Switch to monthly
+          </button>{' '}
+          and save{' '}
+          <strong>
+            <Money as="span" data={saving} />
+          </strong>{' '}
+          a month{monthlyHours !== hours ? ` on ${monthlyHours} hours` : ''}.
+        </p>
+      ) : null}
 
       <div className="ft-bulk-hours__buy">
         <AddToCartButton
@@ -233,9 +298,7 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
 
       <p className="ft-bulk-hours__quote">
         Need more than {MAX_HOURS} hours?{' '}
-        <Link to={CONTACT_CLEAN_PATH}>
-          Ask for a quote
-        </Link>
+        <Link to={CONTACT_CLEAN_PATH}>Ask for a quote</Link>
       </p>
     </div>
   );

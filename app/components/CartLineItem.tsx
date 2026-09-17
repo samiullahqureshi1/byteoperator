@@ -8,12 +8,36 @@ import {
 } from '@shopify/hydrogen';
 import {ProductPrice} from './ProductPrice';
 import {BULK_HOURS_HANDLE, BULK_HOURS_IMAGE} from './BulkHours';
+import {
+  hourRules,
+  multiplyMoney,
+  snapHours,
+  stepHours,
+  subtractMoney,
+} from '~/lib/bulk-hours';
 import type {
   CartApiQueryFragment,
   CartLineFragment,
 } from 'storefrontapi.generated';
 
 export type CartLine = OptimisticCartLine<CartApiQueryFragment>;
+
+/** What a subscribed bulk hours line saves each month against one-time pricing. */
+export function getMonthlySaving(line: CartLine) {
+  const unitPrice = line.cost?.amountPerQuantity;
+  if (
+    line.merchandise.product.handle !== BULK_HOURS_HANDLE ||
+    !line.sellingPlanAllocation ||
+    !unitPrice
+  ) {
+    return null;
+  }
+  const saving = multiplyMoney(
+    subtractMoney(line.merchandise.price, unitPrice),
+    line.quantity,
+  );
+  return Number(saving.amount) > 0 ? saving : null;
+}
 
 /**
  * A single line item in the cart. It displays the product image, title, price.
@@ -35,7 +59,23 @@ export function CartLineItem({
   const lineItemChildren = childrenMap[id];
   const childrenLabelId = `cart-line-children-${id}`;
   const isBulkHours = product.handle === BULK_HOURS_HANDLE;
+  const isSubscription = Boolean(line.sellingPlanAllocation);
   const unitPrice = line.cost?.amountPerQuantity;
+  const monthlySaving = getMonthlySaving(line);
+
+  // A one-time bulk hours line can switch to the monthly plan in place.
+  const monthlyPlan =
+    isBulkHours && !isSubscription
+      ? merchandise.sellingPlanAllocations?.nodes[0]
+      : undefined;
+  const monthlyPrice = monthlyPlan?.priceAdjustments[0]?.price;
+  const monthlyHours = snapHours(line.quantity, true);
+  const switchSaving = monthlyPrice
+    ? multiplyMoney(
+        subtractMoney(merchandise.price, monthlyPrice),
+        monthlyHours,
+      )
+    : null;
 
   return (
     <li key={id} className="cart-line">
@@ -79,6 +119,45 @@ export function CartLineItem({
                 <Money as="span" data={unitPrice} />
               </li>
             ) : null}
+            {monthlySaving ? (
+              <li className="cart-line-saving">
+                You save{' '}
+                <strong>
+                  <Money as="span" data={monthlySaving} />
+                </strong>{' '}
+                a month
+              </li>
+            ) : null}
+            {monthlyPlan && switchSaving && Number(switchSaving.amount) > 0 ? (
+              <li className="cart-line-offer">
+                <CartLineUpdateButton
+                  lines={[
+                    {
+                      id,
+                      quantity: monthlyHours,
+                      sellingPlanId: monthlyPlan.sellingPlan.id,
+                    },
+                  ]}
+                >
+                  <button
+                    className="cart-line-switch"
+                    type="submit"
+                    disabled={!!line.isOptimistic}
+                  >
+                    Switch to monthly
+                  </button>
+                </CartLineUpdateButton>{' '}
+                and save{' '}
+                <strong>
+                  <Money as="span" data={switchSaving} />
+                </strong>{' '}
+                a month
+                {monthlyHours !== line.quantity
+                  ? ` on ${monthlyHours} hours`
+                  : ''}
+                .
+              </li>
+            ) : null}
             {selectedOptions
               // Single-variant products report a placeholder option.
               .filter((option) => option.value !== 'Default Title')
@@ -90,7 +169,10 @@ export function CartLineItem({
                 </li>
               ))}
           </ul>
-          <CartLineQuantity line={line} />
+          <CartLineQuantity
+            line={line}
+            rules={isBulkHours ? {subscription: isSubscription} : undefined}
+          />
         </div>
       </div>
 
@@ -120,19 +202,33 @@ export function CartLineItem({
  * These controls are disabled when the line item is new, and the server
  * hasn't yet responded that it was successfully added to the cart.
  */
-function CartLineQuantity({line}: {line: CartLine}) {
+function CartLineQuantity({
+  line,
+  rules,
+}: {
+  line: CartLine;
+  /** Bulk hours lines follow the plan's hour rules (see ~/lib/bulk-hours). */
+  rules?: {subscription: boolean};
+}) {
   if (!line || typeof line?.quantity === 'undefined') return null;
   const {id: lineId, quantity, isOptimistic} = line;
-  const prevQuantity = Number(Math.max(0, quantity - 1).toFixed(0));
-  const nextQuantity = Number((quantity + 1).toFixed(0));
+  const limits = rules ? hourRules(rules.subscription) : null;
+  const prevQuantity = rules
+    ? stepHours(quantity, rules.subscription, -1)
+    : Number(Math.max(0, quantity - 1).toFixed(0));
+  const nextQuantity = rules
+    ? stepHours(quantity, rules.subscription, 1)
+    : Number((quantity + 1).toFixed(0));
+  const stepLabel =
+    limits && limits.step > 1 ? `${limits.step} hours` : 'quantity';
 
   return (
     <div className="cart-line-quantity">
       <div className="cart-line-stepper">
         <CartLineUpdateButton lines={[{id: lineId, quantity: prevQuantity}]}>
           <button
-            aria-label="Decrease quantity"
-            disabled={quantity <= 1 || !!isOptimistic}
+            aria-label={`Decrease ${stepLabel}`}
+            disabled={quantity <= (limits?.min ?? 1) || !!isOptimistic}
             name="decrease-quantity"
             value={prevQuantity}
           >
@@ -145,10 +241,12 @@ function CartLineQuantity({line}: {line: CartLine}) {
         </span>
         <CartLineUpdateButton lines={[{id: lineId, quantity: nextQuantity}]}>
           <button
-            aria-label="Increase quantity"
+            aria-label={`Increase ${stepLabel}`}
             name="increase-quantity"
             value={nextQuantity}
-            disabled={!!isOptimistic}
+            disabled={
+              (limits ? quantity >= limits.max : false) || !!isOptimistic
+            }
           >
             &#43;
           </button>
