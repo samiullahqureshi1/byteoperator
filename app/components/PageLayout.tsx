@@ -74,7 +74,7 @@ export function PageLayout({
 
 function CartAside({cart}: {cart: PageLayoutProps['cart']}) {
   return (
-    <Aside type="cart" heading="CART">
+    <Aside type="cart" heading="Your cart">
       <Suspense fallback={<p>Loading cart ...</p>}>
         <Await resolve={cart}>
           {(cart) => {
@@ -112,7 +112,7 @@ function SearchAside() {
 
         <SearchResultsPredictive>
           {({items, total, term, state, closeSearch}) => {
-            const {articles, collections, pages, products, queries} = items;
+            const {articles, pages, queries} = items;
 
             if (state === 'loading' && term.current) {
               return <div>Loading...</div>;
@@ -127,16 +127,6 @@ function SearchAside() {
                 <SearchResultsPredictive.Queries
                   queries={queries}
                   queriesDatalistId={queriesDatalistId}
-                />
-                <SearchResultsPredictive.Products
-                  products={products}
-                  closeSearch={closeSearch}
-                  term={term}
-                />
-                <SearchResultsPredictive.Collections
-                  collections={collections}
-                  closeSearch={closeSearch}
-                  term={term}
                 />
                 <SearchResultsPredictive.Pages
                   pages={pages}

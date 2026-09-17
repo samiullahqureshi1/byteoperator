@@ -1,0 +1,160 @@
+/* =========================================================
+   FOLDTECH — PRODUCT PAGE (/products/buy-bulk-hours)
+   Follows the service page rhythm: dark hero, then a white
+   section with rounded top corners.
+========================================================= */
+
+.ft-product,
+.ft-product * {
+  box-sizing: border-box;
+}
+
+.ft-product {
+  width: 100%;
+  background: var(--ft-dark-deep, #01151b);
+  color: var(--ft-white, #ffffff);
+  font-family: 'Season Sans', sans-serif;
+}
+
+.ft-product__container {
+  width: 100%;
+  padding-inline: 1.25rem;
+}
+
+/* ---------- Hero ---------- */
+
+.ft-product__hero {
+  padding: calc(var(--charle-header-height, 6.5rem) + 2.5rem) 0 5rem;
+}
+
+.ft-product__eyebrow {
+  margin: 0 0 2rem;
+  font-family: 'Season Serif', serif;
+  font-size: clamp(1.125rem, 2vw, 2rem);
+  line-height: 1;
+}
+
+.ft-product__grid {
+  display: grid;
+  grid-template-areas:
+    'intro'
+    'buy'
+    'media';
+  gap: 2.5rem;
+}
+
+.ft-product__intro {
+  grid-area: intro;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
+}
+
+.ft-product__title {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.ft-product__lead {
+  max-width: 36rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
+  line-height: 1.45;
+}
+
+.ft-product__uses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ft-product__uses li {
+  margin: 0;
+  padding: 0.625rem;
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.075);
+  color: rgba(255, 255, 255, 0.72);
+  font-family: 'Season Serif', serif;
+  font-size: 0.875rem;
+  line-height: 1.15;
+}
+
+.ft-product__buy {
+  grid-area: buy;
+  min-width: 0;
+}
+
+.ft-product__media {
+  grid-area: media;
+  min-width: 0;
+}
+
+.ft-product__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 1.875rem;
+}
+
+@media (min-width: 64rem) {
+  .ft-product__container {
+    padding-inline: 2.5rem;
+  }
+
+  .ft-product__hero {
+    padding-bottom: 7rem;
+  }
+
+  .ft-product__grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'intro buy'
+      'media buy';
+    column-gap: clamp(3rem, 5vw, 6rem);
+    row-gap: 3rem;
+  }
+
+  .ft-product__buy {
+    position: sticky;
+    top: calc(var(--charle-sticky-height, 5rem) + 2rem);
+    align-self: start;
+  }
+
+  .ft-product__image {
+    border-radius: 3.125rem;
+  }
+}
+
+/* ---------- FAQs: rounded white section, as on service pages ---------- */
+
+.ft-product .ft-service-detail-faqs {
+  position: relative;
+  z-index: 1;
+  margin-top: -1.5625rem;
+  border-radius: 1.5625rem 1.5625rem 0 0;
+}
+
+@media (min-width: 64rem) {
+  .ft-product .ft-service-detail-faqs {
+    margin-top: -3.125rem;
+    border-radius: 3.125rem 3.125rem 0 0;
+  }
+}
+
+/* ---------- Shared sections: FoldTech dark, as on service pages ---------- */
+
+.ft-product .ft-home-partners,
+.ft-product .ft-home-experts {
+  background: var(--ft-dark-deep, #01151b);
+}

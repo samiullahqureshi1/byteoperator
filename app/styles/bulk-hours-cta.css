@@ -1,0 +1,359 @@
+/* =========================================================
+   FOLDTECH — BULK HOURS SECTION
+   components/services/detail/BulkHoursCta.tsx, closing every
+   service page. Laid out like the white service sections
+   (heading left, details right), with an hours scale that
+   mirrors the product page's 1–100 hours slider.
+========================================================= */
+
+.ft-bulk-hours-cta,
+.ft-bulk-hours-cta * {
+  box-sizing: border-box;
+}
+
+.ft-bulk-hours-cta {
+  width: 100%;
+  padding: clamp(4rem, 8vw, 7rem) 5.33vw clamp(4rem, 7vw, 6rem);
+  color: var(--ft-text, #0b252d);
+  background: var(--ft-off-white, #fbfcfc);
+  font-family: 'Season Sans', sans-serif;
+}
+
+/* After a testimonial it continues that off-white band. */
+.ft-work-testimonial + .ft-bulk-hours-cta,
+.ft-ecommerce-seo-testimonial + .ft-bulk-hours-cta {
+  padding-top: 2rem;
+}
+
+/* ---------- Heading and details ---------- */
+
+.ft-bulk-hours-cta__top {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.ft-bulk-hours-cta__eyebrow {
+  margin: 0 0 1.5rem;
+  font-family: 'Season Serif', serif;
+  font-size: clamp(1.125rem, 2vw, 2rem);
+  line-height: 1;
+}
+
+.ft-bulk-hours-cta__title {
+  max-width: 11ch;
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.ft-bulk-hours-cta__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.ft-bulk-hours-cta__text {
+  margin: 0;
+  font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+  line-height: 1.5;
+}
+
+.ft-bulk-hours-cta__rates {
+  width: 100%;
+  margin: 0;
+}
+
+.ft-bulk-hours-cta__rates > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 1rem 0;
+  border-top: 0.0625rem solid rgba(11, 37, 45, 0.14);
+}
+
+.ft-bulk-hours-cta__rates > div:last-child {
+  border-bottom: 0.0625rem solid rgba(11, 37, 45, 0.14);
+}
+
+.ft-bulk-hours-cta__rates dt {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: 'Season Serif', serif;
+  font-size: 1.0625rem;
+}
+
+.ft-bulk-hours-cta__rates dt span {
+  padding: 0.125rem 0.5rem;
+  border-radius: 999rem;
+  color: #0b5f5d;
+  background: rgba(64, 173, 170, 0.16);
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.75rem;
+}
+
+.ft-bulk-hours-cta__rates dd {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+.ft-bulk-hours-cta__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 3.75rem;
+  padding: 0 2rem;
+  border-radius: 999rem;
+  color: var(--ft-white, #ffffff);
+  background: var(--ft-dark-deep, #01151b);
+  font-family: 'Season Serif', serif;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.ft-bulk-hours-cta__button svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.ft-bulk-hours-cta__button:hover {
+  color: var(--ft-white, #ffffff);
+  background: var(--ft-dark, #041f27);
+  text-decoration: none;
+}
+
+.ft-bulk-hours-cta__button:hover svg {
+  transform: translate(0.125rem, -0.125rem);
+}
+
+/* ---------- Hours scale ---------- */
+
+.ft-bulk-hours-cta__scale {
+  --line: 0.5rem;
+  --marker: 2.5rem;
+  --gap: 2rem;
+
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+}
+
+.ft-bulk-hours-cta__scale-label {
+  margin: 0 0 1.5rem;
+  font-family: 'Season Serif', serif;
+  font-size: 1.0625rem;
+}
+
+.ft-bulk-hours-cta__ruler {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 2.25rem;
+}
+
+.ft-bulk-hours-cta__tick {
+  width: 0.0625rem;
+  height: 0.875rem;
+  background: rgba(11, 37, 45, 0.22);
+}
+
+.ft-bulk-hours-cta__tick:first-of-type,
+.ft-bulk-hours-cta__tick:nth-of-type(10n) {
+  height: 1.75rem;
+  background: rgba(11, 37, 45, 0.5);
+}
+
+/* Thick teal track along the base of the scale. */
+.ft-bulk-hours-cta__ruler::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--line);
+  border-radius: 999rem;
+  background: rgba(64, 173, 170, 0.22);
+}
+
+/* The laptop marker. It rests at the start of the scale and hides while a
+   preset's own marker drives along the line (see the presets below). */
+.ft-bulk-hours-cta__marker {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--marker);
+  height: var(--marker);
+  border-radius: 50%;
+  color: var(--ft-white, #ffffff);
+  background: var(--ft-dark-deep, #01151b);
+  box-shadow:
+    0 0 0 0.25rem var(--ft-off-white, #fbfcfc),
+    0 0 0 0.5rem rgba(64, 173, 170, 0.35);
+  pointer-events: none;
+}
+
+.ft-bulk-hours-cta__marker svg {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+.ft-bulk-hours-cta__marker--rest {
+  left: 0;
+  bottom: calc(var(--line) / 2 - var(--marker) / 2);
+  transition: opacity 0.2s ease;
+}
+
+.ft-bulk-hours-cta__scale:has(.ft-bulk-hours-cta__presets a:hover, .ft-bulk-hours-cta__presets a:focus-visible)
+  .ft-bulk-hours-cta__marker--rest {
+  opacity: 0;
+}
+
+.ft-bulk-hours-cta__presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: var(--gap) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ft-bulk-hours-cta__presets li {
+  margin: 0;
+}
+
+/* Lines and driving markers only exist where presets sit under their hours. */
+.ft-bulk-hours-cta__line,
+.ft-bulk-hours-cta__marker--drive {
+  display: none;
+}
+
+.ft-bulk-hours-cta__presets a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 1.125rem;
+  border: 0.0625rem solid rgba(11, 37, 45, 0.2);
+  border-radius: 999rem;
+  color: var(--ft-text, #0b252d);
+  background: var(--ft-white, #ffffff);
+  font-family: 'Season Serif', serif;
+  font-size: 1rem;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.ft-bulk-hours-cta__presets a:hover,
+.ft-bulk-hours-cta__presets a:focus-visible {
+  border-color: var(--ft-dark-deep, #01151b);
+  color: var(--ft-white, #ffffff);
+  background: var(--ft-dark-deep, #01151b);
+  text-decoration: none;
+}
+
+.ft-bulk-hours-cta__presets a:focus-visible,
+.ft-bulk-hours-cta__button:focus-visible {
+  outline: 0.125rem solid var(--ft-teal, #40adaa);
+  outline-offset: 0.25rem;
+}
+
+/*
+ * Wide screens: each preset sits under its hour. Hovering one grows a thick
+ * teal line from the start of the scale and drives the laptop along it.
+ * `--at` is the hour's position (0–100) set inline; `cqw` is 1% of the
+ * presets row, which is exactly as wide as the scale.
+ */
+@media (min-width: 80rem) {
+  .ft-bulk-hours-cta__presets {
+    position: relative;
+    display: block;
+    height: 3rem;
+    container-type: inline-size;
+  }
+
+  .ft-bulk-hours-cta__presets li {
+    position: absolute;
+    top: 0;
+    left: calc(var(--at) * 1%);
+    transform: translateX(-50%);
+  }
+
+  .ft-bulk-hours-cta__presets li:last-child {
+    transform: translateX(-100%);
+  }
+
+  .ft-bulk-hours-cta__line {
+    position: absolute;
+    right: 50%;
+    bottom: calc(100% + var(--gap));
+    display: block;
+    width: calc(var(--at) * 1cqw);
+    height: var(--line);
+    border-radius: 999rem;
+    background: var(--ft-teal, #40adaa);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .ft-bulk-hours-cta__marker--drive {
+    left: 50%;
+    bottom: calc(100% + var(--gap) + var(--line) / 2 - var(--marker) / 2);
+    display: grid;
+    opacity: 0;
+    transform: translateX(calc(-50% - var(--at) * 1cqw));
+    transition:
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.15s ease;
+  }
+
+  .ft-bulk-hours-cta__presets li:last-child .ft-bulk-hours-cta__line {
+    right: 0;
+  }
+
+  .ft-bulk-hours-cta__presets li:last-child .ft-bulk-hours-cta__marker--drive {
+    left: 100%;
+  }
+
+  .ft-bulk-hours-cta__presets li:has(a:hover, a:focus-visible) .ft-bulk-hours-cta__line {
+    transform: scaleX(1);
+  }
+
+  .ft-bulk-hours-cta__presets li:has(a:hover, a:focus-visible) .ft-bulk-hours-cta__marker--drive {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-bulk-hours-cta__top {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: start;
+    column-gap: clamp(3rem, 5vw, 6rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-bulk-hours-cta__line,
+  .ft-bulk-hours-cta__marker,
+  .ft-bulk-hours-cta__button,
+  .ft-bulk-hours-cta__button svg,
+  .ft-bulk-hours-cta__presets a {
+    transition: none;
+  }
+}

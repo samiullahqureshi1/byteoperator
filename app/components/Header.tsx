@@ -7,6 +7,7 @@ import type {
 } from 'storefrontapi.generated';
 
 import {useAside} from '~/components/Aside';
+import {BULK_HOURS_IMAGE, BULK_HOURS_PATH} from '~/components/BulkHours';
 import {normalizeMenuUrl} from '~/lib/normalize-menu-url';
 import {resolveCanonicalPath} from '~/lib/route-mappings';
 
@@ -137,9 +138,37 @@ export function HeaderMenu({
       }
     }
 
-    nav.addEventListener('keydown', handleKeyDown);
+    /*
+     * Menus open on hover, so after a link is clicked the pointer is still
+     * over the menu and it would stay open on the new page. Mark the item
+     * closed until the pointer leaves it (see `data-menu-closed` in
+     * header-menus.css).
+     */
+    function handleClick(event: MouseEvent) {
+      const item =
+        event.target instanceof Element
+          ? event.target
+              .closest('a')
+              ?.closest<HTMLElement>('.charle-header__nav-item--mega')
+          : null;
 
-    return () => nav.removeEventListener('keydown', handleKeyDown);
+      if (!item) return;
+
+      item.dataset.menuClosed = '';
+      item.addEventListener(
+        'mouseleave',
+        () => delete item.dataset.menuClosed,
+        {once: true},
+      );
+    }
+
+    nav.addEventListener('keydown', handleKeyDown);
+    nav.addEventListener('click', handleClick);
+
+    return () => {
+      nav.removeEventListener('keydown', handleKeyDown);
+      nav.removeEventListener('click', handleClick);
+    };
   }, [viewport]);
 
   const menuItems =
@@ -427,39 +456,51 @@ function ServicesMegaMenu() {
         ))}
       </div>
 
-      <div className="ft-services-mega__footer">
-        <div className="ft-services-mega__footer-content">
-          <p className="ft-services-mega__footer-title">
-            Ready to tell us about your project?
-          </p>
-
-          <p className="ft-services-mega__footer-text">
-            FoldTech designs, develops, supports and
-            grows Shopify and Shopify Plus stores.
-          </p>
-
-          <NavLink
-            className="ft-mega-menu__cta"
-            prefetch="intent"
-            to="/contact"
-          >
-            <span>Get in touch</span>
-            <ArrowUpRightIcon />
-          </NavLink>
-        </div>
-
-        <div className="ft-services-mega__footer-image">
-          <img
-            src="/images/mega-menu-team.webp"
-            alt="FoldTech team"
-            width="720"
-            height="400"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
+      <BulkHoursPromo />
     </div>
+  );
+}
+
+
+/*
+ * ========================================================
+ * BULK HOURS PROMO
+ * Featured column of the Services menu (desktop), and the
+ * card at the bottom of the mobile Services panel.
+ * ========================================================
+ */
+
+function BulkHoursPromo({onNavigate}: {onNavigate?: () => void}) {
+  return (
+    <NavLink
+      className="ft-bulk-promo"
+      prefetch="intent"
+      to={BULK_HOURS_PATH}
+      onClick={onNavigate}
+    >
+      <span className="ft-bulk-promo__image">
+        <img
+          src={BULK_HOURS_IMAGE.src}
+          alt=""
+          width={BULK_HOURS_IMAGE.width}
+          height={BULK_HOURS_IMAGE.height}
+          loading="lazy"
+          decoding="async"
+        />
+      </span>
+
+      <span className="ft-bulk-promo__content">
+        <strong className="ft-bulk-promo__title">Buy bulk hours</strong>
+        <span className="ft-bulk-promo__text">
+          Prepaid Shopify expert time for any service we offer. Hours never
+          expire.
+        </span>
+        <span className="ft-mega-menu__cta ft-bulk-promo__cta">
+          <span>Choose your hours</span>
+          <ArrowUpRightIcon />
+        </span>
+      </span>
+    </NavLink>
   );
 }
 
@@ -1100,9 +1141,9 @@ function MobileHeaderMenu({
               </div>
             </div>
 
-            <MobileMenuFooter
-              onNavigate={closeMenu}
-            />
+            <div className="ft-mobile-menu__footer">
+              <BulkHoursPromo onNavigate={closeMenu} />
+            </div>
           </div>
         </section>
 

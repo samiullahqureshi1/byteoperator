@@ -1,288 +1,155 @@
-import {
-  redirect,
-  useLoaderData,
-} from 'react-router';
+import {useLoaderData} from 'react-router';
+import {Image} from '@shopify/hydrogen';
 import type {Route} from './+types/products.$handle';
-import {absoluteUrl} from '~/lib/seo/schema';
 import {
-  getSelectedProductOptions,
-  Analytics,
-  useOptimisticVariant,
-  getProductOptions,
-  getAdjacentAndFirstAvailableVariants,
-  useSelectedOptionInUrlParam,
-} from '@shopify/hydrogen';
-import {ProductPrice} from '~/components/ProductPrice';
-import {ProductImage} from '~/components/ProductImage';
-import {ProductForm} from '~/components/ProductForm';
-import {redirectIfHandleIsLocalized} from '~/lib/redirect';
+  BulkHoursPanel,
+  BULK_HOURS_HANDLE,
+  BULK_HOURS_IMAGE,
+  BULK_HOURS_PATH,
+  BULK_HOURS_QUERY,
+} from '~/components/BulkHours';
+import {ServiceDetailFaqs} from '~/components/services/detail/ServiceDetailFaqs';
+import {HomeExperts} from '~/components/HomeExperts';
+import {HomePartners} from '~/components/HomePartners';
+import {WorkTestimonial} from '~/components/work/WorkTestimonial';
+import {absoluteUrl} from '~/lib/seo/schema';
+import bulkHoursStyles from '~/styles/bulk-hours.css?url';
+import homeExpertsStyles from '~/styles/home-experts.css?url';
+import homePartnersStyles from '~/styles/home-partners.css?url';
+import productPageStyles from '~/styles/product-page.css?url';
+import serviceDetailFaqStyles from '~/styles/service-detail-faqs.css?url';
+import workTestimonialStyles from '~/styles/work-testimonial.css?url';
 
-// Product images are served from Shopify's CDN, so this preconnect is only
-// declared on routes that actually render them (see app/root.tsx).
 export const links: Route.LinksFunction = () => [
-  {rel: 'preconnect', href: 'https://cdn.shopify.com'},
+  {rel: 'stylesheet', href: bulkHoursStyles},
+  {rel: 'stylesheet', href: serviceDetailFaqStyles},
+  {rel: 'stylesheet', href: homePartnersStyles},
+  {rel: 'stylesheet', href: workTestimonialStyles},
+  {rel: 'stylesheet', href: homeExpertsStyles},
+  // Last, so the page-level colour overrides win.
+  {rel: 'stylesheet', href: productPageStyles},
 ];
 
-export const meta: Route.MetaFunction = ({data}) => {
-  const product = data?.product;
-
-  /*
-   * `PRODUCT_QUERY` already requests the Shopify `seo` fields, so the title
-   * and description come from the values approved in Shopify and only fall
-   * back to the product's own title/description when those are unset.
-   */
-  const title = product?.seo?.title || `${product?.title ?? ''} | FoldTech`;
-
-  const description = product?.seo?.description || product?.description;
-
-  return [
-    {title},
-
-    ...(description ? [{name: 'description', content: description}] : []),
-
-    {property: 'og:type', content: 'product'},
-    {property: 'og:title', content: title},
-
-    ...(description
-      ? [{property: 'og:description', content: description}]
-      : []),
-
-    {
-      /*
-       * Without `tagName`, React Router renders this as a <meta rel="...">
-       * tag, which search engines ignore. Canonicals must be <link> tags.
-       *
-       * The href deliberately omits the selected-option query params that
-       * `useSelectedOptionInUrlParam` writes, so every variant URL points at
-       * the single product URL instead of being indexed separately.
-       */
-      tagName: 'link',
-      rel: 'canonical',
-      href: absoluteUrl(`/products/${product?.handle}`),
-    },
-
-    /*
-     * thefoldtech.com is an agency site, not a storefront — these routes come
-     * from the Hydrogen template and sell nothing publicly. They are kept out
-     * of the index rather than described with Product/Offer markup, because
-     * marking up products that cannot be bought is worse than marking up
-     * nothing. Remove this and add Product schema if real products ever ship.
-     */
-    {name: 'robots', content: 'noindex,follow'},
-  ];
-};
-
-export async function loader(args: Route.LoaderArgs) {
-  // Start fetching non-critical data without blocking time to first byte
-  const deferredData = loadDeferredData(args);
-
-  // Await the critical data required to render initial state of the page
-  const criticalData = await loadCriticalData(args);
-
-  return {...deferredData, ...criticalData};
-}
+export const meta: Route.MetaFunction = ({data}) => [
+  {title: `${data?.product.title ?? 'Bulk hours'} | FoldTech`},
+  {
+    name: 'description',
+    content:
+      'Prepaid Shopify design, development and support hours from FoldTech. Buy between 1 and 100 hours once, or subscribe monthly at a lower hourly rate.',
+  },
+  // Shared links carry utm params; they all point at the one clean URL.
+  {tagName: 'link', rel: 'canonical', href: absoluteUrl(BULK_HOURS_PATH)},
+  // A buy link to share, not a search result, like /cart.
+  {name: 'robots', content: 'noindex,follow'},
+];
 
 /**
- * Load data necessary for rendering content above the fold. This is the critical data
- * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
+ * Bulk Hours is the only product with a page. Every other product URL 404s,
+ * since product pages were retired in favour of the service pages.
  */
-async function loadCriticalData({
-  context,
-  params,
-  request,
-}: Route.LoaderArgs) {
-  const {handle} = params;
-  const {storefront} = context;
+export async function loader({params, context}: Route.LoaderArgs) {
+  // Single-fetch data requests can expose the `.data` suffix in the param.
+  const handle = params.handle?.replace(/\.data$/, '');
 
-  if (!handle) {
-    throw new Error('Expected product handle to be defined');
+  if (handle !== BULK_HOURS_HANDLE) {
+    throw new Response('Not Found', {status: 404});
   }
 
-  const [{product}] = await Promise.all([
-    storefront.query(PRODUCT_QUERY, {
-      variables: {handle, selectedOptions: getSelectedProductOptions(request)},
-    }),
-    // Add other queries here, so that they are loaded in parallel
-  ]);
-
-  if (!product?.id) {
-    throw new Response(null, {status: 404});
-  }
-
-  // The API handle might be localized, so redirect to the localized handle
-  redirectIfHandleIsLocalized(request, {handle, data: product});
-
-  return {
-    product,
-  };
-}
-
-/**
- * Load data for rendering content below the fold. This data is deferred and will be
- * fetched after the initial page load. If it's unavailable, the page should still 200.
- * Make sure to not throw any errors here, as it will cause the page to 500.
- */
-function loadDeferredData({context, params}: Route.LoaderArgs) {
-  // Put any API calls that is not critical to be available on first page render
-  // For example: product reviews, product recommendations, social feeds.
-
-  return {};
-}
-
-export default function Product() {
-  const {product} = useLoaderData<typeof loader>();
-
-  // Optimistically selects a variant with given available variant information
-  const selectedVariant = useOptimisticVariant(
-    product.selectedOrFirstAvailableVariant,
-    getAdjacentAndFirstAvailableVariants(product),
-  );
-
-  // Sets the search param to the selected variant without navigation
-  // only when no search params are set in the url
-  useSelectedOptionInUrlParam(selectedVariant.selectedOptions);
-
-  // Get the product options array
-  const productOptions = getProductOptions({
-    ...product,
-    selectedOrFirstAvailableVariant: selectedVariant,
+  const {product} = await context.storefront.query(BULK_HOURS_QUERY, {
+    variables: {handle},
   });
 
-  const {title, descriptionHtml} = product;
+  if (!product?.selectedOrFirstAvailableVariant) {
+    throw new Response('Not Found', {status: 404});
+  }
+
+  return {product};
+}
+
+const USES = [
+  'Theme changes',
+  'Shopify development',
+  'Design updates',
+  'App setup',
+  'Store support',
+];
+
+const FAQS = [
+  {
+    question: 'What can I use bulk hours for?',
+    answer:
+      'Any Shopify work the team takes on for your store: theme and design changes, new sections and pages, app and integration setup, conversion improvements and day-to-day support.',
+  },
+  {
+    question: 'How does the monthly subscription work?',
+    answer:
+      'Choose Monthly, pick your hours and check out once. You pay for those hours today, and the same number of hours is charged every month after that to the card you used at checkout.',
+  },
+  {
+    question: 'Where do I manage my subscription?',
+    answer:
+      'Sign in to your account on the store to see your subscription and its next billing date.',
+  },
+  {
+    question: 'What if I need more than 100 hours?',
+    answer:
+      'For larger projects, ask for a quote through the contact page and we will scope the work with you.',
+  },
+];
+
+export default function BulkHoursProductPage() {
+  const {product} = useLoaderData<typeof loader>();
 
   return (
-    <div className="product">
-      <ProductImage
-        image={selectedVariant?.image}
-        productTitle={title}
-      />
-      <div className="product-main">
-        <h1>{title}</h1>
-        <ProductPrice
-          price={selectedVariant?.price}
-          compareAtPrice={selectedVariant?.compareAtPrice}
-        />
-        <br />
-        <ProductForm
-          productOptions={productOptions}
-          selectedVariant={selectedVariant}
-        />
-        <br />
-        <br />
-        <p>
-          <strong>Description</strong>
-        </p>
-        <br />
-        <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
-        <br />
-      </div>
-      <Analytics.ProductView
-        data={{
-          products: [
-            {
-              id: product.id,
-              title: product.title,
-              price: selectedVariant?.price.amount || '0',
-              vendor: product.vendor,
-              variantId: selectedVariant?.id || '',
-              variantTitle: selectedVariant?.title || '',
-              quantity: 1,
-            },
-          ],
-        }}
-      />
+    <div className="ft-product">
+      <section className="ft-product__hero">
+        <div className="ft-product__container">
+          <p className="ft-product__eyebrow">Shopify development hours</p>
+
+          <div className="ft-product__grid">
+            <div className="ft-product__intro">
+              <h1 className="ft-product__title">{product.title}</h1>
+              <p className="ft-product__lead">
+                Prepaid time with the FoldTech team for the Shopify work your
+                store needs. Buy the hours once, or subscribe and get the same
+                hours every month at a lower rate.
+              </p>
+              <ul className="ft-product__uses" aria-label="What hours cover">
+                {USES.map((use) => (
+                  <li key={use}>{use}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="ft-product__buy">
+              <BulkHoursPanel product={product} />
+            </div>
+
+            <div className="ft-product__media">
+              {product.featuredImage ? (
+                <Image
+                  className="ft-product__image"
+                  data={product.featuredImage}
+                  sizes="(min-width: 62em) 55vw, 100vw"
+                />
+              ) : (
+                <img
+                  className="ft-product__image"
+                  src={BULK_HOURS_IMAGE.src}
+                  alt={BULK_HOURS_IMAGE.alt}
+                  width={BULK_HOURS_IMAGE.width}
+                  height={BULK_HOURS_IMAGE.height}
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ServiceDetailFaqs title="Bulk hours" faqs={FAQS} />
+      <HomePartners />
+      <WorkTestimonial />
+      <HomeExperts />
     </div>
   );
 }
-
-const PRODUCT_VARIANT_FRAGMENT = `#graphql
-  fragment ProductVariant on ProductVariant {
-    availableForSale
-    compareAtPrice {
-      amount
-      currencyCode
-    }
-    id
-    image {
-      __typename
-      id
-      url
-      altText
-      width
-      height
-    }
-    price {
-      amount
-      currencyCode
-    }
-    product {
-      title
-      handle
-    }
-    selectedOptions {
-      name
-      value
-    }
-    sku
-    title
-    unitPrice {
-      amount
-      currencyCode
-    }
-  }
-` as const;
-
-const PRODUCT_FRAGMENT = `#graphql
-  fragment Product on Product {
-    id
-    title
-    vendor
-    handle
-    descriptionHtml
-    description
-    encodedVariantExistence
-    encodedVariantAvailability
-    options {
-      name
-      optionValues {
-        name
-        firstSelectableVariant {
-          ...ProductVariant
-        }
-        swatch {
-          color
-          image {
-            previewImage {
-              url
-            }
-          }
-        }
-      }
-    }
-    selectedOrFirstAvailableVariant(selectedOptions: $selectedOptions, ignoreUnknownOptions: true, caseInsensitiveMatch: true) {
-      ...ProductVariant
-    }
-    adjacentVariants (selectedOptions: $selectedOptions) {
-      ...ProductVariant
-    }
-    seo {
-      description
-      title
-    }
-  }
-  ${PRODUCT_VARIANT_FRAGMENT}
-` as const;
-
-const PRODUCT_QUERY = `#graphql
-  query Product(
-    $country: CountryCode
-    $handle: String!
-    $language: LanguageCode
-    $selectedOptions: [SelectedOptionInput!]!
-  ) @inContext(country: $country, language: $language) {
-    product(handle: $handle) {
-      ...Product
-    }
-  }
-  ${PRODUCT_FRAGMENT}
-` as const;

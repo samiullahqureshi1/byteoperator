@@ -2,7 +2,7 @@ import {
   useLoaderData,
 } from 'react-router';
 import type {Route} from './+types/search';
-import {getPaginationVariables, Analytics} from '@shopify/hydrogen';
+import {Analytics} from '@shopify/hydrogen';
 import {SearchForm} from '~/components/SearchForm';
 import {SearchResults} from '~/components/SearchResults';
 import {
@@ -11,13 +11,6 @@ import {
   getEmptyPredictiveSearchResult,
 } from '~/lib/search';
 import type {RegularSearchQuery, PredictiveSearchQuery} from 'storefrontapi.generated';
-
-// Search results can include product images served from Shopify's CDN, so
-// this preconnect is only declared on routes that actually render them
-// (see app/root.tsx).
-export const links: Route.LinksFunction = () => [
-  {rel: 'preconnect', href: 'https://cdn.shopify.com'},
-];
 
 export const meta: Route.MetaFunction = () => {
   return [
@@ -77,9 +70,8 @@ export default function SearchPage() {
         <SearchResults.Empty />
       ) : (
         <SearchResults result={result} term={term}>
-          {({articles, pages, products, term}) => (
+          {({articles, pages, term}) => (
             <div>
-              <SearchResults.Products products={products} term={term} />
               <SearchResults.Pages pages={pages} term={term} />
               <SearchResults.Articles articles={articles} term={term} />
             </div>
@@ -95,47 +87,6 @@ export default function SearchPage() {
  * Regular search query and fragments
  * (adjust as needed)
  */
-const SEARCH_PRODUCT_FRAGMENT = `#graphql
-  fragment SearchProduct on Product {
-    __typename
-    handle
-    id
-    publishedAt
-    title
-    trackingParameters
-    vendor
-    selectedOrFirstAvailableVariant(
-      selectedOptions: []
-      ignoreUnknownOptions: true
-      caseInsensitiveMatch: true
-    ) {
-      id
-      image {
-        url
-        altText
-        width
-        height
-      }
-      price {
-        amount
-        currencyCode
-      }
-      compareAtPrice {
-        amount
-        currencyCode
-      }
-      selectedOptions {
-        name
-        value
-      }
-      product {
-        handle
-        title
-      }
-    }
-  }
-` as const;
-
 const SEARCH_PAGE_FRAGMENT = `#graphql
   fragment SearchPage on Page {
      __typename
@@ -159,25 +110,13 @@ const SEARCH_ARTICLE_FRAGMENT = `#graphql
   }
 ` as const;
 
-const PAGE_INFO_FRAGMENT = `#graphql
-  fragment PageInfoFragment on PageInfo {
-    hasNextPage
-    hasPreviousPage
-    startCursor
-    endCursor
-  }
-` as const;
-
 // NOTE: https://shopify.dev/docs/api/storefront/latest/queries/search
 export const SEARCH_QUERY = `#graphql
   query RegularSearch(
     $country: CountryCode
-    $endCursor: String
     $first: Int
     $language: LanguageCode
-    $last: Int
     $term: String!
-    $startCursor: String
   ) @inContext(country: $country, language: $language) {
     articles: search(
       query: $term,
@@ -201,30 +140,9 @@ export const SEARCH_QUERY = `#graphql
         }
       }
     }
-    products: search(
-      after: $endCursor,
-      before: $startCursor,
-      first: $first,
-      last: $last,
-      query: $term,
-      sortKey: RELEVANCE,
-      types: [PRODUCT],
-      unavailableProducts: HIDE,
-    ) {
-      nodes {
-        ...on Product {
-          ...SearchProduct
-        }
-      }
-      pageInfo {
-        ...PageInfoFragment
-      }
-    }
   }
-  ${SEARCH_PRODUCT_FRAGMENT}
   ${SEARCH_PAGE_FRAGMENT}
   ${SEARCH_ARTICLE_FRAGMENT}
-  ${PAGE_INFO_FRAGMENT}
 ` as const;
 
 /**
@@ -239,12 +157,11 @@ async function regularSearch({
 >): Promise<RegularSearchReturn> {
   const {storefront} = context;
   const url = new URL(request.url);
-  const variables = getPaginationVariables(request, {pageBy: 8});
   const term = String(url.searchParams.get('q') || '');
 
-  // Search articles, pages, and products for the `q` term
+  // Search articles and pages for the `q` term
   const {errors, ...items}: {errors?: Array<{message: string}>} & RegularSearchQuery = await storefront.query(SEARCH_QUERY, {
-    variables: {...variables, term},
+    variables: {first: 8, term},
   });
 
   if (!items) {
@@ -286,22 +203,6 @@ const PREDICTIVE_SEARCH_ARTICLE_FRAGMENT = `#graphql
   }
 ` as const;
 
-const PREDICTIVE_SEARCH_COLLECTION_FRAGMENT = `#graphql
-  fragment PredictiveCollection on Collection {
-    __typename
-    id
-    title
-    handle
-    image {
-      url
-      altText
-      width
-      height
-    }
-    trackingParameters
-  }
-` as const;
-
 const PREDICTIVE_SEARCH_PAGE_FRAGMENT = `#graphql
   fragment PredictivePage on Page {
     __typename
@@ -309,33 +210,6 @@ const PREDICTIVE_SEARCH_PAGE_FRAGMENT = `#graphql
     title
     handle
     trackingParameters
-  }
-` as const;
-
-const PREDICTIVE_SEARCH_PRODUCT_FRAGMENT = `#graphql
-  fragment PredictiveProduct on Product {
-    __typename
-    id
-    title
-    handle
-    trackingParameters
-    selectedOrFirstAvailableVariant(
-      selectedOptions: []
-      ignoreUnknownOptions: true
-      caseInsensitiveMatch: true
-    ) {
-      id
-      image {
-        url
-        altText
-        width
-        height
-      }
-      price {
-        amount
-        currencyCode
-      }
-    }
   }
 ` as const;
 
@@ -367,14 +241,8 @@ const PREDICTIVE_SEARCH_QUERY = `#graphql
       articles {
         ...PredictiveArticle
       }
-      collections {
-        ...PredictiveCollection
-      }
       pages {
         ...PredictivePage
-      }
-      products {
-        ...PredictiveProduct
       }
       queries {
         ...PredictiveQuery
@@ -382,9 +250,7 @@ const PREDICTIVE_SEARCH_QUERY = `#graphql
     }
   }
   ${PREDICTIVE_SEARCH_ARTICLE_FRAGMENT}
-  ${PREDICTIVE_SEARCH_COLLECTION_FRAGMENT}
   ${PREDICTIVE_SEARCH_PAGE_FRAGMENT}
-  ${PREDICTIVE_SEARCH_PRODUCT_FRAGMENT}
   ${PREDICTIVE_SEARCH_QUERY_FRAGMENT}
 ` as const;
 
@@ -406,7 +272,7 @@ async function predictiveSearch({
 
   if (!term) return {type, term, result: getEmptyPredictiveSearchResult()};
 
-  // Predictively search articles, collections, pages, products, and queries (suggestions)
+  // Predictively search articles, pages, and queries (suggestions)
   const {predictiveSearch: items, errors}: PredictiveSearchQuery & {errors?: Array<{message: string}>} = await storefront.query(
     PREDICTIVE_SEARCH_QUERY,
     {
@@ -415,6 +281,7 @@ async function predictiveSearch({
         limit,
         limitScope: 'EACH',
         term,
+        types: ['ARTICLE', 'PAGE', 'QUERY'],
       },
     },
   );

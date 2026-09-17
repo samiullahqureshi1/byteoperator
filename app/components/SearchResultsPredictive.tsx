@@ -1,5 +1,5 @@
 import {Link, useFetcher, type Fetcher} from 'react-router';
-import {Image, Money} from '@shopify/hydrogen';
+import {Image} from '@shopify/hydrogen';
 import React, {useRef, useEffect} from 'react';
 import {
   getEmptyPredictiveSearchResult,
@@ -78,9 +78,7 @@ export function SearchResultsPredictive({
 }
 
 SearchResultsPredictive.Articles = SearchResultsPredictiveArticles;
-SearchResultsPredictive.Collections = SearchResultsPredictiveCollections;
 SearchResultsPredictive.Pages = SearchResultsPredictivePages;
-SearchResultsPredictive.Products = SearchResultsPredictiveProducts;
 SearchResultsPredictive.Queries = SearchResultsPredictiveQueries;
 SearchResultsPredictive.Empty = SearchResultsPredictiveEmpty;
 
@@ -128,47 +126,6 @@ function SearchResultsPredictiveArticles({
   );
 }
 
-function SearchResultsPredictiveCollections({
-  term,
-  collections,
-  closeSearch,
-}: PartialPredictiveSearchResult<'collections'>) {
-  if (!collections.length) return null;
-
-  return (
-    <div className="predictive-search-result" key="collections">
-      <h5>Collections</h5>
-      <ul>
-        {collections.map((collection) => {
-          const collectionUrl = urlWithTrackingParams({
-            baseUrl: `/collections/${collection.handle}`,
-            trackingParams: collection.trackingParameters,
-            term: term.current,
-          });
-
-          return (
-            <li className="predictive-search-result-item" key={collection.id}>
-              <Link onClick={closeSearch} to={collectionUrl}>
-                {collection.image?.url && (
-                  <Image
-                    alt={collection.image.altText ?? ''}
-                    src={collection.image.url}
-                    width={50}
-                    height={50}
-                  />
-                )}
-                <div>
-                  <span>{collection.title}</span>
-                </div>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-}
-
 function SearchResultsPredictivePages({
   term,
   pages,
@@ -192,50 +149,6 @@ function SearchResultsPredictivePages({
               <Link onClick={closeSearch} to={pageUrl}>
                 <div>
                   <span>{page.title}</span>
-                </div>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-}
-
-function SearchResultsPredictiveProducts({
-  term,
-  products,
-  closeSearch,
-}: PartialPredictiveSearchResult<'products'>) {
-  if (!products.length) return null;
-
-  return (
-    <div className="predictive-search-result" key="products">
-      <h5>Products</h5>
-      <ul>
-        {products.map((product) => {
-          const productUrl = urlWithTrackingParams({
-            baseUrl: `/products/${product.handle}`,
-            trackingParams: product.trackingParameters,
-            term: term.current,
-          });
-
-          const price = product?.selectedOrFirstAvailableVariant?.price;
-          const image = product?.selectedOrFirstAvailableVariant?.image;
-          return (
-            <li className="predictive-search-result-item" key={product.id}>
-              <Link to={productUrl} onClick={closeSearch}>
-                {image && (
-                  <Image
-                    alt={image.altText ?? ''}
-                    src={image.url}
-                    width={50}
-                    height={50}
-                  />
-                )}
-                <div>
-                  <p>{product.title}</p>
-                  <small>{price && <Money data={price} />}</small>
                 </div>
               </Link>
             </li>

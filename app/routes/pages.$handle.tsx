@@ -30,6 +30,7 @@ import serviceAboutSectionStyles from '~/styles/service-about-section.css?url';
 import serviceDetailFaqStyles from '~/styles/service-detail-faqs.css?url';
 import migrationPlatformsAccordionStyles from '~/styles/migration-platforms-accordion.css?url';
 import servicePlusAgencyCtaStyles from '~/styles/service-plus-agency-cta.css?url';
+import bulkHoursCtaStyles from '~/styles/bulk-hours-cta.css?url';
 import ecommerceSeoHeroStyles from '~/styles/ecommerce-seo-hero.css?url';
 import ecommerceSeoCasesStyles from '~/styles/ecommerce-seo-cases.css?url';
 import ecommerceSeoAboutStyles from '~/styles/ecommerce-seo-about.css?url';
@@ -84,12 +85,15 @@ import {
   caseStudyJsonLd,
   clientNameFromHandle,
   contentPageJsonLd,
+  findService,
   serviceJsonLd,
   textFromHtml,
 } from '~/lib/seo/jsonld';
 import {absoluteUrl, type WebPageType} from '~/lib/seo/schema';
 import {isKnownEmptyPage} from '~/lib/seo/empty-pages';
 import {ServicePlusAgencyCta} from '~/components/services/detail/ServicePlusAgencyCta';
+import {BulkHoursCta} from '~/components/services/detail/BulkHoursCta';
+import {BULK_HOURS_HANDLE, BULK_HOURS_QUERY} from '~/components/BulkHours';
 import {EcommerceSeoShopifySpecialism} from '~/components/seo/EcommerceSeoShopifySpecialism';
 import {
   ECOMMERCE_SEO_PARTNER_LOGOS,
@@ -162,6 +166,7 @@ const STYLESHEET_ORDER: ReadonlyArray<readonly [string, string]> = [
   ['service-detail-faqs', serviceDetailFaqStyles],
   ['migration-platforms-accordion', migrationPlatformsAccordionStyles],
   ['service-plus-agency-cta', servicePlusAgencyCtaStyles],
+  ['bulk-hours-cta', bulkHoursCtaStyles],
   ['shopify-plus-page', shopifyPlusPageStyles],
   ['ecommerce-seo-hero', ecommerceSeoHeroStyles],
   ['ecommerce-seo-cases', ecommerceSeoCasesStyles],
@@ -315,11 +320,26 @@ export function getPageStylesheetLinks(page: PageStylesheetSource | undefined) {
     }
   }
 
+  if (isServicePageHandle(handle)) add('bulk-hours-cta');
+
   return STYLESHEET_ORDER.filter(([key]) => needed.has(key)).map(([, href]) => ({
     tagName: 'link' as const,
     rel: 'stylesheet' as const,
     href,
   }));
+}
+
+/**
+ * Pages in the SERVICES list (the ones in the Services menu) close with the
+ * bulk hours section. Config-driven pages that are not services, such as the
+ * podcast, guides or memberships pages, do not.
+ */
+function findServiceByHandle(handle: string) {
+  return findService(resolveCanonicalPath(`/pages/${handle}`));
+}
+
+function isServicePageHandle(handle: string) {
+  return Boolean(findServiceByHandle(handle));
 }
 
 const GEO_SERVICE_PILLARS = [
@@ -608,6 +628,7 @@ export async function loadPageData({
     featuredBlogData,
     topCaseStudiesBlogData,
     caseStudyArticles,
+    bulkHoursData,
   ] = await Promise.all([
     context.storefront.query(PAGE_QUERY, {
       variables: {
@@ -636,6 +657,16 @@ export async function loadPageData({
       handle === 'search-first'
       ?loadAllCaseStudies(context)
       : Promise.resolve([]),
+    // Live prices for the bulk hours section on service pages.
+    isServicePageHandle(handle)
+      ? context.storefront
+          .query(BULK_HOURS_QUERY, {variables: {handle: BULK_HOURS_HANDLE}})
+          // The section is optional; never fail a service page over it.
+          .catch((error: Error) => {
+            console.error(error);
+            return {product: null};
+          })
+      : Promise.resolve({product: null}),
   ]);
 
   if (!page) {
@@ -654,6 +685,7 @@ export async function loadPageData({
     topCaseStudyArticles:
       topCaseStudiesBlogData.blog?.articles.nodes ?? [],
     caseStudyArticles,
+    bulkHoursProduct: bulkHoursData.product,
   };
 }
 
@@ -749,7 +781,15 @@ export function PageContent({
     featuredArticles,
     topCaseStudyArticles,
     caseStudyArticles,
+    bulkHoursProduct,
   } = data;
+
+  const bulkHoursCta = bulkHoursProduct ? (
+    <BulkHoursCta
+      product={bulkHoursProduct}
+      serviceName={findServiceByHandle(page.handle)?.name}
+    />
+  ) : null;
 
   if (page.handle === AI_VISIBILITY_AUDIT_PAGE_HANDLE) {
     return <AiVisibilityAuditHero />;
@@ -789,7 +829,7 @@ export function PageContent({
   }
 
   if (page.handle === SHOPIFY_PLUS_PAGE_HANDLE) {
-    return <ShopifyPlusPage />;
+    return <ShopifyPlusPage bulkHoursCta={bulkHoursCta} />;
   }
 
   if (
@@ -897,6 +937,7 @@ export function PageContent({
           </div>
         ) : null}
         <div className="ft-ecommerce-seo-testimonial"><WorkTestimonial /></div>
+        {bulkHoursCta}
         {SERVICE_PAGE_CONFIGS['shopify-app-development'].plusAgencyCta ? <ServicePlusAgencyCta data={SERVICE_PAGE_CONFIGS['shopify-app-development'].plusAgencyCta} /> : null}
         <div className="ft-ecommerce-seo-experts"><HomeExperts /></div>
       </>
@@ -913,6 +954,7 @@ export function PageContent({
       <ServiceDetailPage
         page={page}
         config={servicePageConfig}
+        bulkHoursCta={bulkHoursCta}
       />
     );
   }

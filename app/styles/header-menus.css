@@ -91,7 +91,11 @@
   opacity: 0;
   visibility: hidden;
 
-  pointer-events: none;
+  /*
+   * Visibility, not pointer-events, decides whether the menu can be hovered,
+   * so it stays usable during the close delay below.
+   */
+  pointer-events: auto;
 
   transform:
     translateX(-50%)
@@ -99,11 +103,17 @@
 
   transform-origin: top center;
 
+  /*
+   * Closing waits 200ms. Moving diagonally from the nav link to a far
+   * column leaves the link's hover area before reaching the menu; the delay
+   * keeps the menu open long enough to get there. Opening has no delay.
+   */
   transition:
-    opacity 180ms ease,
-    visibility 180ms ease,
+    opacity 180ms ease 200ms,
+    visibility 0s linear 380ms,
     transform 340ms
-      cubic-bezier(0.22, 1, 0.36, 1);
+      cubic-bezier(0.22, 1, 0.36, 1)
+      200ms;
 
   z-index: 1002;
 }
@@ -121,11 +131,11 @@
 
   position: absolute;
 
-  top: -1.125rem;
+  top: -2.25rem;
   left: 0;
 
   width: 100%;
-  height: 1.125rem;
+  height: 2.25rem;
 }
 
 
@@ -139,6 +149,8 @@
   transform:
     translateX(-50%)
     translateY(0);
+
+  transition-delay: 0s;
 }
 
 /* Keyboard reveal — see the triangle rule above for why it's separate. */
@@ -152,6 +164,39 @@
   transform:
     translateX(-50%)
     translateY(0);
+
+  transition-delay: 0s;
+}
+
+
+/* Hovering another menu closes the previous one at once, no delay. */
+.charle-header__navigation:has(
+    > .charle-header__nav-item--mega:hover
+  )
+  > .charle-header__nav-item--mega:not(:hover)
+  > .ft-mega-menu {
+  transition-delay: 0s;
+}
+
+
+/*
+ * Closed after a link in the menu was clicked, until the pointer leaves the
+ * item (Header.tsx sets and clears `data-menu-closed`). Declared after the
+ * reveal rules, which have the same specificity.
+ */
+.charle-header__nav-item--mega[data-menu-closed]
+  > .ft-mega-menu {
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 120ms ease,
+    visibility 0s linear 120ms;
+}
+
+.charle-header__nav-item--mega[data-menu-closed]
+  > .charle-header__nav-link::after {
+  opacity: 0;
 }
 
 
@@ -160,8 +205,14 @@
 ========================================================= */
 
 .ft-mega-menu--services {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    19rem;
+
   width: min(
-    71.875rem,
+    88rem,
     calc(100vw - 4rem)
   );
 
@@ -180,7 +231,7 @@
   grid-template-columns:
     repeat(4, minmax(0, 1fr));
 
-  gap: 2.5rem;
+  gap: 2rem;
 
   padding:
     2.5rem
@@ -325,75 +376,6 @@
    SERVICES BOTTOM AREA
 ========================================================= */
 
-.ft-services-mega__footer {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    17.5rem;
-
-  align-items: end;
-
-  gap: 3.75rem;
-
-  min-height: 11.375rem;
-
-  padding:
-    1.5rem
-    2.875rem
-    1.5rem;
-
-  background:
-    var(--ft-dark-deep);
-}
-
-
-.ft-services-mega__footer-content {
-  align-self: center;
-}
-
-
-.ft-services-mega__footer-title {
-  margin:
-    0
-    0
-    0.875rem;
-
-  color: #ffffff;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  font-size: 0.9375rem;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-
-.ft-services-mega__footer-text {
-  max-width: 41.25rem;
-
-  margin:
-    0
-    0
-    0.9375rem;
-
-  color:
-    rgba(255, 255, 255, 0.68);
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.35;
-}
-
-
 .ft-mega-menu__cta {
   display: inline-flex;
 
@@ -435,29 +417,6 @@
 .ft-mega-menu__cta:hover svg {
   transform:
     translate(0.125rem, -0.125rem);
-}
-
-
-.ft-services-mega__footer-image {
-  width: 17.5rem;
-
-  border-radius: 1.125rem;
-
-  overflow: hidden;
-}
-
-
-.ft-services-mega__footer-image img {
-  display: block;
-
-  width: 100%;
-  height: auto;
-
-  aspect-ratio: 16 / 8.5;
-
-  object-fit: cover;
-
-  border-radius: 0;
 }
 
 
@@ -706,23 +665,6 @@
     font-size: 0.8125rem;
   }
 
-
-  .ft-services-mega__footer {
-    grid-template-columns:
-      minmax(0, 1fr)
-      15.625rem;
-
-    gap: 2.1875rem;
-
-    padding:
-      1.5rem
-      2rem;
-  }
-
-
-  .ft-services-mega__footer-image {
-    width: 15.625rem;
-  }
 }
 
 
@@ -2058,5 +2000,215 @@
       );
 
     letter-spacing: -0.035em;
+  }
+}
+
+
+/* =========================================================
+   BULK HOURS PROMO
+   Featured column of the Services menu, like the Resources
+   featured article, and a card in the mobile Services panel.
+========================================================= */
+
+.ft-bulk-promo {
+  --ft-bulk-promo-bg: var(--ft-dark-deep);
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  color: var(--ft-white);
+  background: var(--ft-bulk-promo-bg);
+
+  text-decoration: none;
+}
+
+
+.ft-bulk-promo:hover {
+  text-decoration: none;
+}
+
+
+.ft-bulk-promo:focus-visible {
+  outline:
+    0.125rem solid
+    var(--ft-teal);
+
+  outline-offset: -0.25rem;
+}
+
+
+.ft-bulk-promo__image {
+  position: relative;
+
+  flex: 1 1 auto;
+
+  min-height: 11rem;
+
+  overflow: hidden;
+}
+
+
+.ft-bulk-promo__image img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 0;
+
+  transition:
+    transform 700ms
+      cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* Fade the photo into the panel so the heading sits on it. */
+
+.ft-bulk-promo__image::after {
+  content: '';
+
+  position: absolute;
+  inset: auto 0 0;
+
+  height: 55%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      var(--ft-bulk-promo-bg)
+    );
+}
+
+
+.ft-bulk-promo:hover
+  .ft-bulk-promo__image img {
+  transform: scale(1.05);
+}
+
+
+.ft-bulk-promo__content {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 0.75rem;
+
+  margin-top: -2.5rem;
+
+  padding:
+    0
+    1.75rem
+    1.875rem;
+}
+
+
+.ft-bulk-promo__title {
+  font-family:
+    'Season Sans',
+    sans-serif;
+
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 0.95;
+
+  letter-spacing: -0.05em;
+}
+
+
+.ft-bulk-promo__text {
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-family:
+    'Season Sans',
+    sans-serif;
+
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+
+.ft-bulk-promo__cta {
+  margin-top: 0.5rem;
+}
+
+
+.ft-bulk-promo:hover
+  .ft-mega-menu__cta svg {
+  transform:
+    translate(0.125rem, -0.125rem);
+}
+
+
+@media (min-width: 62rem) and (max-width: 78.125rem) {
+
+  .ft-mega-menu--services {
+    grid-template-columns:
+      minmax(0, 1fr)
+      15.5rem;
+  }
+
+
+  .ft-bulk-promo__content {
+    padding:
+      0
+      1.25rem
+      1.5rem;
+  }
+
+
+  .ft-bulk-promo__title {
+    font-size: 2.625rem;
+  }
+}
+
+
+@media (max-width: 61.9375rem) {
+
+  .ft-bulk-promo {
+    --ft-bulk-promo-bg: var(--ft-dark);
+
+    border-radius: 1.5rem;
+
+    overflow: hidden;
+  }
+
+
+  .ft-bulk-promo__image {
+    flex: none;
+
+    aspect-ratio: 16 / 9;
+
+    min-height: 0;
+  }
+
+
+  .ft-bulk-promo__content {
+    padding:
+      0
+      1.25rem
+      1.375rem;
+  }
+
+
+  .ft-bulk-promo__title {
+    font-size: 2.5rem;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ft-bulk-promo__image img {
+    transition: none;
   }
 }

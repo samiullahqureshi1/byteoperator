@@ -1,3 +1,4 @@
+import type {ReactNode} from 'react';
 import {HomeExperts} from '~/components/HomeExperts';
 import {HomeFeature} from '~/components/HomeFeature';
 import {HomeHeroGallery} from '~/components/HomeHeroGallery';
@@ -9,7 +10,11 @@ import {ClientLogoGrid} from '~/components/shared/ClientLogoGrid';
 import {SHOPIFY_PLUS_PAGE} from '~/data/shopifyPlusPage';
 import {ServiceHero} from './ServiceHero';
 
-export function ShopifyPlusPage() {
+export function ShopifyPlusPage({
+  bulkHoursCta,
+}: {
+  bulkHoursCta?: ReactNode;
+}) {
   return (
     <div
       className="ft-shopify-plus-page"
@@ -40,6 +45,8 @@ export function ShopifyPlusPage() {
       <div className="ft-shopify-plus-page__partners">
         <HomePartners />
       </div>
+
+      {bulkHoursCta}
 
       <div className="ft-shopify-plus-page__experts">
         <HomeExperts />
