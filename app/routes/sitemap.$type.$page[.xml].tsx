@@ -12,6 +12,17 @@ export async function loader({
   params,
   context: {storefront},
 }: Route.LoaderArgs) {
+  /*
+   * Kept in step with the `types` list in `[sitemap.xml].tsx`. Excluding a
+   * type from the index is not enough on its own — the child sitemap is still
+   * reachable at its own URL, and Google remembers sitemap URLs it has seen
+   * before, so `/sitemap/products/1.xml` would keep serving noindexed URLs
+   * long after the index stopped linking to it.
+   */
+  if (params.type === 'products' || params.type === 'collections') {
+    throw new Response('Not Found', {status: 404});
+  }
+
   const response = await getSitemap({
     storefront,
     request,

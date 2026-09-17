@@ -123,7 +123,15 @@ export const OLD_TO_CLEAN_PATHS = {
   '/services/shopify-integrations': '/shopify-integrations/',
   '/services/shopify-integrations/': '/shopify-integrations/',
   '/shopify-integrations': '/shopify-integrations/',
-  '/pages/integrations': '/integrations',
+  /*
+   * Short alias -> the real page's clean URL.
+   *
+   * These aliases used to point at `/pages/{alias}` handles that do not
+   * exist in Shopify, so each one 301'd to a clean URL that then 404'd.
+   * The actual pages were live the whole time under their own handles.
+   */
+  '/pages/integrations': '/shopify-integrations/',
+  '/integrations': '/shopify-integrations/',
   [`/pages/${SHOPIFY_SEO_PAGE_HANDLE}`]: SHOPIFY_SEO_CLEAN_PATH,
   '/pages/shopify-seo': SHOPIFY_SEO_CLEAN_PATH,
   '/shopify-seo': SHOPIFY_SEO_CLEAN_PATH,
@@ -171,8 +179,10 @@ export const OLD_TO_CLEAN_PATHS = {
   '/shopify-maintenance': '/support-and-maintenance/',
   '/services/support-and-maintenance': '/support-and-maintenance/',
   '/services/support-and-maintenance/': '/support-and-maintenance/',
-  '/pages/shopify-support': '/shopify-support',
-  '/pages/support-maintenance': '/support-maintenance',
+  '/pages/shopify-support': '/support-and-maintenance/',
+  '/shopify-support': '/support-and-maintenance/',
+  '/pages/support-maintenance': '/support-and-maintenance/',
+  '/support-maintenance': '/support-and-maintenance/',
   // Shopify audits keeps its canonical URL under `/services/*`, so the
   // retired root-level spelling is the alias here, not the target.
   '/pages/shopify-audits': '/services/shopify-audits/',
@@ -221,7 +231,8 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/shopify-b2b-wholesale': '/shopify-b2b-wholesale/',
   '/pages/shopify-b2b': '/shopify-b2b-wholesale/',
   '/shopify-b2b': '/shopify-b2b-wholesale/',
-  '/pages/b2b': '/b2b',
+  '/pages/b2b': '/shopify-b2b-wholesale/',
+  '/b2b': '/shopify-b2b-wholesale/',
   '/pages/subscriptions-on-shopify': '/subscriptions-on-shopify/',
   '/pages/shopify-subscriptions': '/subscriptions-on-shopify/',
   '/shopify-subscriptions': '/subscriptions-on-shopify/',
@@ -229,7 +240,8 @@ export const OLD_TO_CLEAN_PATHS = {
   // `resolveLegacyPath` cannot recover now the alias points elsewhere, so it is
   // listed explicitly and redirects to the canonical path in one hop.
   '/shopify-subscriptions/': '/subscriptions-on-shopify/',
-  '/pages/subscriptions': '/subscriptions',
+  '/pages/subscriptions': '/subscriptions-on-shopify/',
+  '/subscriptions': '/subscriptions-on-shopify/',
   // Canonical root-level service URL. `/services/agentic-commerce` was the
   // previous, incorrect canonical spelling; both of its forms stay here as
   // one-way aliases so they resolve to the root path in a single hop.
@@ -237,7 +249,9 @@ export const OLD_TO_CLEAN_PATHS = {
   '/services/agentic-commerce': '/agentic-commerce/',
   '/services/agentic-commerce/': '/agentic-commerce/',
   '/pages/ab-testing': '/ab-testing',
-  '/pages/shopify-consultant': '/shopify-consultant',
+  /* No Shopify page exists for this one, so it joins the booking pages. */
+  '/pages/shopify-consultant': CONTACT_CLEAN_PATH,
+  '/shopify-consultant': CONTACT_CLEAN_PATH,
   '/pages/magento-shopify-migrations':
     '/magento-shopify-migrations/',
   '/services/magento-shopify-migrations':
@@ -286,6 +300,15 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/podcast': '/podcast',
   '/pages/webinars': '/webinars',
   '/pages/guides': '/guides',
+  /*
+   * Canonical Shopify source handle first, per the rule above: the page that
+   * actually exists is `join-our-newsletter`. There is no Shopify page with
+   * the handle `newsletter`, so listing `/pages/newsletter` first made
+   * `resolveLegacyPath('/newsletter')` return a handle the Storefront API has
+   * no record of, and `/newsletter` 404'd while still being published in
+   * sitemap/pages/1.xml. The retired spelling stays below as a one-way alias.
+   */
+  '/pages/join-our-newsletter': '/newsletter',
   '/pages/newsletter': '/newsletter',
   '/pages/events': '/events',
   '/pages/careers': '/careers',
@@ -316,7 +339,7 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/bigcommerce-to-shopify-migration': '/bigcommerce-shopify-migrations/',
   '/pages/conversion-rate-optimization': '/shopify-cro-agency/',
   '/pages/free-ai-visibility-snapshot': '/ai-visibility-audit/',
-  '/pages/join-our-newsletter': '/newsletter',
+  /* `/pages/join-our-newsletter` moved up with the canonical source handles. */
   '/pages/resources': '/guides',
   '/pages/reviews': '/work',
   '/pages/shopify-design-services': '/shopify-web-design',

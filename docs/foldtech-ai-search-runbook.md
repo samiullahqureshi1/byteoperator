@@ -517,7 +517,7 @@ blocks on the same page. Everything below is inside that single page `@graph`.
 | Not emitted | Why |
 |---|---|
 | `AggregateRating`, `Review` | Unchanged policy. The 4.9/414 lives on the Shopify Partner Directory; first-party markup of third-party reviews violates Google's review-snippet policy. The repo's own testimonials are placeholders ("Demo Brand", "Company Name"), so there is nothing authentic to mark up yet. |
-| `Product`, `Offer` | Agency site, not a storefront. `/products/*` and `/collections/*` are `noindex,follow` instead — describing products nobody can buy is worse than describing none. |
+| `Product`, `Offer` | Agency site, not a storefront. `/products/*` and `/collections/*` are `noindex,follow` instead — describing products nobody can buy is worse than describing none. They are also **excluded from the sitemap** (`types: ['pages','articles','blogs']` in `[sitemap.xml].tsx`, plus a 404 guard on the child route): 69 URLs were being submitted for indexing while being told not to index, which Search Console reports as "Submitted URL marked noindex". |
 | `SearchAction` | Retired by Google, and contradicted `Disallow: /search`. |
 | Anything on `/blogs/:blog/:article`, `/book-a-call` | Duplicate surfaces. They canonicalise to the real URL, which owns the node. |
 | Anything on `/policies/*`, `/search`, `/cart`, `/account/*`, 404s | `noindex`, and `/policies/` is disallowed in robots.txt. |
@@ -527,9 +527,11 @@ FAQ rich result for a site like this one — that is now limited to recognised
 government and health sources. It is emitted for entity clarity and AI
 retrieval, not SERP features. Do not sell it internally as a rich-result win.
 
-**Validation after any schema change:** `node scripts/check-schema.mjs`
-(`--origin=` to point at a preview or production), then Google Rich Results
-Test, `validator.schema.org`, and Search Console → Enhancements at +48 h. The
+**Validation after any schema change:** `node scripts/check-schema.mjs` reads
+`sitemap.xml` and checks **every** URL the site publishes — 154 at the time of
+writing, not a sample. (`--sample` for a fast one-per-page-type run, `--origin=`
+to point at a preview or production.) Then Google Rich Results Test,
+`validator.schema.org`, and Search Console → Enhancements at +48 h. The
 script asserts: every block parses; no duplicate `@id`; every `@id` reference
 resolves; exactly one WebPage node whose `@id` matches the canonical; all URLs
 absolute and on `SITE_URL`; no `@context` on a graph member; no empty values;

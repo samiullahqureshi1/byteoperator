@@ -21,7 +21,8 @@
  *   7. Every FAQPage question is present in the rendered HTML. FAQ markup whose
  *      Q&A isn't visible is a policy violation, not a shortcut.
  *
- *   node scripts/check-schema.mjs
+ *   node scripts/check-schema.mjs                  # every URL in sitemap.xml
+ *   node scripts/check-schema.mjs --sample         # one of each page type
  *   node scripts/check-schema.mjs --origin=https://thefoldtech.com
  *   node scripts/check-schema.mjs --paths=/,/about,/contact
  */
@@ -40,7 +41,24 @@ function readSiteUrl() {
   return match[1];
 }
 
+/**
+ * The pages that deliberately emit no page graph (runbook 0.5). Read from the
+ * source rather than restated, so deleting a line there is enough — this
+ * script starts expecting a graph on that page automatically.
+ */
+function readKnownEmptyPaths() {
+  const source = readFileSync('app/lib/seo/empty-pages.ts', 'utf8');
+  const block = source
+    .split('KNOWN_EMPTY_PAGE_PATHS')[1]
+    ?.split(']')[0];
+  if (!block) return new Set();
+  return new Set([...block.matchAll(/'([^']+)'/g)].map((m) => m[1]));
+}
+
 const SITE_URL = readSiteUrl();
+const KNOWN_EMPTY = readKnownEmptyPaths();
+
+const normalisePath = (p) => p.replace(/\/+$/, '') || '/';
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 
@@ -75,6 +93,7 @@ const WEBPAGE_TYPES = new Set([
 
 const failures = [];
 const notes = [];
+const skipped = {noindex: [], empty: []};
 
 const fail = (path, message) => failures.push(`${path} — ${message}`);
 
@@ -292,7 +311,22 @@ function checkPage(path, html) {
   });
 
   if (noindex) {
-    notes.push(`${path} — noindex, WebPage assertions skipped`);
+    skipped.noindex.push(path);
+  } else if (KNOWN_EMPTY.has(normalisePath(path))) {
+    /*
+     * Listed in KNOWN_EMPTY_PAGE_PATHS: renders nothing but chrome, so it
+     * deliberately emits no page graph. Describing a blank page would assert
+     * content that isn't there. Not a failure — but if one of these DOES have
+     * a graph now, the page was built and its line should be deleted.
+     */
+    if (pageNodes.length) {
+      notes.push(
+        `${path} — has a WebPage node but is still in KNOWN_EMPTY_PAGE_PATHS; ` +
+          `delete its line in app/lib/seo/empty-pages.ts`,
+      );
+    } else {
+      skipped.empty.push(path);
+    }
   } else if (pageNodes.length !== 1) {
     fail(path, `expected exactly 1 WebPage node, found ${pageNodes.length}`);
   } else if (canonical) {
@@ -365,11 +399,66 @@ function discoverLinks(html, pattern, limit = 1) {
   return [...found];
 }
 
+/** `<loc>` values from a sitemap or sitemap index, as paths. */
+async function sitemapLocs(path) {
+  const response = await fetch(new URL(path, ORIGIN), {
+    headers: {'User-Agent': 'foldtech-check-schema'},
+  });
+  if (!response.ok) return [];
+
+  const xml = await response.text();
+  return [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) =>
+    decodeEntities(m[1]),
+  );
+}
+
+/**
+ * Every URL the site publishes, via `/sitemap.xml` and the child sitemaps it
+ * indexes. This is the whole public surface — pages, articles, case studies —
+ * not a sample of page types.
+ */
+async function discoverSitemapUrls() {
+  const children = await sitemapLocs('/sitemap.xml');
+  if (!children.length) return [];
+
+  const paths = new Set();
+  for (const child of children) {
+    const childPath = new URL(child, ORIGIN).pathname;
+    for (const loc of await sitemapLocs(childPath)) {
+      paths.add(new URL(loc, ORIGIN).pathname);
+    }
+  }
+  return [...paths];
+}
+
+/** Bounded concurrency — this may be pointed at production. */
+async function pool(items, limit, worker) {
+  let index = 0;
+  let done = 0;
+  const runners = Array.from({length: Math.min(limit, items.length)}, async () => {
+    while (index < items.length) {
+      const item = items[index++];
+      await worker(item);
+      done += 1;
+      if (done % 25 === 0) console.warn(`  ...${done}/${items.length}`);
+    }
+  });
+  await Promise.all(runners);
+}
+
 async function main() {
   const override = argValue('paths');
-  const paths = override ? override.split(',').filter(Boolean) : [...DEFAULT_PATHS];
+  const sample = args.includes('--sample');
 
-  if (!override) {
+  let paths;
+  let source;
+
+  if (override) {
+    paths = override.split(',').filter(Boolean);
+    source = 'the --paths argument';
+  } else if (sample) {
+    paths = [...DEFAULT_PATHS];
+    source = 'a sample of page types';
     const articlesIndex = await fetchPage('/articles');
     if (articlesIndex) {
       paths.push(...discoverLinks(articlesIndex, '/articles/[^"\'#?]+/'));
@@ -378,14 +467,32 @@ async function main() {
     if (workIndex) {
       paths.push(...discoverLinks(workIndex, '/work/[^"\'#?]+'));
     }
+  } else {
+    paths = await discoverSitemapUrls();
+    source = 'sitemap.xml';
+    if (!paths.length) {
+      console.error(
+        `Could not read any URLs from ${ORIGIN}/sitemap.xml. ` +
+          `Use --sample for the page-type spot check, or --paths=/a,/b.`,
+      );
+      process.exit(1);
+    }
   }
 
-  for (const path of paths) {
+  console.warn(`Checking ${paths.length} URL(s) from ${source} on ${ORIGIN}`);
+
+  await pool(paths, 6, async (path) => {
     const html = await fetchPage(path);
     if (html) checkPage(path, html);
-  }
+  });
 
-  console.warn(`Checked ${paths.length} page(s) on ${ORIGIN}`);
+  const checked = paths.length - skipped.noindex.length - skipped.empty.length;
+  console.warn(
+    `\n${paths.length} URL(s): ${checked} fully checked, ` +
+      `${skipped.empty.length} skipped as known-empty, ` +
+      `${skipped.noindex.length} skipped as noindex.`,
+  );
+
   for (const note of notes) console.warn(`  note: ${note}`);
 
   if (failures.length) {

@@ -129,8 +129,26 @@ if (!STATIC_ONLY) {
   const TOKEN = env.SHOPIFY_ADMIN_TOKEN;
   const VERSION = env.SHOPIFY_API_VERSION || '2026-07';
 
+  /*
+   * Live check 3 needs nothing but the list of published page handles, which
+   * the Storefront API serves — so it runs on the Storefront token alone,
+   * outside the Admin block below.
+   *
+   * It used to sit inside that block, which meant it silently did not run
+   * whenever Admin credentials were absent. That is how six DEAD CLEAN TARGETs
+   * (`/integrations`, `/b2b`, `/subscriptions`, `/support-maintenance`,
+   * `/shopify-support`, `/shopify-consultant`) survived in the mappings while
+   * this script reported PASS.
+   *
+   * Storefront is also the better source here than Admin: it lists only
+   * PUBLISHED pages, and an unpublished page 404s for visitors exactly like a
+   * missing one. An Admin-based check would pass on a page the public cannot
+   * reach.
+   */
+  await checkDeadCleanTargets(env);
+
   if (!DOMAIN || !TOKEN) {
-    console.log('\nNo Admin credentials — skipping live checks.');
+    console.log('\nNo Admin credentials — skipping Admin-only live checks.');
   } else {
     async function admin(query, variables) {
       const response = await fetch(
@@ -185,59 +203,82 @@ if (!STATIC_ONLY) {
       }
     }
 
-    /* ---- live check 3: clean targets must resolve to a real page ---- */
+  }
+}
 
-    const pages = [];
-    let pageCursor = null;
+/**
+ * Every clean target must resolve to a Shopify page that actually exists.
+ *
+ * A clean path is served by resolving it back to the FIRST `/pages/*` entry
+ * that points at it, then loading that Shopify page. If no such page exists
+ * the app 301s into its own 404 — invisible until someone follows an old link.
+ *
+ * Uses the Storefront API, so it runs without Admin credentials.
+ */
+async function checkDeadCleanTargets(env) {
+  const domain = env.PUBLIC_STORE_DOMAIN;
+  const token = env.PUBLIC_STOREFRONT_API_TOKEN;
 
-    do {
-      const data = await admin(
-        `query P($after: String) {
-           pages(first: 250, after: $after) {
-             nodes { handle }
-             pageInfo { hasNextPage endCursor }
-           }
-         }`,
-        {after: pageCursor},
+  if (!domain || !token) {
+    warnings.push(
+      'No Storefront credentials — cannot check for dead clean targets.',
+    );
+    return;
+  }
+
+  const response = await fetch(`https://${domain}/api/2025-01/graphql.json`, {
+    method: 'POST',
+    headers: {
+      'X-Shopify-Storefront-Access-Token': token,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: '{ pages(first: 250) { nodes { handle } } }',
+    }),
+  });
+
+  if (!response.ok) {
+    warnings.push(`Storefront API returned ${response.status} — page check skipped.`);
+    return;
+  }
+
+  const body = await response.json();
+  const nodes = body?.data?.pages?.nodes;
+
+  if (!Array.isArray(nodes)) {
+    warnings.push('Storefront API returned no pages — page check skipped.');
+    return;
+  }
+
+  const handles = new Set(nodes.map((page) => page.handle));
+  const cleanTargets = [...new Set(mappings.map(([, clean]) => clean))];
+  let checked = 0;
+
+  for (const clean of cleanTargets) {
+    if (clean.startsWith('/pages/')) continue;
+
+    const resolver = mappings.find(
+      ([legacy, target]) => legacy.startsWith('/pages/') && target === clean,
+    );
+
+    // Served by a dedicated route (e.g. /articles/), not the page resolver.
+    if (!resolver) continue;
+
+    const handle = resolver[0].slice('/pages/'.length);
+    checked++;
+
+    if (!handles.has(handle)) {
+      failures.push(
+        `DEAD CLEAN TARGET: ${clean} resolves to Shopify page "${handle}", ` +
+          `which does not exist — the app 301s into a 404`,
       );
-
-      pages.push(...data.pages.nodes);
-      pageCursor = data.pages.pageInfo.hasNextPage
-        ? data.pages.pageInfo.endCursor
-        : null;
-    } while (pageCursor);
-
-    const handles = new Set(pages.map((p) => p.handle));
-
-    /*
-     * A clean path is served by resolving it back to the FIRST `/pages/*`
-     * entry that points at it, then loading that Shopify page. If no such page
-     * exists the app 301s into its own 404 — invisible until someone follows
-     * an old link.
-     */
-    const cleanTargets = [...new Set(mappings.map(([, clean]) => clean))];
-
-    for (const clean of cleanTargets) {
-      if (clean.startsWith('/pages/')) continue;
-
-      const resolver = mappings.find(
-        ([legacy, target]) => legacy.startsWith('/pages/') && target === clean,
-      );
-
-      if (!resolver) {
-        // Served by a dedicated route (e.g. /articles/), not the page resolver.
-        continue;
-      }
-
-      const handle = resolver[0].slice('/pages/'.length);
-
-      if (!handles.has(handle)) {
-        failures.push(
-          `DEAD CLEAN TARGET: ${clean} resolves to Shopify page "${handle}", which does not exist — the app 301s into a 404`,
-        );
-      }
     }
   }
+
+  console.log(
+    `
+Checked ${checked} clean target(s) against ${handles.size} published Shopify pages.`,
+  );
 }
 
 /* ---- report ---- */
@@ -250,12 +291,18 @@ if (warnings.length) {
   console.log('');
 }
 
+/*
+ * `process.exitCode`, not `process.exit()`. An abrupt exit while undici still
+ * holds a keep-alive socket from the Storefront fetch trips a libuv assertion
+ * on Windows and corrupts the exit code — a PASS was reporting 127, which
+ * would fail a build on success. Setting the code and letting Node drain its
+ * handles exits cleanly with the right status.
+ */
 if (!failures.length) {
   console.log('PASS — redirect ownership boundary is intact.');
-  process.exit(0);
+  process.exitCode = 0;
+} else {
+  console.log(`FAIL — ${failures.length} violation(s):`);
+  for (const f of failures) console.log(`  x ${f}`);
+  process.exitCode = 1;
 }
-
-console.log(`FAIL — ${failures.length} violation(s):`);
-for (const f of failures) console.log(`  x ${f}`);
-
-process.exit(1);
