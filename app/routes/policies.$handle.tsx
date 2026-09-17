@@ -16,7 +16,11 @@ type SelectedPolicies = keyof Pick<
 >;
 
 export const meta: Route.MetaFunction = ({data}) => {
-  return [{title: `${data?.policy.title ?? ''} | FoldTech`}];
+  return [
+    {title: `${data?.policy.title ?? ''} | FoldTech`},
+    /* robots.txt already sends `Disallow: /policies/`; this agrees with it. */
+    {name: 'robots', content: 'noindex,follow'},
+  ];
 };
 
 export async function loader({params, context}: Route.LoaderArgs) {

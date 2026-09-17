@@ -1,5 +1,7 @@
 import {useLoaderData} from 'react-router';
 import type {Route} from './+types/work.$handle';
+import {caseStudyJsonLd, textFromHtml} from '~/lib/seo/jsonld';
+import {absoluteUrl} from '~/lib/seo/schema';
 import {CaseStudyDetail} from '~/components/work/CaseStudyDetail';
 import caseStudyDetailStyles from '~/styles/case-study-detail.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
@@ -35,9 +37,33 @@ export const meta: Route.MetaFunction = ({data}) => {
           {
             tagName: 'link',
             rel: 'canonical',
-            href: `/work/${article.handle}`,
+            href: absoluteUrl(`/work/${article.handle}`),
           },
         ]
+      : []),
+
+    /*
+     * WebPage + BreadcrumbList + CreativeWork. These are the real, populated
+     * case studies — `caseStudyJsonLd` previously fired only for the
+     * `/pages/cs-*` handles, every one of which sits in
+     * KNOWN_EMPTY_PAGE_PATHS, so it never reached a live page.
+     */
+    ...(article.handle
+      ? caseStudyJsonLd({
+          path: `/work/${article.handle}`,
+          /*
+           * No `clientName`. On `/work/*` the handle is not reliably the
+           * client — `/work/axumart` is titled "SleepTite SleepRite" — so
+           * deriving one from the URL asserted a relationship the page does
+           * not support. Add it here when a real client field exists.
+           */
+          headline: article.title,
+          description:
+            article.seo?.description?.trim() ||
+            textFromHtml(article.excerptHtml ?? article.contentHtml),
+          imageUrl: article.image?.url,
+          datePublished: article.publishedAt,
+        })
       : []),
   ];
 };

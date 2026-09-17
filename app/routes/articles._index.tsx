@@ -9,7 +9,9 @@ import {ArticlesListing} from '~/components/articles/ArticlesListing';
 import {HomeExperts} from '~/components/HomeExperts';
 import {WorkTestimonial} from '~/components/work/WorkTestimonial';
 import {getArticlesPageData} from '~/lib/articles-data.server';
-import {ARTICLES_CLEAN_PATH} from '~/lib/route-mappings';
+import {ARTICLES_CLEAN_PATH, getArticlePath} from '~/lib/route-mappings';
+import {contentPageJsonLd} from '~/lib/seo/jsonld';
+import {absoluteUrl} from '~/lib/seo/schema';
 import articlesIntroStyles from '~/styles/articles-intro.css?url';
 import articlesListingStyles from '~/styles/articles-listing.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
@@ -35,7 +37,24 @@ export const meta: Route.MetaFunction = ({data}) => {
   return [
     {title},
     ...(description ? [{name: 'description', content: description}] : []),
-    {tagName: 'link', rel: 'canonical', href: ARTICLES_CLEAN_PATH},
+    {tagName: 'link', rel: 'canonical', href: absoluteUrl(ARTICLES_CLEAN_PATH)},
+
+    /*
+     * CollectionPage + ItemList of the articles this page actually renders,
+     * so the list matches the visible grid rather than every article in the
+     * store.
+     */
+    ...contentPageJsonLd({
+      path: ARTICLES_CLEAN_PATH,
+      name: title,
+      description,
+      type: 'CollectionPage',
+      breadcrumbs: [{name: 'Articles', path: ARTICLES_CLEAN_PATH}],
+      items: (data?.articles ?? []).map((article) => ({
+        name: article.title,
+        path: getArticlePath(article.handle),
+      })),
+    }),
   ];
 };
 

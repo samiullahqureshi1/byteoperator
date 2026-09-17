@@ -61,8 +61,33 @@ export const OLD_TO_CLEAN_PATHS = {
   // rendering the Shopify-managed content.
   '/pages/discovery-meeting-with-the-shopify-experts': CONTACT_CLEAN_PATH,
   '/pages/discovery-meeting-with-the-shopify-experts/': CONTACT_CLEAN_PATH,
+  /*
+   * Both spellings go to /contact, which matches the explicit rule in
+   * `pages.$handle.tsx`'s loader that treats `shopify-experts` as a booking
+   * page rather than a content page.
+   *
+   * This entry used to be duplicated further down, pointing at
+   * `/shopify-experts` instead. A duplicate key in an object literal takes its
+   * LAST value, so that one silently won for the no-slash spelling — and
+   * `/shopify-experts` 404s, because no Shopify page carries that handle. The
+   * duplicate was removed rather than honoured.
+   *
+   * TO PUBLISH THE REAL PAGE: create a Shopify page with handle
+   * `shopify-experts`. Its layout already exists as
+   * SERVICE_PAGE_CONFIGS['shopify-experts'] in `app/data/servicePages.ts`, and
+   * `$pageHandle.tsx` already has its title, description and canonical. Then
+   * point both spellings here at '/shopify-experts' and delete the handle from
+   * the redirect check in `pages.$handle.tsx`.
+   */
   '/pages/shopify-experts': CONTACT_CLEAN_PATH,
   '/pages/shopify-experts/': CONTACT_CLEAN_PATH,
+  /*
+   * The clean spellings too. Without these, `/shopify-experts` 404s — nothing
+   * links to it, but it is a URL people and crawlers have, and a 301 to the
+   * contact flow is a better answer than a dead end.
+   */
+  '/shopify-experts': CONTACT_CLEAN_PATH,
+  '/shopify-experts/': CONTACT_CLEAN_PATH,
   /*
    * `/case-studies` was never a real page — no Shopify page carries that
    * handle, so the clean URL 404'd while `/pages/case-studies` happily 301'd
@@ -248,7 +273,13 @@ export const OLD_TO_CLEAN_PATHS = {
     '/shopify-theme-development-builds/',
   '/pages/memberships': '/memberships',
   '/pages/search-first': '/search-first',
-  '/pages/shopify-experts': '/shopify-experts',
+  /*
+   * `/pages/shopify-experts` is NOT mapped here. It used to be, which made
+   * `/pages/shopify-experts` resolve to `/shopify-experts` — a URL that 404s,
+   * because no Shopify page carries that handle. It is mapped to /contact with
+   * the other booking pages near the top of this object; see the note there
+   * for how to publish the real page.
+   */
   '/pages/ecommerce-agency': ECOMMERCE_SEO_CLEAN_PATH,
   '/ecommerce-agency': ECOMMERCE_SEO_CLEAN_PATH,
   '/ecommerce-agency/': ECOMMERCE_SEO_CLEAN_PATH,

@@ -7,6 +7,7 @@ import {CaseStudyDetail} from '~/components/work/CaseStudyDetail';
 import caseStudyDetailStyles from '~/styles/case-study-detail.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
 import {articleJsonLd} from '~/lib/seo/jsonld';
+import {absoluteUrl} from '~/lib/seo/schema';
 
 export const links: Route.LinksFunction = () => [
   // Article/case-study media is served from Shopify's CDN, so this
@@ -31,7 +32,20 @@ export const meta: Route.MetaFunction = ({data}) => {
   return [
     {title},
     ...(description ? [{name: 'description', content: description}] : []),
-    ...(canonical ? [{tagName: 'link', rel: 'canonical', href: canonical}] : []),
+
+    /* This route had no Open Graph tags at all, unlike every sibling. */
+    {property: 'og:type', content: 'article'},
+    {property: 'og:title', content: title},
+    ...(description
+      ? [{property: 'og:description', content: description}]
+      : []),
+    ...(article?.image?.url
+      ? [{property: 'og:image', content: article.image.url}]
+      : []),
+
+    ...(canonical
+      ? [{tagName: 'link', rel: 'canonical', href: absoluteUrl(canonical)}]
+      : []),
     ...(article && canonical
       ? articleJsonLd({
           path: canonical,

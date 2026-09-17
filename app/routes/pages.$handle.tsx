@@ -83,9 +83,11 @@ import {HomeExperts} from '~/components/HomeExperts';
 import {
   caseStudyJsonLd,
   clientNameFromHandle,
+  contentPageJsonLd,
   serviceJsonLd,
   textFromHtml,
 } from '~/lib/seo/jsonld';
+import {absoluteUrl, type WebPageType} from '~/lib/seo/schema';
 import {isKnownEmptyPage} from '~/lib/seo/empty-pages';
 import {ServicePlusAgencyCta} from '~/components/services/detail/ServicePlusAgencyCta';
 import {EcommerceSeoShopifySpecialism} from '~/components/seo/EcommerceSeoShopifySpecialism';
@@ -109,6 +111,7 @@ import {
   resolveCleanPath,
   resolveServiceConfigHandle,
   CONTACT_PAGE_HANDLE,
+  CONTACT_CLEAN_PATH,
   AI_SEO_PAGE_HANDLE,
   GEO_PAGE_HANDLE,
   AI_VISIBILITY_AUDIT_PAGE_HANDLE,
@@ -414,6 +417,8 @@ type PageSeoSource = {
     title?: string | null;
     description?: string | null;
   } | null;
+  /** Parsed `custom.faqs`, rendered visibly by `ServiceDetailFaqs`. */
+  faqs?: readonly {question: string; answer: string}[];
 };
 
 export function buildPageMeta(
@@ -451,7 +456,7 @@ export function buildPageMeta(
       : []),
 
     ...(canonical
-      ? [{tagName: 'link', rel: 'canonical', href: canonical}]
+      ? [{tagName: 'link', rel: 'canonical', href: absoluteUrl(canonical)}]
       : []),
   ];
 }
@@ -471,7 +476,7 @@ export const meta: Route.MetaFunction = (args) => {
  * (`/pages/custom-store-project`) and all 19 `/pages/cs-*` case studies, so
  * both are handled here rather than in per-page route files.
  */
-function pageJsonLd(
+export function pageJsonLd(
   pathname: string,
   page: PageSeoSource | undefined,
 ): ReturnType<Route.MetaFunction> {
@@ -485,21 +490,57 @@ function pageJsonLd(
    */
   if (isKnownEmptyPage(pathname)) return [];
 
-  const service = serviceJsonLd(pathname);
+  const description =
+    page?.seo?.description?.trim() ||
+    textFromHtml((page as {body?: string} | undefined)?.body);
+
+  /* A service page: Service + FAQPage when the page renders FAQs. */
+  const service = serviceJsonLd(pathname, {
+    description,
+    faqs: page?.faqs,
+  });
   if (service.length) return service;
 
-  if (!page?.handle?.startsWith('cs-')) return [];
+  if (page?.handle?.startsWith('cs-')) {
+    return caseStudyJsonLd({
+      path: `/pages/${page.handle}`,
+      clientName: clientNameFromHandle(page.handle),
+      headline: page.seo?.title || page.title || '',
+      description: description ?? '',
+    });
+  }
 
-  return caseStudyJsonLd({
-    path: `/pages/${page.handle}`,
-    clientName: clientNameFromHandle(page.handle),
-    headline: page.seo?.title || page.title || '',
-    description:
-      page.seo?.description?.trim() ||
-      textFromHtml((page as {body?: string}).body) ||
-      '',
+  /*
+   * Everything else — /about, /work, /services and the remaining CMS pages.
+   * Before this, these carried no structured data at all, so nothing tied
+   * their content to the Organization that publishes it.
+   */
+  const canonical = page?.handle
+    ? resolveCanonicalPath(`/pages/${page.handle}`)
+    : pathname;
+
+  const name = page?.seo?.title || page?.title;
+  if (!name) return [];
+
+  return contentPageJsonLd({
+    path: canonical,
+    name,
+    description,
+    type: WEB_PAGE_TYPES[canonical] ?? 'WebPage',
+    breadcrumbs: [{name: page?.title || name, path: canonical}],
+    faqs: page?.faqs,
   });
 }
+
+/**
+ * The few pages with a more specific type than `WebPage`. Keyed by canonical
+ * path; anything absent is a plain WebPage.
+ */
+const WEB_PAGE_TYPES: Record<string, WebPageType> = {
+  '/about': 'AboutPage',
+  '/work': 'CollectionPage',
+  '/services': 'CollectionPage',
+};
 
 // Route-level stylesheets are loaded conditionally from `meta()` above
 // (see `getPageStylesheetLinks`), since `links()` has no access to loader

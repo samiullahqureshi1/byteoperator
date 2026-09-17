@@ -1,4 +1,5 @@
 import type {Route} from './+types/collections.all';
+import {absoluteUrl} from '~/lib/seo/schema';
 import {
   useLoaderData,
 } from 'react-router';
@@ -16,7 +17,13 @@ export const links: Route.LinksFunction = () => [
 export const meta: Route.MetaFunction = () => {
   return [
     {title: 'Products | FoldTech'},
-    {tagName: 'link', rel: 'canonical', href: '/collections/all'},
+    {tagName: 'link', rel: 'canonical', href: absoluteUrl('/collections/all')},
+
+    /*
+     * Agency site, not a storefront (see products.$handle.tsx). Kept out of
+     * the index rather than described with CollectionPage/ItemList markup.
+     */
+    {name: 'robots', content: 'noindex,follow'},
   ];
 };
 

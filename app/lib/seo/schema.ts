@@ -61,6 +61,32 @@ export interface BreadcrumbItem {
   path: string;
 }
 
+/**
+ * The WebPage subtypes this site uses. `AboutPage` for `/about`,
+ * `ContactPage` for `/contact`, `CollectionPage` for anything that lists other
+ * pages, plain `WebPage` for everything else.
+ */
+export type WebPageType =
+  | 'WebPage'
+  | 'AboutPage'
+  | 'ContactPage'
+  | 'CollectionPage';
+
+export interface WebPageInput {
+  /** Path only. Must match the page's `rel=canonical`. */
+  path: string;
+  name: string;
+  type?: WebPageType;
+  description?: string;
+  /** `@id` of the node this page is primarily about (Service, Article…). */
+  mainEntityId?: string;
+  imageUrl?: string;
+  /** Set when the graph also carries a BreadcrumbList for this path. */
+  hasBreadcrumb?: boolean;
+  datePublished?: string; // ISO 8601
+  dateModified?: string; // ISO 8601
+}
+
 export interface ArticleInput {
   path: string;
   headline: string;
@@ -76,11 +102,27 @@ export interface ArticleInput {
 /* 1. Organization — emitted sitewide                                  */
 /* ------------------------------------------------------------------ */
 
+/**
+ * The countries the business sells into, per the Shopify Partner Directory.
+ * Shared by `ORGANIZATION` and `serviceSchema()` so a service page can never
+ * claim a narrower reach than the organization that provides it.
+ */
+const AREA_SERVED: JsonLd[] = [
+  {'@type': 'Country', name: 'United States'},
+  {'@type': 'Country', name: 'United Kingdom'},
+  {'@type': 'Country', name: 'Canada'},
+  {'@type': 'Country', name: 'Australia'},
+  {'@type': 'Country', name: 'Germany'},
+  {'@type': 'Country', name: 'France'},
+  {'@type': 'Country', name: 'Italy'},
+];
+
 export const ORGANIZATION: JsonLd = {
   '@type': 'ProfessionalService',
   '@id': ORG_ID,
   name: 'The Fold Tech',
   alternateName: ['FoldTech', 'The Fold Tech Shopify Agency'],
+  legalName: 'TAB ON TECH (PVT.) LTD',
   url: `${SITE_URL}/`,
   logo: {
     '@type': 'ImageObject',
@@ -109,15 +151,7 @@ export const ORGANIZATION: JsonLd = {
   },
   priceRange: '$$',
   currenciesAccepted: 'USD',
-  areaServed: [
-    {'@type': 'Country', name: 'United States'},
-    {'@type': 'Country', name: 'United Kingdom'},
-    {'@type': 'Country', name: 'Canada'},
-    {'@type': 'Country', name: 'Australia'},
-    {'@type': 'Country', name: 'Germany'},
-    {'@type': 'Country', name: 'France'},
-    {'@type': 'Country', name: 'Italy'},
-  ],
+  areaServed: AREA_SERVED,
   knowsAbout: [
     'Shopify',
     'Shopify Plus',
@@ -179,14 +213,13 @@ export const WEBSITE: JsonLd = {
     'Shopify and Shopify Plus design, development, migration, SEO and AI search visibility services.',
   publisher: {'@id': ORG_ID},
   inLanguage: 'en',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
-    },
-    'query-input': 'required name=search_term_string',
-  },
+  /*
+   * No `potentialAction` / `SearchAction` on purpose. Google retired the
+   * sitelinks searchbox rich result, so it earns nothing — and here it
+   * contradicted the site's own crawl policy: `[robots.txt].tsx` emits
+   * `Disallow: /search` and `search.tsx` sets `noindex`, so the node was
+   * advertising an endpoint crawlers are told not to fetch.
+   */
 };
 
 /** The two nodes every page carries, wrapped in one @graph. */
@@ -411,7 +444,78 @@ export const SERVICES: ServiceDefinition[] = [
 /* Builders                                                            */
 /* ------------------------------------------------------------------ */
 
-const abs = (path: string) => `${SITE_URL}${path}`;
+/**
+ * The one URL helper. Every canonical, every `url` and every `@id` the site
+ * emits is built from it, so a page's `rel=canonical` and its WebPage `@id`
+ * cannot drift apart.
+ */
+export const absoluteUrl = (path: string) => `${SITE_URL}${path}`;
+
+const abs = absoluteUrl;
+
+/*
+ * The builders below return graph *nodes*, not standalone documents — none of
+ * them carries `@context`. `pageGraph()` in `jsonld.ts` wraps whatever a route
+ * emits in a single `@graph` with one `@context`, so a page ships one
+ * connected graph instead of several unrelated JSON-LD islands.
+ */
+
+/**
+ * The page spine. Every indexable page emits exactly one of these, and it is
+ * what ties the page's content to the entity that published it — `isPartOf`
+ * the WebSite, `about` the Organization.
+ *
+ * `@id` is always `<canonical>#webpage`, where `<canonical>` is the same
+ * absolute URL the page's `rel=canonical` carries. Other nodes point at it
+ * (`Article.mainEntityOfPage`) and it points back at them (`mainEntity`).
+ *
+ * Optional fields are omitted rather than invented — a `dateModified` that
+ * isn't known is worse than no `dateModified`.
+ */
+export function webPageSchema(input: WebPageInput): JsonLd {
+  const url = abs(input.path);
+
+  return {
+    '@type': input.type ?? 'WebPage',
+    '@id': `${url}#webpage`,
+    url,
+    name: input.name,
+    ...(input.description ? {description: input.description} : {}),
+    isPartOf: {'@id': WEBSITE_ID},
+    about: {'@id': ORG_ID},
+    publisher: {'@id': ORG_ID},
+    inLanguage: 'en',
+    ...(input.hasBreadcrumb ? {breadcrumb: {'@id': `${url}#breadcrumb`}} : {}),
+    ...(input.mainEntityId ? {mainEntity: {'@id': input.mainEntityId}} : {}),
+    ...(input.imageUrl
+      ? {primaryImageOfPage: {'@type': 'ImageObject', url: input.imageUrl}}
+      : {}),
+    ...(input.datePublished ? {datePublished: input.datePublished} : {}),
+    ...(input.dateModified ? {dateModified: input.dateModified} : {}),
+  };
+}
+
+/**
+ * Listing node for index pages (articles, blogs, work, services). Positions
+ * are 1-based and every `url` is absolute, so the list is resolvable rather
+ * than decorative.
+ */
+export function itemListSchema(
+  path: string,
+  items: Array<{name: string; path: string}>,
+): JsonLd {
+  return {
+    '@type': 'ItemList',
+    '@id': `${abs(path)}#itemlist`,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      url: abs(item.path),
+    })),
+  };
+}
 
 /** Service node for a service page. Look the definition up by path. */
 export function serviceSchema(path: string): JsonLd | null {
@@ -419,7 +523,6 @@ export function serviceSchema(path: string): JsonLd | null {
   if (!def) return null;
 
   return {
-    '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${abs(def.path)}#service`,
     name: def.name,
@@ -427,10 +530,7 @@ export function serviceSchema(path: string): JsonLd | null {
     description: def.description,
     serviceType: def.serviceType,
     provider: {'@id': ORG_ID},
-    areaServed: [
-      {'@type': 'Country', name: 'United States'},
-      {'@type': 'Country', name: 'United Kingdom'},
-    ],
+    areaServed: AREA_SERVED,
     audience: {
       '@type': 'BusinessAudience',
       name: 'Ecommerce brands trading on Shopify and Shopify Plus',
@@ -438,11 +538,19 @@ export function serviceSchema(path: string): JsonLd | null {
   };
 }
 
-/** Breadcrumb trail. Pass the ancestors; the current page is last. */
+/**
+ * Breadcrumb trail. Pass the ancestors; the current page is last.
+ *
+ * The `@id` is derived from that last item, so the page's WebPage node can
+ * reference this list as `breadcrumb: {'@id': `${url}#breadcrumb`}` without the
+ * caller having to pass the path twice.
+ */
 export function breadcrumbSchema(items: BreadcrumbItem[]): JsonLd {
+  const current = items[items.length - 1];
+
   return {
-    '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    ...(current ? {'@id': `${abs(current.path)}#breadcrumb`} : {}),
     itemListElement: [{name: 'Home', path: '/'}, ...items].map((item, i) => ({
       '@type': 'ListItem',
       position: i + 1,
@@ -459,7 +567,6 @@ export function breadcrumbSchema(items: BreadcrumbItem[]): JsonLd {
  */
 export function faqSchema(path: string, items: FaqItem[]): JsonLd {
   return {
-    '@context': 'https://schema.org',
     '@type': 'FAQPage',
     '@id': `${abs(path)}#faq`,
     mainEntity: items.map(({question, answer}) => ({
@@ -473,7 +580,6 @@ export function faqSchema(path: string, items: FaqItem[]): JsonLd {
 /** Article node for blog content. Author must be a real named person. */
 export function articleSchema(input: ArticleInput): JsonLd {
   return {
-    '@context': 'https://schema.org',
     '@type': 'Article',
     '@id': `${abs(input.path)}#article`,
     headline: input.headline,
@@ -487,28 +593,39 @@ export function articleSchema(input: ArticleInput): JsonLd {
       ...(input.authorUrl ? {url: input.authorUrl} : {}),
     },
     publisher: {'@id': ORG_ID},
-    mainEntityOfPage: {'@type': 'WebPage', '@id': abs(input.path)},
+    /* Resolves against the WebPage node `pageGraph()` emits for this path. */
+    mainEntityOfPage: {'@id': `${abs(input.path)}#webpage`},
     inLanguage: 'en',
   };
 }
 
-/** Case study pages: a CreativeWork the Organization produced. */
+/**
+ * Case study pages: a CreativeWork the Organization produced.
+ *
+ * `clientName` is OPTIONAL and `about` is omitted without it. It used to be
+ * derived from the URL handle, which is only reliable for `/pages/cs-{client}`
+ * — on `/work/{handle}` the handle is not dependably the client, so deriving
+ * one there asserted a company relationship that the page did not support.
+ * Pass a name only when it is known to be the client.
+ */
 export function caseStudySchema(opts: {
   path: string;
-  clientName: string;
+  clientName?: string;
   headline: string;
   description: string;
   imageUrl?: string;
   datePublished?: string;
 }): JsonLd {
   return {
-    '@context': 'https://schema.org',
     '@type': 'CreativeWork',
     '@id': `${abs(opts.path)}#casestudy`,
     name: opts.headline,
     headline: opts.headline,
-    description: opts.description,
-    about: {'@type': 'Organization', name: opts.clientName},
+    /* An empty description is worse than no description. */
+    ...(opts.description ? {description: opts.description} : {}),
+    ...(opts.clientName
+      ? {about: {'@type': 'Organization', name: opts.clientName}}
+      : {}),
     creator: {'@id': ORG_ID},
     publisher: {'@id': ORG_ID},
     url: abs(opts.path),

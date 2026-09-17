@@ -2,6 +2,16 @@ import {useLoaderData, Link} from 'react-router';
 import type {Route} from './+types/policies._index';
 import type {PoliciesQuery, PolicyItemFragment} from 'storefrontapi.generated';
 
+/*
+ * This route had no `meta` export, and `root.tsx` has none either, so the page
+ * shipped with no title at all. robots.txt already sends `Disallow: /policies/`,
+ * so it is titled and noindexed rather than given structured data.
+ */
+export const meta: Route.MetaFunction = () => [
+  {title: 'Policies | FoldTech'},
+  {name: 'robots', content: 'noindex,follow'},
+];
+
 export async function loader({context}: Route.LoaderArgs) {
   const data: PoliciesQuery = await context.storefront.query(POLICIES_QUERY);
   

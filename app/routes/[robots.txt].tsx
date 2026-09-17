@@ -1,8 +1,23 @@
 import type {Route} from './+types/[robots.txt]';
 import {parseGid} from '@shopify/hydrogen';
+import {SITE_URL} from '~/lib/seo/schema';
 
 export async function loader({request, context}: Route.LoaderArgs) {
   const url = new URL(request.url);
+
+  /*
+   * Oxygen serves every deploy on its own preview hostname, and this file is
+   * generated from the request origin — so a preview used to publish a fully
+   * crawlable robots.txt advertising its own sitemap. Anything but the
+   * production origin is disallowed outright, which keeps preview builds and
+   * the *.myshopify.com domain out of the index.
+   */
+  if (url.origin !== SITE_URL) {
+    return new Response('User-agent: *\nDisallow: /\n', {
+      status: 200,
+      headers: {'Content-Type': 'text/plain', 'Cache-Control': 'no-store'},
+    });
+  }
 
   const {shop} = await context.storefront.query(ROBOTS_QUERY);
 
@@ -38,6 +53,8 @@ Disallow: /*?*oseid=*
 Disallow: /*preview_theme_id*
 Disallow: /*preview_script_id*
 
+${aiCrawlerRules({shopId})}
+
 User-agent: Nutch
 Disallow: /
 
@@ -54,7 +71,47 @@ Crawl-Delay: 10
 
 User-agent: Pinterest
 Crawl-delay: 1
+
+# Plain-text map of this site for AI retrieval systems, generated per request
+# from the same service definitions the structured data uses.
+${url ? `# LLMs: ${url}/llms.txt` : ''}
 `.trim();
+}
+
+/**
+ * Named rules for the AI crawlers and answer engines.
+ *
+ * These are allowed deliberately, not by omission: the site publishes
+ * `/llms.txt` specifically so retrieval systems can read it, and being cited
+ * in AI answers is the point of the structured data this site carries. Each
+ * agent still gets the same disallow list as everyone else, so checkout,
+ * account and search stay out.
+ *
+ * To refuse one of them later, replace its rules with `Disallow: /`.
+ */
+function aiCrawlerRules({shopId}: {shopId?: string}) {
+  const agents = [
+    // OpenAI: training, live retrieval, and the search index respectively.
+    'GPTBot',
+    'ChatGPT-User',
+    'OAI-SearchBot',
+    // Anthropic.
+    'ClaudeBot',
+    'Claude-User',
+    // Perplexity, Google's AI products, Microsoft, Meta, Common Crawl.
+    'PerplexityBot',
+    'Google-Extended',
+    'Applebot-Extended',
+    'meta-externalagent',
+    'CCBot',
+  ];
+
+  return agents
+    .map(
+      (agent) =>
+        `User-agent: ${agent}\n${generalDisallowRules({shopId})}`,
+    )
+    .join('\n\n');
 }
 
 /**

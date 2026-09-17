@@ -4,6 +4,7 @@ import type {Route} from './+types/book-a-call';
 
 import {openCalendly} from '~/lib/calendly';
 import {CONTACT_CLEAN_PATH} from '~/lib/route-mappings';
+import {absoluteUrl} from '~/lib/seo/schema';
 
 import ContactPage, {links, loader} from './contact';
 
@@ -35,8 +36,9 @@ export const meta: Route.MetaFunction = () => [
   {property: 'og:title', content: 'Book a Call | FoldTech'},
 
   // Same content as /contact, so that page stays canonical and this URL does
-  // not compete with it in search.
-  {tagName: 'link', rel: 'canonical', href: CONTACT_CLEAN_PATH},
+  // not compete with it in search. No structured data here for the same
+  // reason — /contact carries the ContactPage node.
+  {tagName: 'link', rel: 'canonical', href: absoluteUrl(CONTACT_CLEAN_PATH)},
 ];
 
 export default function BookACallPage() {

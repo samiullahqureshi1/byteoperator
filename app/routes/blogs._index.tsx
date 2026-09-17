@@ -9,14 +9,35 @@ import type {BlogsQuery} from 'storefrontapi.generated';
 import {
   ARTICLES_CLEAN_PATH,
   ARTICLES_BLOG_HANDLE,
+  resolveCanonicalPath,
 } from '~/lib/route-mappings';
+import {contentPageJsonLd} from '~/lib/seo/jsonld';
+import {absoluteUrl} from '~/lib/seo/schema';
 
 type BlogNode = BlogsQuery['blogs']['nodes'][0];
 
-export const meta: Route.MetaFunction = () => {
+const BLOGS_TITLE = 'Blogs | FoldTech';
+
+export const meta: Route.MetaFunction = ({data}) => {
   return [
-    {title: 'Blogs | FoldTech'},
-    {tagName: 'link', rel: 'canonical', href: '/blogs'},
+    {title: BLOGS_TITLE},
+    {tagName: 'link', rel: 'canonical', href: absoluteUrl('/blogs')},
+
+    /*
+     * CollectionPage + ItemList. Each entry runs through
+     * `resolveCanonicalPath` because `/blogs/news` is canonically `/articles/`
+     * — an ItemList pointing at non-canonical URLs is worse than no list.
+     */
+    ...contentPageJsonLd({
+      path: '/blogs',
+      name: BLOGS_TITLE,
+      type: 'CollectionPage',
+      breadcrumbs: [{name: 'Blogs', path: '/blogs'}],
+      items: (data?.blogs?.nodes ?? []).map((blog) => ({
+        name: blog.title,
+        path: resolveCanonicalPath(`/blogs/${blog.handle}`),
+      })),
+    }),
   ];
 };
 

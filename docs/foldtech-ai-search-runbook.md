@@ -228,13 +228,51 @@ Report the URL count and any link that failed.
 
 # PHASE 1 — Make the entity machine-readable
 
-## 1.1 — Structured data (in progress)
+## 1.1 — Structured data (consolidated; pending external validation)
 
-**Owner:** Claude Code · Branch exists, 21/22 assertions pass
+**Owner:** Claude Code · `node scripts/check-schema.mjs` passes on all 11 sampled page types
 
-Remaining: `dateModified` wiring (Part B of Prompt 4), preview deploy, Rich Results Test + schema.org validation, then merge.
+The per-page graph was consolidated. Before, `root.tsx` emitted the sitewide
+graph and each route emitted further *separate* `<script>` blocks, because every
+builder in `schema.ts` carried its own `@context` — a service page shipped four
+unrelated JSON-LD documents. Now each route emits **one** `@graph`, and the
+builders return nodes rather than documents.
 
-**Done when:** 22/22 assertions pass on a deployed preview, external validators report zero errors, and the branch is merged and live.
+What changed:
+
+- **`WebPage` is new, and is the spine.** Every indexable page carries exactly
+  one, `@id` = `<canonical>#webpage`, linking `isPartOf` → WebSite and `about` →
+  Organization. Nothing tied page content to the publishing entity before.
+- **Dangling references fixed.** `articleSchema.mainEntityOfPage` pointed at an
+  `@id` no node defined; `breadcrumbSchema` had no `@id` to be referenced by.
+- **Canonicals are absolute**, from `absoluteUrl()` — the same helper that
+  builds `@id`, so the two cannot drift. They were all relative.
+- **`robots.txt` now disallows every non-production origin.** It is generated
+  from the request origin, so each Oxygen preview used to publish a crawlable
+  robots.txt advertising its own sitemap; combined with relative canonicals,
+  preview deploys could self-canonicalise into the index.
+- **FAQPage is wired** (`faqSchema` previously had zero callers) and fires
+  wherever `custom.faqs` is populated — confirmed live on `/geo-agency/`.
+- **Case studies emit again.** `caseStudyJsonLd` was wired only to
+  `/pages/cs-*`, every handle of which sits in `KNOWN_EMPTY_PAGE_PATHS`, so it
+  never reached a live page. It now runs on `/work/:handle`.
+- **No derived client names.** `about: Organization` was built from the URL
+  handle; `/work/axumart` is titled "SleepTite SleepRite", so that asserted a
+  relationship the page did not support. `clientName` is now optional and
+  omitted unless known.
+- **`SearchAction` removed** from `WebSite`. Google retired the sitelinks
+  searchbox, and `robots.txt` sends `Disallow: /search` — the node advertised an
+  endpoint crawlers are told not to fetch.
+- **`legalName: TAB ON TECH (PVT.) LTD`** added from Appendix A, and
+  `serviceSchema.areaServed` now reuses the Organization's seven countries
+  instead of hardcoding two.
+
+Remaining: preview deploy, Rich Results Test + `validator.schema.org`, then
+merge. Note `dateModified` still comes only from `custom.last_modified` and is
+omitted when absent — unchanged, and deliberately not back-filled.
+
+**Done when:** `check-schema.mjs` passes against a deployed preview, external
+validators report zero errors, and the branch is merged and live.
 
 ## 1.2 — 54 missing meta descriptions
 
@@ -458,13 +496,44 @@ Service area     US, UK, CA, AU, DE, FR, IT
 
 Source of truth: `app/lib/seo/schema.ts`. Suppression list: `app/lib/seo/empty-pages.ts`.
 
+Each page carries **two** script blocks: the sitewide graph from `root.tsx`
+(rendered there so it survives 404s and the ErrorBoundary), and one page graph
+from the route. They reference each other by `@id`, which Google resolves across
+blocks on the same page. Everything below is inside that single page `@graph`.
+
 | Page type | Nodes emitted | Count |
 |---|---|---|
-| Every page | ProfessionalService + Organization (parent) + WebSite, one `@graph` | all |
-| Service pages | Service + BreadcrumbList | 28 |
-| Articles | Article + BreadcrumbList, `dateModified` from `custom.last_modified` | 79 |
-| Case studies | CreativeWork + BreadcrumbList — **suppressed while pages are empty** | 20 |
-| Pages with visible FAQs | + FAQPage | pending |
+| Every page | ProfessionalService + WebSite, one `@graph` (from `root.tsx`) | all |
+| Every indexable page | + WebPage (or AboutPage / ContactPage / CollectionPage) | all |
+| Service pages | + Service + BreadcrumbList | 28 |
+| Articles | + Article + BreadcrumbList, `dateModified` from `custom.last_modified` | 79 |
+| Case studies (`/work/:handle`) | + CreativeWork + BreadcrumbList | 20 |
+| Case studies (`/pages/cs-*`) | — **suppressed while pages are empty** | 18 |
+| Listing pages | + ItemList (`/articles`, `/blogs`, blog indexes) | 3+ |
+| Pages with visible FAQs | + FAQPage | live where `custom.faqs` is set |
+
+**Emitted nowhere, deliberately:**
+
+| Not emitted | Why |
+|---|---|
+| `AggregateRating`, `Review` | Unchanged policy. The 4.9/414 lives on the Shopify Partner Directory; first-party markup of third-party reviews violates Google's review-snippet policy. The repo's own testimonials are placeholders ("Demo Brand", "Company Name"), so there is nothing authentic to mark up yet. |
+| `Product`, `Offer` | Agency site, not a storefront. `/products/*` and `/collections/*` are `noindex,follow` instead — describing products nobody can buy is worse than describing none. |
+| `SearchAction` | Retired by Google, and contradicted `Disallow: /search`. |
+| Anything on `/blogs/:blog/:article`, `/book-a-call` | Duplicate surfaces. They canonicalise to the real URL, which owns the node. |
+| Anything on `/policies/*`, `/search`, `/cart`, `/account/*`, 404s | `noindex`, and `/policies/` is disallowed in robots.txt. |
+
+**On FAQPage expectations:** since Google's August 2023 change this produces no
+FAQ rich result for a site like this one — that is now limited to recognised
+government and health sources. It is emitted for entity clarity and AI
+retrieval, not SERP features. Do not sell it internally as a rich-result win.
+
+**Validation after any schema change:** `node scripts/check-schema.mjs`
+(`--origin=` to point at a preview or production), then Google Rich Results
+Test, `validator.schema.org`, and Search Console → Enhancements at +48 h. The
+script asserts: every block parses; no duplicate `@id`; every `@id` reference
+resolves; exactly one WebPage node whose `@id` matches the canonical; all URLs
+absolute and on `SITE_URL`; no `@context` on a graph member; no empty values;
+and every FAQ question present in the rendered HTML.
 
 **Deliberately excluded:** `AggregateRating` and `Review`. The 4.9 from 415 reviews lives on the Shopify Partner Directory; marking up third-party reviews as first-party violates Google's review snippet policy. Cite the figure in visible copy with attribution and a link instead.
 
@@ -477,7 +546,9 @@ Source of truth: `app/lib/seo/schema.ts`. Suppression list: `app/lib/seo/empty-p
 | `foldtech-ai-search-runbook.md` | This file. Phases, decisions, status, reference data. | Update in place |
 | `agent-prompts.md` | Every agent prompt in order, with outcome. | Append only |
 | `seo-geo-requirements.md` | Reusable SEO/GEO standard, client-agnostic. | Update in place |
-| `schema.ts` | Structured data module. | Lives in `app/lib/seo/` |
+| `schema.ts` | Structured data module — values and node builders. | Lives in `app/lib/seo/` |
+| `jsonld.ts` | Route adapters. Assembles each page's single `@graph` via `pageGraph()`. | Lives in `app/lib/seo/` |
+| `check-schema.mjs` | The assertion suite this runbook refers to, made runnable. Read-only. | `node scripts/check-schema.mjs` |
 | `llms.txt` | Source content for the `/llms.txt` route. | Update in place |
 | _(no URL list file)_ | The 79 article URLs are generated on demand from `sitemap/articles/1.xml` at the moment of submission — a stored copy only goes stale. |  |
 | Tracker artifact | Status only, no procedure. | Republished after each step |

@@ -7,6 +7,7 @@ import {
 } from '~/lib/route-mappings';
 
 import {buildPageMeta, loadPageData} from './pages.$handle';
+import {contentPageJsonLd} from '~/lib/seo/jsonld';
 
 import {ContactHero} from '~/components/contact/ContactHero';
 import {ContactInfo} from '~/components/contact/ContactInfo';
@@ -42,8 +43,22 @@ export const links = () => [
   },
 ];
 
-export const meta: Route.MetaFunction = ({data}) =>
-  buildPageMeta(data?.page, CONTACT_CLEAN_PATH);
+export const meta: Route.MetaFunction = ({data}) => [
+  ...buildPageMeta(data?.page, CONTACT_CLEAN_PATH),
+
+  /*
+   * ContactPage. The reachable contact methods are already modelled as
+   * `ORGANIZATION.contactPoint`, so this node links to that entity rather than
+   * restating phone and email in a second place that could drift.
+   */
+  ...contentPageJsonLd({
+    path: CONTACT_CLEAN_PATH,
+    name: data?.page?.seo?.title || data?.page?.title || 'Contact FoldTech',
+    description: data?.page?.seo?.description,
+    type: 'ContactPage',
+    breadcrumbs: [{name: 'Contact', path: CONTACT_CLEAN_PATH}],
+  }),
+];
 
 export async function loader({
   context,

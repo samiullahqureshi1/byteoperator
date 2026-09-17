@@ -5,13 +5,14 @@ import {
   resolveCanonicalPath,
   resolveLegacyPath,
 } from '~/lib/route-mappings';
-import {serviceJsonLd} from '~/lib/seo/jsonld';
 import {shouldNoindex} from '~/lib/seo/empty-pages';
+import {absoluteUrl} from '~/lib/seo/schema';
 import {
   buildPageMeta,
   getPageStylesheetLinks,
   links as pageLinks,
   loadPageData,
+  pageJsonLd,
   PageContent,
 } from './pages.$handle';
 
@@ -28,7 +29,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
         content:
           'Explore Shopify ecommerce conversations from FoldTech on growth, SEO, CRO, development, Shopify Plus, retention and ecommerce strategy.',
       },
-      {tagName: 'link', rel: 'canonical', href: '/podcast'},
+      {tagName: 'link', rel: 'canonical', href: absoluteUrl('/podcast')},
       ...stylesheetLinks,
     ];
   }
@@ -40,7 +41,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
         content:
           'Explore FoldTech Shopify ecommerce webinars on growth, SEO, CRO, development, Shopify Plus, retention and ecommerce strategy.',
       },
-      {tagName: 'link', rel: 'canonical', href: '/webinars'},
+      {tagName: 'link', rel: 'canonical', href: absoluteUrl('/webinars')},
       ...stylesheetLinks,
     ];
   }
@@ -52,7 +53,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
         content:
           'Explore FoldTech Shopify and ecommerce guides on growth strategy, SEO, CRO, development, migrations, Shopify Plus and retention.',
       },
-      {tagName: 'link', rel: 'canonical', href: '/guides'},
+      {tagName: 'link', rel: 'canonical', href: absoluteUrl('/guides')},
       ...stylesheetLinks,
     ];
   }
@@ -64,7 +65,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
         content:
           'FoldTech improves ecommerce site search and product discovery on Shopify, covering search UX, relevance, merchandising, filtering and search-led customer journeys.',
       },
-      {tagName: 'link', rel: 'canonical', href: '/search-first'},
+      {tagName: 'link', rel: 'canonical', href: absoluteUrl('/search-first')},
       ...stylesheetLinks,
     ];
   }
@@ -76,7 +77,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
         content:
           'Why ecommerce brands choose Shopify and Shopify Plus: hosted infrastructure, scalability, integrations, international commerce, custom development and the flexibility SEO and CRO work depend on.',
       },
-      {tagName: 'link', rel: 'canonical', href: '/why-shopify'},
+      {tagName: 'link', rel: 'canonical', href: absoluteUrl('/why-shopify')},
       ...stylesheetLinks,
     ];
   }
@@ -88,7 +89,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
         content:
           'FoldTech is a team of Shopify and Shopify Plus experts covering store design, development, migrations, integrations, SEO, CRO and ongoing ecommerce support.',
       },
-      {tagName: 'link', rel: 'canonical', href: '/shopify-experts'},
+      {tagName: 'link', rel: 'canonical', href: absoluteUrl('/shopify-experts')},
       ...stylesheetLinks,
     ];
   }
@@ -100,7 +101,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
         content:
           'FoldTech memberships are monthly Shopify retainers covering ongoing support, maintenance, development time, CRO and technical work for growing ecommerce and Shopify Plus stores.',
       },
-      {tagName: 'link', rel: 'canonical', href: '/memberships'},
+      {tagName: 'link', rel: 'canonical', href: absoluteUrl('/memberships')},
       ...stylesheetLinks,
     ];
   }
@@ -112,7 +113,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
         content:
           'FoldTech works as a Shopify and Shopify Plus consultant, covering store audits, ecommerce growth strategy, SEO and CRO priorities, migrations, integrations and ongoing support.',
       },
-      {tagName: 'link', rel: 'canonical', href: '/shopify-consultant'},
+      {tagName: 'link', rel: 'canonical', href: absoluteUrl('/shopify-consultant')},
       ...stylesheetLinks,
     ];
   }
@@ -124,7 +125,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
         content:
           'FoldTech runs Shopify A/B testing and ecommerce experimentation programmes, from research and hypotheses to landing page, product page and checkout journey tests.',
       },
-      {tagName: 'link', rel: 'canonical', href: '/ab-testing'},
+      {tagName: 'link', rel: 'canonical', href: absoluteUrl('/ab-testing')},
       ...stylesheetLinks,
     ];
   }
@@ -141,7 +142,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
       {
         tagName: 'link',
         rel: 'canonical',
-        href: '/headless-commerce',
+        href: absoluteUrl('/headless-commerce'),
       },
       ...stylesheetLinks,
     ];
@@ -202,11 +203,18 @@ export async function loadCleanPage({
 /**
  * Existing page meta, unchanged, plus structured data. This route serves 26 of
  * the 28 paths in SERVICES (every root-level clean URL), so wiring it here
- * covers them all; `serviceJsonLd` returns [] for any non-service page.
+ * covers them all — and `pageJsonLd` now also covers the non-service pages it
+ * serves (/about, /work, /services, /podcast and the rest).
  */
 export const meta: Route.MetaFunction = (args) => [
   ...(basePageMeta(args) ?? []),
-  ...serviceJsonLd(args.location.pathname),
+  /*
+   * Shared with `/pages/*` so both routes emit the same graph for the same
+   * page: Service + FAQPage on a service page, CreativeWork on a case study,
+   * and a WebPage + BreadcrumbList on everything else — /about, /work,
+   * /services and the rest, which previously carried no structured data.
+   */
+  ...pageJsonLd(args.location.pathname, args.data?.page),
   /*
    * `noindex,follow` for the handful of pages that render nothing and have
    * nothing pending (runbook 0.5, step C). Driven by an explicit allowlist in

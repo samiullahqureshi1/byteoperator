@@ -1,5 +1,6 @@
 import {redirect, useLoaderData} from 'react-router';
 import type {Route} from './+types/collections.$handle';
+import {absoluteUrl} from '~/lib/seo/schema';
 import {getPaginationVariables, Analytics} from '@shopify/hydrogen';
 import {PaginatedResourceSection} from '~/components/PaginatedResourceSection';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
@@ -27,10 +28,16 @@ export const meta: Route.MetaFunction = ({data}) => {
           {
             tagName: 'link',
             rel: 'canonical',
-            href: `/collections/${collection.handle}`,
+            href: absoluteUrl(`/collections/${collection.handle}`),
           },
         ]
       : []),
+
+    /*
+     * Agency site, not a storefront (see products.$handle.tsx). Kept out of
+     * the index rather than described with CollectionPage/ItemList markup.
+     */
+    {name: 'robots', content: 'noindex,follow'},
   ];
 };
 

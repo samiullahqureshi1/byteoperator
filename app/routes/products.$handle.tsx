@@ -3,6 +3,7 @@ import {
   useLoaderData,
 } from 'react-router';
 import type {Route} from './+types/products.$handle';
+import {absoluteUrl} from '~/lib/seo/schema';
 import {
   getSelectedProductOptions,
   Analytics,
@@ -57,8 +58,17 @@ export const meta: Route.MetaFunction = ({data}) => {
        */
       tagName: 'link',
       rel: 'canonical',
-      href: `/products/${product?.handle}`,
+      href: absoluteUrl(`/products/${product?.handle}`),
     },
+
+    /*
+     * thefoldtech.com is an agency site, not a storefront — these routes come
+     * from the Hydrogen template and sell nothing publicly. They are kept out
+     * of the index rather than described with Product/Offer markup, because
+     * marking up products that cannot be bought is worse than marking up
+     * nothing. Remove this and add Product schema if real products ever ship.
+     */
+    {name: 'robots', content: 'noindex,follow'},
   ];
 };
 

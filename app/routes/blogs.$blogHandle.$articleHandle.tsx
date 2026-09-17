@@ -3,6 +3,8 @@ import type {Route} from './+types/blogs.$blogHandle.$articleHandle';
 import {Image} from '@shopify/hydrogen';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {getArticlesUrlRedirect} from '~/services/redirects.server';
+import {resolveCanonicalPath} from '~/lib/route-mappings';
+import {absoluteUrl} from '~/lib/seo/schema';
 
 // Article images are served from Shopify's CDN, so this preconnect is only
 // declared on routes that actually render them (see app/root.tsx).
@@ -19,9 +21,21 @@ export const meta: Route.MetaFunction = ({data, params}) => {
 
   const description = article?.seo?.description;
 
+  /*
+   * The same article is reachable at `/articles/{handle}/`, which is the
+   * canonical form (`resolveArticlesPath`). Self-canonicalising here would put
+   * two URLs forward for one article, so the canonical is resolved rather than
+   * echoed back.
+   *
+   * This route deliberately emits NO structured data for the same reason: the
+   * canonical URL owns the Article node, and a duplicate surface asserting its
+   * own competing `@id` is worse than none.
+   */
   const canonical =
     params.blogHandle && article?.handle
-      ? `/blogs/${params.blogHandle}/${article.handle}`
+      ? absoluteUrl(
+          resolveCanonicalPath(`/blogs/${params.blogHandle}/${article.handle}`),
+        )
       : undefined;
 
   return [

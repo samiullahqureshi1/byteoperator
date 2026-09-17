@@ -1,3 +1,5 @@
+import {contentPageJsonLd} from '~/lib/seo/jsonld';
+import {absoluteUrl} from '~/lib/seo/schema';
 import {HomeSideRail} from '~/components/HomeSideRail';
 import {HomeHero} from '~/components/HomeHero';
 import {HomeHeroGallery} from '~/components/HomeHeroGallery';
@@ -115,7 +117,19 @@ export const meta: Route.MetaFunction = () => {
       property: 'og:description',
       content: HOME_DESCRIPTION,
     },
-    {tagName: 'link', rel: 'canonical', href: '/'},
+    {tagName: 'link', rel: 'canonical', href: absoluteUrl('/')},
+
+    /*
+     * WebPage only. No BreadcrumbList — this is the root of every trail, so a
+     * one-item list saying "Home" asserts nothing. No ItemList of services
+     * either: the homepage renders a selection, not the full set, and
+     * `/services` is where that list is genuinely on the page.
+     */
+    ...contentPageJsonLd({
+      path: '/',
+      name: HOME_TITLE,
+      description: HOME_DESCRIPTION,
+    }),
   ];
 };
 

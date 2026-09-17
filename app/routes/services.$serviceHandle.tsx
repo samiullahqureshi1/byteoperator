@@ -5,6 +5,7 @@ import {
   getPageStylesheetLinks,
   links as pageLinks,
   loadPageData,
+  pageJsonLd,
   PageContent,
 } from './pages.$handle';
 import {
@@ -12,15 +13,16 @@ import {
   type ServicePageHandle,
 } from '~/data/servicePages';
 import {isSamePath, resolveCleanPath} from '~/lib/route-mappings';
-import {serviceJsonLd} from '~/lib/seo/jsonld';
 
 export const links = pageLinks;
 
 export const meta: Route.MetaFunction = (args) => [
   ...buildPageMeta(args.data?.page),
   ...getPageStylesheetLinks(args.data?.page),
-  // Owns one SERVICES path: /services/shopify-audits/
-  ...serviceJsonLd(args.location.pathname),
+  // Owns one SERVICES path: /services/shopify-audits/. Shares `pageJsonLd`
+  // with the other page routes so the graph is identical wherever a page is
+  // served from.
+  ...pageJsonLd(args.location.pathname, args.data?.page),
 ];
 
 export async function loader(args: Route.LoaderArgs) {

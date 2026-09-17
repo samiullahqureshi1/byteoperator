@@ -11,7 +11,11 @@ import {getArticlesUrlRedirect} from '~/services/redirects.server';
 import {
   getArticlePath,
   ARTICLES_BLOG_HANDLE,
+  isSamePath,
+  resolveCanonicalPath,
 } from '~/lib/route-mappings';
+import {contentPageJsonLd} from '~/lib/seo/jsonld';
+import {absoluteUrl} from '~/lib/seo/schema';
 
 // Blog post images are served from Shopify's CDN, so this preconnect is
 // only declared on routes that actually render them (see app/root.tsx).
@@ -27,19 +31,49 @@ export const meta: Route.MetaFunction = ({data}) => {
 
   const description = blog?.seo?.description;
 
+  const ownPath = blog?.handle ? `/blogs/${blog.handle}` : undefined;
+  const canonicalPath = ownPath ? resolveCanonicalPath(ownPath) : undefined;
+
+  /*
+   * `/blogs/news` is canonically `/articles/`. When this blog resolves to a
+   * different URL it is a duplicate surface, so it points its canonical there
+   * and emits no structured data — the canonical page owns the CollectionPage
+   * node. Only a blog that is its own canonical describes itself.
+   */
+  const isCanonicalSurface = Boolean(
+    ownPath && canonicalPath && isSamePath(ownPath, canonicalPath),
+  );
+
   return [
     {title},
 
     ...(description ? [{name: 'description', content: description}] : []),
 
-    ...(blog?.handle
+    ...(canonicalPath
       ? [
           {
             tagName: 'link',
             rel: 'canonical',
-            href: `/blogs/${blog.handle}`,
+            href: absoluteUrl(canonicalPath),
           },
         ]
+      : []),
+
+    ...(isCanonicalSurface && canonicalPath
+      ? contentPageJsonLd({
+          path: canonicalPath,
+          name: title,
+          description,
+          type: 'CollectionPage',
+          breadcrumbs: [
+            {name: 'Blogs', path: '/blogs'},
+            {name: blog?.title || title, path: canonicalPath},
+          ],
+          items: (blog?.articles?.nodes ?? []).map((article) => ({
+            name: article.title,
+            path: getArticlePath(article.handle),
+          })),
+        })
       : []),
   ];
 };

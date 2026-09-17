@@ -13,11 +13,17 @@
 
 import {
   SERVICES,
+  absoluteUrl,
   articleSchema,
   breadcrumbSchema,
   caseStudySchema,
+  faqSchema,
+  itemListSchema,
   serviceSchema,
+  webPageSchema,
+  type FaqItem,
   type ServiceDefinition,
+  type WebPageType,
 } from './schema';
 
 type JsonLd = Record<string, unknown>;
@@ -26,15 +32,24 @@ type JsonLd = Record<string, unknown>;
 type JsonLdDescriptor = {'script:ld+json': JsonLd};
 
 /**
- * Wraps nodes as meta descriptors, dropping anything null — `serviceSchema()`
- * returns null for an unknown path and a null must never reach the output.
+ * Wraps a page's nodes in ONE `@graph` under ONE `@context`, dropping anything
+ * null — `serviceSchema()` returns null for an unknown path and a null must
+ * never reach the output.
+ *
+ * Every route emits at most one of these. Together with the sitewide
+ * Organization + WebSite graph that `root.tsx` renders, a page carries two
+ * script blocks that reference each other by `@id`, rather than the three or
+ * four unrelated documents the per-builder `@context` used to produce.
  */
-export function jsonLdMeta(
+export function pageGraph(
   nodes: Array<JsonLd | null | undefined>,
 ): JsonLdDescriptor[] {
-  return nodes
-    .filter((node): node is JsonLd => Boolean(node))
-    .map((node) => ({'script:ld+json': node}));
+  const graph = nodes.filter((node): node is JsonLd => Boolean(node));
+  if (!graph.length) return [];
+
+  return [
+    {'script:ld+json': {'@context': 'https://schema.org', '@graph': graph}},
+  ];
 }
 
 const trimSlash = (p: string) =>
@@ -53,17 +68,72 @@ export function findService(pathname: string): ServiceDefinition | null {
   return SERVICES.find((s) => trimSlash(s.path) === target) ?? null;
 }
 
-/** Service + breadcrumb nodes for a service page. Empty for any other path. */
-export function serviceJsonLd(pathname: string): JsonLdDescriptor[] {
+/**
+ * Full graph for a service page: WebPage + BreadcrumbList + Service, plus
+ * FAQPage when the page renders FAQs. Empty for any other path.
+ *
+ * `faqs` must be the same items the page renders visibly — see `faqSchema`.
+ */
+export function serviceJsonLd(
+  pathname: string,
+  opts: {description?: string | null; faqs?: readonly FaqItem[]} = {},
+): JsonLdDescriptor[] {
   const def = findService(pathname);
   if (!def) return [];
 
-  return jsonLdMeta([
-    serviceSchema(def.path),
+  return pageGraph([
+    webPageSchema({
+      path: def.path,
+      name: def.name,
+      description: opts.description?.trim() || def.description,
+      mainEntityId: `${absoluteUrl(def.path)}#service`,
+      hasBreadcrumb: true,
+    }),
     breadcrumbSchema([
       {name: 'Services', path: '/services'},
       {name: def.name, path: def.path},
     ]),
+    serviceSchema(def.path),
+    opts.faqs?.length ? faqSchema(def.path, [...opts.faqs]) : null,
+  ]);
+}
+
+/**
+ * Full graph for a page that is not a service, an article or a case study —
+ * `/about`, `/contact`, the listing pages, and the remaining CMS pages.
+ *
+ * `items` turns the page into a `CollectionPage` + `ItemList`; pass it for
+ * index pages and leave it off for ordinary content pages.
+ */
+export function contentPageJsonLd(input: {
+  path: string;
+  name: string | null | undefined;
+  description?: string | null;
+  type?: WebPageType;
+  imageUrl?: string | null;
+  breadcrumbs?: Array<{name: string; path: string}>;
+  faqs?: readonly FaqItem[];
+  items?: Array<{name: string; path: string}>;
+}): JsonLdDescriptor[] {
+  if (!input.name) return [];
+
+  const list = input.items?.length
+    ? itemListSchema(input.path, input.items)
+    : null;
+
+  return pageGraph([
+    webPageSchema({
+      path: input.path,
+      name: input.name,
+      description: input.description?.trim() || undefined,
+      type: input.type,
+      imageUrl: input.imageUrl ?? undefined,
+      mainEntityId: list ? `${absoluteUrl(input.path)}#itemlist` : undefined,
+      hasBreadcrumb: Boolean(input.breadcrumbs?.length),
+    }),
+    input.breadcrumbs?.length ? breadcrumbSchema(input.breadcrumbs) : null,
+    list,
+    input.faqs?.length ? faqSchema(input.path, [...input.faqs]) : null,
   ]);
 }
 
@@ -144,37 +214,65 @@ export function articleJsonLd(
     }
   }
 
-  return jsonLdMeta([
-    node,
+  return pageGraph([
+    webPageSchema({
+      path: input.path,
+      name: input.title,
+      description,
+      imageUrl: input.imageUrl ?? undefined,
+      mainEntityId: `${absoluteUrl(input.path)}#article`,
+      hasBreadcrumb: true,
+      datePublished: input.publishedAt,
+      dateModified: input.updatedAt ?? undefined,
+    }),
     breadcrumbSchema([
       {name: 'Articles', path: '/articles/'},
       {name: input.title, path: input.path},
     ]),
+    node,
   ]);
 }
 
-/** Case study + breadcrumb nodes for a `/pages/cs-*` page. */
+/**
+ * Full graph for a case study: WebPage + BreadcrumbList + CreativeWork.
+ *
+ * Serves both `/work/:handle` (the real, populated case studies) and the
+ * `/pages/cs-*` pages, which stay suppressed by `isKnownEmptyPage()` until
+ * they have content.
+ */
 export function caseStudyJsonLd(opts: {
   path: string;
-  clientName: string;
+  /** Omitted rather than guessed — see `caseStudySchema`. */
+  clientName?: string;
   headline: string;
   description?: string;
   imageUrl?: string;
+  datePublished?: string;
 }): JsonLdDescriptor[] {
   if (!opts.headline) return [];
 
-  return jsonLdMeta([
+  return pageGraph([
+    webPageSchema({
+      path: opts.path,
+      name: opts.headline,
+      description: opts.description,
+      imageUrl: opts.imageUrl,
+      mainEntityId: `${absoluteUrl(opts.path)}#casestudy`,
+      hasBreadcrumb: true,
+      datePublished: opts.datePublished,
+    }),
+    breadcrumbSchema([
+      {name: 'Our Work', path: '/work'},
+      {name: opts.headline, path: opts.path},
+    ]),
     caseStudySchema({
       path: opts.path,
       clientName: opts.clientName,
       headline: opts.headline,
       description: opts.description ?? '',
       ...(opts.imageUrl ? {imageUrl: opts.imageUrl} : {}),
+      ...(opts.datePublished ? {datePublished: opts.datePublished} : {}),
     }),
-    breadcrumbSchema([
-      {name: 'Our Work', path: '/work'},
-      {name: opts.headline, path: opts.path},
-    ]),
   ]);
 }
 
