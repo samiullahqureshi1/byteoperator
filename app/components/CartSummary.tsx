@@ -3,6 +3,12 @@ import type {CartLayout} from '~/components/CartMain';
 import {Money, type OptimisticCart} from '@shopify/hydrogen';
 import {ArrowIcon} from '~/components/BulkHours';
 
+const NEXT_STEPS = [
+  'Pay securely on Shopify checkout.',
+  'Your Success Manager calls to plan the work.',
+  'Track progress on your project board and timesheet.',
+];
+
 type CartSummaryProps = {
   cart: OptimisticCart<CartApiQueryFragment | null>;
   layout: CartLayout;
@@ -17,6 +23,9 @@ export function CartSummary({cart, layout}: CartSummaryProps) {
 
   return (
     <div className={className}>
+      {layout === 'page' ? (
+        <h2 className="cart-summary-title">Order summary</h2>
+      ) : null}
       <dl className="cart-subtotal">
         <dt>Subtotal</dt>
         <dd>
@@ -33,6 +42,16 @@ export function CartSummary({cart, layout}: CartSummaryProps) {
           <span>Checkout</span>
           <ArrowIcon />
         </a>
+      ) : null}
+      {layout === 'page' ? (
+        <div className="cart-next">
+          <h3>What happens next</h3>
+          <ol>
+            {NEXT_STEPS.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+        </div>
       ) : null}
     </div>
   );

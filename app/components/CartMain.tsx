@@ -89,15 +89,29 @@ function CartEmpty({
   const {close} = useAside();
   return (
     <div className="cart-empty" hidden={hidden}>
-      <p>Your cart is empty.</p>
-      <Link
-        className="cart-button"
-        to={BULK_HOURS_PATH}
-        onClick={close}
-        prefetch="intent"
-      >
-        Buy bulk hours
-      </Link>
+      <p className="cart-empty__title">Nothing in here yet.</p>
+      <p className="cart-empty__text">
+        Buy bulk hours to get your Shopify work started, or see everything
+        FoldTech can help with.
+      </p>
+      <div className="cart-empty__actions">
+        <Link
+          className="cart-button"
+          to={BULK_HOURS_PATH}
+          onClick={close}
+          prefetch="intent"
+        >
+          Buy bulk hours
+        </Link>
+        <Link
+          className="cart-button cart-button--outline"
+          to="/services"
+          onClick={close}
+          prefetch="intent"
+        >
+          Explore services
+        </Link>
+      </div>
     </div>
   );
 }

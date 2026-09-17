@@ -118,14 +118,22 @@ export async function loader({context}: Route.LoaderArgs) {
 export default function Cart() {
   const cart = useLoaderData<typeof loader>();
 
+  const itemCount = cart?.lines.nodes.length ?? 0;
+
   return (
     <div className="cart-page">
-      <div className="cart-page__inner">
+      <section className="cart-page__hero">
         <h1 className="cart-page__title">Your cart</h1>
-        <div className="cart-page__card">
-          <CartMain layout="page" cart={cart} />
-        </div>
-      </div>
+        {itemCount ? (
+          <p className="cart-page__count">
+            {itemCount} {itemCount === 1 ? 'item' : 'items'}
+          </p>
+        ) : null}
+      </section>
+
+      <section className="cart-page__body">
+        <CartMain layout="page" cart={cart} />
+      </section>
     </div>
   );
 }

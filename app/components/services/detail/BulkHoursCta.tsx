@@ -66,7 +66,8 @@ export function BulkHoursCta({
             <div>
               <dt>One-time purchase</dt>
               <dd>
-                <Money as="span" data={variant.price} /> per hour
+                <Money as="span" data={variant.price} />
+                <span className="ft-bulk-hours-cta__per">per hour</span>
               </dd>
             </div>
             {subscription ? (
@@ -76,7 +77,8 @@ export function BulkHoursCta({
                   {saving > 0 ? <span>Save {saving}%</span> : null}
                 </dt>
                 <dd>
-                  <Money as="span" data={subscription.price} /> per hour
+                  <Money as="span" data={subscription.price} />
+                  <span className="ft-bulk-hours-cta__per">per hour</span>
                 </dd>
               </div>
             ) : null}
@@ -95,7 +97,7 @@ export function BulkHoursCta({
 
       <div className="ft-bulk-hours-cta__scale">
         <p className="ft-bulk-hours-cta__scale-label">
-          Or start with a block of hours
+          Or pick a block of hours
         </p>
 
         <div className="ft-bulk-hours-cta__ruler" aria-hidden="true">

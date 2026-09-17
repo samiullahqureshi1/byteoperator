@@ -1,6 +1,11 @@
 import type {CartLineUpdateInput} from '@shopify/hydrogen/storefront-api-types';
 import type {CartLayout, LineItemChildrenMap} from '~/components/CartMain';
-import {CartForm, Image, type OptimisticCartLine} from '@shopify/hydrogen';
+import {
+  CartForm,
+  Image,
+  Money,
+  type OptimisticCartLine,
+} from '@shopify/hydrogen';
 import {ProductPrice} from './ProductPrice';
 import {BULK_HOURS_HANDLE, BULK_HOURS_IMAGE} from './BulkHours';
 import type {
@@ -29,6 +34,8 @@ export function CartLineItem({
   const {product, title, image, selectedOptions} = merchandise;
   const lineItemChildren = childrenMap[id];
   const childrenLabelId = `cart-line-children-${id}`;
+  const isBulkHours = product.handle === BULK_HOURS_HANDLE;
+  const unitPrice = line.cost?.amountPerQuantity;
 
   return (
     <li key={id} className="cart-line">
@@ -43,7 +50,7 @@ export function CartLineItem({
             loading="lazy"
             width={100}
           />
-        ) : product.handle === BULK_HOURS_HANDLE ? (
+        ) : isBulkHours ? (
           <img
             className="cart-line-image"
             src={BULK_HOURS_IMAGE.src}
@@ -60,9 +67,16 @@ export function CartLineItem({
             <ProductPrice price={line?.cost?.totalAmount} />
           </div>
           <ul className="cart-line-meta">
-            {line.sellingPlanAllocation ? (
+            <li className="cart-line-plan">
+              {line.sellingPlanAllocation
+                ? line.sellingPlanAllocation.sellingPlan.name
+                : 'One-time purchase'}
+            </li>
+            {unitPrice?.amount ? (
               <li>
-                <small>{line.sellingPlanAllocation.sellingPlan.name}</small>
+                {line.quantity}
+                {isBulkHours ? ' hours' : ''} &times;{' '}
+                <Money as="span" data={unitPrice} />
               </li>
             ) : null}
             {selectedOptions
