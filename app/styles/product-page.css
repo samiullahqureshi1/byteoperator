@@ -365,3 +365,94 @@
 .ft-product .ft-service-detail-faqs {
   padding-top: clamp(3.5rem, 7vw, 5rem);
 }
+
+/* =========================================================
+   SHORT DESKTOP SCREENS
+   The hero holds the whole purchase decision, so on a laptop
+   it compresses to stay within one screen rather than pushing
+   the button below the fold.
+========================================================= */
+
+@media (min-width: 64rem) and (max-height: 60rem) {
+  .ft-product__hero {
+    padding-top: calc(var(--charle-header-height, 6.5rem) + 1.25rem);
+    padding-bottom: 2.5rem;
+  }
+
+  .ft-product__intro {
+    gap: 1.25rem;
+  }
+
+  .ft-product__title {
+    font-size: clamp(2rem, 3.4vw, 2.75rem);
+  }
+
+  .ft-product__lead {
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+
+  .ft-product__stat {
+    padding: 1rem 1rem 1.125rem;
+  }
+
+  .ft-product__stat dt {
+    font-size: 1.5rem;
+  }
+
+  .ft-product__stat dd {
+    margin-top: 0.75rem;
+    padding-top: 0.625rem;
+    font-size: 0.8125rem;
+  }
+
+  .ft-product__logos {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (min-width: 64rem) and (max-height: 48rem) {
+  .ft-product__hero {
+    padding-top: calc(var(--charle-header-height, 6.5rem) + 0.75rem);
+    padding-bottom: 1.75rem;
+  }
+
+  .ft-product__intro {
+    gap: 1rem;
+  }
+
+  .ft-product__title {
+    font-size: clamp(1.75rem, 2.8vw, 2.25rem);
+  }
+
+  .ft-product__lead {
+    font-size: 1rem;
+  }
+
+  /* The chips and the credential line are the most expendable rows in
+     the column once the figures below say the same thing. */
+  .ft-product__uses {
+    display: none;
+  }
+
+  /* Four across only once height is genuinely scarce: at this width the
+     labels wrap hard, which is the lesser cost against a hidden button. */
+  .ft-product__stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.625rem;
+  }
+
+  .ft-product__stat {
+    padding: 0.875rem 0.875rem 1rem;
+  }
+
+  .ft-product__stat dt {
+    font-size: 1.375rem;
+  }
+
+  .ft-product__stat dd {
+    margin-top: 0.625rem;
+    padding-top: 0.5rem;
+    font-size: 0.75rem;
+  }
+}

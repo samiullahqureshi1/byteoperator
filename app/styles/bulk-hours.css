@@ -545,9 +545,68 @@
   text-underline-offset: 0.2em;
 }
 
-@media (max-width: 30em) {
+/* =========================================================
+   PHONES — the plan cards become rows
+   Stacked full-height cards pushed the hours control and the
+   button off screen, so each plan collapses to name + rate on
+   one line and drops its description.
+========================================================= */
+
+@media (max-width: 47.9375rem) {
+  .ft-bulk-hours {
+    gap: 1.125rem;
+    padding: 1.125rem;
+    border-radius: 1.25rem;
+  }
+
   .ft-bulk-hours__plans {
-    grid-auto-flow: row;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+
+  .ft-bulk-hours__plan {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.3125rem 0.75rem;
+    padding: 0.875rem 1rem;
+    border-radius: 0.875rem;
+  }
+
+  .ft-bulk-hours__plan-head {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .ft-bulk-hours__plan-price {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    font-size: 1.375rem;
+  }
+
+  /* The rate already carries the discount, so the pill would repeat it
+     in a row that has no width to spare. */
+  .ft-bulk-hours__plan-price .ft-bulk-hours__saving,
+  .ft-bulk-hours__plan-text {
+    display: none;
+  }
+
+  .ft-bulk-hours__plan-foot {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+    font-size: 0.75rem;
+  }
+
+  .ft-bulk-hours__price {
+    padding: 1rem;
+  }
+
+  .ft-bulk-hours__now-total {
+    font-size: 2.25rem;
   }
 }
 
@@ -709,4 +768,128 @@
   font-size: 0.8125rem;
   line-height: 1.4;
   text-align: center;
+}
+
+/* =========================================================
+   SHORT DESKTOP SCREENS
+   The whole buy flow — plan, hours, button — should be
+   reachable without scrolling, so the panel trades air for
+   fit as the viewport gets shorter rather than overflowing.
+========================================================= */
+
+@media (min-width: 64rem) and (max-height: 60rem) {
+  .ft-bulk-hours {
+    gap: 1.125rem;
+    padding: 1.375rem;
+  }
+
+  .ft-bulk-hours__plan {
+    gap: 0.4375rem;
+    padding: 0.9375rem 1.125rem 1rem;
+  }
+
+  .ft-bulk-hours__plan-price {
+    font-size: 1.5rem;
+  }
+
+  .ft-bulk-hours__plan-text {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+  }
+
+  .ft-bulk-hours__price {
+    padding: 1rem 1.125rem;
+  }
+
+  .ft-bulk-hours__now-total {
+    font-size: 2.5rem;
+  }
+
+  .ft-bulk-hours__stepper button,
+  .ft-bulk-hours__stepper input,
+  .ft-bulk-hours__stepper-field {
+    height: 2.875rem;
+  }
+
+  .ft-bulk-hours__buy button {
+    min-height: 3.375rem;
+  }
+}
+
+/* Laptop screens at 768px and under: the descriptions go, since a plan
+   you cannot reach is worth less than one you can. */
+@media (min-width: 64rem) and (max-height: 48rem) {
+  .ft-bulk-hours {
+    gap: 0.625rem;
+    padding: 1rem;
+  }
+
+  /* The summary folds onto one line — label and amount side by side,
+     rate beneath — rather than stacking three rows. */
+  .ft-bulk-hours__figures {
+    grid-template-columns: auto auto;
+    align-items: baseline;
+    column-gap: 0.75rem;
+    row-gap: 0.25rem;
+  }
+
+  .ft-bulk-hours__summary-label {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .ft-bulk-hours__now-total {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .ft-bulk-hours__rate {
+    grid-column: 1 / -1;
+  }
+
+  /* The stepper and slider already set the same value, so the quick
+     picks are the one control that can go. */
+  .ft-bulk-hours__presets {
+    display: none;
+  }
+
+  .ft-bulk-hours__terms {
+    margin-top: -0.25rem;
+    font-size: 0.75rem;
+  }
+
+  .ft-bulk-hours__quote {
+    margin-top: -0.25rem;
+    font-size: 0.875rem;
+  }
+
+  .ft-bulk-hours__plan-text {
+    display: none;
+  }
+
+  .ft-bulk-hours__plan {
+    padding: 0.8125rem 1rem 0.875rem;
+  }
+
+  .ft-bulk-hours__now-total {
+    font-size: 2.125rem;
+  }
+
+  .ft-bulk-hours__price {
+    padding: 0.875rem 1rem;
+  }
+
+  .ft-bulk-hours__stepper button,
+  .ft-bulk-hours__stepper input,
+  .ft-bulk-hours__stepper-field {
+    height: 2.625rem;
+  }
+
+  .ft-bulk-hours__buy button {
+    min-height: 3rem;
+  }
+
+  .ft-bulk-hours__terms {
+    margin-top: -0.5rem;
+  }
 }
