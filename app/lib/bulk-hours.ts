@@ -2,7 +2,7 @@
  * Hour rules for the bulk hours product, shared by the product page and the
  * cart so both allow the same quantities:
  *   one-time purchase     1–100 hours, in steps of 1
- *   monthly subscription 10–100 hours, in steps of 5
+ *   monthly subscription  5–100 hours, in steps of 5
  * Kept free of imports so `scripts/check-bulk-hours.ts` can run it in Node.
  */
 
@@ -10,7 +10,7 @@ export const MAX_HOURS = 100;
 
 export function hourRules(subscription: boolean) {
   return subscription
-    ? {min: 10, step: 5, max: MAX_HOURS}
+    ? {min: 5, step: 5, max: MAX_HOURS}
     : {min: 1, step: 1, max: MAX_HOURS};
 }
 

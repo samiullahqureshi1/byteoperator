@@ -106,22 +106,98 @@
     padding-bottom: 5rem;
   }
 
-  /* Two columns of comparable weight, centred against each other. The
-     copy and the panel are never the same height, so aligning their
-     middles reads as composed where aligning their tops read as ragged. */
-  /* The panel carries the rate, the struck comparison and the saving on
-     one line, so it takes the larger share. */
+  /* The proof cards give the left column roughly the panel's height, so
+     the two now align at the top and read as a matched pair. */
   .ft-product__grid {
     grid-template-columns: minmax(0, 4.5fr) minmax(0, 6fr);
     grid-template-areas: 'intro buy';
-    align-items: center;
+    align-items: start;
     column-gap: clamp(2.5rem, 4vw, 4.5rem);
   }
 }
 
-/* ---------- Client logos, directly under the buy panel ---------- */
 
-/* Full page width, with the divider running edge to edge. */
+/* ---------- Shared sections: FoldTech dark, as on service pages ---------- */
+
+.ft-product .ft-home-partners,
+.ft-product .ft-home-experts {
+  background: var(--ft-dark-deep, #01151b);
+}
+
+/* ---------- Hero trust line ---------- */
+
+.ft-product__trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin: -0.75rem 0 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: 'Season Serif', serif;
+  font-size: 0.9375rem;
+  line-height: 1.2;
+}
+
+/* A hairline between items rather than a bullet glyph, so the line keeps
+   its rhythm when it wraps. */
+.ft-product__trust span + span {
+  padding-left: 1rem;
+  border-left: 0.0625rem solid rgba(255, 255, 255, 0.18);
+}
+
+.ft-product__trust span:last-child {
+  color: var(--ft-teal-light, #afdddc);
+}
+
+/* ---------- Proof, in the intro column ---------- */
+
+/* Two-up cards rather than a four-across strip: in this column a strip
+   would squeeze each figure to a sliver, and the pair of rows gives the
+   left side the height it needs to stand beside the panel. */
+/* Fixed 2×2 rather than auto-fit: four figures auto-fitted to three
+   columns leave the fourth stranded on its own row. */
+.ft-product__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Built from the buy panel's own surface and border rather than a generic
+   translucent tile, so the two sides of the hero are visibly the same
+   material. */
+.ft-product__stat {
+  min-width: 0;
+  padding: 1.5rem 1.5rem 1.625rem;
+  border: 0.0625rem solid rgba(175, 221, 220, 0.14);
+  border-radius: 1.25rem;
+  background: var(--ft-dark, #041f27);
+}
+
+.ft-product__stat dt {
+  color: var(--ft-white, #ffffff);
+  font-size: clamp(1.875rem, 2.8vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The figure and what it counts are separated by the same teal rule the
+   light band uses, so both halves of the page share one device. */
+.ft-product__stat dd {
+  margin: 1rem 0 0;
+  padding-top: 0.875rem;
+  border-top: 0.0625rem solid rgba(64, 173, 170, 0.4);
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Season Serif', serif;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* ---------- Client logos: full page width, under the hero ---------- */
+
 .ft-product__logos {
   width: 100%;
   margin-top: clamp(3rem, 6vw, 5rem);
@@ -134,25 +210,158 @@
   padding: clamp(2rem, 4vw, 3rem) 3vw clamp(1.5rem, 3vw, 2.5rem);
 }
 
-/* ---------- FAQs: rounded white section, as on service pages ---------- */
+/* home-services.css hides this label under a breakpoint, which suits the
+   homepage but leaves this band as unlabelled logos. */
+.ft-product .ft-home-services__logos-label {
+  display: block;
+}
 
-.ft-product .ft-service-detail-faqs {
+
+/* =========================================================
+   LIGHT BAND — covers, process, scope and fit
+   One off-white section carrying the rounded top the service
+   pages use, lifted over the dark hero above it.
+========================================================= */
+
+.ft-product__band {
   position: relative;
   z-index: 1;
   margin-top: -1.5625rem;
+  padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(3rem, 6vw, 5rem);
   border-radius: 1.5625rem 1.5625rem 0 0;
+  background: var(--ft-off-white, #fbfcfc);
+  color: var(--ft-text, #0b252d);
+}
+
+.ft-product__block + .ft-product__block {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  border-top: 0.0625rem solid rgba(11, 37, 45, 0.1);
+}
+
+.ft-product__band-eyebrow {
+  margin: 0 0 1rem;
+  color: rgba(11, 37, 45, 0.4);
+  font-family: 'Season Serif', serif;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.ft-product__band-title {
+  max-width: 24ch;
+  margin: 0;
+  font-size: clamp(2rem, 4.4vw, 3.25rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+/* ---------- What the hours cover ---------- */
+
+/* Type-led entries divided by rules rather than fourteen boxes. The rules
+   carry the brand teal, so the grid reads as ours without decorating each
+   of the fourteen items. */
+.ft-product__covers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  column-gap: clamp(1.5rem, 3vw, 2.5rem);
+  row-gap: 0;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Ruled on top, not below: the last row is never full, and a bottom rule
+   there left a line dangling under the filled cells. */
+.ft-product__cover {
+  min-width: 0;
+  margin: 0;
+  padding: 1.375rem 0 1.625rem;
+  border-top: 0.0625rem solid rgba(64, 173, 170, 0.4);
+}
+
+.ft-product__cover h3 {
+  margin: 0;
+  color: var(--ft-dark, #041f27);
+  font-family: 'Season Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.ft-product__cover p {
+  margin: 0.5rem 0 0;
+  color: rgba(11, 37, 45, 0.62);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+/* ---------- How it works ---------- */
+
+.ft-product__steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 2rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Same ruled treatment as the covers above, so the band reads as one
+   system rather than two grids that happen to sit together. */
+.ft-product__step {
+  min-width: 0;
+  margin: 0;
+  padding-top: 1.25rem;
+  border-top: 0.0625rem solid rgba(64, 173, 170, 0.4);
+}
+
+.ft-product__step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 999rem;
+  background: var(--ft-teal-light, #afdddc);
+  color: var(--ft-dark, #041f27);
+  font-family: 'Season Serif', serif;
+  font-size: 0.8125rem;
+  line-height: 1;
+}
+
+.ft-product__step h3 {
+  margin: 0.875rem 0 0;
+  font-family: 'Season Sans', sans-serif;
+  font-size: 1.1875rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.ft-product__step p {
+  margin: 0.5rem 0 0;
+  color: rgba(11, 37, 45, 0.6);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+@media (hover: hover) {
+}
+
+@media (prefers-reduced-motion: reduce) {
 }
 
 @media (min-width: 64rem) {
-  .ft-product .ft-service-detail-faqs {
+  .ft-product__band {
     margin-top: -3.125rem;
     border-radius: 3.125rem 3.125rem 0 0;
   }
 }
 
-/* ---------- Shared sections: FoldTech dark, as on service pages ---------- */
-
-.ft-product .ft-home-partners,
-.ft-product .ft-home-experts {
-  background: var(--ft-dark-deep, #01151b);
+/* The FAQs follow the testimonial, not the hero, so they no longer need
+   the rounded lift the service pages give them. */
+.ft-product .ft-service-detail-faqs {
+  padding-top: clamp(3.5rem, 7vw, 5rem);
 }

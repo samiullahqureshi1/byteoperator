@@ -25,6 +25,13 @@ export const BULK_HOURS_HANDLE = 'buy-bulk-hours';
 export const BULK_HOURS_PATH = `/products/${BULK_HOURS_HANDLE}`;
 
 /*
+ * Quick picks under the slider. Filtered against the plan's own rules, so
+ * the monthly plan only ever offers amounts it can actually be set to.
+ */
+const HOUR_PRESETS = [1, 5, 10, 20, 40, 100];
+const POPULAR_PRESET = 10;
+
+/*
  * ponytail: a site photo stands in until the Shopify product has an image.
  * Upload one in Shopify admin and the product page and cart use it instead.
  */
@@ -106,6 +113,9 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
 
   const progress = (hours - rules.min) / (rules.max - rules.min);
   const hoursLabel = `${hours} ${hours === 1 ? 'hour' : 'hours'}`;
+  const presets = HOUR_PRESETS.filter(
+    (value) => value >= rules.min && value % rules.step === 0,
+  );
   // Only the monthly plan is discounted, so only it has a "was" to show.
   const showCompare = isSubscription && Boolean(saving) && savingPercent > 0;
 
@@ -123,8 +133,11 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
 
   return (
     <div className="ft-bulk-hours">
+    
+
       <fieldset className="ft-bulk-hours__plans">
         <legend className="sr-only">How would you like to pay?</legend>
+
         <label className="ft-bulk-hours__plan">
           <input
             type="radio"
@@ -132,11 +145,18 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
             checked={!isSubscription}
             onChange={() => choosePlan(false)}
           />
-          <span className="ft-bulk-hours__plan-name">One-time</span>
+          <span className="ft-bulk-hours__plan-head">
+            <span className="ft-bulk-hours__plan-mark" aria-hidden="true" />
+            <span className="ft-bulk-hours__plan-name">One-time</span>
+          </span>
           <span className="ft-bulk-hours__plan-price">
             <Money as="span" data={variant.price} />
-            /hr
+            <span className="ft-bulk-hours__plan-unit">/ hour</span>
           </span>
+          <span className="ft-bulk-hours__plan-text">
+            Buy only the hours you need.
+          </span>
+          <span className="ft-bulk-hours__plan-foot">No recurring billing</span>
         </label>
 
         {subscription ? (
@@ -147,88 +167,98 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
               checked={isSubscription}
               onChange={() => choosePlan(true)}
             />
-            <span className="ft-bulk-hours__plan-name">
-              Subscribe &amp; Save
+            <span className="ft-bulk-hours__plan-head">
+              <span className="ft-bulk-hours__plan-mark" aria-hidden="true" />
+              <span className="ft-bulk-hours__plan-name">Subscribe &amp; Save</span>
+              <span className="ft-bulk-hours__plan-flag">Best value</span>
+            </span>
+            <span className="ft-bulk-hours__plan-price">
+              <Money as="span" data={subscription.price} />
+              <span className="ft-bulk-hours__plan-unit">/ hour</span>
               {savingPercent > 0 ? (
                 <span className="ft-bulk-hours__saving">
                   Save {savingPercent}%
                 </span>
               ) : null}
             </span>
-            <span className="ft-bulk-hours__plan-price">
-              <Money as="span" data={subscription.price} />
-              /hr
+            <span className="ft-bulk-hours__plan-text">
+              The same number of hours added every month. Best for ongoing store
+              support.
+            </span>
+            <span className="ft-bulk-hours__plan-foot">
+              From {hourRules(true).min} hours a month &middot; Cancel anytime
             </span>
           </label>
         ) : null}
       </fieldset>
 
-      {/* Rate and total, each shown against what the one-time plan would
-          cost, so the saving is read rather than worked out. */}
+      {/* What this selection costs, stated once: the amount charged, the
+          rate behind it, and what the one-time plan would have cost. */}
       <div className="ft-bulk-hours__price">
-        <div
-          className={`ft-bulk-hours__figures${
-            showCompare ? ' ft-bulk-hours__figures--compare' : ''
-          }`}
-        >
+        <div className="ft-bulk-hours__figures">
+          <p className="ft-bulk-hours__summary-label">
+            {hoursLabel} {isSubscription ? 'every month' : 'one-time'}
+          </p>
           <p className="ft-bulk-hours__now-total">
             <Money as="span" data={total} />
-            <span className="ft-bulk-hours__cadence">
-              {isSubscription ? 'total' : 'total'}
-            </span>
+            {isSubscription ? (
+              <span className="ft-bulk-hours__cadence">/mo</span>
+            ) : null}
           </p>
-
-          {showCompare ? (
-            <p className="ft-bulk-hours__was-total">
-              <Money as="span" data={oneTimeTotal} />
-            </p>
-          ) : null}
-
           <p className="ft-bulk-hours__rate">
             <Money as="span" data={unitPrice} />
-            <span className="ft-bulk-hours__rate-unit">/Hour</span>
+            <span className="ft-bulk-hours__rate-unit">
+              /hour &middot; {isSubscription ? 'billed monthly' : 'paid once'}
+            </span>
           </p>
-
-          {showCompare ? (
-            <p className="ft-bulk-hours__was-rate">
-              <Money as="span" data={variant.price} />
-              /Hour
-            </p>
-          ) : null}
         </div>
 
         {showCompare && saving ? (
           <p className="ft-bulk-hours__save">
-            <span>
-              You Saved total of  {' '}
+            <span className="ft-bulk-hours__save-line">
+              You save{' '}
               <strong>
                 <Money as="span" data={saving} />
-              </strong>
+              </strong>{' '}
+              every month
             </span>
-            on subscription
+            <s className="ft-bulk-hours__was-total">
+              <Money as="span" data={oneTimeTotal} /> one-time
+            </s>
           </p>
         ) : null}
-      </div>  
+      </div>
 
       <div
         className="ft-bulk-hours__hours"
         style={{'--progress': progress} as React.CSSProperties}
       >
-        <div className="ft-bulk-hours__hours-row">
-          <div className="ft-bulk-hours__stepper">
-            <button
-              type="button"
-              aria-label={
-                isSubscription ? `Remove ${rules.step} hours` : 'Remove an hour'
-              }
-              disabled={hours <= rules.min}
-              onClick={() => {
-                setHours(stepHours(hours, isSubscription, -1));
-                setDraft(null);
-              }}
-            >
-              &minus;
-            </button>
+        <div className="ft-bulk-hours__hours-head">
+          <p className="ft-bulk-hours__hours-title">
+            How many hours do you need?
+          </p>
+          <p className="ft-bulk-hours__hours-step">
+            {isSubscription
+              ? `Minimum ${rules.min} hours a month`
+              : 'Any number of hours'}
+          </p>
+        </div>
+
+        <div className="ft-bulk-hours__stepper">
+          <button
+            type="button"
+            aria-label={
+              isSubscription ? `Remove ${rules.step} hours` : 'Remove an hour'
+            }
+            disabled={hours <= rules.min}
+            onClick={() => {
+              setHours(stepHours(hours, isSubscription, -1));
+              setDraft(null);
+            }}
+          >
+            &minus;
+          </button>
+          <span className="ft-bulk-hours__stepper-field">
             <input
               type="number"
               inputMode="numeric"
@@ -243,41 +273,65 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
                 if (event.key === 'Enter') applyDraft();
               }}
             />
+            <span className="ft-bulk-hours__stepper-unit">
+              {hours === 1 ? 'hour' : 'hours'}
+              {isSubscription ? ' / month' : ''}
+            </span>
+          </span>
+          <button
+            type="button"
+            aria-label={
+              isSubscription ? `Add ${rules.step} hours` : 'Add an hour'
+            }
+            disabled={hours >= rules.max}
+            onClick={() => {
+              setHours(stepHours(hours, isSubscription, 1));
+              setDraft(null);
+            }}
+          >
+            +
+          </button>
+        </div>
+
+        <div className="ft-bulk-hours__track">
+          <input
+            id="ft-bulk-hours-range"
+            className="ft-bulk-hours__range"
+            type="range"
+            min={rules.min}
+            max={rules.max}
+            step={rules.step}
+            value={hours}
+            aria-label="Hours"
+            onChange={(event) => {
+              setHours(snapHours(event.target.valueAsNumber, isSubscription));
+              setDraft(null);
+            }}
+          />
+          <div className="ft-bulk-hours__scale" aria-hidden="true">
+            <span>
+              {rules.min} {rules.min === 1 ? 'hour' : 'hours'}
+            </span>
+            <span>{rules.max} hours</span>
+          </div>
+        </div>
+
+        <div className="ft-bulk-hours__presets">
+          {presets.map((value) => (
             <button
+              className="ft-bulk-hours__preset"
+              key={value}
               type="button"
-              aria-label={
-                isSubscription ? `Add ${rules.step} hours` : 'Add an hour'
-              }
-              disabled={hours >= rules.max}
+              aria-pressed={hours === value}
+              data-popular={value === POPULAR_PRESET ? 'true' : undefined}
               onClick={() => {
-                setHours(stepHours(hours, isSubscription, 1));
+                setHours(value);
                 setDraft(null);
               }}
             >
-              +
+              {value} {value === 1 ? 'hour' : 'hours'}
             </button>
-          </div>
-
-          <div className="ft-bulk-hours__track">
-            <input
-              id="ft-bulk-hours-range"
-              className="ft-bulk-hours__range"
-              type="range"
-              min={rules.min}
-              max={rules.max}
-              step={rules.step}
-              value={hours}
-              aria-label="Hours"
-              onChange={(event) => {
-                setHours(snapHours(event.target.valueAsNumber, isSubscription));
-                setDraft(null);
-              }}
-            />
-            <div className="ft-bulk-hours__scale" aria-hidden="true">
-              <span>{rules.min}</span>
-              <span>{rules.max}</span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -311,7 +365,11 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
         >
           {variant.availableForSale ? (
             <>
-              <span>Add {hoursLabel} to cart</span>
+              <span>
+                {isSubscription
+                  ? `Subscribe for ${hours} hours/month`
+                  : `Add ${hoursLabel} to cart`}
+              </span>
               <ArrowIcon className="ft-bulk-hours__buy-arrow" />
             </>
           ) : (
@@ -319,6 +377,8 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
           )}
         </AddToCartButton>
       </div>
+
+  
 
       <p className="ft-bulk-hours__quote">
         Need more than {MAX_HOURS} hours?{' '}

@@ -76,26 +76,144 @@ const USES = [
   'Store support',
 ];
 
+const STATS = [
+  {figure: '600+', label: 'Shopify projects delivered'},
+  {figure: '17+ yrs', label: 'Working on Shopify'},
+  {figure: 'Plus', label: 'Shopify Plus expertise in-house'},
+  {figure: 'One team', label: 'CRO, development and integrations'},
+];
+
+/* Everything an hour can be spent on, in the order the team is asked for it. */
+const COVERS = [
+  {
+    title: 'Shopify development',
+    text: 'Custom sections, Liquid work, theme modifications and frontend development.',
+  },
+  {
+    title: 'CRO & UX',
+    text: 'Product page improvements, cart optimisation, navigation and customer journey work.',
+  },
+  {
+    title: 'Shopify Plus',
+    text: 'Advanced functionality, scripts, B2B features and Plus-specific development.',
+  },
+  {
+    title: 'App & API integrations',
+    text: 'Shopify apps, APIs, third-party platforms and custom integrations.',
+  },
+  {
+    title: 'Performance',
+    text: 'Speed improvements, Core Web Vitals and technical frontend cleanup.',
+  },
+  {
+    title: 'Store support',
+    text: 'Bug fixes, troubleshooting, QA and day-to-day Shopify requests.',
+  },
+  {
+    title: 'Shopify & ecommerce SEO',
+    text: 'Technical SEO fixes, on-page work, structured data and content templates.',
+  },
+  {
+    title: 'AI search & GEO',
+    text: 'Generative engine optimisation and AI visibility improvements for your store.',
+  },
+  {
+    title: 'Email, SMS & Klaviyo',
+    text: 'Flow builds, campaign templates, segmentation and retention automation.',
+  },
+  {
+    title: 'Migrations & replatforming',
+    text: 'Data, URL and SEO continuity when moving onto Shopify or between themes.',
+  },
+  {
+    title: 'Internationalisation',
+    text: 'Markets, currencies, translations and region-specific store setup.',
+  },
+  {
+    title: 'Audits & A/B testing',
+    text: 'Design, technical and SEO audits, plus experiment builds and analysis.',
+  },
+  {
+    title: 'B2B & wholesale',
+    text: 'Company accounts, price lists, gated catalogues and wholesale workflows.',
+  },
+  {
+    title: 'Subscriptions',
+    text: 'Recurring product setup, selling plans and subscriber experience work.',
+  },
+];
+
+const STEPS = [
+  {
+    title: 'Choose your hours',
+    text: 'Buy them once, or subscribe and get the same hours every month.',
+  },
+  {
+    title: 'Send your requirements',
+    text: 'Share the Shopify tasks you want the FoldTech team to pick up.',
+  },
+  {
+    title: 'We estimate the work',
+    text: 'You get an hour estimate before any meaningful work begins.',
+  },
+  {
+    title: 'We build',
+    text: 'Approved work is completed and the hours come off your balance.',
+  },
+];
+
+
+
 const FAQS = [
   {
     question: 'What can I use bulk hours for?',
     answer:
-      'Any Shopify work the team takes on for your store: theme and design changes, new sections and pages, app and integration setup, conversion improvements and day-to-day support.',
+      'Any Shopify work the team takes on for your store: theme and design changes, new sections and pages, app and integration setup, conversion improvements, performance work and day-to-day support.',
+  },
+  {
+    question: 'How are hours tracked?',
+    answer:
+      'Time is logged against each task and deducted from your balance. You can ask for your remaining balance at any point.',
+  },
+  {
+    question: 'Will I know how many hours a task will take before you start?',
+    answer:
+      'Yes. You receive an hour estimate for the work, and meaningful development only begins once you approve it.',
+  },
+  {
+    question: 'Do unused hours expire?',
+    answer:
+      'No. Hours never expire, so you can hold a balance and use it when the work comes up.',
+  },
+  {
+    question: 'Can multiple tasks use the same hour balance?',
+    answer:
+      'Yes. One balance covers as many tasks as you like, across design, development, CRO and support.',
+  },
+  {
+    question: 'What happens when my hours run out?',
+    answer:
+      'We tell you before the balance is exhausted so you can top up, move to a monthly plan, or pause the work.',
   },
   {
     question: 'How does the monthly subscription work?',
     answer:
-      'Choose Monthly, pick your hours and check out once. You pay for those hours today, and the same number of hours is charged every month after that to the card you used at checkout.',
+      'Choose Subscribe & Save, pick your hours and check out once. You pay for those hours today, and the same number of hours is charged every month after that to the card you used at checkout.',
   },
   {
-    question: 'Where do I manage my subscription?',
+    question: 'Can I change my monthly number of hours?',
     answer:
-      'Sign in to your account on the store to see your subscription and its next billing date.',
+      'Yes. Tell us the new amount and we will update the plan from your next billing date.',
+  },
+  {
+    question: 'Where do I manage or cancel my subscription?',
+    answer:
+      'Sign in to your account on the store to see your subscription and its next billing date, or to cancel it. Hours you have already bought remain yours.',
   },
   {
     question: 'What if I need more than 100 hours?',
     answer:
-      'For larger projects, ask for a quote through the contact page and we will scope the work with you.',
+      'Larger engagements are better scoped as a project. Ask for a quote through the contact page and we will plan the work with you.',
   },
 ];
 
@@ -120,6 +238,22 @@ export default function BulkHoursProductPage() {
                   <li key={use}>{use}</li>
                 ))}
               </ul>
+              <p className="ft-product__trust">
+                <span>Shopify experts</span>
+                <span>600+ projects</span>
+                <span>Hours never expire</span>
+              </p>
+
+              {/* The stat cards sit in this column so it carries roughly
+                  the panel's height and the two read as a matched pair. */}
+              <dl className="ft-product__stats">
+                {STATS.map((stat) => (
+                  <div className="ft-product__stat" key={stat.figure}>
+                    <dt>{stat.figure}</dt>
+                    <dd>{stat.label}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
 
             <div className="ft-product__buy">
@@ -135,9 +269,50 @@ export default function BulkHoursProductPage() {
         </div>
       </section>
 
-      <ServiceDetailFaqs title="Bulk hours" faqs={FAQS} />
-      <HomePartners />
+      {/* One light band, as on the service pages: what the hours cover,
+          how the work runs, what an amount of hours buys, and who it
+          suits — read in that order before the FAQs. */}
+      <section className="ft-product__band">
+        <div className="ft-product__container">
+          <div className="ft-product__block">
+            <p className="ft-product__band-eyebrow">What the hours cover</p>
+            <h2 className="ft-product__band-title">
+              Use your hours across your Shopify store
+            </h2>
+            <ul className="ft-product__covers">
+              {COVERS.map((cover) => (
+                <li className="ft-product__cover" key={cover.title}>
+                  <h3>{cover.title}</h3>
+                  <p>{cover.text}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="ft-product__block">
+            <p className="ft-product__band-eyebrow">How it works</p>
+            <h2 className="ft-product__band-title">
+              From purchase to production
+            </h2>
+            <ol className="ft-product__steps">
+              {STEPS.map((step, index) => (
+                <li className="ft-product__step" key={step.title}>
+                  <span className="ft-product__step-number">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+        </div>
+      </section>
+
       <WorkTestimonial />
+      <ServiceDetailFaqs title="Buying bulk hours" faqs={FAQS} />
+      <HomePartners />
       <HomeExperts />
     </div>
   );

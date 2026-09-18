@@ -15,12 +15,13 @@ assert.equal(snapHours(250, false), 100);
 assert.equal(stepHours(1, false, -1), 1);
 assert.equal(stepHours(37, false, 1), 38);
 
-// Monthly: 10–100 in steps of 5.
-assert.equal(snapHours(1, true), 10);
+// Monthly: 5–100 in steps of 5.
+assert.equal(snapHours(1, true), 5);
 assert.equal(snapHours(12, true), 10);
 assert.equal(snapHours(13, true), 15);
 assert.equal(snapHours(100, true), 100);
-assert.equal(stepHours(10, true, -1), 10);
+assert.equal(stepHours(5, true, -1), 5); // clamped at the monthly minimum
+assert.equal(stepHours(10, true, -1), 5);
 assert.equal(stepHours(10, true, 1), 15);
 assert.equal(stepHours(24, true, -1), 20); // off-step quantities land on a step
 assert.equal(stepHours(24, true, 1), 25);

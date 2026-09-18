@@ -128,14 +128,16 @@
   opacity: 1;
 }
 
+/* Sized to be read, not skimmed: the questions are set large, so answers
+   at 15px read as fine print beside them. */
 .ft-service-detail-faqs__answer {
-  max-width: 48rem;
+  max-width: 44rem;
   margin: 1.5rem 0 0.75rem;
   font-family: 'Season Sans', sans-serif;
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 400;
-  line-height: 1.6;
-  color: var(--ft-text, #0b252d);
+  line-height: 1.65;
+  color: rgba(11, 37, 45, 0.78);
   overflow-wrap: anywhere;
 }
 
@@ -194,7 +196,7 @@
   }
 
   .ft-service-detail-faqs__answer {
-    font-size: 1rem;
+    font-size: 1.1875rem;
   }
 }
 
