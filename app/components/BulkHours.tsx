@@ -106,6 +106,8 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
 
   const progress = (hours - rules.min) / (rules.max - rules.min);
   const hoursLabel = `${hours} ${hours === 1 ? 'hour' : 'hours'}`;
+  // Only the monthly plan is discounted, so only it has a "was" to show.
+  const showCompare = isSubscription && Boolean(saving) && savingPercent > 0;
 
   function choosePlan(monthly: boolean) {
     setSubscribe(monthly);
@@ -146,7 +148,7 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
               onChange={() => choosePlan(true)}
             />
             <span className="ft-bulk-hours__plan-name">
-              Monthly
+              Subscribe &amp; Save
               {savingPercent > 0 ? (
                 <span className="ft-bulk-hours__saving">
                   Save {savingPercent}%
@@ -161,107 +163,129 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
         ) : null}
       </fieldset>
 
+      {/* Rate and total, each shown against what the one-time plan would
+          cost, so the saving is read rather than worked out. */}
+      <div className="ft-bulk-hours__price">
+        <div
+          className={`ft-bulk-hours__figures${
+            showCompare ? ' ft-bulk-hours__figures--compare' : ''
+          }`}
+        >
+          <p className="ft-bulk-hours__now-total">
+            <Money as="span" data={total} />
+            <span className="ft-bulk-hours__cadence">
+              {isSubscription ? 'total' : 'total'}
+            </span>
+          </p>
+
+          {showCompare ? (
+            <p className="ft-bulk-hours__was-total">
+              <Money as="span" data={oneTimeTotal} />
+            </p>
+          ) : null}
+
+          <p className="ft-bulk-hours__rate">
+            <Money as="span" data={unitPrice} />
+            <span className="ft-bulk-hours__rate-unit">/Hour</span>
+          </p>
+
+          {showCompare ? (
+            <p className="ft-bulk-hours__was-rate">
+              <Money as="span" data={variant.price} />
+              /Hour
+            </p>
+          ) : null}
+        </div>
+
+        {showCompare && saving ? (
+          <p className="ft-bulk-hours__save">
+            <span>
+              You Saved total of  {' '}
+              <strong>
+                <Money as="span" data={saving} />
+              </strong>
+            </span>
+            on subscription
+          </p>
+        ) : null}
+      </div>  
+
       <div
         className="ft-bulk-hours__hours"
         style={{'--progress': progress} as React.CSSProperties}
       >
-        <output className="ft-bulk-hours__count" htmlFor="ft-bulk-hours-range">
-          {hoursLabel}
-        </output>
-        <input
-          id="ft-bulk-hours-range"
-          className="ft-bulk-hours__range"
-          type="range"
-          min={rules.min}
-          max={rules.max}
-          step={rules.step}
-          value={hours}
-          aria-label="Hours"
-          onChange={(event) => {
-            setHours(snapHours(event.target.valueAsNumber, isSubscription));
-            setDraft(null);
-          }}
-        />
-        <div className="ft-bulk-hours__scale" aria-hidden="true">
-          <span>{rules.min}</span>
-          <span>{rules.max}</span>
+        <div className="ft-bulk-hours__hours-row">
+          <div className="ft-bulk-hours__stepper">
+            <button
+              type="button"
+              aria-label={
+                isSubscription ? `Remove ${rules.step} hours` : 'Remove an hour'
+              }
+              disabled={hours <= rules.min}
+              onClick={() => {
+                setHours(stepHours(hours, isSubscription, -1));
+                setDraft(null);
+              }}
+            >
+              &minus;
+            </button>
+            <input
+              type="number"
+              inputMode="numeric"
+              min={rules.min}
+              max={rules.max}
+              step={rules.step}
+              value={draft ?? hours}
+              aria-label="Number of hours"
+              onChange={(event) => setDraft(event.target.value)}
+              onBlur={applyDraft}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') applyDraft();
+              }}
+            />
+            <button
+              type="button"
+              aria-label={
+                isSubscription ? `Add ${rules.step} hours` : 'Add an hour'
+              }
+              disabled={hours >= rules.max}
+              onClick={() => {
+                setHours(stepHours(hours, isSubscription, 1));
+                setDraft(null);
+              }}
+            >
+              +
+            </button>
+          </div>
+
+          <div className="ft-bulk-hours__track">
+            <input
+              id="ft-bulk-hours-range"
+              className="ft-bulk-hours__range"
+              type="range"
+              min={rules.min}
+              max={rules.max}
+              step={rules.step}
+              value={hours}
+              aria-label="Hours"
+              onChange={(event) => {
+                setHours(snapHours(event.target.valueAsNumber, isSubscription));
+                setDraft(null);
+              }}
+            />
+            <div className="ft-bulk-hours__scale" aria-hidden="true">
+              <span>{rules.min}</span>
+              <span>{rules.max}</span>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="ft-bulk-hours__row">
-        <div className="ft-bulk-hours__stepper">
-          <button
-            type="button"
-            aria-label={
-              isSubscription ? `Remove ${rules.step} hours` : 'Remove an hour'
-            }
-            disabled={hours <= rules.min}
-            onClick={() => {
-              setHours(stepHours(hours, isSubscription, -1));
-              setDraft(null);
-            }}
-          >
-            &minus;
-          </button>
-          <input
-            type="number"
-            inputMode="numeric"
-            min={rules.min}
-            max={rules.max}
-            step={rules.step}
-            value={draft ?? hours}
-            aria-label="Number of hours"
-            onChange={(event) => setDraft(event.target.value)}
-            onBlur={applyDraft}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') applyDraft();
-            }}
-          />
-          <button
-            type="button"
-            aria-label={
-              isSubscription ? `Add ${rules.step} hours` : 'Add an hour'
-            }
-            disabled={hours >= rules.max}
-            onClick={() => {
-              setHours(stepHours(hours, isSubscription, 1));
-              setDraft(null);
-            }}
-          >
-            +
-          </button>
-        </div>
-        <p className="ft-bulk-hours__rate">
-          <Money as="span" data={unitPrice} /> per hour
-        </p>
-      </div>
-
-      <dl className="ft-bulk-hours__total">
-        <dt>{isSubscription ? 'Today, then every month' : 'Total'}</dt>
-        <dd>
-          {isSubscription && saving ? (
-            <s className="ft-bulk-hours__was">
-              <Money as="span" data={oneTimeTotal} />
-            </s>
-          ) : null}
-          <Money as="span" data={total} />
-        </dd>
-      </dl>
-
-      {saving && isSubscription ? (
-        <p className="ft-bulk-hours__note">
-          You save{' '}
-          <strong>
-            <Money as="span" data={saving} />
-          </strong>{' '}
-          a month with the monthly plan.
-        </p>
-      ) : null}
 
       {saving && !isSubscription ? (
         <p className="ft-bulk-hours__note">
+          {/* Names the plan the same way the toggle above does. */}
           <button type="button" onClick={() => choosePlan(true)}>
-            Switch to monthly
+            Subscribe instead
           </button>{' '}
           and save{' '}
           <strong>

@@ -1,21 +1,21 @@
 import {useLoaderData} from 'react-router';
-import {Image} from '@shopify/hydrogen';
 import type {Route} from './+types/products.$handle';
 import {
   BulkHoursPanel,
   BULK_HOURS_HANDLE,
-  BULK_HOURS_IMAGE,
   BULK_HOURS_PATH,
   BULK_HOURS_QUERY,
 } from '~/components/BulkHours';
 import {ServiceDetailFaqs} from '~/components/services/detail/ServiceDetailFaqs';
 import {HomeExperts} from '~/components/HomeExperts';
 import {HomePartners} from '~/components/HomePartners';
+import {ClientLogoMarquee} from '~/components/HomeServices';
 import {WorkTestimonial} from '~/components/work/WorkTestimonial';
 import {absoluteUrl} from '~/lib/seo/schema';
 import bulkHoursStyles from '~/styles/bulk-hours.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
 import homePartnersStyles from '~/styles/home-partners.css?url';
+import homeServicesStyles from '~/styles/home-services.css?url';
 import productPageStyles from '~/styles/product-page.css?url';
 import serviceDetailFaqStyles from '~/styles/service-detail-faqs.css?url';
 import workTestimonialStyles from '~/styles/work-testimonial.css?url';
@@ -24,6 +24,8 @@ export const links: Route.LinksFunction = () => [
   {rel: 'stylesheet', href: bulkHoursStyles},
   {rel: 'stylesheet', href: serviceDetailFaqStyles},
   {rel: 'stylesheet', href: homePartnersStyles},
+  // Carries the client logo marquee under the buy panel.
+  {rel: 'stylesheet', href: homeServicesStyles},
   {rel: 'stylesheet', href: workTestimonialStyles},
   {rel: 'stylesheet', href: homeExpertsStyles},
   // Last, so the page-level colour overrides win.
@@ -104,10 +106,9 @@ export default function BulkHoursProductPage() {
     <div className="ft-product">
       <section className="ft-product__hero">
         <div className="ft-product__container">
-          <p className="ft-product__eyebrow">Shopify development hours</p>
-
           <div className="ft-product__grid">
             <div className="ft-product__intro">
+              <p className="ft-product__eyebrow">Shopify development hours</p>
               <h1 className="ft-product__title">{product.title}</h1>
               <p className="ft-product__lead">
                 Prepaid time with the FoldTech team for the Shopify work your
@@ -124,25 +125,13 @@ export default function BulkHoursProductPage() {
             <div className="ft-product__buy">
               <BulkHoursPanel product={product} />
             </div>
-
-            <div className="ft-product__media">
-              {product.featuredImage ? (
-                <Image
-                  className="ft-product__image"
-                  data={product.featuredImage}
-                  sizes="(min-width: 62em) 55vw, 100vw"
-                />
-              ) : (
-                <img
-                  className="ft-product__image"
-                  src={BULK_HOURS_IMAGE.src}
-                  alt={BULK_HOURS_IMAGE.alt}
-                  width={BULK_HOURS_IMAGE.width}
-                  height={BULK_HOURS_IMAGE.height}
-                />
-              )}
-            </div>
           </div>
+        </div>
+
+        {/* Outside the 82rem container so the marquee runs the width of
+            the page, as it does on the homepage. */}
+        <div className="ft-product__logos">
+          <ClientLogoMarquee />
         </div>
       </section>
 

@@ -27,10 +27,13 @@
   padding: calc(var(--charle-header-height, 6.5rem) + 2.5rem) 0 5rem;
 }
 
+/* Sits inside the intro column so it leads the title directly, rather
+   than stranding itself at the top of the section. */
 .ft-product__eyebrow {
-  margin: 0 0 2rem;
+  margin: 0 0 -1rem;
+  color: rgba(255, 255, 255, 0.55);
   font-family: 'Season Serif', serif;
-  font-size: clamp(1.125rem, 2vw, 2rem);
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
   line-height: 1;
 }
 
@@ -38,8 +41,7 @@
   display: grid;
   grid-template-areas:
     'intro'
-    'buy'
-    'media';
+    'buy';
   gap: 2.5rem;
 }
 
@@ -51,9 +53,10 @@
   min-width: 0;
 }
 
+/* Sized to sit alongside the rate rather than compete with it. */
 .ft-product__title {
   margin: 0;
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2.25rem, 4.6vw, 3.75rem);
   font-weight: 300;
   line-height: 1.05;
   letter-spacing: -0.04em;
@@ -92,48 +95,43 @@
   min-width: 0;
 }
 
-.ft-product__media {
-  grid-area: media;
-  min-width: 0;
-}
-
-.ft-product__image {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  border-radius: 1.875rem;
-}
-
 @media (min-width: 64rem) {
   .ft-product__container {
-    padding-inline: 2.5rem;
+    width: min(100% - 5rem, 82rem);
+    margin-inline: auto;
+    padding-inline: 0;
   }
 
   .ft-product__hero {
-    padding-bottom: 7rem;
+    padding-bottom: 5rem;
   }
 
+  /* Two columns of comparable weight, centred against each other. The
+     copy and the panel are never the same height, so aligning their
+     middles reads as composed where aligning their tops read as ragged. */
+  /* The panel carries the rate, the struck comparison and the saving on
+     one line, so it takes the larger share. */
   .ft-product__grid {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    grid-template-rows: auto 1fr;
-    grid-template-areas:
-      'intro buy'
-      'media buy';
-    column-gap: clamp(3rem, 5vw, 6rem);
-    row-gap: 3rem;
+    grid-template-columns: minmax(0, 4.5fr) minmax(0, 6fr);
+    grid-template-areas: 'intro buy';
+    align-items: center;
+    column-gap: clamp(2.5rem, 4vw, 4.5rem);
   }
+}
 
-  .ft-product__buy {
-    position: sticky;
-    top: calc(var(--charle-sticky-height, 5rem) + 2rem);
-    align-self: start;
-  }
+/* ---------- Client logos, directly under the buy panel ---------- */
 
-  .ft-product__image {
-    border-radius: 3.125rem;
-  }
+/* Full page width, with the divider running edge to edge. */
+.ft-product__logos {
+  width: 100%;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.1);
+}
+
+.ft-product .ft-home-services__logos {
+  /* Bottom padding clears the FAQ panel, which pulls itself up over the
+     hero by its own negative margin. The 3vw gutter matches the homepage. */
+  padding: clamp(2rem, 4vw, 3rem) 3vw clamp(1.5rem, 3vw, 2.5rem);
 }
 
 /* ---------- FAQs: rounded white section, as on service pages ---------- */
