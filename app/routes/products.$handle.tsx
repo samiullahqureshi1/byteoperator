@@ -233,19 +233,29 @@ export default function BulkHoursProductPage() {
                 store needs. Buy the hours once, or subscribe and get the same
                 hours every month at a lower rate.
               </p>
+            </div>
+
+            <div className="ft-product__buy">
+              <BulkHoursPanel product={product} />
+            </div>
+
+            {/* Everything that supports the decision without being part of
+                it. Its own grid area, so it sits under the copy on desktop
+                and under the panel on a phone, where the purchase should
+                come before the supporting detail. */}
+            <div className="ft-product__aside">
               <ul className="ft-product__uses" aria-label="What hours cover">
                 {USES.map((use) => (
                   <li key={use}>{use}</li>
                 ))}
               </ul>
+
               <p className="ft-product__trust">
                 <span>Shopify experts</span>
                 <span>600+ projects</span>
                 <span>Hours never expire</span>
               </p>
 
-              {/* The stat cards sit in this column so it carries roughly
-                  the panel's height and the two read as a matched pair. */}
               <dl className="ft-product__stats">
                 {STATS.map((stat) => (
                   <div className="ft-product__stat" key={stat.figure}>
@@ -254,10 +264,6 @@ export default function BulkHoursProductPage() {
                   </div>
                 ))}
               </dl>
-            </div>
-
-            <div className="ft-product__buy">
-              <BulkHoursPanel product={product} />
             </div>
           </div>
         </div>
