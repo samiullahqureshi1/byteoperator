@@ -4,10 +4,23 @@ import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {getArticlePath} from '~/lib/route-mappings';
 import {getIncludedArticleBlogs} from '~/lib/articles-data.server';
 import {CaseStudyDetail} from '~/components/work/CaseStudyDetail';
+import {ArticleDetail} from '~/components/articles/ArticleDetail';
 import caseStudyDetailStyles from '~/styles/case-study-detail.css?url';
+import articleDetailStyles from '~/styles/article-detail.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
 import {articleJsonLd} from '~/lib/seo/jsonld';
 import {absoluteUrl} from '~/lib/seo/schema';
+
+/**
+ * `/articles/*` serves two kinds of post: the client case studies that
+ * `/work/:handle` also renders, and editorial guides. Only the former get
+ * the case-study layout — same blog list as work.$handle.tsx.
+ */
+const CASE_STUDY_BLOGS = new Set([
+  'featured',
+  'top-case-studies',
+  'case-studies',
+]);
 
 export const links: Route.LinksFunction = () => [
   // Article/case-study media is served from Shopify's CDN, so this
@@ -15,6 +28,7 @@ export const links: Route.LinksFunction = () => [
   // app/root.tsx).
   {rel: 'preconnect', href: 'https://cdn.shopify.com'},
   {rel: 'stylesheet', href: caseStudyDetailStyles},
+  {rel: 'stylesheet', href: articleDetailStyles},
   {rel: 'stylesheet', href: homeExpertsStyles},
 ];
 
@@ -89,8 +103,8 @@ async function loadCriticalData({context, request, params}: Route.LoaderArgs) {
       }),
     ),
   );
-  const article = results.find(({blog}) => blog?.articleByHandle)?.blog
-    ?.articleByHandle;
+  const blog = results.find(({blog}) => blog?.articleByHandle)?.blog;
+  const article = blog?.articleByHandle;
 
   if (!article) {
     throw new Response(null, {status: 404});
@@ -101,7 +115,7 @@ async function loadCriticalData({context, request, params}: Route.LoaderArgs) {
     data: article,
   });
 
-  return {article};
+  return {article, blogHandle: blog?.handle ?? ''};
 }
 
 function loadDeferredData({context}: Route.LoaderArgs) {
@@ -109,7 +123,11 @@ function loadDeferredData({context}: Route.LoaderArgs) {
 }
 
 export default function Article() {
-  const {article} = useLoaderData<typeof loader>();
+  const {article, blogHandle} = useLoaderData<typeof loader>();
+
+  if (!CASE_STUDY_BLOGS.has(blogHandle)) {
+    return <ArticleDetail article={article} />;
+  }
 
   return (
     <div className="ft-article-detail-page">
