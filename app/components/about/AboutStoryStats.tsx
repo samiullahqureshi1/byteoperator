@@ -45,7 +45,7 @@ export function AboutStoryStats() {
               </div>
 
               <Link
-                to="/services/"
+                to="/services"
                 className="ft-about-story__button"
               >
                 <span>Explore Our Services</span>

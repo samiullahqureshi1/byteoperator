@@ -34,7 +34,7 @@ const DEFAULT_HOME_ABOUT_DATA: HomeAboutData = {
     'At FoldTech, we specialize in creating high-converting Shopify and Shopify Plus experiences for brands ready to scale. From custom store builds and seamless migrations to advanced conversion optimization, technical SEO, AI-driven discovery, and retention systems every solution is engineered to maximize revenue and long-term customer value.',
   cta: {
     label: 'Explore Our Work',
-    href: '/pages//work',
+    href: '/work',
   },
 };
 

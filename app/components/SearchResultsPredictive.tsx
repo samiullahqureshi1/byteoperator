@@ -8,8 +8,8 @@ import {
 } from '~/lib/search';
 import {useAside} from './Aside';
 import {
-  getArticlePath,
-  ARTICLES_BLOG_HANDLE,
+  getPostPath,
+  resolveCanonicalPath,
 } from '~/lib/route-mappings';
 
 type PredictiveSearchItems = PredictiveSearchReturn['result']['items'];
@@ -96,9 +96,7 @@ function SearchResultsPredictiveArticles({
         {articles.map((article) => {
           const articleUrl = urlWithTrackingParams({
             baseUrl:
-              article.blog.handle === ARTICLES_BLOG_HANDLE
-                ? getArticlePath(article.handle)
-                : `/blogs/${article.blog.handle}/${article.handle}`,
+              getPostPath(article.blog.handle, article.handle),
             trackingParams: article.trackingParameters,
             term: term.current ?? '',
           });
@@ -139,7 +137,7 @@ function SearchResultsPredictivePages({
       <ul>
         {pages.map((page) => {
           const pageUrl = urlWithTrackingParams({
-            baseUrl: `/pages/${page.handle}`,
+            baseUrl: resolveCanonicalPath(`/pages/${page.handle}`),
             trackingParams: page.trackingParameters,
             term: term.current,
           });

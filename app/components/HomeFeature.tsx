@@ -107,31 +107,33 @@ export function HomeFeature({
               )}
             </div>
 
-            <div className="ft-home-feature__buttons">
-              {feature.buttons.map((button) =>
-                button.calendly ? (
-                  <CalendlyButton
-                    className="ft-home-feature__button"
-                    key={`${feature.id}-${button.label}`}
-                  >
-                    <span>{button.label}</span>
+            {feature.buttons.length ? (
+              <div className="ft-home-feature__buttons">
+                {feature.buttons.map((button) =>
+                  button.calendly ? (
+                    <CalendlyButton
+                      className="ft-home-feature__button"
+                      key={`${feature.id}-${button.label}`}
+                    >
+                      <span>{button.label}</span>
 
-                    <ButtonArrow />
-                  </CalendlyButton>
-                ) : (
-                  <Link
-                    className="ft-home-feature__button"
-                    key={`${feature.id}-${button.label}`}
-                    to={resolveCanonicalPath(button.href ?? '/contact')}
-                    prefetch="intent"
-                  >
-                    <span>{button.label}</span>
+                      <ButtonArrow />
+                    </CalendlyButton>
+                  ) : (
+                    <Link
+                      className="ft-home-feature__button"
+                      key={`${feature.id}-${button.label}`}
+                      to={resolveCanonicalPath(button.href ?? '/contact/')}
+                      prefetch="intent"
+                    >
+                      <span>{button.label}</span>
 
-                    <ButtonArrow />
-                  </Link>
-                ),
-              )}
-            </div>
+                      <ButtonArrow />
+                    </Link>
+                  ),
+                )}
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

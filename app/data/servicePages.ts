@@ -430,7 +430,7 @@ export const SERVICE_PAGE_CONFIGS = {
       ],
       primaryCta: {
         label: 'Get In Touch',
-        href: '/pages/contact',
+        href: '/contact/',
       },
       showPartnerLogos: false,
       showClientProof: false,
@@ -443,7 +443,7 @@ export const SERVICE_PAGE_CONFIGS = {
           'FoldTech builds responsive Shopify storefronts with custom functionality and integrations that support how your business operates. We consider performance and technical SEO throughout implementation, creating maintainable storefronts that are straightforward to develop and improve over time.',
         cta: {
           label: 'Get In Touch',
-          href: '/contact',
+          href: '/contact/',
         },
       },
       media: {
@@ -461,7 +461,7 @@ export const SERVICE_PAGE_CONFIGS = {
           'Throughout development we review responsive behaviour, storefront performance and technical SEO. Before launch, key templates, customer flows and integrations go through focused QA and testing, leaving a stable foundation that can continue to evolve.',
         cta: {
           label: 'Get In Touch',
-          href: '/contact',
+          href: '/contact/',
         },
       },
     },

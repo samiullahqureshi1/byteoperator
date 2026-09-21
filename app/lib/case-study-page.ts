@@ -32,7 +32,7 @@ export function parseCaseStudy(
     // Pages open with an <h1> repeating the title the hero already shows;
     // some posts use <h1> for their section headings instead of <h2>.
     .replace(/<h1>([\s\S]*?)<\/h1>/g, (_heading, inner: string) =>
-      text(inner) === title.trim() ? '' : `<h2>${inner}</h2>`,
+      sameText(inner, title) ? '' : `<h2>${inner}</h2>`,
     );
   const [pre, ...chapterHtml] = html.split(/<h2>/);
 
@@ -57,6 +57,11 @@ export function parseCaseStudy(
     paragraphs(preWithoutDetails.replace(/<ul>[\s\S]*?<\/ul>/g, ''))
       .map(text)
       .find(Boolean) ?? '';
+
+  // A body with no chapter headings at all: keep every paragraph as the intro.
+  if (!chapterHtml.length) {
+    intro = text(preWithoutDetails.replace(/<ul>[\s\S]*?<\/ul>/g, ''));
+  }
 
   const chapters = chapterHtml
     .map((chunk) => {
@@ -114,17 +119,21 @@ function labelledPoint(item: string) {
     : {title: '', text: text(item)};
 }
 
-/** Splits "<b>A:</b> x<b>B:</b> y" into one point per bold label. */
+/**
+ * Splits "<b>A:</b> x<b>B:</b> y" into one point per bold label. Only
+ * colon-terminated bold starts a point, so bold emphasis inside a sentence
+ * stays in its text, and text before the first label is kept.
+ */
 function boldRuns(html: string) {
-  const runs = [...html.matchAll(/<b>([\s\S]*?)<\/b>([\s\S]*?)(?=<b>|$)/g)];
-  if (!runs.length) {
-    const only = text(html);
-    return only ? [{title: '', text: only}] : [];
+  const [lead, ...parts] = html.split(/<b>([^<]*?:)\s*<\/b>/);
+  const points = text(lead) ? [{title: '', text: text(lead)}] : [];
+  for (let i = 0; i < parts.length; i += 2) {
+    points.push({
+      title: text(parts[i]).replace(/:$/, ''),
+      text: text(parts[i + 1] ?? ''),
+    });
   }
-  return runs.map((run) => ({
-    title: text(run[1]).replace(/:$/, ''),
-    text: text(run[2]),
-  }));
+  return points;
 }
 
 function listItems(html: string): string[] {
@@ -138,12 +147,29 @@ function paragraphs(html: string): string[] {
 }
 
 function text(html: string): string {
-  return html
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&#39;|&rsquo;/g, '’')
-    .replace(/&quot;/g, '"')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return (
+    html
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&#39;|&rsquo;/g, '’')
+      .replace(/&quot;/g, '"')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&ndash;/g, '–')
+      .replace(/&mdash;/g, '—')
+      .replace(/&#(\d+);/g, (_, code: string) =>
+        String.fromCodePoint(Number(code)),
+      )
+      // Last, so `&amp;lt;` decodes to the literal text `&lt;`.
+      .replace(/&amp;/g, '&')
+      .replace(/\s+/g, ' ')
+      .trim()
+  );
+}
+
+/** Page <h1>s drift from the page title in case, spacing and punctuation. */
+function sameText(html: string, title: string): boolean {
+  const key = (value: string) =>
+    value.toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
+  return key(text(html)) === key(title);
 }

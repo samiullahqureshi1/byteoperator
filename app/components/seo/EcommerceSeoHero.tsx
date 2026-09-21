@@ -151,7 +151,7 @@ export function EcommerceSeoHero({
               <div className="ft-ecommerce-seo-hero__ctas">
                 <Link
                   className="ft-ecommerce-seo-hero__cta"
-                  to="/contact"
+                  to="/contact/"
                   prefetch="intent"
                 >
                   <span>{ctaLabel}</span>

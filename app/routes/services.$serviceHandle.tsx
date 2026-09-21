@@ -7,6 +7,7 @@ import {
   loadPageData,
   pageJsonLd,
   PageContent,
+  withPageStylesheets,
 } from './pages.$handle';
 import {
   SERVICE_PAGE_CONFIGS,
@@ -15,6 +16,9 @@ import {
 import {isSamePath, resolveCleanPath} from '~/lib/route-mappings';
 
 export const links = pageLinks;
+
+export const clientLoader = ({serverLoader}: Route.ClientLoaderArgs) =>
+  withPageStylesheets(serverLoader);
 
 export const meta: Route.MetaFunction = (args) => [
   ...buildPageMeta(args.data?.page),

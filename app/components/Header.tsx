@@ -81,7 +81,7 @@ export function Header({
           <NavLink
             className="charle-header__cta"
             prefetch="intent"
-            to="/contact"
+            to="/contact/"
           >
             <span>Get in touch</span>
             <ArrowUpRightIcon />
@@ -729,7 +729,7 @@ const RESOURCE_MEGA_LINKS: MegaLink[] = [
   {
     title: 'Join Our Newsletter',
     description: 'Get weekly ecommerce insights',
-    url: '/contact',
+    url: '/contact/',
   },
 ];
 
@@ -1300,7 +1300,7 @@ function MobileMenuFooter({
 
         <NavLink
           className="ft-mobile-menu__footer-cta"
-          to="/contact"
+          to="/contact/"
           prefetch="intent"
           onClick={onNavigate}
         >
@@ -1552,7 +1552,7 @@ const FALLBACK_HEADER_MENU = {
       tags: [],
       title: 'Contact',
       type: 'HTTP',
-      url: '/pages/contact',
+      url: '/contact/',
       items: [],
     },
   ],

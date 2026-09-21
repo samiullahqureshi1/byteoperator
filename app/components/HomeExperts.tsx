@@ -45,7 +45,7 @@ export function HomeExperts({
   heading = 'Let\'s talk ecommerce, Shopify & Shopify Plus solutions.',
   description = 'FoldTech helps ecommerce brands design, develop, launch, support and grow Shopify stores. From new builds and migrations to ongoing development, SEO and conversion improvement, our team can help plan the right approach for your next Shopify project.',
   ctaLabel = 'Get in touch',
-  ctaTo = '/pages/contact',
+  ctaTo = '/contact/',
   variant = 'default',
 }: HomeExpertsProps) {
   return (

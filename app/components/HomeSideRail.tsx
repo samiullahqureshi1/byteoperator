@@ -182,7 +182,7 @@ export function HomeSideRail({
           ft-home-side-tab--horizontal
           ft-home-side-rail--desktop-only
         "
-        to="/pages/about"
+        to="/about"
         prefetch="intent"
         aria-label="Learn about FoldTech"
       >
@@ -198,7 +198,7 @@ export function HomeSideRail({
           ft-home-side-tab--vertical
           ft-home-side-rail--desktop-only
         "
-        to="/pages/about"
+        to="/about"
         prefetch="intent"
         aria-label="Learn about FoldTech"
       >

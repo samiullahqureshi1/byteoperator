@@ -9,32 +9,32 @@ const GALLERY_LAYERS = [
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-01.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-02.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-03.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-04.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-05.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-06.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
   ],
 
@@ -42,32 +42,32 @@ const GALLERY_LAYERS = [
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-07.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-08.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-09.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-10.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-11.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-12.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
   ],
 
@@ -75,12 +75,12 @@ const GALLERY_LAYERS = [
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-13.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-14.webp',
-      url: '/pages/case-studies',
+      url: '/work',
     },
   ],
 ] as const;

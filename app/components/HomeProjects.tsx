@@ -22,7 +22,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
     title: 'SkinbySkin',
     type: 'SEO, Ecommerce design & development',
-    href: '/articles/sun-chaser/',
+    href: '/work/sun-chaser',
     image:
       '/images/home-projects/cambridge/image.webp',
     imageWidth: 1086,
@@ -42,7 +42,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
     title: 'Love Luxury',
     type: 'Ecommerce design & development',
-    href: '/articles/loony-legs/',
+    href: '/work/loony-legs',
     image:
       '/images/home-projects/bbc/image.webp',
     imageWidth: 1160,
@@ -62,7 +62,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
     title: 'Mellome',
     type: 'Ecommerce design & development',
-    href: '/articles/macdanny-fashion/',
+    href: '/work/macdanny-fashion',
     image:
       '/images/home-projects/111skin/image.webp',
     imageWidth: 600,
@@ -82,7 +82,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
     title: 'Mann & Co Bake Shop',
     type: 'Ecommerce design & development',
-    href: '/articles/brown-girl-jane/',
+    href: '/work/brown-girl-jane',
     image:
       '/images/home-projects/muc-off/image.webp',
     imageWidth: 3376,
@@ -102,7 +102,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
     title: 'LifeProtectors',
     type: 'Ecommerce growth retainer',
-    href: '/articles/lifeprotectors/',
+    href: '/work/lifeprotectors',
     image:
       '/images/home-projects/candy-kittens/image.webp',
     imageWidth: 400,
@@ -122,7 +122,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
     title: 'Branley Ventures',
     type: 'Ecommerce design & development',
-    href: '/articles/top-tier-clothing/',
+    href: '/work/top-tier-clothing',
     image:
       '/images/home-projects/case/image.webp',
     imageWidth: 600,
@@ -155,7 +155,7 @@ export function HomeProjects({
   projects = HOME_PROJECTS,
   cta = {
     label: 'Explore Case Studies',
-    href: '/articles',
+    href: '/work',
   },
 }: HomeProjectsProps = {}) {
   const trackRef =

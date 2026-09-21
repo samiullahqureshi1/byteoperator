@@ -1,13 +1,13 @@
 import {Link} from 'react-router';
 import {Image} from '@shopify/hydrogen';
 import type {ArticleFilter} from './ArticlesIntro';
-import {getArticlePath} from '~/lib/route-mappings';
 
 type ArticleCategory = Exclude<ArticleFilter, 'all'>;
 
 export type ArticlesListingArticle = {
   id: string;
   handle: string;
+  path: string;
   title: string;
   excerpt: string | null;
   publishedAt: string;
@@ -79,7 +79,7 @@ export function ArticlesListing({
 }
 
 function FeaturedArticle({article}: {article: ArticlesListingArticle}) {
-  const articlePath = getArticlePath(article.handle);
+  const articlePath = article.path;
 
   // Only the image and the "Read article" link navigate. The wrapper is a
   // plain <div> so the label, title, excerpt and surrounding space are inert.
@@ -121,7 +121,7 @@ function ArticleCard({
 }) {
   return (
     <article className="ft-articles-card">
-      <Link to={getArticlePath(article.handle)}>
+      <Link to={article.path}>
         {article.image ? (
           <div className="ft-articles-card__image">
             <Image

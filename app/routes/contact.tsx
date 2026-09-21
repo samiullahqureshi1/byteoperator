@@ -102,7 +102,7 @@ export default function ContactPage() {
         <div className="ft-contact-results__action">
           <Link
             className="ft-contact-results__link"
-            to="/work/"
+            to="/work"
             prefetch="intent"
           >
             View More <span aria-hidden="true">&#8599;</span>

@@ -58,14 +58,14 @@ export function AboutTeam() {
 
             <div className="ft-about-team__badges">
               <a
-                href="/services/"
+                href="/services"
                 className="ft-about-team__badge"
               >
                 Services
               </a>
 
               <a
-                href="/work/"
+                href="/work"
                 className="ft-about-team__badge"
               >
                 Our Work

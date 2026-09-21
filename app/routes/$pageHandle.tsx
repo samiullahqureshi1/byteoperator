@@ -14,9 +14,13 @@ import {
   loadPageData,
   pageJsonLd,
   PageContent,
+  withPageStylesheets,
 } from './pages.$handle';
 
 export const links = pageLinks;
+
+export const clientLoader = ({serverLoader}: Route.ClientLoaderArgs) =>
+  withPageStylesheets(serverLoader);
 
 const basePageMeta: Route.MetaFunction = ({data}) => {
   const stylesheetLinks = getPageStylesheetLinks(data?.page);

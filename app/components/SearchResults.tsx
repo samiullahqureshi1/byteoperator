@@ -1,8 +1,8 @@
 import {Link} from 'react-router';
 import {urlWithTrackingParams, type RegularSearchReturn} from '~/lib/search';
 import {
-  getArticlePath,
-  ARTICLES_BLOG_HANDLE,
+  getPostPath,
+  resolveCanonicalPath,
 } from '~/lib/route-mappings';
 
 type SearchItems = RegularSearchReturn['result']['items'];
@@ -47,9 +47,7 @@ function SearchResultsArticles({
         {articles?.nodes?.map((article) => {
           const articleUrl = urlWithTrackingParams({
             baseUrl:
-              article.blog.handle === ARTICLES_BLOG_HANDLE
-                ? getArticlePath(article.handle)
-                : `/blogs/${article.blog.handle}/${article.handle}`,
+              getPostPath(article.blog.handle, article.handle),
             trackingParams: article.trackingParameters,
             term,
           });
@@ -79,7 +77,7 @@ function SearchResultsPages({term, pages}: PartialSearchResult<'pages'>) {
       <div>
         {pages?.nodes?.map((page) => {
           const pageUrl = urlWithTrackingParams({
-            baseUrl: `/pages/${page.handle}`,
+            baseUrl: resolveCanonicalPath(`/pages/${page.handle}`),
             trackingParams: page.trackingParameters,
             term,
           });

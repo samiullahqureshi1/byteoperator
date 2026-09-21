@@ -7,7 +7,7 @@ const SEO_PILLS = [
   },
   {
     label: 'Shopify SEO',
-    href: '/shopify-seo/',
+    href: '/seo-agency',
   },
   {
     label: 'CRO Services',
@@ -94,7 +94,7 @@ export function EcommerceSeoAboutStatement() {
 
         <Link
           className="ft-ecommerce-seo-about__cta"
-          to="/contact"
+          to="/contact/"
           prefetch="intent"
         >
           <span>Enquire about ecommerce SEO</span>

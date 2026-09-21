@@ -43,7 +43,7 @@ const SERVICE_GROUPS: ServiceDirectoryGroup[] = [
       {label: 'Data-Driven Strategies'},
       {
         label: 'Ecommerce Audits',
-        href: '/pages/shopify-audits',
+        href: '/services/shopify-audits/',
       },
       {label: 'Shopify Consultancy'},
     ],
@@ -54,27 +54,27 @@ const SERVICE_GROUPS: ServiceDirectoryGroup[] = [
     links: [
       {
         label: 'New build projects',
-        href: '/pages/shopify-development',
+        href: '/shopify-theme-development-builds/',
       },
       {
         label: 'Support & Growth',
-        href: '/pages/shopify-maintenance',
+        href: '/support-and-maintenance/',
       },
       {
         label: 'Development Services',
-        href: '/pages/shopify-development',
+        href: '/shopify-theme-development-builds/',
       },
       {
         label: 'Design Services',
-        href: '/pages/shopify-development',
+        href: '/shopify-theme-development-builds/',
       },
       {
         label: 'Migrations',
-        href: '/pages/shopify-migrations',
+        href: '/shopify-migrations/',
       },
       {
         label: 'Internationalisation',
-        href: '/pages/internationalisation',
+        href: '/shopify-internationalisation/',
       },
       {
         label: 'System Integrations',
@@ -87,7 +87,7 @@ const SERVICE_GROUPS: ServiceDirectoryGroup[] = [
       },
       {
         label: 'Headless Commerce',
-        href: '/pages/headless-commerce',
+        href: '/headless-commerce',
       },
       {label: 'Shopify Plus Partners'},
     ],
@@ -98,7 +98,7 @@ const SERVICE_GROUPS: ServiceDirectoryGroup[] = [
     links: [
       {
         label: 'Email & SMS Marketing',
-        href: '/pages/email-sms-marketing',
+        href: '/email-marketing-agency/',
       },
     ],
   },

@@ -1,4 +1,4 @@
-import {useLoaderData} from 'react-router';
+import {redirect, useLoaderData} from 'react-router';
 import type {Route} from './+types/case-studies.$handle';
 import {caseStudyJsonLd} from '~/lib/seo/jsonld';
 import {absoluteUrl} from '~/lib/seo/schema';
@@ -17,11 +17,11 @@ export const links: Route.LinksFunction = () => [
   {rel: 'stylesheet', href: homeExpertsStyles},
 ];
 
-export const meta: Route.MetaFunction = ({data, params}) => {
+export const meta: Route.MetaFunction = ({data}) => {
   if (!data) return [{title: 'Case study not found | FoldTech'}];
-  const {page, study} = data;
+  const {page, name, study} = data;
 
-  const path = `/case-studies/${params.handle}`;
+  const path = `/case-studies/${name}`;
   const title = page.seo?.title || `${page.title} Case Study | FoldTech`;
   const description = page.seo?.description?.trim() || study.intro;
 
@@ -44,14 +44,23 @@ export const meta: Route.MetaFunction = ({data, params}) => {
   ];
 };
 
-export async function loader({context, params}: Route.LoaderArgs) {
+export async function loader({context, params, request}: Route.LoaderArgs) {
+  // Single-fetch data requests can carry the `.data` suffix in the param.
+  const requested = params.handle.replace(/\.data$/, '');
   const {page} = await context.storefront.query(CASE_STUDY_PAGE_QUERY, {
-    variables: {handle: `${CASE_STUDY_PAGE_PREFIX}${params.handle}`},
+    variables: {handle: `${CASE_STUDY_PAGE_PREFIX}${requested}`},
   });
 
   if (!page) throw new Response('Not found', {status: 404});
 
-  return {page, study: parseCaseStudy(page.body, page.title)};
+  // Shopify matches handles case-insensitively; send `/case-studies/NAIMI`
+  // to the one real URL instead of serving a second self-canonical copy.
+  const name = page.handle.slice(CASE_STUDY_PAGE_PREFIX.length);
+  if (requested !== name) {
+    throw redirect(`/case-studies/${name}${new URL(request.url).search}`, 301);
+  }
+
+  return {page, name, study: parseCaseStudy(page.body, page.title)};
 }
 
 export default function CaseStudyPageRoute() {

@@ -34,7 +34,7 @@ export function WorkResults() {
         <div className="ft-work-results__action">
           <Link
             className="ft-work-results__cta"
-            to="/pages/services"
+            to="/services"
           >
             Explore Services
 

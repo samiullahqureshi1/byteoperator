@@ -106,6 +106,9 @@ export function isKnownEmptyPage(pathname: string): boolean {
 export const NOINDEX_PAGE_PATHS: ReadonlySet<string> = new Set([
   '/careers',
   '/events',
+  // A private client proposal (named client + pricing), not marketing copy.
+  // Unpublish it in Shopify; until then keep it out of search and the sitemap.
+  '/pages/digital-growth-e-commerce-infrastructure-proposal-10867',
 ]);
 
 /** True when `pathname` should be served `noindex,follow`. */

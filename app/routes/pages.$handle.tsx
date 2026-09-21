@@ -1,3 +1,4 @@
+import {preloadStylesheets} from '~/lib/preload-stylesheets';
 import workHeroStyles from '~/styles/work-hero.css?url';
 import workResultsStyles from '~/styles/work-results.css?url';
 import workFeaturedProjectsStyles from '~/styles/work-featured-projects.css?url';
@@ -90,7 +91,7 @@ import {
   textFromHtml,
 } from '~/lib/seo/jsonld';
 import {absoluteUrl, type WebPageType} from '~/lib/seo/schema';
-import {isKnownEmptyPage} from '~/lib/seo/empty-pages';
+import {isKnownEmptyPage, shouldNoindex} from '~/lib/seo/empty-pages';
 import {ServicePlusAgencyCta} from '~/components/services/detail/ServicePlusAgencyCta';
 import {BulkHoursCta} from '~/components/services/detail/BulkHoursCta';
 import {BULK_HOURS_HANDLE, BULK_HOURS_QUERY} from '~/components/BulkHours';
@@ -488,6 +489,9 @@ export const meta: Route.MetaFunction = (args) => {
     ...buildPageMeta(page),
     ...getPageStylesheetLinks(page),
     ...pageJsonLd(args.location.pathname, page),
+    ...(shouldNoindex(args.location.pathname)
+      ? [{name: 'robots', content: 'noindex,follow'}]
+      : []),
   ];
 };
 
@@ -568,6 +572,25 @@ const WEB_PAGE_TYPES: Record<string, WebPageType> = {
 // needs. Kept as an empty, exported function since `services.$serviceHandle.tsx`
 // re-exports it.
 export const links: Route.LinksFunction = () => [];
+
+/**
+ * Client navigations: wait for this page's `meta` stylesheets before the
+ * route renders, or it paints unstyled first. Shared by every route that
+ * uses `getPageStylesheetLinks`. Not run on the initial load — SSR already
+ * put the stylesheets in <head>.
+ */
+export async function withPageStylesheets<
+  T extends {page?: PageStylesheetSource | null},
+>(serverLoader: () => Promise<T>): Promise<T> {
+  const data = await serverLoader();
+  await preloadStylesheets(
+    getPageStylesheetLinks(data.page ?? undefined).map(({href}) => href),
+  );
+  return data;
+}
+
+export const clientLoader = ({serverLoader}: Route.ClientLoaderArgs) =>
+  withPageStylesheets(serverLoader);
 export async function loader(args: Route.LoaderArgs) {
   const rawHandle = args.params.handle;
 
@@ -907,7 +930,7 @@ export function PageContent({
           heading={isSearchFirst ? 'Search-First Works Best for Stores With Large or Complex Catalogues' : isAbTesting ? 'A/B Testing Works Best for Stores With Steady Traffic and Real Questions' : isCro ? 'CRO Works Best for Brands Ready to Scale With Data' : isGeoSeo ? 'GEO Works Best for Brands Ready to Make Their Information Clearer' : isAiSeo ? 'AI SEO Works Best for Brands Ready to Build Search Resilience' : 'SEO Works Best for Brands Ready to Invest in Sustainable Growth'}
           description={isSearchFirst ? 'Search-first work suits ecommerce teams whose customers arrive knowing roughly what they want: broad catalogues, many variants, technical products or ranges where browsing alone is slow. If your catalogue is small enough that navigation already covers it, we will usually point you towards conversion or SEO work instead.' : isAbTesting ? 'Our A/B testing services suit ecommerce teams with enough traffic for experiments to reach a readable result, and a genuine question about how customers behave. If your store is still early in its growth, we will usually recommend broader conversion work first and tell you so directly rather than running tests that cannot conclude.' : isCro ?'Our CRO services are designed for ecommerce teams ready to learn from customer behaviour, improve key journeys and build a more deliberate optimisation programme.' : isGeoSeo ? 'Our GEO services are designed for ecommerce teams preparing their stores for generative search. The strongest fit is with brands ready to invest in clear product information, structured content, entity signals and ongoing optimisation.' : isAiSeo ? 'Our AI SEO services are designed for ecommerce teams that want to prepare their stores for changing search behaviour. The strongest fit is with brands ready to invest in clear product information, technical foundations, structured content and ongoing optimisation.' : 'Our ecommerce SEO services are designed for online stores that want organic search to become a reliable, long-term growth channel. The strongest fit is with ecommerce teams that are ready to invest consistently in technical improvements, content, site structure and ongoing optimisation rather than looking for short-term ranking fixes. We work alongside businesses that want SEO decisions connected to their wider ecommerce goals, development roadmap and customer journey.'}
           ctaLabel="See if we're a good fit"
-          ctaTo="/contact"
+          ctaTo="/contact/"
         />
         {/*
           * The specialism section argues platform-specific *SEO* differences,

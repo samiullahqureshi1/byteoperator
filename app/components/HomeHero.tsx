@@ -10,13 +10,13 @@ const HERO_SERVICES = [
     title: 'Store Creation',
     description:
       'Custom Shopify design & development that converts from day one.',
-    url: '/pages/shopify-development',
+    url: '/shopify-theme-development-builds/',
   },
   {
     title: 'Revenue Acceleration',
     description:
       'Continuous CRO, performance optimization & growth support.',
-    url: '/pages/shopify-cro-agency',
+    url: '/shopify-cro-agency/',
   },
   {
     title: 'Search & Discovery',

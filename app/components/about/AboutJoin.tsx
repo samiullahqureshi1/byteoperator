@@ -2,7 +2,7 @@ const VACANCIES = [
   {
     title: 'Example Vacancy',
     type: 'Hybrid / Remote',
-    href: '/careers/',
+    href: '/careers',
   },
 ] as const;
 

@@ -968,9 +968,7 @@
      MAIN STATE
   ======================================================= */
 
-  .charle-mobile-nav__viewport[
-    data-view='main'
-  ]
+  .charle-mobile-nav__viewport[data-view='main']
     .ft-mobile-panel--main {
     transform:
       translate3d(
@@ -985,13 +983,9 @@
   }
 
 
-  .charle-mobile-nav__viewport[
-    data-view='main'
-  ]
+  .charle-mobile-nav__viewport[data-view='main']
     .ft-mobile-panel--services,
-  .charle-mobile-nav__viewport[
-    data-view='main'
-  ]
+  .charle-mobile-nav__viewport[data-view='main']
     .ft-mobile-panel--resources {
     transform:
       translate3d(
@@ -1008,9 +1002,7 @@
      Services enters from right.
   ======================================================= */
 
-  .charle-mobile-nav__viewport[
-    data-view='services'
-  ]
+  .charle-mobile-nav__viewport[data-view='services']
     .ft-mobile-panel--main {
     transform:
       translate3d(
@@ -1025,9 +1017,7 @@
   }
 
 
-  .charle-mobile-nav__viewport[
-    data-view='services'
-  ]
+  .charle-mobile-nav__viewport[data-view='services']
     .ft-mobile-panel--services {
     transform:
       translate3d(
@@ -1046,9 +1036,7 @@
      RESOURCES STATE
   ======================================================= */
 
-  .charle-mobile-nav__viewport[
-    data-view='resources'
-  ]
+  .charle-mobile-nav__viewport[data-view='resources']
     .ft-mobile-panel--main {
     transform:
       translate3d(
@@ -1063,9 +1051,7 @@
   }
 
 
-  .charle-mobile-nav__viewport[
-    data-view='resources'
-  ]
+  .charle-mobile-nav__viewport[data-view='resources']
     .ft-mobile-panel--resources {
     transform:
       translate3d(

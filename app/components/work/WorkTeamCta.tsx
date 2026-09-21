@@ -70,7 +70,7 @@ export function WorkTeamCta() {
           <div className="ft-work-team__actions">
             <Link
               className="ft-work-team__button ft-work-team__button--primary"
-              to="/pages/contact"
+              to="/contact/"
               prefetch="intent"
             >
               <span>Tell us about your project</span>
@@ -79,7 +79,7 @@ export function WorkTeamCta() {
 
             <Link
               className="ft-work-team__button ft-work-team__button--secondary"
-              to="/pages/about"
+              to="/about"
               prefetch="intent"
             >
               <span>About us</span>

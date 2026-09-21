@@ -237,7 +237,7 @@ const SERVICES = [
     title: 'New Stores',
     description:
       'Bespoke Shopify store design and development, built to convert from day one.',
-    href: '/pages/shopify-development',
+    href: '/shopify-theme-development-builds/',
     badge:
       '/images/home-services/badges/logo-launch-white.svg',
     badgeAlt: 'Launch',
@@ -248,7 +248,7 @@ const SERVICES = [
     title: 'Shopify Migrations',
     description:
       'Helping brands migrate from other platforms to Shopify with zero downtime.',
-    href: '/pages/shopify-migrations',
+    href: '/shopify-migrations/',
     badge:
       '/images/home-services/badges/logo-launch-white.svg',
     badgeAlt: 'Launch',
@@ -270,7 +270,7 @@ const SERVICES = [
     title: 'Theme Development',
     description:
       'Custom Shopify theme builds and ongoing enhancements tailored to your brand.',
-    href: '/pages/shopify-development',
+    href: '/shopify-theme-development-builds/',
     badge: null,
     badgeAlt: '',
     graphic: null,
@@ -280,7 +280,7 @@ const SERVICES = [
     title: 'Support & Maintenance',
     description:
       'Ongoing care, updates and optimisations to keep your store running smoothly.',
-    href: '/pages/shopify-maintenance',
+    href: '/support-and-maintenance/',
     badge:
       '/images/home-services/badges/logo-helpdesk-white.svg',
     badgeAlt: 'Helpdesk',
@@ -291,7 +291,7 @@ const SERVICES = [
     title: 'UI / UX Design',
     description:
       'Considered, conversion-focused design that improves usability across your store.',
-    href: '/pages/shopify-development',
+    href: '/shopify-theme-development-builds/',
     badge: null,
     badgeAlt: '',
     graphic: 'ux',
@@ -301,7 +301,7 @@ const SERVICES = [
     title: 'Email Marketing & SMS',
     description:
       'Lifecycle campaigns and automations designed to increase repeat revenue.',
-    href: '/pages/email-sms-marketing',
+    href: '/email-marketing-agency/',
     badge:
       '/images/home-services/badges/logo-retain-white.svg',
     badgeAlt: 'Retain',
@@ -324,7 +324,7 @@ const SERVICE_PRODUCTS = [
 
   {
     label: 'Launch',
-    href: '/pages/shopify-development',
+    href: '/shopify-theme-development-builds/',
     logo:
       '/images/home-services/badges/logo-launch-white.svg',
   },
@@ -338,14 +338,14 @@ const SERVICE_PRODUCTS = [
 
   {
     label: 'Helpdesk',
-    href: '/pages/shopify-maintenance',
+    href: '/support-and-maintenance/',
     logo:
       '/images/home-services/badges/logo-helpdesk-white.svg',
   },
 
   {
     label: 'Retain',
-    href: '/pages/email-sms-marketing',
+    href: '/email-marketing-agency/',
     logo:
       '/images/home-services/badges/logo-retain-white.svg',
   },
@@ -471,7 +471,7 @@ export function HomeServices() {
         <div className="ft-home-services__cta-wrap">
           <Link
             className="ft-home-services__cta"
-            to="/pages/services"
+            to="/services"
             prefetch="intent"
           >
             <span>View all services</span>

@@ -9,7 +9,7 @@ import {ArticlesListing} from '~/components/articles/ArticlesListing';
 import {HomeExperts} from '~/components/HomeExperts';
 import {WorkTestimonial} from '~/components/work/WorkTestimonial';
 import {getArticlesPageData} from '~/lib/articles-data.server';
-import {ARTICLES_CLEAN_PATH, getArticlePath} from '~/lib/route-mappings';
+import {ARTICLES_CLEAN_PATH} from '~/lib/route-mappings';
 import {contentPageJsonLd} from '~/lib/seo/jsonld';
 import {absoluteUrl} from '~/lib/seo/schema';
 import articlesIntroStyles from '~/styles/articles-intro.css?url';
@@ -52,7 +52,7 @@ export const meta: Route.MetaFunction = ({data}) => {
       breadcrumbs: [{name: 'Articles', path: ARTICLES_CLEAN_PATH}],
       items: (data?.articles ?? []).map((article) => ({
         name: article.title,
-        path: getArticlePath(article.handle),
+        path: article.path,
       })),
     }),
   ];

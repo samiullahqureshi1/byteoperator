@@ -1,4 +1,5 @@
 import type {Storefront} from '@shopify/hydrogen';
+import {getPostPath} from '~/lib/route-mappings';
 
 export type ArticleCategory =
   | 'cro'
@@ -62,6 +63,8 @@ export type ArticlesPageArticle = Omit<
   | 'mainFeaturedArticle'
 > & {
   category: ArticleCategory | null;
+  /** Public URL; case-study posts live under `/work`, not `/articles`. */
+  path: string;
   articleType: string;
   featured: boolean;
   mainFeatured: boolean;
@@ -102,8 +105,11 @@ export async function getArticlesPageData(storefront: Storefront) {
     includedBlogs.map((blog) => getBlogArticles(storefront, blog.handle)),
   );
   const articles = articleGroups
-    .flat()
-    .map(normalizeArticle)
+    .flatMap((group, index) =>
+      group.map((article) =>
+        normalizeArticle(article, includedBlogs[index].handle),
+      ),
+    )
     .sort(sortNewestFirst);
   // The large Featured slot is controlled only by
   // `custom.main_featured_article`. Because `articles` is newest-first,
@@ -146,10 +152,14 @@ async function getBlogArticles(storefront: Storefront, blogHandle: string) {
   return articles;
 }
 
-function normalizeArticle(article: RawArticle): ArticlesPageArticle {
+function normalizeArticle(
+  article: RawArticle,
+  blogHandle: string,
+): ArticlesPageArticle {
   return {
     id: article.id,
     handle: article.handle,
+    path: getPostPath(blogHandle, article.handle),
     title: article.title,
     excerpt: article.excerpt,
     publishedAt: article.publishedAt,

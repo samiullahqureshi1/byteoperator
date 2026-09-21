@@ -460,10 +460,21 @@ export function getCaseStudyPath(articleHandle: string): string {
   return `/work/${articleHandle}`;
 }
 
+/** Public URL of any blog post: case studies live under `/work`. */
+export function getPostPath(blogHandle: string, articleHandle: string): string {
+  return (CASE_STUDY_BLOG_HANDLES as readonly string[]).includes(blogHandle)
+    ? getCaseStudyPath(articleHandle)
+    : getArticlePath(articleHandle);
+}
+
 export function resolveArticlesPath(pathname: string): string | null {
   const normalizedPath = trimTrailingSlash(pathname);
 
-  // Case studies reached via `/blogs/<case-study-blog>/x` belong at `/work/x`.
+  // Case studies reached via `/blogs/<case-study-blog>/x` belong at `/work/x`,
+  // and the blog index itself is a thin duplicate of the `/work` listing.
+  for (const blog of CASE_STUDY_BLOG_HANDLES) {
+    if (normalizedPath === `/blogs/${blog}`) return '/work';
+  }
   for (const prefix of CASE_STUDY_BLOG_HANDLES.map(
     (blog) => `/blogs/${blog}/`,
   )) {

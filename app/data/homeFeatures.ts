@@ -595,7 +595,7 @@ export const HOME_FEATURES = [
          * section (see media.href below), so the secondary
          * CTA reuses it rather than introducing a new one.
          */
-         href: '/pages/work',
+         href: '/work',
       },
     ],
 

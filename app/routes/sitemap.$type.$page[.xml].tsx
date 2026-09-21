@@ -6,8 +6,9 @@ import {
   ARTICLES_BLOG_HANDLE,
   getCaseStudyPath,
   resolveCanonicalPath,
+  resolveLegacyPath,
 } from '~/lib/route-mappings';
-import {shouldNoindex} from '~/lib/seo/empty-pages';
+import {isKnownEmptyPage, shouldNoindex} from '~/lib/seo/empty-pages';
 
 export async function loader({
   request,
@@ -69,15 +70,15 @@ export async function loader({
  * Retired Shopify pages still exist and resolve to the live page that
  * replaced them, so one URL can arrive several times (`/pages/services` and
  * `/pages/marketing-sales` both become `/services`). List each URL once,
- * with its newest `lastmod`, and leave out pages served `noindex` — a sitemap
- * entry for a noindexed URL is a contradictory signal.
+ * with its newest `lastmod`, and leave out anything a crawler should not be
+ * sent to: `noindex` pages, known-empty pages, and URLs that redirect.
  */
 function cleanUrlset(xml: string): string {
   const entries = new Map<string, {block: string; lastmod: string}>();
 
   for (const block of xml.match(/<url>[\s\S]*?<\/url>/g) ?? []) {
     const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1];
-    if (!loc || shouldNoindex(new URL(loc).pathname)) continue;
+    if (!loc || !isListable(new URL(loc).pathname)) continue;
 
     const lastmod = block.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1] ?? '';
     const seen = entries.get(loc);
@@ -127,3 +128,12 @@ const CASE_STUDY_HANDLES_QUERY = `#graphql
     }
   }
 ` as const;
+
+function isListable(path: string): boolean {
+  return (
+    !shouldNoindex(path) &&
+    !isKnownEmptyPage(path) &&
+    !isKnownEmptyPage(resolveLegacyPath(path) ?? '') &&
+    resolveCanonicalPath(path) === path
+  );
+}

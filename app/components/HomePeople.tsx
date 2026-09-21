@@ -62,7 +62,7 @@ export function HomePeople({
 
             <Link
               className="ft-home-people__button"
-              to="/pages/about"
+              to="/about"
               prefetch="intent"
             >
               <span>{content.buttonLabel}</span>
