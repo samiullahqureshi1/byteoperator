@@ -7,6 +7,7 @@ import {
   getCaseStudyPath,
   resolveCanonicalPath,
 } from '~/lib/route-mappings';
+import {shouldNoindex} from '~/lib/seo/empty-pages';
 
 export async function loader({
   request,
@@ -55,9 +56,41 @@ export async function loader({
     },
   });
 
-  response.headers.set('Cache-Control', `max-age=${60 * 60 * 24}`);
+  const headers = new Headers(response.headers);
+  headers.set('Cache-Control', `max-age=${60 * 60 * 24}`);
 
-  return response;
+  return new Response(cleanUrlset(await response.text()), {
+    status: response.status,
+    headers,
+  });
+}
+
+/**
+ * Retired Shopify pages still exist and resolve to the live page that
+ * replaced them, so one URL can arrive several times (`/pages/services` and
+ * `/pages/marketing-sales` both become `/services`). List each URL once,
+ * with its newest `lastmod`, and leave out pages served `noindex` — a sitemap
+ * entry for a noindexed URL is a contradictory signal.
+ */
+function cleanUrlset(xml: string): string {
+  const entries = new Map<string, {block: string; lastmod: string}>();
+
+  for (const block of xml.match(/<url>[\s\S]*?<\/url>/g) ?? []) {
+    const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1];
+    if (!loc || shouldNoindex(new URL(loc).pathname)) continue;
+
+    const lastmod = block.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1] ?? '';
+    const seen = entries.get(loc);
+    // ISO 8601 timestamps compare correctly as strings.
+    if (!seen || lastmod > seen.lastmod) entries.set(loc, {block, lastmod});
+  }
+
+  const start = xml.indexOf('<url>');
+  const end = xml.lastIndexOf('</url>') + '</url>'.length;
+  if (start === -1) return xml;
+
+  const urls = [...entries.values()].map(({block}) => block).join('\n');
+  return xml.slice(0, start) + urls + xml.slice(end);
 }
 function getSitemapResourcePath(type: string, handle?: string): string {
   if (type === 'articles' && handle) {

@@ -174,7 +174,7 @@ export function ArticlesIntro({
             ) : null}
 
             <p className="ft-articles-newsletter__privacy">
-              <a href="/privacy-policy/">
+              <a href="/policies/privacy-policy">
                 Privacy Policy
               </a>{' '}
               applies.

@@ -1722,7 +1722,7 @@ export const SERVICE_PAGE_CONFIGS = {
         buttons: [
           {
             label: 'WooCommerce vs Shopify',
-            href: '/articles/shopify-vs-wordpress/',
+            href: '/articles/wordpress-vs-shopify-features-pricing-benefits/',
           },
         ],
         media: reuseHomeFeatureMedia('shopify-migrations'),
@@ -2110,7 +2110,7 @@ export const SERVICE_PAGE_CONFIGS = {
         buttons: [
           {
             label: 'BigCommerce vs Shopify',
-            href: '/articles/shopify-vs-bigcommerce/',
+            href: '/articles/shopify-vs-bigcommerce-head-to-head-comparison/',
           },
         ],
         media: reuseHomeFeatureMedia('shopify-migrations'),
@@ -2296,12 +2296,8 @@ export const SERVICE_PAGE_CONFIGS = {
           'Salesforce Commerce Cloud is aimed at enterprise ecommerce requirements, and stores built on it often involve catalogue and workflow complexity, custom integrations, specialist development resource and ongoing technical administration.',
           'Shopify provides a hosted ecommerce platform with central store administration, a storefront and theme ecosystem, an app and integration ecosystem, and APIs for custom development where required. Shopify Plus can be considered where more complex ecommerce requirements are involved.',
         ],
-        buttons: [
-          {
-            label: 'Salesforce vs Shopify',
-            href: '/articles/shopify-vs-salesforce-commerce-cloud/',
-          },
-        ],
+        // No Salesforce comparison article exists yet; add the button with it.
+        buttons: [],
         media: reuseHomeFeatureMedia('shopify-migrations'),
       },
       {

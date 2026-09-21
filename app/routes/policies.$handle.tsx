@@ -1,7 +1,4 @@
-import {
-  Link,
-  useLoaderData,
-} from 'react-router';
+import {Link, useLoaderData} from 'react-router';
 import type {Route} from './+types/policies.$handle';
 import {type Shop} from '@shopify/hydrogen/storefront-api-types';
 import policyPageStyles from '~/styles/policy-page.css?url';
@@ -12,7 +9,11 @@ export const links: Route.LinksFunction = () => [
 
 type SelectedPolicies = keyof Pick<
   Shop,
-  'privacyPolicy' | 'shippingPolicy' | 'termsOfService' | 'refundPolicy'
+  | 'privacyPolicy'
+  | 'shippingPolicy'
+  | 'termsOfService'
+  | 'refundPolicy'
+  | 'subscriptionPolicy'
 >;
 
 export const meta: Route.MetaFunction = ({data}) => {
@@ -39,6 +40,7 @@ export async function loader({params, context}: Route.LoaderArgs) {
       shippingPolicy: false,
       termsOfService: false,
       refundPolicy: false,
+      subscriptionPolicy: false,
       [policyName]: true,
       language: context.storefront.i18n?.language,
     },
@@ -60,9 +62,7 @@ export default function Policy() {
     <div className="ft-policy-page">
       <header className="ft-policy-hero">
         <div className="ft-policy-hero__inner">
-          <h1 className="ft-policy-hero__title">
-            {policy.title}
-          </h1>
+          <h1 className="ft-policy-hero__title">{policy.title}</h1>
         </div>
       </header>
 
@@ -98,6 +98,7 @@ const POLICY_CONTENT_QUERY = `#graphql
     $refundPolicy: Boolean!
     $shippingPolicy: Boolean!
     $termsOfService: Boolean!
+    $subscriptionPolicy: Boolean!
   ) @inContext(language: $language, country: $country) {
     shop {
       privacyPolicy @include(if: $privacyPolicy) {
@@ -111,6 +112,14 @@ const POLICY_CONTENT_QUERY = `#graphql
       }
       refundPolicy @include(if: $refundPolicy) {
         ...Policy
+      }
+      # ShopPolicyWithDefault, not ShopPolicy, so the fragment can't apply.
+      subscriptionPolicy @include(if: $subscriptionPolicy) {
+        body
+        handle
+        id
+        title
+        url
       }
     }
   }

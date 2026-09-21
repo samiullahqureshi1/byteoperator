@@ -300,6 +300,76 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/why-shopify': '/why-shopify',
 
   /* =====================================================
+     DEAD LINKS — site crawl, 21 Sep 2026
+
+     Old-theme URLs still linked from blog post bodies, and
+     Shopify admin URL Redirects that ended on a 404 or took
+     2–3 hops. This map runs before the app, so each lands
+     on a live page in one hop.
+  ===================================================== */
+
+  // Retired service pages.
+  '/pages/shopify-migration': '/shopify-migrations/',
+  '/pages/magento-to-shopify-plus-migration': '/magento-shopify-migrations/',
+  '/pages/bigcommerce-to-shopify-plus-migration':
+    '/bigcommerce-shopify-migrations/',
+  '/pages/bigcommerce-to-shopify-plus': '/bigcommerce-shopify-migrations/',
+  '/pages/woocommerce-to-shopify-plus-migration':
+    '/woocommerce-shopify-migrations/',
+  '/pages/wix-to-shopify-migration': '/shopify-migrations/',
+  '/pages/wix-to-shopify': '/shopify-migrations/',
+  '/pages/shopify-plus-maintenance': '/support-and-maintenance/',
+  '/pages/shopify-development-services': '/shopify-theme-development-builds/',
+  '/pages/email-marketing-services': '/email-marketing-agency/',
+  '/pages/shopify-audit': '/services/shopify-audits/',
+  '/pages/free-shopify-audit-shopify-store-seo-cro-and-speed-review':
+    '/services/shopify-audits/',
+  '/pages/shopify-plus-custom-solutions': SHOPIFY_PLUS_CLEAN_PATH,
+  '/pages/shopify-website-design': '/shopify-web-design',
+  '/pages/store-speed': '/shopify-developers',
+  '/pages/about-us-1': '/about',
+
+  // Booking spellings — straight to contact instead of via two redirects.
+  '/pages/book-a-call': CONTACT_CLEAN_PATH,
+  '/pages/schedule-a-call': CONTACT_CLEAN_PATH,
+  '/bookacall': CONTACT_CLEAN_PATH,
+
+  // Old theme's service products and collections.
+  '/products/shopify-experts-the-fold-tech-shopify-logo-and-visual-branding-services':
+    '/shopify-web-design',
+  '/products/shopify-experts-the-fold-tech-shopify-store-build-or-redesign-services':
+    '/shopify-web-design',
+  '/products/shopify-experts-the-fold-tech-shopify-seo-search-engine-optimization-services':
+    SHOPIFY_SEO_CLEAN_PATH,
+  '/products/shopify-experts-the-fold-tech-shopify-analytics-and-tracking-services':
+    '/services',
+  '/products/premium-package': '/shopify-web-design',
+  '/products/premium-theme-license': '/shopify-theme-development-builds/',
+  '/products/edit-credits': '/products/buy-bulk-hours',
+  '/products/dedicated-hourly-service': '/products/buy-bulk-hours',
+  '/products/monthly-dedicated-resource': '/products/buy-bulk-hours',
+  '/products/service-invoice-0001844': '/services',
+  '/collections/store-setup': '/shopify-web-design',
+  '/collections/visual-content-and-branding': '/shopify-web-design',
+  '/collections/turnkey-dropshipping-websites-for-sale': '/shopify-web-design',
+  '/collections/development-and-troubleshooting': '/support-and-maintenance/',
+  '/collections/marketing-and-sales': '/services',
+  '/collections/frontpage': '/services',
+
+  // Blog URLs whose post was renamed, unpublished or never existed.
+  '/blogs/news/10-best-omnichannel-platforms-in-2025-pricing-pros-amp-cons':
+    '/articles/best-omnichannel-platforms/',
+  '/articles/10-best-omnichannel-platforms-in-2025-pricing-pros-amp-cons/':
+    '/articles/best-omnichannel-platforms/',
+  '/blogs/news/tagged/css-z-index-what-it-is':
+    '/articles/the-css-z-index-what-it-is-and-how-to-use-it/',
+  '/blogs/news/thefoldtech.com': ARTICLES_CLEAN_PATH,
+  '/blogs/news/the-pros-and-cons-of-law-firm-seo-services':
+    SHOPIFY_SEO_CLEAN_PATH,
+  '/blogs/news/tagged/law-firm-seo-services': SHOPIFY_SEO_CLEAN_PATH,
+  '/blogs/the-pros-and-cons-of-law-firm-seo-services': SHOPIFY_SEO_CLEAN_PATH,
+
+  /* =====================================================
      EMPTY PAGES — see docs/empty-pages-redirect-plan.md
 
      52 URLs that rendered header and footer and nothing
@@ -463,16 +533,18 @@ export function resolveServiceConfigHandle(shopifyHandle: string): string {
  * itself (including its trailing-slash-less spelling).
  */
 export function resolveCanonicalPath(pathname: string): string {
-  const articlesPath = resolveArticlesPath(pathname);
-
-  if (articlesPath) {
-    return articlesPath;
-  }
-
+  // Explicit entries win over the blog pattern: a renamed post's old
+  // `/blogs/news/x` must go to its new handle, not `/articles/x/`.
   const mappedPath = resolveCleanPath(pathname);
 
   if (mappedPath !== pathname) {
     return mappedPath;
+  }
+
+  const articlesPath = resolveArticlesPath(pathname);
+
+  if (articlesPath) {
+    return articlesPath;
   }
 
   const legacyPath = resolveLegacyPath(pathname);
