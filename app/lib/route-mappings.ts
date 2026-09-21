@@ -29,10 +29,8 @@ export const CRO_CLEAN_PATH = '/shopify-cro-agency/';
 export const AB_TESTING_PAGE_HANDLE = 'ab-testing';
 export const AB_TESTING_CLEAN_PATH = '/ab-testing';
 
-export const ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE =
-  'ecommerce-seo-migrations';
-export const ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH =
-  '/ecommerce-seo-migrations/';
+export const ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE = 'ecommerce-seo-migrations';
+export const ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH = '/ecommerce-seo-migrations/';
 
 const SERVICE_CONFIG_HANDLES_BY_SHOPIFY_HANDLE = {
   'shopify-development': 'shopify-theme-development-builds',
@@ -98,6 +96,7 @@ export const OLD_TO_CLEAN_PATHS = {
    * `resolveLegacyPath('/work')` still resolves to the `work` page handle.
    */
   '/pages/case-studies': '/work',
+  '/case-studies': '/work',
   // Canonical Shopify source handle first: `resolveLegacyPath` returns the
   // first `/pages/*` entry that points at a clean path, so the retired
   // `shopify-development` / `theme-development` spellings must stay below it.
@@ -163,10 +162,8 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
   '/seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
   '/ecommerce-seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
-  '/services/ecommerce-seo-migrations':
-    ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
-  '/services/ecommerce-seo-migrations/':
-    ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
+  '/services/ecommerce-seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
+  '/services/ecommerce-seo-migrations/': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
   '/pages/headless-commerce': '/headless-commerce',
   '/conversion-rate-optimisation': CRO_CLEAN_PATH,
   '/conversion-rate-optimisation/': CRO_CLEAN_PATH,
@@ -190,16 +187,13 @@ export const OLD_TO_CLEAN_PATHS = {
   '/shopify-audits': '/services/shopify-audits/',
   // The public URL is root-level while Shopify keeps its explicit source
   // handle. Keep the source mapping first for reverse route resolution.
-  '/pages/shopify-internationalisation':
-    '/shopify-internationalisation/',
+  '/pages/shopify-internationalisation': '/shopify-internationalisation/',
   '/pages/internationalisation': '/shopify-internationalisation/',
   '/shopify-internationalisation': '/shopify-internationalisation/',
   '/internationalisation': '/shopify-internationalisation/',
   '/internationalisation/': '/shopify-internationalisation/',
-  '/services/shopify-internationalisation':
-    '/shopify-internationalisation/',
-  '/services/shopify-internationalisation/':
-    '/shopify-internationalisation/',
+  '/services/shopify-internationalisation': '/shopify-internationalisation/',
+  '/services/shopify-internationalisation/': '/shopify-internationalisation/',
   // Root-level canonical URL for the email marketing service. The Shopify
   // source handle stays first so `resolveLegacyPath` keeps querying
   // `email-marketing-agency`; the retired `email-sms-marketing` spellings are
@@ -252,34 +246,25 @@ export const OLD_TO_CLEAN_PATHS = {
   /* No Shopify page exists for this one, so it joins the booking pages. */
   '/pages/shopify-consultant': CONTACT_CLEAN_PATH,
   '/shopify-consultant': CONTACT_CLEAN_PATH,
-  '/pages/magento-shopify-migrations':
-    '/magento-shopify-migrations/',
-  '/services/magento-shopify-migrations':
-    '/magento-shopify-migrations/',
-  '/services/magento-shopify-migrations/':
-    '/magento-shopify-migrations/',
-  '/pages/woocommerce-shopify-migrations':
-    '/woocommerce-shopify-migrations/',
+  '/pages/magento-shopify-migrations': '/magento-shopify-migrations/',
+  '/services/magento-shopify-migrations': '/magento-shopify-migrations/',
+  '/services/magento-shopify-migrations/': '/magento-shopify-migrations/',
+  '/pages/woocommerce-shopify-migrations': '/woocommerce-shopify-migrations/',
   '/services/woocommerce-shopify-migrations':
     '/woocommerce-shopify-migrations/',
   '/services/woocommerce-shopify-migrations/':
     '/woocommerce-shopify-migrations/',
-  '/pages/bigcommerce-shopify-migrations':
-    '/bigcommerce-shopify-migrations/',
+  '/pages/bigcommerce-shopify-migrations': '/bigcommerce-shopify-migrations/',
   '/services/bigcommerce-shopify-migrations':
     '/bigcommerce-shopify-migrations/',
   '/services/bigcommerce-shopify-migrations/':
     '/bigcommerce-shopify-migrations/',
-  '/pages/salesforce-shopify-migrations':
-    '/salesforce-shopify-migrations/',
-  '/services/salesforce-shopify-migrations':
-    '/salesforce-shopify-migrations/',
-  '/services/salesforce-shopify-migrations/':
-    '/salesforce-shopify-migrations/',
+  '/pages/salesforce-shopify-migrations': '/salesforce-shopify-migrations/',
+  '/services/salesforce-shopify-migrations': '/salesforce-shopify-migrations/',
+  '/services/salesforce-shopify-migrations/': '/salesforce-shopify-migrations/',
   // Retired spellings remain aliases below the canonical source handle above,
   // so reverse resolution keeps querying `shopify-theme-development-builds`.
-  '/pages/theme-development':
-    '/shopify-theme-development-builds/',
+  '/pages/theme-development': '/shopify-theme-development-builds/',
   '/theme-development': '/shopify-theme-development-builds/',
   '/services/shopify-theme-development-builds':
     '/shopify-theme-development-builds/',
@@ -314,7 +299,6 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/careers': '/careers',
   '/pages/why-shopify': '/why-shopify',
 
-
   /* =====================================================
      EMPTY PAGES — see docs/empty-pages-redirect-plan.md
 
@@ -325,8 +309,6 @@ export const OLD_TO_CLEAN_PATHS = {
      serving a blank page.
 
      NOT here, deliberately:
-       - the 18 /pages/cs-* case studies, whose copy is
-         recoverable and being restored
        - /careers and /events, which are noindex
        - /pages/premium-dropshipping-store, which must be
          deleted in Shopify rather than redirected
@@ -391,17 +373,35 @@ export const OLD_TO_CLEAN_PATHS = {
 
 export type LegacyPagePath = keyof typeof OLD_TO_CLEAN_PATHS;
 export type CleanPagePath = (typeof OLD_TO_CLEAN_PATHS)[LegacyPagePath];
-export type ShopifyPagePath = Extract<
-  LegacyPagePath,
-  `/pages/${string}`
->;
+export type ShopifyPagePath = Extract<LegacyPagePath, `/pages/${string}`>;
 
 export function getArticlePath(articleHandle: string): string {
   return `${ARTICLES_CLEAN_PATH}${articleHandle}/`;
 }
 
+/** Blogs whose articles are client case studies, served at `/work/:handle`. */
+export const CASE_STUDY_BLOG_HANDLES = [
+  'featured',
+  'top-case-studies',
+  'case-studies',
+] as const;
+
+export function getCaseStudyPath(articleHandle: string): string {
+  return `/work/${articleHandle}`;
+}
+
 export function resolveArticlesPath(pathname: string): string | null {
   const normalizedPath = trimTrailingSlash(pathname);
+
+  // Case studies reached via `/blogs/<case-study-blog>/x` belong at `/work/x`.
+  for (const prefix of CASE_STUDY_BLOG_HANDLES.map(
+    (blog) => `/blogs/${blog}/`,
+  )) {
+    const handle = normalizedPath.startsWith(prefix)
+      ? normalizedPath.slice(prefix.length)
+      : '';
+    if (handle && !handle.includes('/')) return getCaseStudyPath(handle);
+  }
 
   if (
     normalizedPath === `/blogs/${ARTICLES_BLOG_HANDLE}` ||
@@ -411,10 +411,7 @@ export function resolveArticlesPath(pathname: string): string | null {
     return ARTICLES_CLEAN_PATH;
   }
 
-  for (const blogHandle of [
-    ARTICLES_BLOG_HANDLE,
-    LEGACY_JOURNAL_BLOG_HANDLE,
-  ]) {
+  for (const blogHandle of [ARTICLES_BLOG_HANDLE, LEGACY_JOURNAL_BLOG_HANDLE]) {
     const legacyArticlePrefix = `/blogs/${blogHandle}/`;
 
     if (normalizedPath.startsWith(legacyArticlePrefix)) {
@@ -439,7 +436,16 @@ export function resolveArticlesPath(pathname: string): string | null {
   return null;
 }
 
+/** Shopify page `cs-{name}` is the case study served at `/case-studies/{name}`. */
+export const CASE_STUDY_PAGE_PREFIX = 'cs-';
+
 export function resolveCleanPath(pathname: string): string {
+  const csPrefix = `/pages/${CASE_STUDY_PAGE_PREFIX}`;
+  const name = pathname.startsWith(csPrefix)
+    ? trimTrailingSlash(pathname).slice(csPrefix.length)
+    : '';
+  if (name && !name.includes('/')) return `/case-studies/${name}`;
+
   return OLD_TO_CLEAN_PATHS[pathname as LegacyPagePath] ?? pathname;
 }
 

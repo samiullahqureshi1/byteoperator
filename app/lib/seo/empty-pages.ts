@@ -29,24 +29,6 @@ export const KNOWN_EMPTY_PAGE_PATHS: ReadonlySet<string> = new Set([
   '/pages/cart-drawer',
   '/pages/case-studies-1',
   '/pages/conversion-rate-optimization',  // linked from a live menu
-  '/pages/cs-branley-ventures',
-  '/pages/cs-chatham-ivy',
-  '/pages/cs-cloakemf',
-  '/pages/cs-cork-collective',
-  '/pages/cs-eleganzaglo',
-  '/pages/cs-gold-custom-bijoux-sur-mesure',
-  '/pages/cs-lifeprotectors',
-  '/pages/cs-loveluxury',
-  '/pages/cs-mann-co-bake-shop',
-  '/pages/cs-mellome',
-  '/pages/cs-naimi',
-  '/pages/cs-nevuu',
-  '/pages/cs-nexsphere-treasures',
-  '/pages/cs-sabe-boutique',
-  '/pages/cs-shepard-safety-products',
-  '/pages/cs-skinbyskin',
-  '/pages/cs-sleeptite-sleeprite',
-  '/pages/cs-we-love-kids',
   '/pages/custom-store-project',
   '/pages/digital-branding-creative-direction-services',
   '/pages/free-ai-visibility-snapshot',  // linked from a live menu
@@ -113,10 +95,8 @@ export function isKnownEmptyPage(pathname: string): boolean {
  * in the empty list because it renders nothing *today*; it belongs here only
  * when there is also nothing coming.
  *
- * The 18 `/pages/cs-*` case studies are empty but are NOT listed: their copy is
- * recoverable from the theme templates and is days from being restored.
- * Noindexing them would make Google process a noindex and then a removal, on
- * URLs that nothing links to and no one visits — churn for no gain.
+ * The 18 `/pages/cs-*` case studies had their copy restored in Shopify
+ * (September 2026) and were removed from the empty list above.
  *
  * `/careers` and `/events` have nothing to recover and nothing pending.
  *

@@ -1,3 +1,4 @@
+import {getCaseStudyPath} from '~/lib/route-mappings';
 import {Link} from 'react-router';
 import type {WorkFeaturedProjectsQuery} from 'storefrontapi.generated';
 import {shopifyImageSrcSet} from '~/lib/shopify-cdn-image';
@@ -30,7 +31,7 @@ export function WorkFeaturedProjects({
           return (
             <Link
               className="ft-work-featured__card"
-              to={article.href ?? `/work/${article.handle}`}
+              to={article.href ?? getCaseStudyPath(article.handle)}
               key={article.handle}
             >
               {article.image ? (

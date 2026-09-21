@@ -1045,7 +1045,8 @@ const TOP_CASE_STUDIES_QUERY = `#graphql
     $country: CountryCode
   ) @inContext(language: $language, country: $country) {
     blog(handle: "top-case-studies") {
-      articles(first: 6, sortKey: PUBLISHED_AT, reverse: true) {
+      # Every top case study; a cap silently drops the oldest off /work.
+      articles(first: 50, sortKey: PUBLISHED_AT, reverse: true) {
         nodes {
           title
           handle

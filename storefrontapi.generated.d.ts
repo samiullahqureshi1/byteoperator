@@ -858,6 +858,25 @@ export type BlogsQuery = {
   };
 };
 
+export type CaseStudyPageQueryVariables = StorefrontAPI.Exact<{
+  handle: StorefrontAPI.Scalars['String']['input'];
+  language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
+  country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
+}>;
+
+export type CaseStudyPageQuery = {
+  page?: StorefrontAPI.Maybe<
+    Pick<
+      StorefrontAPI.Page,
+      'id' | 'title' | 'handle' | 'body' | 'createdAt'
+    > & {
+      seo?: StorefrontAPI.Maybe<
+        Pick<StorefrontAPI.Seo, 'title' | 'description'>
+      >;
+    }
+  >;
+};
+
 export type PageQueryVariables = StorefrontAPI.Exact<{
   language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
   country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
@@ -1141,6 +1160,22 @@ export type PredictiveSearchQuery = {
         'text' | 'styledText' | 'trackingParameters'
       >
     >;
+  }>;
+};
+
+export type SitemapCaseStudyHandlesQueryVariables = StorefrontAPI.Exact<{
+  [key: string]: never;
+}>;
+
+export type SitemapCaseStudyHandlesQuery = {
+  featured?: StorefrontAPI.Maybe<{
+    articles: {nodes: Array<Pick<StorefrontAPI.Article, 'handle'>>};
+  }>;
+  top?: StorefrontAPI.Maybe<{
+    articles: {nodes: Array<Pick<StorefrontAPI.Article, 'handle'>>};
+  }>;
+  caseStudies?: StorefrontAPI.Maybe<{
+    articles: {nodes: Array<Pick<StorefrontAPI.Article, 'handle'>>};
   }>;
 };
 
@@ -1601,6 +1636,10 @@ interface GeneratedQueryTypes {
     return: BlogsQuery;
     variables: BlogsQueryVariables;
   };
+  '#graphql\n  query CaseStudyPage(\n    $handle: String!\n    $language: LanguageCode\n    $country: CountryCode\n  ) @inContext(language: $language, country: $country) {\n    page(handle: $handle) {\n      id\n      title\n      handle\n      body\n      createdAt\n      seo {\n        title\n        description\n      }\n    }\n  }\n': {
+    return: CaseStudyPageQuery;
+    variables: CaseStudyPageQueryVariables;
+  };
   '#graphql\n  query Page(\n    $language: LanguageCode,\n    $country: CountryCode,\n    $handle: String!\n  )\n  @inContext(language: $language, country: $country) {\n    page(handle: $handle) {\n      handle\n      id\n      title\n      body\n      faq: metafield(namespace: "custom", key: "faqs") {\n        value\n      }\n      seo {\n        description\n        title\n      }\n    }\n  }\n': {
     return: PageQuery;
     variables: PageQueryVariables;
@@ -1609,7 +1648,7 @@ interface GeneratedQueryTypes {
     return: WorkFeaturedProjectsQuery;
     variables: WorkFeaturedProjectsQueryVariables;
   };
-  '#graphql\n  query WorkTopCaseStudies(\n    $language: LanguageCode\n    $country: CountryCode\n  ) @inContext(language: $language, country: $country) {\n    blog(handle: "top-case-studies") {\n      articles(first: 6, sortKey: PUBLISHED_AT, reverse: true) {\n        nodes {\n          title\n          handle\n          tags\n          image {\n            url\n            altText\n            width\n            height\n          }\n          excerpt\n          content\n          result: metafield(namespace: "custom", key: "result") {\n            value\n          }\n          services: metafield(namespace: "custom", key: "services") {\n            value\n          }\n          logo: metafield(namespace: "custom", key: "logo") {\n            reference {\n              ... on MediaImage {\n                image {\n                  url\n                  altText\n                  width\n                  height\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n': {
+  '#graphql\n  query WorkTopCaseStudies(\n    $language: LanguageCode\n    $country: CountryCode\n  ) @inContext(language: $language, country: $country) {\n    blog(handle: "top-case-studies") {\n      # Every top case study; a cap silently drops the oldest off /work.\n      articles(first: 50, sortKey: PUBLISHED_AT, reverse: true) {\n        nodes {\n          title\n          handle\n          tags\n          image {\n            url\n            altText\n            width\n            height\n          }\n          excerpt\n          content\n          result: metafield(namespace: "custom", key: "result") {\n            value\n          }\n          services: metafield(namespace: "custom", key: "services") {\n            value\n          }\n          logo: metafield(namespace: "custom", key: "logo") {\n            reference {\n              ... on MediaImage {\n                image {\n                  url\n                  altText\n                  width\n                  height\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n': {
     return: WorkTopCaseStudiesQuery;
     variables: WorkTopCaseStudiesQueryVariables;
   };
@@ -1632,6 +1671,10 @@ interface GeneratedQueryTypes {
   '#graphql\n  query PredictiveSearch(\n    $country: CountryCode\n    $language: LanguageCode\n    $limit: Int!\n    $limitScope: PredictiveSearchLimitScope!\n    $term: String!\n    $types: [PredictiveSearchType!]\n  ) @inContext(country: $country, language: $language) {\n    predictiveSearch(\n      limit: $limit,\n      limitScope: $limitScope,\n      query: $term,\n      types: $types,\n    ) {\n      articles {\n        ...PredictiveArticle\n      }\n      pages {\n        ...PredictivePage\n      }\n      queries {\n        ...PredictiveQuery\n      }\n    }\n  }\n  #graphql\n  fragment PredictiveArticle on Article {\n    __typename\n    id\n    title\n    handle\n    blog {\n      handle\n    }\n    image {\n      url\n      altText\n      width\n      height\n    }\n    trackingParameters\n  }\n\n  #graphql\n  fragment PredictivePage on Page {\n    __typename\n    id\n    title\n    handle\n    trackingParameters\n  }\n\n  #graphql\n  fragment PredictiveQuery on SearchQuerySuggestion {\n    __typename\n    text\n    styledText\n    trackingParameters\n  }\n\n': {
     return: PredictiveSearchQuery;
     variables: PredictiveSearchQueryVariables;
+  };
+  '#graphql\n  query SitemapCaseStudyHandles {\n    featured: blog(handle: "featured") {\n      articles(first: 250) { nodes { handle } }\n    }\n    top: blog(handle: "top-case-studies") {\n      articles(first: 250) { nodes { handle } }\n    }\n    caseStudies: blog(handle: "case-studies") {\n      articles(first: 250) { nodes { handle } }\n    }\n  }\n': {
+    return: SitemapCaseStudyHandlesQuery;
+    variables: SitemapCaseStudyHandlesQueryVariables;
   };
   '#graphql\n  fragment CaseStudyImage on Image {\n    url\n    altText\n    width\n    height\n  }\n\n  fragment CaseStudyMediaReference on MetafieldReference {\n    ... on MediaImage {\n      image {\n        ...CaseStudyImage\n      }\n    }\n    ... on Video {\n      alt\n      previewImage {\n        ...CaseStudyImage\n      }\n      sources {\n        url\n        mimeType\n      }\n    }\n    ... on GenericFile {\n      alt\n      mimeType\n      url\n      previewImage {\n        ...CaseStudyImage\n      }\n    }\n  }\n\n  fragment CaseStudyArticle on Article {\n    id\n    title\n    handle\n    tags\n    image {\n      ...CaseStudyImage\n    }\n    excerpt\n    excerptHtml\n    contentHtml\n    publishedAt\n    seo {\n      title\n      description\n    }\n    services: metafield(namespace: "custom", key: "services") {\n      value\n    }\n    platform: metafield(namespace: "custom", key: "platform") {\n      value\n    }\n    caseStudyTitle: metafield(namespace: "custom", key: "case_study_title") {\n      value\n    }\n    caseStudySubheading: metafield(\n      namespace: "custom"\n      key: "case_study_subheading"\n    ) {\n      value\n    }\n    caseStudyBlogDetails: metafield(\n      namespace: "custom"\n      key: "case_study_blog_post"\n    ) {\n      reference {\n        ... on Metaobject {\n          fields {\n            key\n            type\n            value\n            reference {\n              ...CaseStudyMediaReference\n            }\n            references(first: 20) {\n              nodes {\n                ...CaseStudyMediaReference\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n\n  query CaseStudyDetail(\n    $articleHandle: String!\n    $language: LanguageCode\n    $country: CountryCode\n  ) @inContext(language: $language, country: $country) {\n    featured: blog(handle: "featured") {\n      articleByHandle(handle: $articleHandle) {\n        ...CaseStudyArticle\n      }\n    }\n    topCaseStudies: blog(handle: "top-case-studies") {\n      articleByHandle(handle: $articleHandle) {\n        ...CaseStudyArticle\n      }\n    }\n    caseStudies: blog(handle: "case-studies") {\n      articleByHandle(handle: $articleHandle) {\n        ...CaseStudyArticle\n      }\n    }\n  }\n': {
     return: CaseStudyDetailQuery;

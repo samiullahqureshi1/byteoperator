@@ -1,3 +1,4 @@
+import {getCaseStudyPath} from '~/lib/route-mappings';
 import {Link} from 'react-router';
 import {shopifyImageSrcSet} from '~/lib/shopify-cdn-image';
 
@@ -33,7 +34,7 @@ export function CaseStudyCard({article}: CaseStudyCardProps) {
   const logo = article.logo?.reference?.image;
 
   return (
-    <Link className="ft-case-study-card" to={`/work/${article.handle}`}>
+    <Link className="ft-case-study-card" to={getCaseStudyPath(article.handle)}>
       <div className="ft-case-study-card__media">
         {article.image ? (
           <img

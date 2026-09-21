@@ -1,11 +1,13 @@
-import {useLoaderData} from 'react-router';
+import {redirect, useLoaderData} from 'react-router';
 import type {Route} from './+types/articles.$articleHandle';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
-import {getArticlePath} from '~/lib/route-mappings';
+import {
+  CASE_STUDY_BLOG_HANDLES,
+  getArticlePath,
+  getCaseStudyPath,
+} from '~/lib/route-mappings';
 import {getIncludedArticleBlogs} from '~/lib/articles-data.server';
-import {CaseStudyDetail} from '~/components/work/CaseStudyDetail';
 import {ArticleDetail} from '~/components/articles/ArticleDetail';
-import caseStudyDetailStyles from '~/styles/case-study-detail.css?url';
 import articleDetailStyles from '~/styles/article-detail.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
 import {articleJsonLd} from '~/lib/seo/jsonld';
@@ -13,29 +15,23 @@ import {absoluteUrl} from '~/lib/seo/schema';
 
 /**
  * `/articles/*` serves two kinds of post: the client case studies that
- * `/work/:handle` also renders, and editorial guides. Only the former get
+ * `/work/:handle` renders (they 301 there), and editorial guides. Only the former get
  * the case-study layout — same blog list as work.$handle.tsx.
  */
-const CASE_STUDY_BLOGS = new Set([
-  'featured',
-  'top-case-studies',
-  'case-studies',
-]);
+const CASE_STUDY_BLOGS = new Set<string>(CASE_STUDY_BLOG_HANDLES);
 
 export const links: Route.LinksFunction = () => [
   // Article/case-study media is served from Shopify's CDN, so this
   // preconnect is only declared on routes that actually render it (see
   // app/root.tsx).
   {rel: 'preconnect', href: 'https://cdn.shopify.com'},
-  {rel: 'stylesheet', href: caseStudyDetailStyles},
   {rel: 'stylesheet', href: articleDetailStyles},
   {rel: 'stylesheet', href: homeExpertsStyles},
 ];
 
 export const meta: Route.MetaFunction = ({data}) => {
   const title =
-    data?.article.seo?.title ||
-    `${data?.article.title ?? ''} | FoldTech`;
+    data?.article.seo?.title || `${data?.article.title ?? ''} | FoldTech`;
   const description = data?.article.seo?.description;
   const canonical = data?.article.handle
     ? getArticlePath(data.article.handle)
@@ -110,6 +106,11 @@ async function loadCriticalData({context, request, params}: Route.LoaderArgs) {
     throw new Response(null, {status: 404});
   }
 
+  // One URL per case study: `/work/:handle` owns it.
+  if (CASE_STUDY_BLOGS.has(blog?.handle ?? '')) {
+    throw redirect(getCaseStudyPath(article.handle), 301);
+  }
+
   redirectIfHandleIsLocalized(request, {
     handle: articleHandle,
     data: article,
@@ -123,23 +124,9 @@ function loadDeferredData({context}: Route.LoaderArgs) {
 }
 
 export default function Article() {
-  const {article, blogHandle} = useLoaderData<typeof loader>();
+  const {article} = useLoaderData<typeof loader>();
 
-  if (!CASE_STUDY_BLOGS.has(blogHandle)) {
-    return <ArticleDetail article={article} />;
-  }
-
-  return (
-    <div className="ft-article-detail-page">
-      <CaseStudyDetail
-        article={article}
-        fallbackEyebrow={
-          article.articleType?.value.trim() || 'Ecommerce Insights'
-        }
-        fallbackSubtitle={article.excerpt}
-      />
-    </div>
-  );
+  return <ArticleDetail article={article} />;
 }
 
 const ARTICLE_QUERY = `#graphql

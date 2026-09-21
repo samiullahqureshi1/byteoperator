@@ -1,5 +1,8 @@
+import {Link} from 'react-router';
 import {HomeExperts} from '../HomeExperts';
+import {CalendlyButton} from '~/components/shared/CalendlyButton';
 import {shopifyImageSrcSet} from '~/lib/shopify-cdn-image';
+import {parseCaseStudy, type CaseStudyContent} from '~/lib/case-study-page';
 
 type ShopifyImage = {
   url: string;
@@ -25,6 +28,11 @@ type MetaobjectField = {
   references?: {nodes: MediaReference[]} | null;
 };
 
+type Video = {
+  sources: Array<{url: string; mimeType: string | null}>;
+  poster: string | null;
+};
+
 export type CaseStudyArticle = {
   id: string;
   title: string;
@@ -45,143 +53,137 @@ export type CaseStudyArticle = {
   } | null;
 };
 
-const INDUSTRIES = [
-  'Fashion & Beauty',
-  'Food & Drink',
-  'Luxury',
-  'Sport',
-  'Lifestyle & Home',
-] as const;
+type Detail = {label: string; value: string; href?: string};
 
-const FIELD_KEYS = {
-  heading: 'case_study_heading',
-  urlText: 'case_study_url_text',
-  url: 'case_study_url',
-  videos: 'videos',
-} as const;
+type CaseStudyLayoutProps = {
+  title: string;
+  subtitle?: string;
+  content: CaseStudyContent;
+  /** Short facts shown in the hero bar. */
+  details: Detail[];
+  /** Technologies, rendered as chips under the brief. */
+  chips: string[];
+  /** First image leads the page; the rest sit between chapters. */
+  images: ShopifyImage[];
+  videos?: Video[];
+};
 
-interface CaseStudyDetailProps {
-  article: CaseStudyArticle;
-  fallbackEyebrow?: string;
-  fallbackSubtitle?: string | null;
-}
-
-export function CaseStudyDetail({
-  article,
-  fallbackEyebrow,
-  fallbackSubtitle,
-}: CaseStudyDetailProps) {
-  const fields = new Map(
-    (article.caseStudyBlogDetails?.reference?.fields ?? []).map((field) => [
-      field.key,
-      field,
-    ]),
-  );
-  const contentSections = splitArticleContent(article.contentHtml);
-  const caseStudySubheading =
-    article.caseStudySubheading?.value.trim() || fallbackSubtitle?.trim();
-  const briefHtml = contentSections[0] ?? '';
-  const remainingContent = contentSections.slice(1);
-  const heroImages = Array.from({length: 5}, (_, index) =>
-    getFieldImage(fields.get(`hero_image_${index + 1}`)),
-  );
-  const sectionCount = Math.max(heroImages.length, remainingContent.length);
-  const articleTags = (article.tags ?? [])
-    .map((tag) => tag.trim())
-    .filter(Boolean);
-  const industry = INDUSTRIES.find((value) => articleTags.includes(value));
-  const technologies = Array.from(
-    new Map(
-      articleTags
-        .filter((tag) => tag !== industry)
-        .map((tag) => [tag.toLocaleLowerCase(), tag]),
-    ).values(),
-  ).join(', ');
-  const services = formatMetafieldValue(article.services?.value);
-  const platform = formatMetafieldValue(article.platform?.value);
-  const websiteText = fields.get(FIELD_KEYS.urlText)?.value?.trim();
-  const websiteUrl = fields.get(FIELD_KEYS.url)?.value?.trim();
-  const caseStudyTitle =
-    article.caseStudyTitle?.value.trim() || fallbackEyebrow?.trim();
-  const videos = getVideos(fields.get(FIELD_KEYS.videos));
-  const infoRows = [
-    industry ? {label: 'Industry', value: industry} : null,
-    services ? {label: 'Services', value: services} : null,
-    platform ? {label: 'Platform', value: platform} : null,
-    technologies ? {label: 'Technologies', value: technologies} : null,
-    websiteText && websiteUrl
-      ? {label: 'Website', value: websiteText, href: websiteUrl}
-      : null,
-  ].filter(Boolean) as Array<{label: string; value: string; href?: string}>;
+/** Shared layout for `/work/:handle` and `/case-studies/:handle`. */
+export function CaseStudyLayout({
+  title,
+  subtitle,
+  content,
+  details,
+  chips,
+  images,
+  videos = [],
+}: CaseStudyLayoutProps) {
+  const [leadImage, ...galleryImages] = images;
 
   return (
-    <div className="ft-case-detail">
-      <header className="ft-case-detail__hero">
-        {caseStudyTitle ? (
-          <p className="ft-case-detail__eyebrow">{caseStudyTitle}</p>
+    <article className="ft-cs">
+      <header className="ft-cs__hero">
+        <div className="ft-cs__glow" aria-hidden="true" />
+        <nav className="ft-cs__crumbs" aria-label="Breadcrumb">
+          <Link to="/work">Our Work</Link>
+          <span aria-hidden="true">/</span>
+          <span>Case Study</span>
+        </nav>
+        <h1 className="ft-cs__title">{title}</h1>
+        {subtitle ? <p className="ft-cs__subtitle">{subtitle}</p> : null}
+
+        {details.length ? (
+          <dl className="ft-cs__facts">
+            {details.map((detail) => (
+              <div className="ft-cs__fact" key={detail.label}>
+                <dt>{detail.label}</dt>
+                <dd>
+                  {detail.href ? (
+                    <a href={detail.href} target="_blank" rel="noreferrer">
+                      {detail.value}
+                    </a>
+                  ) : (
+                    detail.value
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
         ) : null}
-        <h1>{article.title}</h1>
-        {caseStudySubheading ? (
-          <p className="ft-case-detail__intro">{caseStudySubheading}</p>
-        ) : null}
+
+        <div className="ft-cs__actions">
+          <CalendlyButton className="ft-cs__book" />
+          <Link className="ft-cs__more" to="/work">
+            See more work
+          </Link>
+        </div>
       </header>
 
-      {article.image ? (
-        <ProjectImage image={article.image} fallbackAlt={article.title} eager />
-      ) : null}
+      {leadImage ? <ProjectImage image={leadImage} alt={title} eager /> : null}
 
-      {briefHtml || infoRows.length ? (
-        <section className="ft-case-detail__brief" aria-label="The Brief">
-          <div className="ft-case-detail__copy">
-            {!startsWithBriefHeading(briefHtml) ? (
-              <h2>The Brief</h2>
-            ) : null}
-            {briefHtml ? <RichText html={briefHtml} /> : null}
-          </div>
-          {infoRows.length ? (
-            <dl className="ft-case-detail__info">
-              {infoRows.map((row) => (
-                <div className="ft-case-detail__info-row" key={row.label}>
-                  <dt>{row.label}</dt>
-                  <dd>
-                    {row.href ? (
-                      <a href={row.href} target="_blank" rel="noreferrer">
-                        {row.value}
-                      </a>
-                    ) : (
-                      row.value
-                    )}
-                  </dd>
-                </div>
+      {content.intro || chips.length ? (
+        <section className="ft-cs__brief" aria-labelledby="ft-cs-brief">
+          <p className="ft-cs__eyebrow" id="ft-cs-brief">
+            The Brief
+          </p>
+          {content.intro ? (
+            <p className="ft-cs__intro">{content.intro}</p>
+          ) : null}
+          {chips.length ? (
+            <ul className="ft-cs__chips" aria-label="Technologies">
+              {chips.map((chip) => (
+                <li key={chip}>{chip}</li>
               ))}
-            </dl>
+            </ul>
           ) : null}
         </section>
       ) : null}
 
-      <div className="ft-case-detail__sequence">
-        {Array.from({length: sectionCount}, (_, index) => {
-          const image = heroImages[index];
-          const html = remainingContent[index];
-          if (!image && !html) return null;
+      {content.stats.length ? (
+        <section className="ft-cs__stats" aria-label="Results at a glance">
+          {content.stats.map((stat) => (
+            <div className="ft-cs__stat" key={stat.label}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))}
+        </section>
+      ) : null}
 
-          return (
-            <section className="ft-case-detail__chapter" key={index}>
-              {image ? <ProjectImage image={image} fallbackAlt={article.title} /> : null}
-              {html ? <RichText html={html} /> : null}
-            </section>
-          );
-        })}
-      </div>
+      {content.chapters.map((chapter, index) => (
+        <div key={chapter.title}>
+          <section className="ft-cs__chapter">
+            <header className="ft-cs__chapter-head">
+              <p className="ft-cs__eyebrow">{chapter.number}</p>
+              <h2>{chapter.title}</h2>
+              {chapter.subheading ? <p>{chapter.subheading}</p> : null}
+            </header>
+            <ul className="ft-cs__points">
+              {chapter.points.map((point) => (
+                <li key={point.title || point.text}>
+                  {point.title ? <h3>{point.title}</h3> : null}
+                  <p>{point.text}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+          {galleryImages[index] ? (
+            <ProjectImage image={galleryImages[index]} alt={title} />
+          ) : null}
+        </div>
+      ))}
+
+      {galleryImages.slice(content.chapters.length).map((image) => (
+        <ProjectImage key={image.url} image={image} alt={title} />
+      ))}
 
       {videos.length ? (
-        <section className="ft-case-detail__videos" aria-label="Project videos">
+        <section className="ft-cs__videos" aria-label="Project videos">
           {videos.map((video) => (
             // Shopify's Videos field has no caption-track field to query.
             // eslint-disable-next-line jsx-a11y/media-has-caption
             <video
               key={video.sources.map((source) => source.url).join('|')}
-              className="ft-case-detail__video"
               controls
               playsInline
               preload="metadata"
@@ -199,29 +201,89 @@ export function CaseStudyDetail({
         </section>
       ) : null}
 
-      <div className="ft-case-detail__experts">
-        <HomeExperts />
-      </div>
-    </div>
+
+      <HomeExperts />
+    </article>
+  );
+}
+
+const INDUSTRIES = [
+  'Fashion & Beauty',
+  'Food & Drink',
+  'Luxury',
+  'Sport',
+  'Lifestyle & Home',
+] as const;
+
+/** A case-study blog post (`/work/:handle`) in the shared layout. */
+export function CaseStudyDetail({article}: {article: CaseStudyArticle}) {
+  const fields = new Map(
+    (article.caseStudyBlogDetails?.reference?.fields ?? []).map((field) => [
+      field.key,
+      field,
+    ]),
+  );
+  const tags = (article.tags ?? []).map((tag) => tag.trim()).filter(Boolean);
+  const industry = INDUSTRIES.find((value) => tags.includes(value));
+  const chips = Array.from(
+    new Map(
+      tags
+        .filter((tag) => tag !== industry)
+        .map((tag) => [tag.toLocaleLowerCase(), tag]),
+    ).values(),
+  );
+  const websiteText = fields.get('case_study_url_text')?.value?.trim();
+  const websiteUrl = fields.get('case_study_url')?.value?.trim();
+
+  const details = [
+    industry ? {label: 'Industry', value: industry} : null,
+    metafieldText(article.services?.value)
+      ? {label: 'Services', value: metafieldText(article.services?.value)!}
+      : null,
+    metafieldText(article.platform?.value)
+      ? {label: 'Platform', value: metafieldText(article.platform?.value)!}
+      : null,
+    websiteText && websiteUrl
+      ? {label: 'Website', value: websiteText, href: websiteUrl}
+      : null,
+  ].filter((detail): detail is Detail => Boolean(detail));
+
+  const images = [
+    article.image,
+    ...Array.from({length: 5}, (_, index) =>
+      fieldImage(fields.get(`hero_image_${index + 1}`)),
+    ),
+  ].filter((image): image is ShopifyImage => Boolean(image));
+
+  return (
+    <CaseStudyLayout
+      title={article.title}
+      subtitle={article.caseStudySubheading?.value.trim()}
+      content={parseCaseStudy(article.contentHtml, article.title)}
+      details={details}
+      chips={chips}
+      images={images}
+      videos={fieldVideos(fields.get('videos'))}
+    />
   );
 }
 
 function ProjectImage({
   image,
-  fallbackAlt,
+  alt,
   eager = false,
 }: {
   image: ShopifyImage;
-  fallbackAlt: string;
+  alt: string;
   eager?: boolean;
 }) {
   return (
-    <figure className="ft-case-detail__visual">
+    <figure className="ft-cs__visual">
       <img
         src={image.url}
         srcSet={shopifyImageSrcSet(image.url, [800, 1400, 2000])}
-        sizes="(min-width: 92rem) 92rem, 89vw"
-        alt={image.altText || fallbackAlt}
+        sizes="(min-width: 80rem) 80rem, 92vw"
+        alt={image.altText || alt}
         width={image.width ?? undefined}
         height={image.height ?? undefined}
         loading={eager ? 'eager' : 'lazy'}
@@ -232,49 +294,16 @@ function ProjectImage({
   );
 }
 
-function RichText({html}: {html: string}) {
-  return (
-    <div
-      className="ft-case-detail__rich-text"
-      dangerouslySetInnerHTML={{__html: html}}
-    />
-  );
-}
-
-function splitArticleContent(html: string): string[] {
-  const content = html.trim();
-  if (!content) return [];
-
-  const sections = content
-    .split(/(?=<h[23](?:\s[^>]*)?>)/i)
-    .map((section) => section.trim())
-    .filter(Boolean);
-
-  return sections.length ? sections : [content];
-}
-
-function normalizeText(value?: string | null): string {
-  return (value ?? '')
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function startsWithBriefHeading(html: string): boolean {
-  const match = html.match(/^\s*<h[23](?:\s[^>]*)?>([\s\S]*?)<\/h[23]>/i);
-  return normalizeText(match?.[1]).toLocaleLowerCase() === 'the brief';
-}
-
-function formatMetafieldValue(value?: string | null): string | null {
+function metafieldText(value?: string | null): string | null {
   const trimmed = value?.trim();
   if (!trimmed) return null;
 
   try {
     const parsed: unknown = JSON.parse(trimmed);
     if (Array.isArray(parsed)) {
-      const entries = parsed.filter((item): item is string => typeof item === 'string');
+      const entries = parsed.filter(
+        (item): item is string => typeof item === 'string',
+      );
       return entries.length ? entries.join(', ') : null;
     }
     return typeof parsed === 'string' ? parsed : trimmed;
@@ -283,14 +312,14 @@ function formatMetafieldValue(value?: string | null): string | null {
   }
 }
 
-function getFieldImage(field?: MetaobjectField): ShopifyImage | null {
+function fieldImage(field?: MetaobjectField): ShopifyImage | null {
   const references = [field?.reference, ...(field?.references?.nodes ?? [])];
   return references.find((reference) => reference?.image)?.image ?? null;
 }
 
-function getVideos(field?: MetaobjectField) {
+function fieldVideos(field?: MetaobjectField): Video[] {
   const references = [field?.reference, ...(field?.references?.nodes ?? [])];
-  const videos = references.flatMap((reference) => {
+  const videos = references.flatMap((reference): Video[] => {
     if (!reference) return [];
     const poster = reference.previewImage?.url ?? null;
     if (reference.sources?.length) {
@@ -298,10 +327,7 @@ function getVideos(field?: MetaobjectField) {
     }
     if (reference.url && reference.mimeType?.startsWith('video/')) {
       return [
-        {
-          sources: [{url: reference.url, mimeType: reference.mimeType}],
-          poster,
-        },
+        {sources: [{url: reference.url, mimeType: reference.mimeType}], poster},
       ];
     }
     return [];
@@ -313,7 +339,10 @@ function getVideos(field?: MetaobjectField) {
     const parsed: unknown = JSON.parse(field.value);
     const urls = Array.isArray(parsed) ? parsed : [parsed];
     return urls
-      .filter((url): url is string => typeof url === 'string' && /^https?:\/\//.test(url))
+      .filter(
+        (url): url is string =>
+          typeof url === 'string' && /^https?:\/\//.test(url),
+      )
       .map((url) => ({sources: [{url, mimeType: null}], poster: null}));
   } catch {
     return /^https?:\/\//.test(field.value)

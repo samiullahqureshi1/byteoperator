@@ -4,6 +4,7 @@ import {
   ARTICLES_CLEAN_PATH,
   getArticlePath,
   ARTICLES_BLOG_HANDLE,
+  getCaseStudyPath,
   resolveCanonicalPath,
 } from '~/lib/route-mappings';
 
@@ -23,6 +24,15 @@ export async function loader({
     throw new Response('Not Found', {status: 404});
   }
 
+  // Hydrogen only hands us the article handle, so learn which are case studies.
+  const caseStudyHandles = new Set<string>();
+  if (params.type === 'articles') {
+    const data = await storefront.query(CASE_STUDY_HANDLES_QUERY);
+    for (const blog of [data.featured, data.top, data.caseStudies]) {
+      blog?.articles.nodes.forEach(({handle}) => caseStudyHandles.add(handle));
+    }
+  }
+
   const response = await getSitemap({
     storefront,
     request,
@@ -35,7 +45,10 @@ export async function loader({
      * in the sitemap is worse than shipping no alternates.
      */
     getLink: ({type, baseUrl, handle, locale}) => {
-      const resourcePath = getSitemapResourcePath(type, handle);
+      const resourcePath =
+        type === 'articles' && handle && caseStudyHandles.has(handle)
+          ? getCaseStudyPath(handle)
+          : getSitemapResourcePath(type, handle);
 
       if (!locale) return `${baseUrl}${resourcePath}`;
       return `${baseUrl}/${locale}${resourcePath}`;
@@ -67,3 +80,17 @@ function getSitemapResourcePath(type: string, handle?: string): string {
 
   return `/${type}/${handle ?? ''}`;
 }
+
+const CASE_STUDY_HANDLES_QUERY = `#graphql
+  query SitemapCaseStudyHandles {
+    featured: blog(handle: "featured") {
+      articles(first: 250) { nodes { handle } }
+    }
+    top: blog(handle: "top-case-studies") {
+      articles(first: 250) { nodes { handle } }
+    }
+    caseStudies: blog(handle: "case-studies") {
+      articles(first: 250) { nodes { handle } }
+    }
+  }
+` as const;

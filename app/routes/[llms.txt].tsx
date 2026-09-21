@@ -1,4 +1,5 @@
 import type {Route} from './+types/[llms.txt]';
+import {getArticlePath, getCaseStudyPath} from '~/lib/route-mappings';
 import {SERVICES, SITE_URL} from '~/lib/seo/schema';
 import {isKnownEmptyPage} from '~/lib/seo/empty-pages';
 import {
@@ -21,7 +22,7 @@ import {
  * fires when the app 404s, so this route overrides it simply by existing.
  */
 
-/** Blogs whose articles are published under `/articles/{handle}/`. */
+/** Blogs listed here; case-study blogs link to `/work/{handle}`. */
 const ARTICLE_BLOG_HANDLES = [
   'news',
   'case-studies',
@@ -147,7 +148,12 @@ export async function loader({context}: Route.LoaderArgs) {
   const seenHandles = new Set<string>();
 
   const articleLines = results
-    .flatMap((result) => result.blog?.articles.nodes ?? [])
+    .flatMap((result, i) =>
+      (result.blog?.articles.nodes ?? []).map((article) => ({
+        ...article,
+        blogHandle: ARTICLE_BLOG_HANDLES[i],
+      })),
+    )
     // An article promoted into a second blog would otherwise appear twice.
     .filter((article) => {
       if (!article.handle || seenHandles.has(article.handle)) return false;
@@ -164,7 +170,9 @@ export async function loader({context}: Route.LoaderArgs) {
       if (!description) return null;
 
       return `- [${escapeLinkText(article.title)}](${absoluteUrl(
-        `/articles/${article.handle}/`,
+        article.blogHandle === 'news'
+          ? getArticlePath(article.handle)
+          : getCaseStudyPath(article.handle),
       )}): ${description}`;
     })
     .filter((line): line is string => Boolean(line));

@@ -2,12 +2,13 @@ import {useLoaderData} from 'react-router';
 import type {Route} from './+types/work.$handle';
 import {caseStudyJsonLd, textFromHtml} from '~/lib/seo/jsonld';
 import {absoluteUrl} from '~/lib/seo/schema';
+import {getCaseStudyPath} from '~/lib/route-mappings';
 import {CaseStudyDetail} from '~/components/work/CaseStudyDetail';
-import caseStudyDetailStyles from '~/styles/case-study-detail.css?url';
+import caseStudyStyles from '~/styles/case-study-page.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
 
 export const links: Route.LinksFunction = () => [
-  {rel: 'stylesheet', href: caseStudyDetailStyles},
+  {rel: 'stylesheet', href: caseStudyStyles},
   {rel: 'stylesheet', href: homeExpertsStyles},
 ];
 
@@ -37,7 +38,7 @@ export const meta: Route.MetaFunction = ({data}) => {
           {
             tagName: 'link',
             rel: 'canonical',
-            href: absoluteUrl(`/work/${article.handle}`),
+            href: absoluteUrl(getCaseStudyPath(article.handle)),
           },
         ]
       : []),
@@ -50,7 +51,7 @@ export const meta: Route.MetaFunction = ({data}) => {
      */
     ...(article.handle
       ? caseStudyJsonLd({
-          path: `/work/${article.handle}`,
+          path: getCaseStudyPath(article.handle),
           /*
            * No `clientName`. On `/work/*` the handle is not reliably the
            * client — `/work/axumart` is titled "SleepTite SleepRite" — so
