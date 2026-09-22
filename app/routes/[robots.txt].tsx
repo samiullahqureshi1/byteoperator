@@ -60,11 +60,11 @@ Disallow: /
 
 User-agent: AhrefsBot
 Crawl-delay: 10
-${generalDisallowRules({sitemapUrl, shopId})}
+${generalDisallowRules({shopId})}
 
 User-agent: AhrefsSiteAudit
 Crawl-delay: 10
-${generalDisallowRules({sitemapUrl, shopId})}
+${generalDisallowRules({shopId})}
 
 User-agent: MJ12bot
 Crawl-Delay: 10

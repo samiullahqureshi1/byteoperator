@@ -60,7 +60,19 @@ export async function loader({
   const headers = new Headers(response.headers);
   headers.set('Cache-Control', `max-age=${60 * 60 * 24}`);
 
-  return new Response(cleanUrlset(await response.text()), {
+  let body = cleanUrlset(await response.text());
+
+  // The homepage is a route, not a Shopify resource, so Hydrogen never lists
+  // it. No <lastmod>: it is optional, and there is no honest date to give.
+  if (params.type === 'pages' && params.page === '1') {
+    const home = `${new URL(request.url).origin}/`;
+    body = body.replace(
+      /<urlset\b[^>]*>/,
+      (open) => `${open}\n<url><loc>${home}</loc></url>`,
+    );
+  }
+
+  return new Response(body, {
     status: response.status,
     headers,
   });
