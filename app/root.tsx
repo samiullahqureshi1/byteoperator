@@ -163,7 +163,7 @@ export function Layout({children}: {children?: React.ReactNode}) {
         <meta charSet="utf-8" />
         <meta
           name="google-site-verification"
-          content="google1b58bbfd0f5536d1"
+          content="MH80_WYTkwy23muXrl99RBVKfe76gOw3bmDJFHEQTlk"
         />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="stylesheet" href={baseStyles} fetchPriority="high"></link>
