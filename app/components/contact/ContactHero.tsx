@@ -35,9 +35,9 @@ export function ContactHero() {
                 </h1>
 
                 <p className="ft-contact-hero__description">
-                  Tell us about your goals and our team will help you
-                  plan the right Shopify, SEO, CRO or ecommerce
-                  solution for your next stage of growth.
+                  Tell us about your goals and speak to our team about
+                  the right Shopify, SEO, CRO or ecommerce solution for
+                  your next stage of growth.
                 </p>
 
                 <div className="ft-contact-hero__response">

@@ -87,7 +87,7 @@ export function CaseStudyLayout({
         <nav className="ft-cs__crumbs" aria-label="Breadcrumb">
           <Link to="/work">Our Work</Link>
           <span aria-hidden="true">/</span>
-          <span>Case Study</span>
+          <span aria-current="page">{title} Case Study</span>
         </nav>
         <h1 className="ft-cs__title">{title}</h1>
         {subtitle ? <p className="ft-cs__subtitle">{subtitle}</p> : null}

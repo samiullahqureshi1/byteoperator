@@ -28,8 +28,8 @@ export function AboutStoryStats() {
             <div className="ft-about-story__right">
               <div className="ft-about-story__description">
                 <p>
-                  FoldTech brings ecommerce strategy, design, development,
-                  search visibility and optimisation together to help brands
+                  FoldTech brings ecommerce strategy, creative design, development,
+                  search visibility and optimisation together, helping brands
                   build stronger Shopify experiences. Our approach focuses on
                   creating stores that are clear, scalable and built around
                   commercial priorities from the start.

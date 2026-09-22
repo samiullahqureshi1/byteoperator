@@ -275,8 +275,8 @@ export function AiVisibilityAuditHero() {
             <p className="ft-audit-hero__description">
               Shoppers increasingly ask ChatGPT, Perplexity and Google AI
               Overviews what to buy. Tell us your website and our team will
-              review how your brand shows up in those answers, then send you a
-              free audit with the changes worth making first.
+              find out how AI search sees your brand and how it shows up in
+              those answers, then send you a free audit with the changes worth making first.
             </p>
 
             <ul className="ft-audit-hero__checks">

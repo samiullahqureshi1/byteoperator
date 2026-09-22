@@ -406,7 +406,7 @@ const AB_TESTING_PROCESS_STEPS = [
 ] as const;
 
 const CRO_PROCESS_STEPS = [
-  {number: '01', title: 'Audit & Discovery', description: 'Review customer journeys, analytics and storefront behaviour to identify practical conversion opportunities.'},
+  {number: '01', title: 'Audit & Discovery', description: 'Review customer journeys, analytics and storefront behaviour to identify practical opportunities to lift conversions.'},
   {number: '02', title: 'Hypothesise & Prioritise', description: 'Turn observations into clear hypotheses, then prioritise the changes worth testing first.'},
   {number: '03', title: 'Test & Iterate', description: 'Improve key journeys through structured testing and learn from how customers respond.'},
   {number: '04', title: 'Scale & Compound', description: 'Apply validated learnings across the store and use them to guide the next optimisation cycle.'},

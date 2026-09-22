@@ -70,14 +70,13 @@ export function HomeHero() {
           className="ft-home-hero__title"
           id="ft-home-hero-title"
         >
+          {/* The {' '} gaps are for crawlers and copy/paste: without them the
+              heading's text reads "TheShopify AgencyThat". Flex drops them. */}
           <span className="ft-home-hero__title-line">
-            <span>The</span>
-
-            <HeroMark />
-
+            <span>The</span>{' '}
+            <HeroMark />{' '}
             <strong>Shopify Agency</strong>
-          </span>
-
+          </span>{' '}
           <span className="ft-home-hero__title-line">
             That Drives Real Growth
           </span>

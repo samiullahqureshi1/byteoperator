@@ -40,7 +40,8 @@ export function WorkHero({
 
             <p className="ft-work-hero__description">
               Every ecommerce brand has unique goals, challenges, and
-              opportunities. Explore how FoldTech has helped businesses launch,
+              opportunities. Explore these success stories to see how FoldTech has
+              helped businesses launch,
               migrate, optimise, and scale their Shopify and Shopify Plus stores
               through custom development, conversion optimisation, technical SEO,
               AI search visibility, and long-term growth strategies.

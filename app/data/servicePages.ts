@@ -420,7 +420,7 @@ export const SERVICE_PAGE_CONFIGS = {
       heading:
         'Shopify developers you can trust. Explore development services.',
       description:
-        'We are an experienced and Shopify accredited team of Shopify developers who partner with brands to develop engaging and frictionless online shopping experiences.',
+        'We are an experienced and Shopify accredited team of Shopify developers you can trust, partnering with brands to develop engaging and frictionless online shopping experiences.',
       chips: [
         'Shopify Theme Store Builds',
         'Headless Stores',
@@ -778,7 +778,7 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       ],
       description:
-        'FoldTech develops custom Shopify apps and functionality for requirements that standard themes and off-the-shelf apps do not fully cover, from customer-facing experiences to connected operational workflows.',
+        'FoldTech develops custom Shopify apps and advanced functionality for requirements that standard themes and off-the-shelf apps do not fully cover, from customer-facing experiences to connected operational workflows.',
       primaryCta: {
         label: 'Get In Touch',
         href: SERVICE_PAGE_ROUTES.contact,
@@ -2059,7 +2059,7 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       ],
       description:
-        'FoldTech supports businesses moving or re-platforming from BigCommerce to Shopify or Shopify Plus, coordinating migration planning, store data, storefront development, integrations, SEO migration and launch preparation.',
+        'FoldTech supports businesses moving or replatforming from BigCommerce to Shopify or Shopify Plus, coordinating migration planning, store data, storefront development, integrations, SEO migration and launch preparation.',
       primaryCta: {
         label: 'Get In Touch',
         href: SERVICE_PAGE_ROUTES.contact,
@@ -2445,7 +2445,7 @@ export const SERVICE_PAGE_CONFIGS = {
       intro: {
         heading:
           'Shopify migrations planned around the store, data and customer experience you need to carry forward.',
-        descriptionHtml: `FoldTech supports ecommerce brands moving or re-platforming from <a href="/magento-shopify-migrations/">Magento</a>, <a href="/woocommerce-shopify-migrations/">WooCommerce</a>, <a href="/bigcommerce-shopify-migrations/">BigCommerce</a>, <a href="/salesforce-shopify-migrations/">Salesforce</a> and other ecommerce platforms to Shopify or Shopify Plus.`,
+        descriptionHtml: `FoldTech supports ecommerce brands moving or replatforming from <a href="/magento-shopify-migrations/">Magento</a>, <a href="/woocommerce-shopify-migrations/">WooCommerce</a>, <a href="/bigcommerce-shopify-migrations/">BigCommerce</a>, <a href="/salesforce-shopify-migrations/">Salesforce</a> and other ecommerce platforms to Shopify or Shopify Plus.`,
         cta: {
           label: 'Get In Touch',
           href: SERVICE_PAGE_ROUTES.contact,
@@ -2857,7 +2857,7 @@ export const SERVICE_PAGE_CONFIGS = {
         alt: 'FoldTech',
       },
       description:
-        'AI shopping agents can discover, compare and evaluate ecommerce products. FoldTech helps Shopify brands prepare with clear product information, structured data and catalogue content that is easier for machine-assisted shopping experiences to understand.',
+        'AI shopping agents can discover, compare and evaluate ecommerce products. FoldTech helps prepare your Shopify brand with clear product information, structured data and catalogue content that is easier for machine-assisted shopping experiences to understand.',
       primaryCta: {
         label: 'Get In Touch',
         href: SERVICE_PAGE_ROUTES.contact,
@@ -4671,7 +4671,7 @@ export const SERVICE_PAGE_CONFIGS = {
         heading: 'Consistent Support for Your Shopify Store',
         description: [
           'Store issues rarely arrive at a convenient moment, and they are harder to resolve when nobody has context on how the store was built. Working with a support partner means the people making changes already understand the theme, the apps in use and the integrations behind them.',
-          'That continuity also makes it easier to decide what is worth doing. Small fixes get handled as they come up, while larger changes can be scoped properly rather than being rushed into the theme, so the store stays maintainable as it grows.',
+          'That continuity also makes it easier to decide what is worth doing. Small fixes get handled as they come up, while larger changes can be scoped properly rather than being rushed into the theme, so the store stays maintainable as the business keeps growing.',
         ],
         buttons: [
           {
@@ -4997,7 +4997,7 @@ export const SERVICE_PAGE_CONFIGS = {
         heading: 'Human Ecommerce Expertise Supported by AI',
         description: [
           'AI is only useful in ecommerce when the people using it understand the context around it. FoldTech brings together Shopify development, ecommerce strategy, design, SEO and GEO, automation and data analysis, so AI-assisted work is grounded in how stores are actually built and run.',
-          'That combination is the point. The tooling helps us cover more ground and look at more data, while decisions about a store still come from a team that works on ecommerce every day.',
+          'Combining the two is the point. The tooling helps us cover more ground and look at more data, while decisions about a store still come from a team that works on ecommerce every day.',
         ],
         buttons: [
           {
@@ -5044,7 +5044,7 @@ export const SERVICE_PAGE_CONFIGS = {
         alt: 'Klaviyo Advisor badge',
       },
       description:
-        'FoldTech works with Klaviyo on Shopify and Shopify Plus stores, covering email marketing, SMS, automated flows and the segmentation behind them. The aim is lifecycle communication that reflects how customers actually buy, using the store data Klaviyo already receives from Shopify.',
+        'FoldTech brings Klaviyo expertise to Shopify and Shopify Plus stores, covering email marketing, SMS, automated flows and the segmentation behind them. The aim is lifecycle communication that reflects how customers actually buy, using the store data Klaviyo already receives from Shopify.',
       primaryCta: {
         label: 'Get In Touch',
         href: SERVICE_PAGE_ROUTES.contact,

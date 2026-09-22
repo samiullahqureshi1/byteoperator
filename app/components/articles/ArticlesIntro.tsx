@@ -122,7 +122,8 @@ export function ArticlesIntro({
             </p>
 
             <p className="ft-articles-newsletter__sub">
-              Weekly ecommerce insights on Shopify, SEO, CRO and growth.
+              Weekly ecommerce news from our blog: Shopify, SEO and CRO insights
+              that move the needle.
             </p>
 
             <form
