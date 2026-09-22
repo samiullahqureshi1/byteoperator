@@ -66,7 +66,7 @@ const SERVICE_GROUPS: ServiceDirectoryGroup[] = [
       },
       {
         label: 'Design Services',
-        href: '/shopify-theme-development-builds/',
+        href: '/shopify-web-design',
       },
       {
         label: 'Migrations',

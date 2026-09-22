@@ -42,8 +42,11 @@ const LLMS_ARTICLES_QUERY = `#graphql
         nodes {
           handle
           title
-          excerpt
-          content
+          excerpt(truncateAt: 300)
+          # Only ever read as a fallback for the excerpt, and only the first
+          # sentence of it is used. Untruncated this pulled entire article
+          # bodies for every post in four blogs on each request.
+          content(truncateAt: 300)
           publishedAt
         }
       }
@@ -62,6 +65,16 @@ type LlmsArticleNode = {
 type LlmsArticlesQuery = {
   blog: {articles: {nodes: LlmsArticleNode[]}} | null;
 };
+
+/**
+ * How long the live article list gets before the file ships without it.
+ *
+ * Everything except the article section is static, so a slow Storefront
+ * should cost a crawler those links - not the whole file. This is the same
+ * trade the `.catch` in the loader makes for an outright failure, extended to
+ * cover slowness, which is how this route was failing its audit.
+ */
+const ARTICLE_FETCH_BUDGET_MS = 4000;
 
 /** Long enough to be a useful summary, short enough to survive chunking. */
 const MAX_DESCRIPTION_LENGTH = 120;
@@ -131,18 +144,30 @@ function renderSection(section: LlmsSection) {
 }
 
 export async function loader({context}: Route.LoaderArgs) {
+  const empty = {blog: null} as LlmsArticlesQuery;
+
   const results = await Promise.all(
-    ARTICLE_BLOG_HANDLES.map((blogHandle) =>
-      context.storefront
+    ARTICLE_BLOG_HANDLES.map((blogHandle) => {
+      const query = context.storefront
         .query<LlmsArticlesQuery>(LLMS_ARTICLES_QUERY, {
           variables: {blogHandle},
+          // The article list changes rarely; a crawler should not make
+          // Shopify rebuild this on every fetch.
+          cache: context.storefront.CacheLong(),
         })
         /*
          * One unreachable blog must not take the whole file down — a partial
          * llms.txt is far more useful to a crawler than a 500.
          */
-        .catch(() => ({blog: null}) as LlmsArticlesQuery),
-    ),
+        .catch(() => empty);
+
+      return Promise.race([
+        query,
+        new Promise<LlmsArticlesQuery>((resolve) => {
+          setTimeout(() => resolve(empty), ARTICLE_FETCH_BUDGET_MS);
+        }),
+      ]);
+    }),
   );
 
   const seenHandles = new Set<string>();

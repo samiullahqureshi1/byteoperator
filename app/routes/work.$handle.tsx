@@ -17,7 +17,8 @@ export const meta: Route.MetaFunction = ({data}) => {
 
   if (!article) return [{title: 'Case study not found | FoldTech'}];
 
-  const title = article.seo?.title || `${article.title} | FoldTech`;
+  const title =
+    article.seo?.title || `${article.title} Shopify Case Study | FoldTech`;
 
   const description = article.seo?.description;
 

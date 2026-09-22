@@ -898,7 +898,7 @@ export const HOME_FEATURES = [
       },
       {
         label:
-          'Ecommerce SEO',
+          'Shopify SEO',
 
         href: ROUTES.seo,
       },

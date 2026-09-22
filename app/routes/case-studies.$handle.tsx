@@ -22,7 +22,8 @@ export const meta: Route.MetaFunction = ({data}) => {
   const {page, name, study} = data;
 
   const path = `/case-studies/${name}`;
-  const title = page.seo?.title || `${page.title} Case Study | FoldTech`;
+  const title =
+    page.seo?.title || `${page.title} Case Study & Results | FoldTech`;
   const description = page.seo?.description?.trim() || study.intro;
 
   return [

@@ -1,7 +1,7 @@
 import {useEffect, useMemo, useState} from 'react';
 import {Link} from 'react-router';
 import {HomeExperts} from '../HomeExperts';
-import {ARTICLES_CLEAN_PATH} from '~/lib/route-mappings';
+import {ARTICLES_CLEAN_PATH, withCanonicalLinks} from '~/lib/route-mappings';
 
 export type EditorialArticle = {
   title: string;
@@ -19,7 +19,7 @@ const WORDS_PER_MINUTE = 220;
 
 export function ArticleDetail({article}: {article: EditorialArticle}) {
   const {html, headings} = useMemo(
-    () => withHeadingAnchors(article.contentHtml),
+    () => withHeadingAnchors(withCanonicalLinks(article.contentHtml)),
     [article.contentHtml],
   );
   // Only top-level sections go in the index. A long guide carries dozens of

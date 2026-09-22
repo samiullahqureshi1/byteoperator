@@ -563,6 +563,26 @@ export function resolveCanonicalPath(pathname: string): string {
   return legacyPath ? resolveCleanPath(legacyPath) : pathname;
 }
 
+const SITE_ORIGIN = /^https?:\/\/(?:www\.)?thefoldtech\.com(?=\/)/i;
+
+/**
+ * Points every internal link in Shopify-authored HTML at its canonical path.
+ * Article copy still links legacy `/pages/*` and `/blogs/news/*` URLs, which
+ * cost a redirect hop and make crawlers see one anchor text aimed at two URLs.
+ */
+export function withCanonicalLinks(html: string): string {
+  return html.replace(
+    /(<a\b[^>]*?\bhref=)(["'])(.*?)\2/gi,
+    (match, before: string, quote: string, href: string) => {
+      const url = href.replace(SITE_ORIGIN, '');
+      if (!url.startsWith('/') || url.startsWith('//')) return match;
+
+      const [, path, rest] = /^([^?#]*)(.*)$/s.exec(url)!;
+      return `${before}${quote}${resolveCanonicalPath(path)}${rest}${quote}`;
+    },
+  );
+}
+
 /**
  * True when two paths differ by nothing more than a trailing slash.
  *

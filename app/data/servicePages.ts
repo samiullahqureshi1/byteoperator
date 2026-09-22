@@ -1619,7 +1619,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {
-            label: 'Explore SEO Services',
+            label: 'Explore Ecommerce SEO Services',
             href: SERVICE_PAGE_ROUTES.ecommerceSeo,
           },
         ],
@@ -1722,7 +1722,7 @@ export const SERVICE_PAGE_CONFIGS = {
         buttons: [
           {
             label: 'WooCommerce vs Shopify',
-            href: '/articles/wordpress-vs-shopify-features-pricing-benefits/',
+            href: '/articles/woocommerce-vs-shopify-full-comparison/',
           },
         ],
         media: reuseHomeFeatureMedia('shopify-migrations'),
@@ -1804,7 +1804,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {
-            label: 'Explore SEO Services',
+            label: 'Explore Ecommerce SEO Services',
             href: SERVICE_PAGE_ROUTES.ecommerceSeo,
           },
         ],
@@ -2192,7 +2192,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {
-            label: 'Explore SEO Services',
+            label: 'Explore Ecommerce SEO Services',
             href: SERVICE_PAGE_ROUTES.ecommerceSeo,
           },
         ],
@@ -2377,7 +2377,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {
-            label: 'Explore SEO Services',
+            label: 'Explore Ecommerce SEO Services',
             href: SERVICE_PAGE_ROUTES.ecommerceSeo,
           },
         ],
@@ -2483,7 +2483,7 @@ export const SERVICE_PAGE_CONFIGS = {
         </p>
       `,
       cta: {
-        label: 'Magento vs Shopify',
+        label: 'Magento to Shopify Migration',
         href: '/magento-shopify-migrations/',
       },
     },
@@ -2495,7 +2495,7 @@ export const SERVICE_PAGE_CONFIGS = {
         </p>
       `,
       cta: {
-        label: 'WooCommerce vs Shopify',
+        label: 'WooCommerce to Shopify Migration',
         href: '/woocommerce-shopify-migrations/',
       },
     },
@@ -2507,7 +2507,7 @@ export const SERVICE_PAGE_CONFIGS = {
         </p>
       `,
       cta: {
-        label: 'BigCommerce vs Shopify',
+        label: 'BigCommerce to Shopify Migration',
         href: '/bigcommerce-shopify-migrations/',
       },
     },
@@ -2671,7 +2671,7 @@ export const SERVICE_PAGE_CONFIGS = {
       chips: [
         {label: 'AI-enabled', href: SERVICE_PAGE_ROUTES.ai},
         {
-          label: 'Ecommerce SEO Agency',
+          label: 'Shopify SEO Agency',
           href: SERVICE_PAGE_ROUTES.shopifySeo,
         },
         {
@@ -3017,7 +3017,7 @@ export const SERVICE_PAGE_CONFIGS = {
           href: SERVICE_PAGE_ROUTES.ecommerceAiSeo,
         },
         {
-          label: 'Ecommerce SEO Agency',
+          label: 'Shopify SEO Agency',
           href: SERVICE_PAGE_ROUTES.shopifySeo,
         },
         {
@@ -3117,7 +3117,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         badges: [
           {
-            label: 'SEO Audit',
+            label: 'Ecommerce SEO Audit',
             href: SERVICE_PAGE_ROUTES.ecommerceSeo,
           },
           {
@@ -4818,7 +4818,7 @@ export const SERVICE_PAGE_CONFIGS = {
           href: SERVICE_PAGE_ROUTES.shopifyWebDesign,
         },
         {
-          label: 'Development Services',
+          label: 'Hire Shopify Developers',
           href: SERVICE_PAGE_ROUTES.shopifyDevelopers,
         },
         {
@@ -5022,7 +5022,7 @@ export const SERVICE_PAGE_CONFIGS = {
           href: SERVICE_PAGE_ROUTES.emailMarketingAgency,
         },
         {
-          label: 'Ecommerce SEO Agency',
+          label: 'Shopify SEO Agency',
           href: SERVICE_PAGE_ROUTES.shopifySeo,
         },
         {

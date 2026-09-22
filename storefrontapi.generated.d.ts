@@ -1619,7 +1619,7 @@ interface GeneratedQueryTypes {
     return: FooterQuery;
     variables: FooterQueryVariables;
   };
-  '#graphql\n  query LlmsArticles(\n    $blogHandle: String!\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(country: $country, language: $language) {\n    blog(handle: $blogHandle) {\n      articles(first: 250, sortKey: PUBLISHED_AT, reverse: true) {\n        nodes {\n          handle\n          title\n          excerpt\n          content\n          publishedAt\n        }\n      }\n    }\n  }\n': {
+  '#graphql\n  query LlmsArticles(\n    $blogHandle: String!\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(country: $country, language: $language) {\n    blog(handle: $blogHandle) {\n      articles(first: 250, sortKey: PUBLISHED_AT, reverse: true) {\n        nodes {\n          handle\n          title\n          excerpt(truncateAt: 300)\n          # Only ever read as a fallback for the excerpt, and only the first\n          # sentence of it is used. Untruncated this pulled entire article\n          # bodies for every post in four blogs on each request.\n          content(truncateAt: 300)\n          publishedAt\n        }\n      }\n    }\n  }\n': {
     return: LlmsArticlesQuery;
     variables: LlmsArticlesQueryVariables;
   };
