@@ -79,7 +79,10 @@ export function Aside({
             &times;
           </button>
         </header>
-        <main>{hasOpened ? children : null}</main>
+        {/* A div, not <main>: the page owns the single main landmark, and
+            three empty drawer <main>s ahead of it made content extractors
+            and AI crawlers read the page as empty. */}
+        <div className="aside-body">{hasOpened ? children : null}</div>
       </aside>
     </div>
   );

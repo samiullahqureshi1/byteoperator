@@ -62,6 +62,7 @@ const hero = {
 
 const lightHero = {
   theme: 'light',
+  headingLevel: 'h2',
   heading:
     'FoldTech is a Shopify Plus agency helping ambitious ecommerce brands launch, improve and grow.',
   chips: TRACK_RECORD_FACTS.map(

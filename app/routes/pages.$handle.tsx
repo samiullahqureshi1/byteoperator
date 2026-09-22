@@ -993,7 +993,8 @@ export function PageContent({
 
       <div
         dangerouslySetInnerHTML={{
-          __html: page.body,
+          // page.title above is the H1; an H1 in the body becomes an H2.
+          __html: page.body.replace(/<(\/?)h1\b/gi, '<$1h2'),
         }}
       />
     </div>

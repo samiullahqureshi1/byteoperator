@@ -54,6 +54,8 @@ export interface ServiceHeroProps {
   clientProofLabel?: string;
   variant?: ServiceHeroVariant;
   theme?: ServiceHeroTheme;
+  /** `h2` for a second hero on the same page, which keeps one H1 per page. */
+  headingLevel?: 'h1' | 'h2';
 }
 
 export function ServiceHero({
@@ -71,6 +73,7 @@ export function ServiceHero({
   clientProofLabel,
   variant = 'standard',
   theme = 'dark',
+  headingLevel: Heading = 'h1',
 }: ServiceHeroProps) {
   const hasRightContent = Boolean(
     showPartnerLogos ||
@@ -105,9 +108,9 @@ export function ServiceHero({
 
         <div className="ft-services-hero__inner">
           <div className="ft-services-hero__left">
-            <h1 className="ft-services-hero__title">
+            <Heading className="ft-services-hero__title">
               {heading}
-            </h1>
+            </Heading>
 
             {chips.length ? (
               <div className="ft-services-hero__chips">

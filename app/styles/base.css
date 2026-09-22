@@ -268,9 +268,7 @@ aside header h2 {
   margin-top: 0;
 }
 
-aside main {
-  /* Drawers are light; the global dark main background is for pages. */
-  background: none;
+aside .aside-body {
   margin: 1rem;
 }
 

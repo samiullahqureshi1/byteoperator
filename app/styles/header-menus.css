@@ -825,7 +825,7 @@
 
 
   aside:has(.charle-mobile-nav)
-    > main {
+    > .aside-body {
     width: 100%;
     height: 100%;
 

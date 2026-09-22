@@ -147,7 +147,8 @@ function withHeadingAnchors(contentHtml: string) {
   const headings: Heading[] = [];
   const used = new Set<string>();
 
-  const html = contentHtml.replace(
+  // The article title is the page's only H1, so an H1 in the body is an H2.
+  const html = contentHtml.replace(/<(\/?)h1\b/gi, '<$1h2').replace(
     /<h([23])([^>]*)>([\s\S]*?)<\/h\1>/gi,
     (match, level: string, attributes: string, inner: string) => {
       const text = stripTags(inner);
