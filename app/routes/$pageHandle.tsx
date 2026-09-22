@@ -67,7 +67,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
       {
         name: 'description',
         content:
-          'FoldTech improves ecommerce site search and product discovery on Shopify, covering search UX, relevance, merchandising, filtering and search-led customer journeys.',
+          'FoldTech improves Shopify site search and product discovery, covering search UX, relevance, merchandising and filtering.',
       },
       {tagName: 'link', rel: 'canonical', href: absoluteUrl('/search-first')},
       ...stylesheetLinks,
@@ -79,7 +79,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
       {
         name: 'description',
         content:
-          'Why ecommerce brands choose Shopify and Shopify Plus: hosted infrastructure, scalability, integrations, international commerce, custom development and the flexibility SEO and CRO work depend on.',
+          'Why ecommerce brands choose Shopify and Shopify Plus: hosted infrastructure, scalability, integrations, global selling and custom development.',
       },
       {tagName: 'link', rel: 'canonical', href: absoluteUrl('/why-shopify')},
       ...stylesheetLinks,
@@ -103,7 +103,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
       {
         name: 'description',
         content:
-          'FoldTech memberships are monthly Shopify retainers covering ongoing support, maintenance, development time, CRO and technical work for growing ecommerce and Shopify Plus stores.',
+          'Monthly Shopify retainers covering ongoing support, maintenance, development time, CRO and technical work for growing ecommerce stores.',
       },
       {tagName: 'link', rel: 'canonical', href: absoluteUrl('/memberships')},
       ...stylesheetLinks,
@@ -127,7 +127,7 @@ const basePageMeta: Route.MetaFunction = ({data}) => {
       {
         name: 'description',
         content:
-          'FoldTech runs Shopify A/B testing and ecommerce experimentation programmes, from research and hypotheses to landing page, product page and checkout journey tests.',
+          'FoldTech runs Shopify A/B testing programmes, from research and hypotheses to landing page, product page and checkout experiments.',
       },
       {tagName: 'link', rel: 'canonical', href: absoluteUrl('/ab-testing')},
       ...stylesheetLinks,

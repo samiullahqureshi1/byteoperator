@@ -10,7 +10,7 @@ import {getIncludedArticleBlogs} from '~/lib/articles-data.server';
 import {ArticleDetail} from '~/components/articles/ArticleDetail';
 import articleDetailStyles from '~/styles/article-detail.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
-import {articleJsonLd} from '~/lib/seo/jsonld';
+import {articleJsonLd, descriptionFromContent} from '~/lib/seo/jsonld';
 import {absoluteUrl} from '~/lib/seo/schema';
 
 /**
@@ -32,7 +32,9 @@ export const links: Route.LinksFunction = () => [
 export const meta: Route.MetaFunction = ({data}) => {
   const title =
     data?.article.seo?.title || `${data?.article.title ?? ''} | FoldTech`;
-  const description = data?.article.seo?.description;
+  const description =
+    data?.article.seo?.description ||
+    descriptionFromContent(data?.article.excerpt, data?.article.contentHtml);
   const canonical = data?.article.handle
     ? getArticlePath(data.article.handle)
     : undefined;

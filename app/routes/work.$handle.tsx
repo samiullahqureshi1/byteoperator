@@ -1,6 +1,10 @@
 import {useLoaderData} from 'react-router';
 import type {Route} from './+types/work.$handle';
-import {caseStudyJsonLd, textFromHtml} from '~/lib/seo/jsonld';
+import {
+  caseStudyJsonLd,
+  descriptionFromContent,
+  textFromHtml,
+} from '~/lib/seo/jsonld';
 import {absoluteUrl} from '~/lib/seo/schema';
 import {getCaseStudyPath} from '~/lib/route-mappings';
 import {CaseStudyDetail} from '~/components/work/CaseStudyDetail';
@@ -20,7 +24,9 @@ export const meta: Route.MetaFunction = ({data}) => {
   const title =
     article.seo?.title || `${article.title} Shopify Case Study | FoldTech`;
 
-  const description = article.seo?.description;
+  const description =
+    article.seo?.description ||
+    descriptionFromContent(article.excerptHtml, article.contentHtml);
 
   return [
     {title},

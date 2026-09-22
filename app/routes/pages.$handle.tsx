@@ -86,6 +86,7 @@ import {
   caseStudyJsonLd,
   clientNameFromHandle,
   contentPageJsonLd,
+  descriptionFromContent,
   findService,
   serviceJsonLd,
   textFromHtml,
@@ -438,6 +439,7 @@ type PageSeoSource = {
     title?: string | null;
     description?: string | null;
   } | null;
+  body?: string | null;
   /** Parsed `custom.faqs`, rendered visibly by `ServiceDetailFaqs`. */
   faqs?: readonly {question: string; answer: string}[];
 };
@@ -454,7 +456,8 @@ export function buildPageMeta(
     page.seo?.title ||
     (page.title ? `${page.title} | FoldTech` : 'FoldTech');
 
-  const description = page.seo?.description ?? undefined;
+  const description =
+    page.seo?.description || descriptionFromContent(null, page.body);
 
   const canonical =
     canonicalPath ??
@@ -516,7 +519,7 @@ export function pageJsonLd(
 
   const description =
     page?.seo?.description?.trim() ||
-    textFromHtml((page as {body?: string} | undefined)?.body);
+    textFromHtml(page?.body);
 
   /* A service page: Service + FAQPage when the page renders FAQs. */
   const service = serviceJsonLd(pathname, {

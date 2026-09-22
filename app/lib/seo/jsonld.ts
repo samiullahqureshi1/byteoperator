@@ -162,7 +162,29 @@ export function textFromHtml(
     .trim();
 
   if (!text) return undefined;
-  return text.length <= max ? text : `${text.slice(0, max).trimEnd()}…`;
+  return text.length <= max
+    ? text
+    : `${text.slice(0, max + 1).replace(/\s+\S*$/, '')}…`;
+}
+
+/**
+ * Meta description when Shopify has none: the excerpt, else the body's first
+ * paragraph, since case studies open with a "The Brief" heading. 145
+ * characters keeps it inside the ~1000px search results display.
+ */
+export function descriptionFromContent(
+  excerpt: string | null | undefined,
+  contentHtml: string | null | undefined,
+): string | undefined {
+  const firstParagraph = contentHtml
+    ? /<p\b[^>]*>([\s\S]*?)<\/p>/i.exec(contentHtml)?.[1]
+    : undefined;
+
+  return (
+    textFromHtml(excerpt, 145) ||
+    textFromHtml(firstParagraph, 145) ||
+    textFromHtml(contentHtml, 145)
+  );
 }
 
 export interface ArticleJsonLdInput {
