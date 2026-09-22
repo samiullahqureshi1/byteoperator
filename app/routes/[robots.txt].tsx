@@ -117,6 +117,11 @@ function aiCrawlerRules({shopId}: {shopId?: string}) {
 /**
  * This function generates disallow rules that generally follow what Shopify's
  * Online Store has as defaults for their robots.txt
+ *
+ * One deliberate difference: Shopify's `Disallow: /search` is a prefix match,
+ * so it also blocked the /search-first landing page. The search results page
+ * is matched exactly instead (`$` end anchor, plus its query-string form);
+ * search.tsx also sends `noindex` for crawlers that ignore `$`.
  */
 function generalDisallowRules({
   shopId,
@@ -156,7 +161,8 @@ Disallow: /policies/
 Disallow: /*/*?*ls=*&ls=*
 Disallow: /*/*?*ls%3D*%3Fls%3D*
 Disallow: /*/*?*ls%3d*%3fls%3d*
-Disallow: /search
+Disallow: /search$
+Disallow: /search?
 Allow: /search/
 Disallow: /search/?*
 Disallow: /apple-app-site-association
