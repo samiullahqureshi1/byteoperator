@@ -68,11 +68,10 @@ export function WorkFeaturedProjects({
                     ])}
                     sizes="120px"
                     /*
-                     * Decorative: the brand name is already announced by
-                     * the card title below, so a duplicate alt would
-                     * repeat it.
+                     * Hidden from screen readers: the brand name is already
+                     * announced by the card title below.
                      */
-                    alt=""
+                    alt={`${article.title} logo`}
                     aria-hidden="true"
                     width={logo.width ?? undefined}
                     height={logo.height ?? undefined}

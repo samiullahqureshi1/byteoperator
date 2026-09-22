@@ -92,7 +92,7 @@ export function ClientProof({
                       src={logo.src}
                       width={logo.width}
                       height={logo.height}
-                      alt={index < logos.length ? logo.alt : ''}
+                      alt={logo.alt}
                       loading="lazy"
                       decoding="async"
                     />

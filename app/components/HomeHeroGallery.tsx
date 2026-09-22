@@ -9,31 +9,37 @@ const GALLERY_LAYERS = [
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-01.webp',
+      alt: 'Wooden lattice chair and home decor styled on a side table',
       url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-02.webp',
+      alt: 'Personalised dog portrait water bottle',
       url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-03.webp',
+      alt: 'Personalised pet portrait mugs',
       url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-04.webp',
+      alt: 'Gold diamond engagement ring on black silk',
       url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-05.webp',
+      alt: 'Model in a cream lace blouse and skirt',
       url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-06.webp',
+      alt: 'Grey upholstered bar stool',
       url: '/work',
     },
   ],
@@ -42,31 +48,37 @@ const GALLERY_LAYERS = [
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-07.webp',
+      alt: 'Skincare serum bottle on dark stone',
       url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-08.webp',
+      alt: 'Living room with a tufted sofa and marble coffee table',
       url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-09.webp',
+      alt: 'Model holding a blue skincare tube',
       url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-10.webp',
+      alt: 'Skateboarder riding a longboard',
       url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-11.webp',
+      alt: 'Girl in an embroidered denim dress',
       url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-12.webp',
+      alt: 'Woman applying a botanical hair oil outdoors',
       url: '/work',
     },
   ],
@@ -75,11 +87,13 @@ const GALLERY_LAYERS = [
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-13.webp',
+      alt: 'Straw fedora hat on a wooden stand',
       url: '/work',
     },
     {
       title: 'Featured Work',
       image: '/images/home-gallery/project-14.webp',
+      alt: 'Model in a patterned midi dress',
       url: '/work',
     },
   ],
@@ -122,7 +136,7 @@ export function HomeHeroGallery() {
                       '-750.webp',
                     )} 750w`}
                     sizes="(min-width: 36rem) 20vw, 30vw"
-                    alt={`${project.title} ecommerce project`}
+                    alt={project.alt}
                     loading="lazy"
                     decoding="async"
                   />

@@ -29,7 +29,7 @@ export function AboutHero() {
                 src={WORK_HERO_TESTIMONIAL.image}
                 width={WORK_HERO_TESTIMONIAL.imageWidth}
                 height={WORK_HERO_TESTIMONIAL.imageHeight}
-                alt=""
+                alt={`${WORK_HERO_TESTIMONIAL.person}, FoldTech client`}
                 aria-hidden="true"
               />
             </span>

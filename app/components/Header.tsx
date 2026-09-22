@@ -479,7 +479,8 @@ function BulkHoursPromo({onNavigate}: {onNavigate?: () => void}) {
       <span className="ft-bulk-promo__image">
         <img
           src={BULK_HOURS_IMAGE.src}
-          alt=""
+          alt={BULK_HOURS_IMAGE.alt}
+          aria-hidden="true"
           width={BULK_HOURS_IMAGE.width}
           height={BULK_HOURS_IMAGE.height}
           loading="lazy"
@@ -539,7 +540,8 @@ function ResourcesMegaMenu() {
         <div className="ft-resources-mega__featured-image">
           <img
             src="/images/mega-menu-resources.webp"
-            alt=""
+            alt="Shopify storefront design with annotated page sections"
+            aria-hidden="true"
             width="800"
             height="520"
             loading="lazy"
@@ -1207,7 +1209,8 @@ function MobileHeaderMenu({
                 <div className="ft-mobile-resources__image">
                   <img
                     src="/images/mega-menu-resources.webp"
-                    alt=""
+                    alt="Shopify storefront design with annotated page sections"
+                    aria-hidden="true"
                     width="720"
                     height="420"
                     loading="lazy"

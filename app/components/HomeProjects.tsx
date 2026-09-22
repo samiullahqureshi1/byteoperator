@@ -430,7 +430,7 @@ export function HomeProjects({
                       src={project.logo}
                       width={project.logoImageWidth}
                       height={project.logoImageHeight}
-                      alt=""
+                      alt={`${project.alt} logo`}
                       aria-hidden="true"
                       loading="lazy"
                       decoding="async"
@@ -448,7 +448,7 @@ export function HomeProjects({
                         src={project.thumbnail}
                         width={project.thumbnailWidth}
                         height={project.thumbnailHeight}
-                        alt=""
+                        alt={`${project.alt} project thumbnail`}
                         aria-hidden="true"
                         loading="lazy"
                         decoding="async"

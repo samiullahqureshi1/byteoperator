@@ -133,7 +133,7 @@ function HeroMark() {
         src="/images/foldtech-mark.svg"
         width={500}
         height={500}
-        alt=""
+        alt="FoldTech"
       />
     </span>
   );

@@ -29,52 +29,52 @@ export const HOME_CLIENT_LOGOS: readonly ClientLogoMarqueeItem[] = [
     src: '/images/home-services/clients/logo-1.svg',
     width: 438,
     height: 48,
-    alt: '',
+    alt: 'Love Luxury logo',
   },
   {
     src: '/images/home-services/clients/logo-2.svg',
     width: 547,
     height: 120,
-    alt: '',
+    alt: 'Talah Home logo',
   },
   {
     src: '/images/home-services/clients/logo-3.svg',
     width: 1200,
     height: 200,
-    alt: '',
+    alt: 'Hope & Celebrate Los Angeles logo',
   },
   {
     src: '/images/home-services/clients/logo-4.svg',
     width: 2609,
     height: 480,
-    alt: '',
+    alt: 'SkinbySkin logo',
     size: 'small',
   },
   {
     src: '/images/home-services/clients/logo-5.svg',
     width: 1800,
     height: 541,
-    alt: '',
+    alt: 'SOOXOS logo',
     size: 'large',
   },
   {
     src: '/images/home-services/clients/logo-6.svg',
     width: 2789,
     height: 965,
-    alt: '',
+    alt: 'Mann & Co logo',
     size: 'small',
   },
   {
     src: '/images/home-services/clients/logo-7.svg',
     width: 612,
     height: 792,
-    alt: '',
+    alt: 'Cokito MI logo',
   },
   {
     src: '/images/home-services/clients/logo-8.svg',
     width: 165,
     height: 51,
-    alt: '',
+    alt: 'Deviate logo',
     size: 'large',
     noFilter: true,
   },
@@ -82,134 +82,134 @@ export const HOME_CLIENT_LOGOS: readonly ClientLogoMarqueeItem[] = [
     src: '/images/home-services/clients/logo-9.svg',
     width: 1489,
     height: 380,
-    alt: '',
+    alt: 'Blu & Blue New York logo',
     size: 'large',
   },
   {
     src: '/images/home-services/clients/logo-10.svg',
     width: 1890,
     height: 1417,
-    alt: '',
+    alt: 'Smart Tiles & Wood Flooring logo',
   },
   {
     src: '/images/home-services/clients/logo-11.svg',
     width: 4168,
     height: 3126,
-    alt: '',
+    alt: 'Elsetta Care logo',
   },
   {
     src: '/images/home-services/clients/logo-12.svg',
     width: 100,
     height: 100,
-    alt: '',
+    alt: 'Branley Ventures logo',
   },
   {
     src: '/images/home-services/clients/logo-13.svg',
     width: 4210,
     height: 1172,
-    alt: '',
+    alt: 'Shepard Safety Products logo',
   },
   {
     src: '/images/home-services/clients/logo-14.svg',
     width: 3163,
     height: 529,
-    alt: '',
+    alt: 'EGA Guitars logo',
   },
   {
     src: '/images/home-services/clients/logo-15.svg',
     width: 400,
     height: 194,
-    alt: '',
+    alt: 'Bird & Co logo',
   },
   {
     src: '/images/home-services/clients/logo-16.svg',
     width: 1500,
     height: 388,
-    alt: '',
+    alt: "Florian's Chair Store logo",
   },
   {
     src: '/images/home-services/clients/logo-17.svg',
     width: 1200,
     height: 200,
-    alt: '',
+    alt: 'Hope & Celebrate Los Angeles logo',
   },
   {
     src: '/images/home-services/clients/logo-18.svg',
     width: 160,
     height: 116,
-    alt: '',
+    alt: 'Fouzee logo',
   },
   {
     src: '/images/home-services/clients/logo-19.svg',
     width: 68,
     height: 80,
-    alt: '',
+    alt: 'Tribe logo',
   },
   {
     src: '/images/home-services/clients/logo-20.svg',
     width: 360,
     height: 159,
-    alt: '',
+    alt: 'ibra logo',
   },
   {
     src: '/images/home-services/clients/logo-21.svg',
     width: 403,
     height: 161,
-    alt: '',
+    alt: 'Vortex logo',
   },
   {
     src: '/images/home-services/clients/logo-22.svg',
     width: 1350,
     height: 521,
-    alt: '',
+    alt: 'World Bling logo',
   },
   {
     src: '/images/home-services/clients/logo-23.svg',
     width: 1024,
     height: 501,
-    alt: '',
+    alt: 'Mad Hopper Fire and Brew logo',
   },
   {
     src: '/images/home-services/clients/logo-24.svg',
     width: 280,
     height: 46,
-    alt: '',
+    alt: 'Elite Sport Goalkeeping logo',
   },
   {
     src: '/images/home-services/clients/logo-25.svg',
     width: 464,
     height: 158,
-    alt: '',
+    alt: 'Big Bang logo',
   },
   {
     src: '/images/home-services/clients/logo-26.svg',
     width: 190,
     height: 93,
-    alt: '',
+    alt: 'RalphysWorld logo',
   },
   {
     src: '/images/home-services/clients/logo-27.svg',
     width: 565,
     height: 85,
-    alt: '',
+    alt: 'Heatform Markings and Toolform logo',
   },
   {
     src: '/images/home-services/clients/logo-28.svg',
     width: 810,
     height: 316,
-    alt: '',
+    alt: 'WANAhat logo',
   },
   {
     src: '/images/home-services/clients/logo-29.svg',
     width: 3000,
     height: 1223,
-    alt: '',
+    alt: 'Boxie logo',
   },
   {
     src: '/images/home-services/clients/logo-30.svg',
     width: 410,
     height: 46,
-    alt: '',
+    alt: 'Chatham Ivy logo',
   },
 ] as const;
 
@@ -456,7 +456,7 @@ export function HomeServices() {
                 src={product.logo}
                 width={130}
                 height={50}
-                alt=""
+                alt={product.label}
                 aria-hidden="true"
                 loading="lazy"
                 decoding="async"
@@ -518,7 +518,7 @@ export function ClientLogoMarquee({
 
                 return (
                   <div
-                    key={`${copyIndex}-${logo.alt}`}
+                    key={`${copyIndex}-${logo.src}`}
                     className={`ft-home-services__logo-item${sizeClass}`}
                   >
                     <img
@@ -526,11 +526,7 @@ export function ClientLogoMarquee({
                       src={logo.src}
                       width={logo.width}
                       height={logo.height}
-                      alt={
-                        copyIndex === 0
-                          ? logo.alt
-                          : ''
-                      }
+                      alt={logo.alt}
                       loading="lazy"
                       decoding="async"
                     />
@@ -666,7 +662,7 @@ function ServiceBadge({
         src={service.badge}
         width={130}
         height={50}
-        alt=""
+        alt={service.badgeAlt}
         aria-hidden="true"
         loading="lazy"
         decoding="async"

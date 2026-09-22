@@ -3,28 +3,28 @@ import {Link} from 'react-router';
 const EXPERT_MEDIA = [
   {
     src: '/images/home-experts/01.webp',
-    alt: 'Shopify ecommerce project',
+    alt: 'Model holding a blue skincare tube',
     className: 'ft-home-experts__media--one',
     width: 941,
     height: 1672,
   },
   {
     src: '/images/home-experts/02.webp',
-    alt: 'Shopify ecommerce brand project',
+    alt: 'Skincare jar on a marble cafe table',
     className: 'ft-home-experts__media--two',
     width: 896,
     height: 1195,
   },
   {
     src: '/images/home-experts/03.webp',
-    alt: 'Shopify beauty ecommerce project',
+    alt: 'Floral crystal embellishments on fabric',
     className: 'ft-home-experts__media--three',
     width: 1125,
     height: 2000,
   },
   {
     src: '/images/home-experts/04.webp',
-    alt: 'Shopify lifestyle ecommerce project',
+    alt: 'Woman at a cafe table with a navy handbag',
     className: 'ft-home-experts__media--four',
     width: 1086,
     height: 1448,
@@ -66,7 +66,7 @@ export function HomeExperts({
             src={media.src}
             width={media.width}
             height={media.height}
-            alt=""
+            alt={media.alt}
             loading="lazy"
             decoding="async"
           />

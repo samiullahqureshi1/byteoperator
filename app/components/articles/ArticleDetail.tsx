@@ -19,8 +19,11 @@ const WORDS_PER_MINUTE = 220;
 
 export function ArticleDetail({article}: {article: EditorialArticle}) {
   const {html, headings} = useMemo(
-    () => withHeadingAnchors(withCanonicalLinks(article.contentHtml)),
-    [article.contentHtml],
+    () =>
+      withHeadingAnchors(
+        withImageAlts(withCanonicalLinks(article.contentHtml), article.title),
+      ),
+    [article.contentHtml, article.title],
   );
   // Only top-level sections go in the index. A long guide carries dozens of
   // h3 subheadings, which would make the rail longer than the viewport.
@@ -161,6 +164,41 @@ function withHeadingAnchors(contentHtml: string) {
   );
 
   return {html, headings};
+}
+
+/**
+ * Most images in Shopify article bodies carry an empty alt. Each one gets the
+ * heading of the section it illustrates, else the article title, so no image
+ * reaches search engines undescribed. Alts written in Shopify always win, and
+ * a bare `<img>` with no src (it renders nothing) is dropped.
+ */
+function withImageAlts(contentHtml: string, articleTitle: string) {
+  let context = articleTitle;
+
+  const describe = (img: string) => {
+    if (!/\ssrc\s*=/i.test(img)) return '';
+    if (/\salt\s*=\s*(["'])\s*[^\s"'][^"']*\1/i.test(img)) return img;
+
+    const alt = context
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/</g, '&lt;');
+
+    return img
+      .replace(/\salt\s*=\s*(["'])[^"']*\1/i, '')
+      .replace(/^<img\b/i, `<img alt="${alt}"`);
+  };
+
+  return contentHtml.replace(
+    /<h([1-4])\b[^>]*>([\s\S]*?)<\/h\1>|<img\b[^>]*>/gi,
+    (match, level: string | undefined, inner: string | undefined) => {
+      if (!level) return describe(match);
+
+      // Some articles put an image inside a heading; it takes that heading.
+      context = stripTags(inner ?? '').replace(/^\d+[.)]\s*/, '') || context;
+      return match.replace(/<img\b[^>]*>/gi, describe);
+    },
+  );
 }
 
 function uniqueId(base: string, used: Set<string>) {

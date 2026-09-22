@@ -1,6 +1,7 @@
 import * as serverBuild from 'virtual:react-router/server-build';
 import {createRequestHandler, storefrontRedirect} from '@shopify/hydrogen';
 import {createHydrogenRouterContext} from '~/lib/context';
+import {headPublicAsset} from '~/services/public-assets.server';
 import {getCleanUrlRedirect} from '~/services/redirects.server';
 
 /**
@@ -17,6 +18,15 @@ export default {
 
       if (cleanUrlRedirect) {
         return cleanUrlRedirect;
+      }
+
+      const publicAssetHead = await headPublicAsset(
+        request,
+        import.meta.env.BASE_URL,
+      );
+
+      if (publicAssetHead) {
+        return publicAssetHead;
       }
 
       const hydrogenContext = await createHydrogenRouterContext(
