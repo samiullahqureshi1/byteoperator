@@ -61,8 +61,14 @@ export function links() {
     // search, account orders, blogs/articles) — those routes declare it
     // themselves via their own links(). shop.app (Shop Pay) isn't used
     // anywhere in this app, so it isn't preconnected at all.
-    {rel: 'icon', type: 'image/png', href: favicon},
-    {rel: 'shortcut icon', type: 'image/png', href: favicon},
+    /*
+     * /favicon.ico is not listed here on purpose: browsers and crawlers
+     * request it by path whether or not it is declared, and it now exists.
+     * These cover the surfaces that read the markup instead.
+     */
+    {rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/favicon-32.png'},
+    {rel: 'icon', type: 'image/png', sizes: '512x512', href: favicon},
+    {rel: 'apple-touch-icon', sizes: '180x180', href: '/images/apple-touch-icon.png'},
   ];
 }
 

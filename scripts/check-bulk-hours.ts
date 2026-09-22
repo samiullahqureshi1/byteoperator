@@ -1,6 +1,7 @@
 // Checks the bulk hours quantity and money rules. Run: node scripts/check-bulk-hours.ts
 import assert from 'node:assert/strict';
 import {
+  hoursOnPlanSwitch,
   multiplyMoney,
   snapHours,
   stepHours,
@@ -26,6 +27,13 @@ assert.equal(stepHours(10, true, 1), 15);
 assert.equal(stepHours(24, true, -1), 20); // off-step quantities land on a step
 assert.equal(stepHours(24, true, 1), 25);
 assert.equal(stepHours(100, true, 1), 100);
+
+// Switching plan. The monthly minimum is the plan's rule, not a choice, so it
+// must not follow the visitor back to the one-time plan.
+assert.equal(hoursOnPlanSwitch(1, 1, true), 5); // one-time 1 -> monthly floor
+assert.equal(hoursOnPlanSwitch(5, 1, false), 1); // ...and back to the 1 chosen
+assert.equal(hoursOnPlanSwitch(40, 40, false), 40); // a real choice is kept
+assert.equal(hoursOnPlanSwitch(12, 40, true), 10); // monthly snaps to its step
 
 // Money in cents.
 assert.equal(multiplyMoney({amount: '49.99'}, 15).amount, '749.85');

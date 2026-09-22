@@ -21,6 +21,22 @@ export function snapHours(value: number, subscription: boolean) {
   return Math.min(max, Math.max(min, Math.round(value / step) * step));
 }
 
+/**
+ * The hours to show after switching plan.
+ *
+ * Going monthly forces at least the monthly minimum, which is the plan's rule
+ * rather than anything the visitor picked. `oneTimeHours` carries what they
+ * actually chose on the one-time plan so it can be restored on the way back -
+ * without it, that forced minimum sticks and one-time starts at 5, not 1.
+ */
+export function hoursOnPlanSwitch(
+  current: number,
+  oneTimeHours: number,
+  monthly: boolean,
+) {
+  return monthly ? snapHours(current, true) : snapHours(oneTimeHours, false);
+}
+
 /** The next allowed number of hours up (1) or down (-1) from `value`. */
 export function stepHours(
   value: number,

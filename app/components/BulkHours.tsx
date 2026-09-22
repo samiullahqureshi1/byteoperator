@@ -8,6 +8,7 @@ import {ContactForm} from './contact/ContactForm';
 import {
   MAX_HOURS,
   hourRules,
+  hoursOnPlanSwitch,
   multiplyMoney,
   snapHours,
   stepHours,
@@ -80,6 +81,9 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
     snapHours(Number(searchParams.get('hours')), false),
   );
   const [subscribe, setSubscribe] = useState(false);
+  // What was chosen on the one-time plan, so the monthly plan's 5-hour
+  // minimum does not follow the visitor back to one-time.
+  const [oneTimeHours, setOneTimeHours] = useState(hours);
   const [quoteOpen, setQuoteOpen] = useState(false);
   // Text typed into the hours box, applied on blur or Enter so typing "15"
   // is not snapped to 10 after the "1".
@@ -121,8 +125,10 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
   const showCompare = isSubscription && Boolean(saving) && savingPercent > 0;
 
   function choosePlan(monthly: boolean) {
+    // Captured before the monthly minimum overrides it.
+    if (monthly) setOneTimeHours(hours);
     setSubscribe(monthly);
-    setHours((current) => snapHours(current, monthly));
+    setHours(hoursOnPlanSwitch(hours, oneTimeHours, monthly));
     setDraft(null);
   }
 

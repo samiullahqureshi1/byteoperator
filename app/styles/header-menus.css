@@ -1997,7 +1997,7 @@
 ========================================================= */
 
 .ft-bulk-promo {
-  --ft-bulk-promo-bg: var(--ft-dark-deep);
+  --ft-bulk-promo-bg: var(--ft-dark);
 
   display: flex;
   flex-direction: column;
@@ -2161,8 +2161,6 @@
 @media (max-width: 61.9375rem) {
 
   .ft-bulk-promo {
-    --ft-bulk-promo-bg: var(--ft-dark);
-
     border-radius: 1.5rem;
 
     overflow: hidden;
