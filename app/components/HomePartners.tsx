@@ -154,10 +154,7 @@ export function HomePartners({
           </div>
 
           <div className="ft-home-partners__right">
-            <div
-              className="ft-home-partners__logos"
-              aria-label="Ecommerce technology logos"
-            >
+            <div className="ft-home-partners__logos">
               {logos.map((logo) => (
                 <div
                   className="ft-home-partners__logo"

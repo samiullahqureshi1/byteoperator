@@ -136,7 +136,7 @@ export function EcommerceSeoHero({
               {croInteractive ? (
                 <div className="ft-ecommerce-seo-hero__ab-demo">
                   <span className="ft-ecommerce-seo-hero__ab-demo-pill"><span aria-hidden="true" />See CRO in action</span>
-                  <div className="ft-ecommerce-seo-hero__ab-demo-toggle" aria-label="CRO hero view">
+                  <div className="ft-ecommerce-seo-hero__ab-demo-toggle" role="group" aria-label="CRO hero view">
                     <button type="button" aria-pressed={!isVariant} className={!isVariant ? 'is-active' : undefined} onClick={() => setIsVariant(false)}>Control</button>
                     <button type="button" aria-pressed={isVariant} className={isVariant ? 'is-active' : undefined} onClick={() => setIsVariant(true)}>Variant</button>
                   </div>

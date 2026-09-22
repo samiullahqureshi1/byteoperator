@@ -86,10 +86,7 @@ export function AboutStoryStats() {
                   {fact.label}
                 </p>
 
-                <span
-                  className="ft-about-stats__item-value"
-                  aria-label={`${fact.value} ${fact.label}`}
-                >
+                <span className="ft-about-stats__item-value">
                   <span
                     className="ft-about-stats__item-value-reserve"
                     aria-hidden="true"
@@ -101,6 +98,12 @@ export function AboutStoryStats() {
                     aria-hidden="true"
                   >
                     {displayValues[index]}
+                  </span>
+
+                  {/* The figure counts up, so the finished one is read out
+                      instead of whichever frame the animation is on. */}
+                  <span className="sr-only">
+                    {`${fact.value} ${fact.label}`}
                   </span>
                 </span>
               </article>

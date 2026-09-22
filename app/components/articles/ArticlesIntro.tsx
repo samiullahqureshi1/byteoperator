@@ -184,6 +184,7 @@ export function ArticlesIntro({
 
         <div
           className="ft-articles-controls"
+          role="group"
           aria-label="Article categories"
         >
           <ul className="ft-article-filters">

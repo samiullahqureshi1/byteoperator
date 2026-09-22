@@ -99,7 +99,16 @@ export function AboutSpace() {
           <div
             ref={scrollerRef}
             className="ft-about-space__scroller"
+            role="group"
             aria-label="FoldTech workspace gallery"
+            /*
+             * The slides hold only images, so without this the carousel
+             * scrolls by pointer alone - no keyboard, no agent. This is the
+             * fix axe's "scrollable-region-focusable" asks for; the lint rule
+             * below disagrees with it on scroll containers specifically.
+             */
+            // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+            tabIndex={0}
           >
             {SPACE_IMAGES.map((image) => (
               <div className="ft-about-space__slide" key={image.src}>

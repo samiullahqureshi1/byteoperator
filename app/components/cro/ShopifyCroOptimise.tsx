@@ -190,6 +190,9 @@ export function ShopifyCroOptimise({
 
             <div
               className={`ft-cro-wireframe${isAfter ? ' is-variant' : ''}`}
+              // group, not img: the change tags inside say what the variant
+              // altered, and img would collapse them out of the tree.
+              role="group"
               aria-label={
                 isAfter ? afterWireframeLabel : beforeWireframeLabel
               }

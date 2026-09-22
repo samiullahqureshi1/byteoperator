@@ -14,10 +14,7 @@ export function ContactPartners() {
           Technology partners
         </h2>
 
-        <div
-          className="ft-contact-partners__logos"
-          aria-label="Technology partner logos"
-        >
+        <div className="ft-contact-partners__logos">
           {CONTACT_PARTNER_LOGOS.map((logo) => (
             <div className="ft-contact-partners__logo" key={logo.src}>
               <img

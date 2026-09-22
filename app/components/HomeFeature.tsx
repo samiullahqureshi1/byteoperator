@@ -49,10 +49,7 @@ export function HomeFeature({
             </p>
 
             {feature.logos?.length ? (
-              <div
-                className="ft-home-feature__logos"
-                aria-label="Service categories"
-              >
+              <div className="ft-home-feature__logos">
                 {feature.logos.map((logo) => (
                   <div
                     className="ft-home-feature__logo-item"

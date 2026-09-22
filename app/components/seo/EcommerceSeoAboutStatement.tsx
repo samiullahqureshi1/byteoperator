@@ -29,6 +29,7 @@ export function EcommerceSeoAboutStatement() {
 
         <div
           className="ft-ecommerce-seo-about__pills"
+          role="group"
           aria-label="Related services"
         >
           {SEO_PILLS.map((pill) => (

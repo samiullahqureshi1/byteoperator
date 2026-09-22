@@ -277,10 +277,7 @@ export function HeaderMenu({
                 <span>{item.title}</span>
 
                 {isServices ? (
-                  <span
-                    className="charle-header__badge"
-                    aria-label={`${SERVICES_BADGE_COUNT} services`}
-                  >
+                  <span className="charle-header__badge">
                     {SERVICES_BADGE_COUNT}
                   </span>
                 ) : null}
@@ -381,6 +378,7 @@ function ServicesMegaMenu() {
   return (
     <div
       className="ft-mega-menu ft-mega-menu--services"
+      role="group"
       aria-label="Services"
     >
       <div className="ft-services-mega__grid">
@@ -515,6 +513,7 @@ function ResourcesMegaMenu() {
   return (
     <div
       className="ft-mega-menu ft-mega-menu--resources"
+      role="group"
       aria-label="Resources"
     >
       <div className="ft-resources-mega__links">

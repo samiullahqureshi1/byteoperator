@@ -67,6 +67,7 @@ export function HomeAbout({
 
           <div
             className="ft-home-about__stats"
+            role="group"
             aria-label="FoldTech performance statistics"
             ref={statsRef}
           >
@@ -75,12 +76,15 @@ export function HomeAbout({
                 className="ft-home-about__stat"
                 key={stat.label}
               >
-                <p
-                  className="ft-home-about__stat-value"
-                  aria-label={`${stat.value} ${stat.label}`}
-                >
+                <p className="ft-home-about__stat-value">
                   <span aria-hidden="true">
                     {displayValues[index]}
+                  </span>
+
+                  {/* The figure counts up, so the finished one is read out
+                      instead of whichever frame the animation is on. */}
+                  <span className="sr-only">
+                    {`${stat.value} ${stat.label}`}
                   </span>
                 </p>
 

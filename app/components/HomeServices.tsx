@@ -443,10 +443,7 @@ export function HomeServices() {
           ))}
         </div>
 
-        <div
-          className="ft-home-services__products"
-          aria-label="Service categories"
-        >
+        <div className="ft-home-services__products">
           {SERVICE_PRODUCTS.map((product) => (
             <Link
               key={product.label}

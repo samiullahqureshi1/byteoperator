@@ -34,7 +34,7 @@ export function AboutJoin() {
 
                 <span
                   className="ft-about-join__status-dot"
-                  aria-label="Vacancies available"
+                  aria-hidden="true"
                 >
                   <span className="ft-about-join__status-dot-inner" />
                 </span>

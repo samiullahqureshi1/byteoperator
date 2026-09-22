@@ -22,10 +22,7 @@ export function ServicePlusAgencyCta({
       <div className="ft-service-plus-agency-cta__glow" aria-hidden="true" />
 
       <div className="ft-service-plus-agency-cta__container">
-        <div
-          className="ft-service-plus-agency-cta__partners"
-          aria-label="Shopify and Shopify Plus"
-        >
+        <div className="ft-service-plus-agency-cta__partners">
           <img
             src="/images/home-partners/shopify.svg"
             alt="Shopify"

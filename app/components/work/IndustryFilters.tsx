@@ -19,7 +19,11 @@ export function IndustryFilters({
   onChange,
 }: IndustryFiltersProps) {
   return (
-    <div className="ft-industry-filters" aria-label="Filter case studies by industry">
+    <div
+      className="ft-industry-filters"
+      role="group"
+      aria-label="Filter case studies by industry"
+    >
       {INDUSTRY_FILTERS.map((industry) => {
         const isSelected = industry === selected;
 
