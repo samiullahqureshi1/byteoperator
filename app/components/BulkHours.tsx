@@ -1,10 +1,10 @@
-import {useState} from 'react';
-import {Link, useSearchParams} from 'react-router';
+import {useEffect, useRef, useState} from 'react';
+import {useSearchParams} from 'react-router';
 import {Money} from '@shopify/hydrogen';
 import type {BulkHoursQuery} from 'storefrontapi.generated';
 import {AddToCartButton} from './AddToCartButton';
 import {useAside} from './Aside';
-import {CONTACT_CLEAN_PATH} from '~/lib/route-mappings';
+import {ContactForm} from './contact/ContactForm';
 import {
   MAX_HOURS,
   hourRules,
@@ -80,6 +80,7 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
     snapHours(Number(searchParams.get('hours')), false),
   );
   const [subscribe, setSubscribe] = useState(false);
+  const [quoteOpen, setQuoteOpen] = useState(false);
   // Text typed into the hours box, applied on blur or Enter so typing "15"
   // is not snapped to 10 after the "1".
   const [draft, setDraft] = useState<string | null>(null);
@@ -382,9 +383,88 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
 
       <p className="ft-bulk-hours__quote">
         Need more than {MAX_HOURS} hours?{' '}
-        <Link to={CONTACT_CLEAN_PATH}>Ask for a quote</Link>
+        <button type="button" onClick={() => setQuoteOpen(true)}>
+          Ask for a quote
+        </button>
       </p>
+
+      <QuoteModal
+        open={quoteOpen}
+        onClose={() => setQuoteOpen(false)}
+        hours={hours}
+        isSubscription={isSubscription}
+      />
     </div>
+  );
+}
+
+/**
+ * The contact form in a dialog, so asking for a quote never leaves the buy
+ * panel. `enquirySource` is what tells the team the lead came from here
+ * rather than the contact page, and the selection is pre-written into the
+ * message so the quote can be priced without a reply.
+ *
+ * A native <dialog> rather than a portal: showModal() gives the top layer,
+ * the focus trap and Escape-to-close without any of them being written here.
+ */
+function QuoteModal({
+  open,
+  onClose,
+  hours,
+  isSubscription,
+}: {
+  open: boolean;
+  onClose: () => void;
+  hours: number;
+  isSubscription: boolean;
+}) {
+  const ref = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    if (open) ref.current?.showModal();
+    else ref.current?.close();
+  }, [open]);
+
+  const plan = isSubscription ? 'monthly subscription' : 'one-time';
+
+  return (
+    <dialog
+      ref={ref}
+      className="ft-quote-modal"
+      aria-labelledby="ft-quote-modal-title"
+      // Fires on Escape too, so this is the single close path.
+      onClose={onClose}
+    >
+      <button
+        type="button"
+        className="ft-quote-modal__close"
+        onClick={onClose}
+        aria-label="Close the quote form"
+      >
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 5L19 19M19 5L5 19" stroke="currentColor" />
+        </svg>
+      </button>
+
+      <h2 className="ft-quote-modal__title" id="ft-quote-modal-title">
+        Ask for a quote
+      </h2>
+
+      <p className="ft-quote-modal__text">
+        Tell us how many hours you need and we&apos;ll price it for you.
+      </p>
+
+      {/* Mounted only while open, so every visit starts on a blank form. */}
+      {open ? (
+        <ContactForm
+          enquirySource="Bulk hours quote"
+          defaultService="Support & Maintenance"
+          defaultMessage={`I need more than ${MAX_HOURS} hours. I was looking at ${hours} ${
+            hours === 1 ? 'hour' : 'hours'
+          } on the ${plan} plan.`}
+        />
+      ) : null}
+    </dialog>
   );
 }
 

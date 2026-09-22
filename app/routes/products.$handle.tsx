@@ -13,6 +13,7 @@ import {ClientLogoMarquee} from '~/components/HomeServices';
 import {WorkTestimonial} from '~/components/work/WorkTestimonial';
 import {absoluteUrl} from '~/lib/seo/schema';
 import bulkHoursStyles from '~/styles/bulk-hours.css?url';
+import contactHeroStyles from '~/styles/contact-hero.css?url';
 import homeExpertsStyles from '~/styles/home-experts.css?url';
 import homePartnersStyles from '~/styles/home-partners.css?url';
 import homeServicesStyles from '~/styles/home-services.css?url';
@@ -22,6 +23,8 @@ import workTestimonialStyles from '~/styles/work-testimonial.css?url';
 
 export const links: Route.LinksFunction = () => [
   {rel: 'stylesheet', href: bulkHoursStyles},
+  // Carries the contact form inside the "Ask for a quote" modal.
+  {rel: 'stylesheet', href: contactHeroStyles},
   {rel: 'stylesheet', href: serviceDetailFaqStyles},
   {rel: 'stylesheet', href: homePartnersStyles},
   // Carries the client logo marquee under the buy panel.

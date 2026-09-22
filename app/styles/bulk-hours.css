@@ -539,7 +539,12 @@
   text-align: center;
 }
 
-.ft-bulk-hours__quote a {
+.ft-bulk-hours__quote button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
   color: var(--ft-white, #ffffff);
   text-decoration: underline;
   text-underline-offset: 0.2em;
@@ -876,5 +881,95 @@
   .ft-bulk-hours__terms {
     margin-top: -0.25rem;
     font-size: 0.75rem;
+  }
+}
+
+
+/* =========================================================
+   QUOTE MODAL
+   A native <dialog>: the top layer and the scrim come from the
+   browser. The form inside is styled by contact-hero.css,
+   which the product route loads.
+========================================================= */
+
+.ft-quote-modal {
+  width: min(40rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 4rem);
+
+  padding: 2rem;
+
+  border: 0;
+  border-radius: 1.25rem;
+
+  background: #ffffff;
+  color: #000000;
+
+  box-shadow: 0 2vh 6vh rgba(0, 0, 0, 0.45);
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.ft-quote-modal::backdrop {
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(1.25rem);
+  -webkit-backdrop-filter: blur(1.25rem);
+}
+
+/* showModal() blocks interaction but not wheel scrolling behind the
+   dialog, so the page is held still while it is open. */
+body:has(.ft-quote-modal[open]) {
+  overflow: hidden;
+}
+
+.ft-quote-modal__close {
+  position: sticky;
+  top: 0;
+  float: right;
+
+  display: grid;
+  place-items: center;
+
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.06);
+  color: #000000;
+
+  cursor: pointer;
+}
+
+.ft-quote-modal__close svg {
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 1.5;
+}
+
+.ft-quote-modal__title {
+  margin: 0 0 0.35rem;
+  padding-right: 2.5rem;
+
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.ft-quote-modal__text {
+  margin: 0 0 1.5rem;
+
+  font-size: 0.9375rem;
+  color: rgba(0, 0, 0, 0.64);
+}
+
+@media (max-width: 47.9375rem) {
+  .ft-quote-modal {
+    width: calc(100vw - 1.5rem);
+    max-height: calc(100vh - 2rem);
+
+    padding: 1.5rem 1.125rem;
   }
 }

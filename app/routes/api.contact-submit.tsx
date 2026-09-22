@@ -108,6 +108,8 @@ export async function action({context, request}: Route.ActionArgs) {
   const message = readField(form, 'message');
   const marketingConsent = readField(form, 'marketingConsent');
   const uploadedUrl = readField(form, 'uploadedUrl');
+  // Which form the enquiry came from. Absent on the contact page itself.
+  const enquirySource = readField(form, 'enquirySource');
 
   const values: Record<string, string> = {
     firstName,
@@ -154,6 +156,7 @@ export async function action({context, request}: Route.ActionArgs) {
     {key: 'contact_budget', tagPrefix: 'budget', value: budget},
     {key: 'contact_service', tagPrefix: 'service', value: service},
     {key: 'contact_source', tagPrefix: 'source', value: source},
+    {key: 'contact_enquiry_source', tagPrefix: 'enquiry', value: enquirySource},
   ];
 
   const leadMetafields: LeadMetafield[] = [
@@ -211,7 +214,9 @@ export async function action({context, request}: Route.ActionArgs) {
   ];
 
   const leadNote = [
-    'Website contact enquiry',
+    enquirySource
+      ? `Website enquiry - ${enquirySource}`
+      : 'Website contact enquiry',
     `Company: ${company}`,
     `Phone: ${phone}`,
     `Budget: ${budget}`,
@@ -327,12 +332,17 @@ export async function action({context, request}: Route.ActionArgs) {
 
 
   // The template's `message` variable is the only place left to surface an
-  // uploaded file link — the fixed template_params list below has no
-  // dedicated attachment variable, so this is how attachment support stays
-  // intact without inventing a variable the template doesn't expect.
-  const messageWithAttachment = uploadedUrl
-    ? `${message}\n\nUploaded file: ${uploadedUrl}`
-    : message;
+  // uploaded file link, or which form the enquiry came from — the fixed
+  // template_params list below has no variable for either, so this is how
+  // they reach the inbox without inventing variables the template doesn't
+  // expect.
+  const messageWithAttachment = [
+    enquirySource ? `Enquiry from: ${enquirySource}` : '',
+    message,
+    uploadedUrl ? `Uploaded file: ${uploadedUrl}` : '',
+  ]
+    .filter(Boolean)
+    .join('\n\n');
 
   const templateParams = {
     to_email: RECIPIENT,
