@@ -27,6 +27,15 @@ export type ArticlesListingArticle = {
   featured: boolean;
 };
 
+/*
+ * Hydrogen's <Image> hard-codes `style={{width, aspectRatio}}` from the
+ * Shopify intrinsic size, then spreads the caller's `style` over it. The
+ * card CSS already owns both, so every one of those attributes shipped
+ * dead — 85 of them on this page. Undefined values are dropped by React,
+ * which leaves the element with no style attribute at all.
+ */
+const NO_INLINE_SIZING = {width: undefined, aspectRatio: undefined};
+
 type ArticlesListingProps = {
   activeFilter: ArticleFilter;
   articles: ArticlesListingArticle[];
@@ -93,6 +102,7 @@ function FeaturedArticle({article}: {article: ArticlesListingArticle}) {
               data={article.image}
               loading="eager"
               sizes="(min-width: 768px) 60vw, 100vw"
+              style={NO_INLINE_SIZING}
             />
           </Link>
         ) : null}
@@ -129,6 +139,7 @@ function ArticleCard({
               data={article.image}
               loading={loading}
               sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+              style={NO_INLINE_SIZING}
             />
           </div>
         ) : null}

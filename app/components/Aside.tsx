@@ -65,8 +65,18 @@ export function Aside({
     return () => abortController.abort();
   }, [close, expanded]);
 
+  /*
+   * The drawer title is the dialog's accessible name, not part of the page
+   * outline. As an <h3> it rendered three headings ahead of every page's
+   * <h1> (cart, search, menu), so every document started h3-h3-h3-h1. A <p>
+   * plus aria-labelledby keeps the name — the dialog previously had none —
+   * and leaves the outline to the page.
+   */
+  const titleId = `aside-title-${type}`;
+
   return (
     <div
+      aria-labelledby={titleId}
       aria-modal
       className={`overlay ${expanded ? 'expanded' : ''}`}
       role="dialog"
@@ -74,7 +84,7 @@ export function Aside({
       <button className="close-outside" onClick={close} />
       <aside>
         <header>
-          <h3>{heading}</h3>
+          <p id={titleId}>{heading}</p>
           <button className="close reset" onClick={close} aria-label="Close">
             &times;
           </button>

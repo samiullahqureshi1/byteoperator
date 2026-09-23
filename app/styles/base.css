@@ -243,7 +243,8 @@ aside header {
   padding: 0 20px;
 }
 
-aside header h3 {
+/* The drawer title is a <p>, not a heading — see Aside.tsx. */
+aside header p {
   font-family: 'Season Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
