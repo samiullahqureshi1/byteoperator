@@ -115,7 +115,8 @@ function getSitemapResourcePath(type: string, handle?: string): string {
   }
 
   /*
-   * Shopify pages are served at `/pages/:handle`, but most of them are
+   * Shopify p
+  ages are served at `/pages/:handle`, but most of them are
    * canonicalized to a clean public URL (`/pages/about-us` -> `/about`).
    * Listing the `/pages/*` spelling would advertise a URL that then points
    * its canonical somewhere else, so resolve to the canonical path first.

@@ -285,22 +285,27 @@ function FooterNavigation({
 }
 
 
+/*
+ * Shortened labels, matching the terse style this bottom bar already used
+ * for Privacy and Terms. These are the four policies Shopify returns, plus
+ * the index — which nothing else on the site links to.
+ */
+const FOOTER_POLICY_LINKS = [
+  {to: '/policies/privacy-policy', label: 'Privacy'},
+  {to: '/policies/terms-of-service', label: 'Terms'},
+  {to: '/policies/refund-policy', label: 'Refunds'},
+  {to: '/policies/subscription-policy', label: 'Cancellations'},
+  {to: '/policies', label: 'All policies'},
+];
+
 function DefaultPolicyLinks() {
   return (
     <>
-      <NavLink
-        className="ft-footer__bottom-link"
-        to="/policies/privacy-policy"
-      >
-        Privacy
-      </NavLink>
-
-      <NavLink
-        className="ft-footer__bottom-link"
-        to="/policies/terms-of-service"
-      >
-        Terms
-      </NavLink>
+      {FOOTER_POLICY_LINKS.map(({to, label}) => (
+        <NavLink className="ft-footer__bottom-link" key={to} to={to}>
+          {label}
+        </NavLink>
+      ))}
     </>
   );
 }

@@ -1,6 +1,11 @@
 import {useLoaderData, Link} from 'react-router';
 import type {Route} from './+types/policies._index';
 import type {PoliciesQuery, PolicyItemFragment} from 'storefrontapi.generated';
+import policyPageStyles from '~/styles/policy-page.css?url';
+
+export const links: Route.LinksFunction = () => [
+  {rel: 'stylesheet', href: policyPageStyles},
+];
 
 /*
  * This route had no `meta` export, and `root.tsx` has none either, so the page
@@ -35,14 +40,36 @@ export default function Policies() {
   const {policies} = useLoaderData<typeof loader>();
 
   return (
-    <div className="policies">
-      <h1>Policies</h1>
-      <div>
-        {policies.map((policy) => (
-          <fieldset key={policy.id}>
-            <Link to={`/policies/${policy.handle}`}>{policy.title}</Link>
-          </fieldset>
-        ))}
+    <div className="ft-policy-page">
+      <header className="ft-policy-hero">
+        <div className="ft-policy-hero__inner">
+          <p className="ft-policy-hero__eyebrow">Legal</p>
+          <h1 className="ft-policy-hero__title">Policies</h1>
+          <p className="ft-policy-hero__lede">
+            How we handle your data, your orders and your agreement with
+            FoldTech.
+          </p>
+        </div>
+      </header>
+
+      <div className="ft-policy-index">
+        <div className="ft-policy-index__grid">
+          {policies.map((policy) => (
+            <Link
+              className="ft-policy-card"
+              key={policy.id}
+              to={`/policies/${policy.handle}`}
+            >
+              <span className="ft-policy-card__text">
+                <span className="ft-policy-card__title">{policy.title}</span>
+                <span className="ft-policy-card__hint">Read the full policy</span>
+              </span>
+              <span className="ft-policy-card__arrow" aria-hidden="true">
+                &rarr;
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

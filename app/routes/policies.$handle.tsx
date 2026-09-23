@@ -62,6 +62,7 @@ export default function Policy() {
     <div className="ft-policy-page">
       <header className="ft-policy-hero">
         <div className="ft-policy-hero__inner">
+          <p className="ft-policy-hero__eyebrow">Legal</p>
           <h1 className="ft-policy-hero__title">{policy.title}</h1>
         </div>
       </header>
