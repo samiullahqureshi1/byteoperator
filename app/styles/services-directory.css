@@ -156,8 +156,169 @@
   height: 0.75rem;
 }
 
+/* The service trigger is a <button> now, so reset the UA styling. */
+button.ft-services-directory__link {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ft-services-directory__item[data-open='true']
+  .ft-services-directory__arrow {
+  transform: rotate(90deg);
+}
+
+.ft-services-directory__arrow {
+  transition: transform 250ms ease;
+}
+
+/* =========================================================
+   INLINE SERVICE DETAIL
+   Same 0fr/1fr grid trick the group panels use, so the panel
+   animates open without a measured height.
+========================================================= */
+
+.ft-services-directory__detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 250ms ease;
+}
+
+.ft-services-directory__item[data-open='true']
+  .ft-services-directory__detail {
+  grid-template-rows: 1fr;
+}
+
+.ft-services-directory__detail-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.ft-services-directory__detail-text {
+  max-width: 60ch;
+  margin: 1rem 0 0;
+
+  font-family: 'Season Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/*
+ * Scannable specifics under the summary. base.css resets every `ul`, so the
+ * marker is drawn with ::before rather than list-style — it keeps the teal
+ * rule and the hanging indent consistent at any font size.
+ */
+.ft-services-directory__detail-list {
+  display: grid;
+  gap: 0.5rem 2rem;
+
+  max-width: 60ch;
+  margin: 1rem 0 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.ft-services-directory__detail-list li {
+  position: relative;
+
+  margin: 0;
+  padding-left: 1.25rem;
+
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.5;
+
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.ft-services-directory__detail-list li::before {
+  content: '';
+
+  position: absolute;
+  top: 0.6em;
+  left: 0;
+
+  width: 0.5rem;
+  height: 0.0625rem;
+
+  background: var(--ft-teal, #40adaa);
+}
+
+.ft-services-directory__detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+
+  margin-top: 1.5rem;
+  padding-bottom: 0.75rem;
+}
+
+.ft-services-directory__book {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+
+  padding: 0.75rem 1.5rem;
+
+  border-radius: 999rem;
+
+  background: var(--ft-teal, #40adaa);
+  color: var(--ft-dark-deep, #01151b);
+
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  text-decoration: none;
+
+  transition: background 250ms ease;
+}
+
+/*
+ * Specific enough to beat the open-state rotation above, which would
+ * otherwise turn this button's arrow down along with the row's.
+ */
+.ft-services-directory__item[data-open='true']
+  .ft-services-directory__book
+  .ft-services-directory__arrow,
+.ft-services-directory__book .ft-services-directory__arrow {
+  flex: 0 0 1.25rem;
+  width: 1.25rem;
+  transform: none;
+}
+
+.ft-services-directory__more {
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 300;
+
+  color: var(--ft-teal-light, #afdddc);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 @media (hover: hover) {
-  .ft-services-directory__link[href]:hover {
+  .ft-services-directory__book:hover {
+    background: var(--ft-teal-light, #afdddc);
+  }
+
+  .ft-services-directory__more:hover {
+    color: #ffffff;
+  }
+}
+
+@media (hover: hover) {
+  .ft-services-directory__link[href]:hover,
+  button.ft-services-directory__link:hover {
     opacity: 0.7;
   }
 }
@@ -165,6 +326,12 @@
 @media (min-width: 48rem) {
   .ft-services-directory__container {
     padding-inline: 7rem;
+  }
+
+  /* Two columns of highlights once there is room for them. */
+  .ft-services-directory__detail-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 48rem;
   }
 }
 
@@ -200,6 +367,8 @@
 @media (prefers-reduced-motion: reduce) {
   .ft-services-directory__plus,
   .ft-services-directory__panel,
+  .ft-services-directory__detail,
+  .ft-services-directory__arrow,
   .ft-services-directory__link {
     transition: none;
   }

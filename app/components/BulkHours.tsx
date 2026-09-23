@@ -80,6 +80,13 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
   const [hours, setHours] = useState(() =>
     snapHours(Number(searchParams.get('hours')), false),
   );
+  /*
+   * `?service=Shopify Migrations` comes from the services directory's
+   * "Book your hours" button. It rides along as a cart line attribute so the
+   * order in Shopify admin says which service the hours were bought for —
+   * otherwise every bulk-hours order looks identical.
+   */
+  const service = searchParams.get('service')?.trim() || null;
   const [subscribe, setSubscribe] = useState(false);
   // What was chosen on the one-time plan, so the monthly plan's 5-hour
   // minimum does not follow the visitor back to one-time.
@@ -356,6 +363,13 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
         </p>
       ) : null}
 
+      {service ? (
+        <p className="ft-bulk-hours__service">
+          <span className="ft-bulk-hours__service-label">Hours for</span>
+          <span className="ft-bulk-hours__service-name">{service}</span>
+        </p>
+      ) : null}
+
       <div className="ft-bulk-hours__buy">
         <AddToCartButton
           disabled={variant.availableForSale ? undefined : true}
@@ -365,6 +379,9 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
               quantity: hours,
               ...(isSubscription && subscription
                 ? {sellingPlanId: subscription.plan.id}
+                : {}),
+              ...(service
+                ? {attributes: [{key: 'Service', value: service}]}
                 : {}),
             },
           ]}

@@ -479,6 +479,39 @@
   outline-offset: -0.125rem;
 }
 
+/* Chosen service, carried in from the services directory */
+
+.ft-bulk-hours__service {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+
+  margin: 0 0 0.875rem;
+  padding: 0.75rem 1rem;
+
+  border: 0.0625rem solid rgba(64, 173, 170, 0.35);
+  border-radius: 0.625rem;
+
+  background: rgba(64, 173, 170, 0.08);
+}
+
+.ft-bulk-hours__service-label {
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 300;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.ft-bulk-hours__service-name {
+  font-family: 'Season Sans', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+
+  color: #ffffff;
+}
+
 /* Buy */
 
 .ft-bulk-hours__buy form {

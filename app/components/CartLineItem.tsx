@@ -107,6 +107,18 @@ export function CartLineItem({
             <ProductPrice price={line?.cost?.totalAmount} />
           </div>
           <ul className="cart-line-meta">
+            {/*
+              Line attributes carry the service the hours were booked for.
+              Shown here so the customer can check it before paying — it is
+              the same value the admin sees on the order.
+            */}
+            {line.attributes?.map((attribute) =>
+              attribute.value ? (
+                <li className="cart-line-attribute" key={attribute.key}>
+                  {attribute.key}: {attribute.value}
+                </li>
+              ) : null,
+            )}
             <li className="cart-line-plan">
               {line.sellingPlanAllocation
                 ? line.sellingPlanAllocation.sellingPlan.name

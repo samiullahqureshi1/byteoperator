@@ -1,113 +1,20 @@
 import {useState} from 'react';
 import {Link} from 'react-router';
+import {resolveCanonicalPath} from '~/lib/route-mappings';
+import {BULK_HOURS_PATH} from '~/components/BulkHours';
 import {
-  CRO_CLEAN_PATH,
-  resolveCanonicalPath,
-  SHOPIFY_SEO_CLEAN_PATH,
-} from '~/lib/route-mappings';
-
-type ServiceDirectoryLink = {
-  label: string;
-  href?: string;
-};
-
-type ServiceDirectoryGroup = {
-  id: string;
-  title: string;
-  links: ServiceDirectoryLink[];
-};
-
-const SERVICE_GROUPS: ServiceDirectoryGroup[] = [
-  {
-    id: 'seo',
-    title: 'SEO',
-    links: [
-      {
-        label: 'Search Engine Optimisation',
-        href: SHOPIFY_SEO_CLEAN_PATH,
-      },
-      {
-        label: 'GEO / AI Search Optimisation',
-        href: '/geo-agency/',
-      },
-    ],
-  },
-  {
-    id: 'cro-audits',
-    title: 'CRO & Audits',
-    links: [
-      {
-        label: 'Conversion Rate Optimisation',
-        href: CRO_CLEAN_PATH,
-      },
-      {label: 'Data-Driven Strategies'},
-      {
-        label: 'Ecommerce Audits',
-        href: '/services/shopify-audits/',
-      },
-      {label: 'Shopify Consultancy'},
-    ],
-  },
-  {
-    id: 'design-development',
-    title: 'Design & Development',
-    links: [
-      {
-        label: 'New build projects',
-        href: '/shopify-theme-development-builds/',
-      },
-      {
-        label: 'Support & Growth',
-        href: '/support-and-maintenance/',
-      },
-      {
-        label: 'Development Services',
-        href: '/shopify-theme-development-builds/',
-      },
-      {
-        label: 'Design Services',
-        href: '/shopify-web-design',
-      },
-      {
-        label: 'Migrations',
-        href: '/shopify-migrations/',
-      },
-      {
-        label: 'Internationalisation',
-        href: '/shopify-internationalisation/',
-      },
-      {
-        label: 'System Integrations',
-        href: '/shopify-integrations/',
-      },
-      {label: 'AI Automation & Integration'},
-      {
-        label: 'App Development',
-        href: '/shopify-app-development/',
-      },
-      {
-        label: 'Headless Commerce',
-        href: '/headless-commerce',
-      },
-      {label: 'Shopify Plus Partners'},
-    ],
-  },
-  {
-    id: 'email-sms',
-    title: 'Email & SMS',
-    links: [
-      {
-        label: 'Email & SMS Marketing',
-        href: '/email-marketing-agency/',
-      },
-    ],
-  },
-];
+  SERVICE_DIRECTORY,
+  type ServiceDirectoryEntry,
+} from '~/data/serviceDirectory';
 
 export function ServicesDirectory() {
   const [openGroups, setOpenGroups] = useState<Set<string>>(
     () => new Set(),
   );
+
+  // Which service's detail panel is open. Only one at a time — the list is
+  // long and two open panels push the rest off-screen.
+  const [openService, setOpenService] = useState<string | null>(null);
 
   function toggleGroup(groupId: string) {
     setOpenGroups((current) => {
@@ -134,7 +41,7 @@ export function ServicesDirectory() {
 
         <div className="ft-services-directory__content">
           <div className="ft-services-directory__groups">
-            {SERVICE_GROUPS.map((group) => {
+            {SERVICE_DIRECTORY.map((group) => {
               const isOpen = openGroups.has(group.id);
               const panelId = `ft-services-directory-${group.id}`;
 
@@ -161,26 +68,20 @@ export function ServicesDirectory() {
                   >
                     <div className="ft-services-directory__panel-inner">
                       <ul className="ft-services-directory__list">
-                        {group.links.map((service) => (
-                          <li
-                            className="ft-services-directory__item"
-                            key={service.label}
-                          >
-                            {service.href ? (
-                              <Link
-                                className="ft-services-directory__link"
-                                to={resolveCanonicalPath(service.href)}
-                                prefetch="intent"
-                              >
-                                <span>{service.label}</span>
-                                <ArrowIcon />
-                              </Link>
-                            ) : (
-                              <span className="ft-services-directory__link ft-services-directory__link--unresolved">
-                                <span>{service.label}</span>
-                              </span>
-                            )}
-                          </li>
+                        {group.services.map((service) => (
+                          <ServiceRow
+                            groupId={group.id}
+                            isOpen={openService === service.name}
+                            key={service.name}
+                            onToggle={() =>
+                              setOpenService(
+                                openService === service.name
+                                  ? null
+                                  : service.name,
+                              )
+                            }
+                            service={service}
+                          />
                         ))}
                       </ul>
                     </div>
@@ -192,6 +93,86 @@ export function ServicesDirectory() {
         </div>
       </div>
     </section>
+  );
+}
+
+/**
+ * One service row: the trigger, and the detail panel it opens. Every service
+ * has a description and a booking button; only those with a page of their own
+ * also get a "read more" link.
+ */
+function ServiceRow({
+  groupId,
+  isOpen,
+  onToggle,
+  service,
+}: {
+  groupId: string;
+  isOpen: boolean;
+  onToggle: () => void;
+  service: ServiceDirectoryEntry;
+}) {
+  const slug = service.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const detailId = `ft-service-detail-${groupId}-${slug}`;
+
+  return (
+    <li
+      className="ft-services-directory__item"
+      data-open={isOpen ? 'true' : 'false'}
+    >
+      <button
+        className="ft-services-directory__link"
+        type="button"
+        aria-expanded={isOpen}
+        aria-controls={detailId}
+        onClick={onToggle}
+      >
+        <span>{service.name}</span>
+        <ArrowIcon />
+      </button>
+
+      <div className="ft-services-directory__detail" id={detailId}>
+        <div className="ft-services-directory__detail-inner">
+          <p className="ft-services-directory__detail-text">
+            {service.summary}
+          </p>
+
+          <ul className="ft-services-directory__detail-list">
+            {service.highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+
+          <div className="ft-services-directory__detail-actions">
+            <Link
+              className="ft-services-directory__book"
+              to={`${BULK_HOURS_PATH}?service=${encodeURIComponent(
+                service.name,
+              )}`}
+              prefetch="intent"
+            >
+              <span>Book your hours</span>
+              <ArrowIcon />
+            </Link>
+
+            {/*
+              The full service page stays linked where one exists: it is
+              indexed, and dropping the link would strip the only internal
+              link to it.
+            */}
+            {service.href ? (
+              <Link
+                className="ft-services-directory__more"
+                to={resolveCanonicalPath(service.href)}
+                prefetch="intent"
+              >
+                Read more about {service.name}
+              </Link>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </li>
   );
 }
 
