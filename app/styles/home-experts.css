@@ -160,6 +160,12 @@
   color: #ffffff;
 }
 
+/* The description can be several paragraphs; margin: 0 above would butt
+   them together. */
+.ft-home-experts__description + .ft-home-experts__description {
+  margin-top: 1rem;
+}
+
 
 /* =========================================================
    CTA

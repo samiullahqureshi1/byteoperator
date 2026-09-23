@@ -183,9 +183,9 @@ export const HOME_FEATURES = [
       'Custom Shopify Stores Built for Growth',
 
     description: [
-      'We design and develop custom Shopify stores that combine premium user experience with high-performance code. From complete Shopify migrations to custom app development, integrations, and headless commerce using Shopify Hydrogen, we build ecommerce experiences that scale with your business.',
+      'We design and develop custom Shopify stores with a clear user experience and high-performance code. Our work includes Shopify migrations, custom app development, integrations, and headless builds using Shopify Hydrogen.',
 
-      'Every project is optimised for performance, SEO, accessibility and future growth.',
+      'Every project is planned for performance, SEO, accessibility, and future growth',
     ],
 
     buttons: [
@@ -262,9 +262,9 @@ export const HOME_FEATURES = [
     description: [
       'Strategy, technology, search and conversion expertise working together to turn your Shopify store into a growth engine.',
 
-      "Great ecommerce performance doesn't come from design or development alone. It comes from having the right strategy behind every part of the customer journey.",
+      'Strong ecommerce performance takes more than design or development. It requires the right strategy across the full customer journey.',
 
-      'FoldTech brings Shopify development, conversion optimisation, technical SEO, AI search visibility, performance and retention together under one growth-focused approach. That means fewer disconnected agencies, clearer priorities, and a Shopify store built to perform today and scale tomorrow.',
+      'FoldTech brings Shopify development, CRO, technical SEO, AI search visibility, performance, and retention together in one approach. This gives brands clearer priorities, fewer disconnected workflows, and a store built to support long-term growth.',
     ],
 
     buttons: [
@@ -337,9 +337,9 @@ export const HOME_FEATURES = [
       'Shopify SEO That Drives Qualified Organic Revenue',
 
     description: [
-      'Your Shopify store deserves more than basic keyword optimization. We build long-term organic growth through technical Shopify SEO, on-page optimisation, AI search visibility, Generative Engine Optimisation (GEO), content strategy, and SEO migrations.',
+      'Shopify SEO goes beyond keywords. We improve technical SEO, on-page optimisation, content strategy, AI search visibility, GEO, and SEO migrations to support long-term organic growth.',
 
-      "Whether you're launching a new store or scaling an established ecommerce brand, our team helps increase rankings, attract high-intent shoppers, and generate sustainable revenue without relying solely on paid advertising.",
+      "Whether you're launching a new store or growing an established brand, we help improve search visibility and attract high-intent shoppers. The goal is to generate more qualified organic traffic and reduce dependence on paid advertising.",
     ],
 
     buttons: [
@@ -414,11 +414,11 @@ export const HOME_FEATURES = [
     ],
 
     description: [
-      'Custom Shopify apps, integrations and automation built to streamline operations and unlock new ecommerce capabilities.',
+      'Custom Shopify apps, integrations, and automation can help reduce manual work and extend what your store can do.',
 
-      'Your Shopify store should work seamlessly with the tools and systems your business relies on. FoldTech builds custom Shopify apps and integrations that connect your store with ERP, CRM, inventory, marketing, payment, fulfilment and other third-party platforms.',
+      'FoldTech connects Shopify with ERP, CRM, inventory, marketing, payment, fulfilment, and other third-party systems. We also build custom functionality around specific operational needs.',
 
-      'We also develop custom functionality and automation to reduce manual processes, improve operational efficiency and create better customer experiences. Every solution is built with performance, security, scalability and long-term maintainability in mind.',
+      'The goal is to improve efficiency without adding unnecessary complexity. Each solution is planned around performance, security, scalability, and long-term maintenance.',
     ],
 
     buttons: [
@@ -480,9 +480,9 @@ export const HOME_FEATURES = [
       'Shopify Store Design That Reflects Your Brand',
 
     description: [
-      "Your Shopify store is often a customer's first impression of your brand and it should look like it. We create distinctive visual identities for Shopify stores: considered typography, color systems, imagery direction and layout choices that make your store instantly recognisable and on-brand across every page.",
+      "Your Shopify store is often a customer's first impression of your brand. We create visual systems around typography, colour, imagery, and layout so the store feels consistent across every page.",
 
-      'From homepage to product pages, every design decision is made to reinforce your brand story while keeping the experience clean, premium and easy to shop giving your store a look that stands out from template-based competitors.',
+      'From the homepage to product pages, each design choice should support the brand while keeping the shopping experience clear and easy to use. The result is a store that feels distinct without adding unnecessary complexity.',
     ],
 
     buttons: [
@@ -572,11 +572,11 @@ export const HOME_FEATURES = [
     ],
 
     description: [
-      'From strategy and design to SEO, AI visibility, development, CRO and retention we become your long-term ecommerce growth partner.',
+      'We support Shopify brands across strategy, design, development, SEO, AI visibility, CRO, and retention.',
 
-      "We don't just build Shopify stores, we create high-performing ecommerce ecosystems that attract more visitors, convert more customers, and generate sustainable growth.",
+      'Our work goes beyond launching a store. We help improve traffic, conversion, customer retention, and overall ecommerce performance.',
 
-      "Whether you're launching your first Shopify store or managing an established ecommerce brand, our team delivers measurable results through expert strategy, development, marketing, and ongoing optimisation.",
+      "Whether you're launching a new Shopify store or growing an established brand, our team provides strategy, development, marketing, and ongoing optimisation focused on measurable growth.",
     ],
 
     buttons: [
@@ -666,9 +666,9 @@ export const HOME_FEATURES = [
     description: [
       'Build a Scalable Ecommerce Store with Shopify Plus',
 
-      'Our Shopify Plus development services help growing and enterprise ecommerce brands build faster, more flexible, and scalable online stores. We handle Shopify Plus migrations, custom development, integrations, B2B functionality, automation, internationalisation, and ongoing optimisation to create an ecommerce platform ready for growth.',
+      'Our Shopify Plus development services help growing and enterprise brands build flexible, scalable ecommerce stores. We handle Shopify Plus migrations, custom development, integrations, B2B features, automation, internationalisation, and ongoing optimisation.',
 
-      'From initial strategy and store architecture to development and long-term support, we help you get more from Shopify Plus while creating a seamless experience for both your customers and internal teams.',
+      'From strategy and store architecture to development and long-term support, we help brands get more from Shopify Plus. The focus is on better performance, easier management, and a clear experience for customers and internal teams.',
     ],
 
     buttons: [
@@ -745,9 +745,9 @@ export const HOME_FEATURES = [
     description: [
       'Retention marketing that increases repeat purchases and customer lifetime value.',
 
-      'Acquiring customers is expensive, keeping them is where real growth happens. We create automated email and SMS marketing strategies powered by Klaviyo to nurture customers, recover abandoned carts, promote repeat purchases, and build long-term brand loyalty.',
+      'Acquiring new customers is expensive, so retention matters. We build Klaviyo email and SMS strategies that help recover abandoned carts, encourage repeat purchases, and keep customers engaged.',
 
-      'We also help businesses launch subscription models and B2B ecommerce experiences to unlock recurring revenue.',
+      'We also help brands set up subscription models and B2B ecommerce experiences to create more recurring revenue.',
     ],
 
     buttons: [
@@ -809,7 +809,9 @@ export const HOME_FEATURES = [
     description: [
       'Launch internationally with confidence using localisation and scalable ecommerce strategies.',
 
-      'Ready to reach customers beyond your home market? We help Shopify brands expand internationally with multilingual storefronts, multi-currency experiences, regional SEO strategies, and localisation tailored to global audiences. From market entry planning to international optimization, we help brands grow across borders.',
+      'Ready to reach customers in new markets? We help Shopify brands expand internationally with multilingual storefronts, multi-currency experiences, regional SEO, and localisation for different audiences.',
+
+      'From market entry planning to international optimisation, we help brands build a clearer and more scalable approach to selling across borders.',
     ],
 
     buttons: [
@@ -905,9 +907,9 @@ export const HOME_FEATURES = [
     ],
 
     description: [
-      'Driving traffic is only half the equation. We analyse customer behaviour, optimise landing pages, improve checkout experiences, and increase conversion rates through continuous testing and performance improvements.',
+      'Driving traffic is only part of the job. We analyse customer behaviour, improve landing pages and checkout experiences, and use ongoing testing to increase conversion rates.',
 
-      'Our CRO specialists identify growth opportunities that maximise your existing traffic and increase revenue without increasing advertising spend.',
+      'Our CRO team identifies where visitors drop off and where the buying journey can improve. This helps you generate more revenue from existing traffic without relying on higher advertising spend.',
     ],
 
     buttons: [

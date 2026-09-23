@@ -33,7 +33,8 @@ const EXPERT_MEDIA = [
 export type HomeExpertsProps = {
   eyebrow?: string;
   heading?: string;
-  description?: string;
+  /** A string stays one paragraph; an array renders one <p> per entry. */
+  description?: string | readonly string[];
   ctaLabel?: string;
   ctaTo?: string;
   variant?: 'default' | 'ecommerce-seo';
@@ -43,7 +44,10 @@ export type HomeExpertsProps = {
 export function HomeExperts({
   eyebrow = 'Shopify experts',
   heading = 'Let\'s talk ecommerce, Shopify & Shopify Plus solutions.',
-  description = 'FoldTech helps ecommerce brands design, develop, launch, support and grow Shopify stores. From new builds and migrations to ongoing development, SEO and conversion improvement, our team can help plan the right approach for your next Shopify project.',
+  description = [
+    'FoldTech helps ecommerce brands build, improve, and grow Shopify stores. We support new builds, migrations, ongoing development, SEO, and conversion optimisation.',
+    'Our team can help plan the right approach based on your store, goals, and current challenges.',
+  ],
   ctaLabel = 'Get in touch',
   ctaTo = '/contact/',
   variant = 'default',
@@ -86,9 +90,14 @@ export function HomeExperts({
             {heading}
           </h2>
 
-          <p className="ft-home-experts__description">
-            {description}
-          </p>
+          {(typeof description === 'string'
+            ? [description]
+            : description
+          ).map((paragraph) => (
+            <p className="ft-home-experts__description" key={paragraph}>
+              {paragraph}
+            </p>
+          ))}
 
           <Link
             className="ft-home-experts__button"

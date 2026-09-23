@@ -91,11 +91,11 @@ interface HomePartnersProps {
 
 export function HomePartners({
   description = [
-    'FoldTech works across a diverse range of ecommerce platforms and digital technologies, helping brands build, migrate, optimize and grow their online stores around their specific business requirements.',
-    'Our experience spans Shopify, Shopify Plus, WordPress, Magento, BigCommerce, Wix eCommerce, Squarespace, PrestaShop, Ecwid, Shopware, Big Cartel, Volusion and Salesforce. We help businesses select, connect and optimize the technology that best supports their storefront, customer experience and long-term ecommerce goals.',
-    'As a Shopify and Shopify Plus specialist, we build custom storefronts, headless Hydrogen experiences and app integrations that scale with high-growth ecommerce brands. We also lead migrations onto Shopify from other platforms, planning data, SEO and customer experience continuity so a replatform strengthens performance rather than disrupting it.',
-    'Beyond Shopify, our team works hands-on across WooCommerce, Magento, BigCommerce, Salesforce Commerce Cloud, Shopware, PrestaShop, OpenCart, Wix and Squarespace — supporting brands already built on these platforms, and advising when moving to different technology makes commercial sense.',
-    'Every recommendation starts with the brand rather than a preferred stack. We weigh scalability, checkout flexibility, the app ecosystem, total cost of ownership and the customer experience each platform enables, so the technology choice supports long-term growth instead of short-term convenience.',
+    'FoldTech works across leading ecommerce platforms and technologies. We help brands build, migrate, improve, and grow online stores based on their business requirements.',
+    'Our experience includes Shopify, Shopify Plus, WordPress, Magento, BigCommerce, Wix, Squarespace, PrestaShop, Ecwid, Shopware, Big Cartel, Volusion, and Salesforce. We help businesses choose and connect the technology that best supports their store, customer experience, and long-term growth.',
+    'As Shopify and Shopify Plus specialists, we build custom storefronts, Hydrogen experiences, and app integrations for growing ecommerce brands. We also manage Shopify migrations with careful planning around data, SEO, and customer experience.',
+    'Beyond Shopify, we work with WooCommerce, Magento, BigCommerce, Salesforce Commerce Cloud, Shopware, PrestaShop, OpenCart, Wix, and Squarespace. We support brands already using these platforms and advise when a move to another platform makes sense.',
+    'We recommend technology based on the needs of the business. We consider scalability, checkout flexibility, app support, total cost, and customer experience before choosing the right platform.',
   ],
   heading = 'We Work Across Leading Ecommerce Platforms and Technologies',
   label = 'Platforms & Technologies',
