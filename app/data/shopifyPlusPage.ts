@@ -51,7 +51,7 @@ const hero = {
   heading:
     'Shopify Plus strategy, design and development for ambitious ecommerce brands.',
   description:
-    'FoldTech helps brands plan, build and improve Shopify Plus storefronts around customer journeys, commercial priorities and operational requirements, connecting design, development, migration and ongoing growth support.',
+    'FoldTech helps brands plan, build, and improve Shopify Plus stores around customer needs and business goals. We connect design, development, migrations, and ongoing support to create a stronger ecommerce setup.',
   primaryCta: {
     label: 'Explore Services',
     href: ROUTES.services,
@@ -68,8 +68,13 @@ const lightHero = {
   chips: TRACK_RECORD_FACTS.map(
     ({value, label}) => `${value} ${label}`,
   ),
-  description:
-    'We design, build, and optimise high-performance Shopify Plus stores, whether youre launching a new site, migrating platforms, or upgrading from standard Shopify. Our expert team delivers tailored solutions across design, development, SEO, and email marketing to help brands unlock the full potential of Shopify Plus.',
+  /*
+   * Two paragraphs, so this uses `descriptionHtml` rather than
+   * `description` — ServiceHero renders the latter inside a single <p>.
+   */
+  descriptionHtml:
+    '<p>We design, build, and improve Shopify Plus stores for growing ecommerce brands. We support new builds, platform migrations, and upgrades from standard Shopify.</p>' +
+    '<p>Our team works across design, development, SEO, and email marketing to help brands get more from Shopify Plus.</p>',
   primaryCta: {
     label: 'Our Services',
     href: ROUTES.services,
@@ -101,8 +106,8 @@ const features = [
     eyebrow: 'Shopify Plus Agency UK',
     heading: 'Shopify Plus planning, design & development',
     description: [
-      'FoldTech works with ecommerce teams to plan Shopify Plus storefronts around the needs of the brand, its customers and the systems behind the store. Projects can bring discovery, UX, visual design and technical architecture together before development begins.',
-      'Our development approach considers reusable content, storefront performance, integrations and long-term maintainability. The result is a Shopify Plus foundation that internal teams can manage while retaining room for future campaigns, features and operational change.',
+      'FoldTech helps ecommerce teams plan Shopify Plus storefronts around brand goals, customer needs, and existing systems. We bring discovery, UX, visual design, and technical planning together before development starts.',
+      'Our development approach focuses on reusable content, performance, integrations, and long-term maintenance. This gives internal teams a Shopify Plus setup they can manage while leaving room for future campaigns, features, and operational changes.',
     ],
     badges: [
       {
@@ -142,8 +147,8 @@ const features = [
     eyebrow: 'Shopify Plus Agency London',
     heading: 'A platform approach built around your operation',
     description: [
-      'Shopify Plus can support more involved ecommerce requirements across checkout, international selling, B2B, storefront management and integrations. We help teams identify which platform capabilities are relevant and how they should connect with current processes and technology.',
-      'The work is shaped around genuine requirements rather than adding complexity for its own sake. Architecture, user experience and implementation decisions are documented clearly so stakeholders understand how the storefront will operate and how it can develop over time.',
+      'Shopify Plus can support more complex ecommerce needs across checkout, international selling, B2B, storefront management, and integrations. We help teams identify which features are actually useful and how they should connect with existing systems and processes.',
+      'We avoid adding complexity where it is not needed. Architecture, UX, and implementation decisions are documented clearly so stakeholders understand how the store works and how it can evolve over time.',
     ],
     buttons: [
       {
@@ -161,8 +166,8 @@ const features = [
     eyebrow: 'Shopify Plus Monthly Growth Plans',
     heading: 'Ongoing support guided by a practical roadmap',
     description: [
-      'After launch, FoldTech can support Shopify Plus stores through planned development, maintenance and conversion-focused improvements. A shared roadmap helps ecommerce teams balance immediate technical needs with larger enhancements across templates, features and customer journeys.',
-      'Support can cover day-to-day fixes, platform changes, landing pages, integrations and ongoing UX work. Priorities can be reviewed as trading plans and business requirements change, keeping development activity connected to the wider ecommerce programme.',
+      'After launch, FoldTech supports Shopify Plus stores with planned development, maintenance, and conversion improvements. A shared roadmap helps teams balance urgent technical work with larger updates across templates, features, and customer journeys.',
+      'Support can include day-to-day fixes, platform changes, landing pages, integrations, and ongoing UX work. Priorities can change as trading plans and business needs evolve, so development stays aligned with the wider ecommerce roadmap.',
     ],
     buttons: [
       {
@@ -205,8 +210,8 @@ const features = [
     eyebrow: 'Shopify Plus Stores & Migrations',
     heading: 'New storefronts, upgrades & platform migrations',
     description: [
-      'FoldTech can support new Shopify Plus builds, upgrades from standard Shopify and migrations from other ecommerce platforms. Planning covers the customer-facing storefront alongside products, customers, orders, content, redirects, integrations and operational dependencies.',
-      'A migration also provides an opportunity to review information architecture, theme structure and existing functionality. We identify what should be retained, improved or replaced, then organise implementation and quality assurance around a controlled route to launch.',
+      'FoldTech supports new Shopify Plus builds, upgrades from standard Shopify, and migrations from other ecommerce platforms. We plan the storefront alongside products, customers, orders, content, redirects, integrations, and operational requirements.',
+      'A migration is also a good time to review site structure, theme setup, and existing functionality. We identify what should stay, what needs improvement, and what should be replaced before planning development and quality assurance for launch.',
     ],
     badges: [
       {
@@ -234,8 +239,8 @@ const features = [
     eyebrow: 'Shopify Plus SEO',
     heading: 'Technical and content foundations for organic visibility',
     description: [
-      'Our Shopify Plus SEO work connects technical review, site structure, content priorities and search demand. Development decisions consider crawlability, semantic structure, structured data, URL handling and performance alongside the experience provided to customers.',
-      'SEO activity can also include keyword and competitor research, content planning and ongoing review. Recommendations are organised so marketing, content and development teams can understand their responsibilities and make changes within a shared search strategy.',
+      'Our Shopify Plus SEO work covers technical review, site structure, content priorities, and search demand. We also consider crawlability, structured data, URL handling, performance, and the customer experience.',
+      'SEO support can include keyword research, competitor analysis, content planning, and ongoing review. Recommendations are organised clearly so marketing, content, and development teams know what needs to be done.',
     ],
     badges: [
       {
@@ -259,8 +264,8 @@ const features = [
     eyebrow: 'Shopify Plus Email Marketing',
     heading: 'Email, SMS & retention connected to the storefront',
     description: [
-      'Retention activity can connect Shopify Plus customer and order data with relevant email and SMS journeys. FoldTech can help plan segmentation, campaigns and lifecycle automations around moments such as welcome, browse, purchase, replenishment and re-engagement.',
-      'The wider setup can also consider subscriptions, reviews, loyalty tools and other ecommerce integrations. Connecting these systems carefully helps retention teams manage communication with useful context while keeping storefront and customer data requirements in view.',
+      'Shopify Plus customer and order data can support more relevant email and SMS journeys. FoldTech helps plan segmentation, campaigns, and lifecycle automations around key stages such as welcome, browse, purchase, replenishment, and re-engagement.',
+      'We can also connect subscriptions, reviews, loyalty tools, and other ecommerce systems. This gives retention teams better customer context while keeping storefront and data requirements aligned.',
     ],
     buttons: [
       {
