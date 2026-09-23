@@ -67,6 +67,8 @@
 
   aspect-ratio: 16 / 10;
   border-radius: 0.75rem;
+
+  background: var(--ft-dark, #041f27);
 }
 
 /*
@@ -149,14 +151,20 @@
   color: inherit;
 }
 
-/* Square media wrapper owns the dimensions */
+/* Media wrapper owns the dimensions */
 .ft-articles-card__image {
   position: relative;
   display: block;
   overflow: hidden;
 
-  aspect-ratio: 1 / 1;
+  /*
+    16/9 matches the median article image (1.78), so cover crops ~15%
+    instead of the ~44% a square box threw away.
+  */
+  aspect-ratio: 16 / 9;
   border-radius: 0.9375rem;
+
+  background: var(--ft-dark, #041f27);
 
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }

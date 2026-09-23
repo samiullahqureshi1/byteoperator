@@ -43,7 +43,12 @@
   flex: 0 0 80vw;
   width: 80vw;
 
-  aspect-ratio: 0.76;
+  /*
+    These three tiles all carry landscape site shots (~1.48); the old
+    0.76 portrait box cropped ~49% away. 4/3 costs ~10% and leaves the
+    tile tall enough for the bottom overlay content.
+  */
+  aspect-ratio: 4 / 3;
 
   overflow: hidden;
 
@@ -228,7 +233,7 @@
   }
 
   .ft-work-featured__card {
-    aspect-ratio: 0.76;
+    aspect-ratio: 4 / 3;
   }
 
   .ft-work-featured__result {
