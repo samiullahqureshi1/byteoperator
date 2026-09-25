@@ -22,11 +22,6 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-
-  /* The glow circle extends well below this section. Clipping it vertically
-     cut it off mid-fade and drew a hard horizontal line at the section seam,
-     so let it spill onto the shared page canvas and fade out on its own.
-     overflow-x stays clipped to keep the page free of horizontal overflow. */
   overflow-x: clip;
   overflow-y: visible;
 }
@@ -36,20 +31,16 @@
   position: absolute;
   top: -80%;
   right: -10%;
-
   width: 55%;
   aspect-ratio: 1;
-
   border-radius: 50%;
-
   background:
     radial-gradient(
       circle,
-      rgba(64, 173, 170, 0.1) 0%,
-      rgba(64, 173, 170, 0.035) 45%,
+      rgba(48, 108, 231, 0.15) 0%,
+      rgba(48, 108, 231, 0.04) 45%,
       transparent 72%
     );
-
   filter: blur(5rem);
 }
 
@@ -60,10 +51,8 @@
 .ft-articles-intro__container {
   position: relative;
   z-index: 2;
-
   width: calc(100% - 2.5rem);
   max-width: 90rem;
-
   margin-inline: auto;
 }
 
@@ -87,20 +76,17 @@
 
 .ft-articles-intro__title {
   margin: 0;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   font-weight: 400;
   line-height: 1.3;
-
   color: #ffffff;
 }
 
 .ft-articles-intro__title span {
-  font-family: "Season Serif", serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
-
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 /* =========================
@@ -113,36 +99,29 @@
   right: auto;
   width: auto;
   height: auto;
-
   padding: 1.1rem 1.25rem;
-
-  border: 0.0625rem solid rgba(255, 255, 255, 0.08);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 0.875rem;
-
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--ft-dark, #10192F);
   box-shadow: none;
 }
 
 .ft-articles-newsletter__heading {
   margin: 0 0 0.2rem;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.3;
-
   color: #ffffff;
 }
 
 .ft-articles-newsletter__sub {
   margin: 0 0 0.65rem;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.7rem;
   font-weight: 300;
   line-height: 1.4;
-
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 /* =========================
@@ -152,7 +131,6 @@
 .ft-articles-newsletter__form {
   display: flex;
   gap: 0;
-
   width: 100%;
   max-width: 23.75rem;
 }
@@ -160,77 +138,61 @@
 .ft-articles-newsletter__input {
   flex: 1 1 auto;
   min-width: 0;
-
-  /* reset.css `input {}` sets margin-top/bottom, which inflates the flex
-     line and makes the button stretch taller than the input. */
   margin: 0;
-
   padding: 0.6rem 1.1rem;
-
-  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-right: 0;
-
   border-radius: 3.125rem 0 0 3.125rem;
-
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   color: #ffffff;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
   font-weight: 300;
-
   outline: none;
-
   transition:
     border-color 0.3s ease,
     background-color 0.3s ease;
 }
 
 .ft-articles-newsletter__input::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--ft-text-secondary, #A8B3C7);
+  opacity: 0.6;
 }
 
 .ft-articles-newsletter__input:focus {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.065);
+  border-color: var(--ft-primary-blue, #306CE7);
+  background: rgba(48, 108, 231, 0.08);
 }
 
 .ft-articles-newsletter__btn {
   flex: 0 0 auto;
   width: auto;
   min-width: 0;
-
   padding: 0.6rem 1.25rem;
-
-  border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  border: 0.0625rem solid var(--ft-primary-blue, #306CE7);
   border-left: 0;
-
   border-radius: 0 3.125rem 3.125rem 0;
-
-  background: #ffffff;
-  color: #000000;
-
-  font-family: "Season Sans", sans-serif;
+  background: var(--ft-primary-blue, #306CE7);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.01em;
-
   white-space: nowrap;
   cursor: pointer;
-
   transition:
     background-color 0.3s ease,
     opacity 0.3s ease;
 }
 
 .ft-articles-newsletter__btn:hover {
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--ft-accent-blue, #3B82F6);
+  border-color: var(--ft-accent-blue, #3B82F6);
 }
 
 .ft-articles-newsletter__msg {
   margin: 0.35rem 0 0;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
   font-weight: 300;
 }
@@ -245,23 +207,22 @@
 
 .ft-articles-newsletter__privacy {
   margin: 0.4rem 0 0 !important;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.6rem;
   font-weight: 300;
   line-height: 1.3;
-
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--ft-text-secondary, #A8B3C7);
+  opacity: 0.7;
 }
 
 .ft-articles-newsletter__privacy a {
-  color: inherit;
+  color: var(--ft-accent-blue, #3B82F6);
   text-decoration: underline;
   text-underline-offset: 0.125rem;
 }
 
 .ft-articles-newsletter__privacy a:hover {
-  color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
 }
 
 /* =========================
@@ -271,11 +232,9 @@
 .ft-articles-controls {
   position: relative;
   z-index: 3;
-
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
   margin-top: 3.5rem;
 }
 
@@ -283,10 +242,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
@@ -297,25 +254,17 @@
 .ft-article-filters__link {
   appearance: none;
   -webkit-appearance: none;
-
   display: inline-flex;
   align-items: center;
-
   padding: 0.4rem 1.1rem;
-
-  border: 0.0625rem solid rgba(255, 255, 255, 0.25);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 999rem;
-
-  background: transparent;
-
-  font-family: "Season Serif", serif;
+  background: var(--ft-dark, #10192F);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
-
-  color: rgba(255, 255, 255, 0.7);
-
+  color: var(--ft-text-secondary, #A8B3C7);
   cursor: pointer;
-
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease,
@@ -324,13 +273,13 @@
 
 .ft-article-filters__link:hover,
 .ft-article-filters__link.is-active {
-  border-color: #ffffff;
-  background: #ffffff;
-  color: #000000;
+  border-color: var(--ft-primary-blue, #306CE7);
+  background: var(--ft-primary-blue, #306CE7);
+  color: #ffffff;
 }
 
 .ft-article-filters__link:focus-visible {
-  outline: 0.125rem solid #40adaa;
+  outline: 0.125rem solid var(--ft-primary-blue, #306CE7);
   outline-offset: 0.1875rem;
 }
 
@@ -340,16 +289,12 @@
 
 .ft-visually-hidden {
   position: absolute;
-
   width: 0.0625rem;
   height: 0.0625rem;
-
   padding: 0;
   margin: -0.0625rem;
-
   overflow: hidden;
   clip: rect(0 0 0 0);
-
   white-space: nowrap;
   border: 0;
 }
@@ -367,7 +312,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
     margin-top: 2rem;
   }
 }
@@ -391,8 +335,6 @@
 
 /* =========================
    LARGE DESKTOP
-   Reference newsletter
-   absolute top-right
 ========================= */
 
 @media (min-width: 75rem) {
@@ -404,7 +346,6 @@
     position: absolute;
     top: 0;
     right: 0;
-
     z-index: 11;
   }
 

@@ -1,5 +1,7 @@
+'use client';
+
 import {useEffect, useMemo, useState} from 'react';
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 import {HomeExperts} from '../HomeExperts';
 import {ARTICLES_CLEAN_PATH, withCanonicalLinks} from '~/lib/route-mappings';
 
@@ -139,9 +141,9 @@ function useActiveHeading(sections: Heading[]) {
 }
 
 /**
- * Gives every h2/h3 in the Shopify rich text a stable id and returns the
+ * Gives every h2/h3 in the Software rich text a stable id and returns the
  * headings found, so the index and the deep links share one source of truth.
- * Ids authored in Shopify win, which keeps existing inbound anchors working.
+ * Ids authored in Software win, which keeps existing inbound anchors working.
  */
 function withHeadingAnchors(contentHtml: string) {
   const headings: Heading[] = [];
@@ -168,9 +170,9 @@ function withHeadingAnchors(contentHtml: string) {
 }
 
 /**
- * Most images in Shopify article bodies carry an empty alt. Each one gets the
+ * Most images in Software article bodies carry an empty alt. Each one gets the
  * heading of the section it illustrates, else the article title, so no image
- * reaches search engines undescribed. Alts written in Shopify always win, and
+ * reaches search engines undescribed. Alts written in Software always win, and
  * a bare `<img>` with no src (it renders nothing) is dropped.
  */
 function withImageAlts(contentHtml: string, articleTitle: string) {

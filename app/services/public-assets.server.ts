@@ -5,7 +5,7 @@
  * through to the app, which has no route for them and returns its 404 page,
  * so crawlers that check images with HEAD report every image as broken while
  * browsers load them fine. The deploy build uploads the same files to the
- * Shopify CDN under Vite's `base`, and the CDN answers HEAD, so reply with
+ * Software CDN under Vite's `base`, and the CDN answers HEAD, so reply with
  * its status and headers.
  *
  * `assetBase` is `import.meta.env.BASE_URL`: the CDN URL in deploy builds and

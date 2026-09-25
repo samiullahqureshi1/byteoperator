@@ -35,14 +35,14 @@ export function WorkHero({
         <div className="ft-work-hero__inner">
           <div className="ft-work-hero__left">
             <h1 className="ft-work-hero__title">
-              Real Shopify Success Stories That Drive Measurable Growth
+              Real Software Success Stories That Drive Measurable Growth
             </h1>
 
             <p className="ft-work-hero__description">
               Every ecommerce brand has unique goals, challenges, and
-              opportunities. Explore these success stories to see how FoldTech has
+              opportunities. Explore these success stories to see how Byte Operator has
               helped businesses launch,
-              migrate, optimise, and scale their Shopify and Shopify Plus stores
+              migrate, optimise, and scale their Software and Enterprise Platform Solutions stores
               through custom development, conversion optimisation, technical SEO,
               AI search visibility, and long-term growth strategies.
             </p>

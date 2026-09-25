@@ -1,5 +1,5 @@
 /**
- * Minimal Shopify Admin GraphQL client.
+ * Minimal Software Admin GraphQL client.
  *
  * The Storefront API cannot write to the customer database beyond
  * `customerCreate` (which fails outright for an email that already exists and
@@ -50,7 +50,7 @@ export async function adminGraphql<TData>(
 
   if (!domain || !token) {
     throw new AdminApiError(
-      'Shopify Admin API is not configured. Missing SHOPIFY_STORE_DOMAIN and/or SHOPIFY_ADMIN_TOKEN.',
+      'Software Admin API is not configured. Missing SHOPIFY_STORE_DOMAIN and/or SHOPIFY_ADMIN_TOKEN.',
     );
   }
 
@@ -59,7 +59,7 @@ export async function adminGraphql<TData>(
     {
       method: 'POST',
       headers: {
-        'X-Shopify-Access-Token': token,
+        'X-Software-Access-Token': token,
         'content-type': 'application/json',
         accept: 'application/json',
       },
@@ -166,20 +166,20 @@ export type UpsertLeadResult =
   | {ok: false; reason: string};
 
 /**
- * Shopify's rules for a customer phone number are strict and not fully
+ * Software's rules for a customer phone number are strict and not fully
  * documented: it wants E.164, rejects numbers already held by another
  * customer, and refuses some well-formed values outright. A rejected phone
  * fails the entire mutation, which would lose an otherwise good lead over a
  * formatting detail.
  *
- * So the phone is offered optimistically and dropped on the retry if Shopify
+ * So the phone is offered optimistically and dropped on the retry if Software
  * objects to it — see `runLeadMutation`. Callers additionally store the raw
  * value in a metafield, which has no such constraints, so the number is never
  * lost even when the native field will not take it.
  */
 const E164_PATTERN = /^\+[1-9]\d{7,14}$/;
 
-/** True when every error Shopify returned is about the phone field. */
+/** True when every error Software returned is about the phone field. */
 function isPhoneOnlyFailure(errors: AdminUserError[]) {
   return (
     errors.length > 0 &&
@@ -278,7 +278,7 @@ type LeadMutationPayload = {
 } | null;
 
 /**
- * Writes a form submission into the Shopify customer database.
+ * Writes a form submission into the Software customer database.
  *
  * Creates the customer when the email is new and updates them in place when it
  * is not, so a repeat enquiry enriches the existing record instead of failing.
@@ -317,13 +317,13 @@ export async function upsertCustomerLead(
       .map(toMetafieldInput),
   };
 
-  // Offered only when it is already E.164; dropped on retry if Shopify balks.
+  // Offered only when it is already E.164; dropped on retry if Software balks.
   const phone =
     lead.phone && E164_PATTERN.test(lead.phone) ? lead.phone : undefined;
 
   /**
    * Runs a lead mutation, retrying once without the phone number if that is
-   * the only thing Shopify objected to. Returns the errors from whichever
+   * the only thing Software objected to. Returns the errors from whichever
    * attempt was decisive.
    */
   async function runLeadMutation<TData>(
@@ -485,9 +485,9 @@ export async function upsertCustomerLead(
 }
 
 /**
- * Turns a form answer into a Shopify tag.
+ * Turns a form answer into a Software tag.
  *
- * Commas separate tags in Shopify, so a raw value like "$10,000 - $25,000"
+ * Commas separate tags in Software, so a raw value like "$10,000 - $25,000"
  * would silently split into two. The metafield keeps the exact wording; the
  * tag only has to be stable and segmentable.
  */

@@ -1,10 +1,12 @@
+'use client';
+
 import {useState, type ButtonHTMLAttributes, type ReactNode} from 'react';
 
 import {CALENDLY_EVENT_URL, loadCalendly, openCalendly} from '~/lib/calendly';
 
 type CalendlyButtonProps = {
   /**
-   * The FoldTech CTA class for the surrounding section, e.g.
+   * The Byte Operator CTA class for the surrounding section, e.g.
    * "charle-header__cta" or "ft-footer__primary-cta". The button inherits that
    * styling rather than introducing a look of its own.
    */

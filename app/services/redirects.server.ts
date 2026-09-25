@@ -8,7 +8,7 @@ import {
  *
  * This is the single place where a URL is rewritten to its canonical
  * spelling, including the trailing slash. React Router single fetch data
- * requests (`/services/shopify-app-development.data`) are deliberately left
+ * requests (`/services/software-app-development.data`) are deliberately left
  * untouched: single fetch has already stripped the trailing slash from that
  * URL, so canonicalizing it would redirect the client back to the exact
  * location it is navigating to and loop forever. Data requests still receive

@@ -1,5 +1,5 @@
 /* =========================================================
-   FOLDTECH — HOME HERO GALLERY
+   BYTE OPERATOR — HOME HERO GALLERY
    ---------------------------------------------------------
    Reference behaviour:
    - 240vh scroll section
@@ -22,7 +22,7 @@
   position: relative;
   width: 100%;
   padding: 0 2vw;
-  background-color: var(--ft-dark-deep, #01151b);
+  background-color: var(--ft-dark-deep, #060F24);
 }
 
 .ft-hero-gallery__inner {
@@ -203,7 +203,7 @@
 
     padding: 0;
 
-    background-color: var(--ft-dark-deep, #01151b);
+    background-color: var(--ft-dark-deep, #060F24);
   }
 
 
@@ -589,7 +589,7 @@
 
   border-radius: 1vw;
 
-  background-color: var(--ft-dark-deep, #01151b);
+  background-color: var(--ft-dark-deep, #060F24);
 
   transform: translateZ(0);
 }

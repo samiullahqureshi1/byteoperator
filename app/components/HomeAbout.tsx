@@ -1,4 +1,6 @@
-import {Link} from 'react-router';
+'use client';
+
+import {Link} from '~/lib/router-compat';
 
 import {HOME_FACTS, type CompanyFact} from '~/data/companyFacts';
 import {useCountUp} from '~/lib/useCountUp';
@@ -21,17 +23,17 @@ export type HomeAboutData = {
 
 const DEFAULT_HOME_ABOUT_DATA: HomeAboutData = {
   eyebrow:
-    'Premier Shopify Growth Partners for Ambitious Brands',
+    'Premier Software Growth Partners for Ambitious Brands',
   heading:
-    'We Design, Develop & Scale Shopify Stores for Growth',
+    'We Design, Develop & Scale Digital Platforms for Growth',
   stats: HOME_FACTS,
   rightHeading: {
     prefix: 'Your',
     emphasis: 'Performance-Focused',
-    suffix: 'Shopify Partner',
+    suffix: 'Software Engineering Partner',
   },
   description:
-    'At FoldTech, we build Shopify and Shopify Plus stores for brands focused on growth. We handle custom store builds, migrations, CRO, technical SEO, AI search visibility, and retention. Each service is planned around improving store performance, revenue, and long-term customer value.',
+    'At Byte Operator, we build Software and Enterprise Platform Solutions stores for brands focused on growth. We handle custom store builds, migrations, CRO, technical SEO, AI search visibility, and retention. Each service is planned around improving store performance, revenue, and long-term customer value.',
   cta: {
     label: 'Explore Our Work',
     href: '/work',
@@ -68,7 +70,7 @@ export function HomeAbout({
           <div
             className="ft-home-about__stats"
             role="group"
-            aria-label="FoldTech performance statistics"
+            aria-label="Byte Operator performance statistics"
             ref={statsRef}
           >
             {data.stats.map((stat, index) => (
@@ -132,10 +134,10 @@ function AboutMark() {
       aria-hidden="true"
     >
       <img
-        src="/images/foldtech-mark-black.svg"
+        src="/images/byte-operator-mark.svg"
         width={500}
         height={500}
-        alt="FoldTech"
+        alt="Byte Operator"
         loading="lazy"
       />
     </span>

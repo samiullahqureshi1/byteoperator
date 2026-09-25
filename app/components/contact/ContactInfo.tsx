@@ -11,8 +11,8 @@ export function ContactInfo() {
               Email us
             </p>
 
-            <a href="mailto:info@thefoldtech.com">
-              info@thefoldtech.com
+            <a href="mailto:info@byteoperator.com">
+              info@byteoperator.com
             </a>
           </div>
 

@@ -1,3 +1,5 @@
+'use client';
+
 import {useCallback, useEffect, useState} from 'react';
 import {WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
 import {VideoModal} from '~/components/shared/VideoModal';
@@ -7,13 +9,13 @@ const AUTOPLAY_DELAY = 5000;
 const TESTIMONIALS = [
   {
     quote:
-      'The FoldTech team made the entire ecommerce project feel clear and well organised from start to finish. Communication was strong and the final experience felt aligned with what we wanted to achieve.',
+      'The Byte Operator team made the entire ecommerce project feel clear and well organised from start to finish. Communication was strong and the final experience felt aligned with what we wanted to achieve.',
     name: 'Jordan Lee',
     company: 'Ecommerce Manager — Demo Brand',
   },
   {
     quote:
-      'Working with FoldTech gave us a much clearer direction for our Shopify store. The team understood the commercial goals behind the project and helped turn those priorities into a stronger customer experience.',
+      'Working with Byte Operator gave us a much clearer direction for our digital platform. The team understood the commercial goals behind the project and helped turn those priorities into a stronger customer experience.',
     name: 'Alex Morgan',
     company: 'Marketing Lead — Example Client',
   },
@@ -77,7 +79,7 @@ export function AboutTestimonials() {
                 src={WORK_HERO_TESTIMONIAL.image}
                 width={WORK_HERO_TESTIMONIAL.imageWidth}
                 height={WORK_HERO_TESTIMONIAL.imageHeight}
-                alt={`${WORK_HERO_TESTIMONIAL.person}, FoldTech client`}
+                alt={`${WORK_HERO_TESTIMONIAL.person}, Byte Operator client`}
                 aria-hidden="true"
               />
             </span>

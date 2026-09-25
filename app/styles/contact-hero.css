@@ -1,5 +1,5 @@
 /* =========================================================
-   FOLDTECH — CONTACT HERO
+   BYTE OPERATOR — CONTACT HERO
 ========================================================= */
 
 .ft-contact-hero {
@@ -7,16 +7,13 @@
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
-
- padding:
-  calc(var(--charle-header-height) + 3.5rem)
-  7.1vw
-  5rem;
-
-  background: var(--ft-dark-deep, #01151b);
+  padding:
+    calc(var(--charle-header-height) + 3.5rem)
+    7.1vw
+    5rem;
+  background: var(--ft-dark-deep, #060F24);
   color: #ffffff;
 }
-
 
 /* =========================================================
    BACKGROUND GLOW
@@ -24,29 +21,22 @@
 
 .ft-contact-hero__gradient {
   pointer-events: none;
-
   position: absolute;
   top: 4rem;
   left: 48%;
-
   width: 58vw;
   height: 55vh;
-
   transform: translateX(-20%);
-
   border-radius: 50%;
-
   background:
     radial-gradient(
       ellipse at center,
-      rgba(64, 173, 170, 0.16) 0%,
-      rgba(64, 173, 170, 0.07) 34%,
-      rgba(1, 21, 27, 0) 72%
+      rgba(48, 108, 231, 0.16) 0%,
+      rgba(48, 108, 231, 0.05) 34%,
+      transparent 72%
     );
-
   filter: blur(5vw);
 }
-
 
 /* =========================================================
    CONTAINER
@@ -55,13 +45,10 @@
 .ft-contact-hero__container {
   position: relative;
   z-index: 1;
-
   width: 100%;
   max-width: 94rem;
-
   margin-inline: auto;
 }
-
 
 /* =========================================================
    MAIN GRID
@@ -73,7 +60,6 @@
   gap: 2rem;
 }
 
-
 /* =========================================================
    LEFT COLUMN
 ========================================================= */
@@ -81,10 +67,8 @@
 .ft-contact-hero__left {
   display: flex;
   flex-direction: column;
-
   min-width: 0;
 }
-
 
 /* =========================================================
    HERO COPY
@@ -95,10 +79,10 @@
 }
 
 .ft-contact-hero__title {
-   max-width: none;
+  max-width: none;
   font-size: 3.5rem;
   margin: 0 0 1.25rem;
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 300;
   line-height: 1.08;
   letter-spacing: -0.04em;
@@ -107,20 +91,14 @@
 
 .ft-contact-hero__description {
   max-width: 42rem;
-
   margin: 0 0 1.4rem;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1rem, 1.25vw, 1.25rem);
   font-weight: 300;
-
   line-height: 1.55;
   letter-spacing: -0.015em;
-
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
-
 
 /* =========================================================
    RESPONSE TIME
@@ -129,31 +107,22 @@
 .ft-contact-hero__response {
   display: inline-flex;
   align-items: center;
-
   gap: 0.5rem;
-
   margin: 0;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
   font-weight: 300;
-
   line-height: 1.4;
-
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-contact-hero__response-dot {
   flex: 0 0 auto;
-
   width: 0.5rem;
   height: 0.5rem;
-
   border-radius: 50%;
-
-  background: #54bf4a;
-
+  background: var(--ft-accent-blue, #3B82F6);
+  box-shadow: 0 0 0.5rem rgba(59, 130, 246, 0.6);
   animation: ft-contact-response-pulse 2s ease infinite;
 }
 
@@ -162,12 +131,10 @@
   100% {
     opacity: 1;
   }
-
   50% {
     opacity: 0.4;
   }
 }
-
 
 /* =========================================================
    TESTIMONIAL
@@ -179,34 +146,20 @@
 
 .ft-contact-hero__testimonial {
   appearance: none;
-
   display: flex;
   align-items: flex-start;
-
   width: 100%;
   max-width: 27.5rem;
-
   gap: 1rem;
-
   margin: 0;
   padding: 1.25rem;
-
-  border:
-    0.0625rem
-    solid
-    rgba(255, 255, 255, 0.08);
-
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 0.75rem;
-
-  background: rgba(255, 255, 255, 0.04);
-
+  background: var(--ft-dark, #10192F);
   color: inherit;
-
   text-align: left;
   font: inherit;
-
   cursor: pointer;
-
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease;
@@ -214,80 +167,57 @@
 
 .ft-contact-hero__testimonial-image {
   display: block;
-
   flex: 0 0 3rem;
-
   width: 3rem;
   height: 3rem;
-
   border-radius: 50%;
-
   object-fit: cover;
 }
 
 .ft-contact-hero__testimonial-body {
   flex: 1;
-
   min-width: 0;
 }
 
 .ft-contact-hero__testimonial-quote {
   margin: 0;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   font-weight: 300;
-
   line-height: 1.7;
-
   letter-spacing: 0.01em;
-
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-contact-hero__testimonial-cta {
   display: inline-flex;
   align-items: center;
-
   gap: 0.375rem;
-
   margin-top: 0.75rem;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
   font-weight: 300;
-
   line-height: 1.3;
-
-  color: rgba(255, 255, 255, 0.5);
-
+  color: var(--ft-accent-blue, #3B82F6);
   transition: color 0.3s ease;
 }
 
 .ft-contact-hero__testimonial-cta svg {
   flex-shrink: 0;
-
   width: 1rem;
   height: 1rem;
 }
 
 @media (hover: hover) {
   .ft-contact-hero__testimonial:hover {
-    background: rgba(255, 255, 255, 0.08);
-
-    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(48, 108, 231, 0.12);
+    border-color: var(--ft-primary-blue, #306CE7);
   }
 
-  .ft-contact-hero__testimonial:hover
-    .ft-contact-hero__testimonial-quote,
-  .ft-contact-hero__testimonial:hover
-    .ft-contact-hero__testimonial-cta {
+  .ft-contact-hero__testimonial:hover .ft-contact-hero__testimonial-quote {
     color: #ffffff;
   }
 }
-
 
 /* =========================================================
    STATS
@@ -296,21 +226,11 @@
 .ft-contact-hero__stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
   gap: 1.5rem;
-
   margin-top: 3.7rem;
   padding: 1.3rem 0;
-
-  border-top:
-    0.0625rem
-    solid
-    rgba(255, 255, 255, 0.08);
-
-  border-bottom:
-    0.0625rem
-    solid
-    rgba(255, 255, 255, 0.08);
+  border-top: 0.0625rem solid var(--ft-border, #1F2A44);
+  border-bottom: 0.0625rem solid var(--ft-border, #1F2A44);
 }
 
 .ft-contact-hero__stat {
@@ -319,32 +239,22 @@
 
 .ft-contact-hero__stat-number {
   margin: 0;
-
-  font-family: "Season Serif", serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.75rem, 3vw, 2.6rem);
   font-weight: 400;
-
   line-height: 1;
-
   color: #ffffff;
 }
 
 .ft-contact-hero__stat-label {
   max-width: 12rem;
-
   margin: 0.5rem 0 0;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
   font-weight: 300;
-
   line-height: 1.45;
-
-  color: rgba(255, 255, 255, 0.58);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
-
 
 /* =========================================================
    CLIENT LOGOS
@@ -352,38 +262,26 @@
 
 .ft-contact-hero__logos {
   position: relative;
-
   width: 100%;
-
   margin-top: 3rem;
-
   overflow: hidden;
 }
 
 .ft-contact-hero__logos-label {
   margin: 0 0 1.5rem;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.6875rem;
   font-weight: 400;
-
   line-height: 1;
-
   letter-spacing: 0.1em;
-
   text-transform: uppercase;
-
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-contact-hero__logos-window {
   position: relative;
-
   width: 100%;
-
   overflow: hidden;
-
   -webkit-mask-image:
     linear-gradient(
       90deg,
@@ -392,7 +290,6 @@
       #000000 88%,
       transparent 100%
     );
-
   mask-image:
     linear-gradient(
       90deg,
@@ -406,16 +303,9 @@
 .ft-contact-hero__logos-track {
   display: flex;
   align-items: center;
-
   gap: 2.5rem;
-
   width: max-content;
-
-  animation:
-    ft-contact-logo-marquee
-    60s
-    linear
-    infinite;
+  animation: ft-contact-logo-marquee 60s linear infinite;
 }
 
 .ft-contact-hero__logos-track:hover {
@@ -426,37 +316,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex: 0 0 auto;
-
   height: 1.5rem;
 }
 
 .ft-contact-hero__logo img {
   display: block;
-
   width: auto;
   height: 100%;
-
   object-fit: contain;
-
-  filter:
-    brightness(0)
-    invert(1);
-
-  opacity: 0.35;
+  filter: brightness(0) invert(1);
+  opacity: 0.45;
 }
 
 @keyframes ft-contact-logo-marquee {
   from {
     transform: translateX(0);
   }
-
   to {
     transform: translateX(-50%);
   }
 }
-
 
 /* =========================================================
    FORM CARD
@@ -464,19 +344,14 @@
 
 .ft-contact-hero__form-card {
   position: relative;
-
   min-width: 0;
-
   padding: 1.5rem;
-
   border-radius: 1.25rem;
-
-  background: #ffffff;
-  color: #000000;
-
+  background: var(--ft-dark, #10192F);
+  border: 1px solid var(--ft-border, #1F2A44);
+  color: #ffffff;
   box-sizing: border-box;
 }
-
 
 /* =========================================================
    FORM
@@ -484,31 +359,21 @@
 
 .ft-contact-form {
   display: block;
-
   width: 100%;
   max-width: none;
-
   margin: 0;
   padding: 0;
-
   box-sizing: border-box;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .ft-contact-form__row {
   width: 100%;
   max-width: none;
   box-sizing: border-box;
-
   margin-bottom: 0.95rem;
-}
-
-.ft-contact-form__row--split {
-  width: 100%;
-  max-width: none;
 }
 
 .ft-contact-form__row--split {
@@ -517,34 +382,25 @@
   gap: 0.95rem;
 }
 
-
 /* =========================================================
    LABELS
 ========================================================= */
 
 .ft-contact-form__label {
   display: block;
-
   margin: 0 0 0.35rem;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.95rem;
   font-weight: 300;
-
   line-height: 1;
-
-  color: #000000;
-
+  color: #ffffff;
   cursor: pointer;
 }
 
 .ft-contact-form__required {
   margin-left: 0.15rem;
-
-  color: #d94742;
+  color: var(--ft-accent-blue, #3B82F6);
 }
-
 
 /* =========================================================
    INPUTS
@@ -554,52 +410,35 @@
 .ft-contact-form__select,
 .ft-contact-form__textarea {
   width: 100%;
-
   box-sizing: border-box;
-
-  /* reset.css applies a global `input` margin/padding - neutralise it here */
   margin: 0;
-
   min-height: 0;
   height: auto;
-
   padding: 0.45rem 0 0.5rem;
-
   border: 0;
-  border-bottom:
-    0.0625rem
-    solid
-    #a1a1a1;
-
+  border-bottom: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 0;
-
   outline: 0;
-
   background: transparent;
-
-  font-family: "Season Serif", serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
-
   line-height: 1.2;
-
-  color: #000000;
-
+  color: #ffffff;
   transition: border-color 0.3s ease;
 }
 
 .ft-contact-form__input:focus,
 .ft-contact-form__select:focus,
 .ft-contact-form__textarea:focus {
-  border-bottom-color: #000000;
+  border-bottom-color: var(--ft-primary-blue, #306CE7);
 }
 
 .ft-contact-form__input::placeholder,
 .ft-contact-form__textarea::placeholder {
-  color: #c4c4c4;
+  color: var(--ft-text-secondary, #A8B3C7);
+  opacity: 0.6;
 }
-
 
 /* =========================================================
    SELECT
@@ -608,27 +447,21 @@
 .ft-contact-form__select {
   appearance: none;
   -webkit-appearance: none;
-
   padding-right: 1.5rem;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 300;
-
-  color: #777777;
-
+  color: #ffffff;
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E");
-
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23306CE7' stroke-width='1.5'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.25rem center;
   background-size: 0.625rem auto;
 }
 
 .ft-contact-form__select option {
-  color: #000000;
-  background: #ffffff;
+  color: #ffffff;
+  background: var(--ft-dark, #10192F);
 }
-
 
 /* =========================================================
    TEXTAREA
@@ -636,14 +469,10 @@
 
 .ft-contact-form__textarea {
   min-height: 5.6rem;
-
   padding-top: 0.45rem;
-
   resize: vertical;
-
   line-height: 1.5;
 }
-
 
 /* =========================================================
    INVALID
@@ -655,22 +484,17 @@
   border-bottom-color: #d94742;
 }
 
-
 /* =========================================================
    HONEYPOT
 ========================================================= */
 
 .ft-contact-form__honeypot {
   position: absolute !important;
-
   left: -625rem !important;
-
   width: 0.0625rem !important;
   height: 0.0625rem !important;
-
   overflow: hidden !important;
 }
-
 
 /* =========================================================
    NEWSLETTER OPT-IN
@@ -679,33 +503,22 @@
 .ft-contact-form__optin {
   display: flex;
   align-items: flex-start;
-
   gap: 0.625rem;
-
   margin: 1.15rem 0 0;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
   font-weight: 300;
-
   line-height: 1.55;
-
-  color: #4a4a4a;
-
+  color: var(--ft-text-secondary, #A8B3C7);
   cursor: pointer;
 }
 
 .ft-contact-form__optin input {
   flex: 0 0 auto;
-
   width: 0.875rem;
   height: 0.875rem;
-
   margin: 0.2rem 0 0;
-
-  accent-color: var(--ft-dark-deep, #01151b);
-
+  accent-color: var(--ft-primary-blue, #306CE7);
   cursor: pointer;
 }
 
@@ -713,27 +526,21 @@
   flex: 1;
 }
 
-
 /* =========================================================
    PRIVACY / CONSENT
 ========================================================= */
 
 .ft-contact-form__consent {
   margin: 1.4rem 0 1.35rem;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
   font-weight: 300;
-
   line-height: 1.55;
-
-  color: #4a4a4a;
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-contact-form__consent a {
-  color: inherit;
-
+  color: var(--ft-accent-blue, #3B82F6);
   text-decoration: underline;
   text-underline-offset: 0.15rem;
 }
@@ -752,30 +559,21 @@
 
 .ft-contact-form__hint {
   margin: 0 0 0.5rem;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
   font-weight: 300;
-
   line-height: 1.35;
-
-  color: rgba(0, 0, 0, 0.45);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-contact-form__file-input {
   position: absolute;
-
   width: 0.0625rem;
   height: 0.0625rem;
-
   margin: -0.0625rem;
   padding: 0;
-
   overflow: hidden;
-
   clip-path: inset(50%);
-
   white-space: nowrap;
 }
 
@@ -783,7 +581,6 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-
   gap: 0.35rem 0.6rem;
 }
 
@@ -791,106 +588,77 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding: 0.45rem 0.9rem;
-
-  border: 0;
+  border: 1px solid var(--ft-border, #1F2A44);
   border-radius: 999rem;
-
-  background: #eeeeee;
-  color: #000000;
-
-  font-family: "Season Sans", sans-serif;
-
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
-
   line-height: 1.2;
-
   white-space: nowrap;
-
   cursor: pointer;
-
   transition: background-color 220ms ease;
 }
 
 .ft-contact-form__file-trigger:hover {
-  background: #e3e3e3;
+  background: var(--ft-primary-blue, #306CE7);
 }
 
 .ft-contact-form__file-input:focus-visible
 + .ft-contact-form__file-row
 .ft-contact-form__file-trigger {
-  outline: 0.125rem solid var(--ft-dark-deep, #01151b);
+  outline: 0.125rem solid var(--ft-primary-blue, #306CE7);
   outline-offset: 0.125rem;
 }
 
 .ft-contact-form__file-name {
   min-width: 0;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
   font-weight: 300;
-
   line-height: 1.4;
-
-  color: rgba(0, 0, 0, 0.45);
-
+  color: var(--ft-text-secondary, #A8B3C7);
   overflow-wrap: anywhere;
 }
 
 .ft-contact-form__file-remove {
   appearance: none;
-
   padding: 0;
-
   border: 0;
-
   background: none;
-  color: rgba(0, 0, 0, 0.45);
-
-  font-family: "Season Sans", sans-serif;
-
+  color: var(--ft-text-secondary, #A8B3C7);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
   font-weight: 300;
-
   line-height: 1.4;
-
   text-decoration: underline;
   text-underline-offset: 0.15rem;
-
   cursor: pointer;
 }
 
 .ft-contact-form__file-remove:hover:not(:disabled) {
-  color: #000000;
-
+  color: #ffffff;
   text-decoration: none;
 }
 
 .ft-contact-form__file-remove:disabled {
   opacity: 0.5;
-
   cursor: not-allowed;
 }
 
 .ft-contact-form__file-error {
   margin: 0.4rem 0 0;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
   font-weight: 300;
-
   line-height: 1.4;
-
-  color: #b3261e;
+  color: #ff9d94;
 }
 
 .ft-contact-form__submit:disabled {
   opacity: 0.6;
-
   cursor: not-allowed;
 }
 
@@ -900,32 +668,21 @@
 
 .ft-contact-form__submit {
   appearance: none;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   gap: 0.625rem;
-
   min-height: 2.8rem;
-
   padding: 0.8rem 1.75rem;
-
   border: 0;
   border-radius: 999rem;
-
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-primary-blue, #306CE7);
   color: #ffffff;
-
-  font-family: "Season Serif", serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
-  font-weight: 400;
-
+  font-weight: 500;
   line-height: 1;
-
   cursor: pointer;
-
   transition:
     opacity 0.3s ease,
     transform 0.2s ease,
@@ -935,13 +692,12 @@
 .ft-contact-form__submit svg {
   width: 0.8125rem;
   height: 0.8125rem;
-
   transition: transform 0.3s ease;
 }
 
 @media (hover: hover) {
   .ft-contact-form__submit:hover {
-    background: var(--ft-dark, #041f27);
+    background: var(--ft-accent-blue, #3B82F6);
   }
 
   .ft-contact-form__submit:hover svg {
@@ -953,22 +709,17 @@
   transform: scale(0.98);
 }
 
-
 /* =========================================================
    STATUS
 ========================================================= */
 
 .ft-contact-form__status {
   margin: 0.8rem 0 0;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
   font-weight: 300;
-
   line-height: 1.4;
-
-  color: #666666;
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 /* =========================================================
@@ -981,76 +732,53 @@
 
 .ft-contact-form__error {
   margin: 0.8rem 0 0;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
   font-weight: 300;
-
   line-height: 1.4;
-
-  color: #b3261e;
+  color: #ff9d94;
 }
 
 .ft-contact-form__thanks {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
   width: 100%;
-
   padding: 1.5rem 0;
-
   box-sizing: border-box;
 }
 
 .ft-contact-form__thanks-title {
   margin: 0 0 0.65rem;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.35rem;
   font-weight: 300;
-
   line-height: 1.15;
   letter-spacing: -0.02em;
-
-  color: #000000;
+  color: #ffffff;
 }
 
 .ft-contact-form__thanks-text {
   margin: 0 0 1.25rem;
-
-  font-family: "Season Sans", sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   font-weight: 300;
-
   line-height: 1.55;
-
-  color: #4a4a4a;
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-contact-form__thanks-reset {
   appearance: none;
-
   padding: 0;
-
   border: 0;
-
   background: none;
-  color: #000000;
-
-  font-family: "Season Sans", sans-serif;
-
+  color: var(--ft-accent-blue, #3B82F6);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
   font-weight: 300;
-
   line-height: 1.4;
-
   text-decoration: underline;
   text-underline-offset: 0.15rem;
-
   cursor: pointer;
 }
 
@@ -1058,20 +786,16 @@
   text-decoration: none;
 }
 
-
 /* =========================================================
    TABLET
 ========================================================= */
 
 @media (min-width: 30rem) {
   .ft-contact-form__row--split {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
   }
 }
-
 
 /* =========================================================
    MOBILE / TABLET ORDER
@@ -1082,11 +806,6 @@
     display: none;
   }
 
-  /*
-    display:contents lets us reproduce the
-    reference mobile order even though these
-    elements belong to the left desktop column.
-  */
   .ft-contact-hero__left {
     display: contents;
   }
@@ -1097,13 +816,11 @@
 
   .ft-contact-hero__stats {
     order: 2;
-
     margin-top: 0;
   }
 
   .ft-contact-hero__logos {
     order: 3;
-
     margin-top: 0.75rem;
   }
 
@@ -1113,7 +830,6 @@
 
   .ft-contact-hero__testimonial-wrap {
     order: 5;
-
     margin-top: 0;
   }
 
@@ -1121,7 +837,6 @@
     max-width: 100%;
   }
 }
-
 
 /* =========================================================
    DESKTOP
@@ -1136,12 +851,8 @@
   }
 
   .ft-contact-hero__grid {
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(0, 1fr);
-
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     column-gap: 4rem;
-
     align-items: start;
   }
 
@@ -1151,14 +862,12 @@
 
   .ft-contact-hero__form-card {
     min-height: 41.5rem;
-
     padding: 2.5rem;
   }
 
   .ft-contact-hero__stats {
     display: flex;
     justify-content: space-between;
-
     gap: 1.5rem;
   }
 
@@ -1170,7 +879,6 @@
     margin-top: 3rem;
   }
 }
-
 
 /* =========================================================
    LARGE DESKTOP
@@ -1189,7 +897,6 @@
     gap: 2.5rem;
   }
 }
-
 
 /* =========================================================
    SMALL MOBILE
@@ -1221,7 +928,6 @@
 
   .ft-contact-hero__form-card {
     padding: 1.5rem;
-
     border-radius: 1rem;
   }
 
@@ -1229,7 +935,6 @@
     width: 100%;
   }
 }
-
 
 /* =========================================================
    REDUCED MOTION
@@ -1250,23 +955,16 @@
 
 /* =========================================================
    CONTACT RESULTS
-   Scoped to /contact/. Every WorkFeaturedProjects override
-   below is nested under .ft-contact-results so /work/ and
-   any other consumer keep the shared defaults.
 ========================================================= */
 
 .ft-contact-results {
   width: 100%;
   box-sizing: border-box;
-
   padding-top: 4rem;
   padding-bottom: 4rem;
-
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
   color: #ffffff;
 }
-
-/* SHARED CONTENT CONTAINER (left aligned on desktop) */
 
 .ft-contact-results__header,
 .ft-contact-results .ft-work-featured,
@@ -1283,8 +981,6 @@
   background: transparent;
 }
 
-/* HEADINGS */
-
 .ft-contact-results__header {
   margin-bottom: 0;
   text-align: left;
@@ -1292,72 +988,52 @@
 
 .ft-contact-results__eyebrow {
   margin: 0 0 0.75rem;
-
-  color: rgba(255, 255, 255, 0.4);
-
-  font-family: "Season Serif", serif;
+  color: var(--ft-text-secondary, #A8B3C7);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.125rem, 1.6vw, 1.5rem);
   font-weight: 400;
   line-height: 1.2;
-
   text-align: left;
 }
 
 .ft-contact-results__title {
   margin: 0 0 2rem;
-
   color: #ffffff;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2.125rem, 4vw, 3.75rem);
   font-weight: 300;
   line-height: 1.1;
   letter-spacing: -0.035em;
-
   text-align: left;
 }
 
-/* CARDS — result pill moved below the copy, bottom left */
-
 .ft-contact-results .ft-work-featured__card {
   box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-
   padding: 1.5rem;
 }
 
 .ft-contact-results .ft-work-featured__content {
   position: relative;
   inset: auto;
-
   z-index: 2;
-
   width: 100%;
 }
 
 .ft-contact-results .ft-work-featured__result {
   position: relative;
   inset: auto;
-
   z-index: 2;
-
   order: 1;
-
   min-height: 0;
-
   margin-top: 0.75rem;
-
   padding: 0.375rem 0.75rem;
-
   border-radius: 999rem;
-
-  background: #ffffff;
-  color: #000000;
-
+  background: var(--ft-primary-blue, #306CE7);
+  color: #ffffff;
   font-size: 0.8125rem;
   line-height: 1.2;
   font-weight: 500;
@@ -1366,25 +1042,19 @@
 .ft-contact-results .ft-work-featured__title {
   font-size: 1.125rem;
   font-weight: 500;
-
   color: #ffffff;
 }
 
 .ft-contact-results .ft-work-featured__services {
   margin: 0.25rem 0 0;
-
   font-size: 0.8125rem;
   line-height: 1.35;
-
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
-
-/* VIEW MORE */
 
 .ft-contact-results__action {
   display: flex;
   justify-content: center;
-
   margin-top: 2.5rem;
   padding-bottom: 0;
 }
@@ -1394,21 +1064,16 @@
   align-items: center;
   justify-content: center;
   gap: 0.625rem;
-
   padding: 0.75rem 1.75rem;
-
-  border: 0.0625rem solid rgba(255, 255, 255, 0.3);
+  border: 0.0625rem solid var(--ft-primary-blue, #306CE7);
   border-radius: 999rem;
-
-  background: transparent;
+  background: var(--ft-primary-blue, #306CE7);
   color: #ffffff;
-
-  font-family: "Season Serif", serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   line-height: 1.2;
-
   text-decoration: none;
-
+  font-weight: 500;
   transition:
     background-color 220ms ease,
     color 220ms ease,
@@ -1417,10 +1082,9 @@
 
 .ft-contact-results__link:hover,
 .ft-contact-results__link:focus-visible {
-  border-color: #ffffff;
-  background: #ffffff;
-  color: #000000;
-
+  border-color: var(--ft-accent-blue, #3B82F6);
+  background: var(--ft-accent-blue, #3B82F6);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -1445,7 +1109,6 @@
   }
 }
 
-
 /* =========================================================
    BOOKING ALTERNATIVE TO THE FORM
 ========================================================= */
@@ -1454,41 +1117,31 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-
   gap: 0.75rem 1rem;
-
   margin-top: 1.5rem;
 }
 
 .ft-contact-hero__alt-action-label {
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
-
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-contact-hero__book-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   min-height: 2.5rem;
-
   padding: 0 1.5rem;
-
   border-radius: 50vw;
-
-  background: transparent;
+  background: var(--ft-primary-blue, #306CE7);
   color: #ffffff;
-
-  border: 0.0625rem solid rgba(255, 255, 255, 0.4);
-
-  font-family: "Season Sans", sans-serif;
+  border: 0.0625rem solid var(--ft-primary-blue, #306CE7);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
+  font-weight: 500;
   line-height: 1;
-
   white-space: nowrap;
-
   transition:
     background-color 180ms ease,
     border-color 180ms ease;
@@ -1496,7 +1149,6 @@
 
 .ft-contact-hero__book-cta:hover,
 .ft-contact-hero__book-cta:focus-visible {
-  background: rgba(255, 255, 255, 0.1);
-
-  border-color: #ffffff;
+  background: var(--ft-accent-blue, #3B82F6);
+  border-color: var(--ft-accent-blue, #3B82F6);
 }

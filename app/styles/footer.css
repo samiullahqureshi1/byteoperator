@@ -1,5 +1,5 @@
 /* =========================================================
-   FOLDTECH — GLOBAL FOOTER
+   BYTE OPERATOR — GLOBAL FOOTER
 ========================================================= */
 
 .ft-footer {
@@ -11,7 +11,7 @@
 
   overflow: hidden;
 
-  background: #01151b;
+  background: var(--ft-dark-deep, #060F24);
   color: #ffffff;
 }
 
@@ -44,17 +44,17 @@
   background:
     radial-gradient(
       ellipse 60% 48% at 14% 18%,
-      rgba(64, 173, 170, 0.16) 0%,
+      rgba(48, 108, 231, 0.16) 0%,
       transparent 70%
     ),
     radial-gradient(
       ellipse 52% 48% at 55% 72%,
-      rgba(64, 173, 170, 0.12) 0%,
+      rgba(59, 130, 246, 0.1) 0%,
       transparent 70%
     ),
     radial-gradient(
       ellipse 42% 40% at 83% 28%,
-      rgba(4, 67, 78, 0.24) 0%,
+      rgba(30, 58, 138, 0.22) 0%,
       transparent 70%
     );
 }
@@ -94,7 +94,7 @@
   border-bottom:
     0.065rem
     solid
-    rgba(255, 255, 255, 0.1);
+    #1F2A44;
 }
 
 
@@ -130,9 +130,7 @@
 
   margin: 0;
 
-  font-family:
-    "Season Serif",
-    serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 3rem;
   font-weight: 400;
@@ -149,9 +147,7 @@
 }
 
 .ft-footer__heading em {
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-style: normal;
   font-weight: 300;
@@ -184,12 +180,11 @@
 
   border-radius: 999vw;
 
-  background: #ffffff;
-  color: #01151b;
+  background: #306CE7;
+  color: #ffffff;
+  border: 0.0625rem solid #306CE7;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.9375rem;
   font-weight: 400;
@@ -200,7 +195,15 @@
   white-space: nowrap;
 
   transition:
-    opacity 0.3s ease;
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.ft-footer__primary-cta:hover,
+.ft-footer__primary-cta:focus-visible {
+  background: #3B82F6;
+  border-color: #3B82F6;
+  color: #ffffff;
 }
 
 .ft-footer__cta-arrow {
@@ -231,12 +234,12 @@
 .ft-footer__newsletter-label {
   margin: 0;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   font-weight: 300;
   line-height: 1.5;
 
-  color: rgba(255, 255, 255, 0.6);
+  color: #A8B3C7;
 }
 
 
@@ -282,7 +285,7 @@
   border:
     0.0625rem
     solid
-    rgba(255, 255, 255, 0.2);
+    #1F2A44;
 
   border-right: 0;
 
@@ -294,12 +297,11 @@
 
   outline: 0;
 
-  background:
-    rgba(255, 255, 255, 0.05);
+  background: #10192F;
 
   color: #ffffff;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   font-weight: 300;
 
@@ -311,17 +313,14 @@
 }
 
 .ft-footer__newsletter-input::placeholder {
-  color:
-    rgba(255, 255, 255, 0.3);
+  color: #A8B3C7;
+  opacity: 0.6;
 }
 
 
 .ft-footer__newsletter-input:focus {
-  border-color:
-    rgba(255, 255, 255, 0.4);
-
-  background:
-    rgba(255, 255, 255, 0.05);
+  border-color: #306CE7;
+  background: #10192F;
 }
 
 
@@ -350,7 +349,7 @@
   border:
     0.0625rem
     solid
-    rgba(255, 255, 255, 0.2);
+    #306CE7;
 
   border-left: 0;
 
@@ -360,12 +359,12 @@
     3.125rem
     0;
 
-  background: #ffffff;
-  color: #000000;
+  background: #306CE7;
+  color: #ffffff;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
-  font-weight: 400;
+  font-weight: 500;
 
   line-height: normal;
 
@@ -378,6 +377,16 @@
   box-shadow: none;
 
   cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ft-footer__newsletter-button:hover,
+.ft-footer__newsletter-button:focus-visible {
+  background: #3B82F6;
+  border-color: #3B82F6;
 }
 
 
@@ -388,14 +397,12 @@
 .ft-footer__newsletter-message {
   margin: 0;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.75rem;
   line-height: 1.4;
 
-  color: #afdddc;
+  color: #3B82F6;
 }
 
 
@@ -418,7 +425,7 @@
   border-bottom:
     0.065rem
     solid
-    rgba(255, 255, 255, 0.1);
+    #1F2A44;
 }
 
 
@@ -438,7 +445,7 @@
   border-bottom:
     0.065rem
     solid
-    rgba(255, 255, 255, 0.08);
+    #1F2A44;
 }
 
 .ft-footer__nav-group:first-child {
@@ -468,9 +475,7 @@
 
   background: transparent;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.6875rem;
   font-weight: 500;
@@ -587,21 +592,23 @@
 .ft-footer__nav-link {
   display: inline-flex;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.9375rem;
   font-weight: 300;
   line-height: 1.4;
 
-  color:
-    rgba(255, 255, 255, 0.72);
+  color: #A8B3C7;
 
   text-decoration: none;
 
   transition:
     color 0.3s ease;
+}
+
+.ft-footer__nav-link:hover,
+.ft-footer__nav-link:focus-visible {
+  color: #3B82F6;
 }
 
 
@@ -680,16 +687,13 @@
 .ft-footer__copyright {
   margin: 0;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.8125rem;
   font-weight: 300;
   line-height: 1.4;
 
-  color:
-    rgba(255, 255, 255, 0.38);
+  color: #A8B3C7;
 }
 
 
@@ -717,20 +721,22 @@
 ========================================================= */
 
 .ft-footer__bottom-link {
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.8125rem;
   font-weight: 300;
 
-  color:
-    rgba(255, 255, 255, 0.4);
+  color: #A8B3C7;
 
   text-decoration: none;
 
   transition:
     color 0.3s ease;
+}
+
+.ft-footer__bottom-link:hover,
+.ft-footer__bottom-link:focus-visible {
+  color: #3B82F6;
 }
 
 
@@ -1159,12 +1165,12 @@
   border:
     0.0625rem
     solid
-    rgba(255, 255, 255, 0.16);
+    #1F2A44;
 
   border-radius: 50%;
 
-  color:
-    rgba(255, 255, 255, 0.52);
+  color: #A8B3C7;
+  background: #10192F;
 
   /*
    * The icons are now <a> elements. This only cancels the global
@@ -1177,6 +1183,13 @@
     border-color 0.3s ease,
     color 0.3s ease,
     background 0.3s ease;
+}
+
+.ft-footer__social:hover,
+.ft-footer__social:focus-visible {
+  border-color: #306CE7;
+  color: #ffffff;
+  background: #306CE7;
 }
 
 .ft-footer__social svg {
@@ -1228,15 +1241,14 @@
 }
 
 .ft-footer__primary-cta--secondary {
-  background: transparent;
+  background: #10192F;
   color: #ffffff;
 
-  border: 0.0625rem solid rgba(255, 255, 255, 0.4);
+  border: 0.0625rem solid #1F2A44;
 }
 
 .ft-footer__primary-cta--secondary:hover,
 .ft-footer__primary-cta--secondary:focus-visible {
-  background: rgba(255, 255, 255, 0.1);
-
-  border-color: #ffffff;
+  background: #1F2A44;
+  border-color: #306CE7;
 }

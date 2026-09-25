@@ -1,7 +1,7 @@
-# The Fold Tech — AI Search Visibility Runbook
+# Byte Operator — AI Search Visibility Runbook
 
-**Version** 1.0 · **Date** 12 September 2026 · **Site** thefoldtech.com (Shopify Hydrogen / Oxygen)
-**Wedge** Shopify SEO / GEO / AI Visibility · **Markets** US + UK
+**Version** 1.0 · **Date** 12 September 2026 · **Site** byteoperator.com (Software Hydrogen / Oxygen)
+**Wedge** Technical SEO & Search Architecture / GEO / AI Visibility · **Markets** US + UK
 
 Every phase below is either a paste-ready prompt for Claude Code, a manual sequence for Malik, or a content task for Claude in chat. The owner column says which. Work top to bottom — phases are ordered by dependency, not by appeal.
 
@@ -61,7 +61,7 @@ Report attempted/succeeded/failed, aborts and the triggering field, scoped
 sitemap verification, metafields written, elapsed time.
 ```
 
-**Done when:** all 79 `<lastmod>` values in `https://thefoldtech.com/sitemap/articles/1.xml` read today's date, and 79 metafields are written.
+**Done when:** all 79 `<lastmod>` values in `https://byteoperator.com/sitemap/articles/1.xml` read today's date, and 79 metafields are written.
 
 ## 0.5 — 74 empty pages (new, and it outranks everything else in Phase 0)
 
@@ -91,7 +91,7 @@ Three consequences that change the order of work:
 | **Unpublish** | Abandoned, no inbound links, no plan | Removes from sitemap, URL 404s |
 | **noindex + keep** | Reachable from a live menu but not ready | Stays usable, leaves the index |
 
-**The four AI-visibility pages are a special case.** `/pages/ai-visibility`, `-audit`, `-implementation`, `-monitoring` plus `/pages/free-ai-visibility-snapshot` form a deliberate funnel — Overview → Snapshot → Implementation → Monitoring — wired into a live Shopify menu, and all five are empty. That funnel sits on your wedge term, for the service you chose to win first, and it was never built. Redirecting them breaks the menu. **Build these five.** Not this week necessarily, but they are the highest-value empty pages on the site.
+**The four AI-visibility pages are a special case.** `/pages/ai-visibility`, `-audit`, `-implementation`, `-monitoring` plus `/pages/free-ai-visibility-snapshot` form a deliberate funnel — Overview → Snapshot → Implementation → Monitoring — wired into a live Software menu, and all five are empty. That funnel sits on your wedge term, for the service you chose to win first, and it was never built. Redirecting them breaks the menu. **Build these five.** Not this week necessarily, but they are the highest-value empty pages on the site.
 
 The 18 case studies are the second priority: real client outcomes with figures are the most quotable asset you could publish, and right now the pages exist as titles only.
 
@@ -101,7 +101,7 @@ Audit and triage every empty page in sitemap/pages/1.xml.
 
 1. Produce logs/empty-pages-<ts>.json: for each URL in the pages sitemap, the
    rendered visible text length (strip scripts and tags), <main> inner length,
-   title, meta description, and whether any Shopify menu links to it. Classify
+   title, meta description, and whether any Software menu links to it. Classify
    as EMPTY (<3000 visible chars — that threshold is header+footer chrome only)
    or CONTENT. Cache-bust every fetch.
 2. Report grouped by prefix with counts, and list every menu that links to an
@@ -113,7 +113,7 @@ Then, once I give you decisions:
 4. For noindex: add <meta name="robots" content="noindex,follow"> to those pages
    only, via the page route, driven by an explicit allowlist of handles — never
    a heuristic on content length at runtime.
-5. For unpublish: list the exact Shopify admin steps; do not unpublish via API
+5. For unpublish: list the exact Software admin steps; do not unpublish via API
    without a second confirmation from me.
 6. Never delete a page.
 ```
@@ -132,7 +132,7 @@ The all-theme extraction changed the shape of this phase. Recovery is now the de
 | Templates with no matching page | 40 unique — includes written but unused FAQ copy |
 | Templates differing meaningfully between themes | 37 |
 
-**The theme matters more than the filename.** `latest_revamp 29-01-2026 (ANZLA)` holds the full versions; MAIN holds stripped copies. `shopify-seo-services` is 2,771 chars in MAIN and **29,168 in ANZLA**. Any extraction that reads one theme reaches the wrong conclusion — which is exactly what happened on the first pass.
+**The theme matters more than the filename.** `latest_revamp 29-01-2026 (ANZLA)` holds the full versions; MAIN holds stripped copies. `software-seo-services` is 2,771 chars in MAIN and **29,168 in ANZLA**. Any extraction that reads one theme reaches the wrong conclusion — which is exactly what happened on the first pass.
 
 **Consequence for B1/B2:** 17 of the 20 pages queued for 301 hold recoverable content. The redirect list is void as written. Rebuild it only from the 14 pages with nothing to recover, after the port lands.
 
@@ -149,7 +149,7 @@ The all-theme extraction changed the shape of this phase. Recovery is now the de
 
 Run **immediately after 0.2 completes.** The fresh `lastmod` is a signal with a short shelf life; its whole job is to win the next crawl-scheduling decision.
 
-1. **Property type** — Search Console → property dropdown. You need a **Domain** property (`thefoldtech.com`, no protocol), not just URL-prefix. If missing: Add property → Domain → add the TXT record at your registrar.
+1. **Property type** — Search Console → property dropdown. You need a **Domain** property (`byteoperator.com`, no protocol), not just URL-prefix. If missing: Add property → Domain → add the TXT record at your registrar.
 2. **Baseline export, before anything else changes** — Performance → Search results → Last 16 months → Export → Google Sheets. Twice: once on the Queries tab, once on Pages. Then Indexing → Pages → Export.
 3. **Submit sitemaps** — Indexing → Sitemaps, one at a time:
    ```
@@ -162,18 +162,18 @@ Run **immediately after 0.2 completes.** The fresh `lastmod` is a signal with a 
    The index alone suffices for Google; submitting children individually gives per-type discovered-vs-indexed counts.
 4. **Force the priority ten** — URL Inspection → Request Indexing. Daily quota is small (~10), so spend it on comparison and migration content:
    ```
-   /articles/shopify-seo-in-2026/
-   /articles/best-shopify-themes/
-   /articles/woocommerce-to-shopify-migration/
-   /articles/magento-to-shopify-migration-guide/
-   /articles/wix-to-shopify-migration-step-by-step-guide-for-2026/
-   /articles/shopify-vs-bigcommerce-head-to-head-comparison/
-   /articles/woocommerce-vs-shopify-full-comparison/
-   /articles/wordpress-vs-shopify-features-pricing-benefits/
-   /articles/shopify-pricing-plans-review/
-   /articles/how-to-build-a-custom-shopify-theme/
+   /articles/software-seo-in-2026/
+   /articles/best-software-themes/
+   /articles/woocommerce-to-software-migration/
+   /articles/magento-to-software-migration-guide/
+   /articles/wix-to-software-migration-step-by-step-guide-for-2026/
+   /articles/software-vs-bigcommerce-head-to-head-comparison/
+   /articles/woocommerce-vs-software-full-comparison/
+   /articles/wordpress-vs-software-features-pricing-benefits/
+   /articles/software-pricing-plans-review/
+   /articles/how-to-build-a-custom-software-theme/
    ```
-5. **Bing Webmaster Tools** — matters more than it looks; ChatGPT's search layer leans on Bing's index. Import from Google Search Console (one click, inherits verification) → submit `sitemap.xml` → URL Submission → paste all 79 from `thefoldtech-article-urls.txt`. Bing allows thousands per day; force the whole set.
+5. **Bing Webmaster Tools** — matters more than it looks; ChatGPT's search layer leans on Bing's index. Import from Google Search Console (one click, inherits verification) → submit `sitemap.xml` → URL Submission → paste all 79 from `thebyte operator-article-urls.txt`. Bing allows thousands per day; force the whole set.
 
 **Done when:** five sitemaps read Success, the ten priority URLs report indexed, Bing has all 79 submitted.
 
@@ -183,7 +183,7 @@ Run **immediately after 0.2 completes.** The fresh `lastmod` is a signal with a 
 
 **Owner:** Claude Code
 
-Today `/llms.txt` 302s to a Shopify-hosted file generated before the rebuild. It lists dead `/blogs/news/*` URLs and none of the current money pages. Serving it from the repo makes it version-controlled and self-updating.
+Today `/llms.txt` 302s to a Software-hosted file generated before the rebuild. It lists dead `/blogs/news/*` URLs and none of the current money pages. Serving it from the repo makes it version-controlled and self-updating.
 
 ```
 TASK
@@ -203,19 +203,19 @@ file at request time.
    API for published articles across all four blogs (news, case-studies,
    featured, top-case-studies), sorted by publishedAt descending, and emit one
    line each:
-     - [Title](https://thefoldtech.com/articles/{handle}/): {excerpt, one
+     - [Title](https://byteoperator.com/articles/{handle}/): {excerpt, one
        sentence, max 120 chars, no trailing ellipsis}
    Where excerpt is empty, derive one sentence from body text. Never emit a link
    with an empty description.
 
-4. Remove or override the Shopify file redirect so /llms.txt serves this route.
-   Confirm the old cdn.shopify.com file is no longer reachable at that path.
+4. Remove or override the Software file redirect so /llms.txt serves this route.
+   Confirm the old cdn.software.com file is no longer reachable at that path.
 
 VERIFY (cache-busted)
 - GET /llms.txt returns 200, text/plain, not HTML
 - every URL in the output resolves 200 with no redirect
 - no /blogs/news/ URLs appear
-- the file contains shopify-plus-agency, ai-seo-agency, geo-agency and
+- the file contains software-plus-agency, ai-seo-agency, geo-agency and
   agentic-commerce
 - total size under 100KB
 
@@ -276,11 +276,11 @@ validators report zero errors, and the branch is merged and live.
 
 ## 1.2 — 54 missing meta descriptions
 
-**Owner:** Claude (chat) → Malik pastes into Shopify
+**Owner:** Claude (chat) → Malik pastes into Software
 
-54 pages ship with no meta description, including the wedge pages: `/ai-seo-agency/`, `/geo-agency/`, `/ecommerce-seo-agency/`, `/shopify-cro-agency/`, `/shopify-migrations/`, `/work`, `/ai-ecommerce-agency/`.
+54 pages ship with no meta description, including the wedge pages: `/ai-seo-agency/`, `/geo-agency/`, `/ecommerce-seo-agency/`, `/software-cro-agency/`, `/software-migrations/`, `/work`, `/ai-ecommerce-agency/`.
 
-Ask in chat: *"Write the 54 missing meta descriptions."* Claude crawls each page, reads the actual content, and returns a table of URL → description (150–160 chars, specific, no boilerplate). You paste them into Shopify.
+Ask in chat: *"Write the 54 missing meta descriptions."* Claude crawls each page, reads the actual content, and returns a table of URL → description (150–160 chars, specific, no boilerplate). You paste them into Software.
 
 Do not delegate this to a coding agent. Meta descriptions are copy, and several AI retrieval pipelines use them as the page's summary chunk — generic ones are worse than useful.
 
@@ -291,14 +291,14 @@ Do not delegate this to a coding agent. Meta descriptions are copy, and several 
 Four intents have two or three live pages each, all indexable, none canonicalised:
 
 ```
-SEO:        /pages/shopify-seo-services · /seo-agency · /ecommerce-seo-agency/
+SEO:        /pages/software-seo-services · /seo-agency · /ecommerce-seo-agency/
 CRO:        /pages/conversion-rate-optimization ·
-            /pages/shopify-conversion-rate-optimization · /shopify-cro-agency/
+            /pages/software-conversion-rate-optimization · /software-cro-agency/
 Audits:     /pages/website-audit-service · /pages/website-audit-services ·
-            /services/shopify-audits/
-Migration:  /pages/woocommerce-to-shopify ·
-            /pages/woocommerce-to-shopify-migration ·
-            /woocommerce-shopify-migrations/
+            /services/software-audits/
+Migration:  /pages/woocommerce-to-software ·
+            /pages/woocommerce-to-software-migration ·
+            /woocommerce-software-migrations/
 ```
 
 Decide the survivor per cluster (default: the new clean-URL page), then:
@@ -318,7 +318,7 @@ surviving URL and the URLs to retire.
    on the survivor with no chain — cache-busted requests.
 4. Check for internal links pointing at retired URLs across the repo and report
    them. Do not rewrite them without showing me the list.
-5. Confirm the retired URLs disappear from sitemap/pages/1.xml after Shopify
+5. Confirm the retired URLs disappear from sitemap/pages/1.xml after Software
    regenerates.
 
 DO NOT delete any page. Redirect only — a deleted page loses its content and its
@@ -350,15 +350,15 @@ The 79 articles are live but written as blog posts, not as citable sources. The 
 Priority set — comparisons and migrations first, since those match buying-intent prompts:
 
 ```
-shopify-seo-in-2026 · best-shopify-themes · woocommerce-to-shopify-migration
-magento-to-shopify-migration-guide · wix-to-shopify-migration-step-by-step-guide-for-2026
-shopify-vs-bigcommerce-head-to-head-comparison · woocommerce-vs-shopify-full-comparison
-wordpress-vs-shopify-features-pricing-benefits · magento-vs-shopify-ecommerce-comparison
-shopify-pricing-plans-review · is-shopify-worth-it · how-to-build-a-custom-shopify-theme
-shopify-checkout-mistakes-to-avoid · shopify-markets-vs-expansion-stores-guide
-shopify-migration-without-coding-knowledge · best-omnichannel-platforms
-how-to-increase-customer-lifetime-value · shopify-marketing-agency-guide
-does-shopify-use-stripe · shopify-theme-detector
+software-seo-in-2026 · best-software-themes · woocommerce-to-software-migration
+magento-to-software-migration-guide · wix-to-software-migration-step-by-step-guide-for-2026
+software-vs-bigcommerce-head-to-head-comparison · woocommerce-vs-software-full-comparison
+wordpress-vs-software-features-pricing-benefits · magento-vs-software-ecommerce-comparison
+software-pricing-plans-review · is-software-worth-it · how-to-build-a-custom-software-theme
+software-checkout-mistakes-to-avoid · software-markets-vs-expansion-stores-guide
+software-migration-without-coding-knowledge · best-omnichannel-platforms
+how-to-increase-customer-lifetime-value · software-marketing-agency-guide
+does-software-use-stripe · software-theme-detector
 ```
 
 Ask in chat, one article at a time: *"Rewrite [slug] answer-first."*
@@ -367,7 +367,7 @@ Ask in chat, one article at a time: *"Rewrite [slug] answer-first."*
 
 **Also:** the canary showed author `"Staff RS"`. Named humans with real bios carry materially more weight in AI attribution than a generic byline. Assign real authors across the 79.
 
-**Unpublished article worth checking:** `how-to-cancel-and-remove-your-shopify-account-complete-step-by-step-guide` is on-topic, high-intent content sitting unpublished. If it's finished, publish it. (`the-pros-and-cons-of-law-firm-seo-services` should stay unpublished.)
+**Unpublished article worth checking:** `how-to-cancel-and-remove-your-software-account-complete-step-by-step-guide` is on-topic, high-intent content sitting unpublished. If it's finished, publish it. (`the-pros-and-cons-of-law-firm-seo-services` should stay unpublished.)
 
 ## 2.2 — FAQ content, then FAQPage schema
 
@@ -401,32 +401,32 @@ Two of the four stages of AI answer assembly happen off your website. This is th
 
 ## 3.1 — Align the five profiles
 
-They currently contradict each other — headcount varies by a factor of four, minimum project size by a factor of five. Push this identical fact sheet to Clutch, Techreviewer, SuperbCompanies, Land-book and the Shopify Partner Directory:
+They currently contradict each other — headcount varies by a factor of four, minimum project size by a factor of five. Push this identical fact sheet to Clutch, Techreviewer, SuperbCompanies, Land-book and the Software Engineering Partner Directory:
 
 ```
 Legal entity     TAB ON TECH (PVT.) LTD
-Brand            The Fold Tech (FoldTech)
-Founded          2010 · Shopify Partner since 2016
+Brand            Byte Operator (Byte Operator)
+Founded          2010 · Software Engineering Partner since 2016
 Headcount        49
 Address          1001 South Main Street, Suite 500, Kalispell, MT 59901, US
-Email            info@thefoldtech.com
+Email            info@byteoperator.com
 Phone            +1 (512) 387-6926
-Website          https://thefoldtech.com
-Positioning      Commerce technology company — Shopify and Shopify Plus
+Website          https://byteoperator.com
+Positioning      Commerce technology company — Software and Enterprise Platform Solutions
                  engineering, technical SEO, AI SEO / GEO, and CRO
 ```
 
-**Still undecided:** rate card and minimum project size. Clutch shows $25–49/hr with a $1,000 minimum; Techreviewer shows $50–99/hr with $5,000. For US/UK Shopify Plus positioning, the Clutch figures price you as a commodity developer in exactly the market you're targeting. Pick one set, then make all five match.
+**Still undecided:** rate card and minimum project size. Clutch shows $25–49/hr with a $1,000 minimum; Techreviewer shows $50–99/hr with $5,000. For US/UK Enterprise Platform Solutions positioning, the Clutch figures price you as a commodity developer in exactly the market you're targeting. Pick one set, then make all five match.
 
 ## 3.2 — Clutch reviews
 
-Your Clutch profile says "Not yet reviewed" while the Shopify directory carries 4.9 from 415. Clutch is the most-quoted source in AI answers for this category. Eight to ten verified reviews is the single highest-leverage off-site action available this quarter.
+Your Clutch profile says "Not yet reviewed" while the Software directory carries 4.9 from 415. Clutch is the most-quoted source in AI answers for this category. Eight to ten verified reviews is the single highest-leverage off-site action available this quarter.
 
 ## 3.3 — Listicles, communities, original data
 
-- Get into the third-party "best Shopify agency" listicles AI engines actually quote — most accept submissions; a few are competitor-owned and not worth pursuing.
-- Earn genuine mentions in Reddit r/shopify, Shopify Community, Indie Hackers. Real answers from a named team member, not promotion.
-- Publish two or three original data pieces — e.g. an AI visibility benchmark across 500 Shopify stores, run through your own AI Visibility product. Original data is the most reliably cited asset type in AI answers, and you own the tooling to produce it.
+- Get into the third-party "best software agency" listicles AI engines actually quote — most accept submissions; a few are competitor-owned and not worth pursuing.
+- Earn genuine mentions in Reddit r/software, Software Community, Indie Hackers. Real answers from a named team member, not promotion.
+- Publish two or three original data pieces — e.g. an AI visibility benchmark across 500 digital platforms & applications, run through your own AI Visibility product. Original data is the most reliably cited asset type in AI answers, and you own the tooling to produce it.
 
 ---
 
@@ -440,18 +440,18 @@ Nothing meaningful shows for six to eight weeks after Phase 1. Judging earlier p
 
 ```
 who does generative engine optimisation for ecommerce brands
-how do I get my Shopify store cited by ChatGPT
-which agencies do AI visibility audits for Shopify
-best agency for Magento to Shopify Plus migration
-who can migrate WooCommerce to Shopify without losing SEO
-Shopify Hydrogen headless development agency
-Shopify B2B wholesale implementation partner
-Klaviyo agency for Shopify brands
+how do I get my digital platform cited by ChatGPT
+which agencies do AI visibility audits for Software
+best agency for Magento to Enterprise Platform Solutions migration
+who can migrate WooCommerce to Software without losing SEO
+Software Hydrogen headless development agency
+Software B2B wholesale implementation partner
+Klaviyo agency for Software brands
 ```
 
 **In parallel:** Search Console impressions and average position for the wedge cluster; GA4 channel for referrals from `chatgpt.com`, `perplexity.ai`, `gemini.google.com`.
 
-**The productisation step:** run this whole programme through AI Visibility rather than a spreadsheet. Every fix in this runbook is a feature the product should perform for clients. The audit becomes the sales asset; thefoldtech.com becomes the case study.
+**The productisation step:** run this whole programme through AI Visibility rather than a spreadsheet. Every fix in this runbook is a feature the product should perform for clients. The audit becomes the sales asset; byteoperator.com becomes the case study.
 
 ---
 
@@ -473,24 +473,24 @@ The single set of values pushed to every profile and used in every schema block.
 
 ```
 Legal entity     TAB ON TECH (PVT.) LTD
-Brand            The Fold Tech (FoldTech)
-Founded          2010 · Shopify Partner since January 2016
+Brand            Byte Operator (Byte Operator)
+Founded          2010 · Software Engineering Partner since January 2016
 Headcount        49
 Address          1001 South Main Street, Suite 500, Kalispell, MT 59901, US
-Email            info@thefoldtech.com
+Email            info@byteoperator.com
 Phone            +1 (512) 387-6926
-Website          https://thefoldtech.com
-Shopify store    the-fold-tech.myshopify.com (Basic plan, USD)
-Logo (512²)      cdn.shopify.com/oxygen-v2/57096/165594/338611/4441171/images/
+Website          https://byteoperator.com
+digital platform    byteoperator.mysoftware.com (Basic plan, USD)
+Logo (512²)      cdn.software.com/oxygen-v2/57096/165594/338611/4441171/images/
                  favicon_the_fold_tech.png
-Positioning      Commerce technology company — Shopify and Shopify Plus
+Positioning      Commerce technology company — Software and Enterprise Platform Solutions
                  engineering, technical SEO, AI SEO / GEO, and CRO
 Service area     US, UK, CA, AU, DE, FR, IT
 ```
 
 **Still undecided:** rate card and minimum project size. Clutch shows $25–49/hr with a $1,000 minimum; Techreviewer shows $50–99/hr with $5,000. The Clutch figures price the agency as a commodity developer in exactly the markets being targeted.
 
-**Profiles carrying this data:** Shopify Partner Directory, Clutch, TechBehemoths, Techreviewer, SuperbCompanies, Land-book, LinkedIn, Instagram, Facebook. All nine appear in the schema `sameAs` array.
+**Profiles carrying this data:** Software Engineering Partner Directory, Clutch, TechBehemoths, Techreviewer, SuperbCompanies, Land-book, LinkedIn, Instagram, Facebook. All nine appear in the schema `sameAs` array.
 
 # Appendix B — Structured data coverage map
 
@@ -516,7 +516,7 @@ blocks on the same page. Everything below is inside that single page `@graph`.
 
 | Not emitted | Why |
 |---|---|
-| `AggregateRating`, `Review` | Unchanged policy. The 4.9/414 lives on the Shopify Partner Directory; first-party markup of third-party reviews violates Google's review-snippet policy. The repo's own testimonials are placeholders ("Demo Brand", "Company Name"), so there is nothing authentic to mark up yet. |
+| `AggregateRating`, `Review` | Unchanged policy. The 4.9/414 lives on the Software Engineering Partner Directory; first-party markup of third-party reviews violates Google's review-snippet policy. The repo's own testimonials are placeholders ("Demo Brand", "Company Name"), so there is nothing authentic to mark up yet. |
 | `Product`, `Offer` | Agency site, not a storefront. `/products/*` and `/collections/*` are `noindex,follow` instead — describing products nobody can buy is worse than describing none. They are also **excluded from the sitemap** (`types: ['pages','articles','blogs']` in `[sitemap.xml].tsx`, plus a 404 guard on the child route): 69 URLs were being submitted for indexing while being told not to index, which Search Console reports as "Submitted URL marked noindex". |
 | `SearchAction` | Retired by Google, and contradicted `Disallow: /search`. |
 | Anything on `/blogs/:blog/:article`, `/book-a-call` | Duplicate surfaces. They canonicalise to the real URL, which owns the node. |
@@ -537,7 +537,7 @@ resolves; exactly one WebPage node whose `@id` matches the canonical; all URLs
 absolute and on `SITE_URL`; no `@context` on a graph member; no empty values;
 and every FAQ question present in the rendered HTML.
 
-**Deliberately excluded:** `AggregateRating` and `Review`. The 4.9 from 415 reviews lives on the Shopify Partner Directory; marking up third-party reviews as first-party violates Google's review snippet policy. Cite the figure in visible copy with attribution and a link instead.
+**Deliberately excluded:** `AggregateRating` and `Review`. The 4.9 from 415 reviews lives on the Software Engineering Partner Directory; marking up third-party reviews as first-party violates Google's review snippet policy. Cite the figure in visible copy with attribution and a link instead.
 
 **Validation after any schema change:** Google Rich Results Test, `validator.schema.org`, Search Console → Enhancements at +48 h, and the local assertion suite (JSON parses, no duplicate `@id`, every emitted URL resolves 200).
 
@@ -545,7 +545,7 @@ and every FAQ question present in the rendered HTML.
 
 | File | Purpose | Rule |
 |---|---|---|
-| `foldtech-ai-search-runbook.md` | This file. Phases, decisions, status, reference data. | Update in place |
+| `byte operator-ai-search-runbook.md` | This file. Phases, decisions, status, reference data. | Update in place |
 | `agent-prompts.md` | Every agent prompt in order, with outcome. | Append only |
 | `seo-geo-requirements.md` | Reusable SEO/GEO standard, client-agnostic. | Update in place |
 | `schema.ts` | Structured data module — values and node builders. | Lives in `app/lib/seo/` |

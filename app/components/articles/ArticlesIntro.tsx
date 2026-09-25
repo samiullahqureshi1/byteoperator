@@ -1,3 +1,5 @@
+'use client';
+
 import {useState} from 'react';
 
 export type ArticleFilter =
@@ -122,7 +124,7 @@ export function ArticlesIntro({
             </p>
 
             <p className="ft-articles-newsletter__sub">
-              Weekly ecommerce news from our blog: Shopify, SEO and CRO insights
+              Weekly ecommerce news from our blog: Software, SEO and CRO insights
               that move the needle.
             </p>
 

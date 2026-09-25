@@ -1,12 +1,12 @@
 /* =========================================================
-   FOLDTECH — SHOPIFY SPECIALISM
+   BYTE OPERATOR — SHOPIFY SPECIALISM
 ========================================================= */
 
 .ft-ecommerce-seo-specialism {
   width: 100%;
   padding: 4rem 0;
-  background: var(--ft-white, #ffffff);
-  color: #000000;
+  background: var(--ft-dark-deep, #060F24);
+  color: var(--ft-text, #ffffff);
 }
 
 .ft-ecommerce-seo-specialism__container {
@@ -25,8 +25,8 @@
 
 .ft-ecommerce-seo-specialism__eyebrow {
   margin: 0 0 1rem;
-  color: rgba(0, 0, 0, 0.45);
-  font-family: 'Season Serif', serif;
+  color: var(--ft-text-secondary, #A8B3C7);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1;
@@ -34,8 +34,8 @@
 
 .ft-ecommerce-seo-specialism__title {
   margin: 0 0 1.5rem;
-  color: #000000;
-  font-family: 'Season Sans', sans-serif;
+  color: var(--ft-text, #ffffff);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2.125rem, 5vw, 3.75rem);
   font-weight: 400;
   line-height: 1.15;
@@ -50,8 +50,8 @@
 
 .ft-ecommerce-seo-specialism__copy p {
   margin: 0;
-  color: rgba(0, 0, 0, 0.6);
-  font-family: 'Season Sans', sans-serif;
+  color: var(--ft-text-secondary, #A8B3C7);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.75;
@@ -70,13 +70,13 @@
 .ft-ecommerce-seo-specialism__card {
   padding: 1.5rem;
   border-radius: 0.75rem;
-  background: #f7f7f7;
+  background: var(--ft-dark, #10192F);
 }
 
 .ft-ecommerce-seo-specialism__card-title {
   margin: 0 0 0.5rem;
-  color: #000000;
-  font-family: 'Season Sans', sans-serif;
+  color: var(--ft-text, #ffffff);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.35;
@@ -84,8 +84,8 @@
 
 .ft-ecommerce-seo-specialism__card-description {
   margin: 0;
-  color: rgba(0, 0, 0, 0.55);
-  font-family: 'Season Sans', sans-serif;
+  color: var(--ft-text-secondary, #A8B3C7);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.65;
@@ -135,19 +135,19 @@
 
 /* =========================================================
    ECOMMERCE SEO ONLY — REUSED PARTNERS SECTION
-   Dark FoldTech theme, tile-free logo grid, and a proof
+   Dark Byte Operator theme, tile-free logo grid, and a proof
    strip that reads as a footer row of the partners block.
    Scoped to .ft-ecommerce-seo-partners so Home / Work and
    every other HomePartners instance keep their defaults.
 ========================================================= */
 
 .ft-ecommerce-seo-partners {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
   padding-bottom: 6rem;
 }
 
 .ft-ecommerce-seo-partners .ft-home-partners {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
   color: var(--ft-white, #ffffff);
   padding-bottom: 0;
 }

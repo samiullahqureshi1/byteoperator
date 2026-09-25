@@ -1,5 +1,5 @@
 /* =========================================================
-   FOLDTECH — SEARCH / ABOUT SIDE TAB
+   BYTE OPERATOR — SEARCH / ABOUT SIDE TAB
    ---------------------------------------------------------
    HERO:
    horizontal fixed tab
@@ -30,8 +30,10 @@
 
   gap: 0.55vw;
 
-  color: rgba(255, 255, 255, 0.7);
-  background: var(--ft-dark-deep, #01151b);
+  color: var(--ft-text-secondary, #A8B3C7);
+  background: var(--ft-dark, #10192F);
+  border: 1px solid var(--ft-border, #1F2A44);
+  border-right: none;
 
   font-size: 0.6875rem;
   font-weight: 600;
@@ -47,7 +49,7 @@
     -0.25vw
     0
     1.25vw
-    rgba(0, 0, 0, 0.35);
+    rgba(6, 15, 36, 0.45);
 
   transition:
     transform 0.35s
@@ -206,13 +208,8 @@
 @media (hover: hover) {
   .ft-home-side-tab:hover {
     color: #ffffff;
-
-    background:
-      color-mix(
-        in srgb,
-        var(--ft-dark-deep, #01151b) 82%,
-        var(--ft-teal, #40adaa) 18%
-      );
+    background: var(--ft-primary-blue, #306CE7);
+    border-color: var(--ft-primary-blue, #306CE7);
   }
 
   .ft-home-side-tab:hover
@@ -243,7 +240,7 @@
 
   outline:
     0.12vw solid
-    var(--ft-teal-light, #afdddc);
+    var(--ft-accent-blue, #3B82F6);
 
   outline-offset: 0.18vw;
 }

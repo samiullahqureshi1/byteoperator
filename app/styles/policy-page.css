@@ -2,27 +2,11 @@
    POLICY PAGES — SHARED LAYOUT
    Routes: app/routes/policies._index.tsx
            app/routes/policies.$handle.tsx
-
-   Follows the FoldTech page language used by work-hero /
-   articles-intro rather than inventing one:
-
-     eyebrow   Season Serif 400, muted white
-     title     Season Sans 300, clamp(2rem, 4.6vw, 3.75rem),
-               letter-spacing -0.035em
-     body      Season Sans 300, line-height 1.5+
-     surface   rgba(255,255,255,0.04) on the deep navy,
-               0.0625rem rgba(255,255,255,0.08) border,
-               0.875rem radius
-
-   The reading surface stays dark to match /articles — a white
-   panel here reads as a hole punched in the layout.
 ========================================================= */
 
 .ft-policy-page {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
   color: var(--ft-white, #ffffff);
-
-  /* Nothing in a policy body may widen the page. */
   overflow-x: hidden;
 }
 
@@ -39,36 +23,25 @@
 .ft-policy-hero {
   position: relative;
   isolation: isolate;
-
-  /*
-   * The header is fixed and renders no spacer, so the hero
-   * clears it the same way the other FoldTech heroes do.
-   */
   padding-top: calc(
     var(--charle-header-height, 6.75rem) + clamp(2.5rem, 6vw, 4.5rem)
   );
-
   padding-bottom: clamp(2rem, 5vw, 3.5rem);
   padding-inline: 1.25rem;
 }
 
-/* The same brand glow the articles listing carries. */
 .ft-policy-hero::before {
   content: "";
-
   position: absolute;
   inset: 0;
   z-index: -1;
-
   pointer-events: none;
-
   background: radial-gradient(
     circle at 50% 18%,
-    rgba(64, 173, 170, 0.09) 0%,
-    rgba(64, 173, 170, 0.035) 30%,
+    rgba(48, 108, 231, 0.14) 0%,
+    rgba(48, 108, 231, 0.04) 30%,
     transparent 60%
   );
-
   filter: blur(3rem);
 }
 
@@ -80,41 +53,34 @@
 
 .ft-policy-hero__eyebrow {
   margin: 0 0 1rem;
-
-  font-family: "Season Serif", serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.5rem, 2.4vw, 2rem);
   font-weight: 400;
   line-height: 1.2;
-
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-policy-hero__title {
   max-width: 20ch;
   margin: 0;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2rem, 4.6vw, 3.75rem);
   font-weight: 300;
   line-height: 1.15;
   letter-spacing: -0.035em;
-
   color: #ffffff;
-
   overflow-wrap: anywhere;
 }
 
 .ft-policy-hero__lede {
   max-width: 39ch;
   margin: 1.25rem 0 0;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.125rem, 2vw, 1.5rem);
   font-weight: 300;
   line-height: 1.5;
   letter-spacing: -0.02em;
-
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 /* =========================================================
@@ -130,7 +96,6 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.75rem;
-
   width: 100%;
   max-width: 48rem;
   margin-inline: auto;
@@ -140,17 +105,12 @@
   display: flex;
   align-items: center;
   gap: 1.25rem;
-
   padding: 1.35rem 1.5rem;
-
-  border: 0.0625rem solid rgba(255, 255, 255, 0.08);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 0.875rem;
-
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--ft-dark, #10192F);
   color: #ffffff;
-
   text-decoration: none;
-
   transition:
     border-color 0.3s ease,
     background 0.3s ease;
@@ -158,8 +118,8 @@
 
 .ft-policy-card:hover,
 .ft-policy-card:focus-visible {
-  border-color: rgba(64, 173, 170, 0.5);
-  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--ft-primary-blue, #306CE7);
+  background: rgba(48, 108, 231, 0.1);
 }
 
 .ft-policy-card__text {
@@ -170,34 +130,28 @@
 .ft-policy-card__title {
   display: block;
   margin: 0;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.3;
-
   color: #ffffff;
 }
 
 .ft-policy-card__hint {
   display: block;
   margin: 0.2rem 0 0;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.7rem;
   font-weight: 300;
   line-height: 1.4;
-
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-policy-card__arrow {
   flex: 0 0 auto;
-
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--ft-accent-blue, #3B82F6);
   font-size: 1.125rem;
   line-height: 1;
-
   transition:
     transform 0.3s ease,
     color 0.3s ease;
@@ -205,7 +159,7 @@
 
 .ft-policy-card:hover .ft-policy-card__arrow {
   transform: translateX(0.1875rem);
-  color: var(--ft-teal-light, #afdddc);
+  color: #ffffff;
 }
 
 /* =========================================================
@@ -221,13 +175,10 @@
   width: 100%;
   max-width: 48rem;
   margin-inline: auto;
-
   padding: clamp(1.5rem, 5vw, 3rem);
-
-  border: 0.0625rem solid rgba(255, 255, 255, 0.08);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 0.875rem;
-
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--ft-dark, #10192F);
 }
 
 /* =========================================================
@@ -242,19 +193,15 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-
   padding: 0.5rem 1rem;
-
-  border: 0.0625rem solid rgba(255, 255, 255, 0.14);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 999rem;
-
-  font-family: "Season Sans", sans-serif;
+  background: var(--ft-dark, #10192F);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
   font-weight: 300;
-
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--ft-text-secondary, #A8B3C7);
   text-decoration: none;
-
   transition:
     border-color 0.3s ease,
     color 0.3s ease;
@@ -262,27 +209,21 @@
 
 .ft-policy-back a:hover,
 .ft-policy-back a:focus-visible {
-  border-color: rgba(64, 173, 170, 0.5);
+  border-color: var(--ft-primary-blue, #306CE7);
   color: #ffffff;
 }
 
 /* =========================================================
    POLICY BODY
-
-   Merchant-authored HTML from Shopify. Two of the four
-   policies are one long <br>-separated blob with no <p> at
-   all, so the base font lives on the container — not on `p` —
-   or those pages render at the browser default leading.
 ========================================================= */
 
 .ft-policy-content {
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.8;
   letter-spacing: -0.01em;
-
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-policy-content h1,
@@ -292,12 +233,10 @@
 .ft-policy-content h5,
 .ft-policy-content h6 {
   margin-block: 2em 0.6em;
-
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: -0.02em;
-
   color: #ffffff;
 }
 
@@ -317,19 +256,15 @@
   margin-block-start: 0;
 }
 
-/*
- * Terms and the subscription policy use bold runs as de facto
- * headings between <br>s, so `strong` has to carry that weight.
- */
 .ft-policy-content strong,
 .ft-policy-content b {
   color: #ffffff;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .ft-policy-content em,
 .ft-policy-content i {
-  font-family: "Season Serif", serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
 }
 
@@ -337,11 +272,6 @@
   margin-block: 0 1.25em;
 }
 
-/*
- * base.css ships a global `ul { list-style: none; padding: 0 }`,
- * so any rich-text area must put the markers back or the bullets
- * vanish silently — the privacy policy has 32 list items.
- */
 .ft-policy-content ul,
 .ft-policy-content ol {
   margin-block: 0 1.25em;
@@ -361,16 +291,15 @@
 }
 
 .ft-policy-content li::marker {
-  color: rgba(64, 173, 170, 0.9);
+  color: var(--ft-primary-blue, #306CE7);
 }
 
-/* This content wraps list text in <p>, which would double the gaps. */
 .ft-policy-content li > p {
   margin-block-end: 0;
 }
 
 .ft-policy-content a {
-  color: var(--ft-teal-light, #afdddc);
+  color: var(--ft-accent-blue, #3B82F6);
   text-decoration: underline;
   text-underline-offset: 0.15em;
   transition: color 0.3s ease;
@@ -384,17 +313,16 @@
 .ft-policy-content blockquote {
   margin-inline: 0;
   padding-inline-start: 1rem;
-  border-inline-start: 0.125rem solid rgba(64, 173, 170, 0.6);
-  color: rgba(255, 255, 255, 0.6);
+  border-inline-start: 0.125rem solid var(--ft-primary-blue, #306CE7);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-policy-content hr {
   border: 0;
-  border-top: 0.0625rem solid rgba(255, 255, 255, 0.1);
+  border-top: 0.0625rem solid var(--ft-border, #1F2A44);
   margin-block: 2.5rem;
 }
 
-/* Media and long strings must never push the page wider than the viewport */
 .ft-policy-content img,
 .ft-policy-content video,
 .ft-policy-content iframe {
@@ -416,7 +344,6 @@
   overflow-wrap: anywhere;
 }
 
-/* Tables scroll inside their own container instead of overflowing the page */
 .ft-policy-content table {
   display: block;
   width: 100%;
@@ -428,21 +355,21 @@
 
 .ft-policy-content th,
 .ft-policy-content td {
-  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   padding: 0.625rem 0.875rem;
   text-align: left;
   vertical-align: top;
 }
 
 .ft-policy-content thead th {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--ft-dark, #10192F);
   color: #ffffff;
   font-weight: 400;
 }
 
-/* =========================================================
+/* =========================
    TABLET / DESKTOP
-========================================================= */
+========================= */
 
 @media (min-width: 48rem) {
   .ft-policy-hero,

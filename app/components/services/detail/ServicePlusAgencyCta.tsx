@@ -1,4 +1,4 @@
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 
 export type ServicePlusAgencyCtaData = {
   heading: string;
@@ -24,8 +24,8 @@ export function ServicePlusAgencyCta({
       <div className="ft-service-plus-agency-cta__container">
         <div className="ft-service-plus-agency-cta__partners">
           <img
-            src="/images/home-partners/shopify.svg"
-            alt="Shopify"
+            src="/images/home-partners/software.svg"
+            alt="Software"
             width="179"
             height="76"
             loading="lazy"
@@ -33,8 +33,8 @@ export function ServicePlusAgencyCta({
           />
           <span aria-hidden="true" />
           <img
-            src="/images/home-partners/shopify-plus.svg"
-            alt="Shopify Plus"
+            src="/images/home-partners/software-plus.svg"
+            alt="Enterprise Platform Solutions"
             width="234"
             height="103"
             loading="lazy"

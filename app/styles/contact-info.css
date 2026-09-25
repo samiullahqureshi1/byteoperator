@@ -1,26 +1,14 @@
 /* =========================================================
-   FOLDTECH — CONTACT INFO
+   BYTE OPERATOR — CONTACT INFO
 ========================================================= */
 
 .ft-contact-info {
   width: 100%;
-
-  padding:
-    3rem
-    0
-    4rem;
-
-  border-top:
-    0.0625rem
-    solid
-    rgba(255, 255, 255, 0.08);
-
-  background:
-    var(--ft-dark-deep, #01151b);
-
+  padding: 3rem 0 4rem;
+  border-top: 0.0625rem solid var(--ft-border, #1F2A44);
+  background: var(--ft-dark-deep, #060F24);
   color: #ffffff;
 }
-
 
 /* =========================================================
    CONTAINER
@@ -29,14 +17,10 @@
 .ft-contact-info__container {
   width: 100%;
   max-width: 90rem;
-
   margin-inline: auto;
-
   padding-inline: 5.33vw;
-
   box-sizing: border-box;
 }
-
 
 /* =========================================================
    GRID
@@ -44,13 +28,9 @@
 
 .ft-contact-info__grid {
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr);
-
+  grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
 }
-
 
 /* =========================================================
    BLOCKS
@@ -58,42 +38,25 @@
 
 .ft-contact-info__block {
   display: flex;
-
   flex-direction: column;
-
   align-items: flex-start;
-
   min-width: 0;
 }
-
 
 /* =========================================================
    LABEL
 ========================================================= */
 
 .ft-contact-info__label {
-  margin:
-    0
-    0
-    0.75rem;
-
-  font-family:
-    "Season Sans",
-    sans-serif;
-
+  margin: 0 0 0.75rem;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.6875rem;
   font-weight: 400;
-
   line-height: 1;
-
   letter-spacing: 0.1em;
-
   text-transform: uppercase;
-
-  color:
-    rgba(255, 255, 255, 0.35);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
-
 
 /* =========================================================
    TEXT / LINKS
@@ -102,31 +65,18 @@
 .ft-contact-info__block p:not(.ft-contact-info__label),
 .ft-contact-info__block a {
   margin: 0;
-
-  font-family:
-    "Season Sans",
-    sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   font-weight: 300;
-
   line-height: 1.7;
-
-  color:
-    rgba(255, 255, 255, 0.65);
-
+  color: var(--ft-text-secondary, #A8B3C7);
   text-decoration: none;
-
-  transition:
-    color
-    0.3s
-    ease;
+  transition: color 0.3s ease;
 }
 
 .ft-contact-info__block a:hover {
-  color: #ffffff;
+  color: var(--ft-accent-blue, #3B82F6);
 }
-
 
 /* =========================================================
    TABLET / DESKTOP
@@ -134,16 +84,10 @@
 
 @media (min-width: 48rem) {
   .ft-contact-info__grid {
-    grid-template-columns:
-      repeat(
-        3,
-        minmax(0, 1fr)
-      );
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 3rem;
   }
 }
-
 
 /* =========================================================
    DESKTOP
@@ -151,10 +95,7 @@
 
 @media (min-width: 64rem) {
   .ft-contact-info {
-    padding:
-      4rem
-      0
-      5rem;
+    padding: 4rem 0 5rem;
   }
 
   .ft-contact-info__container {
@@ -162,16 +103,13 @@
   }
 }
 
-
 /* =========================================================
    MOBILE
 ========================================================= */
 
 @media (max-width: 47.99rem) {
   .ft-contact-info {
-    padding:
-      3rem
-      0;
+    padding: 3rem 0;
   }
 
   .ft-contact-info__grid {

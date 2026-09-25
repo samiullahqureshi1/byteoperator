@@ -2,7 +2,7 @@ import type {
   ClientProofLogo,
   ClientProofTestimonial,
 } from '~/components/shared/ClientProof';
-import {HOME_CLIENT_LOGOS} from '~/components/HomeServices';
+import {HOME_CLIENT_LOGOS} from '~/data/clientLogos';
 
 /**
  * The client review used across the site: hero badges, the about page, the
@@ -13,7 +13,7 @@ import {HOME_CLIENT_LOGOS} from '~/components/HomeServices';
  */
 export const WORK_HERO_TESTIMONIAL: ClientProofTestimonial = {
   quote:
-    'FoldTech helped us create a stronger ecommerce experience built around growth and performance.',
+    'Byte Operator helped us create a stronger ecommerce experience built around growth and performance.',
   person: 'Liana',
   company: 'Company Name',
   image: '/images/work/liana-review.webp',

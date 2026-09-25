@@ -1,4 +1,6 @@
-import type {WorkTopCaseStudiesQuery} from 'storefrontapi.generated';
+'use client';
+
+import type {WorkTopCaseStudiesQuery} from '~/lib/types';
 import {CaseStudyCard} from './CaseStudyCard';
 import type {WorkCaseStudyArticle} from './WorkCaseStudies';
 import {
@@ -51,7 +53,7 @@ export function WorkTopCaseStudies({
           className="ft-work-industries__title"
           id="ft-work-industries-title"
         >
-          Shopify Growth Solutions Built for Every Ecommerce Industry
+          Software Growth Solutions Built for Every Ecommerce Industry
         </h2>
 
         <IndustryFilters

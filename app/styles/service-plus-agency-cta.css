@@ -2,8 +2,8 @@
   position: relative;
   isolation: isolate;
   overflow: visible;
-  background: var(--ft-dark-deep, #01151b);
-  color: var(--ft-white, #ffffff);
+  background: var(--ft-dark-deep, #060F24);
+  color: var(--ft-text, #FFFFFF);
 }
 
 .ft-service-plus-agency-cta__glow {
@@ -14,12 +14,12 @@
   background:
     radial-gradient(
       circle at 80% 20%,
-      color-mix(in srgb, var(--ft-teal-light, #afdddc) 20%, transparent),
+      rgba(48, 108, 231, 0.15),
       transparent 32rem
     ),
     radial-gradient(
       circle at 16% 96%,
-      color-mix(in srgb, var(--ft-dark, #041f27) 90%, transparent),
+      rgba(16, 25, 47, 0.9),
       transparent 36rem
     );
 }
@@ -47,7 +47,7 @@
 .ft-service-plus-agency-cta__partners span {
   width: 0.0625rem;
   height: 1.75rem;
-  background: color-mix(in srgb, var(--ft-white, #ffffff) 45%, transparent);
+  background: var(--ft-border, #1F2A44);
 }
 
 .ft-service-plus-agency-cta__content {
@@ -61,11 +61,12 @@
 }
 
 .ft-service-plus-agency-cta h2 {
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.05em;
+  color: var(--ft-text, #FFFFFF);
 }
 
 .ft-service-plus-agency-cta__details {
@@ -76,13 +77,14 @@
 }
 
 .ft-service-plus-agency-cta p {
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.125rem, 2vw, 1.5rem);
   line-height: 1.5;
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-service-plus-agency-cta p a {
-  color: inherit;
+  color: var(--ft-accent-blue, #3B82F6);
   text-decoration-thickness: 0.0625rem;
   text-underline-offset: 0.15em;
 }
@@ -93,11 +95,19 @@
   gap: 1rem;
   padding: 0.875rem 1.25rem 0.875rem 1.5rem;
   border-radius: 999rem;
-  background: var(--ft-white, #ffffff);
-  color: var(--ft-dark-deep, #01151b);
-  font-family: 'Season Serif', serif;
+  background: var(--ft-primary-blue, #306CE7);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.ft-service-plus-agency-cta__button:hover {
+  background: var(--ft-accent-blue, #3B82F6);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -112,7 +122,7 @@
 }
 
 .ft-service-plus-agency-cta__button:focus-visible {
-  outline: 0.125rem solid var(--ft-teal-light, #afdddc);
+  outline: 0.125rem solid var(--ft-primary-blue, #306CE7);
   outline-offset: 0.1875rem;
 }
 

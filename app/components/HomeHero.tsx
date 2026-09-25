@@ -1,4 +1,6 @@
-import {NavLink} from 'react-router';
+'use client';
+
+import {NavLink} from '~/lib/router-compat';
 import {
   resolveCleanPath,
   SHOPIFY_SEO_CLEAN_PATH,
@@ -7,28 +9,28 @@ import {CalendlyButton} from '~/components/shared/CalendlyButton';
 
 const HERO_SERVICES = [
   {
-    title: 'Store Creation',
+    title: 'Custom Software',
     description:
-      'Custom Shopify design & development that converts from day one.',
-    url: '/shopify-theme-development-builds/',
+      'High-performance custom software, web applications & cloud platforms built to scale.',
+    url: '/services/software-developers/',
   },
   {
-    title: 'Revenue Acceleration',
+    title: 'Full-Stack Engineering',
     description:
-      'Continuous CRO, performance optimization & growth support.',
-    url: '/shopify-cro-agency/',
+      'Modern frontend architecture, robust APIs, databases & scalable systems.',
+    url: '/services/software-theme-development-builds/',
   },
   {
-    title: 'Search & Discovery',
+    title: 'Search & AI Discovery',
     description:
-      'Technical SEO + AI search visibility that drives qualified traffic.',
+      'Technical SEO, performance engineering & AI search visibility that drives growth.',
     url: SHOPIFY_SEO_CLEAN_PATH,
   },
   {
-    title: 'Customer Retention',
+    title: 'Cloud & Integrations',
     description:
-      'Email, SMS & lifecycle systems that increase repeat purchases.',
-    url: resolveCleanPath('/pages/email-marketing-agency'),
+      'Enterprise API integrations, data pipelines & intelligent workflow automations.',
+    url: '/services/software-integrations/',
   },
 ] as const;
 
@@ -63,7 +65,7 @@ export function HomeHero() {
 
       <div className="ft-home-hero__content">
         <p className="ft-home-hero__eyebrow">
-          Trusted Shopify Development & Growth Partner
+          Trusted Custom Software & Digital Engineering Partner
         </p>
 
         <h1
@@ -71,11 +73,9 @@ export function HomeHero() {
           id="ft-home-hero-title"
         >
           {/* The {' '} gaps are for crawlers and copy/paste: without them the
-              heading's text reads "TheShopify AgencyThat". Flex drops them. */}
+              heading's text reads "TheSoftware AgencyThat". Flex drops them. */}
           <span className="ft-home-hero__title-line">
-            <span>The</span>{' '}
-            <HeroMark />{' '}
-            <strong>Shopify Agency</strong>
+            <span>The</span> <strong>Software Agency</strong>
           </span>{' '}
           <span className="ft-home-hero__title-line">
             That Drives Real Growth
@@ -83,9 +83,7 @@ export function HomeHero() {
         </h1>
 
         <p className="ft-home-hero__description">
-          High-performing Shopify stores, backed by proven
-          CRO, SEO, and AI visibility strategies that
-          deliver measurable results.
+          High-performing digital products, scalable web applications, and AI-driven platforms that deliver measurable business results.
         </p>
 
         <div className="ft-home-hero__services">
@@ -122,21 +120,7 @@ export function HomeHero() {
   );
 }
 
-function HeroMark() {
-  return (
-    <span
-      className="ft-home-hero__mark"
-      aria-hidden="true"
-    >
-      <img
-        src="/images/foldtech-mark.svg"
-        width={500}
-        height={500}
-        alt="FoldTech"
-      />
-    </span>
-  );
-}
+
 
 function ArrowDownIcon() {
   return (

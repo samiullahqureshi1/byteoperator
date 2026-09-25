@@ -25,7 +25,7 @@ import {resolve, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://thefoldtech.com';
+const SITE = 'https://byteoperator.com';
 
 /**
  * One entry per cluster.

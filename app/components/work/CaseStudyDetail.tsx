@@ -1,10 +1,10 @@
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 import {HomeExperts} from '../HomeExperts';
 import {CalendlyButton} from '~/components/shared/CalendlyButton';
-import {shopifyImageSrcSet} from '~/lib/shopify-cdn-image';
+import {softwareImageSrcSet} from '~/lib/software-cdn-image';
 import {parseCaseStudy, type CaseStudyContent} from '~/lib/case-study-page';
 
-type ShopifyImage = {
+type SoftwareImage = {
   url: string;
   altText?: string | null;
   width?: number | null;
@@ -12,11 +12,11 @@ type ShopifyImage = {
 };
 
 type MediaReference = {
-  image?: ShopifyImage | null;
+  image?: SoftwareImage | null;
   alt?: string | null;
   mimeType?: string | null;
   url?: string | null;
-  previewImage?: ShopifyImage | null;
+  previewImage?: SoftwareImage | null;
   sources?: Array<{url: string; mimeType: string}> | null;
 };
 
@@ -38,7 +38,7 @@ export type CaseStudyArticle = {
   title: string;
   handle: string;
   tags?: string[];
-  image?: ShopifyImage | null;
+  image?: SoftwareImage | null;
   excerpt?: string | null;
   excerptHtml?: string | null;
   contentHtml: string;
@@ -64,7 +64,7 @@ type CaseStudyLayoutProps = {
   /** Technologies, rendered as chips under the brief. */
   chips: string[];
   /** First image leads the page; the rest sit between chapters. */
-  images: ShopifyImage[];
+  images: SoftwareImage[];
   videos?: Video[];
 };
 
@@ -180,7 +180,7 @@ export function CaseStudyLayout({
       {videos.length ? (
         <section className="ft-cs__videos" aria-label="Project videos">
           {videos.map((video) => (
-            // Shopify's Videos field has no caption-track field to query.
+            // Software's Videos field has no caption-track field to query.
             // eslint-disable-next-line jsx-a11y/media-has-caption
             <video
               key={video.sources.map((source) => source.url).join('|')}
@@ -246,14 +246,14 @@ export function CaseStudyDetail({article}: {article: CaseStudyArticle}) {
     websiteText && websiteUrl
       ? {label: 'Website', value: websiteText, href: websiteUrl}
       : null,
-  ].filter((detail): detail is Detail => Boolean(detail));
+  ].filter(Boolean) as Detail[];
 
   const images = [
     article.image,
     ...Array.from({length: 5}, (_, index) =>
       fieldImage(fields.get(`hero_image_${index + 1}`)),
     ),
-  ].filter((image): image is ShopifyImage => Boolean(image));
+  ].filter(Boolean) as SoftwareImage[];
 
   return (
     <CaseStudyLayout
@@ -273,7 +273,7 @@ function ProjectImage({
   alt,
   eager = false,
 }: {
-  image: ShopifyImage;
+  image: SoftwareImage;
   alt: string;
   eager?: boolean;
 }) {
@@ -281,7 +281,7 @@ function ProjectImage({
     <figure className="ft-cs__visual">
       <img
         src={image.url}
-        srcSet={shopifyImageSrcSet(image.url, [800, 1400, 2000])}
+        srcSet={softwareImageSrcSet(image.url, [800, 1400, 2000])}
         sizes="(min-width: 80rem) 80rem, 92vw"
         alt={image.altText || alt}
         width={image.width ?? undefined}
@@ -312,7 +312,7 @@ function metafieldText(value?: string | null): string | null {
   }
 }
 
-function fieldImage(field?: MetaobjectField): ShopifyImage | null {
+function fieldImage(field?: MetaobjectField): SoftwareImage | null {
   const references = [field?.reference, ...(field?.references?.nodes ?? [])];
   return references.find((reference) => reference?.image)?.image ?? null;
 }

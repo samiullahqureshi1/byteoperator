@@ -1,7 +1,7 @@
 import type {
   PredictiveSearchQuery,
   RegularSearchQuery,
-} from 'storefrontapi.generated';
+} from '~/lib/types';
 
 type ResultWithItems<Type extends 'predictive' | 'regular', Items> = {
   type: Type;
@@ -46,16 +46,16 @@ interface UrlWithTrackingParams {
 
 /**
  * A utility function that appends tracking parameters to a URL. Tracking parameters are
- * used internally by Shopify to enhance search results and admin dashboards.
+ * used internally by Software to enhance search results and admin dashboards.
  * @example
  * ```ts
  * const baseUrl = 'www.example.com';
- * const trackingParams = 'utm_source=shopify&utm_medium=shopify_app&utm_campaign=storefront';
+ * const trackingParams = 'utm_source=software&utm_medium=software_app&utm_campaign=storefront';
  * const params = { foo: 'bar' };
  * const term = 'search term';
  * const url = urlWithTrackingParams({ baseUrl, trackingParams, params, term });
  * console.log(url);
- * // Output: 'https://www.example.com?foo=bar&q=search%20term&utm_source=shopify&utm_medium=shopify_app&utm_campaign=storefront'
+ * // Output: 'https://www.example.com?foo=bar&q=search%20term&utm_source=software&utm_medium=software_app&utm_campaign=storefront'
  * ```
  */
 export function urlWithTrackingParams({

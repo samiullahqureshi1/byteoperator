@@ -1,10 +1,12 @@
+'use client';
+
 import {Suspense, useState, type FormEvent} from 'react';
-import {Await, NavLink} from 'react-router';
+import {Await, NavLink} from '~/lib/router-compat';
 
 import type {
   FooterQuery,
   HeaderQuery,
-} from 'storefrontapi.generated';
+} from '~/lib/types';
 import {normalizeMenuUrl} from '~/lib/normalize-menu-url';
 import {CalendlyButton} from '~/components/shared/CalendlyButton';
 
@@ -37,7 +39,7 @@ export function Footer({
     event.preventDefault();
 
     /*
-     * FoldTech does not currently have a newsletter
+     * Byte Operator does not currently have a newsletter
      * subscription backend connected.
      */
     setNewsletterMessage(
@@ -162,20 +164,20 @@ export function Footer({
             <NavLink
               className="ft-footer__logo"
               to="/"
-              aria-label="FoldTech home"
+              aria-label="Byte Operator home"
             >
               <img
-                src="/images/foldtech-logo.svg"
-                alt="FoldTech"
-                width="160"
-                height="48"
+                src="/images/byte-operator-logo.svg"
+                alt="Byte Operator"
+                width="170"
+                height="44"
                 loading="lazy"
                 decoding="async"
               />
             </NavLink>
 
             <p className="ft-footer__copyright">
-              © {new Date().getFullYear()} FoldTech.
+              © {new Date().getFullYear()} Byte Operator.
               All rights reserved.
             </p>
           </div>
@@ -287,7 +289,7 @@ function FooterNavigation({
 
 /*
  * Shortened labels, matching the terse style this bottom bar already used
- * for Privacy and Terms. These are the four policies Shopify returns, plus
+ * for Privacy and Terms. These are the four policies Software returns, plus
  * the index — which nothing else on the site links to.
  */
 const FOOTER_POLICY_LINKS = [
@@ -362,17 +364,17 @@ function PlusIcon() {
 const FOOTER_SOCIAL_LINKS = [
   {
     label: 'Facebook',
-    href: 'https://www.facebook.com/thefoldtech',
+    href: 'https://www.facebook.com/byteoperator',
     Icon: FacebookIcon,
   },
   {
     label: 'Instagram',
-    href: 'https://www.instagram.com/thefoldtech/',
+    href: 'https://www.instagram.com/byteoperator/',
     Icon: InstagramIcon,
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/company/thefoldtech',
+    href: 'https://www.linkedin.com/company/byte-operator',
     Icon: LinkedInIcon,
   },
 ] as const;

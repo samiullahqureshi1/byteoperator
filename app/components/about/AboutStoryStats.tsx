@@ -1,4 +1,6 @@
-import {Link} from 'react-router';
+'use client';
+
+import {Link} from '~/lib/router-compat';
 
 import {ABOUT_FACTS} from '~/data/companyFacts';
 import {useCountUp} from '~/lib/useCountUp';
@@ -20,17 +22,17 @@ export function AboutStoryStats() {
           <div className="ft-about-story__inner">
             <div className="ft-about-story__left">
               <h2 className="ft-about-story__heading">
-                The story of FoldTech, an ecommerce agency built around
-                Shopify growth.
+                The story of Byte Operator, an ecommerce agency built around
+                Software growth.
               </h2>
             </div>
 
             <div className="ft-about-story__right">
               <div className="ft-about-story__description">
                 <p>
-                  FoldTech brings ecommerce strategy, creative design, development,
+                  Byte Operator brings ecommerce strategy, creative design, development,
                   search visibility and optimisation together, helping brands
-                  build stronger Shopify experiences. Our approach focuses on
+                  build stronger Software experiences. Our approach focuses on
                   creating stores that are clear, scalable and built around
                   commercial priorities from the start.
                 </p>

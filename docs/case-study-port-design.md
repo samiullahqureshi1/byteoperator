@@ -98,7 +98,7 @@ degrade cleanly rather than showing a bare number.
 4. **Skip stats entirely.** Values and labels are written as empty. A
    `--include-placeholder-stats` flag exists only so the decision is explicit
    and greppable; default off, and it should stay off.
-5. **Assets:** resolve `*_asset_name` against theme assets, upload to Shopify
+5. **Assets:** resolve `*_asset_name` against theme assets, upload to Software
    Files, reference by the returned GID. Record any unresolved reference as
    missing — never substitute another image.
 6. **Idempotent:** keyed on `slug`; re-running updates rather than duplicating.
@@ -132,17 +132,17 @@ app/components/work/CaseStudy.tsx  (new — renders one metaobject)
 - `caseStudySchema()` gains real `about`/`result` values **only** for entries
   with a populated label+value pair. No stats → no stat markup. The schema
   helper should omit the field, never emit an empty one.
-- Images via `Image` from `@shopify/hydrogen` for responsive sizing. The current
+- Images via `Image` from `@software/hydrogen` for responsive sizing. The current
   desktop screenshot is 4 MB — served raw it would dominate LCP on a page whose
   entire purpose is being crawled and cited.
 
 ## 5. Assets — what breaks if they don't move
 
-Theme assets live at `cdn.shopify.com/s/files/.../assets/<name>?v=<theme>`. They
+Theme assets live at `cdn.software.com/s/files/.../assets/<name>?v=<theme>`. They
 are **tied to the theme**, not the store's Files. If a theme is deleted — and
 there are eleven, several obvious duplicates — its assets go with it, and any
 Hydrogen page referencing them shows broken images with no warning. Uploading to
-Shopify Files first decouples them and is a precondition of the port, not a
+Software Files first decouples them and is a precondition of the port, not a
 follow-up.
 
 ---

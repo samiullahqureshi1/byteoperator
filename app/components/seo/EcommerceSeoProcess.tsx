@@ -1,3 +1,5 @@
+'use client';
+
 import {useEffect, useRef, useState} from 'react';
 import {ClientProof} from '~/components/shared/ClientProof';
 import {WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';

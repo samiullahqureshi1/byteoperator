@@ -5,12 +5,12 @@ import {
 } from '~/lib/route-mappings';
 
 /* =========================================================
-   FOLDTECH — HOME FEATURE DATA
+   BYTE OPERATOR — HOME FEATURE DATA
 
    This is the single source of truth for the repeated
    homepage feature sections.
 
-   Later, when real FoldTech content is ready, update:
+   Later, when real Byte Operator content is ready, update:
    - headings
    - descriptions
    - images
@@ -105,13 +105,13 @@ const ROUTES = {
 
   seo: SHOPIFY_SEO_CLEAN_PATH,
 
-  development: '/pages/shopify-development',
+  development: '/pages/software-development',
 
-  migrations: '/pages/shopify-migrations',
+  migrations: '/pages/software-migrations',
 
   cro: CRO_CLEAN_PATH,
 
-  maintenance: '/pages/shopify-maintenance',
+  maintenance: '/pages/software-maintenance',
 
   emailSms: '/pages/email-sms-marketing',
 
@@ -119,7 +119,7 @@ const ROUTES = {
     '/pages/internationalisation',
 
   appDevelopment: resolveCanonicalPath(
-    '/pages/shopify-app-development',
+    '/pages/software-app-development',
   ),
 
   headless:
@@ -159,7 +159,7 @@ export const HOME_FEATURES = [
   ======================================================= */
 
   {
-    id: 'shopify-launch',
+    id: 'software-launch',
 
     layout: 'media-left',
 
@@ -168,7 +168,7 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'High-performing Shopify stores built to scale',
+      'High-performing digital platforms & applications built to scale',
 
     logos: [
       {
@@ -180,17 +180,17 @@ export const HOME_FEATURES = [
     ],
 
     heading:
-      'Custom Shopify Stores Built for Growth',
+      'Custom Digital Platforms Built for Growth',
 
     description: [
-      'We design and develop custom Shopify stores with a clear user experience and high-performance code. Our work includes Shopify migrations, custom app development, integrations, and headless builds using Shopify Hydrogen.',
+      'We design and develop custom digital platforms & applications with a clear user experience and high-performance code. Our work includes platform & cloud migrations, custom app development, integrations, and headless builds using Software Hydrogen.',
 
       'Every project is planned for performance, SEO, accessibility, and future growth',
     ],
 
     buttons: [
       {
-        label: 'Start Your Shopify Project',
+        label: 'Start Your Software Project',
         href: '/articles',
       },
     ],
@@ -211,7 +211,7 @@ export const HOME_FEATURES = [
         '/images/home-features/feature-01/secondary.webp',
 
       secondaryAlt:
-        'Cambridge Satchel Shopify project',
+        'Cambridge Satchel Software project',
 
       secondaryWidth: 1086,
       secondaryHeight: 1448,
@@ -220,7 +220,7 @@ export const HOME_FEATURES = [
         'Cambridge Satchel',
 
       captionText:
-        'Shopify Plus Design & Development',
+        'Enterprise Platform Solutions Design & Development',
     },
   },
 
@@ -230,7 +230,7 @@ export const HOME_FEATURES = [
   ======================================================= */
 
   {
-    id: 'shopify-support-growth',
+    id: 'software-support-growth',
 
     layout: 'media-right',
 
@@ -239,7 +239,7 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'Shopify Monthly Support Agency',
+      'Software Monthly Support Agency',
 
     logos: [
       {
@@ -257,20 +257,20 @@ export const HOME_FEATURES = [
     ],
 
     heading:
-      'More Than a Shopify Agency. Your Ecommerce Growth Partner.',
+      'More Than a Software Agency. Your Ecommerce Growth Partner.',
 
     description: [
-      'Strategy, technology, search and conversion expertise working together to turn your Shopify store into a growth engine.',
+      'Strategy, technology, search and conversion expertise working together to turn your digital platform into a growth engine.',
 
       'Strong ecommerce performance takes more than design or development. It requires the right strategy across the full customer journey.',
 
-      'FoldTech brings Shopify development, CRO, technical SEO, AI search visibility, performance, and retention together in one approach. This gives brands clearer priorities, fewer disconnected workflows, and a store built to support long-term growth.',
+      'Byte Operator brings software development, CRO, technical SEO, AI search visibility, performance, and retention together in one approach. This gives brands clearer priorities, fewer disconnected workflows, and a store built to support long-term growth.',
     ],
 
     buttons: [
       {
         label: 'Explore SiteLab',
-        href: '/pages/shopify-cro-agency',
+        href: '/pages/software-cro-agency',
       },
       {
         label: 'Explore HelpDesk',
@@ -294,7 +294,7 @@ export const HOME_FEATURES = [
         '/images/home-features/feature-02/secondary.webp',
 
       secondaryAlt:
-        'Candy Kittens Shopify support project',
+        'Candy Kittens Software support project',
 
       secondaryWidth: 1122,
       secondaryHeight: 1402,
@@ -303,7 +303,7 @@ export const HOME_FEATURES = [
         'Candy Kittens',
 
       captionText:
-        'Shopify Retainer Support & CRO',
+        'Software Retainer Support & CRO',
     },
   },
 
@@ -313,7 +313,7 @@ export const HOME_FEATURES = [
   ======================================================= */
 
   {
-    id: 'shopify-seo-geo',
+    id: 'software-seo-geo',
 
     layout: 'media-left',
 
@@ -334,10 +334,10 @@ export const HOME_FEATURES = [
     ],
 
     heading:
-      'Shopify SEO That Drives Qualified Organic Revenue',
+      'Technical SEO & Search Architecture That Drives Qualified Organic Revenue',
 
     description: [
-      'Shopify SEO goes beyond keywords. We improve technical SEO, on-page optimisation, content strategy, AI search visibility, GEO, and SEO migrations to support long-term organic growth.',
+      'Technical SEO & Search Architecture goes beyond keywords. We improve technical SEO, on-page optimisation, content strategy, AI search visibility, GEO, and SEO migrations to support long-term organic growth.',
 
       "Whether you're launching a new store or growing an established brand, we help improve search visibility and attract high-intent shoppers. The goal is to generate more qualified organic traffic and reduce dependence on paid advertising.",
     ],
@@ -384,7 +384,7 @@ export const HOME_FEATURES = [
   ======================================================= */
 
   {
-    id: 'shopify-development',
+    id: 'software-development',
 
     layout: 'media-right',
 
@@ -393,10 +393,10 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'Shopify Apps & Integrations',
+      'Custom Applications & Integrations',
 
     heading:
-      'Connect, Automate & Extend Your Shopify Store',
+      'Connect, Automate & Extend Your Digital Platform',
 
     badges: [
       {
@@ -414,9 +414,9 @@ export const HOME_FEATURES = [
     ],
 
     description: [
-      'Custom Shopify apps, integrations, and automation can help reduce manual work and extend what your store can do.',
+      'Custom custom applications, integrations, and automation can help reduce manual work and extend what your store can do.',
 
-      'FoldTech connects Shopify with ERP, CRM, inventory, marketing, payment, fulfilment, and other third-party systems. We also build custom functionality around specific operational needs.',
+      'Byte Operator connects Software with ERP, CRM, inventory, marketing, payment, fulfilment, and other third-party systems. We also build custom functionality around specific operational needs.',
 
       'The goal is to improve efficiency without adding unnecessary complexity. Each solution is planned around performance, security, scalability, and long-term maintenance.',
     ],
@@ -424,7 +424,7 @@ export const HOME_FEATURES = [
     buttons: [
       {
         label:
-          'Build Your Shopify Solution',
+          'Build Your Software Solution',
 
         href: ROUTES.development,
       },
@@ -446,7 +446,7 @@ export const HOME_FEATURES = [
         '/images/home-features/feature-04/secondary.webp',
 
       secondaryAlt:
-        'RNLI Shopify project',
+        'RNLI Software project',
 
       secondaryWidth: 1200,
       secondaryHeight: 800,
@@ -455,7 +455,7 @@ export const HOME_FEATURES = [
         'RNLI',
 
       captionText:
-        'Shopify Retainer Support & CRO',
+        'Software Retainer Support & CRO',
     },
   },
 
@@ -465,7 +465,7 @@ export const HOME_FEATURES = [
   ======================================================= */
 
   {
-    id: 'shopify-design',
+    id: 'software-design',
 
     layout: 'media-left',
 
@@ -474,13 +474,13 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'Shopify store design that looks as good as your brand',
+      'digital platform design that looks as good as your brand',
 
     heading:
-      'Shopify Store Design That Reflects Your Brand',
+      'Digital Platform Design That Reflects Your Brand',
 
     description: [
-      "Your Shopify store is often a customer's first impression of your brand. We create visual systems around typography, colour, imagery, and layout so the store feels consistent across every page.",
+      "Your digital platform is often a customer's first impression of your brand. We create visual systems around typography, colour, imagery, and layout so the store feels consistent across every page.",
 
       'From the homepage to product pages, each design choice should support the brand while keeping the shopping experience clear and easy to use. The result is a store that feels distinct without adding unnecessary complexity.',
     ],
@@ -510,7 +510,7 @@ export const HOME_FEATURES = [
         '/images/home-features/feature-05/secondary.webp',
 
       secondaryAlt:
-        'Harbour Lifestyle Shopify design project',
+        'Harbour Lifestyle Software design project',
 
       secondaryWidth: 1024,
       secondaryHeight: 768,
@@ -519,7 +519,7 @@ export const HOME_FEATURES = [
         'Harbour Lifestyle',
 
       captionText:
-        'Shopify Bespoke Theme',
+        'Software Bespoke Theme',
     },
   },
 
@@ -529,7 +529,7 @@ export const HOME_FEATURES = [
   ======================================================= */
 
   {
-    id: 'shopify-migrations',
+    id: 'software-migrations',
 
     layout: 'media-right',
 
@@ -538,7 +538,7 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'Shopify Migration Agency',
+      'Platform & Cloud Migration Agency',
 
     logos: [
       {
@@ -550,33 +550,33 @@ export const HOME_FEATURES = [
     ],
 
     heading:
-      'Everything Your Shopify Store Needs to Scale',
+      'Everything Your Digital Platform Needs to Scale',
 
     badges: [
       {
-        label: 'Shopify vs Magento',
-        href: '/magento-shopify-migrations/',
+        label: 'Software vs Magento',
+        href: '/magento-software-migrations/',
       },
       {
-        label: 'Shopify vs WooCommerce',
-        href: '/woocommerce-shopify-migrations/',
+        label: 'Software vs WooCommerce',
+        href: '/woocommerce-software-migrations/',
       },
       {
-        label: 'Shopify vs BigCommerce',
-        href: '/bigcommerce-shopify-migrations/',
+        label: 'Software vs BigCommerce',
+        href: '/bigcommerce-software-migrations/',
       },
       {
-        label: 'Shopify vs Salesforce',
-        href: '/salesforce-shopify-migrations/',
+        label: 'Software vs Salesforce',
+        href: '/salesforce-software-migrations/',
       },
     ],
 
     description: [
-      'We support Shopify brands across strategy, design, development, SEO, AI visibility, CRO, and retention.',
+      'We support Software brands across strategy, design, development, SEO, AI visibility, CRO, and retention.',
 
       'Our work goes beyond launching a store. We help improve traffic, conversion, customer retention, and overall ecommerce performance.',
 
-      "Whether you're launching a new Shopify store or growing an established brand, our team provides strategy, development, marketing, and ongoing optimisation focused on measurable growth.",
+      "Whether you're launching a new digital platform or growing an established brand, our team provides strategy, development, marketing, and ongoing optimisation focused on measurable growth.",
     ],
 
     buttons: [
@@ -588,7 +588,7 @@ export const HOME_FEATURES = [
       },
       {
         label:
-          'View Our Shopify Work',
+          'View Our Software Work',
 
         /*
          * Case studies is already the route wired to this
@@ -615,7 +615,7 @@ export const HOME_FEATURES = [
         '/images/home-features/feature-06/secondary.webp',
 
       secondaryAlt:
-        '111SKIN Shopify project',
+        '111SKIN Software project',
 
       secondaryWidth: 1086,
       secondaryHeight: 1448,
@@ -624,7 +624,7 @@ export const HOME_FEATURES = [
         '111SKIN',
 
       captionText:
-        'Shopify CRO Services',
+        'Conversion & Performance Optimization Services',
     },
   },
 
@@ -634,7 +634,7 @@ export const HOME_FEATURES = [
   ======================================================= */
 
   {
-    id: 'shopify-plus',
+    id: 'software-plus',
 
     layout: 'media-left',
 
@@ -643,19 +643,19 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'Shopify Plus Services',
+      'Enterprise Platform Solutions Services',
 
     heading:
-      'Shopify Plus Development & Services',
+      'Enterprise Platform Solutions Development & Services',
 
     badges: [
       {
         label:
-          'Benefits of Shopify Plus',
+          'Benefits of Enterprise Platform Solutions',
 
         /*
-         * There is currently no dedicated Shopify Plus
-         * route in the FoldTech repository.
+         * There is currently no dedicated Enterprise Platform Solutions
+         * route in the Byte Operator repository.
          *
          * Development is the closest confirmed route.
          */
@@ -664,11 +664,11 @@ export const HOME_FEATURES = [
     ],
 
     description: [
-      'Build a Scalable Ecommerce Store with Shopify Plus',
+      'Build a Scalable Ecommerce Store with Enterprise Platform Solutions',
 
-      'Our Shopify Plus development services help growing and enterprise brands build flexible, scalable ecommerce stores. We handle Shopify Plus migrations, custom development, integrations, B2B features, automation, internationalisation, and ongoing optimisation.',
+      'Our Enterprise Platform Solutions development services help growing and enterprise brands build flexible, scalable ecommerce stores. We handle Enterprise Platform Solutions migrations, custom development, integrations, B2B features, automation, internationalisation, and ongoing optimisation.',
 
-      'From strategy and store architecture to development and long-term support, we help brands get more from Shopify Plus. The focus is on better performance, easier management, and a clear experience for customers and internal teams.',
+      'From strategy and store architecture to development and long-term support, we help brands get more from Enterprise Platform Solutions. The focus is on better performance, easier management, and a clear experience for customers and internal teams.',
     ],
 
     buttons: [
@@ -700,7 +700,7 @@ export const HOME_FEATURES = [
         '/images/home-features/feature-07/secondary.webp',
 
       secondaryAlt:
-        'Billionaire Boys Club Shopify project',
+        'Billionaire Boys Club Software project',
 
       secondaryWidth: 896,
       secondaryHeight: 1195,
@@ -709,7 +709,7 @@ export const HOME_FEATURES = [
         'Billionaire Boys Club',
 
       captionText:
-        'Shopify Retainer Support & CRO',
+        'Software Retainer Support & CRO',
     },
   },
 
@@ -728,7 +728,7 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'Shopify Email Marketing Agency',
+      'Software Email Marketing Agency',
 
     logos: [
       {
@@ -773,7 +773,7 @@ export const HOME_FEATURES = [
         '/images/home-features/feature-08/secondary.webp',
 
       secondaryAlt:
-        'Vollebak Shopify project',
+        'Vollebak Software project',
 
       secondaryWidth: 848,
       secondaryHeight: 1261,
@@ -792,7 +792,7 @@ export const HOME_FEATURES = [
   ======================================================= */
 
   {
-    id: 'shopify-internationalisation',
+    id: 'software-internationalisation',
 
     layout: 'media-left',
 
@@ -801,15 +801,15 @@ export const HOME_FEATURES = [
     theme: 'dark',
 
     eyebrow:
-      'International Shopify Strategy',
+      'International Software Strategy',
 
     heading:
-      'Expand Your Shopify Store Worldwide',
+      'Expand Your Digital Platform Worldwide',
 
     description: [
       'Launch internationally with confidence using localisation and scalable ecommerce strategies.',
 
-      'Ready to reach customers in new markets? We help Shopify brands expand internationally with multilingual storefronts, multi-currency experiences, regional SEO, and localisation for different audiences.',
+      'Ready to reach customers in new markets? We help Software brands expand internationally with multilingual storefronts, multi-currency experiences, regional SEO, and localisation for different audiences.',
 
       'From market entry planning to international optimisation, we help brands build a clearer and more scalable approach to selling across borders.',
     ],
@@ -844,7 +844,7 @@ export const HOME_FEATURES = [
         '/images/home-features/feature-09/secondary.webp',
 
       secondaryAlt:
-        'Sunnamusk international Shopify project',
+        'Sunnamusk international Software project',
 
       secondaryWidth: 780,
       secondaryHeight: 1040,
@@ -863,7 +863,7 @@ export const HOME_FEATURES = [
   ======================================================= */
 
   {
-    id: 'shopify-cro',
+    id: 'software-cro',
 
     layout: 'media-right',
 
@@ -890,7 +890,7 @@ export const HOME_FEATURES = [
       {
         label:
         'Conversion Rate Optimisation',
-         href:'/shopify-cro-agency/',
+         href:'/software-cro-agency/',
       },
       {
         label:
@@ -900,7 +900,7 @@ export const HOME_FEATURES = [
       },
       {
         label:
-          'Shopify SEO',
+          'Technical SEO & Search Architecture',
 
         href: ROUTES.seo,
       },
@@ -917,7 +917,7 @@ export const HOME_FEATURES = [
         label:
           'Explore CRO Services',
 
-         href: '/shopify-cro-agency/',
+         href: '/software-cro-agency/',
       },
     ],
 
@@ -937,7 +937,7 @@ export const HOME_FEATURES = [
         '/images/home-features/feature-10/secondary.webp',
 
       secondaryAlt:
-        'Vollebak Shopify optimisation project',
+        'Vollebak Software optimisation project',
 
       secondaryWidth: 816,
       secondaryHeight: 1456,

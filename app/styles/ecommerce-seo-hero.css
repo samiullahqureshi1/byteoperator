@@ -1,11 +1,11 @@
 /* =========================================================
-   FOLDTECH — ECOMMERCE SEO HERO
+   BYTE OPERATOR — ECOMMERCE SEO HERO
    Bespoke hero. No shared component styles are relied on.
 ========================================================= */
 
 .ft-ecommerce-seo-hero {
   overflow: clip;
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
   color: var(--ft-white, #ffffff);
 }
 
@@ -26,9 +26,9 @@
   background:
     radial-gradient(
       circle,
-      rgba(64, 173, 170, 0.16) 0%,
-      rgba(64, 173, 170, 0.07) 40%,
-      rgba(64, 173, 170, 0) 72%
+      rgba(48, 108, 231, 0.16) 0%,
+      rgba(48, 108, 231, 0.07) 40%,
+      rgba(48, 108, 231, 0) 72%
     );
   filter: blur(3rem);
   pointer-events: none;
@@ -49,7 +49,7 @@
   gap: 0.55rem;
   margin: 0;
   color: var(--ft-white, #ffffff);
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.05rem;
   font-weight: 400;
   line-height: 1;
@@ -87,7 +87,7 @@
   width: 100%;
   max-width: 17.5em;
   margin: 0;
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2.35rem, 3.4vw, 3.4rem);
   font-weight: 400;
   line-height: 1.06;
@@ -117,7 +117,7 @@
 .ft-ecommerce-seo-hero__stat-value {
   margin: 0;
   color: var(--ft-white, #ffffff);
-  font-family: 'Season Serif', serif;
+  font-family: Arial, Helvetica, sans-serif;
  font-size: clamp(2.5rem, 2.5vw, 3.25rem);
   font-weight: 400;
   line-height: 1;
@@ -129,7 +129,7 @@
 .ft-ecommerce-seo-hero__stat-label {
   margin: 0.75rem 0 0;
   color: rgba(255, 255, 255, 0.45);
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
   line-height: 1.35;
@@ -158,7 +158,7 @@
   border-radius: 999rem;
   background: rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.92);
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
   line-height: 1.2;
@@ -177,7 +177,7 @@
 .ft-ecommerce-seo-hero__description {
   margin: 2.1rem 0 0;
   color: rgba(255, 255, 255, 0.94);
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.1rem, 1.3vw, 1.3rem);
   font-weight: 400;
   line-height: 1.5;
@@ -191,9 +191,9 @@
   margin-top: 2.1rem;
   padding: 0.95rem 1.35rem 0.95rem 1.6rem;
   border-radius: 999rem;
-  background: var(--ft-white, #ffffff);
-  color: var(--ft-dark-deep, #01151b);
-  font-family: 'Season Serif', serif;
+  background: var(--ft-primary-blue, #306CE7);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
   line-height: 1;
@@ -226,7 +226,7 @@
   margin: 0 0 1.75rem;
   padding: 0 2.9vw;
   color: rgba(255, 255, 255, 0.35);
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.6875rem;
   font-weight: 400;
   line-height: 1;
@@ -335,7 +335,7 @@
   display: inline-flex;
   align-items: center;
   color: rgba(255, 255, 255, 0.72);
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
   font-weight: 400;
   line-height: 1.3;
@@ -552,9 +552,9 @@
   padding: 0.55rem 0.9rem;
   border: 0.0625rem solid rgba(255, 255, 255, 0.2);
   border-radius: 999rem;
-  background: rgba(1, 21, 27, 0.32);
+  background: rgba(6, 15, 36, 0.32);
   color: var(--ft-white, #ffffff);
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 1.2;
@@ -562,29 +562,29 @@
 }
 
 .ft-ecommerce-seo-hero__secondary-cta:hover {
-  border-color: rgba(175, 221, 220, 0.65);
-  color: var(--ft-teal-light, #afdddc);
+  border-color: rgba(59, 130, 246, 0.65);
+  color: var(--ft-teal-light, #3B82F6);
 }
 /* CRO control/variant interaction — scoped to the CRO hero only. */
 .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
-.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-pill, .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-toggle { display: inline-flex; align-items: center; border: 0.0625rem solid rgba(175, 221, 220, 0.22); border-radius: 999rem; background: rgba(1, 21, 27, 0.48); }
-.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-pill { gap: 0.5rem; padding: 0.55rem 0.85rem; color: rgba(255, 255, 255, 0.86); font-family: 'Season Sans', sans-serif; font-size: 0.75rem; line-height: 1; white-space: nowrap; }
-.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-pill > span { width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--ft-teal, #40adaa); box-shadow: 0 0 0 0 rgba(64, 173, 170, 0.55); animation: ft-cro-demo-pulse 1.8s ease-out infinite; }
+.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-pill, .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-toggle { display: inline-flex; align-items: center; border: 0.0625rem solid rgba(59, 130, 246, 0.22); border-radius: 999rem; background: rgba(6, 15, 36, 0.48); }
+.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-pill { gap: 0.5rem; padding: 0.55rem 0.85rem; color: rgba(255, 255, 255, 0.86); font-family: Arial, Helvetica, sans-serif; font-size: 0.75rem; line-height: 1; white-space: nowrap; }
+.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-pill > span { width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--ft-teal, #306CE7); box-shadow: 0 0 0 0 rgba(48, 108, 231, 0.55); animation: ft-cro-demo-pulse 1.8s ease-out infinite; }
 .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-toggle { gap: 0.15rem; padding: 0.2rem; }
-.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-toggle button { min-height: 2rem; padding: 0.45rem 0.75rem; border: 0; border-radius: 999rem; background: transparent; color: rgba(255, 255, 255, 0.55); font-family: 'Season Sans', sans-serif; font-size: 0.6875rem; font-weight: 500; line-height: 1; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: background 0.25s ease, color 0.25s ease; }
-.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-toggle button.is-active { background: var(--ft-teal, #40adaa); color: var(--ft-dark-deep, #01151b); }
-.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-toggle button:focus-visible { outline: 0.125rem solid var(--ft-teal-light, #afdddc); outline-offset: 0.125rem; }
+.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-toggle button { min-height: 2rem; padding: 0.45rem 0.75rem; border: 0; border-radius: 999rem; background: transparent; color: rgba(255, 255, 255, 0.55); font-family: Arial, Helvetica, sans-serif; font-size: 0.6875rem; font-weight: 500; line-height: 1; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: background 0.25s ease, color 0.25s ease; }
+.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-toggle button.is-active { background: var(--ft-teal, #306CE7); color: #ffffff; }
+.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-toggle button:focus-visible { outline: 0.125rem solid var(--ft-teal-light, #3B82F6); outline-offset: 0.125rem; }
 .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__description { margin-top: 1.5rem; }
 .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__title { transition: font-size 0.5s ease, line-height 0.5s ease; }
 .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__title.is-compact { font-size: clamp(2.2rem, 3vw, 3rem); }
 .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial { width: min(100%, 34rem); margin-top: 1.5rem; animation: ft-cro-variant-in 0.5s ease both; }
 .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial .ft-work-hero__right { display: block; }
-.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial .ft-work-hero__testimonial { display: flex; width: 100%; min-height: 0; padding: 0.875rem; border: 0.0625rem solid rgba(175, 221, 220, 0.22); border-radius: 0.875rem; background: rgba(255, 255, 255, 0.06); color: var(--ft-white, #ffffff); text-align: left; }
+.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial .ft-work-hero__testimonial { display: flex; width: 100%; min-height: 0; padding: 0.875rem; border: 0.0625rem solid rgba(59, 130, 246, 0.22); border-radius: 0.875rem; background: rgba(255, 255, 255, 0.06); color: var(--ft-white, #ffffff); text-align: left; }
 .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial .ft-work-hero__testimonial-image { width: 2.75rem; height: 2.75rem; border-radius: 50%; }
 .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial .ft-work-hero__testimonial-content p { display: block; color: rgba(255, 255, 255, 0.9); font-size: 0.8125rem; line-height: 1.4; }
-.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial .ft-work-hero__testimonial-content > span { margin-top: 0.45rem; color: var(--ft-teal-light, #afdddc); font-size: 0.6875rem; }
+.ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial .ft-work-hero__testimonial-content > span { margin-top: 0.45rem; color: var(--ft-teal-light, #3B82F6); font-size: 0.6875rem; }
 .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial + .ft-ecommerce-seo-hero__stats { margin-top: 1.5rem; }
-@keyframes ft-cro-demo-pulse { 70% { box-shadow: 0 0 0 0.45rem rgba(64, 173, 170, 0); } 100% { box-shadow: 0 0 0 0 rgba(64, 173, 170, 0); } }
+@keyframes ft-cro-demo-pulse { 70% { box-shadow: 0 0 0 0.45rem rgba(48, 108, 231, 0); } 100% { box-shadow: 0 0 0 0 rgba(48, 108, 231, 0); } }
 @keyframes ft-cro-variant-in { from { opacity: 0; transform: translateY(0.625rem); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 47.9375rem) { .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo { gap: 0.5rem; } .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-pill { white-space: normal; } .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__title.is-compact { font-size: clamp(1.8rem, 8.8vw, 2.2rem); } .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial { width: 100%; margin-top: 1.25rem; } .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial .ft-work-hero__testimonial { padding: 0.75rem; } }
 @media (prefers-reduced-motion: reduce) { .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__ab-demo-pill > span, .ft-ecommerce-seo-hero--cro .ft-ecommerce-seo-hero__variant-testimonial { animation: none; } }

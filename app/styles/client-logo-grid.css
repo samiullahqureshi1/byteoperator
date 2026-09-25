@@ -9,7 +9,7 @@
   width: 100%;
   padding: 6rem 0 8rem;
   overflow: hidden;
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
   color: var(--ft-white, #ffffff);
 }
 
@@ -21,12 +21,12 @@
   background:
     radial-gradient(
       ellipse 55% 70% at 15% 20%,
-      rgba(64, 173, 170, 0.12),
+      rgba(48, 108, 231, 0.14),
       transparent 72%
     ),
     radial-gradient(
       ellipse 50% 65% at 88% 82%,
-      rgba(175, 221, 220, 0.07),
+      rgba(59, 130, 246, 0.08),
       transparent 72%
     );
 }
@@ -42,7 +42,7 @@
 .ft-client-logo-grid__heading {
   margin: 0 0 4rem;
   color: var(--ft-white, #ffffff);
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2.125rem, 5vw, 3.75rem);
   font-weight: 400;
   line-height: 1;

@@ -1,4 +1,4 @@
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 
 type HomePeopleContent = {
   eyebrow?: string;
@@ -11,9 +11,9 @@ type HomePeopleContent = {
 const DEFAULT_HOME_PEOPLE_CONTENT: HomePeopleContent = {
   eyebrow: 'Creative, Technical & Strategic',
   headingFirstLine: 'People-first',
-  headingSecondLine: 'Shopify agency',
+  headingSecondLine: 'software agency',
   description:
-    'A Shopify team focused on design, development, SEO and growth, helping ecommerce brands plan, build and improve better online stores.',
+    'A Software team focused on design, development, SEO and growth, helping ecommerce brands plan, build and improve better online stores.',
   buttonLabel: 'Our Story',
 };
 
@@ -31,7 +31,7 @@ export function HomePeople({
         <div className="ft-home-people__image">
           <img
             src="/images/home-people/people.webp"
-            alt="FoldTech team working together"
+            alt="Byte Operator team working together"
             width="1668"
             height="700"
             loading="lazy"

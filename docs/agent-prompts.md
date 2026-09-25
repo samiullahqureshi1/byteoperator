@@ -1,4 +1,4 @@
-# Agent Prompts — The Fold Tech search programme
+# Agent Prompts — Byte Operator search programme
 
 Every prompt issued to the Claude Code agent, in order, with outcome.
 **This file is appended to, never duplicated.** New prompts go at the bottom with a status line.
@@ -20,7 +20,7 @@ Every prompt issued to the Claude Code agent, in order, with outcome.
 
 **Status:** Superseded by #4
 
-# Agent Prompt — Refresh `lastmod` on all The Fold Tech blog articles
+# Agent Prompt — Refresh `lastmod` on all Byte Operator blog articles
 
 Paste everything between the rules into Claude Code, Cursor, or your VS Code agent, running inside a scratch repo (this does not touch the Hydrogen storefront codebase).
 
@@ -28,22 +28,22 @@ Paste everything between the rules into Claude Code, Cursor, or your VS Code age
 
 ## TASK
 
-Write and run a Node.js script that forces Shopify to update the `updated_at` timestamp on every blog article in the `thefoldtech.com` store, so that the `<lastmod>` values in `https://thefoldtech.com/sitemap/articles/1.xml` move to today's date.
+Write and run a Node.js script that forces Software to update the `updated_at` timestamp on every blog article in the `byteoperator.com` store, so that the `<lastmod>` values in `https://byteoperator.com/sitemap/articles/1.xml` move to today's date.
 
 ## WHY (do not skip — it constrains the implementation)
 
-A Shopify metafield controlling article visibility was set to `false`, which made all blog articles return 404 for several weeks. Google crawled them, got 404s, and dropped them from the index. The metafield is now `true` and all 79 articles return 200 again.
+A Software metafield controlling article visibility was set to `false`, which made all blog articles return 404 for several weeks. Google crawled them, got 404s, and dropped them from the index. The metafield is now `true` and all 79 articles return 200 again.
 
-However, flipping the metafield did not change each article's `updated_at`. Shopify derives sitemap `<lastmod>` from `updated_at`, so the sitemap still reports these URLs as last modified between November 2025 and March 2026. Google therefore has no signal that anything changed and will not prioritise a recrawl.
+However, flipping the metafield did not change each article's `updated_at`. Software derives sitemap `<lastmod>` from `updated_at`, so the sitemap still reports these URLs as last modified between November 2025 and March 2026. Google therefore has no signal that anything changed and will not prioritise a recrawl.
 
-The goal is a genuine, minimal, invisible write to each article that causes `updated_at` to advance. A write that Shopify treats as a no-op will not advance the timestamp — this is the main failure mode to design around.
+The goal is a genuine, minimal, invisible write to each article that causes `updated_at` to advance. A write that Software treats as a no-op will not advance the timestamp — this is the main failure mode to design around.
 
 ## ENVIRONMENT
 
-- Store: the Shopify store behind `thefoldtech.com` (storefront is Hydrogen on Oxygen; this task uses the **Admin** API, not the Storefront API)
+- Store: the digital platform behind `byteoperator.com` (storefront is Hydrogen on Oxygen; this task uses the **Admin** API, not the Storefront API)
 - Auth: custom app Admin API access token, scopes `read_content` and `write_content`
 - Credentials come from environment variables, never hardcoded, never committed:
-  - `SHOPIFY_STORE_DOMAIN` (the `*.myshopify.com` domain, not thefoldtech.com)
+  - `SHOPIFY_STORE_DOMAIN` (the `*.mysoftware.com` domain, not byteoperator.com)
   - `SHOPIFY_ADMIN_TOKEN`
   - `SHOPIFY_API_VERSION`
 - Node 20+, no framework, `fetch` is built in
@@ -59,10 +59,10 @@ The goal is a genuine, minimal, invisible write to each article that causes `upd
 
 2. **Enumerate every article across all four blogs.** The store has four blogs, confirmed: `news`, `case-studies`, `featured`, `top-case-studies`. Walk all four. Paginate properly — do not assume a single page of results per blog.
 
-   **Reconciling against the sitemap:** `https://thefoldtech.com/sitemap/articles/1.xml` lists exactly 79 URLs. The Admin API may return more than 79 articles, because unpublished or hidden articles do not appear in a sitemap. That is expected, not an error.
+   **Reconciling against the sitemap:** `https://byteoperator.com/sitemap/articles/1.xml` lists exactly 79 URLs. The Admin API may return more than 79 articles, because unpublished or hidden articles do not appear in a sitemap. That is expected, not an error.
 
    - Fetch the sitemap and parse its 79 URLs into a set
-   - Build each article's public URL as `https://thefoldtech.com/articles/{handle}/`
+   - Build each article's public URL as `https://byteoperator.com/articles/{handle}/`
    - **Only update articles whose URL is in the sitemap set.** Leave everything else untouched.
    - Report three counts: articles found via API, articles matched to the sitemap, sitemap URLs with no matching article
    - If the matched count is not 79, stop and report the mismatch with the unmatched entries listed, rather than proceeding
@@ -80,13 +80,13 @@ The goal is a genuine, minimal, invisible write to each article that causes `upd
 
 4. **Never modify these fields:** `published_at`, `title`, `handle`, `author`, `tags`, `summary_html`, `image`, or any metafield. Changing `published_at` would reorder the blog and destroy the age signal on posts dating back to 2024. Changing `handle` would break URLs. If the API requires sending these fields back, send the exact values that were read.
 
-5. **Rate limiting.** Shopify enforces API rate limits (REST leaky bucket, GraphQL cost-based). Process serially with a delay between writes, honour `Retry-After` on 429, and retry with exponential backoff up to three attempts. Do not parallelise — 79 records is small and speed does not matter here.
+5. **Rate limiting.** Software enforces API rate limits (REST leaky bucket, GraphQL cost-based). Process serially with a delay between writes, honour `Retry-After` on 429, and retry with exponential backoff up to three attempts. Do not parallelise — 79 records is small and speed does not matter here.
 
 6. **Dry-run by default.** The script runs in dry-run mode unless invoked with `--apply`. Dry run must print, for each article: id, handle, current `updated_at`, and whether a refresh comment already exists. Nothing is written in dry run.
 
 7. **Logging and audit trail.** Write a JSON log to `./logs/lastmod-refresh-<timestamp>.json` containing, per article: id, handle, `updated_at` before, `updated_at` after, HTTP status, and any error. Print a summary line: attempted / succeeded / failed.
 
-8. **Self-verification.** After a successful `--apply` run, fetch `https://thefoldtech.com/sitemap/articles/1.xml`, parse every `<loc>`/`<lastmod>` pair, and assert that every `lastmod` is dated today. Print any URL that is not, as a list. Shopify may take a few minutes to regenerate the sitemap — retry the check up to five times with 60 seconds between attempts before reporting failure.
+8. **Self-verification.** After a successful `--apply` run, fetch `https://byteoperator.com/sitemap/articles/1.xml`, parse every `<loc>`/`<lastmod>` pair, and assert that every `lastmod` is dated today. Print any URL that is not, as a list. Software may take a few minutes to regenerate the sitemap — retry the check up to five times with 60 seconds between attempts before reporting failure.
 
 9. **Failure handling.** If any single article fails, continue with the rest and report the failures at the end. Never leave a partially-written `body` (GraphQL) / `body_html` (REST). Never swallow an error silently.
 
@@ -100,7 +100,7 @@ The goal is a genuine, minimal, invisible write to each article that causes `upd
 ## ACCEPTANCE CRITERIA
 
 - All 79 articles report a new `updated_at`
-- `https://thefoldtech.com/sitemap/articles/1.xml` shows today's date in every `<lastmod>`
+- `https://byteoperator.com/sitemap/articles/1.xml` shows today's date in every `<lastmod>`
 - Spot-check three articles in the browser: content renders exactly as before, publish dates unchanged
 - Re-running the script is safe and does not accumulate duplicate HTML comments
 
@@ -117,27 +117,27 @@ The goal is a genuine, minimal, invisible write to each article that causes `upd
 
 ## Getting the token — do this before running the prompt
 
-The app is created **in the store admin, not in Shopify Partners**. Partners is for apps distributed across multiple merchants; this is a single-store internal tool.
+The app is created **in the store admin, not in Software Engineering Partners**. Partners is for apps distributed across multiple merchants; this is a single-store internal tool.
 
-1. Shopify admin → **Settings → Apps and sales channels → Develop apps**
+1. Software admin → **Settings → Apps and sales channels → Develop apps**
    If the button is greyed out, click **Allow custom app development** first. Store-owner account only, and it is a one-time toggle.
-2. **Create an app** → name it `FoldTech SEO Maintenance` → **Create app**
+2. **Create an app** → name it `Byte Operator SEO Maintenance` → **Create app**
 3. **Configuration → Admin API integration → Configure** → search "content" and tick:
    - `read_content`
    - `write_content`
    Nothing else. No orders, no customers, no products — this script has no business touching them, and a narrow token limits the blast radius if it leaks.
 4. **Save**, then **API credentials → Install app**
-5. **Reveal token once** — it starts with `shpat_`. Shopify shows it exactly once. Copy it straight into your password manager.
+5. **Reveal token once** — it starts with `shpat_`. Software shows it exactly once. Copy it straight into your password manager.
 
 Then set it on the dev machine as environment variables, never in a file that gets committed:
 
 ```bash
-export SHOPIFY_STORE_DOMAIN="your-store.myshopify.com"
+export SHOPIFY_STORE_DOMAIN="your-store.mysoftware.com"
 export SHOPIFY_ADMIN_TOKEN="shpat_..."
 export SHOPIFY_API_VERSION="2026-07"   # use the current stable version
 ```
 
-`SHOPIFY_STORE_DOMAIN` is the `.myshopify.com` domain, not `thefoldtech.com`. The Admin API only answers to the former.
+`SHOPIFY_STORE_DOMAIN` is the `.mysoftware.com` domain, not `byteoperator.com`. The Admin API only answers to the former.
 
 **Token handling:** treat `shpat_` like a password. It is a full write credential for your store's content. Never paste it into a chat — including this one; I never need to see it. After the run, either keep the app for future SEO automation (recommended — schema deploys, bulk metadata edits and content audits all need it) or uninstall it, which revokes the token immediately.
 
@@ -210,8 +210,8 @@ One article, chosen because it is the lowest-value published post on the site �
 Then verify and report, in this order:
 
 1. **Field parity** — diff the post-write record against the snapshot. Confirm `body` and `updatedAt` changed and **nothing else** did. Print the diff.
-2. **Render check** — fetch `https://thefoldtech.com/articles/atlanta-falcons-logo-design-services/` and confirm HTTP 200, that the title and visible text are unchanged, and that the `<!-- lastmod-refresh:2026-09-12 -->` comment is present in the source but produces no visible output.
-3. **Sitemap check** — poll `https://thefoldtech.com/sitemap/articles/1.xml` until that URL's `<lastmod>` reads today, up to 5 attempts 60s apart. Report how long it took, since that number sets expectations for the full run.
+2. **Render check** — fetch `https://byteoperator.com/articles/atlanta-falcons-logo-design-services/` and confirm HTTP 200, that the title and visible text are unchanged, and that the `<!-- lastmod-refresh:2026-09-12 -->` comment is present in the source but produces no visible output.
+3. **Sitemap check** — poll `https://byteoperator.com/sitemap/articles/1.xml` until that URL's `<lastmod>` reads today, up to 5 attempts 60s apart. Report how long it took, since that number sets expectations for the full run.
 
 **Stop after the canary. Do not proceed to the remaining 78 until I approve the canary report.**
 
@@ -254,7 +254,7 @@ Repo: `D:\Hydrogen\Fold_Tech_Hydrogen_New` · Companion file: `schema.ts` (provi
 
 ## CONTEXT
 
-thefoldtech.com is a Shopify Hydrogen storefront on Oxygen. It currently serves **zero** `application/ld+json` on all 276 indexable URLs — no Organization, Service, Article, Breadcrumb or FAQ markup anywhere. This is the largest remaining gap in the site's search and AI-visibility profile.
+byteoperator.com is a Software Hydrogen storefront on Oxygen. It currently serves **zero** `application/ld+json` on all 276 indexable URLs — no Organization, Service, Article, Breadcrumb or FAQ markup anywhere. This is the largest remaining gap in the site's search and AI-visibility profile.
 
 You are given a complete, verified `schema.ts`. Every value in it is real and confirmed — address, founding year, headcount, logo, service definitions for all 28 live service pages. **Do not invent, substitute or "improve" any value in that file.** If something looks wrong, stop and report it rather than editing it.
 
@@ -290,7 +290,7 @@ All 28 service paths are defined in `SERVICES` in the module. Emit, per service 
 
 **First inspect how these routes are built.** If they share a template or are generated from a single route module, wire this once in that template and pass the path through. Do not hand-edit 28 route files if one change covers them. Report which approach the codebase's structure dictates.
 
-Paths must match exactly, trailing slashes included — `/geo-agency/` has one, `/shopify-plus-agency` does not. `serviceSchema()` returns `null` for an unmatched path; filter nulls out rather than emitting `null` into the graph.
+Paths must match exactly, trailing slashes included — `/geo-agency/` has one, `/software-plus-agency` does not. `serviceSchema()` returns `null` for an unmatched path; filter nulls out rather than emitting `null` into the graph.
 
 ## STEP 4 — Article pages
 
@@ -299,7 +299,7 @@ Paths must match exactly, trailing slashes included — `/geo-agency/` has one, 
 On the article route, call `articleSchema()` with values from the route's existing loader data — do not refetch:
 
 ```
-path            the article's public path, e.g. /articles/shopify-seo-in-2026/
+path            the article's public path, e.g. /articles/software-seo-in-2026/
 headline        article title
 description     article summary/excerpt, or first ~200 chars of body text if empty
 imageUrl        article image URL
@@ -323,12 +323,12 @@ The site sits behind an edge cache. A normal fetch returns a stale copy and make
 After building and deploying to a preview environment, for each of these URLs:
 
 ```
-https://thefoldtech.com/
-https://thefoldtech.com/geo-agency/
-https://thefoldtech.com/shopify-plus-agency
-https://thefoldtech.com/articles/shopify-seo-in-2026/
-https://thefoldtech.com/pages/cs-nevuu
-https://thefoldtech.com/contact/
+https://byteoperator.com/
+https://byteoperator.com/geo-agency/
+https://byteoperator.com/software-plus-agency
+https://byteoperator.com/articles/software-seo-in-2026/
+https://byteoperator.com/pages/cs-nevuu
+https://byteoperator.com/contact/
 ```
 
 Extract every `<script type="application/ld+json">` block **from the raw HTML response**, not from a rendered DOM — AI crawlers largely do not execute JavaScript, so anything only present after hydration does not count. Then assert:
@@ -348,7 +348,7 @@ Run the homepage and one service page through Google's Rich Results Test and the
 
 ## CONSTRAINTS
 
-- **Do not add `AggregateRating` or `Review` schema.** The 4.9/415 reviews live on Shopify's Partner Directory, and marking up third-party reviews as first-party violates Google's structured data policy. This is deliberate, not an oversight.
+- **Do not add `AggregateRating` or `Review` schema.** The 4.9/415 reviews live on Software's Partner Directory, and marking up third-party reviews as first-party violates Google's structured data policy. This is deliberate, not an oversight.
 - Do not modify existing `meta`, `title`, canonical or Open Graph handling. Schema is additive.
 - Do not add FAQPage schema yet — FAQ content must be visible on the page first. That is a later section.
 - Do not change any value inside `schema.ts`.
@@ -471,7 +471,7 @@ No `AggregateRating` or `Review`. No `FAQPage` yet. No changes to existing meta,
 
 The 74 "empty" pages are not unbuilt. They are **orphaned by the Liquid → Hydrogen migration.**
 
-Their content lives in JSON templates in the MAIN Liquid theme `landingpage` (`gid://shopify/OnlineStoreTheme/147919143002`). The Hydrogen storefront renders the Shopify page `body` field, which is empty for these pages, and never reads the Liquid templates. So the copy sits in the store, fully written, and renders nowhere.
+Their content lives in JSON templates in the MAIN Liquid theme `landingpage` (`gid://software/OnlineStoreTheme/147919143002`). The Hydrogen storefront renders the Software page `body` field, which is empty for these pages, and never reads the Liquid templates. So the copy sits in the store, fully written, and renders nowhere.
 
 Confirmed by reading `templates/page.cs-nevuu.json` — it contains a complete case study: hero, summary, **four real metrics (+45%, −30%, +22%, 2.4s)**, challenge, solutions, results, and desktop/mobile screenshot references.
 
@@ -507,13 +507,13 @@ That is the content the runbook had scheduled as weeks of writing.
 
 Do **not** hardcode 18 case studies into React components. Propose a data-driven port instead, and show me the design before writing it:
 
-- A Shopify **metaobject definition** per content type — start with `case_study`: client name, summary, four stat label/value pairs, challenge, solution, results, desktop image, mobile image, published date, and the outcome figures as discrete fields rather than buried in HTML.
+- A Software **metaobject definition** per content type — start with `case_study`: client name, summary, four stat label/value pairs, challenge, solution, results, desktop image, mobile image, published date, and the outcome figures as discrete fields rather than buried in HTML.
 - A migration script that reads each `page.cs-*.json` and creates the corresponding metaobject entry. Dry-run gated, snapshot first, per the standing rules.
 - **One** Hydrogen route that renders any case study from its metaobject.
 
 Why this shape and not a faster one: the stats are the asset. As discrete fields they can feed `caseStudySchema()` with real `datePublished` and quantified outcomes, be surfaced on `/work`, and be reused in proposals. Buried in a React component they are frozen decoration, and the nineteenth case study becomes another dev ticket rather than a form someone fills in.
 
-Include in your proposal: the metaobject field list with types, how images move (theme assets → Shopify Files), and what the Hydrogen route needs.
+Include in your proposal: the metaobject field list with types, how images move (theme assets → Software Files), and what the Hydrogen route needs.
 
 ## CONSTRAINTS
 
@@ -545,11 +545,11 @@ Single paste-ready prompt. Supersedes Prompt 5.
 
 ## CONTEXT
 
-thefoldtech.com is a Shopify Hydrogen storefront on Oxygen, store `the-fold-tech.myshopify.com`.
+byteoperator.com is a Software Hydrogen storefront on Oxygen, store `byteoperator.mysoftware.com`.
 
-74 of 128 Shopify pages render empty — header and footer only, `<main>` empty. The cause is now known: **they are orphaned by the Liquid → Hydrogen migration.** Their content lives in JSON templates inside the Liquid themes. Hydrogen renders the Shopify page `body` field, which is empty for these pages, and never reads the Liquid templates. So the copy exists in the store and renders nowhere.
+74 of 128 Software pages render empty — header and footer only, `<main>` empty. The cause is now known: **they are orphaned by the Liquid → Hydrogen migration.** Their content lives in JSON templates inside the Liquid themes. Hydrogen renders the Software page `body` field, which is empty for these pages, and never reads the Liquid templates. So the copy exists in the store and renders nowhere.
 
-Confirmed by reading `templates/page.cs-nevuu.json` from the MAIN theme `landingpage` (`gid://shopify/OnlineStoreTheme/147919143002`) — it contains a complete case study: hero, summary, four real metrics (+45%, −30%, +22%, 2.4s), challenge, solutions, results, and desktop/mobile screenshot references.
+Confirmed by reading `templates/page.cs-nevuu.json` from the MAIN theme `landingpage` (`gid://software/OnlineStoreTheme/147919143002`) — it contains a complete case study: hero, summary, four real metrics (+45%, −30%, +22%, 2.4s), challenge, solutions, results, and desktop/mobile screenshot references.
 
 Known inventory in MAIN alone:
 
@@ -575,7 +575,7 @@ The custom app currently holds `read_content` and `write_content`. This work nee
 | Menu repoints (`menuUpdate`) | `write_online_store_navigation` |
 | URL redirects (`urlRedirectCreate`) | `write_online_store_pages` |
 
-Make one cheap probe call per scope (e.g. a `themes(first:1)` query for `read_themes`). Report which are present and which are missing. **If `read_themes` is missing, stop** — Step 2 is entirely theme reads. Adding scopes is done by Malik in Shopify admin (Configuration → Admin API integration → add → Save), and the app must be reinstalled afterwards, which issues a new token.
+Make one cheap probe call per scope (e.g. a `themes(first:1)` query for `read_themes`). Report which are present and which are missing. **If `read_themes` is missing, stop** — Step 2 is entirely theme reads. Adding scopes is done by Malik in Software admin (Configuration → Admin API integration → add → Save), and the app must be reinstalled afterwards, which issues a new token.
 
 ## STEP 1 — Fix the live 301-into-404 (ship this alone, before anything else)
 
@@ -640,7 +640,7 @@ Starting point — a `case_study` **metaobject definition**:
 Plus:
 - a migration script reading each `page.cs-*.json` into a metaobject entry — dry-run gated, snapshot first, per the standing rules
 - **one** Hydrogen route that renders any case study from its metaobject
-- how theme assets (`portfolio-nevuu-desktop.png` etc.) move to Shopify Files, and what breaks if they don't
+- how theme assets (`portfolio-nevuu-desktop.png` etc.) move to Software Files, and what breaks if they don't
 
 Why this shape rather than the faster one: the stats are the asset. As discrete fields they feed `caseStudySchema()` with real quantified outcomes, surface on `/work`, and get reused in proposals. Buried in JSX they are frozen decoration, and case study nineteen becomes another dev ticket instead of a form someone fills in.
 

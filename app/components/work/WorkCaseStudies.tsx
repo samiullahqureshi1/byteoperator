@@ -1,4 +1,4 @@
-import type {WorkCaseStudiesQuery} from 'storefrontapi.generated';
+import type {WorkCaseStudiesQuery} from '~/lib/types';
 import {CaseStudyCard} from './CaseStudyCard';
 
 export type WorkCaseStudyArticle = NonNullable<

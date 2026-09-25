@@ -1,13 +1,10 @@
 .ft-ecommerce-seo-cases {
   width: 100%;
-  background: var(--ft-white, #ffffff);
-  border-radius: 2.5rem 2.5rem 0 0;
+  background: var(--ft-dark-deep, #060F24);
   overflow: hidden;
 }
 .ft-ecommerce-seo-cases .ft-work-featured {
-  background: var(--ft-white, #ffffff);
-}
-.ft-ecommerce-seo-cases .ft-work-featured {
+  background: var(--ft-dark-deep, #060F24);
   padding: 2rem 5.33vw 5rem;
 }
 

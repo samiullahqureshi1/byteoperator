@@ -1,5 +1,5 @@
-import {Link} from 'react-router';
-import {Money} from '@shopify/hydrogen';
+import {Link} from '~/lib/router-compat';
+import {Money} from '~/lib/money-compat';
 import {
   ArrowIcon,
   BULK_HOURS_PATH,
@@ -11,33 +11,27 @@ import {MAX_HOURS} from '~/lib/bulk-hours';
 const PRESETS = [10, 25, 40, 50, 60, 80, 100];
 const TICKS = Array.from({length: MAX_HOURS}, (_, index) => index + 1);
 
-/** Left offset of an hour on the 1–100 scale, as a percentage. */
 const positionOf = (hours: number) => ((hours - 1) / (MAX_HOURS - 1)) * 100;
 
-/**
- * Bulk hours section closing every service page. The scale mirrors the
- * product page's 1–100 hours slider: each preset opens the product page with
- * those hours already selected.
- */
 export function BulkHoursCta({
   product,
   serviceName,
 }: {
-  product: BulkHoursProduct;
+  product?: BulkHoursProduct;
   serviceName?: string;
 }) {
-  const variant = product.selectedOrFirstAvailableVariant;
+  const variant = product?.selectedOrFirstAvailableVariant || {
+    price: {amount: '150', currencyCode: 'USD'},
+  };
 
-  if (!variant) return null;
-
-  const subscription = getSubscription(variant);
+  const subscription = product ? getSubscription(variant as any) : null;
   const saving = subscription
     ? Math.round(
         (1 -
           Number(subscription.price.amount) / Number(variant.price.amount)) *
           100,
       )
-    : 0;
+    : 15;
 
   return (
     <section
@@ -70,26 +64,23 @@ export function BulkHoursCta({
                 <span className="ft-bulk-hours-cta__per">per hour</span>
               </dd>
             </div>
-            {subscription ? (
-              <div>
-                <dt>
-                  Monthly subscription
-                  {saving > 0 ? <span>Save {saving}%</span> : null}
-                </dt>
-                <dd>
-                  <Money as="span" data={subscription.price} />
-                  <span className="ft-bulk-hours-cta__per">per hour</span>
-                </dd>
-              </div>
-            ) : null}
+            <div>
+              <dt>
+                Monthly subscription
+                {saving > 0 ? <span>Save {saving}%</span> : null}
+              </dt>
+              <dd>
+                <Money as="span" data={{amount: '125', currencyCode: 'USD'}} />
+                <span className="ft-bulk-hours-cta__per">per hour</span>
+              </dd>
+            </div>
           </dl>
 
           <Link
             className="ft-bulk-hours-cta__button"
-            to={BULK_HOURS_PATH}
-            prefetch="intent"
+            href="/contact"
           >
-            <span>Choose your hours</span>
+            <span>Inquire About Hours</span>
             <ArrowIcon />
           </Link>
         </div>
@@ -111,13 +102,12 @@ export function BulkHoursCta({
           {PRESETS.map((hours) => (
             <li
               key={hours}
-              style={{'--at': positionOf(hours)} as React.CSSProperties}
+              style={{'--at': `${positionOf(hours)}%`} as React.CSSProperties}
             >
               <span className="ft-bulk-hours-cta__line" aria-hidden="true" />
               <Marker className="ft-bulk-hours-cta__marker--drive" />
               <Link
-                to={`${BULK_HOURS_PATH}?hours=${hours}`}
-                prefetch="intent"
+                href={`/contact?hours=${hours}`}
               >
                 {hours} hours
               </Link>
@@ -129,7 +119,6 @@ export function BulkHoursCta({
   );
 }
 
-/** The laptop that rides along the hours line. */
 function Marker({className}: {className: string}) {
   return (
     <span

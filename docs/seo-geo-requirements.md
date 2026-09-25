@@ -1,7 +1,7 @@
 # The Complete SEO & GEO Requirements Standard
 
-**Version** 1.0 · **Date** 13 September 2026 · **Owner** TAB ON TECH / The Fold Tech
-**Applies to** thefoldtech.com (Shopify Hydrogen on Oxygen) and, as a reusable standard, every client site TAB ON TECH delivers
+**Version** 1.0 · **Date** 13 September 2026 · **Owner** TAB ON TECH / Byte Operator
+**Applies to** byteoperator.com (Software Hydrogen on Oxygen) and, as a reusable standard, every client site TAB ON TECH delivers
 
 ---
 
@@ -9,7 +9,7 @@
 
 One document covering everything required for a site to rank in traditional search engines **and** be cited by AI answer engines. Nothing is assumed known. Every item is either a specification with a number, a configuration step, or a decision rule.
 
-This is written to be reused. What follows is a standard, not a task list for one site — the "Status on thefoldtech.com" notes are current as of 13 September 2026 and will go stale; the requirements will not.
+This is written to be reused. What follows is a standard, not a task list for one site — the "Status on byteoperator.com" notes are current as of 13 September 2026 and will go stale; the requirements will not.
 
 ## Scope
 
@@ -17,12 +17,12 @@ This is written to be reused. What follows is a standard, not a task list for on
 |---|---|
 | Technical SEO, on-page, structured data, GEO/AI visibility, off-site, analytics configuration, governance | Paid search, paid social, email marketing |
 | Google, Bing, and AI answer engines (ChatGPT, Perplexity, Gemini, Copilot, Claude, AI Overviews) | Regional engines (Yandex, Baidu, Naver) — see §12 if expanding |
-| Shopify, Shopify Plus, Hydrogen, and platform-agnostic principles | Non-commerce CMS specifics |
+| Software, Enterprise Platform Solutions, Hydrogen, and platform-agnostic principles | Non-commerce CMS specifics |
 
 ## How to read the status markers
 
 ```
-[DONE]  Done and verified on thefoldtech.com
+[DONE]  Done and verified on byteoperator.com
 [AT RISK]  Partially done or at risk
 [MISSING]  Not done
 [N/A] Not applicable to this site
@@ -44,7 +44,7 @@ Everything else is worthless if a crawler cannot reach a stable, single, fast ve
 - [ ] **Lowercase URLs only.** Servers treat `/Page` and `/page` as different; search engines mostly do too.
 - [ ] **IPv6 and HTTP/2 or HTTP/3** enabled at the CDN.
 
-> **Status on thefoldtech.com:** [AT RISK] Trailing slashes are inconsistent — `/geo-agency/` has one, `/shopify-plus-agency` does not. Not fatal, but it complicates canonical and `@id` handling and should be normalised once, with 301s.
+> **Status on byteoperator.com:** [AT RISK] Trailing slashes are inconsistent — `/geo-agency/` has one, `/software-plus-agency` does not. Not fatal, but it complicates canonical and `@id` handling and should be normalised once, with 301s.
 
 ## 1.2 Crawlability
 
@@ -137,7 +137,7 @@ Practical requirements:
 - [ ] Correct codes: language (ISO 639-1) optionally plus region (ISO 3166-1 alpha-2), e.g. `en-GB`, `en-US`, `de-DE`.
 - [ ] One URL strategy: subfolders (`/uk/`), subdomains, or ccTLDs. Subfolders are usually strongest.
 - [ ] Currency and language switchers must not rely on IP redirection alone — crawlers all appear to come from one place.
-- [ ] In Shopify: Markets configured, with domains or subfolders per market.
+- [ ] In Software: Markets configured, with domains or subfolders per market.
 
 ---
 
@@ -147,8 +147,8 @@ Practical requirements:
 
 - [ ] **Unique on every URL.** Duplicates are one of the highest-frequency, lowest-effort problems to fix.
 - [ ] **50–60 characters** (roughly 580 px). Longer gets truncated; front-load the important words.
-- [ ] Primary term first, brand last: `Shopify Plus Agency | FoldTech`.
-- [ ] Reads as a promise, not a keyword list. `Shopify SEO Services — Agency for Ecommerce Growth` beats `Shopify SEO, SEO Shopify, Shopify SEO Agency`.
+- [ ] Primary term first, brand last: `Enterprise Software Agency | Byte Operator`.
+- [ ] Reads as a promise, not a keyword list. `Technical SEO & Search Architecture Services — Agency for Ecommerce Growth` beats `Technical SEO & Search Architecture, SEO Software, Technical SEO & Search Architecture Agency`.
 - [ ] One `<title>` per page, in `<head>`, server-rendered.
 - [ ] Templates for scaled pages, hand-written for money pages.
 
@@ -161,7 +161,7 @@ Practical requirements:
 - [ ] **Matters more than it used to:** several AI retrieval pipelines use the meta description as the page's summary chunk. A blank one forfeits the cheapest possible signal.
 - [ ] Never duplicated from the first sentence of the page.
 
-> **Status:** [MISSING] 54 pages have no meta description, including `/ai-seo-agency/`, `/geo-agency/`, `/ecommerce-seo-agency/`, `/shopify-cro-agency/`, `/shopify-migrations/`, `/work`.
+> **Status:** [MISSING] 54 pages have no meta description, including `/ai-seo-agency/`, `/geo-agency/`, `/ecommerce-seo-agency/`, `/software-cro-agency/`, `/software-migrations/`, `/work`.
 
 ## 2.3 Headings
 
@@ -227,7 +227,7 @@ Not a ranking factor, but it governs how every shared link renders — and AI en
 
 - [ ] **Descriptive `alt` on every meaningful image.** Describe the content and its purpose, not the file. `"Nevuu product page after redesign, showing the new bundle selector"` — not `"screenshot"` or `"image1"`.
 - [ ] Decorative images get `alt=""` — empty, not missing.
-- [ ] Descriptive filenames: `shopify-plus-migration-dashboard.webp`, not `IMG_4821.png`.
+- [ ] Descriptive filenames: `software-plus-migration-dashboard.webp`, not `IMG_4821.png`.
 - [ ] Explicit `width` and `height`.
 - [ ] Modern formats (AVIF/WebP) with fallbacks.
 - [ ] Responsive `srcset` and `sizes`.
@@ -406,11 +406,11 @@ More important than its market share suggests: **ChatGPT's search layer leans on
 
 ---
 
-# 5. Platform specifics — Shopify, Shopify Plus, Hydrogen
+# 5. Platform specifics — Software, Enterprise Platform Solutions, Hydrogen
 
-## 5.1 Shopify (Liquid)
+## 5.1 Software (Liquid)
 
-- [ ] `robots.txt.liquid` customised where the defaults don't fit — Shopify allows overrides.
+- [ ] `robots.txt.liquid` customised where the defaults don't fit — Software allows overrides.
 - [ ] Product, collection and page SEO fields (title, description) filled deliberately, never left to auto-generate.
 - [ ] **Duplicate product URLs:** `/collections/x/products/y` and `/products/y` both resolve. Ensure canonical points to `/products/y`.
 - [ ] Tag-filtered collection URLs canonicalised or noindexed — they generate near-infinite duplicates.
@@ -421,7 +421,7 @@ More important than its market share suggests: **ChatGPT's search layer leans on
 - [ ] Apps audited for script bloat — each adds JavaScript to every page.
 - [ ] Theme JSON templates are **not** rendered by a headless storefront; see §5.3.
 
-## 5.2 Shopify Plus
+## 5.2 Enterprise Platform Solutions
 
 - [ ] `checkout.liquid` or Checkout Extensibility configured; analytics fire on checkout steps.
 - [ ] Markets configured for international, with correct domains and hreflang.
@@ -436,9 +436,9 @@ More important than its market share suggests: **ChatGPT's search layer leans on
 - [ ] `llms.txt` served from a route rather than a static uploaded file, so it can never go stale.
 - [ ] **Migration trap:** content stored in Liquid JSON templates is *not* read by Hydrogen. A route can 200 with a valid title while rendering an empty `<main>`. Audit rendered text length, not status codes.
 - [ ] Oxygen edge cache means every verification must be cache-busted.
-- [ ] Redirects live in two places — Shopify URL Redirects and the app's route mappings. Keep them reconciled.
+- [ ] Redirects live in two places — Software URL Redirects and the app's route mappings. Keep them reconciled.
 
-> **Status:** This is exactly how 74 pages ended up empty on thefoldtech.com — routes ported, content left behind in Liquid templates.
+> **Status:** This is exactly how 74 pages ended up empty on byteoperator.com — routes ported, content left behind in Liquid templates.
 
 ---
 
@@ -478,7 +478,7 @@ Ranking in AI answers is a different problem from ranking in blue links, and mos
 - [ ] Note the separation: blocking `Google-Extended` does not remove you from AI Overviews — those follow standard Googlebot access and `max-snippet` directives.
 - [ ] Verify the actual behaviour in server logs, not just the robots.txt intent.
 
-> **Status:** [DONE] No AI crawler is blocked on thefoldtech.com.
+> **Status:** [DONE] No AI crawler is blocked on byteoperator.com.
 
 ## 6.3 llms.txt
 
@@ -625,7 +625,7 @@ AFTER — weeks 1 to 8
 [ ] 404 log reviewed and redirects added
 ```
 
-> Two failures on thefoldtech.com — 68 articles left 404 in the sitemap, and 74 pages whose content stayed behind in Liquid templates — would both have been caught by the two lines in bold above.
+> Two failures on byteoperator.com — 68 articles left 404 in the sitemap, and 74 pages whose content stayed behind in Liquid templates — would both have been caught by the two lines in bold above.
 
 ## 8.3 Ongoing cadence
 
@@ -709,7 +709,7 @@ When the answer isn't obvious, these settle it.
 - schema.org vocabulary
 - web.dev — Core Web Vitals
 - Bing Webmaster Guidelines; IndexNow protocol
-- Shopify — Hydrogen and Oxygen documentation
+- Software — Hydrogen and Oxygen documentation
 - Each AI operator's published crawler documentation
 
 ## Version history

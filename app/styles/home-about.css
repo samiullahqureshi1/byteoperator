@@ -1,5 +1,5 @@
 /* =========================================================
-   FOLDTECH — HOME ABOUT
+   BYTE OPERATOR — HOME ABOUT
    Reference-matched layout
 ========================================================= */
 
@@ -16,8 +16,8 @@
 
   box-sizing: border-box;
 
-  background: #ffffff;
-  color: #000000;
+  background: var(--ft-dark-deep, #060F24);
+  color: #ffffff;
 }
 
 
@@ -72,7 +72,7 @@
 .ft-home-about__eyebrow {
   margin: 0;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 1.25rem;
   font-weight: 300;
@@ -82,7 +82,7 @@
 
   letter-spacing: -0.025em;
 
-  color: #000000;
+  color: #A8B3C7;
 }
 
 
@@ -96,7 +96,7 @@
 
   margin: 0;
 
- font-family: "Season Sans", sans-serif;
+ font-family: Arial, Helvetica, sans-serif;
 
   font-size: 3.75rem;
   font-weight: 300;
@@ -106,7 +106,7 @@
 
   letter-spacing: -0.045em;
 
-  color: #000000;
+  color: #ffffff;
 }
 
 
@@ -132,7 +132,7 @@
 
   border-top:
     0.055vw solid
-    rgba(0, 0, 0, 0.1);
+    #1F2A44;
 }
 
 .ft-home-about__stat {
@@ -148,7 +148,7 @@
 .ft-home-about__stat-value {
   margin: 0;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   /* Sized against "53,797" and "4.9/5.0", the widest values, with enough
      headroom that a brand face with wider digits than the Arial fallback
@@ -164,7 +164,7 @@
 
   white-space: nowrap;
 
-  color: #000000;
+  color: #ffffff;
 }
 
 
@@ -190,7 +190,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  color: #000000;
+  color: #A8B3C7;
 }
 
 
@@ -229,7 +229,7 @@
 
   margin: 0;
 
-font-family: "Season Sans", sans-serif;
+font-family: Arial, Helvetica, sans-serif;
 
   font-size: 1.875rem;
   font-weight: 300;
@@ -240,7 +240,7 @@ font-family: "Season Sans", sans-serif;
 
   white-space: nowrap;
 
-  color: #000000;
+  color: #ffffff;
 }
 
 .ft-home-about__right-heading strong {
@@ -266,7 +266,7 @@ font-family: "Season Sans", sans-serif;
   width: 1.65vw;
   height: 1.65vw;
 
-  color: #000000;
+  color: #ffffff;
 }
 
 .ft-home-about__mark img {
@@ -301,7 +301,7 @@ font-family: "Season Sans", sans-serif;
  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.025em;
-  color: #000000;
+  color: #A8B3C7;
 }
 
 
@@ -330,13 +330,10 @@ font-family: "Season Sans", sans-serif;
 
   border-radius: 999vw;
 
-  background: #000000;
+  background: #306CE7;
   color: #ffffff;
 
-  font-family:
-    Georgia,
-    'Times New Roman',
-    serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.875rem;
   font-weight: 400;
@@ -347,8 +344,15 @@ font-family: "Season Sans", sans-serif;
   text-decoration: none;
 
   transition:
+    background-color 0.3s ease,
     opacity 0.3s ease,
     transform 0.3s ease;
+}
+
+.ft-home-about__cta:hover,
+.ft-home-about__cta:focus-visible {
+  background: #3B82F6;
+  color: #ffffff;
 }
 
 .ft-home-about__cta-arrow {

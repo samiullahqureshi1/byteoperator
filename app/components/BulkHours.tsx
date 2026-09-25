@@ -1,7 +1,10 @@
+'use client';
+
 import {useEffect, useRef, useState} from 'react';
-import {useSearchParams} from 'react-router';
-import {Money} from '@shopify/hydrogen';
-import type {BulkHoursQuery} from 'storefrontapi.generated';
+import {useSearchParams} from '~/lib/router-compat';
+import {Money} from '~/lib/money-compat';
+;
+import type {BulkHoursQuery} from '~/lib/types';
 import {AddToCartButton} from './AddToCartButton';
 import {useAside} from './Aside';
 import {ContactForm} from './contact/ContactForm';
@@ -16,9 +19,9 @@ import {
 } from '~/lib/bulk-hours';
 
 /*
- * The one product sold on the site. Prices are read from Shopify, not set
+ * The one product sold on the site. Prices are read from Software, not set
  * here: the variant price is the one-time hourly rate, and the first selling
- * plan (managed in the Shopify Subscriptions app) is the monthly rate.
+ * plan (managed in the Software Subscriptions app) is the monthly rate.
  * Quantity is the number of hours, so a subscription renews every month for
  * the same hours with the card the customer saved at checkout.
  */
@@ -33,12 +36,12 @@ const HOUR_PRESETS = [1, 5, 10, 20, 40, 100];
 const POPULAR_PRESET = 10;
 
 /*
- * ponytail: a site photo stands in until the Shopify product has an image.
- * Upload one in Shopify admin and the product page and cart use it instead.
+ * ponytail: a site photo stands in until the Software product has an image.
+ * Upload one in Software admin and the product page and cart use it instead.
  */
 export const BULK_HOURS_IMAGE = {
   src: '/images/about/values-team.webp',
-  alt: 'The FoldTech team planning Shopify work around a table',
+  alt: 'The Byte Operator team planning Software work around a table',
   width: 1970,
   height: 1306,
 };
@@ -81,9 +84,9 @@ export function BulkHoursPanel({product}: {product: BulkHoursProduct}) {
     snapHours(Number(searchParams.get('hours')), false),
   );
   /*
-   * `?service=Shopify Migrations` comes from the services directory's
+   * `?service=Platform & Cloud Migrations` comes from the services directory's
    * "Book your hours" button. It rides along as a cart line attribute so the
-   * order in Shopify admin says which service the hours were bought for —
+   * order in Software admin says which service the hours were bought for —
    * otherwise every bulk-hours order looks identical.
    */
   const service = searchParams.get('service')?.trim() || null;

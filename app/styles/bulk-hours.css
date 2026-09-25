@@ -1,5 +1,5 @@
 /* =========================================================
-   FOLDTECH - BULK HOURS PURCHASE PANEL
+   BYTE OPERATOR - BULK HOURS PURCHASE PANEL
    components/BulkHours.tsx, loaded by routes/products.$handle.tsx
 ========================================================= */
 
@@ -18,9 +18,9 @@
   padding: clamp(1.25rem, 3vw, 2.25rem);
   font-family: 'Season Sans', Arial, Helvetica, sans-serif;
 
-  color: var(--ft-white, #ffffff);
-  background: var(--ft-dark, #041f27);
-  border: 0.0625rem solid rgba(175, 221, 220, 0.14);
+  color: var(--ft-text, #ffffff);
+  background: var(--ft-dark, #10192F);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 1.875rem;
 }
 
@@ -33,14 +33,13 @@
 
 .ft-bulk-hours__head-title {
   margin: 0;
-  color: var(--ft-white, #ffffff);
+  color: var(--ft-text, #ffffff);
   font-size: 1.0625rem;
   font-weight: 400;
   line-height: 1.3;
 }
 
-/* Plan cards: two comparable choices side by side, each stating its rate,
-   what it is for and its one commitment. */
+/* Plan cards */
 
 .ft-bulk-hours__plans {
   display: grid;
@@ -59,11 +58,11 @@
   gap: 0.5rem;
   padding: 1.125rem 1.25rem 1.25rem;
 
-  border: 0.0625rem solid rgba(255, 255, 255, 0.14);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.03);
 
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--ft-text-secondary, #A8B3C7);
   cursor: pointer;
   transition:
     border-color 0.25s ease,
@@ -80,15 +79,13 @@
   cursor: pointer;
 }
 
-/* Teal marks the active choice, the way the slider and links do. Red on
-   this page means a discount, never a selection. */
 .ft-bulk-hours__plan:has(input:checked) {
-  border-color: var(--ft-teal, #40adaa);
-  background: rgba(64, 173, 170, 0.08);
+  border-color: var(--ft-primary-blue, #306CE7);
+  background: rgba(48, 108, 231, 0.12);
 }
 
 .ft-bulk-hours__plan:has(input:focus-visible) {
-  outline: 0.125rem solid var(--ft-teal, #40adaa);
+  outline: 0.125rem solid var(--ft-primary-blue, #306CE7);
   outline-offset: 0.125rem;
 }
 
@@ -99,13 +96,12 @@
   gap: 0.5rem;
 }
 
-/* The radio itself is hidden for hit area, so the dot is drawn here. */
 .ft-bulk-hours__plan-mark {
   flex: 0 0 auto;
   display: inline-block;
   width: 1.125rem;
   height: 1.125rem;
-  border: 0.0625rem solid rgba(255, 255, 255, 0.35);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 50%;
   transition:
     border-color 0.25s ease,
@@ -113,12 +109,12 @@
 }
 
 .ft-bulk-hours__plan:has(input:checked) .ft-bulk-hours__plan-mark {
-  border-color: var(--ft-teal, #40adaa);
-  box-shadow: inset 0 0 0 0.25rem var(--ft-teal, #40adaa);
+  border-color: var(--ft-primary-blue, #306CE7);
+  box-shadow: inset 0 0 0 0.25rem var(--ft-primary-blue, #306CE7);
 }
 
 .ft-bulk-hours__plan-name {
-  color: var(--ft-white, #ffffff);
+  color: var(--ft-text, #ffffff);
   font-family: 'Season Sans', Arial, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.2;
@@ -126,9 +122,9 @@
 
 .ft-bulk-hours__plan-flag {
   padding: 0.125rem 0.4375rem;
-  border: 0.0625rem solid rgba(64, 173, 170, 0.45);
+  border: 0.0625rem solid rgba(48, 108, 231, 0.45);
   border-radius: 999rem;
-  color: var(--ft-teal-light, #afdddc);
+  color: var(--ft-accent-blue, #3B82F6);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -137,39 +133,35 @@
 }
 
 .ft-bulk-hours__plan-text {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-size: 0.875rem;
   line-height: 1.45;
 }
 
-/* Pinned to the bottom so both cards' rules sit on one line however long
-   their descriptions run. */
 .ft-bulk-hours__plan-foot {
   width: 100%;
   margin-top: auto;
   padding-top: 0.875rem;
-  border-top: 0.0625rem solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.45);
+  border-top: 0.0625rem solid var(--ft-border, #1F2A44);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-family: 'Season Sans', Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
   line-height: 1.35;
 }
 
 .ft-bulk-hours__plan-unit {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-family: 'Season Sans', Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0;
 }
 
-/* Solid red so it carries on the dark panel and on the white card the
-   plan turns when it is selected. */
 .ft-bulk-hours__saving {
   padding: 0.1875rem 0.5rem;
   border-radius: 999rem;
-  color: var(--ft-white, #ffffff);
-  background: #e03e3e;
+  color: #ffffff;
+  background: var(--ft-primary-blue, #306CE7);
   font-family: 'Season Sans', Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
@@ -182,7 +174,7 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.375rem 0.5rem;
-  color: var(--ft-white, #ffffff);
+  color: var(--ft-text, #ffffff);
   font-size: 1.75rem;
   font-weight: 300;
   line-height: 1;
@@ -190,10 +182,8 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Price: the focal point of the panel and of the page */
+/* Price */
 
-/* The running total for the current selection, with the saving alongside
-   it: one box that answers "what am I paying, and against what?" */
 .ft-bulk-hours__price {
   display: flex;
   flex-wrap: wrap;
@@ -202,7 +192,8 @@
   gap: 1rem 1.5rem;
   padding: 1.25rem;
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--ft-border, #1F2A44);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .ft-bulk-hours__figures {
@@ -214,7 +205,7 @@
 
 .ft-bulk-hours__summary-label {
   margin: 0;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-family: 'Season Sans', Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   line-height: 1.2;
@@ -229,15 +220,13 @@
   white-space: nowrap;
 }
 
-/* The hourly rate qualifies the total, so it sits under it at
-   supporting size. */
 .ft-bulk-hours__rate {
   display: inline-flex;
   align-items: baseline;
   gap: 0.25rem;
   margin: 0;
 
-  color: var(--ft-teal-light, #afdddc);
+  color: var(--ft-accent-blue, #3B82F6);
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.2;
@@ -247,15 +236,13 @@
 }
 
 .ft-bulk-hours__rate-unit {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-family: 'Season Sans', Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0;
 }
 
-/* The amount you actually pay leads. It and its cadence are one
-   statement, so they hold a line together rather than breaking. */
 .ft-bulk-hours__now-total {
   display: inline-flex;
   flex-wrap: nowrap;
@@ -263,7 +250,7 @@
   gap: 0.5rem;
   margin: 0;
 
-  color: var(--ft-white, #ffffff);
+  color: var(--ft-text, #ffffff);
   font-size: clamp(2.5rem, 4.6vw, 3.5rem);
   font-weight: 400;
   line-height: 1;
@@ -273,24 +260,22 @@
 }
 
 .ft-bulk-hours__cadence {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-family: 'Season Sans', Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   font-weight: 400;
   letter-spacing: 0;
 }
 
-/* The saving, stated rather than left to be worked out. Tinted towards
-   the struck figures so the block reads as one discount story. */
 .ft-bulk-hours__save {
   display: grid;
   gap: 0.25rem;
   margin: 0;
   padding: 0.6875rem 0.9375rem;
 
-  border: 0.0625rem solid rgba(255, 157, 148, 0.28);
+  border: 0.0625rem solid rgba(48, 108, 231, 0.4);
   border-radius: 0.625rem;
-  background: rgba(255, 157, 148, 0.1);
+  background: rgba(48, 108, 231, 0.1);
 
   color: #ffffff;
   font-size: 0.875rem;
@@ -303,11 +288,11 @@
 }
 
 .ft-bulk-hours__save strong {
-  color: #ff9d94;
+  color: var(--ft-accent-blue, #3B82F6);
   font-weight: 700;
 }
 
-/* Hours: a control, sized like one */
+/* Hours */
 
 .ft-bulk-hours__hours {
   --thumb: 1.5rem;
@@ -317,8 +302,6 @@
   gap: 0.875rem;
 }
 
-/* The counter spans the row, with the slider beneath it: two ways to set
-   the same number, each given the full width. */
 .ft-bulk-hours__track {
   min-width: 0;
   display: grid;
@@ -335,10 +318,10 @@
   appearance: none;
   cursor: grab;
   background:
-    linear-gradient(var(--ft-teal, #40adaa), var(--ft-teal, #40adaa)) 0 50% /
+    linear-gradient(var(--ft-primary-blue, #306CE7), var(--ft-primary-blue, #306CE7)) 0 50% /
       calc(var(--thumb) / 2 + var(--progress) * (100% - var(--thumb)))
       var(--track) no-repeat,
-    linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)) 0 50% /
+    linear-gradient(var(--ft-border, #1F2A44), var(--ft-border, #1F2A44)) 0 50% /
       100% var(--track) no-repeat;
 }
 
@@ -361,8 +344,8 @@
   height: var(--thumb);
   border: 0;
   border-radius: 50%;
-  background: var(--ft-white, #ffffff);
-  box-shadow: 0 0 0 0.375rem rgba(64, 173, 170, 0.28);
+  background: var(--ft-accent-blue, #3B82F6);
+  box-shadow: 0 0 0 0.375rem rgba(48, 108, 231, 0.28);
   appearance: none;
 }
 
@@ -371,12 +354,12 @@
   height: var(--thumb);
   border: 0;
   border-radius: 50%;
-  background: var(--ft-white, #ffffff);
-  box-shadow: 0 0 0 0.375rem rgba(64, 173, 170, 0.28);
+  background: var(--ft-accent-blue, #3B82F6);
+  box-shadow: 0 0 0 0.375rem rgba(48, 108, 231, 0.28);
 }
 
 .ft-bulk-hours__range:focus-visible {
-  outline: 0.125rem solid var(--ft-teal, #40adaa);
+  outline: 0.125rem solid var(--ft-primary-blue, #306CE7);
   outline-offset: 0.5rem;
   border-radius: 999rem;
 }
@@ -384,14 +367,12 @@
 .ft-bulk-hours__scale {
   display: flex;
   justify-content: space-between;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-size: 0.875rem;
 }
 
 /* Stepper */
 
-/* Three boxes rather than one pill: the two controls read as buttons and
-   the value gets room to name its own unit. */
 .ft-bulk-hours__stepper {
   display: flex;
   align-items: stretch;
@@ -406,9 +387,9 @@
   width: 3.25rem;
   height: 3.25rem;
   padding: 0;
-  color: inherit;
+  color: var(--ft-text, #ffffff);
   background: rgba(255, 255, 255, 0.04);
-  border: 0.0625rem solid rgba(255, 255, 255, 0.18);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 0.75rem;
   font-size: 1.25rem;
   line-height: 1;
@@ -420,12 +401,11 @@
 
 @media (hover: hover) {
   .ft-bulk-hours__stepper button:hover:not(:disabled) {
-    border-color: var(--ft-teal, #40adaa);
-    background: rgba(64, 173, 170, 0.12);
+    border-color: var(--ft-primary-blue, #306CE7);
+    background: rgba(48, 108, 231, 0.12);
   }
 }
 
-/* Takes the space between the two buttons, with the value centred in it. */
 .ft-bulk-hours__stepper-field {
   flex: 1 1 auto;
   display: inline-flex;
@@ -435,13 +415,13 @@
   min-width: 0;
   padding: 0 0.875rem;
 
-  border: 0.0625rem solid rgba(255, 255, 255, 0.18);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.04);
 }
 
 .ft-bulk-hours__stepper-unit {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-family: 'Season Sans', Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
   white-space: nowrap;
@@ -457,7 +437,7 @@
   height: 3.25rem;
   margin: 0;
   padding: 0;
-  color: var(--ft-white, #ffffff);
+  color: var(--ft-text, #ffffff);
   background: none;
   border: 0;
   border-radius: 0;
@@ -475,11 +455,11 @@
 
 .ft-bulk-hours__stepper button:focus-visible,
 .ft-bulk-hours__stepper input:focus-visible {
-  outline: 0.125rem solid var(--ft-teal, #40adaa);
+  outline: 0.125rem solid var(--ft-primary-blue, #306CE7);
   outline-offset: -0.125rem;
 }
 
-/* Chosen service, carried in from the services directory */
+/* Service banner */
 
 .ft-bulk-hours__service {
   display: flex;
@@ -490,26 +470,26 @@
   margin: 0 0 0.875rem;
   padding: 0.75rem 1rem;
 
-  border: 0.0625rem solid rgba(64, 173, 170, 0.35);
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 0.625rem;
 
-  background: rgba(64, 173, 170, 0.08);
+  background: rgba(48, 108, 231, 0.08);
 }
 
 .ft-bulk-hours__service-label {
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8125rem;
   font-weight: 300;
 
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-bulk-hours__service-name {
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   font-weight: 400;
 
-  color: #ffffff;
+  color: var(--ft-text, #ffffff);
 }
 
 /* Buy */
@@ -527,8 +507,8 @@
   min-height: 4rem;
   padding: 0 2rem;
 
-  color: var(--ft-dark-deep, #01151b);
-  background: var(--ft-white, #ffffff);
+  color: #ffffff;
+  background: var(--ft-primary-blue, #306CE7);
   border: 0;
   border-radius: 999rem;
 
@@ -547,7 +527,7 @@
 
 @media (hover: hover) {
   .ft-bulk-hours__buy button:hover:not(:disabled) {
-    background: var(--ft-teal-light, #afdddc);
+    background: var(--ft-accent-blue, #3B82F6);
   }
 
   .ft-bulk-hours__buy button:hover:not(:disabled) .ft-bulk-hours__buy-arrow {
@@ -556,7 +536,7 @@
 }
 
 .ft-bulk-hours__buy button:focus-visible {
-  outline: 0.125rem solid var(--ft-teal, #40adaa);
+  outline: 0.125rem solid var(--ft-primary-blue, #306CE7);
   outline-offset: 0.25rem;
 }
 
@@ -567,7 +547,7 @@
 
 .ft-bulk-hours__quote {
   margin: -0.5rem 0 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-size: 0.9375rem;
   text-align: center;
 }
@@ -578,17 +558,10 @@
   background: none;
   font: inherit;
   cursor: pointer;
-  color: var(--ft-white, #ffffff);
+  color: var(--ft-accent-blue, #3B82F6);
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
-
-/* =========================================================
-   PHONES — the plan cards become rows
-   Stacked full-height cards pushed the hours control and the
-   button off screen, so each plan collapses to name + rate on
-   one line and drops its description.
-========================================================= */
 
 @media (max-width: 47.9375rem) {
   .ft-bulk-hours {
@@ -597,8 +570,6 @@
     border-radius: 1.25rem;
   }
 
-  /* The two plans stay side by side so they can be compared at a glance
-     rather than scrolled between. */
   .ft-bulk-hours__plans {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.5rem;
@@ -633,8 +604,6 @@
     font-size: 0.75rem;
   }
 
-  /* At half the width there is no room for the prose or a second copy of
-     the discount the rate already shows. */
   .ft-bulk-hours__plan-text,
   .ft-bulk-hours__plan-price .ft-bulk-hours__saving {
     display: none;
@@ -663,24 +632,22 @@
   }
 }
 
-/* Saving note: one plain sentence. Red here read as an error rather than
-   an offer, so the accent is the brand teal. */
 .ft-bulk-hours__note {
   margin: -0.75rem 0 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-size: 0.9375rem;
   line-height: 1.5;
 }
 
 .ft-bulk-hours__note strong {
-  color: #ff9d94;
+  color: var(--ft-accent-blue, #3B82F6);
   font-weight: 700;
 }
 
 .ft-bulk-hours__note button {
   padding: 0;
   border: 0;
-  color: #ff9d94;
+  color: var(--ft-accent-blue, #3B82F6);
   background: none;
   font-weight: 700;
   text-decoration: underline;
@@ -689,12 +656,9 @@
 }
 
 .ft-bulk-hours__note button:focus-visible {
-  outline: 0.125rem solid var(--ft-teal, #40adaa);
+  outline: 0.125rem solid var(--ft-primary-blue, #306CE7);
   outline-offset: 0.25rem;
 }
-
-/* Hours heading: names the control and states the rule it follows, so the
-   stepper's disabled states are read as intent rather than a fault. */
 
 .ft-bulk-hours__hours-head {
   display: flex;
@@ -706,25 +670,21 @@
 
 .ft-bulk-hours__hours-title {
   margin: 0;
-  color: var(--ft-white, #ffffff);
+  color: var(--ft-text, #ffffff);
   font-family: 'Season Sans', Arial, Helvetica, sans-serif;
   font-size: 1.0625rem;
   line-height: 1.2;
 }
 
-/* Set as a constraint label rather than prose: it states the rule the
-   control enforces, so it reads as part of the control. */
 .ft-bulk-hours__hours-step {
   margin: 0;
-  color: var(--ft-teal-light, #afdddc);
+  color: var(--ft-accent-blue, #3B82F6);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   line-height: 1.2;
   text-transform: uppercase;
 }
-
-/* Quick picks: the amounts people ask for most, one tap away. */
 
 .ft-bulk-hours__presets {
   display: flex;
@@ -736,9 +696,9 @@
 .ft-bulk-hours__preset {
   position: relative;
   padding: 0.5rem 0.9375rem;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--ft-text-secondary, #A8B3C7);
   background: rgba(255, 255, 255, 0.06);
-  border: 0.0625rem solid transparent;
+  border: 0.0625rem solid var(--ft-border, #1F2A44);
   border-radius: 999rem;
   font-size: 0.875rem;
   line-height: 1.2;
@@ -750,12 +710,11 @@
 }
 
 .ft-bulk-hours__preset[aria-pressed='true'] {
-  color: var(--ft-dark-deep, #01151b);
-  background: var(--ft-teal-light, #afdddc);
-  border-color: var(--ft-teal-light, #afdddc);
+  color: #ffffff;
+  background: var(--ft-primary-blue, #306CE7);
+  border-color: var(--ft-primary-blue, #306CE7);
 }
 
-/* Reads on the dark panel and on the light chip once it is chosen. */
 .ft-bulk-hours__preset[data-popular]::after {
   content: 'Popular';
   position: absolute;
@@ -764,8 +723,8 @@
   transform: translateX(-50%);
   padding: 0.125rem 0.4375rem;
   border-radius: 999rem;
-  color: var(--ft-dark-deep, #01151b);
-  background: var(--ft-teal, #40adaa);
+  color: #ffffff;
+  background: var(--ft-primary-blue, #306CE7);
   font-family: 'Season Sans', Arial, Helvetica, sans-serif;
   font-size: 0.5625rem;
   font-weight: 600;
@@ -775,25 +734,24 @@
   pointer-events: none;
 }
 
-/* Clears the badge that overhangs the row. */
 .ft-bulk-hours__presets:has([data-popular]) {
   margin-top: 0.75rem;
 }
 
 .ft-bulk-hours__preset:focus-visible {
-  outline: 0.125rem solid var(--ft-teal, #40adaa);
+  outline: 0.125rem solid var(--ft-primary-blue, #306CE7);
   outline-offset: 0.125rem;
 }
 
 @media (hover: hover) {
   .ft-bulk-hours__preset:hover {
-    color: var(--ft-white, #ffffff);
+    color: var(--ft-text, #ffffff);
     background: rgba(255, 255, 255, 0.12);
   }
 
   .ft-bulk-hours__preset[aria-pressed='true']:hover {
-    color: var(--ft-dark-deep, #01151b);
-    background: var(--ft-teal-light, #afdddc);
+    color: #ffffff;
+    background: var(--ft-accent-blue, #3B82F6);
   }
 }
 
@@ -803,25 +761,15 @@
   }
 }
 
-/* Checkout reassurance, directly under the button it qualifies. */
-
 .ft-bulk-hours__terms {
   display: grid;
   gap: 0.25rem;
   margin: -1rem 0 0;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-size: 0.8125rem;
   line-height: 1.4;
   text-align: center;
 }
-
-/* =========================================================
-   FLUID VERTICAL SCALE — desktop
-   Spacing and type track viewport height so the panel shrinks
-   continuously as the screen gets shorter, instead of holding
-   one size then jumping at a breakpoint. Every clamp tops out
-   at the full-height value, so tall screens are unchanged.
-========================================================= */
 
 @media (min-width: 64rem) {
   .ft-bulk-hours {
@@ -879,17 +827,12 @@
   }
 }
 
-/* Structural cuts, and only once height is genuinely scarce: prose and a
-   duplicate control cost more than they give when the button is at risk
-   of falling below the fold. */
 @media (min-width: 64rem) and (max-height: 46rem) {
   .ft-bulk-hours__plan-text,
   .ft-bulk-hours__presets {
     display: none;
   }
 
-  /* The summary folds onto one line — label and amount side by side,
-     rate beneath — rather than stacking three rows. */
   .ft-bulk-hours__figures {
     grid-template-columns: auto auto;
     align-items: baseline;
@@ -917,13 +860,7 @@
   }
 }
 
-
-/* =========================================================
-   QUOTE MODAL
-   A native <dialog>: the top layer and the scrim come from the
-   browser. The form inside is styled by contact-hero.css,
-   which the product route loads.
-========================================================= */
+/* Quote modal */
 
 .ft-quote-modal {
   width: min(40rem, calc(100vw - 2rem));
@@ -931,26 +868,24 @@
 
   padding: 2rem;
 
-  border: 0;
+  border: 1px solid var(--ft-border, #1F2A44);
   border-radius: 1.25rem;
 
-  background: #ffffff;
-  color: #000000;
+  background: var(--ft-dark, #10192F);
+  color: var(--ft-text, #ffffff);
 
-  box-shadow: 0 2vh 6vh rgba(0, 0, 0, 0.45);
+  box-shadow: 0 2vh 6vh rgba(0, 0, 0, 0.75);
 
   overflow-y: auto;
   overscroll-behavior: contain;
 }
 
 .ft-quote-modal::backdrop {
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(6, 15, 36, 0.85);
   backdrop-filter: blur(1.25rem);
   -webkit-backdrop-filter: blur(1.25rem);
 }
 
-/* showModal() blocks interaction but not wheel scrolling behind the
-   dialog, so the page is held still while it is open. */
 body:has(.ft-quote-modal[open]) {
   overflow: hidden;
 }
@@ -970,8 +905,8 @@ body:has(.ft-quote-modal[open]) {
   border: 0;
   border-radius: 50%;
 
-  background: rgba(0, 0, 0, 0.06);
-  color: #000000;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ft-text, #ffffff);
 
   cursor: pointer;
 }
@@ -989,13 +924,14 @@ body:has(.ft-quote-modal[open]) {
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;
+  color: var(--ft-text, #ffffff);
 }
 
 .ft-quote-modal__text {
   margin: 0 0 1.5rem;
 
   font-size: 0.9375rem;
-  color: rgba(0, 0, 0, 0.64);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 @media (max-width: 47.9375rem) {

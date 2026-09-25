@@ -1,25 +1,25 @@
 .ft-services-people > section {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 .ft-services-features .ft-home-feature--dark {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 .ft-services-partners > section {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 .ft-services-case-study {
   width: 100%;
   overflow: hidden;
-  background: var(--ft-off-white, #fbfcfc);
+  background: var(--ft-dark-deep, #060F24);
 }
 .ft-services-experts > section {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 .ft-service-detail-experts,
 .ft-service-detail-experts .ft-home-experts {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 @media (min-width: 64rem) {
   .ft-services-case-study .ft-work-testimonial {
@@ -29,36 +29,36 @@
 }
 .ft-service-detail--ecommerce-seo-migrations
 .ft-home-feature--dark {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 .ft-service-detail--ecommerce-seo-migrations .ft-home-partners {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 .ft-service-detail--seo-agency .ft-home-feature--dark,
 .ft-service-detail--seo-agency .ft-home-partners {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 .ft-service-detail--shopify-migrations .ft-home-feature--dark,
 .ft-service-detail--shopify-migrations .ft-home-partners {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 /* Shopify app development uses the shared feature and partner components with
-   the FoldTech dark palette, without affecting their use on other pages. */
+   the Byte Operator dark palette, without affecting their use on other pages. */
 .ft-service-detail--shopify-app-development .ft-home-feature,
 .ft-service-detail--shopify-app-development .ft-home-feature--dark,
 .ft-service-detail--shopify-app-development .ft-home-partners {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 .ft-service-detail--shopify-integrations .ft-home-feature,
 .ft-service-detail--shopify-integrations .ft-home-feature--dark {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 .ft-service-detail--agentic-commerce .ft-home-feature,
 .ft-service-detail--agentic-commerce .ft-home-feature--dark {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 /* Shopify Integrations uses the established service layout with a slightly
@@ -134,11 +134,11 @@
   margin-block: 2.5rem;
 }
 
-/* Dark sections use the FoldTech dark palette instead of black. */
+/* Dark sections use the Byte Operator dark palette instead of black. */
 .ft-service-detail--woocommerce-shopify-migrations .ft-home-feature,
 .ft-service-detail--woocommerce-shopify-migrations .ft-home-feature--dark,
 .ft-service-detail--woocommerce-shopify-migrations .ft-home-partners {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 .ft-service-detail--woocommerce-shopify-migrations
 .ft-service-about__content--intro
@@ -171,14 +171,14 @@
   margin-block: 2.5rem;
 }
 
-/* Dark sections use the FoldTech dark palette instead of black. */
+/* Dark sections use the Byte Operator dark palette instead of black. */
 .ft-service-detail--bigcommerce-shopify-migrations .ft-home-feature,
 .ft-service-detail--bigcommerce-shopify-migrations .ft-home-feature--dark,
 .ft-service-detail--bigcommerce-shopify-migrations .ft-home-partners,
 .ft-service-detail--headless-commerce .ft-home-feature,
 .ft-service-detail--headless-commerce .ft-home-feature--dark,
 .ft-service-detail--headless-commerce .ft-home-partners {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 .ft-service-detail--bigcommerce-shopify-migrations
 .ft-service-about__content--intro
@@ -214,11 +214,11 @@
   margin-block: 2.5rem;
 }
 
-/* Dark sections use the FoldTech dark palette instead of black. */
+/* Dark sections use the Byte Operator dark palette instead of black. */
 .ft-service-detail--salesforce-shopify-migrations .ft-home-feature,
 .ft-service-detail--salesforce-shopify-migrations .ft-home-feature--dark,
 .ft-service-detail--salesforce-shopify-migrations .ft-home-partners {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 /* The intro heading aligns to the top of the row so any spare space from a
    shorter heading falls below it instead of above it. */
@@ -244,25 +244,25 @@
   padding-top: 0;
 }
 
-/* Shopify Audits — FoldTech dark section color */
+/* Shopify Audits — Byte Operator dark section color */
 .ft-service-detail--shopify-audits
 .ft-home-feature--dark {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 .ft-service-detail--shopify-internationalisation
 .ft-home-feature,
 .ft-service-detail--shopify-internationalisation
 .ft-home-feature--dark {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 /* =========================================================
    SHOPIFY EMAIL MARKETING AGENCY (page scoped)
 ========================================================= */
 
-/* Dark sections use the FoldTech dark palette instead of black. */
+/* Dark sections use the Byte Operator dark palette instead of black. */
 .ft-service-detail--email-marketing-agency .ft-home-feature,
 .ft-service-detail--email-marketing-agency .ft-home-feature--dark {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 /* Keep the hero eyebrow close to the heading instead of leaving the oversized
@@ -281,10 +281,10 @@
    SHOPIFY B2B & WHOLESALE (page scoped)
 ========================================================= */
 
-/* Dark sections use the FoldTech dark palette instead of black. */
+/* Dark sections use the Byte Operator dark palette instead of black. */
 .ft-service-detail--shopify-b2b-wholesale .ft-home-feature,
 .ft-service-detail--shopify-b2b-wholesale .ft-home-feature--dark {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 /* Keep the hero eyebrow close to the heading instead of leaving the oversized
@@ -303,10 +303,10 @@
    SHOPIFY SUBSCRIPTIONS (page scoped)
 ========================================================= */
 
-/* Dark sections use the FoldTech dark palette instead of black. */
+/* Dark sections use the Byte Operator dark palette instead of black. */
 .ft-service-detail--subscriptions-on-shopify .ft-home-feature,
 .ft-service-detail--subscriptions-on-shopify .ft-home-feature--dark {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 /* Keep the hero eyebrow close to the heading instead of leaving the oversized
@@ -325,12 +325,12 @@
    SHOPIFY SUPPORT & MAINTENANCE (page scoped)
 ========================================================= */
 
-/* Dark sections use the FoldTech dark palette instead of black. The shared
+/* Dark sections use the Byte Operator dark palette instead of black. The shared
    HomePartners component is reused as-is and only re-coloured here. */
 .ft-service-detail--support-and-maintenance .ft-home-feature,
 .ft-service-detail--support-and-maintenance .ft-home-feature--dark,
 .ft-service-detail--support-and-maintenance .ft-home-partners {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 /* Keep the hero eyebrow close to the heading instead of leaving the oversized
@@ -355,10 +355,10 @@
    AI ECOMMERCE AGENCY (page scoped)
 ========================================================= */
 
-/* Dark sections use the FoldTech dark palette instead of black. */
+/* Dark sections use the Byte Operator dark palette instead of black. */
 .ft-service-detail--ai-ecommerce-agency .ft-home-feature,
 .ft-service-detail--ai-ecommerce-agency .ft-home-feature--dark {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 /* Keep the hero eyebrow close to the heading instead of leaving the oversized
@@ -377,10 +377,10 @@
    KLAVIYO AGENCY (page scoped)
 ========================================================= */
 
-/* Dark sections use the FoldTech dark palette instead of black. */
+/* Dark sections use the Byte Operator dark palette instead of black. */
 .ft-service-detail--klaviyo-agency .ft-home-feature,
 .ft-service-detail--klaviyo-agency .ft-home-feature--dark {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 /* The eyebrow on this page runs long enough to wrap, so it is kept tight to

@@ -1,3 +1,5 @@
+'use client';
+
 import {useRef} from 'react';
 
 const SPACE_IMAGE_SIZES =
@@ -8,7 +10,7 @@ const SPACE_IMAGES = [
     src: '/images/about/space-01-1400.webp',
     srcSet:
       '/images/about/space-01-700.webp 700w, /images/about/space-01-1400.webp 1400w',
-    alt: 'FoldTech team and workspace',
+    alt: 'Byte Operator team and workspace',
     width: 1400,
     height: 935,
   },
@@ -16,7 +18,7 @@ const SPACE_IMAGES = [
     src: '/images/about/space-02-1400.webp',
     srcSet:
       '/images/about/space-02-700.webp 700w, /images/about/space-02-1400.webp 1400w',
-    alt: 'FoldTech team collaborating',
+    alt: 'Byte Operator team collaborating',
     width: 1400,
     height: 788,
   },
@@ -24,7 +26,7 @@ const SPACE_IMAGES = [
     src: '/images/about/space-03-1400.webp',
     srcSet:
       '/images/about/space-03-700.webp 700w, /images/about/space-03-1400.webp 1400w',
-    alt: 'FoldTech workspace and culture',
+    alt: 'Byte Operator workspace and culture',
     width: 1400,
     height: 933,
   },
@@ -100,7 +102,7 @@ export function AboutSpace() {
             ref={scrollerRef}
             className="ft-about-space__scroller"
             role="group"
-            aria-label="FoldTech workspace gallery"
+            aria-label="Byte Operator workspace gallery"
             /*
              * The slides hold only images, so without this the carousel
              * scrolls by pointer alone - no keyboard, no agent. This is the

@@ -1,10 +1,12 @@
-import {useEffect,useRef, useState} from 'react';
-import {NavLink, useLocation} from 'react-router';
+'use client';
+
+import {useEffect, useRef, useState} from 'react';
+import {NavLink, useLocation} from '~/lib/router-compat';
 
 import type {
   CartApiQueryFragment,
   HeaderQuery,
-} from 'storefrontapi.generated';
+} from '~/lib/types';
 
 import {useAside} from '~/components/Aside';
 import {BULK_HOURS_IMAGE, BULK_HOURS_PATH} from '~/components/BulkHours';
@@ -55,21 +57,21 @@ export function Header({
 >
         <div className="charle-header__inner">
           <NavLink
-  className="charle-header__brand"
-  end
-  prefetch="intent"
-  to="/"
-  aria-label="FoldTech homepage"
->
-  <img
-    className="charle-header__logo"
-    src="/images/foldtech-logo.svg"
-    alt="FoldTech"
-    width="160"
-    height="48"
-    fetchPriority="high"
-  />
-</NavLink>
+            className="charle-header__brand"
+            end
+            prefetch="intent"
+            to="/"
+            aria-label="Byte Operator homepage"
+          >
+            <img
+              className="charle-header__logo"
+              src="https://cdn.shopify.com/s/files/1/0928/7421/1691/files/final.png?v=1790264655"
+              alt="Byte Operator"
+              width="240"
+              height="60"
+              fetchPriority="high"
+            />
+          </NavLink>
 
           <HeaderMenu
             menu={menu}
@@ -226,7 +228,7 @@ export function HeaderMenu({
         /*
          * Services and Resources have bespoke mega menus whose contents are
          * authored in this file. Every other item renders whatever children
-         * the Shopify menu supplies, so a submenu added in the admin appears
+         * the Software menu supplies, so a submenu added in the admin appears
          * without a code change.
          */
         const submenuItems =
@@ -308,7 +310,7 @@ export function HeaderMenu({
 
 /**
  * Dropdown for a top-level nav item whose children come straight from the
- * Shopify menu. It reuses the shared `.ft-mega-menu` element so it inherits
+ * Software menu. It reuses the shared `.ft-mega-menu` element so it inherits
  * the existing hover/focus reveal, pointer bridge and hidden-by-default
  * critical styles; only its internal layout is its own.
  */
@@ -491,7 +493,7 @@ function BulkHoursPromo({onNavigate}: {onNavigate?: () => void}) {
       <span className="ft-bulk-promo__content">
         <strong className="ft-bulk-promo__title">Buy bulk hours</strong>
         <span className="ft-bulk-promo__text">
-          Prepaid Shopify expert time for any service we offer. Hours never
+          Prepaid Software expert time for any service we offer. Hours never
           expire.
         </span>
         <span className="ft-mega-menu__cta ft-bulk-promo__cta">
@@ -540,7 +542,7 @@ function ResourcesMegaMenu() {
         <div className="ft-resources-mega__featured-image">
           <img
             src="/images/mega-menu-resources.webp"
-            alt="Shopify storefront design with annotated page sections"
+            alt="digital platformfront design with annotated page sections"
             aria-hidden="true"
             width="800"
             height="520"
@@ -555,7 +557,7 @@ function ResourcesMegaMenu() {
           </span>
 
           <strong>
-            Explore the latest Shopify insights
+            Explore the latest Software insights
           </strong>
 
           <span className="ft-resources-mega__read">
@@ -574,7 +576,7 @@ function ResourcesMegaMenu() {
  * SERVICES DATA
  *
  * IMPORTANT:
- * Change URLs below to your real Shopify page handles.
+ * Change URLs below to your real Software page handles.
  * ========================================================
  */
 
@@ -583,8 +585,8 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
     labels: ['Search'],
     items: [
       {
-        title: 'Shopify SEO',
-        description: 'SEO for Shopify stores',
+        title: 'Technical SEO & Search Architecture',
+        description: 'SEO for digital platforms & applications',
         url: '/pages/seo-agency',
       },
       {
@@ -615,23 +617,23 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
     items: [
       {
         title: 'Custom Store Project',
-        description: 'Design and launch a Shopify store',
-        url: '/pages/shopify-development',
+        description: 'Design and launch a digital platform',
+        url: '/pages/software-development',
       },
       {
-        title: 'Shopify Migrations',
-        description: 'Move or replatform to Shopify',
-        url: '/pages/shopify-migrations',
+        title: 'Platform & Cloud Migrations',
+        description: 'Move or replatform to Software',
+        url: '/pages/software-migrations',
       },
       {
-        title: 'Shopify App Development',
-        description: 'Build custom Shopify apps',
-        url: '/shopify-app-development/',
+        title: 'Custom Software & App Development',
+        description: 'Build custom custom applications',
+        url: '/software-app-development/',
       },
       {
         title: 'Integrations',
         description: 'Connect your store to other services',
-        url: '/shopify-integrations/',
+        url: '/software-integrations/',
       },
       {
         title: 'Headless Commerce',
@@ -651,17 +653,17 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       },
       {
         title: 'Support & Maintenance',
-        description: 'Ongoing Shopify technical support',
-        url: '/pages/shopify-maintenance',
+        description: 'Ongoing Software technical support',
+        url: '/pages/software-maintenance',
       },
       {
         title: 'Audits',
         description: 'Design, technical and SEO audits',
-        url: '/pages/shopify-audits',
+        url: '/pages/software-audits',
       },
       {
         title: 'Internationalisation',
-        description: 'Expand your Shopify store globally',
+        description: 'Expand your digital platform globally',
         url: '/pages/internationalisation',
       },
     ],
@@ -687,13 +689,13 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
     secondaryItems: [
       {
         title: 'B2B',
-        description: 'Sell B2B with Shopify',
-        url: '/pages/shopify-b2b',
+        description: 'Sell B2B with Software',
+        url: '/pages/software-b2b',
       },
       {
         title: 'Subscriptions',
         description: 'Grow recurring revenue',
-        url: '/pages/shopify-subscriptions',
+        url: '/pages/software-subscriptions',
       },
     ],
   },
@@ -779,7 +781,7 @@ type MenuChildItem = {
 };
 
 type MobileMenuItem = MenuChildItem & {
-  /** Children supplied by the Shopify menu, if any. */
+  /** Children supplied by the Software menu, if any. */
   items?: MenuChildItem[];
 };
 
@@ -831,7 +833,7 @@ function MobileHeaderMenu({
 
   return (
     <nav
-       id="foldtech-mobile-menu"
+       id="byte-operator-mobile-menu"
   className="charle-mobile-nav"
   aria-label="Mobile navigation"
     >
@@ -922,7 +924,7 @@ function MobileHeaderMenu({
                   }
 
                   /*
-                   * Children supplied by the Shopify menu render beneath
+                   * Children supplied by the Software menu render beneath
                    * their parent, so a submenu added in the admin shows up
                    * on mobile too.
                    */
@@ -1209,7 +1211,7 @@ function MobileHeaderMenu({
                 <div className="ft-mobile-resources__image">
                   <img
                     src="/images/mega-menu-resources.webp"
-                    alt="Shopify storefront design with annotated page sections"
+                    alt="digital platformfront design with annotated page sections"
                     aria-hidden="true"
                     width="720"
                     height="420"
@@ -1224,7 +1226,7 @@ function MobileHeaderMenu({
                   </span>
 
                   <strong>
-                    Explore the latest Shopify
+                    Explore the latest Software
                     insights
                   </strong>
 
@@ -1262,13 +1264,13 @@ function MobileMenuTopbar({
         to="/"
         prefetch="intent"
         onClick={onClose}
-        aria-label="FoldTech homepage"
+        aria-label="Byte Operator homepage"
       >
         <img
-          src="/images/foldtech-logo.svg"
-          alt="FoldTech"
-          width="160"
-          height="48"
+          src="https://cdn.shopify.com/s/files/1/0928/7421/1691/files/final.png?v=1790264655"
+          alt="Byte Operator"
+          width="200"
+          height="50"
         />
       </NavLink>
 
@@ -1295,9 +1297,9 @@ function MobileMenuFooter({
         </p>
 
         <p className="ft-mobile-menu__footer-text">
-          FoldTech designs, develops,
-          supports and grows Shopify and
-          Shopify Plus stores.
+          Byte Operator designs, develops,
+          supports and grows Software and
+          Enterprise Platform Solutions stores.
         </p>
 
         <NavLink
@@ -1315,7 +1317,7 @@ function MobileMenuFooter({
       <div className="ft-mobile-menu__footer-image">
         <img
           src="/images/mega-menu-team.webp"
-          alt="FoldTech team"
+          alt="Byte Operator team"
           width="720"
           height="400"
           loading="lazy"
@@ -1385,7 +1387,7 @@ function MobileMenuButton() {
           : 'Open navigation menu'
       }
       aria-expanded={isMobileMenuOpen}
-      aria-controls="foldtech-mobile-menu"
+      aria-controls="byte-operator-mobile-menu"
       onClick={handleClick}
     >
       <span aria-hidden="true" />

@@ -23,7 +23,7 @@
  *
  *   node scripts/check-schema.mjs                  # every URL in sitemap.xml
  *   node scripts/check-schema.mjs --sample         # one of each page type
- *   node scripts/check-schema.mjs --origin=https://thefoldtech.com
+ *   node scripts/check-schema.mjs --origin=https://byteoperator.com
  *   node scripts/check-schema.mjs --paths=/,/about,/contact
  */
 
@@ -374,7 +374,7 @@ function isExternalProfile(url) {
 
 async function fetchPage(path) {
   const response = await fetch(new URL(path, ORIGIN), {
-    headers: {'User-Agent': 'foldtech-check-schema'},
+    headers: {'User-Agent': 'byte operator-check-schema'},
     redirect: 'follow',
   });
   if (!response.ok) {
@@ -402,7 +402,7 @@ function discoverLinks(html, pattern, limit = 1) {
 /** `<loc>` values from a sitemap or sitemap index, as paths. */
 async function sitemapLocs(path) {
   const response = await fetch(new URL(path, ORIGIN), {
-    headers: {'User-Agent': 'foldtech-check-schema'},
+    headers: {'User-Agent': 'byte operator-check-schema'},
   });
   if (!response.ok) return [];
 

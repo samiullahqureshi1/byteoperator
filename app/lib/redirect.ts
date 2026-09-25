@@ -1,4 +1,4 @@
-import {redirect} from 'react-router';
+import {redirect} from '~/lib/router-compat';
 
 export function redirectIfHandleIsLocalized(
   request: Request,

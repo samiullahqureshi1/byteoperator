@@ -22,7 +22,7 @@ export function AboutJoin() {
             >
               Fancy joining the
               <br />
-              FoldTech Team?
+              Byte Operator Team?
             </h2>
           </div>
 
@@ -41,7 +41,7 @@ export function AboutJoin() {
               </h3>
 
               <a
-                href="https://www.linkedin.com/company/thefoldtech"
+                href="https://www.linkedin.com/company/byte-operator"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ft-about-join__all-jobs"
@@ -85,7 +85,7 @@ export function AboutJoin() {
 
             <div className="ft-about-join__footer">
               <a
-                href="https://www.linkedin.com/company/thefoldtech"
+                href="https://www.linkedin.com/company/byte-operator"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ft-about-join__footer-button"

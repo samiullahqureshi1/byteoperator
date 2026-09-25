@@ -7,8 +7,8 @@
   width: 100%;
   padding: 7rem 0 4rem;
   overflow: hidden;
-  background: var(--ft-white, #ffffff);
-  color: var(--ft-text, #0b252d);
+  background: var(--ft-dark-deep, #060F24);
+  color: var(--ft-text, #FFFFFF);
 }
 
 .ft-service-detail-faqs__container {
@@ -23,11 +23,11 @@
 
 .ft-service-detail-faqs__header p {
   margin: 0;
-  font-family: 'Season Serif', serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 2rem;
   font-weight: 400;
   line-height: 1;
-  color: var(--ft-text, #0b252d);
+  color: var(--ft-text, #FFFFFF);
 }
 
 .ft-service-detail-faqs__inner {
@@ -44,12 +44,12 @@
 
 .ft-service-detail-faqs__title {
   margin: 0;
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2rem, 8vw, 2.5rem);
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.04em;
-  color: var(--ft-text, #0b252d);
+  color: var(--ft-text, #FFFFFF);
   word-break: normal;
   overflow-wrap: normal;
 }
@@ -64,6 +64,8 @@
 .ft-service-detail-faqs__item {
   width: 100%;
   min-width: 0;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--ft-border, #1F2A44);
 }
 
 .ft-service-detail-faqs__trigger {
@@ -77,8 +79,8 @@
   gap: 1.5rem;
   border: 0;
   background: transparent;
-  color: var(--ft-text, #0b252d);
-  font-family: 'Season Sans', sans-serif;
+  color: var(--ft-text, #FFFFFF);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.1;
@@ -96,7 +98,7 @@
   flex: 0 0 1.5rem;
   width: 1.5rem;
   height: 1.5rem;
-  color: currentColor;
+  color: var(--ft-primary-blue, #306CE7);
   transition: transform 250ms ease;
 }
 
@@ -133,16 +135,16 @@
 .ft-service-detail-faqs__answer {
   max-width: 44rem;
   margin: 1.5rem 0 0.75rem;
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.0625rem;
   font-weight: 400;
   line-height: 1.65;
-  color: rgba(11, 37, 45, 0.78);
+  color: var(--ft-text-secondary, #A8B3C7);
   overflow-wrap: anywhere;
 }
 
 .ft-service-detail-faqs__trigger:focus-visible {
-  outline: 0.125rem solid var(--ft-text, #0b252d);
+  outline: 0.125rem solid var(--ft-primary-blue, #306CE7);
   outline-offset: 0.25rem;
 }
 
@@ -214,22 +216,6 @@
 
 /* =========================================================
    SCOPED: /shopify-internationalisation/
-
-   The shared FAQ grid gives the heading 1 of 4 tracks, which is
-   narrower than the single word "Internationalisation" at this
-   font size. Rather than shrink the type or force a mid-word
-   break, this page gets a genuine two-column split.
-
-   `minmax(min-content, …)` is the important part: the left track
-   can never be narrower than its longest word, so a
-   character-by-character break is impossible at any viewport
-   width, whatever the rendered font metrics turn out to be. The
-   `fr` above that lets the column take its share of the row so
-   the title settles on two natural lines — "Shopify" then
-   "Internationalisation" — broken at the space.
-
-   Scoped through the page-handle class that ServiceDetailPage
-   already puts on its root element, so no other page is touched.
 ========================================================= */
 
 @media (min-width: 64rem) {
@@ -246,7 +232,6 @@
     .ft-service-detail-faqs__left,
   .ft-service-detail--shopify-internationalisation
     .ft-service-detail-faqs__list {
-    /* Replaces the shared 1-of-4 / 3-of-4 spans. */
     grid-column: auto;
     min-width: 0;
   }
@@ -255,8 +240,6 @@
 @media (min-width: 80rem) {
   .ft-service-detail--shopify-internationalisation
     .ft-service-detail-faqs__inner {
-    /* Overrides the shared 12rem gap, which would squeeze the
-       heading column back below its natural width. */
     gap: 6rem;
   }
 }

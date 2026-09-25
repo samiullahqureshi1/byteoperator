@@ -1,5 +1,5 @@
 /* =========================================================
-   FOLDTECH — WORK PAGE TESTIMONIAL (static image card)
+   BYTE OPERATOR — WORK PAGE TESTIMONIAL (static image card)
 ========================================================= */
 
 .ft-work-testimonial,
@@ -11,9 +11,8 @@
   width: 100%;
   padding: 3.5rem 5.33vw 4rem;
   overflow: hidden;
-  background: var(--ft-off-white, #fbfcfc);
-  /* border-radius: 3rem 3rem 0 0; */
-  color: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
+  color: var(--ft-text, #ffffff);
 }
 
 .ft-work-testimonial__container {
@@ -34,7 +33,8 @@
   margin: 0;
   overflow: hidden;
   border-radius: 1.25rem;
-  background: var(--ft-dark-deep, #01151b);
+  border: 1px solid var(--ft-border, #1F2A44);
+  background: var(--ft-dark, #10192F);
   isolation: isolate;
 }
 
@@ -54,16 +54,16 @@
   inset: 0;
   background: linear-gradient(
       to top,
-      rgba(1, 21, 27, 0.82) 0%,
-      rgba(1, 21, 27, 0.55) 34%,
-      rgba(1, 21, 27, 0.12) 66%,
-      rgba(1, 21, 27, 0) 100%
+      rgba(6, 15, 36, 0.92) 0%,
+      rgba(6, 15, 36, 0.65) 34%,
+      rgba(6, 15, 36, 0.15) 66%,
+      rgba(6, 15, 36, 0) 100%
     ),
     linear-gradient(
       to right,
-      rgba(1, 21, 27, 0.55) 0%,
-      rgba(1, 21, 27, 0.18) 45%,
-      rgba(1, 21, 27, 0) 78%
+      rgba(6, 15, 36, 0.65) 0%,
+      rgba(6, 15, 36, 0.25) 45%,
+      rgba(6, 15, 36, 0) 78%
     );
   pointer-events: none;
 }
@@ -83,22 +83,22 @@
 
 .ft-work-testimonial__quote {
   margin: 0;
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.375rem, 5.4vw, 2rem);
   font-weight: 300;
   line-height: 1.18;
   letter-spacing: -0.03em;
-  color: var(--ft-white, #ffffff);
+  color: #ffffff;
   overflow-wrap: anywhere;
 }
 
 .ft-work-testimonial__author {
   margin: 1.125rem 0 0;
-  font-family: 'Season Serif', serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(0.9375rem, 3vw, 1.125rem);
   font-weight: 400;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--ft-text-secondary, #A8B3C7);
   overflow-wrap: anywhere;
 }
 
@@ -110,8 +110,8 @@
   gap: 0.5rem;
   border: 0;
   background: transparent;
-  color: var(--ft-white, #ffffff);
-  font-family: 'Season Serif', serif;
+  color: var(--ft-accent-blue, #3B82F6);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.2;
   cursor: pointer;
@@ -125,7 +125,7 @@
 }
 
 .ft-work-testimonial__action:focus-visible {
-  outline: 0.125rem solid var(--ft-teal-light, #afdddc);
+  outline: 0.125rem solid var(--ft-primary-blue, #306CE7);
   outline-offset: 0.25rem;
 }
 
@@ -139,10 +139,10 @@
   }
 
  .ft-work-testimonial__inner {
-  height: 58vh;
-  min-height: 22rem;
-  border-radius: 1.5rem;
-}
+    height: 58vh;
+    min-height: 22rem;
+    border-radius: 1.5rem;
+  }
 
   .ft-work-testimonial__content {
     right: auto;
@@ -168,15 +168,15 @@
 @media (min-width: 64rem) {
   .ft-work-testimonial {
     padding: 3rem 2vw 4rem;
-     border-radius: 3rem 3rem 0 0;
+    border-radius: 3rem 3rem 0 0;
   }
 
   .ft-work-testimonial__inner {
-  height: 70vh;
-  min-height: 30rem;
-  max-height: 44rem;
-  border-radius: 1.75rem;
-}
+    height: 70vh;
+    min-height: 30rem;
+    max-height: 44rem;
+    border-radius: 1.75rem;
+  }
 
   .ft-work-testimonial__content {
     bottom: 4.5vh;
@@ -201,7 +201,7 @@
 ========================================================= */
 
 @media (max-width: 47.99rem) {
-   .ft-work-testimonial__inner {
+  .ft-work-testimonial__inner {
     height: 62vh;
     min-height: 24rem;
   }

@@ -1,10 +1,10 @@
 /* =========================================================
-   FOLDTECH — ECOMMERCE SEO EDUCATION
+   BYTE OPERATOR — ECOMMERCE SEO EDUCATION
 ========================================================= */
 
 .ft-ecommerce-seo-education {
   padding: 5rem 0;
-  background: #ffffff;
+  background: var(--ft-dark-deep, #060F24);
 }
 
 .ft-ecommerce-seo-education__content {
@@ -14,8 +14,8 @@
 
 .ft-ecommerce-seo-education__content > p:first-child {
   margin: 0 0 1rem;
-  color: rgba(0, 0, 0, 0.35);
-  font-family: 'Season Serif', serif;
+  color: var(--ft-text-secondary, #A8B3C7);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.4;
@@ -23,8 +23,8 @@
 
 .ft-ecommerce-seo-education__content > h2 {
   margin: 0 0 1.5rem;
-  color: #000000;
-  font-family: 'Season Sans', sans-serif;
+  color: var(--ft-text, #ffffff);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2.125rem, 5vw, 3.75rem);
   font-weight: 400;
   line-height: 1.15;
@@ -32,10 +32,10 @@
 }
 
 .ft-ecommerce-seo-education__content :where(p, li) {
-  color: rgba(0, 0, 0, 0.55);
-  font-family: 'Season Sans', sans-serif;
+  color: var(--ft-text-secondary, #A8B3C7);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
 }
 
@@ -45,15 +45,15 @@
 
 .ft-ecommerce-seo-education__content h3 {
   margin: 2rem 0 0.5rem;
-  color: #000000;
-  font-family: 'Season Sans', sans-serif;
+  color: var(--ft-text, #ffffff);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.4;
 }
 
 .ft-ecommerce-seo-education__content a {
-  color: #000000;
+  color: var(--ft-accent-blue, #3B82F6);
   font: inherit;
   text-decoration: underline;
   text-underline-offset: 0.125rem;

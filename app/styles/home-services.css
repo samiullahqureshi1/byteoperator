@@ -1,5 +1,5 @@
 /* =========================================================
-   FOLDTECH — HOME SERVICES
+   BYTE OPERATOR — HOME SERVICES
 ========================================================= */
 
 /* =========================================================
@@ -28,15 +28,15 @@
   background:
     radial-gradient(
       ellipse 65vw 90vh at 25% 10%,
-      rgba(64, 173, 170, 0.16) 0%,
+      rgba(48, 108, 231, 0.16) 0%,
       transparent 70%
     ),
     radial-gradient(
       ellipse 58vw 82vh at 76% 86%,
-      rgba(175, 221, 220, 0.1) 0%,
+      rgba(59, 130, 246, 0.1) 0%,
       transparent 70%
     ),
-    var(--ft-dark-deep, #01151b);
+    var(--ft-dark-deep, #060F24);
 
   color: #ffffff;
 }
@@ -77,9 +77,7 @@
     0
     2.2vh;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.6875rem;
   font-weight: 400;
@@ -236,9 +234,7 @@
     0
     0.8vh;
 
-  font-family:
-    "Season Serif",
-    serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 1rem;
   font-weight: 400;
@@ -251,9 +247,7 @@
 .ft-home-services__mobile-heading-main {
   margin: 0;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 2.5rem;
   font-weight: 400;
@@ -407,9 +401,7 @@
 .ft-home-services__cell-number {
   margin-bottom: auto;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0;
 
@@ -469,9 +461,7 @@
     0
     0.8vh;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: clamp(
     1.3rem,
@@ -511,9 +501,7 @@
 
   margin: 0;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.8rem;
   font-weight: 400;
@@ -1320,12 +1308,10 @@
   border: 0;
   border-radius: 999rem;
 
-  background: #ffffff;
-  color: #000000;
+  background: #306CE7;
+  color: #ffffff;
 
-  font-family:
-    "Season Serif",
-    serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.9375rem;
   font-weight: 400;
@@ -1336,7 +1322,14 @@
   text-decoration: none;
 
   transition:
-    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.ft-home-services__link:hover,
+.ft-home-services__link:focus-visible {
+  background: #3B82F6;
+  color: #ffffff;
 }
 
 .ft-home-services__cta

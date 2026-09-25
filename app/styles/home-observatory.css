@@ -1,5 +1,5 @@
 /* =========================================================
-   FOLDTECH — HOME OBSERVATORY
+   BYTE OPERATOR — HOME OBSERVATORY
 ========================================================= */
 
 .ft-home-observatory {
@@ -9,7 +9,7 @@
 
   overflow: hidden;
 
-  background: #0d2c30;
+  background: var(--ft-dark-deep, #060F24);
   color: #ffffff;
 }
 
@@ -130,9 +130,7 @@
 
   margin-bottom: 2.5vh;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.625rem;
   font-weight: 400;
@@ -142,7 +140,7 @@
 
   text-transform: uppercase;
 
-  color: #40adaa;
+  color: #3B82F6;
 }
 
 .ft-home-observatory__eyebrow-icon {
@@ -165,9 +163,7 @@
     0
     2vh;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 2rem;
   font-weight: 300;
@@ -182,9 +178,7 @@
 }
 
 .ft-home-observatory__title em {
-  font-family:
-    "Season Serif",
-    serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-style: italic;
   font-weight: 400;
@@ -206,9 +200,7 @@
     0
     4vh;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.8125rem;
   font-weight: 400;
@@ -315,9 +307,7 @@
 
   margin-bottom: 0.4vh;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 1rem;
   font-weight: 300;
@@ -336,9 +326,7 @@
 ========================================================= */
 
 .ft-home-observatory__stat-label {
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.5625rem;
   font-weight: 400;
@@ -385,7 +373,8 @@
 
   border-radius: 5vw;
 
-  background: #16383b;
+  background: #10192F;
+  border: 1px solid #1F2A44;
 }
 
 
@@ -405,12 +394,7 @@
   background:
     linear-gradient(
       140deg,
-      rgba(
-        64,
-        173,
-        170,
-        0.14
-      ),
+      rgba(48, 108, 231, 0.25),
       transparent 55%
     );
 
@@ -433,9 +417,7 @@
 
   margin-bottom: 1.7vh;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.625rem;
   font-weight: 400;
@@ -503,9 +485,7 @@
       0.12
     );
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.875rem;
   font-weight: 400;
@@ -570,12 +550,10 @@
 
   border-radius: 2.7vw;
 
-  background: #ffffff;
-  color: #041f27;
+  background: #306CE7;
+  color: #ffffff;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.875rem;
   font-weight: 500;
@@ -584,8 +562,15 @@
   cursor: pointer;
 
   transition:
+    background-color 0.2s ease,
     opacity 0.2s ease,
     transform 0.15s ease;
+}
+
+.ft-home-observatory__button:hover,
+.ft-home-observatory__button:focus-visible {
+  background: #3B82F6;
+  color: #ffffff;
 }
 
 .ft-home-observatory__button-arrow {
@@ -610,33 +595,21 @@
   border:
     0.0625rem
     solid
-    rgba(
-      64,
-      173,
-      170,
-      0.3
-    );
+    #1F2A44;
 
   border-radius: 2.7vw;
 
   background:
-    rgba(
-      64,
-      173,
-      170,
-      0.1
-    );
+    #10192F;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.75rem;
   line-height: 1.4;
 
   text-align: center;
 
-  color: #afdddc;
+  color: #3B82F6;
 }
 
 
@@ -650,9 +623,7 @@
     0
     0;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.625rem;
   font-weight: 400;

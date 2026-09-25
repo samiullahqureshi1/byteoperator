@@ -1,5 +1,7 @@
+'use client';
+
 import {useEffect, useRef} from 'react';
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 import {
   CRO_CLEAN_PATH,
   resolveCanonicalPath,
@@ -10,7 +12,7 @@ import {
    TEMPORARY REFERENCE ASSETS
 
    These client/product logo assets are temporary while the
-   FoldTech versions are being prepared.
+   Byte Operator versions are being prepared.
 
    Replace the src values later without changing the layout.
 ========================================================= */
@@ -218,7 +220,7 @@ export const HOME_CLIENT_LOGOS: readonly ClientLogoMarqueeItem[] = [
    SERVICE CARDS
 
    Routes use the same routes already established in
-   FoldTech navigation.
+   Byte Operator navigation.
 ========================================================= */
 
 const SERVICES = [
@@ -236,8 +238,8 @@ const SERVICES = [
   {
     title: 'New Stores',
     description:
-      'Bespoke Shopify store design and development, built to convert from day one.',
-    href: '/shopify-theme-development-builds/',
+      'Bespoke digital platform design and development, built to convert from day one.',
+    href: '/software-theme-development-builds/',
     badge:
       '/images/home-services/badges/logo-launch-white.svg',
     badgeAlt: 'Launch',
@@ -245,10 +247,10 @@ const SERVICES = [
   },
 
   {
-    title: 'Shopify Migrations',
+    title: 'Platform & Cloud Migrations',
     description:
-      'Helping brands migrate from other platforms to Shopify with zero downtime.',
-    href: '/shopify-migrations/',
+      'Helping brands migrate from other platforms to Software with zero downtime.',
+    href: '/software-migrations/',
     badge:
       '/images/home-services/badges/logo-launch-white.svg',
     badgeAlt: 'Launch',
@@ -269,8 +271,8 @@ const SERVICES = [
   {
     title: 'Theme Development',
     description:
-      'Custom Shopify theme builds and ongoing enhancements tailored to your brand.',
-    href: '/shopify-theme-development-builds/',
+      'Custom Software theme builds and ongoing enhancements tailored to your brand.',
+    href: '/software-theme-development-builds/',
     badge: null,
     badgeAlt: '',
     graphic: null,
@@ -291,7 +293,7 @@ const SERVICES = [
     title: 'UI / UX Design',
     description:
       'Considered, conversion-focused design that improves usability across your store.',
-    href: '/shopify-theme-development-builds/',
+    href: '/software-theme-development-builds/',
     badge: null,
     badgeAlt: '',
     graphic: 'ux',
@@ -324,7 +326,7 @@ const SERVICE_PRODUCTS = [
 
   {
     label: 'Launch',
-    href: '/shopify-theme-development-builds/',
+    href: '/software-theme-development-builds/',
     logo:
       '/images/home-services/badges/logo-launch-white.svg',
   },

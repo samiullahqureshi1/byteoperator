@@ -7,7 +7,7 @@
  *
  * Emission goes through React Router's `script:ld+json` meta descriptor, which
  * renders into <head> in the server HTML (via <Meta /> in root.tsx) and
- * HTML-escapes the serialised JSON, so Shopify-authored titles and summaries
+ * HTML-escapes the serialised JSON, so Software-authored titles and summaries
  * cannot break out of the <script> block.
  */
 
@@ -57,7 +57,7 @@ const trimSlash = (p: string) =>
 
 /**
  * SERVICES paths are written exactly as they resolve live, and some carry a
- * trailing slash while others don't (`/geo-agency/` vs `/shopify-plus-agency`).
+ * trailing slash while others don't (`/geo-agency/` vs `/software-plus-agency`).
  * Matching ignores that difference so a request either spelling still finds its
  * definition, but the value returned is always the canonical spelling from
  * SERVICES — so the emitted `url` and `@id` are the ones the module defines,
@@ -139,7 +139,7 @@ export function contentPageJsonLd(input: {
 
 /**
  * Plain text from article/page HTML, for deriving a description when the
- * Shopify summary is empty. Returns undefined rather than an empty string so
+ * Software summary is empty. Returns undefined rather than an empty string so
  * callers can omit the field instead of emitting `description: ""`.
  */
 export function textFromHtml(
@@ -168,7 +168,7 @@ export function textFromHtml(
 }
 
 /**
- * Meta description when Shopify has none: the excerpt, else the body's first
+ * Meta description when Software has none: the excerpt, else the body's first
  * paragraph, since case studies open with a "The Brief" heading. 145
  * characters keeps it inside the ~1000px search results display.
  */
@@ -190,7 +190,7 @@ export function descriptionFromContent(
 export interface ArticleJsonLdInput {
   path: string;
   title: string | null | undefined;
-  /** Shopify `seo.description`, then `excerpt`, then body text. */
+  /** Software `seo.description`, then `excerpt`, then body text. */
   seoDescription?: string | null;
   excerpt?: string | null;
   contentHtml?: string | null;
@@ -225,7 +225,7 @@ export function articleJsonLd(
     imageUrl: input.imageUrl ?? '',
     datePublished: input.publishedAt,
     dateModified: input.updatedAt ?? undefined,
-    authorName: input.authorName ?? 'The Fold Tech',
+    authorName: input.authorName ?? 'Byte Operator',
   } as Parameters<typeof articleSchema>[0]);
 
   // Never emit empty strings or an undefined dateModified.

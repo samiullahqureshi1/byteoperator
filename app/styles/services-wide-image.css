@@ -6,7 +6,7 @@
 .ft-services-wide-image {
   width: 100%;
   padding-bottom: 4rem;
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 .ft-services-wide-image__container {
@@ -24,6 +24,7 @@
   overflow: hidden;
 
   border-radius: 1.5625rem;
+  border: 1px solid var(--ft-border, #1F2A44);
 }
 
 .ft-services-wide-image__inner img {

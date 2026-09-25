@@ -1,3 +1,5 @@
+'use client';
+
 import {
   useRef,
   useState,
@@ -14,8 +16,8 @@ const BUDGET_OPTIONS = [
 ] as const;
 
 const SERVICE_OPTIONS = [
-  'Shopify Development',
-  'Shopify Plus',
+  'Software Development',
+  'Enterprise Platform Solutions',
   'SEO',
   'CRO',
   'Email & SMS',
@@ -31,7 +33,7 @@ const SOURCE_OPTIONS = [
   'Saw Our Work',
   'Social Media',
   'ChatGPT / AI Search',
-  'Shopify',
+  'Software',
   'Other',
 ] as const;
 
@@ -83,7 +85,7 @@ interface ContactFormProps {
   /**
    * Which funnel the enquiry came from, sent as a hidden field. Lets a quote
    * asked for on the bulk hours page be told apart from a plain contact page
-   * enquiry once it lands in the inbox and on the Shopify customer.
+   * enquiry once it lands in the inbox and on the Software customer.
    */
   enquirySource?: string;
   /** Pre-filled project details, e.g. the package the visitor was looking at. */
@@ -177,7 +179,7 @@ export function ContactForm({
     if (!response.ok || !result.url) {
       throw new Error(
         result.error ||
-          'The upload failed. Please try again or email your file to info@thefoldtech.com.',
+          'The upload failed. Please try again or email your file to info@byteoperator.com.',
       );
     }
 
@@ -201,7 +203,7 @@ export function ContactForm({
     if (!response.ok || !result.ok) {
       throw new Error(
         result.error ||
-          'We could not send your enquiry. Please try again or email info@thefoldtech.com.',
+          'We could not send your enquiry. Please try again or email info@byteoperator.com.',
       );
     }
   }
@@ -298,7 +300,7 @@ export function ContactForm({
           </h2>
 
           <p className="ft-contact-form__thanks-text">
-            We&apos;ve received your enquiry and a member of the FoldTech
+            We&apos;ve received your enquiry and a member of the Byte Operator
             team will reply within 24 hours.
           </p>
 
@@ -502,13 +504,13 @@ export function ContactForm({
           />
 
           <span>
-            Join our ecommerce newsletter for Shopify, SEO and growth
+            Join our ecommerce newsletter for Software, SEO and growth
             insights.
           </span>
         </label>
 
         <p className="ft-contact-form__consent">
-          By submitting this form, you agree that FoldTech may use your
+          By submitting this form, you agree that Byte Operator may use your
           details to respond to your enquiry.{' '}
           <a href="/policies/privacy-policy">Privacy Policy</a>.
         </p>

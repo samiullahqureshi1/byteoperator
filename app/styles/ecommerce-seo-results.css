@@ -1,13 +1,13 @@
 /* =========================================================
-   FOLDTECH — ECOMMERCE SEO RESULTS
+   BYTE OPERATOR — ECOMMERCE SEO RESULTS
 ========================================================= */
 
 .ft-ecommerce-seo-results {
   width: 100%;
   padding: 3.5rem 0;
   overflow: hidden;
-  background: var(--ft-white, #ffffff);
-  color: #000000;
+  background: var(--ft-dark-deep, #060F24);
+  color: var(--ft-text, #ffffff);
 }
 
 .ft-ecommerce-seo-results__container {
@@ -26,8 +26,8 @@
 
 .ft-ecommerce-seo-results__eyebrow {
   margin: 0 0 1rem;
-  color: rgba(0, 0, 0, 0.45);
-  font-family: 'Season Serif', serif;
+  color: var(--ft-text-secondary, #A8B3C7);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1;
@@ -35,8 +35,8 @@
 
 .ft-ecommerce-seo-results__title {
   margin: 0;
-  color: #000000;
-  font-family: 'Season Sans', sans-serif;
+  color: var(--ft-text, #ffffff);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2.125rem, 5vw, 3.75rem);
   font-weight: 400;
   line-height: 1.15;
@@ -70,14 +70,14 @@
   gap: 1.25rem;
   padding: 1.5rem;
   border-radius: 0.75rem;
-  background: #f7f7f7;
+  background: var(--ft-dark, #10192F);
   scroll-snap-align: start;
 }
 
 .ft-ecommerce-seo-results__stat {
   flex-shrink: 0;
-  color: #000000;
-  font-family: 'Season Serif', serif;
+  color: var(--ft-text, #ffffff);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 400;
   line-height: 1;
@@ -91,8 +91,8 @@
 
 .ft-ecommerce-seo-results__card-title {
   margin: 0 0 0.35rem;
-  color: #000000;
-  font-family: 'Season Sans', sans-serif;
+  color: var(--ft-text, #ffffff);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.35;
@@ -100,8 +100,8 @@
 
 .ft-ecommerce-seo-results__description {
   margin: 0;
-  color: rgba(0, 0, 0, 0.55);
-  font-family: 'Season Sans', sans-serif;
+  color: var(--ft-text-secondary, #A8B3C7);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.6;

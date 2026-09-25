@@ -7,7 +7,7 @@ export function ServicesWideImage() {
             src="/images/services/services-wide.webp"
             width={1672}
             height={941}
-            alt="FoldTech Shopify ecommerce services"
+            alt="Byte Operator Software ecommerce services"
             loading="lazy"
             decoding="async"
           />

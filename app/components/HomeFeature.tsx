@@ -1,11 +1,11 @@
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 import {resolveCanonicalPath} from '~/lib/route-mappings';
 
 import type {HomeFeatureData} from '~/data/homeFeatures';
 import {CalendlyButton} from '~/components/shared/CalendlyButton';
 
 /* =========================================================
-   FOLDTECH — REUSABLE HOME FEATURE
+   BYTE OPERATOR — REUSABLE HOME FEATURE
 ========================================================= */
 
 type HomeFeatureProps = {

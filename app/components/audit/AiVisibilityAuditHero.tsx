@@ -1,12 +1,15 @@
+'use client';
+
 import {useCallback, useEffect, useRef, useState, type FormEvent} from 'react';
-import {useNonce} from '@shopify/hydrogen';
+const useNonce = () => undefined;
+;
 
 /**
  * Free AI Visibility Audit signup.
  *
- * Posts to /api/audit-signup, which writes the lead into the Shopify customer
+ * Posts to /api/audit-signup, which writes the lead into the Software customer
  * database through the Admin API. Rendered for the `ai-visibility-audit`
- * Shopify page in <PageContent>.
+ * Software page in <PageContent>.
  *
  * On mount the form fetches a signed, single-use token from the same endpoint
  * (see `form-security.server.ts`) and, when the server has CAPTCHA enabled,
@@ -64,8 +67,8 @@ function loadTurnstile(nonce: string | undefined) {
 
 /** Kept in sync with AUDIT_PLATFORM_OPTIONS in /api/audit-signup. */
 const PLATFORM_OPTIONS = [
-  'Shopify',
-  'Shopify Plus',
+  'Software',
+  'Enterprise Platform Solutions',
   'WooCommerce',
   'BigCommerce',
   'Magento / Adobe Commerce',
@@ -249,7 +252,7 @@ export function AiVisibilityAuditHero() {
 
       setSubmitError(
         result.error ||
-          'We could not submit your request. Please try again or email info@thefoldtech.com.',
+          'We could not submit your request. Please try again or email info@byteoperator.com.',
       );
 
       return;
@@ -313,7 +316,7 @@ export function AiVisibilityAuditHero() {
 
                 <p className="ft-audit-form__thanks-text">
                   Thanks — we&apos;ve received your details. A member of the
-                  FoldTech team will review your store and send your free AI
+                  Byte Operator team will review your store and send your free AI
                   visibility audit within 3 working days.
                 </p>
 
@@ -430,13 +433,13 @@ export function AiVisibilityAuditHero() {
 
               {/*
                 Opt-in must be an affirmative action, so the box starts
-                unticked (GDPR / Shopify customer privacy requirements).
+                unticked (GDPR / Software customer privacy requirements).
               */}
               <label className="ft-audit-form__consent">
                 <input type="checkbox" name="marketingConsent" value="yes" />
 
                 <span>
-                  Email me ecommerce and AI search insights from FoldTech. You
+                  Email me ecommerce and AI search insights from Byte Operator. You
                   can unsubscribe at any time.
                 </span>
               </label>

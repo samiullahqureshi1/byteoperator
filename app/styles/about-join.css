@@ -2,7 +2,7 @@
   position: relative;
   padding-top: 2rem;
   padding-bottom: 3rem;
-  background: #01151b;
+  background: var(--ft-dark-deep, #060F24);
   color: #ffffff;
 }
 
@@ -29,7 +29,8 @@
 
   padding: 2rem;
 
-  background: #1a1b1e;
+  background: #10192F;
+  border: 1px solid #1F2A44;
   border-radius: 1.25rem;
 }
 
@@ -45,7 +46,7 @@
 .ft-about-join__heading {
   margin: 0;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2.125rem, 4.5vw, 4.375rem);
   font-weight: 400;
   line-height: 1.15;
@@ -74,7 +75,7 @@
 
   margin: 0;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.125rem, 2vw, 1.5rem);
   font-weight: 400;
   line-height: 1.15;
@@ -130,10 +131,10 @@
 
   border-radius: 999rem;
 
-  background: #ffffff;
-  color: #111111;
+  background: #306CE7;
+  color: #ffffff;
 
-  font-family: "Season Serif", serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   line-height: 1;
 
@@ -148,7 +149,8 @@
 .ft-about-join__all-jobs:hover,
 .ft-about-join__footer-button:hover {
   transform: translateY(-0.125rem);
-  background: #afdddc;
+  background: #3B82F6;
+  color: #ffffff;
 }
 
 .ft-about-join__all-jobs svg,
@@ -189,11 +191,11 @@
 }
 
 .ft-about-join__item {
-  border-top: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  border-top: 0.0625rem solid #1F2A44;
 }
 
 .ft-about-join__item:last-child {
-  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.2);
+  border-bottom: 0.0625rem solid #1F2A44;
 }
 
 .ft-about-join__link {
@@ -208,16 +210,17 @@
   color: #ffffff;
   text-decoration: none;
 
-  transition: opacity 0.25s ease;
+  transition: color 0.25s ease;
 }
 
 .ft-about-join__link:hover {
-  opacity: 0.65;
+  color: #3B82F6;
+  opacity: 1;
 }
 
 .ft-about-join__link-title,
 .ft-about-join__link-type {
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.25;
 }
@@ -228,6 +231,7 @@
 
 .ft-about-join__link-type {
   text-align: right;
+  color: #A8B3C7;
 }
 
 /* =========================

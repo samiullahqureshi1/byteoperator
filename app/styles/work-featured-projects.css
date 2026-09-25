@@ -1,33 +1,22 @@
 .ft-work-featured {
   width: 100%;
   box-sizing: border-box;
-
-  padding:
-    0rem
-    5.33vw
-    6rem;
-
-  background: var(--ft-dark-deep, #01151b);
+  padding: 0rem 5.33vw 6rem;
+  background: var(--ft-dark-deep, #060F24);
 }
 
 /* MOBILE SLIDER */
 
 .ft-work-featured__grid {
   display: flex;
-
   width: 100%;
-
   gap: 4vw;
-
   overflow-x: auto;
   overflow-y: hidden;
-
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-
   overscroll-behavior-inline: contain;
   -webkit-overflow-scrolling: touch;
-
   scrollbar-width: none;
 }
 
@@ -37,30 +26,17 @@
 
 .ft-work-featured__card {
   position: relative;
-
   display: block;
-
   flex: 0 0 80vw;
   width: 80vw;
-
-  /*
-    These three tiles all carry landscape site shots (~1.48); the old
-    0.76 portrait box cropped ~49% away. 4/3 costs ~10% and leaves the
-    tile tall enough for the bottom overlay content.
-  */
   aspect-ratio: 4 / 3;
-
   overflow: hidden;
-
   border-radius: 0.8rem;
-
-  background: var(--ft-dark, #041f27);
-  color: var(--ft-white, #ffffff);
-
+  border: 1px solid var(--ft-border, #1F2A44);
+  background: var(--ft-dark, #10192F);
+  color: var(--ft-text, #ffffff);
   text-decoration: none;
-
   isolation: isolate;
-
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
@@ -68,12 +44,9 @@
 .ft-work-featured__image {
   position: absolute;
   inset: 0;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
   transition:
     transform
     700ms
@@ -83,58 +56,41 @@
 .ft-work-featured__overlay {
   position: absolute;
   inset: 0;
-
   z-index: 1;
-
   pointer-events: none;
-
   background:
     linear-gradient(
       to bottom,
-      rgba(1, 21, 27, 0) 42%,
-      rgba(1, 21, 27, 0.16) 58%,
-      rgba(1, 21, 27, 0.92) 100%
+      rgba(6, 15, 36, 0) 42%,
+      rgba(6, 15, 36, 0.25) 58%,
+      rgba(6, 15, 36, 0.95) 100%
     );
 }
 
 .ft-work-featured__result {
   position: absolute;
-
   top: 1rem;
   left: 1rem;
-
   z-index: 2;
-
   display: inline-flex;
   align-items: center;
-
   min-height: 1rem;
-
-  padding:
-    0.45rem
-    0.85rem;
-
+  padding: 0.45rem 0.85rem;
   border-radius: 999rem;
-
-  background: var(--ft-white, #ffffff);
-  color: var(--ft-dark-deep, #01151b);
-
+  background: var(--ft-primary-blue, #306CE7);
+  color: #ffffff;
   font-size: 0.85rem;
   line-height: 1;
   font-weight: 500;
-
   white-space: nowrap;
 }
 
 .ft-work-featured__content {
   position: absolute;
-
   left: 1.4rem;
   right: 1.4rem;
   bottom: 1.5rem;
-
   z-index: 2;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -142,42 +98,31 @@
 
 .ft-work-featured__logo {
   display: block;
-
   width: auto;
   max-width: 4rem;
   height: 2rem;
-
   margin-bottom: 0.55rem;
-
   object-fit: contain;
   object-position: left center;
 }
 
 .ft-work-featured__title {
   margin: 0;
-
   font-size: 1.25rem;
   line-height: 1.1;
   font-weight: 500;
-
-  color: var(--ft-white, #ffffff);
+  color: #ffffff;
 }
 
 .ft-work-featured__services {
-  margin:
-    0.2rem
-    0
-    0;
-
+  margin: 0.2rem 0 0;
   font-size: 0.85rem;
   line-height: 1.35;
-
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 @media (hover: hover) {
-  .ft-work-featured__card:hover
-  .ft-work-featured__image {
+  .ft-work-featured__card:hover .ft-work-featured__image {
     transform: scale(1.035);
   }
 }
@@ -186,30 +131,21 @@
 
 @media (min-width: 48rem) {
   .ft-work-featured {
-    padding:
-      5.5rem
-      4vw
-      6rem;
+    padding: 5.5rem 4vw 6rem;
   }
 
  .ft-work-featured__grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
-  gap: 1.8vw;
-
-  overflow: visible;
-
-  scroll-snap-type: none;
-  scroll-behavior: auto;
-}
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.8vw;
+    overflow: visible;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
 
   .ft-work-featured__card {
     flex: initial;
     width: 100%;
-
     scroll-snap-align: none;
     scroll-snap-stop: normal;
   }
@@ -219,16 +155,11 @@
 
 @media (min-width: 64rem) {
   .ft-work-featured {
-    padding:
-      6vh
-      7.1vw
-      7vh;
+    padding: 6vh 7.1vw 7vh;
   }
 
   .ft-work-featured__grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.9vw;
   }
 

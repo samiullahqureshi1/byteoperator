@@ -1,0 +1,8 @@
+{
+  "/work/page": "app/work/page.js",
+  "/page": "app/page.js",
+  "/policies/[handle]/page": "app/policies/[handle]/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/policies/page": "app/policies/page.js"
+}

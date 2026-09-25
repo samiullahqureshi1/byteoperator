@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none" width="100%" height="100%">
+  <!-- Icon Mark (BO) -->
+  <g transform="translate(4, 6)">
+    <!-- B main shape -->
+    <path d="M6 4H26C34.8 4 41 9.2 41 16.5C41 21.8 37.5 25.8 32.2 27.5C38.8 29.2 43 33.8 43 40C43 47.8 36.2 53 26.8 53H6V4Z" fill="#111827"/>
+    <!-- B top inner counter -->
+    <path d="M17 13.5H25C28.8 13.5 31.5 15 31.5 18C31.5 21 28.8 22.5 25 22.5H17V13.5Z" fill="#FFFFFF"/>
+    <!-- B bottom inner counter -->
+    <path d="M17 33.5H25.5C29.8 33.5 32.8 35.2 32.8 39C32.8 42.8 29.8 44.5 25.5 44.5H17V33.5Z" fill="#FFFFFF"/>
+    
+    <!-- Accent Pixel Blocks -->
+    <rect x="0" y="44" width="7" height="7" rx="1" fill="#0070F3"/>
+    <rect x="0" y="35" width="7" height="7" rx="1" fill="#0051CC"/>
+    <rect x="8" y="44" width="7" height="7" rx="1" fill="#0091FF"/>
+
+    <!-- O Ring -->
+    <path d="M37 20C45.8 20 53 27.2 53 36C53 44.8 45.8 52 37 52C32.5 52 28.4 50.1 25.5 47C28 47 31 45.5 33 43C37 38 37 30 32.5 25C34 22 35.5 20 37 20Z" fill="#0070F3"/>
+    <!-- O inner crescent -->
+    <circle cx="37" cy="36" r="6" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Wordmark Text -->
+  <text x="74" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', 'Inter', 'Segoe UI', sans-serif" font-size="23" font-weight="700" fill="#111827" letter-spacing="-0.02em">
+    Byte <tspan font-weight="500" fill="#111827">Operator</tspan>
+  </text>
+</svg>

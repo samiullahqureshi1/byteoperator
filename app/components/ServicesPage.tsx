@@ -1,3 +1,5 @@
+'use client';
+
 import {useCallback, useState} from 'react';
 import {SERVICES_FEATURES} from '~/data/servicesFeatures';
 import {SERVICES_LANDING_HERO} from '~/data/servicePages';
@@ -28,7 +30,7 @@ export function ServicesPage({
   page,
 }: ServicesPageProps) {
   const heroDescription = getFirstParagraph(
-    '<p>The Fold Tech delivers end-to-end Shopify solutions — from custom theme design and development to SEO, conversion rate optimization, migrations and ongoing support. We help ecommerce brands launch faster, convert better and scale smarter with expert Shopify and Shopify Plus services.</p>',
+    '<p>Byte Operator delivers end-to-end Software solutions — from custom theme design and development to SEO, conversion rate optimization, migrations and ongoing support. We help ecommerce brands launch faster, convert better and scale smarter with expert Software and Enterprise Platform Solutions services.</p>',
   );
   const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
   const closeCaseStudy = useCallback(() => setIsCaseStudyOpen(false), []);
@@ -48,10 +50,10 @@ export function ServicesPage({
       <div className="ft-services-people">
         <HomePeople
           content={{
-            headingFirstLine: 'People-First Shopify Growth ',
+            headingFirstLine: 'People-First Software Growth ',
             headingSecondLine: 'Agency',
             description:
-              'A specialised Shopify team focused on design, development, SEO and growth. We help ecommerce brands plan, build and continuously improve high-performing online stores that drive more traffic, higher conversions and long-term revenue.',
+              'A specialised Software team focused on design, development, SEO and growth. We help ecommerce brands plan, build and continuously improve high-performing online stores that drive more traffic, higher conversions and long-term revenue.',
             buttonLabel: 'Our Story',
           }}
         />
@@ -75,8 +77,8 @@ export function ServicesPage({
           imageWidth={1086}
           imageHeight={1448}
           alt="Cambridge Satchel ecommerce project"
-          heading="Re-launching a heritage brand with the power of Shopify Plus"
-          meta="Cambridge Satchel X FoldTech"
+          heading="Re-launching a heritage brand with the power of Enterprise Platform Solutions"
+          meta="Cambridge Satchel X Byte Operator"
           actionLabel="See Case Study"
           onAction={() => setIsCaseStudyOpen(true)}
         />

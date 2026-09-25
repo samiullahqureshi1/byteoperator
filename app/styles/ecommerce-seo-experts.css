@@ -1,31 +1,18 @@
-/* Ecommerce SEO only: FoldTech treatment for the final HomeExperts media section. */
+/* Ecommerce SEO only: Byte Operator treatment for the final HomeExperts media section. */
 .ft-ecommerce-seo-experts {
-  --ft-dark: #041f27;
-  --ft-dark-deep: #01151b;
-  --ft-teal: #40adaa;
-  --ft-teal-light: #afdddc;
+  --ft-dark: #10192F;
+  --ft-dark-deep: #060F24;
+  --ft-teal: #306CE7;
+  --ft-teal-light: #3B82F6;
 
   background: var(--ft-dark-deep);
 }
 
 /* =========================================================
    SEAMLESS JOIN WITH .ft-service-plus-agency-cta ABOVE
-
-   The CTA above is #01151b lifted by two glow circles that
-   both bleed into its bottom edge, so that edge is NOT flat
-   #01151b -- it fades from ~#041f27 on the left towards
-   #01151b on the right, with a faint teal tail near 80% x.
-
-   This section reproduces both circles, offset upwards by the
-   distance from each circle's centre to the CTA's bottom edge,
-   so the two edges meet on identical pixels and the tone then
-   falls away to --ft-dark-deep on its own. --ft-seam-carry is
-   the teal circle; its offset is 80% of the CTA's height, so
-   it is re-tuned wherever that height changes materially.
 ========================================================= */
 
 .ft-ecommerce-seo-experts .ft-home-experts {
-  /* continuation of the CTA's "circle at 80% 20%" teal glow */
   --ft-seam-carry: -32.75rem;
 
   margin-top: 0;
@@ -44,12 +31,12 @@
     ),
     radial-gradient(
       ellipse 55% 45% at 18% 42%,
-      rgba(64, 173, 170, 0.14),
+      rgba(48, 108, 231, 0.14),
       transparent 70%
     ),
     radial-gradient(
       ellipse at 82% 82%,
-      rgba(4, 31, 39, 0.82),
+      rgba(16, 25, 47, 0.82),
       transparent 52%
     ),
     var(--ft-dark-deep);

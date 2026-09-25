@@ -3,7 +3,7 @@
   margin-top: -1.875rem;
   padding: 8rem 0 5rem;
   overflow: hidden;
-  background: #01151b;
+  background: var(--ft-dark-deep, #060F24);
   color: #ffffff;
 }
 
@@ -21,13 +21,13 @@
 
 /* =========================
    HEADING
-========================= */
+======================== */
 
 .ft-about-testimonials__heading {
   max-width: 70rem;
   margin: 0 auto 1.75rem;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2.125rem, 5vw, 4.375rem);
   font-weight: 400;
   line-height: 1.15;
@@ -39,7 +39,7 @@
 
 /* =========================
    HEAR FROM CLIENTS BUTTON
-========================= */
+======================== */
 
 .ft-about-testimonials__button-wrap {
   display: flex;
@@ -54,25 +54,27 @@
 
   padding: 0.625rem 1.5rem 0.625rem 0.625rem;
 
-  border: 0;
+  border: 1px solid #1F2A44;
   border-radius: 999rem;
-  background: rgba(255, 255, 255, 0.08);
+  background: #10192F;
   color: #ffffff;
 
   cursor: pointer;
 
   transition:
     background-color 0.3s ease,
+    border-color 0.3s ease,
     transform 0.3s ease;
 }
 
 .ft-about-testimonials__hear-button:hover {
-  background: rgba(255, 255, 255, 0.13);
+  background: #306CE7;
+  border-color: #306CE7;
   transform: translateY(-0.125rem);
 }
 
 .ft-about-testimonials__hear-button:focus-visible {
-  outline: 0.125rem solid #40adaa;
+  outline: 0.125rem solid #3B82F6;
   outline-offset: 0.25rem;
 }
 
@@ -84,7 +86,7 @@
 
   overflow: hidden;
   border-radius: 50%;
-  background: #ffffff;
+  background: #10192F;
 }
 
 .ft-about-testimonials__hear-image img {
@@ -99,7 +101,7 @@
 }
 
 .ft-about-testimonials__hear-text {
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.1;
@@ -122,18 +124,18 @@
 
 /* =========================
    DESCRIPTION
-========================= */
+======================== */
 
 .ft-about-testimonials__description {
   margin: 0 0 2rem;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1rem, 1.8vw, 1.125rem);
   font-weight: 300;
   line-height: 1.5;
 
   text-align: center;
-  color: #ffffff;
+  color: #A8B3C7;
 }
 
 /* =========================
@@ -158,9 +160,9 @@
   min-height: 16.875rem;
   padding: 2rem;
 
-  border: 0.0625rem solid rgba(255, 255, 255, 0.035);
+  border: 0.0625rem solid #1F2A44;
   border-radius: 1.875rem;
-  background: rgba(255, 255, 255, 0.075);
+  background: #10192F;
 
   text-align: center;
 
@@ -204,7 +206,7 @@
   max-width: 64rem;
   margin: 0;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.25rem, 3vw, 2.75rem);
   font-weight: 400;
   line-height: 1.15;
@@ -220,11 +222,11 @@
 
   margin: 0;
 
-  font-family: "Season Serif", serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.35;
 
-  color: #ffffff;
+  color: #A8B3C7;
 }
 
 .ft-about-testimonials__item-name,
@@ -240,12 +242,12 @@
   position: absolute;
   z-index: 2;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 8rem;
   font-weight: 600;
   line-height: 0.7;
 
-  color: #ffffff;
+  color: rgba(48, 108, 231, 0.25);
   pointer-events: none;
   user-select: none;
 }
@@ -282,26 +284,29 @@
   height: 3.75rem;
   padding: 0;
 
-  border: 0;
+  border: 1px solid #1F2A44;
   border-radius: 50%;
 
-  background: #ffffff;
-  color: #071b21;
+  background: #10192F;
+  color: #ffffff;
 
   cursor: pointer;
 
   transition:
     transform 0.3s ease,
+    border-color 0.3s ease,
     background-color 0.3s ease;
 }
 
 .ft-about-testimonials__arrow:hover {
   transform: scale(1.06);
-  background: #afdddc;
+  background: #306CE7;
+  border-color: #306CE7;
+  color: #ffffff;
 }
 
 .ft-about-testimonials__arrow:focus-visible {
-  outline: 0.125rem solid #40adaa;
+  outline: 0.125rem solid #3B82F6;
   outline-offset: 0.25rem;
 }
 

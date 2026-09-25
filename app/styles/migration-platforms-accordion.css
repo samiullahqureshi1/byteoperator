@@ -10,8 +10,8 @@
   width: 100%;
   padding-block: 7rem;
   overflow: hidden;
-  background: var(--ft-off-white, #fbfcfc);
-  color: var(--ft-text, #0b252d);
+  background: var(--ft-dark-deep, #060F24);
+  color: var(--ft-text, #ffffff);
 }
 
 .ft-migration-platforms__container {
@@ -29,11 +29,11 @@
 
 .ft-migration-platforms__heading {
   margin: 0;
-  font-family: 'Season Serif', serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 2rem;
   font-weight: 400;
   line-height: 1;
-  color: var(--ft-text, #0b252d);
+  color: var(--ft-text, #ffffff);
 }
 
 .ft-migration-platforms__inner {
@@ -49,11 +49,11 @@
 
 .ft-migration-platforms__eyebrow {
   margin: 0;
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 400;
   line-height: 1;
-  color: var(--ft-text, #0b252d);
+  color: var(--ft-text, #ffffff);
 }
 
 .ft-migration-platforms__content {
@@ -70,6 +70,8 @@
 .ft-migration-platform {
   display: flex;
   flex-direction: column;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--ft-border, #1F2A44);
 }
 
 .ft-migration-platform__trigger {
@@ -82,8 +84,8 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--ft-text, #0b252d);
-  font-family: 'Season Sans', sans-serif;
+  color: var(--ft-text, #ffffff);
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.75rem;
   font-weight: 500;
   line-height: 1;
@@ -95,6 +97,7 @@
   width: 1.5625rem;
   height: 1.5625rem;
   flex: 0 0 auto;
+  color: var(--ft-primary-blue, #306CE7);
   transition: transform 250ms ease;
 }
 
@@ -125,10 +128,10 @@
 
 .ft-migration-platform__description {
   padding-top: 1rem;
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   line-height: 1.67;
-  color: var(--ft-text, #0b252d);
+  color: var(--ft-text-secondary, #A8B3C7);
 }
 
 .ft-migration-platform__description p {
@@ -136,7 +139,7 @@
 }
 
 .ft-migration-platform__description a {
-  color: inherit;
+  color: var(--ft-accent-blue, #3B82F6);
   text-decoration: underline;
   text-underline-offset: 0.12em;
 }
@@ -153,13 +156,14 @@
   width: fit-content;
   padding: 0.75rem 1.5rem;
   border-radius: 999rem;
-  background: var(--ft-dark-deep, #01151b);
-  color: var(--ft-white, #ffffff);
-  font-family: 'Season Serif', serif;
+  background: var(--ft-primary-blue, #306CE7);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
+  font-weight: 500;
   line-height: 1.2;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
 }
 
 .ft-migration-platform__cta svg {
@@ -170,7 +174,7 @@
 }
 
 .ft-migration-platform__cta:hover {
-  opacity: 0.8;
+  background: var(--ft-accent-blue, #3B82F6);
 }
 
 .ft-migration-platform__cta:hover svg {

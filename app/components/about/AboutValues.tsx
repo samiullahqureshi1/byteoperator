@@ -7,7 +7,7 @@ export function AboutValues() {
             src="/images/about/values-team.webp"
             width={1970}
             height={1306}
-            alt="FoldTech team working together"
+            alt="Byte Operator team working together"
             className="ft-about-values__image-image"
           />
         </div>
@@ -59,7 +59,7 @@ export function AboutValues() {
             </h3>
 
             <p className="ft-about-values__description">
-              We approach FoldTech with the same mindset we bring to client
+              We approach Byte Operator with the same mindset we bring to client
               work: test ideas, measure outcomes and keep improving. That
               shared experience helps us work as an extension of ecommerce
               teams with practical context, accountability and a long-term

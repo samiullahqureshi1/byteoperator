@@ -1,4 +1,4 @@
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 
 const INNER_TOOLS = [
   {
@@ -61,8 +61,8 @@ export function EcommerceSeoTechStack() {
 
               <div className="ft-ecommerce-seo-stack__hub">
                 <img
-                  src="/images/home-partners/shopify.svg"
-                  alt="Shopify"
+                  src="/images/home-partners/software.svg"
+                  alt="Software"
                   width="179"
                   height="76"
                   className="ft-ecommerce-seo-stack__hub-logo"
@@ -154,7 +154,7 @@ export function EcommerceSeoTechStack() {
               className="ft-ecommerce-seo-stack__cta"
               prefetch="intent"
             >
-              <span>Read our Shopify SEO guide</span>
+              <span>Read our Technical SEO & Search Architecture guide</span>
 
               <svg
                 viewBox="0 0 14 14"

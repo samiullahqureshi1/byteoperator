@@ -1,5 +1,5 @@
 /**
- * Parses a case-study body — a Shopify `cs-*` page or a case-study blog
+ * Parses a case-study body — a Software `cs-*` page or a case-study blog
  * post — into structured data for `CaseStudyLayout`.
  *
  * Both sources are `<h2>` chapters of bold-labelled points:

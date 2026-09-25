@@ -1,5 +1,5 @@
 /* =========================================================
-   FOLDTECH HOME HERO
+   BYTE OPERATOR HOME HERO
 ========================================================= */
 
 .ft-home-hero,
@@ -34,21 +34,21 @@
     2rem
     2rem;
 
-  color: #fff;
+  color: #ffffff;
 
   background:
     radial-gradient(
       ellipse 48% 55% at 58% 78%,
-      rgba(64, 173, 170, 0.22),
-      rgba(64, 173, 170, 0.07) 42%,
+      rgba(48, 108, 231, 0.22),
+      rgba(59, 130, 246, 0.08) 42%,
       transparent 72%
     ),
     radial-gradient(
       ellipse 42% 55% at 40% 75%,
-      rgba(17, 50, 81, 0.32),
+      rgba(30, 58, 138, 0.35),
       transparent 70%
     ),
-    var(--ft-dark-deep, #01151b);
+    var(--ft-dark-deep, #060F24);
 
   overflow: hidden;
 }
@@ -73,7 +73,8 @@
   background:
     radial-gradient(
       circle,
-      rgba(64, 173, 170, 0.12),
+      rgba(48, 108, 231, 0.18),
+      rgba(59, 130, 246, 0.06) 48%,
       transparent 68%
     );
 
@@ -109,8 +110,7 @@
     0
     1.75rem;
 
-  color:
-    rgba(255, 255, 255, 0.94);
+  color: #A8B3C7;
 
   font-family:
     Arial,
@@ -220,8 +220,7 @@
     auto
     0;
 
-  color:
-    rgba(255, 255, 255, 0.95);
+  color: #A8B3C7;
 
   font-family:
     Arial,
@@ -244,20 +243,21 @@
   grid-template-columns:
     repeat(4, minmax(0, 1fr));
 
-  width: min(100%, 51.25rem);
+  width: min(100%, 56rem);
 
   margin-top: 3.0625rem;
 
-  background:
-    rgba(255, 255, 255, 0.13);
+  background: #10192F;
 
   border:
     0.0625rem solid
-    rgba(255, 255, 255, 0.06);
+    #1F2A44;
 
   border-radius: 0.75rem;
 
   overflow: hidden;
+
+  box-shadow: 0 0.75rem 2rem rgba(6, 15, 36, 0.35);
 
   backdrop-filter: blur(0.4375rem);
   -webkit-backdrop-filter: blur(0.4375rem);
@@ -276,7 +276,7 @@
 
   padding: 0.9375rem 0.75rem;
 
-  color: #fff;
+  color: #ffffff;
 
   text-decoration: none;
 
@@ -288,16 +288,16 @@
   + .ft-home-hero__service {
   border-left:
     0.0625rem solid
-    rgba(255, 255, 255, 0.08);
+    #1F2A44;
 }
 
 .ft-home-hero__service:hover {
   background:
-    rgba(64, 173, 170, 0.1);
+    rgba(48, 108, 231, 0.15);
 }
 
 .ft-home-hero__service strong {
-  color: #fff;
+  color: #ffffff;
 
   font-family:
     Arial,
@@ -310,12 +310,11 @@
 
   letter-spacing: -0.035em;
 
-  white-space: normal;
+  white-space: nowrap;
 }
 
 .ft-home-hero__service span {
-  color:
-    rgba(255, 255, 255, 0.58);
+  color: #A8B3C7;
 
   font-family:
     Arial,
@@ -347,8 +346,7 @@
 
   margin-top: 1.375rem;
 
-  color:
-    rgba(255, 255, 255, 0.58);
+  color: #A8B3C7;
 
   font-family:
     Arial,
@@ -363,7 +361,7 @@
 }
 
 .ft-home-hero__work-link:hover {
-  color: #fff;
+  color: #3B82F6;
 }
 
 .ft-home-hero__work-link svg {
@@ -429,10 +427,10 @@
     background:
       radial-gradient(
         ellipse 90% 45% at 53% 68%,
-        rgba(64, 173, 170, 0.17),
+        rgba(48, 108, 231, 0.18),
         transparent 74%
       ),
-      var(--ft-dark-deep, #01151b);
+      var(--ft-dark-deep, #060F24);
   }
 
   .ft-home-hero__eyebrow {
@@ -502,13 +500,13 @@
   .ft-home-hero__service:nth-child(even) {
     border-left:
       0.0625rem solid
-      rgba(255, 255, 255, 0.08);
+      #1F2A44;
   }
 
   .ft-home-hero__service:nth-child(n + 3) {
     border-top:
       0.0625rem solid
-      rgba(255, 255, 255, 0.08);
+      #1F2A44;
   }
 
   .ft-home-hero__service strong {
@@ -550,6 +548,8 @@
 
   .ft-home-hero__description {
     max-width: 19.0625rem;
+
+    margin-top: 2.125rem;
 
     font-size: 0.875rem;
   }
@@ -601,13 +601,11 @@
 
   border-radius: 50vw;
 
-  background: #ffffff;
-  color: #111111;
+  background: #306CE7;
+  color: #ffffff;
+  border: 0.0625rem solid #306CE7;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   line-height: 1;
 
@@ -615,6 +613,7 @@
 
   transition:
     background-color 180ms ease,
+    border-color 180ms ease,
     transform 180ms ease;
 }
 
@@ -622,5 +621,7 @@
 .ft-home-hero__book-cta:focus-visible {
   transform: translateY(-0.0625rem);
 
-  background: rgba(255, 255, 255, 0.88);
+  background: #3B82F6;
+  border-color: #3B82F6;
+  color: #ffffff;
 }

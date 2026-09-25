@@ -1,4 +1,4 @@
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 import {WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
 import {ClientProof} from '../shared/ClientProof';
 
@@ -31,7 +31,7 @@ export type ServiceHeroBadge = {
 
 export type ServiceHeroVariant =
   | 'standard'
-  | 'shopify-plus';
+  | 'software-plus';
 
 export type ServiceHeroTheme = 'dark' | 'light';
 
@@ -226,8 +226,8 @@ export function ServiceHero({
               {showPartnerLogos ? (
                 <div className="ft-services-hero__partners">
                   <img
-                    src="/images/home-partners/shopify.svg"
-                    alt="Shopify"
+                    src="/images/home-partners/software.svg"
+                    alt="Software"
                     width="179"
                     height="76"
                     loading="lazy"
@@ -237,8 +237,8 @@ export function ServiceHero({
                   <span className="ft-services-hero__partner-divider" />
 
                   <img
-                    src="/images/home-partners/shopify-plus.svg"
-                    alt="Shopify Plus"
+                    src="/images/home-partners/software-plus.svg"
+                    alt="Enterprise Platform Solutions"
                     width="234"
                     height="103"
                     loading="lazy"

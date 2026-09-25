@@ -1,9 +1,11 @@
+'use client';
+
 import {
   useEffect,
   useRef,
   useState,
 } from 'react';
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 
 import {WORK_FACTS, type CompanyFact} from '~/data/companyFacts';
 import {formatStatValue} from '~/lib/useCountUp';

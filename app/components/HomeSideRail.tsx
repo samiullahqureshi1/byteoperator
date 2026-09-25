@@ -1,5 +1,7 @@
+'use client';
+
 import {useEffect, useRef} from 'react';
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 
 interface HomeSideRailProps {
   heroSelector?: string;
@@ -184,9 +186,9 @@ export function HomeSideRail({
         "
         to="/about"
         prefetch="intent"
-        aria-label="Learn about FoldTech"
+        aria-label="Learn about Byte Operator"
       >
-        <span>Learn About FoldTech</span>
+        <span>Learn About Byte Operator</span>
 
         <HorizontalArrowIcon />
       </Link>
@@ -200,11 +202,11 @@ export function HomeSideRail({
         "
         to="/about"
         prefetch="intent"
-        aria-label="Learn about FoldTech"
+        aria-label="Learn about Byte Operator"
       >
         <VerticalArrowIcon />
 
-        <span>Learn About FoldTech</span>
+        <span>Learn About Byte Operator</span>
       </Link>
     </>
   );

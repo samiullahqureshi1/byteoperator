@@ -3,14 +3,14 @@ import {COMPANY_FACTS} from '~/data/companyFacts';
 export type EcommerceSeoProofItem =
   | {type: 'text'; text: string}
   | {type: 'rating'; text: string}
-  | {type: 'shopify-logos'; text: string};
+  | {type: 'software-logos'; text: string};
 
 export const ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS = [
   {
     type: 'rating',
     text: `${COMPANY_FACTS.reviews.value} from ${COMPANY_FACTS.reviews.label}`,
   },
-  {type: 'shopify-logos', text: 'Shopify Plus Partner'},
+  {type: 'software-logos', text: 'Enterprise Software Partner'},
   {type: 'text', text: `Est. ${COMPANY_FACTS.founded.value}`},
   {
     type: 'text',
@@ -49,20 +49,20 @@ export function EcommerceSeoProofStrip({
               </span>
             ) : null}
 
-            {item.type === 'shopify-logos' ? (
+            {item.type === 'software-logos' ? (
               <span className="ft-ecommerce-seo-proof__logos">
                 <img
                   className="ft-ecommerce-seo-proof__logo"
-                  src="/images/home-partners/shopify-plus.svg"
-                  alt="Shopify Plus"
+                  src="/images/home-partners/software-plus.svg"
+                  alt="Enterprise Platform Solutions"
                   width="234"
                   height="103"
                   loading="lazy"
                 />
                 <img
-                  className="ft-ecommerce-seo-proof__logo ft-ecommerce-seo-proof__logo--shopify"
-                  src="/images/home-partners/shopify.svg"
-                  alt="Shopify"
+                  className="ft-ecommerce-seo-proof__logo ft-ecommerce-seo-proof__logo--software"
+                  src="/images/home-partners/software.svg"
+                  alt="Software"
                   width="179"
                   height="76"
                   loading="lazy"

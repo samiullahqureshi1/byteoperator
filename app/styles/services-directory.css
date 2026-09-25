@@ -8,7 +8,7 @@
   width: 100%;
   padding: 4rem 0 4rem;
   overflow: hidden;
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
   color: var(--ft-white, #ffffff);
 }
 
@@ -23,8 +23,8 @@
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(64, 173, 170, 0.12) 0%,
-    rgba(175, 221, 220, 0.12) 100%
+    rgba(48, 108, 231, 0.12) 0%,
+    rgba(59, 130, 246, 0.1) 100%
   );
   filter: blur(6.25rem);
 }
@@ -47,7 +47,7 @@
  */
 .ft-services-directory__header h2 {
   margin: 0;
-  font-family: 'Season Serif', serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 2rem;
   font-weight: 400;
   line-height: 1;
@@ -77,7 +77,7 @@
   border: 0;
   background: transparent;
   color: var(--ft-white, #ffffff);
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 2rem;
   font-weight: 400;
   line-height: 1;
@@ -137,7 +137,7 @@
   width: 100%;
   gap: 1rem;
   color: var(--ft-white, #ffffff);
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.125rem, 2vw, 1.5rem);
   font-weight: 400;
   line-height: 1.25;
@@ -201,7 +201,7 @@ button.ft-services-directory__link {
   max-width: 60ch;
   margin: 1rem 0 0;
 
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.6;
@@ -232,7 +232,7 @@ button.ft-services-directory__link {
   margin: 0;
   padding-left: 1.25rem;
 
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   font-weight: 300;
   line-height: 1.5;
@@ -275,7 +275,7 @@ button.ft-services-directory__link {
   background: var(--ft-teal, #40adaa);
   color: var(--ft-dark-deep, #01151b);
 
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   font-weight: 400;
   text-decoration: none;
@@ -297,7 +297,7 @@ button.ft-services-directory__link {
 }
 
 .ft-services-directory__more {
-  font-family: 'Season Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
   font-weight: 300;
 

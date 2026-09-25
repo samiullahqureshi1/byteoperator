@@ -1,4 +1,4 @@
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 
 const SEO_PILLS = [
   {
@@ -6,15 +6,15 @@ const SEO_PILLS = [
     href: '/ecommerce-seo-agency/',
   },
   {
-    label: 'Shopify SEO',
+    label: 'Technical SEO & Search Architecture',
     href: '/seo-agency',
   },
   {
     label: 'CRO Services',
-    href: '/shopify-cro-agency/',
+    href: '/software-cro-agency/',
   },
   {
-    label: 'Shopify Support',
+    label: 'Software Support',
     href: '/support-and-maintenance/',
   },
 ] as const;
@@ -57,8 +57,8 @@ export function EcommerceSeoAboutStatement() {
           </span>
 
           <span className="ft-ecommerce-seo-about__guide-content">
-            <strong>Free Shopify SEO Guide</strong>
-            <span>The complete guide to ecommerce SEO on Shopify</span>
+            <strong>Free Technical SEO & Search Architecture Guide</strong>
+            <span>The complete guide to ecommerce SEO on Software</span>
           </span>
 
           <span
@@ -78,7 +78,7 @@ export function EcommerceSeoAboutStatement() {
 
         <p className="ft-ecommerce-seo-about__body">
           Ecommerce SEO requires more than improving rankings in isolation.
-          FoldTech approaches search around the structure of the store, the
+          Byte Operator approaches search around the structure of the store, the
           customer journey and the commercial value behind each page. We work
           across technical SEO, site architecture, on-page optimisation and
           content strategy to help ecommerce stores build stronger organic

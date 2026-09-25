@@ -269,10 +269,7 @@
 
   color: #ffffff;
 
-  font-family:
-    Georgia,
-    'Times New Roman',
-    serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.8125rem;
   font-weight: 400;
@@ -396,10 +393,7 @@
 
   border-radius: 50vw;
 
-  font-family:
-    Georgia,
-    'Times New Roman',
-    serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.9375rem;
   line-height: 1;
@@ -685,7 +679,7 @@
   }
 }
 /* =========================================================
-   FOLDTECH MOBILE MENU
+   BYTE OPERATOR MOBILE MENU
    Reference behaviour:
    Main menu = curtain from top
    Submenus = slide from right
@@ -815,7 +809,7 @@
 
   /*
    * Hide Hydrogen Aside header.
-   * We have our own FoldTech header.
+   * We have our own Byte Operator header.
    */
 
   aside:has(.charle-mobile-nav)
@@ -1127,7 +1121,7 @@
 
     align-items: center;
 
-    width: 7.625rem;
+    width: clamp(12.5rem, 50vw, 16.5rem);
 
     text-decoration: none;
   }
@@ -1430,10 +1424,7 @@
 
     border-radius: 0.1875rem;
 
-    font-family:
-      Georgia,
-      'Times New Roman',
-      serif;
+    font-family: Arial, Helvetica, sans-serif;
 
     font-size: 0.75rem;
     line-height: 1;
@@ -1764,10 +1755,7 @@
 
     border-radius: 50vw;
 
-    font-family:
-      Georgia,
-      'Times New Roman',
-      serif;
+    font-family: Arial, Helvetica, sans-serif;
 
     font-size: 0.875rem;
 
@@ -1830,7 +1818,7 @@
 
 
   .ft-mobile-menu__logo {
-    width: 7.1875rem;
+    width: clamp(11rem, 45vw, 14.5rem);
   }
 
 
@@ -2098,9 +2086,7 @@
 
 
 .ft-bulk-promo__title {
-  font-family:
-    'Season Sans',
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 3.5rem;
   font-weight: 300;
@@ -2114,9 +2100,7 @@
   color:
     rgba(255, 255, 255, 0.72);
 
-  font-family:
-    'Season Sans',
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.9375rem;
   line-height: 1.4;

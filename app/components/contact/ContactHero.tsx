@@ -1,3 +1,5 @@
+'use client';
+
 import {useCallback, useState} from 'react';
 import {VideoModal} from '~/components/shared/VideoModal';
 import {
@@ -31,12 +33,12 @@ export function ContactHero() {
             <div className="ft-contact-hero__left">
               <div className="ft-contact-hero__content">
                 <h1 className="ft-contact-hero__title">
-                  Let&apos;s grow your Shopify store
+                  Let&apos;s grow your digital platform
                 </h1>
 
                 <p className="ft-contact-hero__description">
                   Tell us about your goals and speak to our team about
-                  the right Shopify, SEO, CRO or ecommerce solution for
+                  the right Software, SEO, CRO or ecommerce solution for
                   your next stage of growth.
                 </p>
 

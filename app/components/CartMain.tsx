@@ -1,117 +1,36 @@
-import {useOptimisticCart, type OptimisticCartLine} from '@shopify/hydrogen';
-import {Link} from 'react-router';
-import type {CartApiQueryFragment} from 'storefrontapi.generated';
+'use client';
+
+import React from 'react';
+import {Link} from '~/lib/router-compat';
 import {useAside} from '~/components/Aside';
-import {CartLineItem, type CartLine} from '~/components/CartLineItem';
-import {CartSummary} from './CartSummary';
-import {BULK_HOURS_PATH} from './BulkHours';
 
 export type CartLayout = 'page' | 'aside';
 
-export type CartMainProps = {
-  cart: CartApiQueryFragment | null;
-  layout: CartLayout;
-};
-
-export type LineItemChildrenMap = {[parentId: string]: CartLine[]};
-/** Returns a map of all line items and their children. */
-function getLineItemChildrenMap(lines: CartLine[]): LineItemChildrenMap {
-  const children: LineItemChildrenMap = {};
-  for (const line of lines) {
-    if ('parentRelationship' in line && line.parentRelationship?.parent) {
-      const parentId = line.parentRelationship.parent.id;
-      if (!children[parentId]) children[parentId] = [];
-      children[parentId].push(line);
-    }
-    if ('lineComponents' in line) {
-      const children = getLineItemChildrenMap(line.lineComponents);
-      for (const [parentId, childIds] of Object.entries(children)) {
-        if (!children[parentId]) children[parentId] = [];
-        children[parentId].push(...childIds);
-      }
-    }
-  }
-  return children;
-}
-/**
- * The main cart component that displays the cart items and summary.
- * It is used by both the /cart route and the cart aside dialog.
- */
-export function CartMain({layout, cart: originalCart}: CartMainProps) {
-  // The useOptimisticCart hook applies pending actions to the cart
-  // so the user immediately sees feedback when they modify the cart.
-  const cart = useOptimisticCart(originalCart);
-
-  const linesCount = Boolean(cart?.lines?.nodes?.length || 0);
-  const cartHasItems = cart?.totalQuantity ? cart.totalQuantity > 0 : false;
-  const childrenMap = getLineItemChildrenMap(cart?.lines?.nodes ?? []);
-
-  return (
-    <div className="cart-main">
-      <CartEmpty hidden={linesCount} layout={layout} />
-      <div className="cart-details">
-        <p id="cart-lines" className="sr-only">
-          Line items
-        </p>
-        <div>
-          <ul aria-labelledby="cart-lines">
-            {(cart?.lines?.nodes ?? []).map((line) => {
-              // we do not render non-parent lines at the root of the cart
-              if (
-                'parentRelationship' in line &&
-                line.parentRelationship?.parent
-              ) {
-                return null;
-              }
-              return (
-                <CartLineItem
-                  key={line.id}
-                  line={line}
-                  layout={layout}
-                  childrenMap={childrenMap}
-                />
-              );
-            })}
-          </ul>
-        </div>
-        {cartHasItems && <CartSummary cart={cart} layout={layout} />}
-      </div>
-    </div>
-  );
-}
-
-function CartEmpty({
-  hidden = false,
-}: {
-  hidden: boolean;
-  layout?: CartMainProps['layout'];
-}) {
+export function CartMain({layout = 'aside'}: {cart?: any; layout?: CartLayout}) {
   const {close} = useAside();
+
   return (
-    <div className="cart-empty" hidden={hidden}>
-      <p className="cart-empty__title">Nothing in here yet.</p>
-      <p className="cart-empty__text">
-        Buy bulk hours to get your Shopify work started, or see everything
-        FoldTech can help with.
+    <div className="cart-main" style={{padding: '24px', textAlign: 'center'}}>
+      <p style={{fontSize: '18px', color: '#fff', marginBottom: '16px'}}>Your cart is currently empty.</p>
+      <p style={{fontSize: '14px', color: '#888', marginBottom: '24px'}}>
+        Explore our dedicated software development packages and consulting services.
       </p>
-      <div className="cart-empty__actions">
-        <Link
-          className="cart-button"
-          to={BULK_HOURS_PATH}
-          onClick={close}
-          prefetch="intent"
-        >
-          Buy bulk hours
-        </Link>
-        <Link
-          className="cart-button cart-button--outline"
-          to="/services"
-          onClick={close}
-          prefetch="intent"
-        >
-          Explore services
-        </Link>
-      </div>
+      <Link
+        href="/services"
+        onClick={close}
+        style={{
+          display: 'inline-block',
+          padding: '12px 24px',
+          background: '#fff',
+          color: '#000',
+          borderRadius: '100px',
+          textDecoration: 'none',
+          fontWeight: 600,
+          fontSize: '14px',
+        }}
+      >
+        Explore Services →
+      </Link>
     </div>
   );
 }

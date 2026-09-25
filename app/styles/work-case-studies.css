@@ -7,8 +7,8 @@
   width: 100%;
   padding: 1.5rem 5.33vw 1rem;
   overflow: hidden;
-  background: var(--ft-dark-deep, #01151b);
-  color: var(--ft-white, #ffffff);
+  background: var(--ft-dark-deep, #060F24);
+  color: var(--ft-text, #ffffff);
 }
 
 .ft-work-case-studies__grid {

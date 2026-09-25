@@ -1,8 +1,8 @@
 interface EcommerceSeoEducationProps {
-  html: string;
+  html?: string;
 }
 
-export function EcommerceSeoEducation({html}: EcommerceSeoEducationProps) {
+export function EcommerceSeoEducation({html = ''}: EcommerceSeoEducationProps) {
   if (!html.trim()) return null;
 
   return (

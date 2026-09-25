@@ -1,5 +1,7 @@
+'use client';
+
 import {useState, type FormEvent} from 'react';
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 
 type FormStatus =
   | 'idle'
@@ -88,19 +90,19 @@ export function HomeObservatory() {
           <div className="ft-home-observatory__eyebrow">
             <FlaskIcon />
 
-            <span>FoldTech Observatory</span>
+            <span>Byte Operator Observatory</span>
           </div>
 
           <h2
             className="ft-home-observatory__title"
             id="ft-home-observatory-title"
           >
-            The FoldTech{' '}
+            The Byte Operator{' '}
             <em>Observatory.</em>
           </h2>
 
           <p className="ft-home-observatory__description">
-  Shopify SEO, AI search data, CRO insights and ecommerce
+  Technical SEO & Search Architecture, AI search data, CRO insights and ecommerce
   news — practical ideas for growing online stores. Free,
   once a month.
 </p>

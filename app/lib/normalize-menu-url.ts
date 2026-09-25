@@ -7,7 +7,7 @@ export function normalizeMenuUrl(
   menuItemTitle?: string,
 ) {
   if (url.startsWith('/')) {
-    const parsedUrl = new URL(url, 'https://foldtech.internal');
+    const parsedUrl = new URL(url, 'https://byteoperator.internal');
 
     return normalizeInternalUrl(parsedUrl, menuItemTitle);
   }
@@ -20,7 +20,7 @@ export function normalizeMenuUrl(
 
     if (
       internalHosts.includes(parsedUrl.host) ||
-      parsedUrl.hostname.endsWith('.myshopify.com')
+      parsedUrl.hostname.endsWith('.mysoftware.com')
     ) {
       return normalizeInternalUrl(parsedUrl, menuItemTitle);
     }
@@ -32,13 +32,13 @@ export function normalizeMenuUrl(
 }
 
 function normalizeInternalUrl(url: URL, menuItemTitle?: string) {
-  // News and legacy Journal URLs supplied by Shopify are normalized to
+  // News and legacy Journal URLs supplied by Software are normalized to
   // their public /articles/* equivalents.
   const pathname = resolveCanonicalPath(url.pathname);
 
   if (url.pathname.startsWith('/pages/') && pathname === url.pathname) {
     console.warn(
-      `Missing explicit clean URL mapping for Shopify menu item${
+      `Missing explicit clean URL mapping for Software menu item${
         menuItemTitle ? ` "${menuItemTitle}"` : ''
       }: ${url.pathname}`,
     );

@@ -1,7 +1,7 @@
 import {getCaseStudyPath} from '~/lib/route-mappings';
-import {Link} from 'react-router';
-import type {WorkFeaturedProjectsQuery} from 'storefrontapi.generated';
-import {shopifyImageSrcSet} from '~/lib/shopify-cdn-image';
+import {Link} from '~/lib/router-compat';
+import type {WorkFeaturedProjectsQuery} from '~/lib/types';
+import {softwareImageSrcSet} from '~/lib/software-cdn-image';
 
 export type WorkFeaturedArticle = NonNullable<
   WorkFeaturedProjectsQuery['blog']
@@ -38,7 +38,7 @@ export function WorkFeaturedProjects({
                 <img
                   className="ft-work-featured__image"
                   src={article.image.url}
-                  srcSet={shopifyImageSrcSet(article.image.url, [
+                  srcSet={softwareImageSrcSet(article.image.url, [
                     500, 900,
                   ])}
                   sizes="(min-width: 48rem) 33vw, 80vw"
@@ -63,7 +63,7 @@ export function WorkFeaturedProjects({
                   <img
                     className="ft-work-featured__logo"
                     src={logo.url}
-                    srcSet={shopifyImageSrcSet(logo.url, [
+                    srcSet={softwareImageSrcSet(logo.url, [
                       120, 240,
                     ])}
                     sizes="120px"

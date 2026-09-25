@@ -1,3 +1,5 @@
+'use client';
+
 export type ClientLogoGridItem = {
   src: string;
   alt: string;

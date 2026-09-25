@@ -1,18 +1,16 @@
 /*
  * Case study detail — `/work/:handle` and `/case-studies/:handle`.
- * Built from the homepage hero's vocabulary (home-hero.css): Arial with tight
- * tracking, frosted rgba(255,255,255,.13) panels, the teal radial glow and
- * the white serif "Book a Call" pill.
+ * Styled with Byte Operator dark navy and electric blue theme.
  */
 
 .ft-cs {
-  --cs-bg: var(--ft-dark-deep, #01151b);
-  --cs-glass: rgba(255, 255, 255, 0.07);
-  --cs-glass-strong: rgba(255, 255, 255, 0.13);
-  --cs-line: rgba(255, 255, 255, 0.08);
-  --cs-teal: #40adaa;
-  --cs-teal-light: #afdddc;
-  --cs-muted: rgba(255, 255, 255, 0.62);
+  --cs-bg: var(--ft-dark-deep, #060F24);
+  --cs-glass: rgba(16, 25, 47, 0.7);
+  --cs-glass-strong: rgba(16, 25, 47, 0.9);
+  --cs-line: var(--ft-border, #1F2A44);
+  --cs-teal: var(--ft-primary-blue, #306CE7);
+  --cs-teal-light: var(--ft-accent-blue, #3B82F6);
+  --cs-muted: var(--ft-text-secondary, #A8B3C7);
   --cs-width: min(100% - 2 * clamp(1rem, 4vw, 2rem), 80rem);
   --cs-narrow: min(100% - 2 * clamp(1rem, 4vw, 2rem), 51.25rem);
 
@@ -52,13 +50,13 @@
   background:
     radial-gradient(
       ellipse 48% 60% at 58% 85%,
-      rgba(64, 173, 170, 0.2),
-      rgba(64, 173, 170, 0.06) 42%,
+      rgba(48, 108, 231, 0.2),
+      rgba(48, 108, 231, 0.06) 42%,
       transparent 72%
     ),
     radial-gradient(
       ellipse 42% 60% at 40% 80%,
-      rgba(17, 50, 81, 0.3),
+      rgba(16, 25, 47, 0.6),
       transparent 70%
     ),
     var(--cs-bg);
@@ -75,7 +73,7 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(64, 173, 170, 0.12),
+    rgba(48, 108, 231, 0.15),
     transparent 68%
   );
   transform: translateX(-50%);
@@ -111,18 +109,18 @@
 .ft-cs__subtitle {
   max-width: 42.5rem;
   margin-top: 1.5rem;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-size: 1.125rem;
   line-height: 1.4;
 }
 
-/* Facts bar — the homepage's frosted four-card strip. */
+/* Facts bar */
 .ft-cs__facts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
   width: var(--cs-narrow);
   margin-top: 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ft-border, #1F2A44);
   border-radius: 0.75rem;
   background: var(--cs-glass-strong);
   backdrop-filter: blur(0.4375rem);
@@ -141,7 +139,7 @@
 }
 
 .ft-cs__fact dt {
-  color: rgba(255, 255, 255, 0.58);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-size: 0.78125rem;
   letter-spacing: -0.025em;
 }
@@ -153,7 +151,7 @@
 }
 
 .ft-cs__fact a {
-  color: #fff;
+  color: var(--ft-accent-blue, #3B82F6);
   text-decoration: underline;
   text-decoration-color: var(--cs-teal);
   text-underline-offset: 0.25em;
@@ -176,10 +174,11 @@
   padding: 0 1.75rem;
   border: 0;
   border-radius: 50vw;
-  background: #fff;
-  color: #111;
-  font-family: Georgia, 'Times New Roman', serif;
+  background: var(--ft-primary-blue, #306CE7);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9375rem;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: normal;
   white-space: nowrap;
@@ -191,12 +190,12 @@
 
 .ft-cs__book:hover,
 .ft-cs__book:focus-visible {
-  background: rgba(255, 255, 255, 0.88);
+  background: var(--ft-accent-blue, #3B82F6);
   transform: translateY(-0.0625rem);
 }
 
 .ft-cs__more {
-  color: rgba(255, 255, 255, 0.58);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-size: 0.875rem;
   text-decoration: none;
   transition: color 180ms ease;
@@ -226,7 +225,6 @@
   display: block;
   width: 100%;
   height: auto;
-  /* Tall product shots would otherwise push the brief a screen down. */
   max-height: min(80vh, 45rem);
   object-fit: cover;
 }
@@ -259,10 +257,10 @@
 
 .ft-cs__chips li {
   padding: 0.45rem 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ft-border, #1F2A44);
   border-radius: 50vw;
   background: var(--cs-glass);
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--ft-text-secondary, #A8B3C7);
   font-size: 0.8125rem;
 }
 
@@ -273,12 +271,12 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   width: var(--cs-width);
   margin: 0 auto clamp(4.5rem, 11vh, 7rem);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ft-border, #1F2A44);
   border-radius: 0.75rem;
   background:
     radial-gradient(
       ellipse 60% 120% at 50% 100%,
-      rgba(64, 173, 170, 0.14),
+      rgba(48, 108, 231, 0.15),
       transparent 70%
     ),
     var(--cs-glass);
@@ -295,7 +293,6 @@
   box-shadow: -1px 0 0 var(--cs-line);
 }
 
-/* Two columns below 56rem: rule off the second row. */
 @media (max-width: 55.99rem) {
   .ft-cs__stat:nth-child(n + 3) {
     box-shadow:
@@ -310,6 +307,7 @@
   line-height: 1;
   letter-spacing: -0.06em;
   font-variant-numeric: tabular-nums;
+  color: #ffffff;
 }
 
 .ft-cs__stat span {
@@ -365,23 +363,24 @@
   flex-direction: column;
   gap: 0.75rem;
   padding: clamp(1.5rem, 2.5vw, 2rem);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ft-border, #1F2A44);
   border-radius: 0.75rem;
-  background: var(--cs-glass);
+  background: var(--ft-dark, #10192F);
   transition:
     background-color 180ms ease,
     border-color 180ms ease;
 }
 
 .ft-cs__points li:hover {
-  border-color: rgba(64, 173, 170, 0.35);
-  background: rgba(64, 173, 170, 0.08);
+  border-color: var(--ft-primary-blue, #306CE7);
+  background: rgba(48, 108, 231, 0.1);
 }
 
 .ft-cs__points h3 {
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.25;
+  color: #ffffff;
 }
 
 .ft-cs__points p {

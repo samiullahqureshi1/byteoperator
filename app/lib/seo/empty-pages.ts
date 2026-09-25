@@ -24,7 +24,7 @@ export const KNOWN_EMPTY_PAGE_PATHS: ReadonlySet<string> = new Set([
   '/pages/ai-visibility-implementation',  // linked from a live menu
   '/pages/ai-visibility-monitoring',  // linked from a live menu
   '/pages/analytics-tracking',
-  '/pages/bigcommerce-to-shopify-migration',  // linked from a live menu
+  '/pages/bigcommerce-to-software-migration',  // linked from a live menu
   '/pages/branding-creative-direction',
   '/pages/cart-drawer',
   '/pages/case-studies-1',
@@ -32,14 +32,14 @@ export const KNOWN_EMPTY_PAGE_PATHS: ReadonlySet<string> = new Set([
   '/pages/custom-store-project',
   '/pages/digital-branding-creative-direction-services',
   '/pages/free-ai-visibility-snapshot',  // linked from a live menu
-  '/pages/free-shopify-audit',
+  '/pages/free-software-audit',
   '/pages/funnel-building-lead-generation',
   '/pages/getting-started',
   '/pages/join-our-newsletter',  // linked from a live menu
   '/pages/launch',
   '/pages/lead-generation-services-and-funnel-building',
   '/pages/learn-more',
-  '/pages/magento-to-shopify-migration',
+  '/pages/magento-to-software-migration',
   '/pages/marketing-analytics-and-tracking',
   '/pages/marketing-automation',
   '/pages/marketing-sales',
@@ -50,29 +50,29 @@ export const KNOWN_EMPTY_PAGE_PATHS: ReadonlySet<string> = new Set([
   '/pages/reviews',  // linked from a live menu
   '/pages/search',
   '/pages/search-engine-optimization-seo',
-  '/pages/shopify-app-development-services',
-  '/pages/shopify-conversion-rate-optimization',
-  '/pages/shopify-custom-solutions',
-  '/pages/shopify-design-services',  // linked from a live menu
-  '/pages/shopify-development-services-1',  // linked from a live menu
-  '/pages/shopify-maintenance-services-1',
-  '/pages/shopify-marketing-automation',
-  '/pages/shopify-marketing-seo',
-  '/pages/shopify-marketing-services',  // linked from a live menu
-  '/pages/shopify-migration-services',
-  '/pages/shopify-paid-social',
-  '/pages/shopify-plus-partner-agency',
-  '/pages/shopify-seo-services',
-  '/pages/shopify-speed-optimization',  // linked from a live menu
-  '/pages/shopify-theme-customization',
+  '/pages/software-app-development-services',
+  '/pages/software-conversion-rate-optimization',
+  '/pages/software-custom-solutions',
+  '/pages/software-design-services',  // linked from a live menu
+  '/pages/software-development-services-1',  // linked from a live menu
+  '/pages/software-maintenance-services-1',
+  '/pages/software-marketing-automation',
+  '/pages/software-marketing-seo',
+  '/pages/software-marketing-services',  // linked from a live menu
+  '/pages/software-migration-services',
+  '/pages/software-paid-social',
+  '/pages/software-plus-partner-agency',
+  '/pages/software-seo-services',
+  '/pages/software-speed-optimization',  // linked from a live menu
+  '/pages/software-theme-customization',
   '/pages/sitelab-helpdesk',
   '/pages/testimonials',
   '/pages/the-fold-tech-approach-to-cro',
   '/pages/website-audit-service',
   '/pages/website-audit-services',
-  '/pages/wix-to-shopify-migration-1',
-  '/pages/woocommerce-to-shopify',
-  '/pages/woocommerce-to-shopify-migration',
+  '/pages/wix-to-software-migration-1',
+  '/pages/woocommerce-to-software',
+  '/pages/woocommerce-to-software-migration',
 ]);
 
 /**
@@ -95,7 +95,7 @@ export function isKnownEmptyPage(pathname: string): boolean {
  * in the empty list because it renders nothing *today*; it belongs here only
  * when there is also nothing coming.
  *
- * The 18 `/pages/cs-*` case studies had their copy restored in Shopify
+ * The 18 `/pages/cs-*` case studies had their copy restored in Software
  * (September 2026) and were removed from the empty list above.
  *
  * `/careers` and `/events` have nothing to recover and nothing pending.
@@ -107,7 +107,7 @@ export const NOINDEX_PAGE_PATHS: ReadonlySet<string> = new Set([
   '/careers',
   '/events',
   // A private client proposal (named client + pricing), not marketing copy.
-  // Unpublish it in Shopify; until then keep it out of search and the sitemap.
+  // Unpublish it in Software; until then keep it out of search and the sitemap.
   '/pages/digital-growth-e-commerce-infrastructure-proposal-10867',
 ]);
 

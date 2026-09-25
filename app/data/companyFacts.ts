@@ -1,17 +1,17 @@
 /* =========================================================
-   FOLDTECH — APPROVED FACTS REGISTER
+   BYTE OPERATOR — APPROVED FACTS REGISTER
 
    The only company statistics published anywhere on the site.
 
    Every surface that shows a company figure reads from here:
    the homepage, the About page, the contact hero, the SEO
-   results block, the Shopify Plus hero chips. Before this
+   results block, the Enterprise Platform Solutions hero chips. Before this
    existed the homepage said 16,500+ stores and the About page
    said 150+ — both live, on the same domain, 110x apart.
 
    Adding a figure here publishes it. If it cannot be evidenced
    against a contract, a third-party platform record or the
-   Shopify Partner Directory, it does not go in.
+   Software Engineering Partner Directory, it does not go in.
 ========================================================= */
 
 export type CompanyFact = {
@@ -54,8 +54,8 @@ export const COMPANY_FACTS = {
     suffix: '/5.0',
     decimals: 1,
     description:
-      'Our rating on the Shopify Partner Directory across 414 client reviews — a record built on delivered work rather than marketing claims.',
-    evidence: 'Shopify Partner Directory',
+      'Our rating on the Software Engineering Partner Directory across 414 client reviews — a record built on delivered work rather than marketing claims.',
+    evidence: 'Software Engineering Partner Directory',
   },
 
   engagements: {
@@ -102,7 +102,7 @@ export const COMPANY_FACTS = {
     suffix: '',
     decimals: 0,
     description:
-      'Brands supported between 2015 and 2026 across build, migration, search and conversion work, from growth-stage merchants through to Shopify Plus operations.',
+      'Brands supported between 2015 and 2026 across build, migration, search and conversion work, from growth-stage merchants through to Enterprise Platform Solutions operations.',
     evidence: 'Internal contract export, 2015-2026',
   },
 
@@ -132,14 +132,14 @@ export const COMPANY_FACTS = {
 
   partnerSince: {
     value: '2016',
-    label: 'Shopify Partner Since',
+    label: 'Software Engineering Partner Since',
     target: 2016,
     prefix: '',
     suffix: '',
     decimals: 0,
     description:
-      'A Shopify Partner since January 2016, and a Shopify Plus Partner and Shopify Expert since.',
-    evidence: 'Shopify Partner Directory',
+      'A Software Engineering Partner since January 2016, and a Enterprise Software Partner and Software Engineering Expert since.',
+    evidence: 'Software Engineering Partner Directory',
   },
 
   founded: {

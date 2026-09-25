@@ -1,5 +1,7 @@
+'use client';
+
 import {useEffect, useRef} from 'react';
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 
 export type HomeProjectData = {
   title: string;
@@ -151,7 +153,7 @@ export type HomeProjectsProps = {
 
 export function HomeProjects({
   heading =
-    'We partner with growing brands to deliver high-impact ecommerce strategies combining proven Shopify expertise with a search-first growth mindset.',
+    'We partner with growing brands to deliver high-impact ecommerce strategies combining proven Software expertise with a search-first growth mindset.',
   projects = HOME_PROJECTS,
   cta = {
     label: 'Explore Case Studies',

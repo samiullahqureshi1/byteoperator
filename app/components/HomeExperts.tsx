@@ -1,4 +1,4 @@
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 
 const EXPERT_MEDIA = [
   {
@@ -42,10 +42,10 @@ export type HomeExpertsProps = {
 
 
 export function HomeExperts({
-  eyebrow = 'Shopify experts',
-  heading = 'Let\'s talk ecommerce, Shopify & Shopify Plus solutions.',
+  eyebrow = 'Software experts',
+  heading = 'Let\'s talk ecommerce, Software & Enterprise Platform Solutions solutions.',
   description = [
-    'FoldTech helps ecommerce brands build, improve, and grow Shopify stores. We support new builds, migrations, ongoing development, SEO, and conversion optimisation.',
+    'Byte Operator helps ecommerce brands build, improve, and grow digital platforms & applications. We support new builds, migrations, ongoing development, SEO, and conversion optimisation.',
     'Our team can help plan the right approach based on your store, goals, and current challenges.',
   ],
   ctaLabel = 'Get in touch',

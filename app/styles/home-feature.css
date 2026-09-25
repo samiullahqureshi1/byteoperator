@@ -1,5 +1,5 @@
 /* =========================================================
-   FOLDTECH — REUSABLE HOME FEATURE
+   BYTE OPERATOR — REUSABLE HOME FEATURE
 ========================================================= */
 
 .ft-home-feature {
@@ -16,7 +16,7 @@
 
   overflow: hidden;
 
-  background: #000000;
+  background: var(--ft-dark-deep, #060F24);
   color: #ffffff;
 }
 
@@ -57,18 +57,18 @@
 ========================================================= */
 
 .ft-home-feature--dark {
-  background: #000000;
+  background: var(--ft-dark-deep, #060F24);
   color: #ffffff;
 }
 
 .ft-home-feature--light {
-  background: #ffffff;
-  color: #000000;
+  background: var(--ft-dark, #10192F);
+  color: #ffffff;
 }
 
 
 /* =========================================================
-   HOMEPAGE — FOLDTECH DARK BACKGROUND
+   HOMEPAGE — BYTE OPERATOR DARK BACKGROUND
 
    Scoped to the homepage wrapper only, since this component
    is reused on other pages (Services, Shopify Plus) which
@@ -76,11 +76,12 @@
 ========================================================= */
 
 .home > .ft-home-feature--dark {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 .home > .ft-home-feature--dark .ft-home-feature__badge {
-  background: var(--ft-dark, #041f27);
+  background: var(--ft-dark, #10192F);
+  border: 1px solid #1F2A44;
 }
 
 
@@ -243,9 +244,7 @@
 .ft-home-feature__caption-title {
   margin: 0;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 1.125rem;
   font-weight: 500;
@@ -259,9 +258,7 @@
 .ft-home-feature__caption-text {
   margin: 0;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.9375rem;
   font-weight: 400;
@@ -306,9 +303,7 @@
 .ft-home-feature__eyebrow {
   margin: 0;
 
-  font-family:
-    "Season Serif",
-    serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 1rem;
   font-weight: 400;
@@ -376,9 +371,7 @@
 
   margin: 0;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 2.125rem;
   font-weight: 400;
@@ -427,9 +420,7 @@
 
   background: #151515;
 
-  font-family:
-    "Season Serif",
-    serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.875rem;
   font-weight: 400;
@@ -474,9 +465,7 @@
 
   margin: 0;
 
-  font-family:
-    "Season Sans",
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.9375rem;
   font-weight: 400;
@@ -534,12 +523,10 @@
 
   border-radius: 999vw;
 
-  background: #ffffff;
-  color: #000000;
+  background: #306CE7;
+  color: #ffffff;
 
-  font-family:
-    "Season Serif",
-    serif;
+  font-family: Arial, Helvetica, sans-serif;
 
   font-size: 0.9375rem;
   font-weight: 400;
@@ -550,18 +537,27 @@
   text-decoration: none;
 
   transition:
-    opacity 0.5s
-      cubic-bezier(
-        0.4,
-        0,
-        0.2,
-        1
-      );
+    background-color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.ft-home-feature__button:hover,
+.ft-home-feature__button:focus-visible {
+  background: #3B82F6;
+  color: #ffffff;
 }
 
 .ft-home-feature--light
   .ft-home-feature__button {
-  background: #000000;
+  background: #306CE7;
+  color: #ffffff;
+}
+
+.ft-home-feature--light
+  .ft-home-feature__button:hover,
+.ft-home-feature--light
+  .ft-home-feature__button:focus-visible {
+  background: #3B82F6;
   color: #ffffff;
 }
 

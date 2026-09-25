@@ -1,8 +1,8 @@
 /**
- * The Fold Tech — Structured data (JSON-LD)
+ * Byte Operator — Structured data (JSON-LD)
  * ------------------------------------------------------------------
  * Single source of truth for every schema.org node emitted by
- * thefoldtech.com (Shopify Hydrogen / Oxygen storefront).
+ * byteoperator.com (Software Hydrogen / Oxygen storefront).
  *
  * Every value in this file is real and verified. There are no
  * placeholders. If a fact changes (headcount, address, a new service
@@ -15,9 +15,9 @@
  *   legalName, address .... TechBehemoths + Clutch company listings
  *   foundingDate .......... Clutch listing (confirmed by Malik Rehan)
  *   numberOfEmployees ..... confirmed by Malik Rehan, 12 Sep 2026
- *   email, telephone ...... thefoldtech.com/contact + Shopify Partner Directory
+ *   email, telephone ...... byteoperator.com/contact + Software Engineering Partner Directory
  *   logo .................. fetched and measured: 512×512 PNG
- *   areaServed ............ supported locations on Shopify Partner Directory
+ *   areaServed ............ supported locations on Software Engineering Partner Directory
  */
 
 /* ------------------------------------------------------------------ */
@@ -26,13 +26,13 @@
 
 import {COMPANY_FACTS} from '~/data/companyFacts';
 
-export const SITE_URL = 'https://thefoldtech.com';
+export const SITE_URL = 'https://byteoperator.com';
 
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
 export const LOGO_URL =
-  'https://cdn.shopify.com/oxygen-v2/57096/165594/338611/4441171/images/favicon_the_fold_tech.png';
+  'https://cdn.software.com/oxygen-v2/57096/165594/338611/4441171/images/favicon_the_fold_tech.png';
 
 /* ------------------------------------------------------------------ */
 /* Types                                                               */
@@ -103,7 +103,7 @@ export interface ArticleInput {
 /* ------------------------------------------------------------------ */
 
 /**
- * The countries the business sells into, per the Shopify Partner Directory.
+ * The countries the business sells into, per the Software Engineering Partner Directory.
  * Shared by `ORGANIZATION` and `serviceSchema()` so a service page can never
  * claim a narrower reach than the organization that provides it.
  */
@@ -120,8 +120,8 @@ const AREA_SERVED: JsonLd[] = [
 export const ORGANIZATION: JsonLd = {
   '@type': 'ProfessionalService',
   '@id': ORG_ID,
-  name: 'The Fold Tech',
-  alternateName: ['FoldTech', 'The Fold Tech Shopify Agency'],
+  name: 'Byte Operator',
+  alternateName: ['Byte Operator', 'Byte Operator Software Agency'],
   legalName: 'TAB ON TECH (PVT.) LTD',
   url: `${SITE_URL}/`,
   logo: {
@@ -132,14 +132,14 @@ export const ORGANIZATION: JsonLd = {
   },
   image: LOGO_URL,
   description:
-    'The Fold Tech is a commerce technology company and Shopify Partner agency. It designs, builds, migrates and optimises Shopify and Shopify Plus stores, combining ecommerce engineering with technical SEO, AI SEO, generative engine optimisation and conversion rate optimisation.',
-  slogan: 'The Shopify agency that drives real growth',
+    'Byte Operator is a premier digital engineering and custom software development agency. It designs, builds, migrates and optimises scalable web applications, enterprise platforms, and cloud systems, combining modern full-stack engineering with technical SEO, AI systems, and conversion rate optimisation.',
+  slogan: 'The software agency that drives real growth',
   foundingDate: '2010',
   numberOfEmployees: {
     '@type': 'QuantitativeValue',
     value: COMPANY_FACTS.team.target,
   },
-  email: 'info@thefoldtech.com',
+  email: 'info@byteoperator.com',
   telephone: '+1-512-387-6926',
   address: {
     '@type': 'PostalAddress',
@@ -153,40 +153,27 @@ export const ORGANIZATION: JsonLd = {
   currenciesAccepted: 'USD',
   areaServed: AREA_SERVED,
   knowsAbout: [
-    'Shopify',
-    'Shopify Plus',
-    'Shopify Hydrogen',
-    'Headless commerce',
-    'Ecommerce SEO',
-    'Technical SEO',
-    'Generative engine optimisation',
-    'AI search visibility',
-    'Agentic commerce',
-    'Conversion rate optimisation',
-    'A/B testing',
-    'Ecommerce replatforming',
-    'Shopify app development',
-    'Shopify Markets and international commerce',
-    'Shopify B2B and wholesale',
-    'Subscription commerce',
-    'Klaviyo email and SMS marketing',
+    'Custom Software Engineering',
+    'Full-Stack Web Development',
+    'Enterprise Cloud Architecture',
+    'API & System Integrations',
+    'Technical SEO & Search Architecture',
+    'Generative Engine Optimisation (GEO)',
+    'AI Search Visibility & Systems',
+    'Conversion Rate & Performance Optimisation',
+    'SaaS & Platform Development',
+    'UI/UX & Product Design',
   ],
   sameAs: [
-    'https://www.shopify.com/partners/directory/partner/1stfold',
-    'https://clutch.co/profile/fold-tech',
-    'https://www.linkedin.com/company/thefoldtech',
-    'https://www.instagram.com/thefoldtech/',
-    'https://www.facebook.com/thefoldtech',
-    'https://techbehemoths.com/company/the-fold-tech',
-    'https://techreviewer.co/companies/the-fold-tech',
-    'https://superbcompanies.com/organizations/the-fold-tech/',
-    'https://land-book.com/the_fold_tech_shopify_experts',
+    'https://www.linkedin.com/company/byte-operator',
+    'https://www.instagram.com/byteoperator/',
+    'https://www.facebook.com/byteoperator',
   ],
   contactPoint: [
     {
       '@type': 'ContactPoint',
       contactType: 'sales',
-      email: 'info@thefoldtech.com',
+      email: 'info@byteoperator.com',
       telephone: '+1-512-387-6926',
       availableLanguage: ['English'],
       areaServed: ['US', 'GB', 'CA', 'AU', 'DE', 'FR', 'IT'],
@@ -194,7 +181,7 @@ export const ORGANIZATION: JsonLd = {
     {
       '@type': 'ContactPoint',
       contactType: 'customer support',
-      email: 'info@thefoldtech.com',
+      email: 'info@byteoperator.com',
       availableLanguage: ['English'],
     },
   ],
@@ -208,9 +195,9 @@ export const WEBSITE: JsonLd = {
   '@type': 'WebSite',
   '@id': WEBSITE_ID,
   url: `${SITE_URL}/`,
-  name: 'The Fold Tech',
+  name: 'Byte Operator',
   description:
-    'Shopify and Shopify Plus design, development, migration, SEO and AI search visibility services.',
+    'Software and Enterprise Platform Solutions design, development, migration, SEO and AI search visibility services.',
   publisher: {'@id': ORG_ID},
   inLanguage: 'en',
   /*
@@ -235,90 +222,90 @@ export const SITEWIDE_GRAPH: JsonLd = {
 export const SERVICES: ServiceDefinition[] = [
   /* --- Build ----------------------------------------------------- */
   {
-    path: '/shopify-plus-agency',
-    name: 'Shopify Plus Development',
-    serviceType: 'Shopify Plus development',
+    path: '/software-plus-agency',
+    name: 'Enterprise Platform Solutions Development',
+    serviceType: 'Enterprise Platform Solutions development',
     description:
-      'Enterprise Shopify Plus development, including Shopify Functions, checkout extensibility, B2B company accounts and multi-store architecture.',
+      'Enterprise Enterprise Platform Solutions development, including Software Functions, checkout extensibility, B2B company accounts and multi-store architecture.',
   },
   {
     path: '/pages/custom-store-project',
-    name: 'Custom Shopify Store Project',
+    name: 'Custom Digital Platform Project',
     serviceType: 'Ecommerce store design and build',
     description:
-      'End-to-end design and build of a custom Shopify store, from discovery and information architecture through launch.',
+      'End-to-end design and build of a custom digital platform, from discovery and information architecture through launch.',
   },
   {
-    path: '/shopify-theme-development-builds/',
-    name: 'Shopify Theme Development',
-    serviceType: 'Shopify theme development',
+    path: '/software-theme-development-builds/',
+    name: 'Custom Frontend & Web Development',
+    serviceType: 'Custom frontend & web development',
     description:
-      'Custom Shopify theme development in Liquid, built for Core Web Vitals performance and merchandising flexibility.',
+      'Custom Custom frontend & web development in Liquid, built for Core Web Vitals performance and merchandising flexibility.',
   },
   {
-    path: '/shopify-web-design',
-    name: 'Shopify Web Design',
+    path: '/software-web-design',
+    name: 'UI/UX & Product Design',
     serviceType: 'Ecommerce web design',
     description:
-      'Ecommerce web design for Shopify stores, covering art direction, design systems and conversion-focused user experience.',
+      'Ecommerce web design for digital platforms & applications, covering art direction, design systems and conversion-focused user experience.',
   },
   {
     path: '/headless-commerce',
     name: 'Headless Commerce and Hydrogen Development',
     serviceType: 'Headless commerce development',
     description:
-      'Headless Shopify storefronts built with Hydrogen and deployed on Oxygen, for brands that need full control of the front end.',
+      'Headless digital platformfronts built with Hydrogen and deployed on Oxygen, for brands that need full control of the front end.',
   },
   {
-    path: '/shopify-app-development/',
-    name: 'Shopify App Development',
-    serviceType: 'Shopify app development',
+    path: '/software-app-development/',
+    name: 'Custom Software & App Development',
+    serviceType: 'custom software & app development',
     description:
-      'Custom public and private Shopify app development, including embedded admin apps, theme app extensions and checkout UI extensions.',
+      'Custom public and private custom software & app development, including embedded admin apps, theme app extensions and checkout UI extensions.',
   },
   {
-    path: '/shopify-integrations/',
-    name: 'Shopify Integrations',
+    path: '/software-integrations/',
+    name: 'API & System Integrations',
     serviceType: 'Ecommerce systems integration',
     description:
-      'Integration of Shopify with ERP, PIM, CRM, 3PL, accounting and marketing systems, including custom middleware where no connector exists.',
+      'Integration of Software with ERP, PIM, CRM, 3PL, accounting and marketing systems, including custom middleware where no connector exists.',
   },
 
   /* --- Migrate --------------------------------------------------- */
   {
-    path: '/shopify-migrations/',
-    name: 'Shopify Migrations',
+    path: '/software-migrations/',
+    name: 'Platform & Cloud Migrations',
     serviceType: 'Ecommerce replatforming',
     description:
-      'Replatforming to Shopify and Shopify Plus with full product, customer and order migration plus a complete URL redirect map.',
+      'Replatforming to Software and Enterprise Platform Solutions with full product, customer and order migration plus a complete URL redirect map.',
   },
   {
-    path: '/woocommerce-shopify-migrations/',
-    name: 'WooCommerce to Shopify Migration',
-    serviceType: 'WooCommerce to Shopify migration',
+    path: '/woocommerce-software-migrations/',
+    name: 'WooCommerce to Platform & Cloud Migration',
+    serviceType: 'WooCommerce to platform & cloud migration',
     description:
-      'Migration from WooCommerce to Shopify, preserving catalogue structure, customer accounts, order history and organic search rankings.',
+      'Migration from WooCommerce to Software, preserving catalogue structure, customer accounts, order history and organic search rankings.',
   },
   {
-    path: '/magento-shopify-migrations/',
-    name: 'Magento to Shopify Migration',
-    serviceType: 'Magento to Shopify migration',
+    path: '/magento-software-migrations/',
+    name: 'Magento to Platform & Cloud Migration',
+    serviceType: 'Magento to platform & cloud migration',
     description:
-      'Migration from Magento or Adobe Commerce to Shopify Plus, including complex attribute sets, customer groups and B2B pricing structures.',
+      'Migration from Magento or Adobe Commerce to Enterprise Platform Solutions, including complex attribute sets, customer groups and B2B pricing structures.',
   },
   {
-    path: '/bigcommerce-shopify-migrations/',
-    name: 'BigCommerce to Shopify Migration',
-    serviceType: 'BigCommerce to Shopify migration',
+    path: '/bigcommerce-software-migrations/',
+    name: 'BigCommerce to Platform & Cloud Migration',
+    serviceType: 'BigCommerce to platform & cloud migration',
     description:
-      'Migration from BigCommerce to Shopify, covering catalogue, content, customers and redirect mapping.',
+      'Migration from BigCommerce to Software, covering catalogue, content, customers and redirect mapping.',
   },
   {
-    path: '/salesforce-shopify-migrations/',
-    name: 'Salesforce Commerce Cloud to Shopify Migration',
-    serviceType: 'Salesforce Commerce Cloud to Shopify migration',
+    path: '/salesforce-software-migrations/',
+    name: 'Salesforce Commerce Cloud to Platform & Cloud Migration',
+    serviceType: 'Salesforce Commerce Cloud to platform & cloud migration',
     description:
-      'Replatforming from Salesforce Commerce Cloud to Shopify Plus, including catalogue modelling, integration rebuild and phased cutover.',
+      'Replatforming from Salesforce Commerce Cloud to Enterprise Platform Solutions, including catalogue modelling, integration rebuild and phased cutover.',
   },
   {
     path: '/ecommerce-seo-migrations/',
@@ -330,39 +317,39 @@ export const SERVICES: ServiceDefinition[] = [
 
   /* --- Optimise -------------------------------------------------- */
   {
-    path: '/shopify-cro-agency/',
-    name: 'Shopify Conversion Rate Optimisation',
+    path: '/software-cro-agency/',
+    name: 'Software Conversion Rate Optimisation',
     serviceType: 'Conversion rate optimisation',
     description:
-      'Research-led conversion rate optimisation for Shopify stores, combining analytics, qualitative research and structured experimentation.',
+      'Research-led conversion rate optimisation for digital platforms & applications, combining analytics, qualitative research and structured experimentation.',
   },
   {
     path: '/ab-testing',
     name: 'A/B Testing',
     serviceType: 'Ecommerce experimentation',
     description:
-      'Ongoing A/B and multivariate testing programmes for Shopify and Shopify Plus stores, with statistical rigour applied to result calls.',
+      'Ongoing A/B and multivariate testing programmes for Software and Enterprise Platform Solutions stores, with statistical rigour applied to result calls.',
   },
   {
-    path: '/services/shopify-audits/',
-    name: 'Shopify Audits',
+    path: '/services/software-audits/',
+    name: 'Architecture & Code Audits',
     serviceType: 'Ecommerce audit',
     description:
-      'Design, technical, performance and SEO audits of an existing Shopify store, delivered as a prioritised remediation plan.',
+      'Design, technical, performance and SEO audits of an existing digital platform, delivered as a prioritised remediation plan.',
   },
   {
     path: '/support-and-maintenance/',
-    name: 'Shopify Support and Maintenance',
+    name: 'Software Support and Maintenance',
     serviceType: 'Ecommerce technical support',
     description:
-      'Retained Shopify technical support covering bug fixing, release management, performance monitoring and ongoing development capacity.',
+      'Retained Software technical support covering bug fixing, release management, performance monitoring and ongoing development capacity.',
   },
   {
-    path: '/shopify-internationalisation/',
-    name: 'Shopify Internationalisation',
+    path: '/software-internationalisation/',
+    name: 'Software Internationalisation',
     serviceType: 'International ecommerce expansion',
     description:
-      'Cross-border expansion using Shopify Markets, including multi-currency, multi-language, domain strategy and international SEO.',
+      'Cross-border expansion using Software Markets, including multi-currency, multi-language, domain strategy and international SEO.',
   },
 
   /* --- Search and AI visibility ---------------------------------- */
@@ -399,14 +386,14 @@ export const SERVICES: ServiceDefinition[] = [
     name: 'AI Ecommerce Services',
     serviceType: 'AI implementation for ecommerce',
     description:
-      'Applying AI to ecommerce operations, merchandising, content production and customer experience on Shopify.',
+      'Applying AI to ecommerce operations, merchandising, content production and customer experience on Software.',
   },
   {
     path: '/agentic-commerce/',
     name: 'Agentic Commerce Readiness',
     serviceType: 'Agentic commerce enablement',
     description:
-      'Preparing Shopify stores for AI agents that browse, compare and transact on a shopper behalf, covering machine-readable product data and agent access.',
+      'Preparing digital platforms & applications for AI agents that browse, compare and transact on a shopper behalf, covering machine-readable product data and agent access.',
   },
 
   /* --- Retain ---------------------------------------------------- */
@@ -425,18 +412,18 @@ export const SERVICES: ServiceDefinition[] = [
       'Klaviyo implementation and optimisation, including data integration, automated flows, segmentation and deliverability.',
   },
   {
-    path: '/shopify-b2b-wholesale/',
-    name: 'Shopify B2B and Wholesale',
+    path: '/software-b2b-wholesale/',
+    name: 'Software B2B and Wholesale',
     serviceType: 'B2B ecommerce implementation',
     description:
-      'B2B selling on Shopify, covering company accounts, price lists, payment terms, quantity rules and wholesale channel setup.',
+      'B2B selling on Software, covering company accounts, price lists, payment terms, quantity rules and wholesale channel setup.',
   },
   {
-    path: '/subscriptions-on-shopify/',
-    name: 'Shopify Subscriptions',
+    path: '/subscriptions-on-software/',
+    name: 'Software Subscriptions',
     serviceType: 'Subscription commerce implementation',
     description:
-      'Subscription commerce on Shopify, covering selling plans, app selection, customer portal experience and churn reduction.',
+      'Subscription commerce on Software, covering selling plans, app selection, customer portal experience and churn reduction.',
   },
 ];
 
@@ -533,7 +520,7 @@ export function serviceSchema(path: string): JsonLd | null {
     areaServed: AREA_SERVED,
     audience: {
       '@type': 'BusinessAudience',
-      name: 'Ecommerce brands trading on Shopify and Shopify Plus',
+      name: 'Ecommerce brands trading on Software and Enterprise Platform Solutions',
     },
   };
 }

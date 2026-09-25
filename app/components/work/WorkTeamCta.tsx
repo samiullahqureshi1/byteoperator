@@ -1,27 +1,27 @@
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 
 const TEAM_IMAGES = [
   {
     src: '/images/work/team/01.webp',
-    alt: 'FoldTech team member at work',
+    alt: 'Byte Operator team member at work',
     width: 400,
     height: 400,
   },
   {
     src: '/images/work/team/02.webp',
-    alt: 'FoldTech team collaborating',
+    alt: 'Byte Operator team collaborating',
     width: 600,
     height: 750,
   },
   {
     src: '/images/work/team/03.webp',
-    alt: 'FoldTech team in the studio',
+    alt: 'Byte Operator team in the studio',
     width: 1536,
     height: 2752,
   },
   {
     src: '/images/work/team/04.webp',
-    alt: 'FoldTech team reviewing a project',
+    alt: 'Byte Operator team reviewing a project',
     width: 1024,
     height: 1024,
   },
@@ -55,11 +55,11 @@ export function WorkTeamCta() {
           </p>
 
           <h2 className="ft-work-team__title" id="ft-work-team-title">
-            Shopify Specialists for Scalable Growth Turning Shopify Stores into Revenue Engines
+            Software Specialists for Scalable Growth Turning Digital Platforms into Revenue Engines
           </h2>
 
           <p className="ft-work-team__description">
-            From custom Shopify builds and ongoing technical support to
+            From custom custom software builds and ongoing technical support to
             data-driven conversion optimisation, organic search growth and
             retention marketing, our team delivers specialised expertise at every
             stage of the ecommerce journey. We help brands increase traffic, raise

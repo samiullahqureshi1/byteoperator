@@ -1,5 +1,7 @@
+'use client';
+
 import {useState} from 'react';
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 import {ClientProof} from '~/components/shared/ClientProof';
 import {WORK_HERO_LOGOS, WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
 import {TRACK_RECORD_FACTS} from '~/data/companyFacts';
@@ -11,7 +13,7 @@ import {
 } from './EcommerceSeoProofStrip';
 
 /* =========================================================
-   FOLDTECH — ECOMMERCE SEO HERO
+   BYTE OPERATOR — ECOMMERCE SEO HERO
 
    Bespoke hero markup. The shared CountUpNumber / ClientProof
    components are intentionally not reused here: their DOM and
@@ -23,7 +25,7 @@ const STATS = TRACK_RECORD_FACTS;
 /**
  * Social proof strip items.
  *
- * Only verified FoldTech proof data may be listed here. No verified
+ * Only verified Byte Operator proof data may be listed here. No verified
  * credential-style proof points (ratings, partner status, founding year,
  * keyword counts) currently exist in the repository, so the strip stays
  * disabled until real data is supplied.
@@ -56,7 +58,7 @@ type EcommerceSeoHeroProps = {
 export function EcommerceSeoHero({
   croInteractive = false,
   ctaLabel = 'Talk to our SEO team',
-  description = 'FoldTech helps ecommerce brands improve organic visibility through technical SEO, content strategy, on-page optimisation, ecommerce architecture and search-led growth work.',
+  description = 'Byte Operator helps ecommerce brands improve organic visibility through technical SEO, content strategy, on-page optimisation, ecommerce architecture and search-led growth work.',
   pillLabel = 'Looking to improve AI visibility? Explore AI SEO',
   pillTo = '/ai-seo-agency/',
   secondaryCta,
@@ -75,7 +77,7 @@ export function EcommerceSeoHero({
 
         <div className="ft-ecommerce-seo-hero__inner">
           <p className="ft-ecommerce-seo-hero__brand">
-            <span>FoldTech</span>
+            <span>Byte Operator</span>
 
             <img
               src="/images/home-services/badges/logo-search-white.svg"
@@ -102,7 +104,7 @@ export function EcommerceSeoHero({
               {showStats ? (
                 <dl
                   className="ft-ecommerce-seo-hero__stats"
-                  aria-label="FoldTech results"
+                  aria-label="Byte Operator results"
                 >
                   {STATS.map((stat) => (
                     <div

@@ -1,85 +1,14 @@
+'use client';
+
 import {useState} from 'react';
+import {
+  PARTNER_LOGOS,
+  CONTACT_PARTNER_LOGOS,
+  ECOMMERCE_SEO_PARTNER_LOGOS,
+  type PartnerLogo,
+} from '~/data/partnerLogos';
 
-/* =========================================================
-   FOLDTECH — HOME PARTNERS
-========================================================= */
-
-const PARTNER_LOGOS = [
-  {
-    src: '/images/home-partners/shopify.svg',
-    alt: 'Shopify',
-    width: 160,
-    height: 36,
-  },
-  {
-    src: '/images/home-partners/shopify-plus.svg',
-    alt: 'Shopify Plus',
-    width: 176,
-    height: 36,
-  },
-  {
-    src: '/images/home-partners/bigcommerce.svg',
-    alt: 'BigCommerce',
-    width: 160,
-    height: 36,
-  },
-  {
-    src: '/images/home-partners/woocommerce.svg',
-    alt: 'WooCommerce',
-    width: 160,
-    height: 36,
-  },
-  {
-    src: '/images/home-partners/magento.svg',
-    alt: 'Magento',
-    width: 160,
-    height: 36,
-  },
-  {
-    src: '/images/home-partners/salesforce-commerce-cloud.svg',
-    alt: 'Salesforce Commerce Cloud',
-    width: 160,
-    height: 36,
-  },
-  {
-    src: '/images/home-partners/shopware.svg',
-    alt: 'Shopware',
-    width: 160,
-    height: 36,
-  },
-  {
-    src: '/images/home-partners/prestashop.svg',
-    alt: 'PrestaShop',
-    width: 160,
-    height: 36,
-  },
-  {
-    src: '/images/home-partners/opencart.svg',
-    alt: 'OpenCart',
-    width: 160,
-    height: 36,
-  },
-  {
-    src: '/images/home-partners/squarespace.svg',
-    alt: 'Squarespace',
-    width: 160,
-    height: 36,
-  },
-  {
-    src: '/images/home-partners/wix.svg',
-    alt: 'Wix',
-    width: 160,
-    height: 36,
-  },
-] as const;
-
-type PartnerLogo = (typeof PARTNER_LOGOS)[number];
-
-export const CONTACT_PARTNER_LOGOS: readonly PartnerLogo[] =
-  PARTNER_LOGOS;
-
-export const ECOMMERCE_SEO_PARTNER_LOGOS: readonly PartnerLogo[] =
-  PARTNER_LOGOS;
+export {CONTACT_PARTNER_LOGOS, ECOMMERCE_SEO_PARTNER_LOGOS};
 
 interface HomePartnersProps {
   description?: readonly string[];
@@ -91,10 +20,10 @@ interface HomePartnersProps {
 
 export function HomePartners({
   description = [
-    'FoldTech works across leading ecommerce platforms and technologies. We help brands build, migrate, improve, and grow online stores based on their business requirements.',
-    'Our experience includes Shopify, Shopify Plus, WordPress, Magento, BigCommerce, Wix, Squarespace, PrestaShop, Ecwid, Shopware, Big Cartel, Volusion, and Salesforce. We help businesses choose and connect the technology that best supports their store, customer experience, and long-term growth.',
-    'As Shopify and Shopify Plus specialists, we build custom storefronts, Hydrogen experiences, and app integrations for growing ecommerce brands. We also manage Shopify migrations with careful planning around data, SEO, and customer experience.',
-    'Beyond Shopify, we work with WooCommerce, Magento, BigCommerce, Salesforce Commerce Cloud, Shopware, PrestaShop, OpenCart, Wix, and Squarespace. We support brands already using these platforms and advise when a move to another platform makes sense.',
+    'Byte Operator works across leading ecommerce platforms and technologies. We help brands build, migrate, improve, and grow online stores based on their business requirements.',
+    'Our experience includes Software, Enterprise Platform Solutions, WordPress, Magento, BigCommerce, Wix, Squarespace, PrestaShop, Ecwid, Shopware, Big Cartel, Volusion, and Salesforce. We help businesses choose and connect the technology that best supports their store, customer experience, and long-term growth.',
+    'As Software and Enterprise Platform Solutions specialists, we build custom storefronts, Hydrogen experiences, and app integrations for growing ecommerce brands. We also manage platform & cloud migrations with careful planning around data, SEO, and customer experience.',
+    'Beyond Software, we work with WooCommerce, Magento, BigCommerce, Salesforce Commerce Cloud, Shopware, PrestaShop, OpenCart, Wix, and Squarespace. We support brands already using these platforms and advise when a move to another platform makes sense.',
     'We recommend technology based on the needs of the business. We consider scalability, checkout flexibility, app support, total cost, and customer experience before choosing the right platform.',
   ],
   heading = 'We Work Across Leading Ecommerce Platforms and Technologies',

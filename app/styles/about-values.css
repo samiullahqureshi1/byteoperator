@@ -8,7 +8,8 @@
   overflow: hidden;
 
   border-radius: var(--ft-about-values-radius);
-  background: #ffffff;
+  background: var(--ft-dark-deep, #060F24);
+  color: #ffffff;
 }
 
 .ft-about-values *,
@@ -33,9 +34,9 @@
 
   background: linear-gradient(
     180deg,
-    rgba(64, 173, 170, 0.1) 0%,
-    rgba(175, 221, 220, 0.18) 52%,
-    rgba(211, 204, 255, 0.16) 100%
+    rgba(48, 108, 231, 0.16) 0%,
+    rgba(59, 130, 246, 0.1) 52%,
+    rgba(30, 58, 138, 0.16) 100%
   );
 
   filter: blur(6.25rem);
@@ -127,25 +128,25 @@
 .ft-about-values__heading {
   margin: 0;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2.125rem, 5vw, 3.75rem);
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.025em;
 
-  color: #071b21;
+  color: #ffffff;
 }
 
 .ft-about-values__subheading {
   margin: 0;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.02em;
 
-  color: #071b21;
+  color: #ffffff;
 }
 
 .ft-about-values__description {
@@ -153,12 +154,12 @@
 
   max-width: 52rem;
 
-  font-family: "Season Sans", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(1rem, 1.8vw, 1.125rem);
   font-weight: 300;
   line-height: 1.5;
 
-  color: #071b21;
+  color: #A8B3C7;
 }
 
 .ft-about-values__subheading

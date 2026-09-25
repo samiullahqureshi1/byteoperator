@@ -1,36 +1,29 @@
 .ft-articles-listing {
   position: relative;
   isolation: isolate;
-
   padding-top: 0;
   padding-bottom: clamp(2rem, 5vw, 5rem);
-
   background: transparent;
   color: #fff;
 }
 
 /* =========================
    SUBTLE BRAND GLOW
-   Sits behind Featured + cards
 ========================= */
 
 .ft-articles-listing::before {
   content: "";
-
   position: absolute;
   inset: 0;
   z-index: -1;
-
   pointer-events: none;
-
   background:
     radial-gradient(
       circle at 68% 42%,
-      rgba(64, 173, 170, 0.09) 0%,
-      rgba(64, 173, 170, 0.035) 28%,
+      rgba(48, 108, 231, 0.12) 0%,
+      rgba(48, 108, 231, 0.04) 28%,
       transparent 55%
     );
-
   filter: blur(3rem);
 }
 
@@ -64,32 +57,21 @@
 .ft-articles-featured__image {
   display: block;
   overflow: hidden;
-
   aspect-ratio: 16 / 10;
   border-radius: 0.75rem;
-
-  background: var(--ft-dark, #041f27);
+  background: var(--ft-dark, #10192F);
+  border: 1px solid var(--ft-border, #1F2A44);
 }
 
-/*
-  Hydrogen <Image> renders a bare <img> with NO class and an inline
-  style of {width, aspectRatio} built from the Shopify intrinsic
-  dimensions. Target the real element and beat the inline style so the
-  wrapper controls sizing, never the Shopify asset.
-*/
 .ft-articles-featured__image > img {
   display: block;
-
   width: 100% !important;
   height: 100% !important;
   aspect-ratio: auto !important;
-
   object-fit: cover;
-
   transition: transform 0.4s ease;
 }
 
-/* Only the image inside its fixed wrapper zooms */
 .ft-articles-featured__image:hover > img {
   transform: scale(1.03);
 }
@@ -106,17 +88,15 @@
 }
 
 .ft-articles-listing__type {
-  color: #afdddc;
+  color: var(--ft-accent-blue, #3B82F6);
 }
 
 .ft-articles-featured__cta {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-
   margin-top: 1rem;
-
-  color: #afdddc;
+  color: var(--ft-accent-blue, #3B82F6);
 }
 
 .ft-articles-featured__cta:hover {
@@ -130,7 +110,6 @@
 .ft-articles-listing__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
   column-gap: 0.75rem;
   row-gap: 3rem;
 }
@@ -151,37 +130,30 @@
   color: inherit;
 }
 
+.ft-articles-card p {
+  color: var(--ft-text-secondary, #A8B3C7);
+}
+
 /* Media wrapper owns the dimensions */
 .ft-articles-card__image {
   position: relative;
   display: block;
   overflow: hidden;
-
-  /*
-    16/9 matches the median article image (1.78), so cover crops ~15%
-    instead of the ~44% a square box threw away.
-  */
   aspect-ratio: 16 / 9;
   border-radius: 0.9375rem;
-
-  background: var(--ft-dark, #041f27);
-
+  background: var(--ft-dark, #10192F);
+  border: 1px solid var(--ft-border, #1F2A44);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
-/* Same note as Featured: real <img>, inline style overridden */
 .ft-articles-card__image > img {
   position: absolute;
   inset: 0;
-
   display: block;
-
   width: 100% !important;
   height: 100% !important;
   aspect-ratio: auto !important;
-
   object-fit: cover;
-
   transform: translateZ(0);
   transition: transform 0.4s ease;
   will-change: transform;
@@ -208,16 +180,15 @@
 
   .ft-articles-listing__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-
     column-gap: 2rem;
     row-gap: 4rem;
   }
 }
 
 /* =========================================================
-   ARTICLES — SHOPIFY EXPERTS CTA BACKGROUND OVERRIDE
+   ARTICLES — EXPERTS CTA BACKGROUND OVERRIDE
 ========================================================= */
 
 .ft-articles-experts .ft-home-experts {
-  background: #01151b;
+  background: var(--ft-dark-deep, #060F24);
 }

@@ -1,6 +1,6 @@
 import {getCaseStudyPath} from '~/lib/route-mappings';
-import {Link} from 'react-router';
-import {shopifyImageSrcSet} from '~/lib/shopify-cdn-image';
+import {Link} from '~/lib/router-compat';
+import {softwareImageSrcSet} from '~/lib/software-cdn-image';
 
 type CaseStudyImage = {
   url: string;
@@ -40,7 +40,7 @@ export function CaseStudyCard({article}: CaseStudyCardProps) {
           <img
             className="ft-case-study-card__image"
             src={article.image.url}
-            srcSet={shopifyImageSrcSet(article.image.url, [
+            srcSet={softwareImageSrcSet(article.image.url, [
               400, 800,
             ])}
             sizes="(min-width: 48rem) 33vw, 50vw"
@@ -63,7 +63,7 @@ export function CaseStudyCard({article}: CaseStudyCardProps) {
             <img
               className="ft-case-study-card__logo"
               src={logo.url}
-              srcSet={shopifyImageSrcSet(logo.url, [80, 160])}
+              srcSet={softwareImageSrcSet(logo.url, [80, 160])}
               sizes="80px"
               /*
                * Hidden from screen readers: the brand name is already

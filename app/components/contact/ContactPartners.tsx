@@ -1,4 +1,4 @@
-import {CONTACT_PARTNER_LOGOS} from '~/components/HomePartners';
+import {CONTACT_PARTNER_LOGOS} from '~/data/partnerLogos';
 
 export function ContactPartners() {
   return (

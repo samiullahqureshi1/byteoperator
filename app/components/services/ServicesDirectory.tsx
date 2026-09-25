@@ -1,5 +1,7 @@
+'use client';
+
 import {useState} from 'react';
-import {Link} from 'react-router';
+import {Link} from '~/lib/router-compat';
 import {resolveCanonicalPath} from '~/lib/route-mappings';
 import {BULK_HOURS_PATH} from '~/components/BulkHours';
 import {

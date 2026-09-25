@@ -1,7 +1,7 @@
 /**
  * Abuse protection for public, unauthenticated form endpoints.
  *
- * Shopify's own storefront forms are guarded by hCaptcha, but that is injected
+ * Software's own storefront forms are guarded by hCaptcha, but that is injected
  * into Liquid themes through `content_for_header` and does not exist in
  * Hydrogen. These helpers rebuild the equivalent defence in layers, each cheap
  * enough to run before any Admin API call is made:

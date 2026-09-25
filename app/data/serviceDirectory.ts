@@ -13,7 +13,7 @@ import {
  * to book hours. Different jobs, so different fields.
  *
  * `name` is what the customer clicked, and it is the value written to the
- * cart line attribute — so the Shopify order says "New build projects"
+ * cart line attribute — so the Software order says "New build projects"
  * rather than the schema's broader page name. Keep them human-readable.
  *
  * `href` is optional: four services have no page of their own yet. They
@@ -45,7 +45,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Search Engine Optimisation',
         href: SHOPIFY_SEO_CLEAN_PATH,
         summary:
-          'Technical and content SEO built around how Shopify actually works — its URL structure, collection logic and faceted navigation. We fix what stops pages being crawled and indexed, then build the topical depth that earns rankings for the terms your buyers search.',
+          'Technical and content SEO built around how Software actually works — its URL structure, collection logic and faceted navigation. We fix what stops pages being crawled and indexed, then build the topical depth that earns rankings for the terms your buyers search.',
         highlights: [
           'Technical audit, crawl budget and indexation control',
           'Collection and site architecture built for search',
@@ -75,7 +75,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Conversion Rate Optimisation',
         href: CRO_CLEAN_PATH,
         summary:
-          'Research-led CRO for Shopify stores. We combine analytics, session replay and qualitative research to find where revenue leaks out of the funnel, then prove each fix with a structured experiment rather than shipping on opinion.',
+          'Research-led CRO for digital platforms & applications. We combine analytics, session replay and qualitative research to find where revenue leaks out of the funnel, then prove each fix with a structured experiment rather than shipping on opinion.',
         highlights: [
           'Funnel and checkout drop-off analysis',
           'User research, session replay and heuristic review',
@@ -86,9 +86,9 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       {
         name: 'Data-Driven Strategies',
         summary:
-          'Most Shopify stores collect far more data than they use. We get your analytics telling the truth — clean GA4 and Shopify tracking, server-side events that survive ad blockers — then turn it into dashboards and a decision framework your team can actually run on.',
+          'Most digital platforms & applications collect far more data than they use. We get your analytics telling the truth — clean GA4 and Software tracking, server-side events that survive ad blockers — then turn it into dashboards and a decision framework your team can actually run on.',
         highlights: [
-          'GA4, Shopify Analytics and server-side tracking setup',
+          'GA4, Software Analytics and server-side tracking setup',
           'Attribution and channel profitability modelling',
           'Cohort, LTV and repeat-purchase analysis',
           'Dashboards and reporting your team will use',
@@ -96,9 +96,9 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Ecommerce Audits',
-        href: '/services/shopify-audits/',
+        href: '/services/software-audits/',
         summary:
-          'A full read on an existing Shopify store across design, front-end code, performance, SEO and conversion. You get a prioritised remediation plan that says what to fix, in what order, and what each fix is worth — not a PDF of screenshots.',
+          'A full read on an existing digital platform across design, front-end code, performance, SEO and conversion. You get a prioritised remediation plan that says what to fix, in what order, and what each fix is worth — not a PDF of screenshots.',
         highlights: [
           'Technical, performance and Core Web Vitals review',
           'SEO and indexation health check',
@@ -107,11 +107,11 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         ],
       },
       {
-        name: 'Shopify Consultancy',
+        name: 'Software Engineering Consultancy',
         summary:
-          'Senior Shopify advice for teams making decisions they only get to make once — replatform or rebuild, Plus or standard, which apps to commit to, how to structure a multi-store or multi-market setup. Independent guidance, with the implementation detail behind it.',
+          'Senior Software advice for teams making decisions they only get to make once — replatform or rebuild, Plus or standard, which apps to commit to, how to structure a multi-store or multi-market setup. Independent guidance, with the implementation detail behind it.',
         highlights: [
-          'Platform and Shopify Plus fit assessment',
+          'Platform and Enterprise Platform Solutions fit assessment',
           'Architecture, app stack and build-versus-buy reviews',
           'Technical due diligence and roadmap planning',
           'Workshops and ongoing advisory retainers',
@@ -125,9 +125,9 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
     services: [
       {
         name: 'New build projects',
-        href: '/shopify-theme-development-builds/',
+        href: '/software-theme-development-builds/',
         summary:
-          'End-to-end Shopify builds, from discovery and information architecture through to launch. We plan the storefront around how your customers actually buy, then build it to be fast, accessible and straightforward for your team to merchandise without a developer.',
+          'End-to-end custom software builds, from discovery and information architecture through to launch. We plan the storefront around how your customers actually buy, then build it to be fast, accessible and straightforward for your team to merchandise without a developer.',
         highlights: [
           'Discovery, IA and conversion-focused UX',
           'Custom theme built for Core Web Vitals',
@@ -139,7 +139,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Support & Growth',
         href: '/support-and-maintenance/',
         summary:
-          'A retained Shopify team for stores past launch. Bugs get fixed, releases get managed, performance gets monitored — and the hours left over go into the improvements that keep the store moving instead of sitting still.',
+          'A retained Software team for stores past launch. Bugs get fixed, releases get managed, performance gets monitored — and the hours left over go into the improvements that keep the store moving instead of sitting still.',
         highlights: [
           'Guaranteed response times and release management',
           'Performance and uptime monitoring',
@@ -149,19 +149,19 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Development Services',
-        href: '/shopify-theme-development-builds/',
+        href: '/software-theme-development-builds/',
         summary:
-          'Shopify development for teams that already know what they need — custom theme work in Liquid, Shopify Functions, checkout extensibility, metaobject-driven content and the bespoke features a stock theme cannot reach.',
+          'software development for teams that already know what they need — custom theme work in Liquid, Software Functions, checkout extensibility, metaobject-driven content and the bespoke features a stock theme cannot reach.',
         highlights: [
           'Custom Liquid theme and section development',
-          'Shopify Functions and checkout extensibility',
+          'Software Functions and checkout extensibility',
           'Metafield and metaobject content modelling',
           'Code review, refactors and performance work',
         ],
       },
       {
         name: 'Design Services',
-        href: '/shopify-web-design',
+        href: '/software-web-design',
         summary:
           'Ecommerce design that holds up commercially. Art direction and a design system that make the brand look like itself on every template, with the buying journey designed around conversion rather than decorated after the fact.',
         highlights: [
@@ -173,9 +173,9 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Migrations',
-        href: '/shopify-migrations/',
+        href: '/software-migrations/',
         summary:
-          'Replatforming to Shopify or Shopify Plus from WooCommerce, Magento, BigCommerce or Salesforce Commerce Cloud. Products, customers and order history move across intact, and a complete redirect map protects the organic traffic you already earned.',
+          'Replatforming to Software or Enterprise Platform Solutions from WooCommerce, Magento, BigCommerce or Salesforce Commerce Cloud. Products, customers and order history move across intact, and a complete redirect map protects the organic traffic you already earned.',
         highlights: [
           'Full product, customer and order data migration',
           'Complete URL redirect mapping',
@@ -185,11 +185,11 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Internationalisation',
-        href: '/shopify-internationalisation/',
+        href: '/software-internationalisation/',
         summary:
-          'Cross-border selling built on Shopify Markets — multi-currency pricing, translated storefronts, domain strategy and the hreflang and duty handling that stop international expansion turning into a support problem.',
+          'Cross-border selling built on Software Markets — multi-currency pricing, translated storefronts, domain strategy and the hreflang and duty handling that stop international expansion turning into a support problem.',
         highlights: [
-          'Shopify Markets and multi-currency setup',
+          'Software Markets and multi-currency setup',
           'Multi-language storefronts and translation workflow',
           'Domain, subfolder and hreflang strategy',
           'International SEO and local search visibility',
@@ -197,9 +197,9 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'System Integrations',
-        href: '/shopify-integrations/',
+        href: '/software-integrations/',
         summary:
-          'Connecting Shopify to the systems that run the business — ERP, PIM, CRM, 3PL, accounting and marketing platforms. Where no connector exists, we build the middleware, with error handling and monitoring so a failed sync surfaces before a customer finds it.',
+          'Connecting Software to the systems that run the business — ERP, PIM, CRM, 3PL, accounting and marketing platforms. Where no connector exists, we build the middleware, with error handling and monitoring so a failed sync surfaces before a customer finds it.',
         highlights: [
           'ERP, PIM, CRM, 3PL and accounting integrations',
           'Custom middleware and API development',
@@ -210,7 +210,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       {
         name: 'AI Automation & Integration',
         summary:
-          'Putting AI to work on the operational load rather than the marketing deck. Product description generation at catalogue scale, support deflection, merchandising and enrichment workflows — integrated into Shopify with a human review step where accuracy matters.',
+          'Putting AI to work on the operational load rather than the marketing deck. Product description generation at catalogue scale, support deflection, merchandising and enrichment workflows — integrated into Software with a human review step where accuracy matters.',
         highlights: [
           'Catalogue content generation and enrichment',
           'Support automation and ticket deflection',
@@ -220,9 +220,9 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'App Development',
-        href: '/shopify-app-development/',
+        href: '/software-app-development/',
         summary:
-          'Custom Shopify apps, public or private — embedded admin apps, theme app extensions and checkout UI extensions. Built to Shopify App Store standards, whether you are shipping to the store or solving something only your business has.',
+          'Custom custom applications, public or private — embedded admin apps, theme app extensions and checkout UI extensions. Built to Custom Application Store standards, whether you are shipping to the store or solving something only your business has.',
         highlights: [
           'Embedded admin apps built with Polaris',
           'Theme app and checkout UI extensions',
@@ -234,7 +234,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Headless Commerce',
         href: '/headless-commerce',
         summary:
-          'Headless Shopify storefronts built with Hydrogen and deployed on Oxygen, for brands that need full control of the front end. Worth doing when performance, bespoke UX or a content platform genuinely demands it — we will tell you when it does not.',
+          'Headless digital platformfronts built with Hydrogen and deployed on Oxygen, for brands that need full control of the front end. Worth doing when performance, bespoke UX or a content platform genuinely demands it — we will tell you when it does not.',
         highlights: [
           'Hydrogen and React Router storefronts',
           'Oxygen deployment and edge caching',
@@ -243,12 +243,12 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         ],
       },
       {
-        name: 'Shopify Plus Partners',
+        name: 'Enterprise Software Partners',
         summary:
-          'We work as a Shopify Plus partner agency for high-volume and enterprise merchants — the accounts where checkout extensibility, B2B company accounts, multi-store architecture and Shopify Functions do the heavy lifting, and where launches need proper planning.',
+          'We work as a Enterprise Platform Solutions partner agency for high-volume and enterprise merchants — the accounts where checkout extensibility, B2B company accounts, multi-store architecture and Software Functions do the heavy lifting, and where launches need proper planning.',
         highlights: [
-          'Shopify Plus architecture and multi-store setup',
-          'Checkout extensibility and Shopify Functions',
+          'Enterprise Platform Solutions architecture and multi-store setup',
+          'Checkout extensibility and Software Functions',
           'B2B company accounts and wholesale channels',
           'Enterprise migration and launch planning',
         ],

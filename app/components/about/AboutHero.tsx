@@ -1,3 +1,5 @@
+'use client';
+
 import {useCallback, useState} from 'react';
 import {WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
 import {VideoModal} from '~/components/shared/VideoModal';
@@ -13,7 +15,7 @@ export function AboutHero() {
       <div className="ft-about-hero__container">
         <div className="ft-about-hero__inner">
           <h1 className="ft-about-hero__title">
-            FoldTech is a Shopify ecommerce agency helping ambitious brands grow
+            Byte Operator is a Software ecommerce agency helping ambitious brands grow
             through strategy, creative development, search visibility,
             experimentation and ongoing optimisation.
           </h1>
@@ -29,7 +31,7 @@ export function AboutHero() {
                 src={WORK_HERO_TESTIMONIAL.image}
                 width={WORK_HERO_TESTIMONIAL.imageWidth}
                 height={WORK_HERO_TESTIMONIAL.imageHeight}
-                alt={`${WORK_HERO_TESTIMONIAL.person}, FoldTech client`}
+                alt={`${WORK_HERO_TESTIMONIAL.person}, Byte Operator client`}
                 aria-hidden="true"
               />
             </span>

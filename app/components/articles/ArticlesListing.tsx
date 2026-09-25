@@ -1,5 +1,6 @@
-import {Link} from 'react-router';
-import {Image} from '@shopify/hydrogen';
+import {Link} from '~/lib/router-compat';
+import {Image} from '~/lib/image-compat';
+;
 import type {ArticleFilter} from './ArticlesIntro';
 
 type ArticleCategory = Exclude<ArticleFilter, 'all'>;
@@ -29,7 +30,7 @@ export type ArticlesListingArticle = {
 
 /*
  * Hydrogen's <Image> hard-codes `style={{width, aspectRatio}}` from the
- * Shopify intrinsic size, then spreads the caller's `style` over it. The
+ * Software intrinsic size, then spreads the caller's `style` over it. The
  * card CSS already owns both, so every one of those attributes shipped
  * dead — 85 of them on this page. Undefined values are dropped by React,
  * which leaves the element with no style attribute at all.

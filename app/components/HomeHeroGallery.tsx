@@ -104,7 +104,7 @@ export function HomeHeroGallery() {
     <section
       id="ft-home-hero-gallery"
       className="ft-hero-gallery"
-      aria-label="Selected FoldTech ecommerce projects"
+      aria-label="Selected Byte Operator ecommerce projects"
     >
       <div className="ft-hero-gallery__inner">
         <div className="ft-hero-gallery__grid">

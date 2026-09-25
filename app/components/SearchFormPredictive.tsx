@@ -1,9 +1,11 @@
+'use client';
+
 import {
   useFetcher,
   useNavigate,
   type FormProps,
   type Fetcher,
-} from 'react-router';
+} from '~/lib/router-compat';
 import React, {useRef, useEffect} from 'react';
 import type {PredictiveSearchReturn} from '~/lib/search';
 import {useAside} from './Aside';

@@ -121,11 +121,11 @@
 }
 
 .ft-home-experts--ecommerce-seo {
-  background: var(--ft-dark-deep, #01151b);
+  background: var(--ft-dark-deep, #060F24);
 }
 
 .ft-home-experts--ecommerce-seo .ft-home-experts__subtitle {
-  color: rgba(175, 221, 220, 0.75);
+  color: rgba(59, 130, 246, 0.75);
 }
 
 .ft-home-experts--ecommerce-seo .ft-home-experts__title { color: #ffffff; }
@@ -135,8 +135,8 @@
 }
 
 .ft-home-experts--ecommerce-seo .ft-home-experts__button {
-  background: #ffffff;
-  color: var(--ft-dark-deep, #01151b);
+  background: var(--ft-primary-blue, #306CE7);
+  color: #ffffff;
 }
 
 /* =========================================================

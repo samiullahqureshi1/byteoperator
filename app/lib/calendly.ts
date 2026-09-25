@@ -12,7 +12,7 @@
 
 /** The event lives in Calendly. Never append month/date params to this. */
 export const CALENDLY_EVENT_URL =
-  'https://calendly.com/theshopifyexperts/30min';
+  'https://calendly.com/thesoftwareexperts/30min';
 
 const WIDGET_SCRIPT = 'https://assets.calendly.com/assets/external/widget.js';
 const WIDGET_STYLES = 'https://assets.calendly.com/assets/external/widget.css';
@@ -79,7 +79,7 @@ export function loadCalendly(): Promise<void> {
 
 /**
  * Opens the booking modal, loading the widget first if it is not ready yet.
- * The visitor stays on the FoldTech site throughout.
+ * The visitor stays on the Byte Operator site throughout.
  */
 export async function openCalendly(url: string = CALENDLY_EVENT_URL) {
   await loadCalendly();
