@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 36" fill="currentColor">
+  <!-- Vuori diamond mark -->
+  <polygon points="12,6 20,18 12,30 4,18" fill="none" stroke="currentColor" stroke-width="2.5"/>
+  <text x="28" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="2" fill="currentColor">vuori</text>
+</svg>

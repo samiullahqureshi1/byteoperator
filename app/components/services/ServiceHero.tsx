@@ -1,6 +1,4 @@
 import {Link} from '~/lib/router-compat';
-import {WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
-import {ClientProof} from '../shared/ClientProof';
 
 export type ServiceHeroCta = {
   label: string;
@@ -197,18 +195,6 @@ export function ServiceHero({
                 </div>
               );
             })()}
-
-            {showClientProof ? (
-              <div className="ft-services-hero__client-proof">
-                <ClientProof
-                  testimonial={WORK_HERO_TESTIMONIAL}
-                  triggerLabelLines={[
-                    'Hear from',
-                    clientProofLabel ?? WORK_HERO_TESTIMONIAL.person,
-                  ]}
-                />
-              </div>
-            ) : null}
           </div>
 
           {hasRightContent ? (

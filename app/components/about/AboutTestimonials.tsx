@@ -1,8 +1,6 @@
 'use client';
 
 import {useCallback, useEffect, useState} from 'react';
-import {WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
-import {VideoModal} from '~/components/shared/VideoModal';
 
 const AUTOPLAY_DELAY = 5000;
 
@@ -23,10 +21,8 @@ const TESTIMONIALS = [
 
 export function AboutTestimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
-  const [isCrossfadeReady, setIsCrossfadeReady] = useState(false);
-  const closeVideo = useCallback(() => setIsVideoOpen(false), []); 
+  const [isCrossfadeReady, setIsCrossfadeReady] = useState(false); 
 
   const goPrevious = useCallback(() => {
     setActiveIndex((current) =>
@@ -66,43 +62,6 @@ export function AboutTestimonials() {
         >
           Your Experience Is Our Priority
         </h2>
-
-        <div className="ft-about-testimonials__button-wrap">
-          <button
-            type="button"
-            className="ft-about-testimonials__hear-button"
-            aria-label={`Hear from ${WORK_HERO_TESTIMONIAL.person}`}
-            onClick={() => setIsVideoOpen(true)}
-          >
-            <span className="ft-about-testimonials__hear-image">
-              <img
-                src={WORK_HERO_TESTIMONIAL.image}
-                width={WORK_HERO_TESTIMONIAL.imageWidth}
-                height={WORK_HERO_TESTIMONIAL.imageHeight}
-                alt={`${WORK_HERO_TESTIMONIAL.person}, Byte Operator client`}
-                aria-hidden="true"
-              />
-            </span>
-
-            <span className="ft-about-testimonials__hear-text">
-              Hear from
-              <br />
-              {WORK_HERO_TESTIMONIAL.person}
-            </span>
-
-            <svg
-              className="ft-about-testimonials__hear-arrow"
-              viewBox="0 0 10 10"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M.89 9.243L9.373.757m0 0H1.596m7.778 0v7.779"
-                stroke="currentColor"
-              />
-            </svg>
-          </button>
-        </div>
 
         <p className="ft-about-testimonials__description">
           See our clients&apos; kind words for yourself!
@@ -198,13 +157,6 @@ export function AboutTestimonials() {
           </button>
         </div>
       </div>
-
-      <VideoModal
-        open={isVideoOpen}
-        src={WORK_HERO_TESTIMONIAL.video}
-        ariaLabel={`${WORK_HERO_TESTIMONIAL.person} testimonial video`}
-        onClose={closeVideo}
-      />
     </section>
   );
 }

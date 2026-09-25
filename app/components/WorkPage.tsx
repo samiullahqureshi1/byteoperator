@@ -22,7 +22,6 @@ import {WorkTestimonial} from './work/WorkTestimonial';
 import type {IndustryFilter} from './work/IndustryFilters';
 import {
   WORK_HERO_LOGOS,
-  WORK_HERO_TESTIMONIAL,
 } from '~/data/workHeroProof';
 
 interface WorkPageProps {
@@ -48,10 +47,9 @@ export function WorkPage({
       className="ft-work-page"
       data-page-handle={page.handle}
     >
-   <WorkHero
-  testimonial={WORK_HERO_TESTIMONIAL}
-  logos={WORK_HERO_LOGOS}
-/>
+      <WorkHero
+        logos={WORK_HERO_LOGOS}
+      />
       <WorkResults />
       <WorkFeaturedProjects articles={featuredArticles} />
       <WorkTopCaseStudies

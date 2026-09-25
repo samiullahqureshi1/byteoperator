@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 36" fill="currentColor">
+  <!-- Polaroid color bar blocks in vector -->
+  <polygon points="4,10 9,10 9,26 4,26" fill="currentColor" opacity="0.6"/>
+  <polygon points="11,10 16,10 16,26 11,26" fill="currentColor" opacity="0.75"/>
+  <polygon points="18,10 23,10 23,26 18,26" fill="currentColor" opacity="0.9"/>
+  <polygon points="25,10 30,10 30,26 25,26" fill="currentColor" opacity="1"/>
+  <text x="38" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="0.5" fill="currentColor">polaroid</text>
+</svg>

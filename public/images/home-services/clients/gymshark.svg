@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 36" fill="currentColor">
+  <!-- Gymshark Icon -->
+  <path d="M14 6 C8 12 4 18 4 25 C10 24 16 20 20 15 C21 19 23 23 27 25 C25 20 25 15 27 10 C21 11 17 9 14 6 Z M18 13 C17.2 13 16.5 12.3 16.5 11.5 C16.5 10.7 17.2 10 18 10 C18.8 10 19.5 10.7 19.5 11.5 C19.5 12.3 18.8 13 18 13 Z" fill="currentColor"/>
+  <!-- GYMSHARK text -->
+  <text x="36" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Montserrat', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="900" letter-spacing="2" fill="currentColor">GYMSHARK</text>
+</svg>

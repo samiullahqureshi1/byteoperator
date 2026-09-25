@@ -134,7 +134,7 @@ export const ORGANIZATION: JsonLd = {
   description:
     'Byte Operator is a premier digital engineering and custom software development agency. It designs, builds, migrates and optimises scalable web applications, enterprise platforms, and cloud systems, combining modern full-stack engineering with technical SEO, AI systems, and conversion rate optimisation.',
   slogan: 'The software agency that drives real growth',
-  foundingDate: '2010',
+  foundingDate: '2025',
   numberOfEmployees: {
     '@type': 'QuantitativeValue',
     value: COMPANY_FACTS.team.target,

@@ -1,8 +1,6 @@
 'use client';
 
 import {useEffect, useRef, useState} from 'react';
-import {ClientProof} from '~/components/shared/ClientProof';
-import {WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
 
 const PROCESS_STEPS = [
   {
@@ -150,14 +148,10 @@ export function EcommerceSeoProcess({
           </div>
 
           <div
-            ref={compactTestimonial ? undefined : serpRef}
-            className={`ft-ecommerce-seo-process__serp-wrap${compactTestimonial ? ' ft-ecommerce-seo-process__serp-wrap--testimonial' : ''}`}
+            ref={serpRef}
+            className="ft-ecommerce-seo-process__serp-wrap"
           >
-            {compactTestimonial ? (
-              <ClientProof testimonial={WORK_HERO_TESTIMONIAL} />
-            ) : (
-              <SerpWireframe active={serpActive} />
-            )}
+            <SerpWireframe active={serpActive} />
           </div>
         </div>
 

@@ -96,7 +96,7 @@ export function Header({
   );
 }
 
-const SERVICES_BADGE_COUNT = 15;
+const SERVICES_BADGE_COUNT = 19;
 
 export function HeaderMenu({
   menu,
@@ -475,29 +475,28 @@ function BulkHoursPromo({onNavigate}: {onNavigate?: () => void}) {
     <NavLink
       className="ft-bulk-promo"
       prefetch="intent"
-      to={BULK_HOURS_PATH}
+      to="/contact/"
       onClick={onNavigate}
     >
       <span className="ft-bulk-promo__image">
         <img
-          src={BULK_HOURS_IMAGE.src}
-          alt={BULK_HOURS_IMAGE.alt}
+          src="/images/mega-menu-team.webp"
+          alt="Byte Operator team"
           aria-hidden="true"
-          width={BULK_HOURS_IMAGE.width}
-          height={BULK_HOURS_IMAGE.height}
+          width={1400}
+          height={900}
           loading="lazy"
           decoding="async"
         />
       </span>
 
       <span className="ft-bulk-promo__content">
-        <strong className="ft-bulk-promo__title">Buy bulk hours</strong>
+        <strong className="ft-bulk-promo__title">Work With Us</strong>
         <span className="ft-bulk-promo__text">
-          Prepaid Software expert time for any service we offer. Hours never
-          expire.
+          Ready to scale your software or ecommerce platform? Let's discuss your engineering and growth requirements.
         </span>
         <span className="ft-mega-menu__cta ft-bulk-promo__cta">
-          <span>Choose your hours</span>
+          <span>Get in touch</span>
           <ArrowUpRightIcon />
         </span>
       </span>
@@ -582,63 +581,94 @@ function ResourcesMegaMenu() {
 
 const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
   {
-    labels: ['Search'],
+    labels: ['Software', 'Engineering'],
     items: [
       {
-        title: 'Technical SEO & Search Architecture',
-        description: 'SEO for digital platforms & applications',
-        url: '/pages/seo-agency',
+        title: 'Custom Software & Platforms',
+        description: 'Bespoke software platforms & scalable web systems',
+        url: '/services/software-developers',
       },
       {
-        title: 'Ecommerce SEO',
-        description: 'Grow your organic rankings',
-        url: '/pages/ecommerce-seo',
+        title: 'Full-Stack Web Development',
+        description: 'Modern frontend, robust backend APIs & databases',
+        url: '/services/software-theme-development-builds',
       },
       {
-        title: 'Ecommerce AI SEO',
-        description: 'AI-powered search optimisation',
-        url: '/ai-seo-agency/',
+        title: 'Mobile App Development',
+        description: 'Custom iOS, Android & cross-platform apps',
+        url: '/services/software-app-development',
       },
       {
-        title: 'Ecommerce GEO',
-        description: 'Generative engine optimisation',
-        url: '/geo-agency/',
+        title: 'API & System Integrations',
+        description: 'Connect ERP, CRM & third-party architectures',
+        url: '/services/software-integrations',
       },
       {
-        title: 'Ecommerce SEO Migration',
-        description: 'Migrate your SEO content',
-        url: '/pages/ecommerce-seo-migrations',
+        title: 'Headless & Cloud Architecture',
+        description: 'Decoupled, high-performance edge solutions',
+        url: '/services/headless-commerce',
       },
     ],
   },
 
   {
-    labels: ['Launch'],
+    labels: ['Shopify', 'Ecommerce'],
     items: [
       {
-        title: 'Custom Store Project',
-        description: 'Design and launch a digital platform',
-        url: '/pages/software-development',
+        title: 'Shopify Store Development',
+        description: 'High-converting bespoke Shopify storefronts',
+        url: '/services/shopify-web-design',
       },
       {
-        title: 'Platform & Cloud Migrations',
-        description: 'Move or replatform to Software',
-        url: '/pages/software-migrations',
+        title: 'Shopify Plus & Enterprise',
+        description: 'Scalable architecture for high-volume brands',
+        url: '/shopify-plus-agency',
       },
       {
-        title: 'Custom Software & App Development',
-        description: 'Build custom custom applications',
-        url: '/software-app-development/',
+        title: 'Shopify Apps & Extensions',
+        description: 'Custom apps, checkout extensions & functions',
+        url: '/services/shopify-app-development',
       },
       {
-        title: 'Integrations',
-        description: 'Connect your store to other services',
-        url: '/software-integrations/',
+        title: 'Platform Migrations',
+        description: 'Seamless replatforming with zero traffic loss',
+        url: '/services/shopify-migrations',
       },
       {
-        title: 'Headless Commerce',
-        description: 'Hydrogen and headless solutions',
-        url: '/pages/headless-commerce',
+        title: 'B2B & Wholesale Systems',
+        description: 'Dedicated wholesale pricing & global channels',
+        url: '/services/shopify-b2b-wholesale',
+      },
+    ],
+  },
+
+  {
+    labels: ['Search', 'AI'],
+    items: [
+      {
+        title: 'Technical SEO & Architecture',
+        description: 'Deep technical audits, crawling & indexation',
+        url: '/ecommerce-seo-agency',
+      },
+      {
+        title: 'Generative Engine Optimisation (GEO)',
+        description: 'Be the cited brand in ChatGPT & Perplexity',
+        url: '/ai-visibility-audit',
+      },
+      {
+        title: 'AI Automations & Agents',
+        description: 'Intelligent workflow & support automations',
+        url: '/services/ai-ecommerce-agency',
+      },
+      {
+        title: 'Platform SEO Migrations',
+        description: 'Protect rankings & revenue during rebuilds',
+        url: '/services/ecommerce-seo-migrations',
+      },
+      {
+        title: 'International SEO & Markets',
+        description: 'Global search visibility & multi-market setup',
+        url: '/services/shopify-internationalisation',
       },
     ],
   },
@@ -648,54 +678,23 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
     items: [
       {
         title: 'Conversion Rate Optimisation',
-        description: 'Growth-focused store optimisation',
-        url: '/pages/conversion-rate-optimisation',
+        description: 'Growth-focused UX testing & experiments',
+        url: '/shopify-cro-audit',
       },
       {
-        title: 'Support & Maintenance',
-        description: 'Ongoing Software technical support',
-        url: '/pages/software-maintenance',
+        title: 'Performance & Speed Audits',
+        description: 'Core Web Vitals & code efficiency audits',
+        url: '/services/shopify-audits',
       },
       {
-        title: 'Audits',
-        description: 'Design, technical and SEO audits',
-        url: '/pages/software-audits',
+        title: 'Dedicated Engineering Support',
+        description: 'Ongoing technical maintenance & sprint capacity',
+        url: '/services/support-and-maintenance',
       },
       {
-        title: 'Internationalisation',
-        description: 'Expand your digital platform globally',
-        url: '/pages/internationalisation',
-      },
-    ],
-  },
-
-  {
-    labels: ['Retain'],
-    items: [
-      {
-        title: 'Email & SMS Marketing',
-        description: 'Retain and grow customers',
-        url: '/pages/email-marketing-agency',
-      },
-      {
-        title: 'Klaviyo Services',
-        description: 'Email automation and retention',
-        url: '/pages/klaviyo',
-      },
-    ],
-
-    secondaryTitle: 'More',
-
-    secondaryItems: [
-      {
-        title: 'B2B',
-        description: 'Sell B2B with Software',
-        url: '/pages/software-b2b',
-      },
-      {
-        title: 'Subscriptions',
-        description: 'Grow recurring revenue',
-        url: '/pages/software-subscriptions',
+        title: 'Architecture & Tech Consulting',
+        description: 'Senior guidance on platform & tech strategy',
+        url: '/services/shopify-consultant',
       },
     ],
   },

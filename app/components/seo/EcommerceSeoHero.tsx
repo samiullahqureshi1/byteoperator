@@ -2,8 +2,7 @@
 
 import {useState} from 'react';
 import {Link} from '~/lib/router-compat';
-import {ClientProof} from '~/components/shared/ClientProof';
-import {WORK_HERO_LOGOS, WORK_HERO_TESTIMONIAL} from '~/data/workHeroProof';
+import {WORK_HERO_LOGOS} from '~/data/workHeroProof';
 import {TRACK_RECORD_FACTS} from '~/data/companyFacts';
 import {CalendlyButton} from '~/components/shared/CalendlyButton';
 import {CountUpNumber} from '~/components/work/WorkResults';
@@ -96,11 +95,6 @@ export function EcommerceSeoHero({
                 {title}
               </h1>
 
-              {croInteractive && isVariant ? (
-                <div className="ft-ecommerce-seo-hero__variant-testimonial">
-                  <ClientProof testimonial={WORK_HERO_TESTIMONIAL} />
-                </div>
-              ) : null}
               {showStats ? (
                 <dl
                   className="ft-ecommerce-seo-hero__stats"

@@ -17,203 +17,14 @@ import {
    Replace the src values later without changing the layout.
 ========================================================= */
 
-export type ClientLogoMarqueeItem = {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  size?: 'small' | 'large';
-  noFilter?: boolean;
-};
+import {
+  HOME_CLIENT_LOGOS,
+  type ClientLogoMarqueeItem,
+} from '~/data/clientLogos';
 
-export const HOME_CLIENT_LOGOS: readonly ClientLogoMarqueeItem[] = [
-  {
-    src: '/images/home-services/clients/logo-1.svg',
-    width: 438,
-    height: 48,
-    alt: 'Love Luxury logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-2.svg',
-    width: 547,
-    height: 120,
-    alt: 'Talah Home logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-3.svg',
-    width: 1200,
-    height: 200,
-    alt: 'Hope & Celebrate Los Angeles logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-4.svg',
-    width: 2609,
-    height: 480,
-    alt: 'SkinbySkin logo',
-    size: 'small',
-  },
-  {
-    src: '/images/home-services/clients/logo-5.svg',
-    width: 1800,
-    height: 541,
-    alt: 'SOOXOS logo',
-    size: 'large',
-  },
-  {
-    src: '/images/home-services/clients/logo-6.svg',
-    width: 2789,
-    height: 965,
-    alt: 'Mann & Co logo',
-    size: 'small',
-  },
-  {
-    src: '/images/home-services/clients/logo-7.svg',
-    width: 612,
-    height: 792,
-    alt: 'Cokito MI logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-8.svg',
-    width: 165,
-    height: 51,
-    alt: 'Deviate logo',
-    size: 'large',
-    noFilter: true,
-  },
-  {
-    src: '/images/home-services/clients/logo-9.svg',
-    width: 1489,
-    height: 380,
-    alt: 'Blu & Blue New York logo',
-    size: 'large',
-  },
-  {
-    src: '/images/home-services/clients/logo-10.svg',
-    width: 1890,
-    height: 1417,
-    alt: 'Smart Tiles & Wood Flooring logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-11.svg',
-    width: 4168,
-    height: 3126,
-    alt: 'Elsetta Care logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-12.svg',
-    width: 100,
-    height: 100,
-    alt: 'Branley Ventures logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-13.svg',
-    width: 4210,
-    height: 1172,
-    alt: 'Shepard Safety Products logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-14.svg',
-    width: 3163,
-    height: 529,
-    alt: 'EGA Guitars logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-15.svg',
-    width: 400,
-    height: 194,
-    alt: 'Bird & Co logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-16.svg',
-    width: 1500,
-    height: 388,
-    alt: "Florian's Chair Store logo",
-  },
-  {
-    src: '/images/home-services/clients/logo-17.svg',
-    width: 1200,
-    height: 200,
-    alt: 'Hope & Celebrate Los Angeles logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-18.svg',
-    width: 160,
-    height: 116,
-    alt: 'Fouzee logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-19.svg',
-    width: 68,
-    height: 80,
-    alt: 'Tribe logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-20.svg',
-    width: 360,
-    height: 159,
-    alt: 'ibra logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-21.svg',
-    width: 403,
-    height: 161,
-    alt: 'Vortex logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-22.svg',
-    width: 1350,
-    height: 521,
-    alt: 'World Bling logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-23.svg',
-    width: 1024,
-    height: 501,
-    alt: 'Mad Hopper Fire and Brew logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-24.svg',
-    width: 280,
-    height: 46,
-    alt: 'Elite Sport Goalkeeping logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-25.svg',
-    width: 464,
-    height: 158,
-    alt: 'Big Bang logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-26.svg',
-    width: 190,
-    height: 93,
-    alt: 'RalphysWorld logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-27.svg',
-    width: 565,
-    height: 85,
-    alt: 'Heatform Markings and Toolform logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-28.svg',
-    width: 810,
-    height: 316,
-    alt: 'WANAhat logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-29.svg',
-    width: 3000,
-    height: 1223,
-    alt: 'Boxie logo',
-  },
-  {
-    src: '/images/home-services/clients/logo-30.svg',
-    width: 410,
-    height: 46,
-    alt: 'Chatham Ivy logo',
-  },
-] as const;
+export {HOME_CLIENT_LOGOS, type ClientLogoMarqueeItem};
+
+
 
 
 /* =========================================================
@@ -225,89 +36,91 @@ export const HOME_CLIENT_LOGOS: readonly ClientLogoMarqueeItem[] = [
 
 const SERVICES = [
   {
-    title: 'SEO & GEO',
+    title: 'SEO & AI Search Visibility',
     description:
-      'Organic search, AI visibility and local reach to drive long-term traffic growth.',
+      'Engineered for Google rankings, Perplexity, and AI search engines to compound high-intent organic traffic.',
     href: SHOPIFY_SEO_CLEAN_PATH,
-    badge:
-      '/images/home-services/badges/logo-search-white.svg',
+    badge: '/images/home-services/badges/logo-search-white.svg',
     badgeAlt: 'Search',
-    graphic: 'seo',
+    image: '/images/home-services/seo-analytics.jpg',
+    imageAlt: 'SEO and AI Search Analytics Dashboard',
   },
 
   {
-    title: 'New Stores',
+    title: 'Enterprise Digital Platforms',
     description:
-      'Bespoke digital platform design and development, built to convert from day one.',
+      'High-velocity digital platform builds designed from the ground up for extreme scale and peak conversions.',
     href: '/software-theme-development-builds/',
-    badge:
-      '/images/home-services/badges/logo-launch-white.svg',
+    badge: '/images/home-services/badges/logo-launch-white.svg',
     badgeAlt: 'Launch',
-    graphic: null,
+    image: '/images/home-services/store-builds.jpg',
+    imageAlt: 'Modern Digital Storefront and Checkout UI',
   },
 
   {
-    title: 'Platform & Cloud Migrations',
+    title: 'Cloud & Platform Migrations',
     description:
-      'Helping brands migrate from other platforms to Software with zero downtime.',
+      'Zero-downtime migrations with complete data integrity, catalog structure, and SEO authority preserved.',
     href: '/software-migrations/',
-    badge:
-      '/images/home-services/badges/logo-launch-white.svg',
+    badge: '/images/home-services/badges/logo-launch-white.svg',
     badgeAlt: 'Launch',
-    graphic: null,
+    image: '/images/home-services/cloud-migrations.jpg',
+    imageAlt: 'Cloud Infrastructure and Data Migration Architecture',
   },
 
   {
     title: 'Conversion Rate Optimisation',
     description:
-      'Data-driven testing and optimisation to turn more visitors into customers.',
+      'Data-backed A/B testing, user journey heatmaps, and checkout optimization to maximize revenue per visitor.',
     href: CRO_CLEAN_PATH,
-    badge:
-      '/images/home-services/badges/logo-sitelab-white.svg',
+    badge: '/images/home-services/badges/logo-sitelab-white.svg',
     badgeAlt: 'Sitelab',
-    graphic: 'cro',
+    image: '/images/home-services/cro-testing.jpg',
+    imageAlt: 'Conversion Analytics and Multivariate Testing Funnel',
   },
 
   {
-    title: 'Theme Development',
+    title: 'Custom Software & Theme Engineering',
     description:
-      'Custom Software theme builds and ongoing enhancements tailored to your brand.',
+      'Modular design systems, custom full-stack integrations, and high-performance bespoke codebases.',
     href: '/software-theme-development-builds/',
     badge: null,
     badgeAlt: '',
-    graphic: null,
+    image: '/images/home-services/theme-dev.jpg',
+    imageAlt: 'Developer IDE and Modular Design System Architecture',
   },
 
   {
-    title: 'Support & Maintenance',
+    title: '24/7 SLA Support & Care',
     description:
-      'Ongoing care, updates and optimisations to keep your store running smoothly.',
+      'Proactive monitoring, rapid incident response, speed maintenance, and continuous feature delivery.',
     href: '/support-and-maintenance/',
-    badge:
-      '/images/home-services/badges/logo-helpdesk-white.svg',
+    badge: '/images/home-services/badges/logo-helpdesk-white.svg',
     badgeAlt: 'Helpdesk',
-    graphic: null,
+    image: '/images/home-services/support-maintenance.jpg',
+    imageAlt: '24/7 Uptime Telemetry and Health Monitoring Dashboard',
   },
 
   {
-    title: 'UI / UX Design',
+    title: 'UI / UX Product Design',
     description:
-      'Considered, conversion-focused design that improves usability across your store.',
+      'Conversion-focused UX architecture, modern design systems, and immersive digital interfaces.',
     href: '/software-theme-development-builds/',
     badge: null,
     badgeAlt: '',
-    graphic: 'ux',
+    image: '/images/home-services/ui-ux-design.jpg',
+    imageAlt: 'Figma UI/UX Design System and Mobile Interfaces',
   },
 
   {
-    title: 'Email Marketing & SMS',
+    title: 'Retention Marketing & Automations',
     description:
-      'Lifecycle campaigns and automations designed to increase repeat revenue.',
+      'Omnichannel lifecycle workflows, AI segmentation, and predictive retention campaigns driving LTV.',
     href: '/email-marketing-agency/',
-    badge:
-      '/images/home-services/badges/logo-retain-white.svg',
+    badge: '/images/home-services/badges/logo-retain-white.svg',
     badgeAlt: 'Retain',
-    graphic: 'email',
+    image: '/images/home-services/email-automation.jpg',
+    imageAlt: 'Omnichannel Customer Journey and Automation Workflow',
   },
 ] as const;
 
@@ -557,89 +370,47 @@ function ServiceCard({
   service: Service;
   index: number;
 }) {
-  const cardNumber = String(index + 1).padStart(
-    2,
-    '0',
-  );
+  const cardNumber = String(index + 1).padStart(2, '0');
 
   const className = [
     'ft-home-services__cell',
     `ft-home-services__cell--${index + 1}`,
   ].join(' ');
 
-  const hasAnimation =
-    service.graphic !== null;
-
-  /*
-   * Email uses the horizontal content + graphic structure
-   * seen in the desktop reference.
-   */
-  if (service.graphic === 'email') {
-    return (
-      <Link
-        className={className}
-        to={resolveCanonicalPath(service.href)}
-        prefetch="intent"
-        data-service-animation="true"
-      >
-        <div className="ft-home-services__cell-content">
-          <span className="ft-home-services__cell-number">
-            {cardNumber}
-          </span>
-
-          <ServiceBadge service={service} />
-
-          <h3 className="ft-home-services__cell-name">
-            {service.title}
-          </h3>
-
-          <p className="ft-home-services__cell-description">
-            {service.description}
-          </p>         
-        </div>
-        <EmailGraphic />
-        <CardArrow />
-      </Link>
-    );
-  }
-
   return (
     <Link
       className={className}
       to={resolveCanonicalPath(service.href)}
       prefetch="intent"
-      data-service-animation={
-        hasAnimation ? 'true' : undefined
-      }
     >
       <span className="ft-home-services__cell-number">
         {cardNumber}
       </span>
 
-      {service.graphic === 'seo' ? (
-        <SeoGraphic />
+      {service.image ? (
+        <div className="ft-home-services__cell-image-wrap">
+          <img
+            src={service.image}
+            alt={service.imageAlt}
+            className="ft-home-services__cell-image"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="ft-home-services__cell-image-overlay" />
+        </div>
       ) : null}
 
-      {service.graphic === 'cro' ? (
-        <>
-          <ServiceBadge service={service} />
-          <CroGraphic />
-        </>
-      ) : (
+      <div className="ft-home-services__cell-content">
         <ServiceBadge service={service} />
-      )}
 
-      {service.graphic === 'ux' ? (
-        <UiUxGraphic />
-      ) : null}
+        <h3 className="ft-home-services__cell-name">
+          {service.title}
+        </h3>
 
-      <h3 className="ft-home-services__cell-name">
-        {service.title}
-      </h3>
-
-      <p className="ft-home-services__cell-description">
-        {service.description}
-      </p>
+        <p className="ft-home-services__cell-description">
+          {service.description}
+        </p>
+      </div>
 
       <CardArrow />
     </Link>

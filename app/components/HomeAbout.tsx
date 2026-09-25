@@ -79,15 +79,7 @@ export function HomeAbout({
                 key={stat.label}
               >
                 <p className="ft-home-about__stat-value">
-                  <span aria-hidden="true">
-                    {displayValues[index]}
-                  </span>
-
-                  {/* The figure counts up, so the finished one is read out
-                      instead of whichever frame the animation is on. */}
-                  <span className="sr-only">
-                    {`${stat.value} ${stat.label}`}
-                  </span>
+                  {displayValues[index]}
                 </p>
 
                 <p className="ft-home-about__stat-label">
@@ -100,13 +92,9 @@ export function HomeAbout({
 
         <div className="ft-home-about__right">
           <h3 className="ft-home-about__right-heading">
-            <span>{data.rightHeading.prefix}</span>
-
-            <AboutMark />
-
+            <span>{data.rightHeading.prefix} </span>
             <strong>{data.rightHeading.emphasis}</strong>
-
-            <span>{data.rightHeading.suffix}</span>
+            <span> {data.rightHeading.suffix}</span>
           </h3>
 
           <p className="ft-home-about__description">
@@ -127,22 +115,7 @@ export function HomeAbout({
   );
 }
 
-function AboutMark() {
-  return (
-    <span
-      className="ft-home-about__mark"
-      aria-hidden="true"
-    >
-      <img
-        src="/images/byte-operator-mark.svg"
-        width={500}
-        height={500}
-        alt="Byte Operator"
-        loading="lazy"
-      />
-    </span>
-  );
-}
+
 
 function ArrowIcon() {
   return (

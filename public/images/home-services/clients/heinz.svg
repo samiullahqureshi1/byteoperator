@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 36" fill="currentColor">
+  <!-- Keystone frame -->
+  <path d="M12 4 L98 4 C104 4 108 8 108 14 C108 22 98 32 55 32 C12 32 2 22 2 14 C2 8 6 4 12 4 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+  <text x="55" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Impact', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="900" letter-spacing="3" text-anchor="middle" fill="currentColor">HEINZ</text>
+</svg>

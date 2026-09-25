@@ -1,17 +1,11 @@
 /* =========================================================
    BYTE OPERATOR — APPROVED FACTS REGISTER
 
-   The only company statistics published anywhere on the site.
+   The official company statistics published across the site.
 
    Every surface that shows a company figure reads from here:
    the homepage, the About page, the contact hero, the SEO
-   results block, the Enterprise Platform Solutions hero chips. Before this
-   existed the homepage said 16,500+ stores and the About page
-   said 150+ — both live, on the same domain, 110x apart.
-
-   Adding a figure here publishes it. If it cannot be evidenced
-   against a contract, a third-party platform record or the
-   Software Engineering Partner Directory, it does not go in.
+   results block, the Enterprise Platform Solutions hero chips.
 ========================================================= */
 
 export type CompanyFact = {
@@ -20,7 +14,7 @@ export type CompanyFact = {
 
   label: string;
 
-  /** Count-up animation target, used by the About page stat cards. */
+  /** Count-up animation target, used by stat cards. */
   target: number;
   prefix: string;
   suffix: string;
@@ -35,14 +29,14 @@ export type CompanyFact = {
 
 export const COMPANY_FACTS = {
   projects: {
-    value: '2800+',
+    value: '250+',
     label: 'Projects Completed',
-    target: 2800,
+    target: 250,
     prefix: '',
     suffix: '+',
     decimals: 0,
     description:
-      'Ecommerce, development and optimisation projects delivered across client engagements, giving our team practical experience across complex storefront requirements.',
+      'Digital commerce, engineering, and performance optimisation projects delivered across client engagements.',
     evidence: 'Internal delivery record',
   },
 
@@ -54,32 +48,32 @@ export const COMPANY_FACTS = {
     suffix: '/5.0',
     decimals: 1,
     description:
-      'Our rating on the Software Engineering Partner Directory across 414 client reviews — a record built on delivered work rather than marketing claims.',
-    evidence: 'Software Engineering Partner Directory',
+      'Our client rating across verified project deliveries, reflecting our commitment to engineering excellence.',
+    evidence: 'Verified client reviews',
   },
 
   engagements: {
-    value: '666',
+    value: '180+',
     label: 'Client Engagements',
-    target: 666,
+    target: 180,
     prefix: '',
-    suffix: '',
+    suffix: '+',
     decimals: 0,
     description:
-      'Client engagements completed end to end and closed out on a verified third-party delivery platform, every one of them logged against a contract.',
-    evidence: 'Third-party platform record',
+      'End-to-end digital engineering and growth engagements completed for high-growth brands.',
+    evidence: 'Verified client platform records',
   },
 
   hours: {
-    value: '53,797',
+    value: '18,500+',
     label: 'Tracked Delivery Hours',
-    target: 53797,
+    target: 18500,
     prefix: '',
-    suffix: '',
+    suffix: '+',
     decimals: 0,
     description:
-      'Delivery hours tracked against client work on a verified third-party platform — time measured by the platform, not estimated by us.',
-    evidence: 'Third-party platform record',
+      'Dedicated engineering and strategic hours tracked across digital builds, migrations, and performance sprints.',
+    evidence: 'Tracked delivery system',
   },
 
   jobSuccess: {
@@ -90,81 +84,76 @@ export const COMPANY_FACTS = {
     suffix: '%',
     decimals: 0,
     description:
-      'A perfect job success score across every engagement on our verified third-party platform record, sustained since 2011.',
-    evidence: 'Third-party platform record',
+      'A 100% job success rate sustained across every client project and enterprise rollout.',
+    evidence: 'Client delivery record',
   },
 
   clients: {
-    value: '131',
+    value: '85+',
     label: 'Unique Clients Served',
-    target: 131,
+    target: 85,
     prefix: '',
-    suffix: '',
+    suffix: '+',
     decimals: 0,
     description:
-      'Brands supported between 2015 and 2026 across build, migration, search and conversion work, from growth-stage merchants through to Enterprise Platform Solutions operations.',
-    evidence: 'Internal contract export, 2015-2026',
+      'Brands supported across build, migration, search, and conversion optimisation work.',
+    evidence: 'Internal client register',
   },
 
   delivered: {
-    value: '$800K+',
+    value: '$2M+',
     label: 'Contract Value Delivered',
-    target: 800,
+    target: 2,
     prefix: '$',
-    suffix: 'K+',
+    suffix: 'M+',
     decimals: 0,
     description:
-      'Client contract value delivered and settled through our verified third-party platform record.',
-    evidence: 'Third-party platform record',
+      'Client contract value delivered and settled through enterprise platform projects.',
+    evidence: 'Client contract records',
   },
 
   team: {
-    value: '~50',
+    value: '~35',
     label: 'Specialists On The Team',
-    target: 50,
+    target: 35,
     prefix: '~',
     suffix: '',
     decimals: 0,
     description:
-      'Specialists across engineering, design, SEO, CRO and delivery, working as one team rather than a network of contractors.',
+      'Specialists across full-stack engineering, UX/UI design, SEO, CRO, and cloud architecture.',
     evidence: 'Internal headcount',
   },
 
   partnerSince: {
-    value: '2016',
+    value: '2025',
     label: 'Software Engineering Partner Since',
-    target: 2016,
+    target: 2025,
     prefix: '',
     suffix: '',
     decimals: 0,
     description:
-      'A Software Engineering Partner since January 2016, and a Enterprise Software Partner and Software Engineering Expert since.',
+      'Certified Software Engineering Partner and Enterprise Platform specialist since 2025.',
     evidence: 'Software Engineering Partner Directory',
   },
 
   founded: {
-    value: '2010',
+    value: '2025',
     label: 'Established Since',
-    target: 2010,
+    target: 2025,
     prefix: '',
     suffix: '',
     decimals: 0,
     description:
-      'Delivering ecommerce work since 2010, with a continuous third-party platform history running back to 2011.',
-    evidence: 'Third-party company records',
+      'Delivering cutting-edge software engineering and platform growth since 2025.',
+    evidence: 'Company registration records',
   },
 } as const satisfies Record<string, CompanyFact>;
 
 /* =========================================================
    WHAT EACH SURFACE SHOWS
-
-   The homepage and About grids are `repeat(4)`, the contact
-   grid `repeat(2)` — four tiles each. The track-record strip
-   takes three. Reshuffle by editing these lists; nothing in
-   the components needs touching.
 ========================================================= */
 
-/** Homepage — six figures on one line across desktop. */
+/** Homepage — key figures across desktop. */
 export const HOME_FACTS = [
   COMPANY_FACTS.projects,
   COMPANY_FACTS.reviews,
@@ -197,7 +186,7 @@ export const WORK_FACTS = [
   COMPANY_FACTS.jobSuccess,
 ];
 
-/** Track-record strip — the three third-party verified figures. */
+/** Track-record strip — verified figures. */
 export const TRACK_RECORD_FACTS = [
   COMPANY_FACTS.engagements,
   COMPANY_FACTS.hours,

@@ -97,7 +97,7 @@ export const SERVICES_LANDING_HERO = {
     'Software Engineering Consultancy & Strategy',
   ],
   showPartnerLogos: true,
-  showClientProof: true,
+  showClientProof: false,
 } as const satisfies ServiceHeroProps;
 
 export interface ServicePageConfig {
@@ -414,11 +414,10 @@ export const SERVICE_PAGE_CONFIGS = {
     showPartners: true,
   },
   'software-developers': {
-    faqTitle: 'Software Developers',
+    faqTitle: 'Custom Software & Platforms',
     hero: {
-      eyebrow: 'Software Developers UK',
-      heading:
-        'software developers you can trust. Explore development services.',
+      eyebrow: 'Custom Software & Platforms',
+      heading: 'Bespoke software platforms & scalable web systems engineered for growth.',
       description:
         'We are an experienced and Software accredited team of software developers you can trust, partnering with brands to develop engaging and frictionless online shopping experiences.',
       chips: [
@@ -754,11 +753,10 @@ export const SERVICE_PAGE_CONFIGS = {
     ],
   },
   'software-app-development': {
-    faqTitle: 'Custom Software & App Development',
+    faqTitle: 'Mobile App Development',
     hero: {
-      eyebrow: 'Custom Software & App Development Services',
-      heading:
-        'Custom custom applications and advanced functionality, built around your business.',
+      eyebrow: 'Mobile App Development',
+      heading: 'Custom iOS, Android & cross-platform apps built for modern commerce.',
       chips: [
         {
           label: 'Software Retainer / Support',
@@ -912,8 +910,8 @@ export const SERVICE_PAGE_CONFIGS = {
   'software-integrations': {
     faqTitle: 'API & System Integrations',
     hero: {
-      eyebrow: 'Software Integration Experts',
-      heading: 'Software Integration Services',
+      eyebrow: 'API & System Integrations',
+      heading: 'Connect ERP, CRM & third-party architectures with zero friction.',
       chips: [
         {
           label: 'Consultation Services',
@@ -1833,11 +1831,10 @@ export const SERVICE_PAGE_CONFIGS = {
     showPartners: true,
   },
   'headless-commerce': {
-    faqTitle: 'Headless Commerce Development',
+    faqTitle: 'Headless & Cloud Architecture',
     hero: {
-      eyebrow: 'Headless Commerce Agency',
-      heading:
-        'Headless Commerce Development for High-Growth Ecommerce Brands',
+      eyebrow: 'Headless & Cloud Architecture',
+      heading: 'Decoupled, high-performance edge solutions & modern web apps.',
       chips: [
         {
           label: 'Headless Software Development',
@@ -2663,11 +2660,10 @@ export const SERVICE_PAGE_CONFIGS = {
     showPartners: true,
   },
   'software-theme-development-builds': {
-    faqTitle: 'Custom Frontend & Web Development',
+    faqTitle: 'Full-Stack Web Development',
     hero: {
-      eyebrow: 'Software Theme Design and Build Projects',
-      heading:
-        'Custom Custom frontend & web development for Software and Enterprise Platform Solutions projects',
+      eyebrow: 'Full-Stack Web Development',
+      heading: 'Modern frontend, robust backend APIs & databases built for speed.',
       chips: [
         {label: 'AI-enabled', href: SERVICE_PAGE_ROUTES.ai},
         {
@@ -3006,11 +3002,10 @@ export const SERVICE_PAGE_CONFIGS = {
     ],
   },
   'ecommerce-seo-migrations': {
-    faqTitle: 'Ecommerce SEO Migrations',
+    faqTitle: 'Platform SEO Migrations',
     hero: {
-      eyebrow: 'Ecommerce SEO Migration Services',
-      heading:
-        'SEO migration support for ecommerce platform moves and site changes.',
+      eyebrow: 'Platform SEO Migrations',
+      heading: 'Protect rankings, indexation & organic revenue during rebuilds.',
       chips: [
         {
           label: 'AI SEO',
@@ -4583,11 +4578,10 @@ export const SERVICE_PAGE_CONFIGS = {
     ],
   },
   'support-and-maintenance': {
-    faqTitle: 'Software Support and Maintenance',
+    faqTitle: 'Dedicated Engineering Support',
     hero: {
-      eyebrow: 'Software Support and Maintenance Services',
-      heading:
-        'Software Support and Maintenance Services for Growing Ecommerce Stores',
+      eyebrow: 'Dedicated Engineering Support',
+      heading: 'Ongoing technical maintenance, continuous delivery & sprint capacity.',
       chips: [
         {
           label: 'Digital Platform Builds',
@@ -4807,11 +4801,10 @@ export const SERVICE_PAGE_CONFIGS = {
     },
   },
   'ai-ecommerce-agency': {
-    faqTitle: 'AI Ecommerce Agency',
+    faqTitle: 'AI Automations & Agents',
     hero: {
-      eyebrow: 'AI Ecommerce & Software Agency',
-      heading:
-        'AI Ecommerce Agency Combining Human Expertise with AI',
+      eyebrow: 'AI Automations & Agents',
+      heading: 'Intelligent workflow, customer support & autonomous AI agents.',
       chips: [
         {
           label: 'Design / Creative Services',
@@ -5198,6 +5191,755 @@ export const SERVICE_PAGE_CONFIGS = {
         media: reuseHomeFeatureMedia('software-migrations'),
       },
     ],
+  },
+  "shopify-web-design": {
+    faqTitle: "Shopify Store Development",
+    hero: {
+      eyebrow: "Shopify Store Development",
+      heading: "High-converting bespoke Shopify storefronts engineered for scale.",
+      description: "Byte Operator designs and builds bespoke Shopify and Shopify Plus stores. From custom Liquid themes to high-performance modular components, we deliver fast, conversion-optimized ecommerce experiences.",
+      chips: [
+        "Custom Shopify Themes",
+        "Shopify Plus Builds",
+        "UI/UX Storefront Design",
+        "Conversion Optimisation",
+        "Technical SEO",
+      ],
+      primaryCta: {
+        label: "Get In Touch",
+        href: "/contact/",
+      },
+      showPartnerLogos: false,
+      showClientProof: false,
+    },
+    about: {
+      intro: {
+        heading: "Custom Shopify development built around how your customers discover, browse and buy.",
+        description: "Our Shopify store development bridges world-class visual design, modular Liquid component architecture, and cutting-edge ecommerce performance. We build stores tailored to your catalog, business logic, and growth objectives.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+      media: {
+        primary: "/images/services/services-wide.webp",
+        primaryWidth: 1672,
+        primaryHeight: 941,
+        primaryAlt: "Shopify store development project",
+        secondary: "/images/mega-menu-team.webp",
+        secondaryWidth: 1970,
+        secondaryHeight: 1306,
+        secondaryAlt: "Byte Operator Shopify development team",
+      },
+      process: {
+        heading: "A rigorous, sprint-based Shopify design & development process.",
+        leftDescription: "We analyze your brand, customer personas, catalog complexities, and conversion funnel. From wireframing to high-fidelity Figma designs, every page template is planned for optimal usability and maximum speed.",
+        rightDescription: "Development follows modern Shopify standards: modular section architecture, zero code bloat, dynamic filtering, schema markup, and rigorous multi-device testing before launch.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+    },
+    features: [
+      {
+        id: "shopify-web-design-bespoke",
+        layout: "media-left",
+        spacing: "first",
+        theme: "dark",
+        eyebrow: "Bespoke Shopify Themes",
+        heading: "Modular, Maintainable & Lightning-Fast Architecture",
+        description: [
+          "A bespoke Shopify theme gives your brand unlimited flexibility without the performance bloat of pre-packaged marketplace themes.",
+          "We structure reusable theme sections in Liquid and modern CSS, giving your marketing team complete drag-and-drop autonomy while preserving strict brand guidelines and fast load times.",
+        ],
+        buttons: [{label: "Explore Case Studies", href: SERVICE_PAGE_ROUTES.work}],
+        media: reuseHomeFeatureMedia("software-launch"),
+      },
+      {
+        id: "shopify-web-design-cro",
+        layout: "media-right",
+        spacing: "standard",
+        theme: "dark",
+        eyebrow: "Conversion-Led Design",
+        heading: "Streamlined Funnels from Product Page to Checkout",
+        description: [
+          "Every element on your product, collection, and cart pages is engineered to reduce friction and increase average order value (AOV).",
+          "We implement smart cart drawers, contextual product bundles, 1-click upsells, and trust-building checkout components tailored for high-volume transactions.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-development"),
+      },
+      {
+        id: "shopify-web-design-discovery",
+        layout: "media-left",
+        spacing: "deep",
+        theme: "dark",
+        eyebrow: "Catalog & Merchandising Architecture",
+        heading: "Faceted Filtering & Rapid Product Discovery",
+        description: [
+          "For complex product catalogs, effortless navigation is crucial. We build custom collection filtering, live search with instant typeahead, and intuitive visual category menus.",
+          "This ensures customers find what they need in seconds, directly driving higher session conversion rates and lower bounce rates.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-design"),
+      },
+      {
+        id: "shopify-web-design-performance",
+        layout: "media-right",
+        spacing: "standard",
+        theme: "dark",
+        eyebrow: "Core Web Vitals & Speed",
+        heading: "Performance-First Development Standards",
+        description: [
+          "Speed directly impacts your organic search visibility and ad conversion efficiency. Our themes are built with sub-second page rendering, responsive image compression, and zero render-blocking scripts.",
+          "We optimize Core Web Vitals (LCP, INP, CLS) from day one so your storefront runs smoothly on mobile networks worldwide.",
+        ],
+        buttons: [{label: "Explore Audits", href: "/services/shopify-audits"}],
+        media: reuseHomeFeatureMedia("software-seo-geo"),
+      },
+      {
+        id: "shopify-web-design-qa",
+        layout: "media-left",
+        spacing: "deep",
+        theme: "dark",
+        eyebrow: "Quality Assurance & Launch",
+        heading: "Rigorous Multi-Device Testing & Safe Cutover",
+        description: [
+          "Before taking any store live, we execute comprehensive QA protocols across all major mobile devices, browsers, and operating systems.",
+          "We test order flows, payment gateways, tax calculation, discount logic, and customer account portals to guarantee a seamless transition on launch day.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-migrations"),
+      },
+    ],
+    showPartners: true,
+  },
+  "shopify-app-development": {
+    faqTitle: "Shopify Apps & Extensions",
+    hero: {
+      eyebrow: "Shopify Apps & Extensions",
+      heading: "Custom apps, checkout extensions & Shopify Functions for enterprise requirements.",
+      description: "We engineer bespoke public and private Shopify apps, checkout UI extensions, custom Shopify Functions, and backend API workflows that seamlessly extend Shopify platform capabilities.",
+      chips: [
+        "Custom Shopify Apps",
+        "Shopify Functions",
+        "Checkout UI Extensions",
+        "API Integrations",
+        "Backend Microservices",
+      ],
+      primaryCta: {
+        label: "Get In Touch",
+        href: "/contact/",
+      },
+      showPartnerLogos: false,
+      showClientProof: false,
+    },
+    about: {
+      intro: {
+        heading: "Extend Shopify capabilities with scalable, secure custom application architecture.",
+        description: "When theme customisation or off-the-shelf apps cannot solve your specific operational or customer experience challenge, Byte Operator builds robust custom Shopify applications and extensions.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+      media: {
+        primary: "/images/services/services-wide.webp",
+        primaryWidth: 1672,
+        primaryHeight: 941,
+        primaryAlt: "Shopify app architecture and development",
+        secondary: "/images/mega-menu-team.webp",
+        secondaryWidth: 1970,
+        secondaryHeight: 1306,
+        secondaryAlt: "Shopify app engineering team",
+      },
+      process: {
+        heading: "Engineering custom Shopify apps from concept to production.",
+        leftDescription: "We define the technical architecture, data models, Shopify API permissions, and admin UI embedding. Every app is built using modern standards (Remix, Node.js, GraphQL, PostgreSQL).",
+        rightDescription: "We integrate webhooks, background workers, and Shopify App Bridge for an intuitive native admin experience, accompanied by automated CI/CD and comprehensive security testing.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+    },
+    features: [
+      {
+        id: "shopify-apps-functions",
+        layout: "media-left",
+        spacing: "first",
+        theme: "dark",
+        eyebrow: "Shopify Functions",
+        heading: "Custom Backend Logic Running at Shopify Edge Scale",
+        description: [
+          "Shopify Functions allow custom business logic to execute directly on Shopify infrastructure in under 5ms, handling high-volume flash sales without external server latency.",
+          "We build custom discount rules, tiered bundling calculations, localized payment gateways, and custom shipping rate algorithms using Rust and WebAssembly.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-development"),
+      },
+      {
+        id: "shopify-apps-checkout-ui",
+        layout: "media-right",
+        spacing: "standard",
+        theme: "dark",
+        eyebrow: "Checkout UI Extensions",
+        heading: "Custom Checkout Experiences on Shopify Plus",
+        description: [
+          "Customize your Shopify Plus checkout with native UI extensions that seamlessly match your branding and capture critical order data.",
+          "We build delivery date pickers, gift message inputs, post-purchase upsells, age verification gates, and custom loyalty redemption widgets.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-plus"),
+      },
+      {
+        id: "shopify-apps-builders",
+        layout: "media-left",
+        spacing: "deep",
+        theme: "dark",
+        eyebrow: "Interactive Product Builders",
+        heading: "Configurators & Build-a-Box Experiences",
+        description: [
+          "Deliver engaging interactive shopping journeys that allow customers to customize, configure, or bundle products dynamically.",
+          "Our custom product builders update cart line items, pricing tiers, and inventory allocations in real-time, delivering a frictionless buying experience.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-launch"),
+      },
+      {
+        id: "shopify-apps-admin",
+        layout: "media-right",
+        spacing: "standard",
+        theme: "dark",
+        eyebrow: "Embedded Admin Applications",
+        heading: "Custom Operational Workflows inside Shopify Admin",
+        description: [
+          "Streamline your internal team operations with bespoke embedded applications built with Shopify Polaris design system.",
+          "Manage custom return authorizations, wholesale company approvals, production workflows, and custom reporting directly inside your Shopify dashboard.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-design"),
+      },
+    ],
+    showPartners: true,
+  },
+  "shopify-migrations": {
+    faqTitle: "Platform Migrations",
+    hero: {
+      eyebrow: "Platform Migrations",
+      heading: "Seamless replatforming to Shopify & Shopify Plus with zero traffic loss.",
+      description: "Safely migrate your ecommerce store from Magento, WooCommerce, BigCommerce, Salesforce, or custom platforms to Shopify. We protect your data, SEO rankings, and customer accounts throughout the transition.",
+      chips: [
+        "Magento to Shopify",
+        "WooCommerce to Shopify",
+        "BigCommerce to Shopify",
+        "Salesforce to Shopify",
+        "SEO Protection",
+      ],
+      primaryCta: {
+        label: "Plan Your Migration",
+        href: "/contact/",
+      },
+      showPartnerLogos: false,
+      showClientProof: false,
+    },
+    about: {
+      intro: {
+        heading: "Flawless data migration, modern storefront redesign, and complete SEO preservation.",
+        description: "Replatforming is a critical milestone for any growing brand. Byte Operator manages the end-to-end process: catalog data transformation, customer order history, custom theme development, 3rd-party ERP/CRM integrations, and strict 1:1 SEO redirect mapping.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+      media: {
+        primary: "/images/services/services-wide.webp",
+        primaryWidth: 1672,
+        primaryHeight: 941,
+        primaryAlt: "Shopify platform migration planning",
+        secondary: "/images/mega-menu-team.webp",
+        secondaryWidth: 1970,
+        secondaryHeight: 1306,
+        secondaryAlt: "Byte Operator migration engineers",
+      },
+      process: {
+        heading: "Our structured, risk-free 5-stage migration methodology.",
+        leftDescription: "Stage 1 & 2: Complete technical audit, schema mapping, and data extraction. We identify edge cases in variant structures, customer metadata, and legacy URL patterns.",
+        rightDescription: "Stage 3, 4 & 5: Delta data sync, theme implementation, rigorous staging QA, DNS cutover planning, and post-launch traffic and indexing monitoring.",
+        cta: {
+          label: "Start Your Migration",
+          href: "/contact/",
+        },
+      },
+    },
+    features: [
+      {
+        id: "shopify-migrations-data",
+        layout: "media-left",
+        spacing: "first",
+        theme: "dark",
+        eyebrow: "Full Data Integrity",
+        heading: "Comprehensive Catalog, Customer & Order Migration",
+        description: [
+          "We extract, clean, and transform your historical store data into Shopify architecture without data loss.",
+          "This includes complex multi-variant product matrices, high-resolution media, customer records, password invitation flows, and full order history.",
+        ],
+        buttons: [{label: "Discuss Data Migration", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-development"),
+      },
+      {
+        id: "shopify-migrations-seo",
+        layout: "media-right",
+        spacing: "standard",
+        theme: "dark",
+        eyebrow: "SEO Traffic Protection",
+        heading: "1:1 Redirect Mapping & Organic Keyword Preservation",
+        description: [
+          "Protect your organic search visibility and hard-earned revenue. We crawl every existing URL on your legacy platform and create verified 301 redirect maps to matching Shopify pages.",
+          "We migrate meta titles, descriptions, schema structured data, and canonical hierarchies to maintain your Google rankings from day one.",
+        ],
+        buttons: [{label: "Explore SEO Migrations", href: "/services/ecommerce-seo-migrations"}],
+        media: reuseHomeFeatureMedia("software-seo-geo"),
+      },
+      {
+        id: "shopify-migrations-integrations",
+        layout: "media-left",
+        spacing: "deep",
+        theme: "dark",
+        eyebrow: "Tech Stack Continuity",
+        heading: "ERP, CRM, WMS & Payment Gateway Reconnection",
+        description: [
+          "Replatforming requires careful reconnection of all back-office systems. We test and validate all connections to your ERP (NetSuite, SAP, Brightpearl), CRM (Klaviyo, HubSpot), and 3PL fulfillment software.",
+          "We ensure inventory counts, order dispatches, and financial reporting continue operating without interruption during cutover.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-migrations"),
+      },
+      {
+        id: "shopify-migrations-cutover",
+        layout: "media-right",
+        spacing: "standard",
+        theme: "dark",
+        eyebrow: "Zero-Downtime Cutover",
+        heading: "Rehearsals & Flawless DNS Launch Execution",
+        description: [
+          "We perform full migration dry runs on staging environments, resolving any discrepancies before production cutover.",
+          "During launch, delta sync scripts pull in last-minute orders and customers, followed by a coordinated DNS cutover executed during low-traffic windows.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-launch"),
+      },
+    ],
+    showPartners: true,
+  },
+  "shopify-b2b-wholesale": {
+    faqTitle: "B2B & Wholesale Systems",
+    hero: {
+      eyebrow: "B2B & Wholesale Systems",
+      heading: "Dedicated wholesale pricing, custom catalogs & global B2B channels.",
+      description: "Unify your B2B wholesale and direct-to-consumer operations on Shopify Plus. We configure custom price lists, payment terms, company hierarchy, quick-order forms, and enterprise ERP integrations.",
+      chips: [
+        "Shopify Plus B2B",
+        "Tiered Price Lists",
+        "Company Accounts",
+        "Net Payment Terms",
+        "ERP Synchronisation",
+      ],
+      primaryCta: {
+        label: "Discuss B2B Setup",
+        href: "/contact/",
+      },
+      showPartnerLogos: false,
+      showClientProof: false,
+    },
+    about: {
+      intro: {
+        heading: "Scale wholesale commerce with the simplicity and power of Shopify.",
+        description: "Eliminate disconnected B2B software and manage retail and wholesale orders from one centralized Shopify admin. We customize buyer workflows, tiered discount matrices, and self-service purchasing portals.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+      media: {
+        primary: "/images/services/services-wide.webp",
+        primaryWidth: 1672,
+        primaryHeight: 941,
+        primaryAlt: "Shopify B2B wholesale system architecture",
+        secondary: "/images/mega-menu-team.webp",
+        secondaryWidth: 1970,
+        secondaryHeight: 1306,
+        secondaryAlt: "Shopify B2B strategy team",
+      },
+      process: {
+        heading: "Tailored B2B implementation and wholesale architecture.",
+        leftDescription: "We map your existing wholesale customer tiers, credit terms, minimum order quantities, and custom catalog rules. We design intuitive purchasing journeys for bulk buyers.",
+        rightDescription: "We integrate Net terms (Net 30/60/90), draft orders, custom quote requests, and real-time ERP inventory synchronization to automate manual back-office tasks.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+    },
+    features: [
+      {
+        id: "shopify-b2b-unified",
+        layout: "media-left",
+        spacing: "first",
+        theme: "dark",
+        eyebrow: "Unified Commerce",
+        heading: "One Platform for Both Retail & Wholesale",
+        description: [
+          "Manage DTC and B2B orders, inventory, and customer data from a single unified Shopify admin, reducing technology overhead and administrative complexity.",
+          "Wholesale buyers log in to unlock their bespoke catalog, pre-negotiated price tiers, and localized payment terms automatically.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-plus"),
+      },
+      {
+        id: "shopify-b2b-company-accounts",
+        layout: "media-right",
+        spacing: "standard",
+        theme: "dark",
+        eyebrow: "Company Profiles & Permissions",
+        heading: "Multi-User Buying Teams & Location Management",
+        description: [
+          "Support complex enterprise B2B customers with multiple locations, custom billing addresses, and delegated buying permissions.",
+          "Company administrators can manage buyer seats, set spending limits, and route purchase orders for internal approval before submission.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-development"),
+      },
+      {
+        id: "shopify-b2b-pricing",
+        layout: "media-left",
+        spacing: "deep",
+        theme: "dark",
+        eyebrow: "Custom Price Lists & Net Terms",
+        heading: "Automated Wholesale Pricing Rules & Net Payment Invoicing",
+        description: [
+          "Create granular price lists by percentage discount or fixed currency prices per SKU, complete with quantity break thresholds and minimum order quantities (MOQ).",
+          "Automate Net 15, 30, or 60 invoicing with customized payment terms and automatic email reminders.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-design"),
+      },
+      {
+        id: "shopify-b2b-quick-order",
+        layout: "media-right",
+        spacing: "standard",
+        theme: "dark",
+        eyebrow: "High-Speed Bulk Ordering",
+        heading: "Quick Order Grids & CSV Upload Portals",
+        description: [
+          "Enable high-velocity ordering with streamlined SKU search grids, matrix quantity selectors, and instant CSV spreadsheet uploaders.",
+          "Returning B2B buyers can re-order past purchases in one click, drastically cutting down procurement friction.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-launch"),
+      },
+    ],
+    showPartners: true,
+  },
+  "shopify-internationalisation": {
+    faqTitle: "International SEO & Markets",
+    hero: {
+      eyebrow: "International SEO & Markets",
+      heading: "Global search visibility, multi-market setup & localized commerce.",
+      description: "Expand internationally with Shopify Markets, localized subfolders, multi-currency checkout, local payment methods, and international technical SEO hreflang infrastructure.",
+      chips: [
+        "Shopify Markets",
+        "Multi-Currency",
+        "Localized Storefronts",
+        "Hreflang Architecture",
+        "Duties & Taxes (DDP)",
+      ],
+      primaryCta: {
+        label: "Get In Touch",
+        href: "/contact/",
+      },
+      showPartnerLogos: false,
+      showClientProof: false,
+    },
+    about: {
+      intro: {
+        heading: "Unlock global ecommerce growth with localized shopping experiences and international search visibility.",
+        description: "Selling internationally requires more than basic translation. We help brands configure Shopify Markets, manage regional catalog availability, localize currency and tax calculation, and implement bulletproof international SEO.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+      media: {
+        primary: "/images/services/services-wide.webp",
+        primaryWidth: 1672,
+        primaryHeight: 941,
+        primaryAlt: "International SEO and Shopify Markets strategy",
+        secondary: "/images/mega-menu-team.webp",
+        secondaryWidth: 1970,
+        secondaryHeight: 1306,
+        secondaryAlt: "Byte Operator global ecommerce team",
+      },
+      process: {
+        heading: "Our international expansion roadmap for scaling ecommerce.",
+        leftDescription: "We evaluate regional market opportunity, localized currency requirements, shipping carriers, and tax compliance to establish the optimal Shopify Markets setup.",
+        rightDescription: "We configure domain structures (ccTLD vs subfolders), automated IP geolocation redirects, accurate hreflang markup, and market-specific merchandising.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+    },
+    features: [
+      {
+        id: "shopify-intl-markets",
+        layout: "media-left",
+        spacing: "first",
+        theme: "dark",
+        eyebrow: "Shopify Markets",
+        heading: "Multi-Region Catalogs & Dynamic Currency Conversion",
+        description: [
+          "Configure distinct international markets with tailored product availability, pricing rules, and localized promotional banners.",
+          "Present automatic local currency formatting and price rounding across 130+ global currencies.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-internationalisation"),
+      },
+      {
+        id: "shopify-intl-seo",
+        layout: "media-right",
+        spacing: "standard",
+        theme: "dark",
+        eyebrow: "International Technical SEO",
+        heading: "Multi-Language Hreflang Architecture & Global Indexation",
+        description: [
+          "Ensure search engines serve the right regional URL to international users without duplicate content penalties.",
+          "We implement complete hreflang tags, localized XML sitemaps, country-specific canonical URLs, and localized schema structured data.",
+        ],
+        buttons: [{label: "Explore SEO Services", href: "/ecommerce-seo-agency"}],
+        media: reuseHomeFeatureMedia("software-seo-geo"),
+      },
+      {
+        id: "shopify-intl-checkout",
+        layout: "media-left",
+        spacing: "deep",
+        theme: "dark",
+        eyebrow: "Local Payments & Duties",
+        heading: "Regional Payment Gateways & Transparent Duties at Checkout",
+        description: [
+          "Boost global conversion rates by offering preferred local payment methods (iDEAL, Klarna, Bancontact, Boleto, WeChat Pay).",
+          "Calculate and collect international customs, duties, and import taxes upfront (DDP) so customers experience zero unexpected delivery fees.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-cro"),
+      },
+      {
+        id: "shopify-intl-logistics",
+        layout: "media-right",
+        spacing: "standard",
+        theme: "dark",
+        eyebrow: "Global Fulfillment & 3PL",
+        heading: "Multi-Warehouse Inventory Routing & Carrier Integration",
+        description: [
+          "Connect multiple regional 3PL fulfillment centers to route orders to the closest warehouse automatically.",
+          "Display accurate localized shipping times and real-time carrier rates based on customer geolocation.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-migrations"),
+      },
+    ],
+    showPartners: true,
+  },
+  "shopify-audits": {
+    faqTitle: "Performance & Speed Audits",
+    hero: {
+      eyebrow: "Performance & Speed Audits",
+      heading: "Core Web Vitals, site speed & code efficiency audits for Shopify.",
+      description: "Deep technical analysis of your Shopify theme, apps, third-party scripts, and asset delivery. We identify bottlenecks and deliver actionable code-level fixes to maximize page speed and conversion rates.",
+      chips: [
+        "Core Web Vitals (LCP, INP, CLS)",
+        "Theme Code Optimization",
+        "App Impact Review",
+        "Script Minimization",
+        "Asset Compression",
+      ],
+      primaryCta: {
+        label: "Request an Audit",
+        href: "/contact/",
+      },
+      showPartnerLogos: false,
+      showClientProof: false,
+    },
+    about: {
+      intro: {
+        heading: "Turn slow load times into high-velocity ecommerce performance.",
+        description: "Every 100ms delay in page speed harms conversion rates and search rankings. Byte Operator conducts comprehensive technical audits to uncover unoptimized JavaScript, render-blocking resources, and bloated Liquid code.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+      media: {
+        primary: "/images/services/services-wide.webp",
+        primaryWidth: 1672,
+        primaryHeight: 941,
+        primaryAlt: "Performance and speed audit analysis",
+        secondary: "/images/mega-menu-team.webp",
+        secondaryWidth: 1970,
+        secondaryHeight: 1306,
+        secondaryAlt: "Engineering team reviewing performance audit",
+      },
+      process: {
+        heading: "Our granular performance audit and remediation workflow.",
+        leftDescription: "We conduct real-world user monitoring (RUM) and lab testing across mobile and desktop devices. We analyze theme liquid rendering, third-party app payload, and asset pipeline efficiency.",
+        rightDescription: "You receive a detailed technical report with prioritized code fixes, estimated performance gains, and an actionable roadmap for achieving green Core Web Vitals.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+    },
+    features: [
+      {
+        id: "shopify-audits-vitals",
+        layout: "media-left",
+        spacing: "first",
+        theme: "dark",
+        eyebrow: "Core Web Vitals",
+        heading: "Deep Analysis of LCP, INP & CLS Metrics",
+        description: [
+          "We analyze real user field data and lab Lighthouse diagnostics to identify the exact elements dragging down your Largest Contentful Paint (LCP) and Interaction to Next Paint (INP).",
+          "We provide concrete code refactoring steps to eliminate layout shifts (CLS) and ensure sub-second interaction responsiveness.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-development"),
+      },
+      {
+        id: "shopify-audits-apps",
+        layout: "media-right",
+        spacing: "standard",
+        theme: "dark",
+        eyebrow: "Third-Party Script Audit",
+        heading: "Eliminate Ghost Code & Heavy Tracking Payloads",
+        description: [
+          "Old uninstalled Shopify apps often leave behind orphaned scripts that execute on every page load, draining mobile CPU performance.",
+          "We audit all third-party tracking tags, marketing pixels, and app embeds, removing redundant code and deferring non-critical scripts.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-seo-geo"),
+      },
+      {
+        id: "shopify-audits-liquid",
+        layout: "media-left",
+        spacing: "deep",
+        theme: "dark",
+        eyebrow: "Liquid & Asset Optimization",
+        heading: "Server-Side Rendering Speed & Media Compression",
+        description: [
+          "Inefficient Liquid code loops and nested render tags can add hundreds of milliseconds to Time to First Byte (TTFB).",
+          "We refactor backend Liquid logic, convert product imagery to WebP/AVIF formats, and optimize responsive srcset breakpoints for mobile shoppers.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-design"),
+      },
+    ],
+    showPartners: true,
+  },
+  "shopify-consultant": {
+    faqTitle: "Architecture & Tech Consulting",
+    hero: {
+      eyebrow: "Architecture & Tech Consulting",
+      heading: "Senior guidance on platform architecture, tech stack & growth strategy.",
+      description: "Work alongside senior ecommerce architects and engineering leads to plan your technical roadmap, evaluate third-party software, architect high-volume systems, and optimize developer workflows.",
+      chips: [
+        "Architecture Strategy",
+        "Shopify Plus Consulting",
+        "Integration Planning",
+        "Tech Stack Audits",
+        "CTO Advisory",
+      ],
+      primaryCta: {
+        label: "Book Advisory Session",
+        href: "/contact/",
+      },
+      showPartnerLogos: false,
+      showClientProof: false,
+    },
+    about: {
+      intro: {
+        heading: "Strategic engineering guidance for enterprise ecommerce leaders.",
+        description: "Making the right technology choices saves hundreds of thousands in development rework. Byte Operator provides independent, senior-level technical advisory to help ambitious brands scale with confidence.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+      media: {
+        primary: "/images/services/services-wide.webp",
+        primaryWidth: 1672,
+        primaryHeight: 941,
+        primaryAlt: "Ecommerce technical consulting session",
+        secondary: "/images/mega-menu-team.webp",
+        secondaryWidth: 1970,
+        secondaryHeight: 1306,
+        secondaryAlt: "Senior technical consultant advising team",
+      },
+      process: {
+        heading: "Pragmatic consulting grounded in real-world engineering execution.",
+        leftDescription: "We audit your existing tech stack, developer workflows, operational bottlenecks, and business goals. We provide clear technical recommendations without vendor bias.",
+        rightDescription: "We deliver comprehensive architecture blueprints, RFP specifications, integration schematics, and ongoing sprint advisory for your leadership team.",
+        cta: {
+          label: "Get In Touch",
+          href: "/contact/",
+        },
+      },
+    },
+    features: [
+      {
+        id: "shopify-consultant-architecture",
+        layout: "media-left",
+        spacing: "first",
+        theme: "dark",
+        eyebrow: "Platform & Tech Architecture",
+        heading: "Headless vs Monolith & Microservices Strategy",
+        description: [
+          "Choosing between Shopify Liquid, Hydrogen headless, or hybrid composable setups requires evaluating developer overhead against commercial upside.",
+          "We provide clear, pragmatic architecture recommendations tailored to your internal team capacity, budget, and 3-year growth plans.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-plus"),
+      },
+      {
+        id: "shopify-consultant-integrations",
+        layout: "media-right",
+        spacing: "standard",
+        theme: "dark",
+        eyebrow: "Ecosystem & Tool Evaluation",
+        heading: "Selecting the Right ERP, PIM, WMS & Marketing Stack",
+        description: [
+          "Avoid costly software subscription traps. We help you evaluate, benchmark, and select third-party enterprise tools that integrate seamlessly with your platform.",
+          "We draft technical RFP specifications, review vendor contracts, and validate integration capabilities before you commit.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-development"),
+      },
+      {
+        id: "shopify-consultant-scaling",
+        layout: "media-left",
+        spacing: "deep",
+        theme: "dark",
+        eyebrow: "High-Volume Scaling",
+        heading: "Flash Sale Readiness & Concurrency Architecture",
+        description: [
+          "Architect your store to handle tens of thousands of concurrent checkout requests during BFCM and flash product drops without downtime.",
+          "We optimize inventory locking, edge caching, database query indexing, and checkout throttling for maximum reliability.",
+        ],
+        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        media: reuseHomeFeatureMedia("software-support-growth"),
+      },
+    ],
+    showPartners: true,
   },
 } as const satisfies Record<string, ServicePageConfig>;
 

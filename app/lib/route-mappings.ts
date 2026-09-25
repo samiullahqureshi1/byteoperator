@@ -101,39 +101,34 @@ export const OLD_TO_CLEAN_PATHS = {
   // first `/pages/*` entry that points at a clean path, so the retired
   // `software-development` / `theme-development` spellings must stay below it.
   '/pages/software-theme-development-builds':
-    '/software-theme-development-builds/',
-  '/pages/software-development': '/software-theme-development-builds/',
-  '/software-development': '/software-theme-development-builds/',
-  '/pages/software-developers': '/software-developers',
-  '/pages/software-web-design': '/software-web-design',
+    '/services/software-theme-development-builds',
+  '/pages/software-development': '/services/software-theme-development-builds',
+  '/software-development': '/services/software-theme-development-builds',
+  '/software-theme-development-builds': '/services/software-theme-development-builds',
+  '/software-theme-development-builds/': '/services/software-theme-development-builds',
+  '/pages/software-developers': '/services/software-developers',
+  '/software-developers': '/services/software-developers',
+  '/software-developers/': '/services/software-developers',
+  '/pages/software-web-design': '/services/shopify-web-design',
+  '/software-web-design': '/services/shopify-web-design',
+  '/software-web-design/': '/services/shopify-web-design',
   [`/pages/${SHOPIFY_PLUS_PAGE_HANDLE}`]: SHOPIFY_PLUS_CLEAN_PATH,
   '/pages/software-plus': SHOPIFY_PLUS_CLEAN_PATH,
   '/software-plus': SHOPIFY_PLUS_CLEAN_PATH,
-  '/pages/software-migrations': '/software-migrations/',
-  '/software-migrations': '/software-migrations/',
-  // Globally unique services use root-level canonical URLs. Every retired
-  // spelling is listed explicitly so the resolver never strips prefixes
-  // generically.
-  '/pages/software-app-development': '/software-app-development/',
-  '/services/software-app-development': '/software-app-development/',
-  '/services/software-app-development/': '/software-app-development/',
-  '/software-app-development': '/software-app-development/',
-  '/pages/software-integrations': '/software-integrations/',
-  '/services/software-integrations': '/software-integrations/',
-  '/services/software-integrations/': '/software-integrations/',
-  '/software-integrations': '/software-integrations/',
-  /*
-   * Short alias -> the real page's clean URL.
-   *
-   * These aliases used to point at `/pages/{alias}` handles that do not
-   * exist in Software, so each one 301'd to a clean URL that then 404'd.
-   * The actual pages were live the whole time under their own handles.
-   */
-  '/pages/integrations': '/software-integrations/',
-  '/integrations': '/software-integrations/',
-  [`/pages/${SHOPIFY_SEO_PAGE_HANDLE}`]: SHOPIFY_SEO_CLEAN_PATH,
-  '/pages/software-seo': SHOPIFY_SEO_CLEAN_PATH,
-  '/software-seo': SHOPIFY_SEO_CLEAN_PATH,
+  '/pages/software-migrations': '/services/shopify-migrations',
+  '/software-migrations': '/services/shopify-migrations',
+  '/software-migrations/': '/services/shopify-migrations',
+  '/pages/software-app-development': '/services/software-app-development',
+  '/software-app-development': '/services/software-app-development',
+  '/software-app-development/': '/services/software-app-development',
+  '/pages/software-integrations': '/services/software-integrations',
+  '/software-integrations': '/services/software-integrations',
+  '/software-integrations/': '/services/software-integrations',
+  '/pages/integrations': '/services/software-integrations',
+  '/integrations': '/services/software-integrations',
+  [`/pages/${SHOPIFY_SEO_PAGE_HANDLE}`]: ECOMMERCE_SEO_CLEAN_PATH,
+  '/pages/software-seo': ECOMMERCE_SEO_CLEAN_PATH,
+  '/software-seo': ECOMMERCE_SEO_CLEAN_PATH,
   // The Software source handle is the canonical public route. Retired
   // Software and clean spellings below remain one-way aliases.
   [`/pages/${ECOMMERCE_SEO_PAGE_HANDLE}`]: ECOMMERCE_SEO_CLEAN_PATH,
@@ -147,130 +142,91 @@ export const OLD_TO_CLEAN_PATHS = {
   '/ecommerce-ai-seo': AI_SEO_CLEAN_PATH,
   '/ecommerce-ai-seo/': AI_SEO_CLEAN_PATH,
   '/ai-seo-agency': AI_SEO_CLEAN_PATH,
-  '/pages/geo-agency': GEO_CLEAN_PATH,
-  '/pages/ecommerce-geo': GEO_CLEAN_PATH,
-  '/ecommerce-geo': GEO_CLEAN_PATH,
-  '/ecommerce-geo/': GEO_CLEAN_PATH,
-  '/geo-agency': GEO_CLEAN_PATH,
+  '/pages/geo-agency': AI_VISIBILITY_AUDIT_CLEAN_PATH,
+  '/pages/ecommerce-geo': AI_VISIBILITY_AUDIT_CLEAN_PATH,
+  '/ecommerce-geo': AI_VISIBILITY_AUDIT_CLEAN_PATH,
+  '/ecommerce-geo/': AI_VISIBILITY_AUDIT_CLEAN_PATH,
+  '/geo-agency': AI_VISIBILITY_AUDIT_CLEAN_PATH,
   /* `/pages/ab-testing` is already mapped further down this table. */
   '/ab-testing/': AB_TESTING_CLEAN_PATH,
-  // Canonical Software handle first: `resolveLegacyPath` returns the first
-  // `/pages/*` entry that points at a clean path, so the retired
-  // `/pages/seo-migrations` alias must stay below this line.
   [`/pages/${ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE}`]:
-    ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
-  '/pages/seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
-  '/seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
-  '/ecommerce-seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
-  '/services/ecommerce-seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
-  '/services/ecommerce-seo-migrations/': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
-  '/pages/headless-commerce': '/headless-commerce',
-  '/conversion-rate-optimisation': CRO_CLEAN_PATH,
-  '/conversion-rate-optimisation/': CRO_CLEAN_PATH,
-  // Root-level canonical URL for support & maintenance. The Software source
-  // handle stays first so `resolveLegacyPath` keeps querying
-  // `support-and-maintenance`; every retired spelling below is a one-way
-  // alias that resolves to the canonical path in a single hop.
-  '/pages/support-and-maintenance': '/support-and-maintenance/',
-  '/pages/software-maintenance': '/support-and-maintenance/',
-  '/software-maintenance': '/support-and-maintenance/',
-  '/services/support-and-maintenance': '/support-and-maintenance/',
-  '/services/support-and-maintenance/': '/support-and-maintenance/',
-  '/pages/software-support': '/support-and-maintenance/',
-  '/software-support': '/support-and-maintenance/',
-  '/pages/support-maintenance': '/support-and-maintenance/',
-  '/support-maintenance': '/support-and-maintenance/',
-  // architecture & code audits keeps its canonical URL under `/services/*`, so the
-  // retired root-level spelling is the alias here, not the target.
-  '/pages/software-audits': '/services/software-audits/',
-  '/services/software-audits': '/services/software-audits/',
-  '/software-audits': '/services/software-audits/',
-  // The public URL is root-level while Software keeps its explicit source
-  // handle. Keep the source mapping first for reverse route resolution.
-  '/pages/software-internationalisation': '/software-internationalisation/',
-  '/pages/internationalisation': '/software-internationalisation/',
-  '/software-internationalisation': '/software-internationalisation/',
-  '/internationalisation': '/software-internationalisation/',
-  '/internationalisation/': '/software-internationalisation/',
-  '/services/software-internationalisation': '/software-internationalisation/',
-  '/services/software-internationalisation/': '/software-internationalisation/',
-  // Root-level canonical URL for the email marketing service. The Software
-  // source handle stays first so `resolveLegacyPath` keeps querying
-  // `email-marketing-agency`; the retired `email-sms-marketing` spellings are
-  // one-way aliases below it and resolve to the canonical path in one hop.
-  '/pages/email-marketing-agency': '/email-marketing-agency/',
-  '/email-marketing-agency': '/email-marketing-agency/',
-  '/services/email-marketing-agency': '/email-marketing-agency/',
-  '/services/email-marketing-agency/': '/email-marketing-agency/',
-  '/pages/email-sms-marketing': '/email-marketing-agency/',
-  '/email-sms-marketing': '/email-marketing-agency/',
-  // The retired clean URL was linked with a trailing slash, and
-  // `resolveLegacyPath` can no longer recover that spelling now the alias
-  // points elsewhere, so it is listed explicitly.
-  '/email-sms-marketing/': '/email-marketing-agency/',
-  '/pages/email-marketing-services-1': '/email-marketing-agency/',
-  '/email-marketing-services-1': '/email-marketing-agency/',
-  '/email-marketing-services-1/': '/email-marketing-agency/',
-  '/pages/klaviyo-agency': '/klaviyo-agency/',
-  '/pages/klaviyo': '/klaviyo-agency/',
-  '/klaviyo': '/klaviyo-agency/',
-  // Keep the canonical Conversion & Performance Optimization handle before retired aliases so reverse
-  // resolution loads the existing custom CRO page implementation.
-  [`/pages/${CRO_PAGE_HANDLE}`]: CRO_CLEAN_PATH,
-  '/pages/conversion-rate-optimisation': CRO_CLEAN_PATH,
-  '/pages/cro-agency': CRO_CLEAN_PATH,
-  '/cro-agency': CRO_CLEAN_PATH,
-  '/cro-agency/': CRO_CLEAN_PATH,
-  '/software-cro-agency': CRO_CLEAN_PATH,
-  '/pages/software-b2b-wholesale': '/software-b2b-wholesale/',
-  '/pages/software-b2b': '/software-b2b-wholesale/',
-  '/software-b2b': '/software-b2b-wholesale/',
-  '/pages/b2b': '/software-b2b-wholesale/',
-  '/b2b': '/software-b2b-wholesale/',
-  '/pages/subscriptions-on-software': '/subscriptions-on-software/',
-  '/pages/software-subscriptions': '/subscriptions-on-software/',
-  '/software-subscriptions': '/subscriptions-on-software/',
-  // The retired clean URL was linked with a trailing slash, which
-  // `resolveLegacyPath` cannot recover now the alias points elsewhere, so it is
-  // listed explicitly and redirects to the canonical path in one hop.
-  '/software-subscriptions/': '/subscriptions-on-software/',
-  '/pages/subscriptions': '/subscriptions-on-software/',
-  '/subscriptions': '/subscriptions-on-software/',
-  // Canonical root-level service URL. `/services/agentic-commerce` was the
-  // previous, incorrect canonical spelling; both of its forms stay here as
-  // one-way aliases so they resolve to the root path in a single hop.
-  '/pages/agentic-commerce': '/agentic-commerce/',
-  '/services/agentic-commerce': '/agentic-commerce/',
-  '/services/agentic-commerce/': '/agentic-commerce/',
+    '/services/ecommerce-seo-migrations',
+  '/pages/seo-migrations': '/services/ecommerce-seo-migrations',
+  '/seo-migrations': '/services/ecommerce-seo-migrations',
+  '/ecommerce-seo-migrations': '/services/ecommerce-seo-migrations',
+  '/ecommerce-seo-migrations/': '/services/ecommerce-seo-migrations',
+  '/pages/headless-commerce': '/services/headless-commerce',
+  '/headless-commerce': '/services/headless-commerce',
+  '/headless-commerce/': '/services/headless-commerce',
+  '/conversion-rate-optimisation': '/shopify-cro-audit',
+  '/conversion-rate-optimisation/': '/shopify-cro-audit',
+  '/pages/support-and-maintenance': '/services/support-and-maintenance',
+  '/pages/software-maintenance': '/services/support-and-maintenance',
+  '/software-maintenance': '/services/support-and-maintenance',
+  '/support-and-maintenance': '/services/support-and-maintenance',
+  '/support-and-maintenance/': '/services/support-and-maintenance',
+  '/pages/software-support': '/services/support-and-maintenance',
+  '/software-support': '/services/support-and-maintenance',
+  '/pages/support-maintenance': '/services/support-and-maintenance',
+  '/support-maintenance': '/services/support-and-maintenance',
+  '/pages/software-audits': '/services/shopify-audits',
+  '/software-audits': '/services/shopify-audits',
+  '/software-audits/': '/services/shopify-audits',
+  '/pages/software-internationalisation': '/services/shopify-internationalisation',
+  '/pages/internationalisation': '/services/shopify-internationalisation',
+  '/software-internationalisation': '/services/shopify-internationalisation',
+  '/internationalisation': '/services/shopify-internationalisation',
+  '/internationalisation/': '/services/shopify-internationalisation',
+  '/pages/email-marketing-agency': '/services/email-marketing-agency',
+  '/email-marketing-agency': '/services/email-marketing-agency',
+  '/email-marketing-agency/': '/services/email-marketing-agency',
+  '/pages/email-sms-marketing': '/services/email-marketing-agency',
+  '/email-sms-marketing': '/services/email-marketing-agency',
+  '/email-sms-marketing/': '/services/email-marketing-agency',
+  '/pages/email-marketing-services-1': '/services/email-marketing-agency',
+  '/email-marketing-services-1': '/services/email-marketing-agency',
+  '/email-marketing-services-1/': '/services/email-marketing-agency',
+  '/pages/klaviyo-agency': '/services/klaviyo-agency',
+  '/pages/klaviyo': '/services/klaviyo-agency',
+  '/klaviyo': '/services/klaviyo-agency',
+  [`/pages/${CRO_PAGE_HANDLE}`]: '/shopify-cro-audit',
+  '/pages/conversion-rate-optimisation': '/shopify-cro-audit',
+  '/pages/cro-agency': '/shopify-cro-audit',
+  '/cro-agency': '/shopify-cro-audit',
+  '/cro-agency/': '/shopify-cro-audit',
+  '/software-cro-agency': '/shopify-cro-audit',
+  '/pages/software-b2b-wholesale': '/services/shopify-b2b-wholesale',
+  '/pages/software-b2b': '/services/shopify-b2b-wholesale',
+  '/software-b2b': '/services/shopify-b2b-wholesale',
+  '/software-b2b-wholesale': '/services/shopify-b2b-wholesale',
+  '/software-b2b-wholesale/': '/services/shopify-b2b-wholesale',
+  '/pages/b2b': '/services/shopify-b2b-wholesale',
+  '/b2b': '/services/shopify-b2b-wholesale',
+  '/pages/subscriptions-on-software': '/services/subscriptions-on-software',
+  '/pages/software-subscriptions': '/services/subscriptions-on-software',
+  '/software-subscriptions': '/services/subscriptions-on-software',
+  '/software-subscriptions/': '/services/subscriptions-on-software',
+  '/pages/subscriptions': '/services/subscriptions-on-software',
+  '/subscriptions': '/services/subscriptions-on-software',
+  '/pages/agentic-commerce': '/services/agentic-commerce',
+  '/agentic-commerce': '/services/agentic-commerce',
+  '/agentic-commerce/': '/services/agentic-commerce',
   '/pages/ab-testing': '/ab-testing',
-  /* No Software page exists for this one, so it joins the booking pages. */
-  '/pages/software-consultant': CONTACT_CLEAN_PATH,
-  '/software-consultant': CONTACT_CLEAN_PATH,
-  '/pages/magento-software-migrations': '/magento-software-migrations/',
-  '/services/magento-software-migrations': '/magento-software-migrations/',
-  '/services/magento-software-migrations/': '/magento-software-migrations/',
-  '/pages/woocommerce-software-migrations': '/woocommerce-software-migrations/',
-  '/services/woocommerce-software-migrations':
-    '/woocommerce-software-migrations/',
-  '/services/woocommerce-software-migrations/':
-    '/woocommerce-software-migrations/',
-  '/pages/bigcommerce-software-migrations': '/bigcommerce-software-migrations/',
-  '/services/bigcommerce-software-migrations':
-    '/bigcommerce-software-migrations/',
-  '/services/bigcommerce-software-migrations/':
-    '/bigcommerce-software-migrations/',
-  '/pages/salesforce-software-migrations': '/salesforce-software-migrations/',
-  '/services/salesforce-software-migrations': '/salesforce-software-migrations/',
-  '/services/salesforce-software-migrations/': '/salesforce-software-migrations/',
-  // Retired spellings remain aliases below the canonical source handle above,
-  // so reverse resolution keeps querying `software-theme-development-builds`.
-  '/pages/theme-development': '/software-theme-development-builds/',
-  '/theme-development': '/software-theme-development-builds/',
-  '/services/software-theme-development-builds':
-    '/software-theme-development-builds/',
-  '/services/software-theme-development-builds/':
-    '/software-theme-development-builds/',
-  '/pages/memberships': '/memberships',
+  /* Architecture & Tech consulting */
+  '/pages/software-consultant': '/services/shopify-consultant',
+  '/software-consultant': '/services/shopify-consultant',
+  '/software-consultant/': '/services/shopify-consultant',
+  '/pages/magento-software-migrations': '/services/magento-software-migrations',
+  '/magento-software-migrations': '/services/magento-software-migrations',
+  '/pages/woocommerce-software-migrations': '/services/woocommerce-software-migrations',
+  '/woocommerce-software-migrations': '/services/woocommerce-software-migrations',
+  '/pages/bigcommerce-software-migrations': '/services/bigcommerce-software-migrations',
+  '/bigcommerce-software-migrations': '/services/bigcommerce-software-migrations',
+  '/pages/salesforce-software-migrations': '/services/salesforce-software-migrations',
+  '/salesforce-software-migrations': '/services/salesforce-software-migrations',
+  '/pages/theme-development': '/services/software-theme-development-builds',
+  '/theme-development': '/services/software-theme-development-builds',
+  '/pages/memberships': '/services/memberships',
   '/pages/search-first': '/search-first',
   /*
    * `/pages/software-experts` is NOT mapped here. It used to be, which made
@@ -309,24 +265,24 @@ export const OLD_TO_CLEAN_PATHS = {
   ===================================================== */
 
   // Retired service pages.
-  '/pages/software-migration': '/software-migrations/',
-  '/pages/magento-to-software-plus-migration': '/magento-software-migrations/',
+  '/pages/software-migration': '/services/shopify-migrations',
+  '/pages/magento-to-software-plus-migration': '/services/magento-software-migrations',
   '/pages/bigcommerce-to-software-plus-migration':
-    '/bigcommerce-software-migrations/',
-  '/pages/bigcommerce-to-software-plus': '/bigcommerce-software-migrations/',
+    '/services/bigcommerce-software-migrations',
+  '/pages/bigcommerce-to-software-plus': '/services/bigcommerce-software-migrations',
   '/pages/woocommerce-to-software-plus-migration':
-    '/woocommerce-software-migrations/',
-  '/pages/wix-to-software-migration': '/software-migrations/',
-  '/pages/wix-to-software': '/software-migrations/',
-  '/pages/software-plus-maintenance': '/support-and-maintenance/',
-  '/pages/software-development-services': '/software-theme-development-builds/',
-  '/pages/email-marketing-services': '/email-marketing-agency/',
-  '/pages/software-audit': '/services/software-audits/',
+    '/services/woocommerce-software-migrations',
+  '/pages/wix-to-software-migration': '/services/shopify-migrations',
+  '/pages/wix-to-software': '/services/shopify-migrations',
+  '/pages/software-plus-maintenance': '/services/support-and-maintenance',
+  '/pages/software-development-services': '/services/software-theme-development-builds',
+  '/pages/email-marketing-services': '/services/email-marketing-agency',
+  '/pages/software-audit': '/services/shopify-audits',
   '/pages/free-software-audit-software-store-seo-cro-and-speed-review':
-    '/services/software-audits/',
+    '/services/shopify-audits',
   '/pages/software-plus-custom-solutions': SHOPIFY_PLUS_CLEAN_PATH,
-  '/pages/software-website-design': '/software-web-design',
-  '/pages/store-speed': '/software-developers',
+  '/pages/software-website-design': '/services/shopify-web-design',
+  '/pages/store-speed': '/services/software-developers',
   '/pages/about-us-1': '/about',
 
   // Booking spellings — straight to contact instead of via two redirects.
@@ -336,23 +292,23 @@ export const OLD_TO_CLEAN_PATHS = {
 
   // Old theme's service products and collections.
   '/products/software-experts-the-fold-tech-software-logo-and-visual-branding-services':
-    '/software-web-design',
+    '/services/shopify-web-design',
   '/products/software-experts-the-fold-tech-software-store-build-or-redesign-services':
-    '/software-web-design',
+    '/services/shopify-web-design',
   '/products/software-experts-the-fold-tech-software-seo-search-engine-optimization-services':
-    SHOPIFY_SEO_CLEAN_PATH,
+    ECOMMERCE_SEO_CLEAN_PATH,
   '/products/software-experts-the-fold-tech-software-analytics-and-tracking-services':
     '/services',
-  '/products/premium-package': '/software-web-design',
-  '/products/premium-theme-license': '/software-theme-development-builds/',
+  '/products/premium-package': '/services/shopify-web-design',
+  '/products/premium-theme-license': '/services/software-theme-development-builds',
   '/products/edit-credits': '/products/buy-bulk-hours',
   '/products/dedicated-hourly-service': '/products/buy-bulk-hours',
   '/products/monthly-dedicated-resource': '/products/buy-bulk-hours',
   '/products/service-invoice-0001844': '/services',
-  '/collections/store-setup': '/software-web-design',
-  '/collections/visual-content-and-branding': '/software-web-design',
-  '/collections/turnkey-dropshipping-websites-for-sale': '/software-web-design',
-  '/collections/development-and-troubleshooting': '/support-and-maintenance/',
+  '/collections/store-setup': '/services/shopify-web-design',
+  '/collections/visual-content-and-branding': '/services/shopify-web-design',
+  '/collections/turnkey-dropshipping-websites-for-sale': '/services/shopify-web-design',
+  '/collections/development-and-troubleshooting': '/services/support-and-maintenance',
   '/collections/marketing-and-sales': '/services',
   '/collections/frontpage': '/services',
 
@@ -365,80 +321,68 @@ export const OLD_TO_CLEAN_PATHS = {
     '/articles/the-css-z-index-what-it-is-and-how-to-use-it/',
   '/blogs/news/byteoperator.com': ARTICLES_CLEAN_PATH,
   '/blogs/news/the-pros-and-cons-of-law-firm-seo-services':
-    SHOPIFY_SEO_CLEAN_PATH,
-  '/blogs/news/tagged/law-firm-seo-services': SHOPIFY_SEO_CLEAN_PATH,
-  '/blogs/the-pros-and-cons-of-law-firm-seo-services': SHOPIFY_SEO_CLEAN_PATH,
+    ECOMMERCE_SEO_CLEAN_PATH,
+  '/blogs/news/tagged/law-firm-seo-services': ECOMMERCE_SEO_CLEAN_PATH,
+  '/blogs/the-pros-and-cons-of-law-firm-seo-services': ECOMMERCE_SEO_CLEAN_PATH,
 
   /* =====================================================
      EMPTY PAGES — see docs/empty-pages-redirect-plan.md
-
-     52 URLs that rendered header and footer and nothing
-     else, measured against the live site on 13 Sep 2026.
-     Each is a duplicate or predecessor of a page that is
-     actually built, so it redirects there rather than
-     serving a blank page.
-
-     NOT here, deliberately:
-       - /careers and /events, which are noindex
-       - /pages/premium-dropshipping-store, which must be
-         deleted in Software rather than redirected
   ===================================================== */
 
   // Reachable from a live menu — a visitor can click into these.
   '/pages/ai-visibility': '/ai-visibility-audit/',
   '/pages/ai-visibility-implementation': '/ai-visibility-audit/',
   '/pages/ai-visibility-monitoring': '/ai-visibility-audit/',
-  '/pages/bigcommerce-to-software-migration': '/bigcommerce-software-migrations/',
-  '/pages/conversion-rate-optimization': '/software-cro-agency/',
+  '/pages/bigcommerce-to-software-migration': '/services/bigcommerce-software-migrations',
+  '/pages/conversion-rate-optimization': '/shopify-cro-audit',
   '/pages/free-ai-visibility-snapshot': '/ai-visibility-audit/',
-  /* `/pages/join-our-newsletter` moved up with the canonical source handles. */
   '/pages/resources': '/guides',
   '/pages/reviews': '/work',
-  '/pages/software-design-services': '/software-web-design',
-  '/pages/software-development-services-1': '/software-developers',
+  '/pages/software-design-services': '/services/shopify-web-design',
+  '/pages/software-development-services-1': '/services/software-developers',
   '/pages/software-marketing-services': '/services',
-  '/pages/software-speed-optimization': '/software-developers',
+  '/pages/software-speed-optimization': '/services/shopify-audits',
 
   // Not linked from a menu; reachable by search or old links.
   '/pages/analytics-tracking': '/services',
   '/pages/branding-creative-direction': '/services',
-  '/pages/cart-drawer': '/software-developers',
+  '/pages/cart-drawer': '/services/software-developers',
   '/pages/case-studies-1': '/work',
-  '/pages/custom-store-project': '/software-web-design',
+  '/pages/custom-store-project': '/services/shopify-web-design',
   '/pages/digital-branding-creative-direction-services': '/services',
-  '/pages/free-software-audit': '/services/software-audits/',
+  '/pages/free-software-audit': '/services/shopify-audits',
   '/pages/funnel-building-lead-generation': '/services',
   '/pages/getting-started': '/contact/',
   '/pages/launch': '/services',
   '/pages/lead-generation-services-and-funnel-building': '/services',
   '/pages/learn-more': '/about',
-  '/pages/magento-to-software-migration': '/magento-software-migrations/',
+  '/pages/magento-to-software-migration': '/services/magento-software-migrations',
   '/pages/marketing-analytics-and-tracking': '/services',
-  '/pages/marketing-automation': '/email-marketing-agency/',
+  '/pages/marketing-automation': '/services/email-marketing-agency',
   '/pages/marketing-sales': '/services',
   '/pages/paid-social-scaling': '/services',
-  '/pages/retain': '/support-and-maintenance/',
+  '/pages/retain': '/services/support-and-maintenance',
   '/pages/search': '/search-first',
-  '/pages/search-engine-optimization-seo': '/seo-agency',
-  '/pages/software-app-development-services': '/software-app-development/',
-  '/pages/software-conversion-rate-optimization': '/software-cro-agency/',
+  '/pages/search-engine-optimization-seo': ECOMMERCE_SEO_CLEAN_PATH,
+  '/pages/software-app-development-services': '/services/software-app-development',
+  '/pages/software-conversion-rate-optimization': '/shopify-cro-audit',
   '/pages/software-custom-solutions': '/services',
-  '/pages/software-maintenance-services-1': '/support-and-maintenance/',
-  '/pages/software-marketing-automation': '/email-marketing-agency/',
-  '/pages/software-marketing-seo': '/seo-agency',
-  '/pages/software-migration-services': '/software-migrations/',
+  '/pages/software-maintenance-services-1': '/services/support-and-maintenance',
+  '/pages/software-marketing-automation': '/services/email-marketing-agency',
+  '/pages/software-marketing-seo': ECOMMERCE_SEO_CLEAN_PATH,
+  '/pages/software-migration-services': '/services/shopify-migrations',
   '/pages/software-paid-social': '/services',
-  '/pages/software-plus-partner-agency': '/software-plus-agency',
-  '/pages/software-seo-services': '/seo-agency',
-  '/pages/software-theme-customization': '/software-theme-development-builds/',
-  '/pages/sitelab-helpdesk': '/support-and-maintenance/',
+  '/pages/software-plus-partner-agency': '/shopify-plus-agency',
+  '/pages/software-seo-services': ECOMMERCE_SEO_CLEAN_PATH,
+  '/pages/software-theme-customization': '/services/software-theme-development-builds',
+  '/pages/sitelab-helpdesk': '/services/support-and-maintenance',
   '/pages/testimonials': '/work',
-  '/pages/the-fold-tech-approach-to-cro': '/software-cro-agency/',
-  '/pages/website-audit-service': '/services/software-audits/',
-  '/pages/website-audit-services': '/services/software-audits/',
-  '/pages/wix-to-software-migration-1': '/software-migrations/',
-  '/pages/woocommerce-to-software': '/woocommerce-software-migrations/',
-  '/pages/woocommerce-to-software-migration': '/woocommerce-software-migrations/',
+  '/pages/the-fold-tech-approach-to-cro': '/shopify-cro-audit',
+  '/pages/website-audit-service': '/services/shopify-audits',
+  '/pages/website-audit-services': '/services/shopify-audits',
+  '/pages/wix-to-software-migration-1': '/services/shopify-migrations',
+  '/pages/woocommerce-to-software': '/services/woocommerce-software-migrations',
+  '/pages/woocommerce-to-software-migration': '/services/woocommerce-software-migrations',
 } as const;
 
 export type LegacyPagePath = keyof typeof OLD_TO_CLEAN_PATHS;

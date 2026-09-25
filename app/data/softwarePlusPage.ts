@@ -2,7 +2,7 @@ import {
   HOME_PROJECTS,
   type HomeProjectsProps,
 } from '~/components/HomeProjects';
-import {HOME_CLIENT_LOGOS} from '~/components/HomeServices';
+import {HOME_CLIENT_LOGOS} from '~/data/clientLogos';
 import {TRACK_RECORD_FACTS} from '~/data/companyFacts';
 import type {ServiceHeroProps} from '~/components/services/ServiceHero';
 import {
@@ -57,7 +57,7 @@ const hero = {
     href: ROUTES.services,
   },
   showPartnerLogos: true,
-  showClientProof: true,
+  showClientProof: false,
 } as const satisfies ServiceHeroProps;
 
 const lightHero = {
@@ -79,7 +79,7 @@ const lightHero = {
     label: 'Our Services',
     href: ROUTES.services,
   },
-  showClientProof: true,
+  showClientProof: false,
 } as const satisfies ServiceHeroProps;
 
 const trustedBrands = {

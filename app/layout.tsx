@@ -18,10 +18,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      {url: '/images/site-icon.png', sizes: 'any', type: 'image/png'},
       {url: '/images/favicon-32.png', sizes: '32x32', type: 'image/png'},
       {url: '/images/favicon_the_fold_tech.png', sizes: '512x512', type: 'image/png'},
     ],
-    apple: [{url: '/images/apple-touch-icon.png', sizes: '180x180'}],
+    shortcut: '/images/site-icon.png',
+    apple: [{url: '/images/apple-touch-icon.png', sizes: '180x180', type: 'image/png'}],
   },
 };
 
@@ -33,6 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/images/site-icon.png" type="image/png" sizes="any" />
+        <link rel="shortcut icon" href="/images/site-icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
         <meta
           name="google-site-verification"
           content="MH80_WYTkwy23muXrl99RBVKfe76gOw3bmDJFHEQTlk"
