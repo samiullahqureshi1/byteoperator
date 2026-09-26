@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" width="160" height="40" fill="none">
+  <g transform="translate(6, 7)">
+    <path d="M13 1L24 7.3V20.7L13 27L2 20.7V7.3L13 1Z" stroke="#ffffff" stroke-width="1.8" fill="none"/>
+    <path d="M8 17.5V10.5L14 14L8 17.5Z" fill="#ffffff"/>
+  </g>
+  <text x="42" y="26" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700" letter-spacing="-0.02em">Node.js</text>
+</svg>

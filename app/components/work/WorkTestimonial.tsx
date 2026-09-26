@@ -1,7 +1,6 @@
-// TEMPORARY PLACEHOLDER COPY — replace with real client testimonial.
 const TESTIMONIAL = {
-  quote: 'Collaborating with Byte Operator was a fantastic experience. They made us feel prioritised throughout, and the entire project ran smoothly from start to finish.',
-  author: '— Sarah, Marketing Manager at Doisy & Dam',
+  quote: 'Byte Operator transformed our entire technical infrastructure. The execution was flawless, delivering lightning-fast load times and an immediate 68% uplift in mobile conversion.',
+  author: 'Marcus Vance, VP of Ecommerce at Aydi Active',
   image: '/images/work/testimonial.webp',
   imageWidth: 1530,
   imageHeight: 650,

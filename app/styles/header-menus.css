@@ -1857,7 +1857,7 @@
    SIMPLE SUBMENU (Shopify-supplied children)
 
    Dropdown for any top-level nav item whose children come
-   from the Shopify menu rather than from bespoke mega-menu
+   from the Shopify menu rather than from custom mega-menu
    markup. It reuses `.ft-mega-menu`, so the reveal, pointer
    bridge and hidden-by-default state are already handled —
    only the panel's own size and contents live here.

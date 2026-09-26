@@ -35,16 +35,11 @@ export function WorkHero({
         <div className="ft-work-hero__inner">
           <div className="ft-work-hero__left">
             <h1 className="ft-work-hero__title">
-              Real Software Success Stories That Drive Measurable Growth
+              Engineered for Impact: High-Velocity SaaS, AI Swarms & Flagship Ecommerce
             </h1>
 
             <p className="ft-work-hero__description">
-              Every ecommerce brand has unique goals, challenges, and
-              opportunities. Explore these success stories to see how Byte Operator has
-              helped businesses launch,
-              migrate, optimise, and scale their Software and Enterprise Platform Solutions stores
-              through custom development, conversion optimisation, technical SEO,
-              AI search visibility, and long-term growth strategies.
+              Explore how Byte Operator architects resilient custom SaaS platforms, autonomous AI lead engines, high-converting Shopify Plus storefronts, and zero-downtime enterprise cloud migrations that drive measurable revenue.
             </p>
 
             {/* <p className='ft-work-hero__description'>

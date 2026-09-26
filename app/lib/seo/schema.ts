@@ -166,7 +166,7 @@ export const ORGANIZATION: JsonLd = {
   ],
   sameAs: [
     'https://www.linkedin.com/company/byte-operator',
-    'https://www.instagram.com/byteoperator/',
+    'https://www.instagram.com/byteoperatorofficial/',
     'https://www.facebook.com/byteoperator',
   ],
   contactPoint: [

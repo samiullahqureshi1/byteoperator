@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" width="160" height="40" fill="none">
+  <g transform="translate(6, 9)">
+    <rect x="0" y="4" width="10" height="14" rx="3" stroke="#ffffff" stroke-width="1.8" fill="none"/>
+    <rect x="16" y="4" width="10" height="14" rx="3" stroke="#ffffff" stroke-width="1.8" fill="none"/>
+    <line x1="10" y1="11" x2="16" y2="11" stroke="#ffffff" stroke-width="1.8"/>
+  </g>
+  <text x="42" y="26" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700" letter-spacing="-0.02em">n8n</text>
+</svg>

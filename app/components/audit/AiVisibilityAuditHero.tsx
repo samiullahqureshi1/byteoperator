@@ -315,7 +315,7 @@ export function AiVisibilityAuditHero() {
                 </h2>
 
                 <p className="ft-audit-form__thanks-text">
-                  Thanks — we&apos;ve received your details. A member of the
+                  Thanks! We&apos;ve received your details. A member of the
                   Byte Operator team will review your store and send your free AI
                   visibility audit within 3 working days.
                 </p>

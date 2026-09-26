@@ -9,27 +9,27 @@ import {CalendlyButton} from '~/components/shared/CalendlyButton';
 
 const HERO_SERVICES = [
   {
-    title: 'Custom Software',
+    title: 'Custom Software & SaaS',
     description:
-      'High-performance custom software, web applications & cloud platforms built to scale.',
+      'High-performance web applications, multi-tenant SaaS platforms & scalable cloud architectures.',
     url: '/services/software-developers/',
   },
   {
-    title: 'Full-Stack Engineering',
+    title: 'AI Automations & Agents',
     description:
-      'Modern frontend architecture, robust APIs, databases & scalable systems.',
-    url: '/services/software-theme-development-builds/',
+      'Replex Engine lead replies, n8n workflow pipelines & autonomous multi-agent task execution.',
+    url: '/services/ai-ecommerce-agency/',
   },
   {
-    title: 'Search & AI Discovery',
+    title: 'Shopify Store Development',
     description:
-      'Technical SEO, performance engineering & AI search visibility that drives growth.',
-    url: SHOPIFY_SEO_CLEAN_PATH,
+      'High-converting custom storefronts, Shopify Plus architecture & proprietary app extensions.',
+    url: '/services/shopify-web-design/',
   },
   {
-    title: 'Cloud & Integrations',
+    title: 'API & Cloud Integrations',
     description:
-      'Enterprise API integrations, data pipelines & intelligent workflow automations.',
+      'Real-time bi-directional CRM, ERP, webhook pipelines & mission-critical database sync.',
     url: '/services/software-integrations/',
   },
 ] as const;
@@ -65,7 +65,7 @@ export function HomeHero() {
 
       <div className="ft-home-hero__content">
         <p className="ft-home-hero__eyebrow">
-          Trusted Custom Software & Digital Engineering Partner
+          Full-Stack Software Engineering, AI Automations & High-Performance Platforms
         </p>
 
         <h1
@@ -75,7 +75,7 @@ export function HomeHero() {
           {/* The {' '} gaps are for crawlers and copy/paste: without them the
               heading's text reads "TheSoftware AgencyThat". Flex drops them. */}
           <span className="ft-home-hero__title-line">
-            <span>The</span> <strong>Software Agency</strong>
+            <span>The</span> <strong>Software & AI Agency</strong>
           </span>{' '}
           <span className="ft-home-hero__title-line">
             That Drives Real Growth
@@ -83,7 +83,7 @@ export function HomeHero() {
         </h1>
 
         <p className="ft-home-hero__description">
-          High-performing digital products, scalable web applications, and AI-driven platforms that deliver measurable business results.
+          Byte Operator designs, engineers, and deploys high-velocity web platforms, autonomous AI lead capture systems, and enterprise digital architectures built for extreme performance.
         </p>
 
         <div className="ft-home-hero__services">
@@ -111,7 +111,7 @@ export function HomeHero() {
             scrollToGallery();
           }}
         >
-          <span>See our work</span>
+          <span>Explore our platforms</span>
           <ArrowDownIcon />
           </a>
         </div>

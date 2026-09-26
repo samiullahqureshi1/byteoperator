@@ -5,7 +5,7 @@ import type {HomeFeatureData} from '~/data/homeFeatures';
 import {CalendlyButton} from '~/components/shared/CalendlyButton';
 
 /* =========================================================
-   BYTE OPERATOR — REUSABLE HOME FEATURE
+   BYTE OPERATOR - REUSABLE HOME FEATURE
 ========================================================= */
 
 type HomeFeatureProps = {

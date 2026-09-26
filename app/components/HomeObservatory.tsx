@@ -90,7 +90,7 @@ export function HomeObservatory() {
           <div className="ft-home-observatory__eyebrow">
             <FlaskIcon />
 
-            <span>Byte Operator Observatory</span>
+            <span>Byte Operator Tech & AI Intelligence</span>
           </div>
 
           <h2
@@ -102,15 +102,13 @@ export function HomeObservatory() {
           </h2>
 
           <p className="ft-home-observatory__description">
-  Technical SEO & Search Architecture, AI search data, CRO insights and ecommerce
-  news: practical ideas for growing online stores. Free,
-  once a month.
-</p>
+            Monthly technical breakdowns on AI automation architecture, Generative Engine Optimisation (GEO), Core Web Vitals optimization, and enterprise ecommerce playbooks. Delivered free once a month.
+          </p>
 
           <div className="ft-home-observatory__stats">
             <div className="ft-home-observatory__stat ft-home-observatory__stat--primary">
               <span className="ft-home-observatory__stat-value">
-                SEO + CRO
+                AI + Web
               </span>
 
               <span className="ft-home-observatory__stat-label">

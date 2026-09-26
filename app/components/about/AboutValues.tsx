@@ -7,7 +7,7 @@ export function AboutValues() {
             src="/images/about/values-team.webp"
             width={1970}
             height={1306}
-            alt="Byte Operator team working together"
+            alt="Byte Operator engineering team collaborating on architecture"
             className="ft-about-values__image-image"
           />
         </div>
@@ -16,54 +16,40 @@ export function AboutValues() {
       <div className="ft-about-values__container">
         <div className="ft-about-values__inner">
           <div className="ft-about-values__left">
-            <h2 className="ft-about-values__heading">Our Values</h2>
+            <h2 className="ft-about-values__heading">Our Principles</h2>
           </div>
 
           <div className="ft-about-values__right">
             <h3 className="ft-about-values__subheading">
-              Do work that matters
+              Engineering Integrity &amp; Sub-Second Latency
             </h3>
 
             <p className="ft-about-values__description">
-              We focus on impact, not output. Every decision should support
-              meaningful progress, whether that means stronger visibility,
-              better conversion or sustainable ecommerce growth. If something
-              does not create value for the business or improve the customer
-              experience, it should not be there.
+              We reject brittle code and bloated dependencies. Every system we build is architected with modern TypeScript, modular Next.js components, optimized GraphQL schemas, and resilient database layers designed to achieve top-tier Core Web Vitals and 99.99% operational uptime.
             </p>
 
             <h3 className="ft-about-values__subheading">
-              Lead with insight
+              Autonomous Automation &amp; AI-First Execution
             </h3>
 
             <p className="ft-about-values__description">
-              Good decisions start with useful information. We use search data,
-              customer behaviour, analytics and experimentation to guide
-              strategy and prioritisation. Our recommendations are built around
-              evidence and clear commercial objectives rather than guesswork.
+              We leverage cutting-edge artificial intelligence, autonomous multi-agent swarms, and custom webhook pipelines like our Replex Engine to eliminate manual overhead. We turn complex lead capture, catalog syncing, and customer workflows into instant, reliable background tasks.
             </p>
 
             <h3 className="ft-about-values__subheading">
-              Be bold and curious
+              Data-Driven Commercial Velocity
             </h3>
 
             <p className="ft-about-values__description">
-              Progress comes from questioning assumptions, exploring better
-              approaches and testing ideas. We stay curious about how commerce,
-              technology and search are changing so we can keep improving the
-              experiences we build.
+              Great engineering must move the commercial needle. We unite rigorous experimentation, A/B testing, Generative Engine Optimization (GEO), and checkout CRO to ensure every feature deployment directly lifts conversion rates, average order values, and long-term brand valuation.
             </p>
 
             <h3 className="ft-about-values__subheading">
-              Grow alongside our clients
+              Direct Partnership &amp; Radical Transparency
             </h3>
 
             <p className="ft-about-values__description">
-              We approach Byte Operator with the same mindset we bring to client
-              work: test ideas, measure outcomes and keep improving. That
-              shared experience helps us work as an extension of ecommerce
-              teams with practical context, accountability and a long-term
-              perspective.
+              We operate without intermediate account managers or bureaucratic bottlenecks. Our clients collaborate directly with senior full-stack architects, cloud engineers, and technical strategists who take complete ownership of your milestones and roadmap from day one.
             </p>
           </div>
         </div>

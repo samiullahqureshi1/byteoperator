@@ -47,13 +47,13 @@ export function WorkTopCaseStudies({
       aria-labelledby="ft-work-industries-title"
     >
       <div className="ft-work-industries__header">
-        <p className="ft-work-industries__eyebrow">Industries We Serve</p>
+        <p className="ft-work-industries__eyebrow">Selected Case Studies</p>
 
         <h2
           className="ft-work-industries__title"
           id="ft-work-industries-title"
         >
-          Software Growth Solutions Built for Every Ecommerce Industry
+          High-Impact Engineering Across SaaS, AI Automation & Flagship Commerce
         </h2>
 
         <IndustryFilters

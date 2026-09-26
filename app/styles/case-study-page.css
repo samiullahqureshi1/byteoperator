@@ -1,5 +1,5 @@
 /*
- * Case study detail — `/work/:handle` and `/case-studies/:handle`.
+ * Case study detail - `/work/:handle` and `/case-studies/:handle`.
  * Styled with Byte Operator dark navy and electric blue theme.
  */
 
@@ -219,14 +219,16 @@
   border: 1px solid var(--cs-line);
   border-radius: 0.75rem;
   overflow: hidden;
+  background: #0B1528;
 }
 
 .ft-cs__visual img {
   display: block;
   width: 100%;
   height: auto;
-  max-height: min(80vh, 45rem);
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  object-position: top center;
 }
 
 /* ---------- Brief ---------- */

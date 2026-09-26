@@ -10,7 +10,7 @@ const SPACE_IMAGES = [
     src: '/images/about/space-01-1400.webp',
     srcSet:
       '/images/about/space-01-700.webp 700w, /images/about/space-01-1400.webp 1400w',
-    alt: 'Byte Operator team and workspace',
+    alt: 'Byte Operator engineering lab and architecture pod',
     width: 1400,
     height: 935,
   },
@@ -18,7 +18,7 @@ const SPACE_IMAGES = [
     src: '/images/about/space-02-1400.webp',
     srcSet:
       '/images/about/space-02-700.webp 700w, /images/about/space-02-1400.webp 1400w',
-    alt: 'Byte Operator team collaborating',
+    alt: 'Byte Operator software engineers and AI developers in deep collaboration',
     width: 1400,
     height: 788,
   },
@@ -26,7 +26,7 @@ const SPACE_IMAGES = [
     src: '/images/about/space-03-1400.webp',
     srcSet:
       '/images/about/space-03-700.webp 700w, /images/about/space-03-1400.webp 1400w',
-    alt: 'Byte Operator workspace and culture',
+    alt: 'Byte Operator collaborative workspaces and design sprint sessions',
     width: 1400,
     height: 933,
   },
@@ -73,7 +73,6 @@ export function AboutSpace() {
     let targetIndex =
       direction === 'next' ? currentIndex + 1 : currentIndex - 1;
 
-    // Reference uses rewind behaviour.
     if (targetIndex >= slides.length) {
       targetIndex = 0;
     }
@@ -102,14 +101,7 @@ export function AboutSpace() {
             ref={scrollerRef}
             className="ft-about-space__scroller"
             role="group"
-            aria-label="Byte Operator workspace gallery"
-            /*
-             * The slides hold only images, so without this the carousel
-             * scrolls by pointer alone - no keyboard, no agent. This is the
-             * fix axe's "scrollable-region-focusable" asks for; the lint rule
-             * below disagrees with it on scroll containers specifically.
-             */
-            // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+            aria-label="Byte Operator workspace and engineering culture gallery"
             tabIndex={0}
           >
             {SPACE_IMAGES.map((image) => (
@@ -178,7 +170,7 @@ export function AboutSpace() {
           id="ft-about-space-title"
           className="ft-about-space__heading"
         >
-          Our Space, Our Culture
+          Engineering Labs, Continuous R&amp;D &amp; High-Velocity Culture
         </h2>
       </div>
     </section>

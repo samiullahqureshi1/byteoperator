@@ -2,33 +2,33 @@ import {CalendlyButton} from '~/components/shared/CalendlyButton';
 
 const TEAM_MEMBERS = [
   {
-    name: 'Alex Morgan',
-    role: 'CEO & Founder',
+    name: 'Sami Ullah Qureshi',
+    role: 'Founder & Chief Technology Officer',
     image: '/images/about/team-01.webp',
   },
   {
-    name: 'Jordan Lee',
-    role: 'Head of Growth',
+    name: 'Hamza Tariq',
+    role: 'Principal Software & Cloud Architect',
     image: '/images/about/team-02.webp',
   },
   {
-    name: 'Taylor Smith',
-    role: 'Head of Design',
+    name: 'Zeeshan Ali',
+    role: 'Lead AI Systems & Automation Engineer',
     image: '/images/about/team-03.webp',
   },
   {
-    name: 'Chris Walker',
-    role: 'Head of Operations',
+    name: 'Sarah Jenkins',
+    role: 'Head of Commerce Strategy & CRO',
     image: '/images/about/team-04.webp',
   },
   {
-    name: 'Sam Wilson',
-    role: 'Head of Development',
+    name: 'David Zhao',
+    role: 'Senior Next.js & Headless Specialist',
     image: '/images/about/team-05.webp',
   },
   {
-    name: 'Jamie Brown',
-    role: 'Head of People',
+    name: 'Maya Al-Hassan',
+    role: 'Head of Product & Interface Design',
     image: '/images/about/team-06.webp',
   },
 ] as const;
@@ -47,13 +47,13 @@ export function AboutTeam() {
               id="ft-about-team-title"
               className="ft-about-team__heading"
             >
-              Our Leadership
+              Engineering &amp;
               <br />
-              Team
+              Strategic Leadership
             </h2>
 
             <p className="ft-about-team__description">
-              Driving growth for your business
+              Senior software architects, AI researchers, and commerce strategists dedicated to scaling your digital platforms.
             </p>
 
             <div className="ft-about-team__badges">
@@ -61,26 +61,26 @@ export function AboutTeam() {
                 href="/services"
                 className="ft-about-team__badge"
               >
-                Services
+                Our Services
               </a>
 
               <a
                 href="/work"
                 className="ft-about-team__badge"
               >
-                Our Work
+                Case Studies
               </a>
 
               <a
-                href="/contact/"
+                href="/contact"
                 className="ft-about-team__badge"
               >
-                Get in touch
+                Get in Touch
               </a>
 
               <CalendlyButton
                 className="ft-about-team__badge"
-                label="Book a Call"
+                label="Book Architecture Call"
               />
             </div>
           </div>

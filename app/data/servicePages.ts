@@ -1337,7 +1337,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         media: {
           primary:
-            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
           primaryWidth: 1920,
           primaryHeight: 1080,
           primaryAlt: 'Central API Dashboard and Health Telemetry',
@@ -2203,7 +2203,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         media: {
           primary:
-            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
           primaryWidth: 1920,
           primaryHeight: 1080,
           primaryAlt: 'Composable Next.js and React Decoupled Frontend Architecture',
@@ -3076,7 +3076,7 @@ export const SERVICE_PAGE_CONFIGS = {
       },
       media: {
         primary:
-          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
         primaryWidth: 1920,
         primaryHeight: 1080,
         primaryAlt: 'Aydi Active Multi-Vendor Marketplace Dashboard',
@@ -3115,7 +3115,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         media: {
           primary:
-            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
           primaryWidth: 1920,
           primaryHeight: 1080,
           primaryAlt: 'Aydi Active Central Command Dashboard',
@@ -6366,7 +6366,7 @@ export const SERVICE_PAGE_CONFIGS = {
       },
       media: {
         primary:
-          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
         primaryWidth: 1920,
         primaryHeight: 1080,
         primaryAlt:
@@ -7090,7 +7090,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         media: {
           primary:
-            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
           primaryWidth: 1920,
           primaryHeight: 1080,
           primaryAlt: 'ERP synchronization and zero-downtime cutover management',
@@ -7252,7 +7252,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         media: {
           primary:
-            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
           primaryWidth: 1920,
           primaryHeight: 1080,
           primaryAlt: 'Unified D2C and B2B wholesale platform ecosystem',

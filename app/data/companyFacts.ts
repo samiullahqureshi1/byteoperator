@@ -1,5 +1,5 @@
 /* =========================================================
-   BYTE OPERATOR — APPROVED FACTS REGISTER
+   BYTE OPERATOR - APPROVED FACTS REGISTER
 
    The official company statistics published across the site.
 
@@ -23,7 +23,7 @@ export type CompanyFact = {
   /** Long-form copy, used where a stat carries a paragraph. */
   description: string;
 
-  /** What backs the figure. Internal — never rendered. */
+  /** What backs the figure. Internal - never rendered. */
   evidence: string;
 };
 
@@ -141,7 +141,7 @@ export const COMPANY_FACTS = {
    WHAT EACH SURFACE SHOWS
 ========================================================= */
 
-/** Homepage — key figures across desktop. */
+/** Homepage - key figures across desktop. */
 export const HOME_FACTS = [
   COMPANY_FACTS.projects,
   COMPANY_FACTS.reviews,
@@ -149,7 +149,7 @@ export const HOME_FACTS = [
   COMPANY_FACTS.founded,
 ];
 
-/** About page — the depth behind the headline. */
+/** About page - the depth behind the headline. */
 export const ABOUT_FACTS = [
   COMPANY_FACTS.projects,
   COMPANY_FACTS.engagements,
@@ -157,7 +157,7 @@ export const ABOUT_FACTS = [
   COMPANY_FACTS.team,
 ];
 
-/** Contact hero — reasons to send the form. */
+/** Contact hero - reasons to send the form. */
 export const CONTACT_FACTS = [
   COMPANY_FACTS.projects,
   COMPANY_FACTS.reviews,
@@ -165,7 +165,7 @@ export const CONTACT_FACTS = [
   COMPANY_FACTS.partnerSince,
 ];
 
-/** Work page — what the portfolio is backed by. */
+/** Work page - what the portfolio is backed by. */
 export const WORK_FACTS = [
   COMPANY_FACTS.projects,
   COMPANY_FACTS.engagements,
@@ -173,7 +173,7 @@ export const WORK_FACTS = [
   COMPANY_FACTS.jobSuccess,
 ];
 
-/** Track-record strip — verified figures. */
+/** Track-record strip - verified figures. */
 export const TRACK_RECORD_FACTS = [
   COMPANY_FACTS.projects,
   COMPANY_FACTS.engagements,

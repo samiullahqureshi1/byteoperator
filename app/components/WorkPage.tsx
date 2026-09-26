@@ -62,27 +62,27 @@ export function WorkPage({
         <>
           <WorkTeamCta />
           <WorkCaseStudies articles={caseStudyArticles} />
-       <div className="ft-work-people">
-  <HomePeople
-    content={{
-      eyebrow: 'Creative, Technical & Strategic Software Engineering Experts',
-      headingFirstLine: 'Software Agency for',
-      headingSecondLine: 'Growing Brands',
-      description:
-        'A dedicated Software team specialising in design, development, SEO and growth marketing. We partner with ecommerce brands to plan, build and optimise high-converting online stores delivering better user experience, stronger organic visibility and measurable revenue growth.',
-      buttonLabel: 'Our Story',
-    }}
-  />
-</div>
-          <WorkTestimonial />
-          <div className="ft-work-experts">
-  <HomeExperts
-    eyebrow={'Software & Enterprise Platform Solutions Experts'}
-    heading={"Let's Build, Optimise & Scale Your Digital Platform"}
-    description={'Byte Operator partners with ecommerce brands to design, develop, launch and grow Software and Enterprise Platform Solutions stores. Whether you need a new build, seamless migration, ongoing development, technical SEO or conversion rate optimisation we help you plan and deliver results that drive real revenue growth.'}
-    ctaLabel={'Get in Touch'}
-  />
-</div>
+        <div className="ft-work-people">
+          <HomePeople
+            content={{
+              eyebrow: 'Engineering, AI & Ecommerce Architecture Specialists',
+              headingFirstLine: 'Full-Stack Team for',
+              headingSecondLine: 'High-Velocity Brands',
+              description:
+                'A specialized engineering collective focused on custom SaaS development, autonomous AI workflows, high-converting digital storefronts, and enterprise cloud migrations. We partner with ambitious leaders to engineer digital systems that outperform benchmarks and scale revenue.',
+              buttonLabel: 'Our Story',
+            }}
+          />
+        </div>
+        <WorkTestimonial />
+        <div className="ft-work-experts">
+          <HomeExperts
+            eyebrow={'Ready to Build & Scale?'}
+            heading={"Let's Engineer Your Next High-Performance Platform"}
+            description={'Whether you are deploying custom SaaS architecture, setting up autonomous AI workflow swarms with Replex & n8n, replatforming to Shopify Plus, or optimizing Core Web Vitals with Speedify AI, Byte Operator delivers the technical mastery you need to lead your market.'}
+            ctaLabel={'Start a Project'}
+          />
+        </div>
         </>
       ) : null}
     </div>

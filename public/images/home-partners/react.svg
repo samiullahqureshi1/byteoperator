@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" width="160" height="40" fill="none">
+  <g transform="translate(18, 20) scale(0.9)">
+    <circle cx="0" cy="0" r="2.8" fill="#ffffff"/>
+    <g stroke="#ffffff" stroke-width="1.4" fill="none">
+      <ellipse rx="13" ry="5"/>
+      <ellipse rx="13" ry="5" transform="rotate(60)"/>
+      <ellipse rx="13" ry="5" transform="rotate(120)"/>
+    </g>
+  </g>
+  <text x="42" y="26" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700" letter-spacing="-0.02em">React</text>
+</svg>

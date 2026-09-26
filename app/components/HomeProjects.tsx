@@ -22,123 +22,117 @@ export type HomeProjectData = {
 
 export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
-    title: 'SkinbySkin',
-    type: 'SEO, Ecommerce design & development',
-    href: '/work/sun-chaser',
+    title: 'Collabix',
+    type: 'Custom SaaS & Enterprise Platform',
+    href: '/services/software-developers',
     image:
-      '/images/home-projects/cambridge/image.webp',
-    imageWidth: 1086,
-    imageHeight: 1448,
-    logo:
-      '/images/home-projects/cambridge/logo.svg',
-    logoImageWidth: 2609,
-    logoImageHeight: 480,
+      'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/custom_software_case_study.png?v=1790400442',
+    imageWidth: 1920,
+    imageHeight: 1080,
+    logo: '',
+    logoImageWidth: 0,
+    logoImageHeight: 0,
     thumbnail:
-      '/images/home-projects/cambridge/thumbnail.webp',
-    thumbnailWidth: 816,
-    thumbnailHeight: 1112,
-    logoWidth: '41%',
-    alt: 'SkinbySkin',
-  },
-
-  {
-    title: 'Love Luxury',
-    type: 'Ecommerce design & development',
-    href: '/work/loony-legs',
-    image:
-      '/images/home-projects/bbc/image.webp',
-    imageWidth: 1160,
-    imageHeight: 800,
-    logo:
-      '/images/home-services/clients/logo-1.svg',
-    logoImageWidth: 438,
-    logoImageHeight: 48,
-    thumbnail:
-      '/images/home-projects/bbc/thumbnail.webp',
-    thumbnailWidth: 2560,
-    thumbnailHeight: 1707,
-    logoWidth: '21%',
-    alt: 'Love Luxury',
-  },
-
-  {
-    title: 'Mellome',
-    type: 'Ecommerce design & development',
-    href: '/work/macdanny-fashion',
-    image:
-      '/images/home-projects/111skin/image.webp',
-    imageWidth: 600,
-    imageHeight: 405,
-    logo:
-      '/images/home-projects/111skin/logo.svg',
-    logoImageWidth: 267,
-    logoImageHeight: 48,
-    thumbnail:
-      '/images/home-projects/111skin/thumbnail.webp',
-    thumbnailWidth: 1000,
+      'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/custom_software_case_study.png?v=1790400442',
+    thumbnailWidth: 800,
     thumbnailHeight: 800,
     logoWidth: '25%',
-    alt: 'Mellome',
+    alt: 'Collabix custom software and SaaS platform architecture',
   },
 
   {
-    title: 'Mann & Co Bake Shop',
-    type: 'Ecommerce design & development',
-    href: '/work/brown-girl-jane',
+    title: 'Autonomous AI Agents',
+    type: 'Multi-Agent Task Orchestration & Automated Workflows',
+    href: '/services/ai-ecommerce-agency',
     image:
-      '/images/home-projects/muc-off/image.webp',
-    imageWidth: 3376,
-    imageHeight: 4220,
-    logo:
-      '/images/home-projects/muc-off/logo.svg',
-    logoImageWidth: 2789,
-    logoImageHeight: 965,
+      'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/second_autmation_imaeg.webp?v=1790409459',
+    imageWidth: 1920,
+    imageHeight: 1080,
+    logo: '',
+    logoImageWidth: 0,
+    logoImageHeight: 0,
     thumbnail:
-      '/images/home-projects/muc-off/thumbnail.webp',
-    thumbnailWidth: 2394,
-    thumbnailHeight: 2992,
-    logoWidth: '28%',
-    alt: 'Mann & Co Bake Shop',
-  },
-
-  {
-    title: 'LifeProtectors',
-    type: 'Ecommerce growth retainer',
-    href: '/work/lifeprotectors',
-    image:
-      '/images/home-projects/candy-kittens/image.webp',
-    imageWidth: 400,
-    imageHeight: 497,
-    logo:
-      '/images/home-projects/candy-kittens/logo.svg',
-    logoImageWidth: 180,
-    logoImageHeight: 180,
-    thumbnail:
-      '/images/home-projects/candy-kittens/thumbnail.webp',
-    thumbnailWidth: 1000,
+      'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/second_autmation_imaeg.webp?v=1790409459',
+    thumbnailWidth: 800,
     thumbnailHeight: 800,
-    logoWidth: '17%',
-    alt: 'LifeProtectors',
+    logoWidth: '25%',
+    alt: 'Autonomous AI agent orchestration and workflow platform',
   },
 
   {
-    title: 'Branley Ventures',
-    type: 'Ecommerce design & development',
-    href: '/work/top-tier-clothing',
+    title: 'Replex Engine',
+    type: 'Autonomous AI Lead Capture & Sub-Minute Replies',
+    href: '/services/ai-ecommerce-agency',
     image:
-      '/images/home-projects/case/image.webp',
-    imageWidth: 600,
-    imageHeight: 600,
-    logo:
-      '/images/home-projects/case/logo.svg',
-    logoImageWidth: 120,
-    logoImageHeight: 100,
+      'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/replex.png?v=1790409470',
+    imageWidth: 1920,
+    imageHeight: 1080,
+    logo: '',
+    logoImageWidth: 0,
+    logoImageHeight: 0,
     thumbnail:
-      '/images/home-projects/case/thumbnail.webp',
-    thumbnailWidth: 1000,
+      'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/replex.png?v=1790409470',
+    thumbnailWidth: 800,
     thumbnailHeight: 800,
-    logoWidth: '17%',
-    alt: 'Branley Ventures',
+    logoWidth: '25%',
+    alt: 'Replex Engine AI communication and lead automation platform',
+  },
+
+  {
+    title: 'Kids Wonderland',
+    type: 'Shopify Store Development & Custom Catalog',
+    href: '/services/shopify-web-design',
+    image:
+      'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/toys.webp?v=1790407473',
+    imageWidth: 1920,
+    imageHeight: 1080,
+    logo: '',
+    logoImageWidth: 0,
+    logoImageHeight: 0,
+    thumbnail:
+      'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/toys.webp?v=1790407473',
+    thumbnailWidth: 800,
+    thumbnailHeight: 800,
+    logoWidth: '25%',
+    alt: 'Kids Wonderland toy store development',
+  },
+
+  {
+    title: 'Nordic Haven Furniture',
+    type: 'Shopify Plus & Luxury Furniture Storefront',
+    href: '/services/shopify-plus-agency',
+    image:
+      'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/furniture.webp?v=1790407636',
+    imageWidth: 1920,
+    imageHeight: 1080,
+    logo: '',
+    logoImageWidth: 0,
+    logoImageHeight: 0,
+    thumbnail:
+      'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/furniture.webp?v=1790407636',
+    thumbnailWidth: 800,
+    thumbnailHeight: 800,
+    logoWidth: '25%',
+    alt: 'Nordic Haven luxury furniture digital storefront',
+  },
+
+  {
+    title: 'OmniRetail CRO & Migration',
+    type: 'Conversion Rate Optimisation & Enterprise Migration',
+    href: '/services/shopify-migrations',
+    image:
+      'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/shopify_cro_and_migration_store.webp?v=1790407473',
+    imageWidth: 1920,
+    imageHeight: 1080,
+    logo: '',
+    logoImageWidth: 0,
+    logoImageHeight: 0,
+    thumbnail:
+      'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/shopify_cro_and_migration_store.webp?v=1790407473',
+    thumbnailWidth: 800,
+    thumbnailHeight: 800,
+    logoWidth: '25%',
+    alt: 'Shopify CRO and enterprise platform migration',
   },
 ] as const;
 
@@ -427,21 +421,23 @@ export function HomeProjects({
                       draggable={false}
                     />
 
-                    <img
-                      className="ft-home-projects__project-logo"
-                      src={project.logo}
-                      width={project.logoImageWidth}
-                      height={project.logoImageHeight}
-                      alt={`${project.alt} logo`}
-                      aria-hidden="true"
-                      loading="lazy"
-                      decoding="async"
-                      draggable={false}
-                      style={{
-                        '--project-logo-width':
-                          project.logoWidth,
-                      } as React.CSSProperties}
-                    />
+                    {project.logo ? (
+                      <img
+                        className="ft-home-projects__project-logo"
+                        src={project.logo}
+                        width={project.logoImageWidth || 200}
+                        height={project.logoImageHeight || 50}
+                        alt={`${project.alt} logo`}
+                        aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        draggable={false}
+                        style={{
+                          '--project-logo-width':
+                            project.logoWidth || '25%',
+                        } as React.CSSProperties}
+                      />
+                    ) : null}
                   </Link>
 
                   <div className="ft-home-projects__content">

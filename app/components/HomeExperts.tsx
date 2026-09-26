@@ -64,17 +64,36 @@ export type HomeExpertsProps = {
 
 
 export function HomeExperts({
-  eyebrow = 'Software experts',
-  heading = 'Let\'s talk ecommerce, Software & Enterprise Platform Solutions solutions.',
+  eyebrow = 'Senior Engineering & AI Architects',
+  heading = 'Ready to architect your next software platform, Shopify store, or AI automation?',
   description = [
-    'Byte Operator helps ecommerce brands build, improve, and grow digital platforms & applications. We support new builds, migrations, ongoing development, SEO, and conversion optimisation.',
-    'Our team can help plan the right approach based on your store, goals, and current challenges.',
+    'Byte Operator partners directly with ambitious founders and enterprise brands to design, engineer, and deploy high-impact digital solutions.',
+    'Speak directly with our senior software engineers and AI automation architects to map your technical roadmap.',
   ],
-  ctaLabel = 'Get in touch',
-  ctaTo = '/contact/',
+  ctaLabel = 'Schedule Technical Consultation',
+  ctaTo = '/contact',
   variant = 'default',
   media,
-  testimonials,
+  testimonials = [
+    {
+      quote:
+        'Replex Engine transformed our inbound sales conversion. Our average response time dropped from 4 hours to 20 seconds, and we closed 38% more inbound leads in the first month alone.',
+      author: 'Liam Vance',
+      role: 'VP of Sales & Growth',
+      company: 'Apex Digital',
+      rating: 5,
+      highlight: 'Replex Engine & 38% Sales Lift',
+    },
+    {
+      quote:
+        'Byte Operator built our entire n8n operational workflow connecting Shopify, NetSuite, and customer support. It saves our operations team over 25 hours every single week.',
+      author: 'Clara Jensen',
+      role: 'Chief Operating Officer',
+      company: 'Kinetics Logistics',
+      rating: 5,
+      highlight: 'n8n Pipeline Automation & 25hrs/wk Saved',
+    },
+  ],
   testimonial,
   hideMedia = false,
 }: HomeExpertsProps) {

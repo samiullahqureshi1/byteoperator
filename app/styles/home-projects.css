@@ -1,5 +1,5 @@
 /* =========================================================
-   BYTE OPERATOR — HOME PROJECTS / CASE STUDIES
+   BYTE OPERATOR - HOME PROJECTS / CASE STUDIES
 ========================================================= */
 
 .ft-home-projects {
@@ -227,14 +227,14 @@
   width: 100%;
 
   aspect-ratio:
-    53 / 70;
+    16 / 9;
 
   overflow: hidden;
 
-  border-radius: 4vw;
+  border-radius: 1.25rem;
 
   background:
-    #10192F;
+    #0B1528;
   border: 1px solid #1F2A44;
 
   text-decoration: none;
@@ -615,7 +615,7 @@
 
 
 /* =========================================================
-   TABLET — 2 SLIDES
+   TABLET - 2 SLIDES
 ========================================================= */
 
 @media (min-width: 48rem) {
@@ -706,7 +706,7 @@
 
 
 /* =========================================================
-   SMALL DESKTOP — 2.25 SLIDES
+   SMALL DESKTOP - 2.25 SLIDES
 ========================================================= */
 
 @media (min-width: 64rem) {
@@ -793,7 +793,7 @@
 
 
 /* =========================================================
-   LARGE DESKTOP — 3 SLIDES
+   LARGE DESKTOP - 3 SLIDES
 ========================================================= */
 
 @media (min-width: 80rem) {

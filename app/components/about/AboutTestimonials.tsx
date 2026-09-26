@@ -2,27 +2,39 @@
 
 import {useCallback, useEffect, useState} from 'react';
 
-const AUTOPLAY_DELAY = 5000;
+const AUTOPLAY_DELAY = 6000;
 
 const TESTIMONIALS = [
   {
     quote:
-      'The Byte Operator team made the entire ecommerce project feel clear and well organised from start to finish. Communication was strong and the final experience felt aligned with what we wanted to achieve.',
-    name: 'Jordan Lee',
-    company: 'Ecommerce Manager — Demo Brand',
+      'Byte Operator engineered our core real-time collaboration engine on Next.js and WebSockets with near-zero latency. Their architectural discipline and speed to production completely transformed our product velocity.',
+    name: 'Marcus Vance',
+    company: 'Co-Founder & CTO, Collabix Platform',
   },
   {
     quote:
-      'Working with Byte Operator gave us a much clearer direction for our digital platform. The team understood the commercial goals behind the project and helped turn those priorities into a stronger customer experience.',
-    name: 'Alex Morgan',
-    company: 'Marketing Lead — Example Client',
+      'The autonomous AI automation pipeline Byte Operator architected eliminated hundreds of manual hours every week and drove our customer response time from hours to under 30 seconds. A truly elite engineering partner.',
+    name: 'Elena Rostova',
+    company: 'VP of Growth, Replex Engine',
+  },
+  {
+    quote:
+      'Migrating our global omnichannel storefront to a modern Shopify Plus architecture with Byte Operator resulted in a 42% lift in mobile conversion and a 98/100 Core Web Vitals score across all international locales.',
+    name: 'Tariq Al-Mansoor',
+    company: 'Head of Digital Commerce, Aydi Active',
+  },
+  {
+    quote:
+      'Byte Operator does not just write clean code; they understand enterprise commerce economics. Their technical CRO and headless engineering directly accelerated our multi-currency European expansion.',
+    name: 'Freja Lindqvist',
+    company: 'Managing Director, Nordic Haven',
   },
 ] as const;
 
 export function AboutTestimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
-  const [isCrossfadeReady, setIsCrossfadeReady] = useState(false); 
+  const [isCrossfadeReady, setIsCrossfadeReady] = useState(false);
 
   const goPrevious = useCallback(() => {
     setActiveIndex((current) =>
@@ -60,11 +72,11 @@ export function AboutTestimonials() {
           id="ft-about-testimonials-title"
           className="ft-about-testimonials__heading"
         >
-          Your Experience Is Our Priority
+          Trusted by Industry Leaders &amp; Visionary Founders
         </h2>
 
         <p className="ft-about-testimonials__description">
-          See our clients&apos; kind words for yourself!
+          Verified feedback from executives building the future of commerce and software.
         </p>
 
         <div

@@ -1,5 +1,5 @@
 /* =========================================================
-   BYTE OPERATOR — HOME PARTNERS
+   BYTE OPERATOR - HOME PARTNERS
 ========================================================= */
 
 .ft-home-partners {
@@ -30,11 +30,7 @@
 
 
 /* =========================================================
-   HOMEPAGE — BYTE OPERATOR DARK BACKGROUND
-
-   Scoped to the homepage wrapper only, since this component
-   is reused on other pages (see the .ft-services-partners
-   scoped override below) which keep their existing background.
+   HOMEPAGE - BYTE OPERATOR DARK BACKGROUND
 ========================================================= */
 
 .home > .ft-home-partners {
@@ -81,11 +77,7 @@
 .ft-home-partners__inner {
   display: grid;
 
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(0, 1fr)
-    );
+  grid-template-columns: 1fr;
 
   align-items: start;
 
@@ -105,9 +97,6 @@
   flex-direction: column;
 
   align-items: flex-start;
-
-  grid-column:
-    1 / -1;
 
   width: 100%;
 
@@ -175,8 +164,6 @@
 
 /* =========================================================
    DEFAULT 8-LINE COLLAPSED STATE
-
-   Reference starts with a shortened paragraph.
 ========================================================= */
 
 .ft-home-partners__description--clamped {
@@ -236,22 +223,57 @@
 
 
 /* =========================================================
-   RIGHT SIDE
+   RIGHT SIDE - LOGO GROUPS
 ========================================================= */
 
 .ft-home-partners__right {
-  grid-column:
-    1 / -1;
-
+  display: flex;
+  flex-direction: column;
   width: 100%;
-
   min-width: 0;
+  gap: 5vh;
+}
+
+.ft-home-partners__group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2.5vh;
+}
+
+.ft-home-partners__group--tech {
+  padding-top: 4.5vh;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ft-home-partners__group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.5vh;
+}
+
+.ft-home-partners__group-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8E9FB8;
+}
+
+.ft-home-partners__group-count {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 
 /* =========================================================
-   LOGO GRID
-   Reference = 3 columns even on mobile
+   LOGO GRIDS (2 ROWS DESKTOP)
 ========================================================= */
 
 .ft-home-partners__logos {
@@ -267,8 +289,15 @@
 
   width: 100%;
 
-  column-gap: 5vw;
-  row-gap: 5vh;
+  column-gap: 4vw;
+  row-gap: 3.5vh;
+}
+
+.ft-home-partners__logos--ecommerce,
+.ft-home-partners__logos--tech {
+  display: grid;
+  align-items: center;
+  width: 100%;
 }
 
 
@@ -286,8 +315,16 @@
   min-width: 0;
 
   padding:
-    0.8vh
-    1vw;
+    0.6vh
+    0.5vw;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+@media (hover: hover) {
+  .ft-home-partners__logo:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .ft-home-partners__logo img {
@@ -297,14 +334,14 @@
   height: auto;
 
   max-width: 100%;
-  max-height: 4.5vh;
+  max-height: 4vh;
 
   object-fit: contain;
 }
 
 
 /* =========================================================
-   TABLET
+   TABLET (min-width: 48rem)
 ========================================================= */
 
 @media (min-width: 48rem) {
@@ -348,18 +385,19 @@
   }
 
   .ft-home-partners__logos {
-    column-gap: 6vw;
-    row-gap: 6vh;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 4vw;
+    row-gap: 4vh;
   }
 
   .ft-home-partners__logo img {
-    max-height: 5vh;
+    max-height: 4.5vh;
   }
 }
 
 
 /* =========================================================
-   DESKTOP
+   DESKTOP (min-width: 64rem)
 ========================================================= */
 
 @media (min-width: 64rem) {
@@ -385,45 +423,37 @@
     max-width: 82%;
   }
 
-  .ft-home-partners__logos {
-    column-gap: 4vw;
-    row-gap: 6vh;
+  .ft-home-partners__logos--ecommerce {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 2.5vw;
+    row-gap: 4vh;
+  }
+
+  .ft-home-partners__logos--tech {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 2.5vw;
+    row-gap: 4vh;
   }
 }
 
 
 /* =========================================================
-   LARGE DESKTOP
-   Reference switches to left / right layout around 1280
+   LARGE DESKTOP (min-width: 80rem)
 ========================================================= */
 
 @media (min-width: 80rem) {
   .ft-home-partners__inner {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(0, 1fr)
-      );
-
-    column-gap: 8vw;
-    row-gap: 0;
+    grid-template-columns: 1fr;
+    row-gap: 8vh;
   }
 
-
-  /* =======================================================
-     LEFT HALF
-  ======================================================= */
-
   .ft-home-partners__left {
-    grid-column:
-      span 1;
-
+    max-width: 75%;
     gap: 4vh;
   }
 
   .ft-home-partners__title {
     max-width: 100%;
-
     font-size: 3.75rem;
   }
 
@@ -431,50 +461,46 @@
     max-width: 100%;
   }
 
-
-  /* =======================================================
-     RIGHT HALF
-  ======================================================= */
-
   .ft-home-partners__right {
-    grid-column:
-      span 1;
-
-    align-self: center;
+    width: 100%;
+    gap: 6vh;
   }
 
-  .ft-home-partners__logos {
-    column-gap: 3vw;
-    row-gap: 7vh;
+  .ft-home-partners__logos--ecommerce {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 2vw;
+    row-gap: 4.5vh;
+  }
+
+  .ft-home-partners__logos--tech {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 2vw;
+    row-gap: 4.5vh;
   }
 
   .ft-home-partners__logo {
-    padding:
-      1vh
-      0.6vw;
+    padding: 1vh 0.6vw;
   }
 
   .ft-home-partners__logo img {
-    max-height: 5.5vh;
+    max-height: 5vh;
   }
 }
 
 
 /* =========================================================
-   WIDE DESKTOP
+   WIDE DESKTOP (min-width: 96rem)
 ========================================================= */
 
 @media (min-width: 96rem) {
-  .ft-home-partners__inner {
-    column-gap: 8vw;
-  }
-
   .ft-home-partners__title {
     font-size: 3.75rem;
   }
 
-  .ft-home-partners__logos {
-    row-gap: 7vh;
+  .ft-home-partners__logos--ecommerce,
+  .ft-home-partners__logos--tech {
+    column-gap: 2.5vw;
+    row-gap: 5vh;
   }
 }
 
@@ -502,11 +528,72 @@
     transition: none;
   }
 }
+
 @media (min-width: 80rem) {
   .ft-home-partners__description--clamped {
     -webkit-line-clamp: 6;
   }
 }
+
 .ft-services-partners > .ft-home-partners {
   background: var(--ft-dark-deep, #060F24);
+}
+
+/* =========================================================
+   TECH STACK BREAKDOWN & PILL TAGS
+========================================================= */
+
+.ft-home-partners__tech-stack {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 1.5rem;
+}
+
+.ft-home-partners__tech-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.ft-home-partners__tech-category-title {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8E9FB8;
+}
+
+.ft-home-partners__tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem 0.5rem;
+}
+
+.ft-home-partners__tech-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3125rem 0.6875rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #D1D9E6;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .ft-home-partners__tech-pill:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+  }
 }

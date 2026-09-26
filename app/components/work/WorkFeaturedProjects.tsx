@@ -34,29 +34,29 @@ export function WorkFeaturedProjects({
               to={article.href ?? getCaseStudyPath(article.handle)}
               key={article.handle}
             >
-              {article.image ? (
-                <img
-                  className="ft-work-featured__image"
-                  src={article.image.url}
-                  srcSet={softwareImageSrcSet(article.image.url, [
-                    500, 900,
-                  ])}
-                  sizes="(min-width: 48rem) 33vw, 80vw"
-                  alt={article.image.altText || article.title}
-                  width={article.image.width ?? undefined}
-                  height={article.image.height ?? undefined}
-                  loading="lazy"
-                  decoding="async"
-                />
-              ) : null}
+              <div className="ft-work-featured__media">
+                {article.image ? (
+                  <img
+                    className="ft-work-featured__image"
+                    src={article.image.url}
+                    srcSet={softwareImageSrcSet(article.image.url, [
+                      500, 900,
+                    ])}
+                    sizes="(min-width: 48rem) 33vw, 80vw"
+                    alt={article.image.altText || article.title}
+                    width={article.image.width ?? undefined}
+                    height={article.image.height ?? undefined}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : null}
 
-              <div className="ft-work-featured__overlay" />
-
-              {result ? (
-                <span className="ft-work-featured__result">
-                  {result}
-                </span>
-              ) : null}
+                {result ? (
+                  <span className="ft-work-featured__result">
+                    {result}
+                  </span>
+                ) : null}
+              </div>
 
               <div className="ft-work-featured__content">
                 {showThumbnail && logo ? (
@@ -67,10 +67,6 @@ export function WorkFeaturedProjects({
                       120, 240,
                     ])}
                     sizes="120px"
-                    /*
-                     * Hidden from screen readers: the brand name is already
-                     * announced by the card title below.
-                     */
                     alt={`${article.title} logo`}
                     aria-hidden="true"
                     width={logo.width ?? undefined}

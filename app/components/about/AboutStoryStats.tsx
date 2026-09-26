@@ -8,7 +8,6 @@ import {useCountUp} from '~/lib/useCountUp';
 export function AboutStoryStats() {
   const {ref: statsRef, displayValues} = useCountUp<HTMLElement>(ABOUT_FACTS);
 
-
   return (
     <section className="ft-about-story-stats">
       {/* About Story */}
@@ -22,27 +21,22 @@ export function AboutStoryStats() {
           <div className="ft-about-story__inner">
             <div className="ft-about-story__left">
               <h2 className="ft-about-story__heading">
-                The story of Byte Operator, an ecommerce agency built around
-                Software growth.
+                The story of Byte Operator: Built by engineers to replace bloated agency models with pure technical velocity.
               </h2>
             </div>
 
             <div className="ft-about-story__right">
               <div className="ft-about-story__description">
                 <p>
-                  Byte Operator brings ecommerce strategy, creative design, development,
-                  search visibility and optimisation together, helping brands
-                  build stronger Software experiences. Our approach focuses on
-                  creating stores that are clear, scalable and built around
-                  commercial priorities from the start.
+                  Byte Operator was established on a clear premise: modern brands outgrow generic agency templates, fragile monolithic codebases, and fragmented vendor stacks. We bridge high-level product strategy, full-stack software engineering, conversion rate optimization, and autonomous AI automation into one cohesive, high-impact delivery team.
                 </p>
 
                 <p>
-                  Today, we support ecommerce businesses across strategy,
-                  storefront development, SEO, experimentation and ongoing
-                  optimisation. By connecting technical execution with customer
-                  experience and measurable growth priorities, we help brands
-                  improve how their stores perform and evolve over time.
+                  From building sub-second headless storefronts on Next.js, React, and Shopify Hydrogen to deploying enterprise platforms across Shopify Plus, BigCommerce, WooCommerce, and Magento, we craft scalable digital infrastructure. Beyond the storefront, we architect autonomous multi-agent pipelines with our proprietary Replex Engine and n8n workflows, turning manual operational bottlenecks into instant, zero-latency business growth.
+                </p>
+
+                <p>
+                  We partner directly with founders, CTOs, and ecommerce leaders as an embedded engineering force, delivering measurable revenue increases, bulletproof reliability, and enduring competitive advantages.
                 </p>
               </div>
 
@@ -50,7 +44,7 @@ export function AboutStoryStats() {
                 to="/services"
                 className="ft-about-story__button"
               >
-                <span>Explore Our Services</span>
+                <span>Explore Our Full Tech Stack</span>
 
                 <svg
                   width="13"
@@ -74,8 +68,7 @@ export function AboutStoryStats() {
       <section className="ft-about-stats" ref={statsRef}>
         <div className="ft-about-stats__container">
           <h2 className="ft-about-stats__heading">
-            Our ecommerce experience supports brands through ambitious,
-            long-term growth.
+            Proven engineering scale backed by verifiable enterprise outcomes.
           </h2>
 
           <div className="ft-about-stats__inner">
@@ -102,8 +95,6 @@ export function AboutStoryStats() {
                     {displayValues[index]}
                   </span>
 
-                  {/* The figure counts up, so the finished one is read out
-                      instead of whichever frame the animation is on. */}
                   <span className="sr-only">
                     {`${fact.value} ${fact.label}`}
                   </span>

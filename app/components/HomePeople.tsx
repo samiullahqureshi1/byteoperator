@@ -9,12 +9,12 @@ type HomePeopleContent = {
 };
 
 const DEFAULT_HOME_PEOPLE_CONTENT: HomePeopleContent = {
-  eyebrow: 'Creative, Technical & Strategic',
-  headingFirstLine: 'People-first',
-  headingSecondLine: 'software agency',
+  eyebrow: 'Senior Engineers, AI Architects & Growth Strategists',
+  headingFirstLine: 'Engineering-led',
+  headingSecondLine: 'software & AI agency',
   description:
-    'A Software team focused on design, development, SEO and growth, helping ecommerce brands plan, build and improve better online stores.',
-  buttonLabel: 'Our Story',
+    'A specialized engineering team focused on full-stack web platforms, AI workflow automations, and modern ecommerce architecture, helping ambitious brands scale faster and operate smarter.',
+  buttonLabel: 'About Byte Operator',
 };
 
 export function HomePeople({

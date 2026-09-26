@@ -60,8 +60,6 @@ export function Footer({
           <div className="ft-footer__hero-left">
             <h2 className="ft-footer__heading">
               <span>Let&apos;s talk</span>
-
-              <em>ecommerce.</em>
             </h2>
 
             <div className="ft-footer__cta-group">
@@ -369,7 +367,7 @@ const FOOTER_SOCIAL_LINKS = [
   },
   {
     label: 'Instagram',
-    href: 'https://www.instagram.com/byteoperator/',
+    href: 'https://www.instagram.com/byteoperatorofficial/',
     Icon: InstagramIcon,
   },
   {

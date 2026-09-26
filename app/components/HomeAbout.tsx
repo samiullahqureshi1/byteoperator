@@ -23,19 +23,19 @@ export type HomeAboutData = {
 
 const DEFAULT_HOME_ABOUT_DATA: HomeAboutData = {
   eyebrow:
-    'Premier Software Growth Partners for Ambitious Brands',
+    'Engineering & AI Automation Partners for High-Growth Brands',
   heading:
-    'We Design, Develop & Scale Digital Platforms for Growth',
+    'We Architect, Automate & Scale Digital Platforms for Real Business Impact',
   stats: HOME_FACTS,
   rightHeading: {
     prefix: 'Your',
-    emphasis: 'Performance-Focused',
-    suffix: 'Software Engineering Partner',
+    emphasis: 'Full-Lifecycle',
+    suffix: 'Software & AI Automation Agency',
   },
   description:
-    'At Byte Operator, we build Software and Enterprise Platform Solutions stores for brands focused on growth. We handle custom store builds, migrations, CRO, technical SEO, AI search visibility, and retention. Each service is planned around improving store performance, revenue, and long-term customer value.',
+    'At Byte Operator, we engineer high-performance SaaS platforms, Shopify storefronts, and autonomous AI automation systems. Powered by our proprietary Replex Engine framework, visual n8n pipelines, and full-stack cloud architectures, we eliminate manual operational bottlenecks, capture every qualified inbound lead, and maximize digital revenue.',
   cta: {
-    label: 'Explore Our Work',
+    label: 'Explore Our Case Studies',
     href: '/work',
   },
 };

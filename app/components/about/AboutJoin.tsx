@@ -1,8 +1,28 @@
 const VACANCIES = [
   {
-    title: 'Example Vacancy',
-    type: 'Hybrid / Remote',
-    href: '/careers',
+    title: 'Senior Full-Stack & Next.js Architect',
+    type: 'Full-time / Remote',
+    href: '/contact?subject=Careers%20-%20Senior%20Full-Stack%20Architect',
+  },
+  {
+    title: 'Lead AI Systems & LLM Workflow Engineer',
+    type: 'Full-time / Remote',
+    href: '/contact?subject=Careers%20-%20Lead%20AI%20Engineer',
+  },
+  {
+    title: 'Principal Shopify Plus & Headless Developer',
+    type: 'Full-time / Remote',
+    href: '/contact?subject=Careers%20-%20Principal%20Shopify%20Developer',
+  },
+  {
+    title: 'Conversion Rate Optimization (CRO) Specialist',
+    type: 'Full-time / Remote',
+    href: '/contact?subject=Careers%20-%20CRO%20Specialist',
+  },
+  {
+    title: 'Cloud Infrastructure & DevOps Engineer (AWS / Cloudflare)',
+    type: 'Full-time / Remote',
+    href: '/contact?subject=Careers%20-%20Cloud%20DevOps%20Engineer',
   },
 ] as const;
 
@@ -20,9 +40,9 @@ export function AboutJoin() {
               id="ft-about-join-title"
               className="ft-about-join__heading"
             >
-              Fancy joining the
+              Build the Future of
               <br />
-              Byte Operator Team?
+              Commerce &amp; Software With Us
             </h2>
           </div>
 
@@ -30,8 +50,7 @@ export function AboutJoin() {
           <div className="ft-about-join__right">
             <div className="ft-about-join__header">
               <h3 className="ft-about-join__header-heading">
-                Current vacancies
-
+                Open Positions
                 <span
                   className="ft-about-join__status-dot"
                   aria-hidden="true"
@@ -41,12 +60,10 @@ export function AboutJoin() {
               </h3>
 
               <a
-                href="https://www.linkedin.com/company/byte-operator"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact?subject=Careers"
                 className="ft-about-join__all-jobs"
               >
-                See all our jobs
+                Apply Directly
 
                 <svg
                   viewBox="0 0 13 12"
@@ -85,12 +102,10 @@ export function AboutJoin() {
 
             <div className="ft-about-join__footer">
               <a
-                href="https://www.linkedin.com/company/byte-operator"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact?subject=Careers"
                 className="ft-about-join__footer-button"
               >
-                See all our jobs
+                Apply Directly
 
                 <svg
                   viewBox="0 0 13 12"

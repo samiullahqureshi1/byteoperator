@@ -1,10 +1,10 @@
 export const INDUSTRY_FILTERS = [
   'All',
-  'Fashion & Beauty',
-  'Food & Drink',
-  'Luxury',
-  'Sport',
-  'Lifestyle & Home',
+  'AI & Automation',
+  'SaaS & Custom Software',
+  'Ecommerce & Storefronts',
+  'Shopify Plus & Migrations',
+  'Apps & Tools',
 ] as const;
 
 export type IndustryFilter = (typeof INDUSTRY_FILTERS)[number];

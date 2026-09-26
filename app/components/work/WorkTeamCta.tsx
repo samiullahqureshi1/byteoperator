@@ -2,28 +2,28 @@ import {Link} from '~/lib/router-compat';
 
 const TEAM_IMAGES = [
   {
-    src: '/images/work/team/01.webp',
-    alt: 'Byte Operator team member at work',
-    width: 400,
-    height: 400,
+    src: 'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/ryan-waring-164_6wVEHfI-unsplash.jpg?v=1790430992',
+    alt: 'High-performance athletic running footwear',
+    width: 1200,
+    height: 1500,
   },
   {
-    src: '/images/work/team/02.webp',
-    alt: 'Byte Operator team collaborating',
-    width: 600,
-    height: 750,
+    src: 'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/nataliya-melnychuk-51sGDpm5S78-unsplash.jpg?v=1790430987',
+    alt: 'Luxury botanical skincare and lotion product',
+    width: 1200,
+    height: 1200,
   },
   {
-    src: '/images/work/team/03.webp',
-    alt: 'Byte Operator team in the studio',
-    width: 1536,
-    height: 2752,
+    src: 'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/joan-tran-reEySFadyJQ-unsplash.jpg?v=1790430977',
+    alt: 'Minimalist designer glass beverage bottle',
+    width: 1200,
+    height: 1200,
   },
   {
-    src: '/images/work/team/04.webp',
-    alt: 'Byte Operator team reviewing a project',
-    width: 1024,
-    height: 1024,
+    src: 'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/kiran-ck-LSNJ-pltdu8-unsplash.jpg?v=1790430955',
+    alt: 'Premium wireless headphones and handsfree audio',
+    width: 1200,
+    height: 1500,
   },
 ];
 
@@ -51,20 +51,15 @@ export function WorkTeamCta() {
       <div className="ft-work-team__inner">
         <div className="ft-work-team__content">
           <p className="ft-work-team__eyebrow">
-            Meet the Team Behind High Growth Ecommerce Brands
+            Engineering & Strategy Specialists
           </p>
 
           <h2 className="ft-work-team__title" id="ft-work-team-title">
-            Software Specialists for Scalable Growth Turning Digital Platforms into Revenue Engines
+            Architecting Scalable SaaS, AI Systems & High-Conversion Storefronts
           </h2>
 
           <p className="ft-work-team__description">
-            From custom custom software builds and ongoing technical support to
-            data-driven conversion optimisation, organic search growth and
-            retention marketing, our team delivers specialised expertise at every
-            stage of the ecommerce journey. We help brands increase traffic, raise
-            average order value, improve customer lifetime value and build systems
-            that keep growing long after launch.
+            From custom full-stack web platforms and autonomous AI agent workflows to Shopify Plus enterprise migrations and technical SEO, our team delivers deep technical mastery at every phase. We partner with ambitious founders to engineer systems that scale smoothly, maximize conversion, and compound revenue growth.
           </p>
 
           <div className="ft-work-team__actions">

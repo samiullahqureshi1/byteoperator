@@ -5,21 +5,7 @@ import {
 } from '~/lib/route-mappings';
 
 /* =========================================================
-   BYTE OPERATOR — HOME FEATURE DATA
-
-   This is the single source of truth for the repeated
-   homepage feature sections.
-
-   Later, when real Byte Operator content is ready, update:
-   - headings
-   - descriptions
-   - images
-   - captions
-   - logos
-   - badges
-   - buttons / routes
-
-   The component and CSS should not need rebuilding.
+   BYTE OPERATOR - HOME FEATURE DATA
 ========================================================= */
 
 export type HomeFeatureLayout =
@@ -49,7 +35,6 @@ export type HomeFeatureBadge = {
 
 export type HomeFeatureButton = {
   label: string;
-  /** Omitted on a booking button, which opens the Calendly popup instead. */
   href?: string;
   calendly?: boolean;
 };
@@ -101,51 +86,33 @@ export type HomeFeatureData = {
 ========================================================= */
 
 const ROUTES = {
-  caseStudies: '/pages/case-studies',
+  caseStudies: '/work',
 
   seo: SHOPIFY_SEO_CLEAN_PATH,
 
-  development: '/pages/software-development',
+  development: '/services/software-theme-development-builds',
 
-  migrations: '/pages/software-migrations',
+  customSoftware: '/services/software-developers',
+
+  migrations: '/services/shopify-migrations',
 
   cro: CRO_CLEAN_PATH,
 
-  maintenance: '/pages/software-maintenance',
+  maintenance: '/services/support-and-maintenance',
 
-  emailSms: '/pages/email-sms-marketing',
+  emailSms: '/services/email-marketing-agency',
 
-  internationalisation:
-    '/pages/internationalisation',
+  internationalisation: '/services/shopify-internationalisation',
 
-  appDevelopment: resolveCanonicalPath(
-    '/pages/software-app-development',
-  ),
+  appDevelopment: '/services/shopify-app-development',
 
-  headless:
-    '/pages/headless-commerce',
-} as const;
+  headless: '/services/headless-commerce',
 
+  aiAutomations: '/services/ai-ecommerce-agency',
 
-/* =========================================================
-   SHARED PRODUCT LOGOS
-========================================================= */
+  shopifyPlus: '/services/shopify-plus-agency',
 
-const LOGOS = {
-  launch:
-    '/images/home-features/logos/launch.svg',
-
-  helpdesk:
-    '/images/home-features/logos/helpdesk.svg',
-
-  search:
-    '/images/home-features/logos/search.svg',
-
-  retain:
-    '/images/home-features/logos/retain.svg',
-
-  sitelab:
-    '/images/home-features/logos/sitelab.svg',
+  integrations: '/services/software-integrations',
 } as const;
 
 
@@ -155,798 +122,440 @@ const LOGOS = {
 
 export const HOME_FEATURES = [
   /* =======================================================
-     01 — SHOPIFY LAUNCH
+     01 - CUSTOM SOFTWARE & SAAS
   ======================================================= */
-
   {
     id: 'software-launch',
-
     layout: 'media-left',
-
     spacing: 'first',
-
     theme: 'dark',
-
-    eyebrow:
-      'High-performing digital platforms & applications built to scale',
-
-    logos: [
-      {
-        src: LOGOS.launch,
-        alt: 'Launch',
-        width: 257,
-        height: 93,
-      },
-    ],
-
-    heading:
-      'Custom Digital Platforms Built for Growth',
-
+    eyebrow: 'Custom Software & SaaS Product Engineering',
+    heading: 'Engineering Scalable Platforms & High-Performance SaaS',
     description: [
-      'We design and develop custom digital platforms & applications with a clear user experience and high-performance code. Our work includes platform & cloud migrations, custom app development, integrations, and headless builds using Software Hydrogen.',
-
-      'Every project is planned for performance, SEO, accessibility, and future growth',
+      'Byte Operator engineers custom web platforms, multi-tenant SaaS products, and mission-critical enterprise systems. From complex workflow automation and real-time collaboration engines to high-throughput cloud architectures, we design and deliver resilient software built for long-term scalability and business impact.',
+      'Our engineering team works with modern TypeScript, React, Next.js, Node.js, Python, PostgreSQL, and AWS to build scalable applications that solve core operational challenges.',
     ],
-
     buttons: [
       {
-        label: 'Start Your Software Project',
-        href: '/articles',
+        label: 'Explore Custom Software',
+        href: ROUTES.customSoftware,
       },
     ],
-
     media: {
       href: ROUTES.caseStudies,
-
       primary:
-        '/images/home-features/feature-01/primary.webp',
-
+        'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/custom_software_case_study.png?v=1790400442',
       primaryAlt:
-        'Cambridge Satchel ecommerce project',
-
-      primaryWidth: 1086,
-      primaryHeight: 1448,
-
-      secondary:
-        '/images/home-features/feature-01/secondary.webp',
-
-      secondaryAlt:
-        'Cambridge Satchel Software project',
-
-      secondaryWidth: 1086,
-      secondaryHeight: 1448,
-
-      captionTitle:
-        'Cambridge Satchel',
-
-      captionText:
-        'Enterprise Platform Solutions Design & Development',
+        'Collabix custom software and SaaS platform architecture',
+      primaryWidth: 1920,
+      primaryHeight: 1080,
+      secondary: '',
+      secondaryAlt: '',
+      secondaryWidth: 0,
+      secondaryHeight: 0,
+      captionTitle: 'Collabix SaaS Platform',
+      captionText: 'Full-Stack Web Architecture & Project Workflow Engine',
     },
   },
 
-
   /* =======================================================
-     02 — SUPPORT + CRO
+     02 - REPLEX ENGINE & LEAD AUTOMATION
   ======================================================= */
-
   {
     id: 'software-support-growth',
-
     layout: 'media-right',
-
     spacing: 'standard',
-
     theme: 'dark',
-
-    eyebrow:
-      'Software Monthly Support Agency',
-
-    logos: [
-      {
-        src: LOGOS.launch,
-        alt: 'Launch',
-        width: 257,
-        height: 93,
-      },
-      {
-        src: LOGOS.helpdesk,
-        alt: 'Helpdesk',
-        width: 257,
-        height: 93,
-      },
-    ],
-
-    heading:
-      'More Than a Software Agency. Your Ecommerce Growth Partner.',
-
+    eyebrow: 'Autonomous AI Lead Capture & Sub-Minute Replies',
+    heading: 'Zero-Miss Inbound Lead Capture with Replex Engine',
     description: [
-      'Strategy, technology, search and conversion expertise working together to turn your digital platform into a growth engine.',
-
-      'Strong ecommerce performance takes more than design or development. It requires the right strategy across the full customer journey.',
-
-      'Byte Operator brings software development, CRO, technical SEO, AI search visibility, performance, and retention together in one approach. This gives brands clearer priorities, fewer disconnected workflows, and a store built to support long-term growth.',
+      'Speed to lead directly dictates sales conversion rates. Slow responses cause high-value prospects to seek alternative competitors.',
+      'Replex Engine monitors incoming inquiries across web forms, email, WhatsApp, and live chat, generating context-accurate AI responses in under 30 seconds.',
+      'The platform qualifies buyer intent, answers technical questions using your verified knowledge base, and books meetings automatically on your calendar.',
     ],
-
     buttons: [
       {
-        label: 'Explore SiteLab',
-        href: '/pages/software-cro-agency',
+        label: 'Deploy Replex Engine',
+        href: ROUTES.aiAutomations,
       },
       {
-        label: 'Explore HelpDesk',
-        href: ROUTES.maintenance,
+        label: 'View Automation Services',
+        href: ROUTES.aiAutomations,
       },
     ],
-
     media: {
       href: ROUTES.caseStudies,
-
       primary:
-        '/images/home-features/feature-02/primary.webp',
-
+        'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/replex.png?v=1790409470',
       primaryAlt:
-        'Candy Kittens ecommerce project',
-
-      primaryWidth: 1086,
-      primaryHeight: 1448,
-
-      secondary:
-        '/images/home-features/feature-02/secondary.webp',
-
-      secondaryAlt:
-        'Candy Kittens Software support project',
-
-      secondaryWidth: 1122,
-      secondaryHeight: 1402,
-
-      captionTitle:
-        'Candy Kittens',
-
-      captionText:
-        'Software Retainer Support & CRO',
+        'Replex Engine automated AI lead response dashboard',
+      primaryWidth: 1920,
+      primaryHeight: 1080,
+      secondary: '',
+      secondaryAlt: '',
+      secondaryWidth: 0,
+      secondaryHeight: 0,
+      captionTitle: 'Replex Engine',
+      captionText: 'Autonomous Multi-Channel Lead Response Ecosystem',
     },
   },
 
-
   /* =======================================================
-     03 — SEO + GEO
+     03 - GEO & AI SEARCH
   ======================================================= */
-
   {
     id: 'software-seo-geo',
-
     layout: 'media-left',
-
     spacing: 'deep',
-
     theme: 'dark',
-
-    eyebrow:
-      'Rank higher on Google and AI search.',
-
-    logos: [
-      {
-        src: LOGOS.search,
-        alt: 'Search',
-        width: 257,
-        height: 93,
-      },
-    ],
-
-    heading:
-      'Technical SEO & Search Architecture That Drives Qualified Organic Revenue',
-
+    eyebrow: 'Generative Engine Optimisation (GEO) & Search Architecture',
+    heading: 'Be the Primary Cited Brand in ChatGPT, Perplexity & Google Search',
     description: [
-      'Technical SEO & Search Architecture goes beyond keywords. We improve technical SEO, on-page optimisation, content strategy, AI search visibility, GEO, and SEO migrations to support long-term organic growth.',
-
-      "Whether you're launching a new store or growing an established brand, we help improve search visibility and attract high-intent shoppers. The goal is to generate more qualified organic traffic and reduce dependence on paid advertising.",
+      'Search behavior is undergoing a massive transformation. Consumers and decision-makers increasingly rely on conversational AI answer engines to discover and evaluate products.',
+      'We engineer semantic schema knowledge graphs, authoritative entity citations, and AI-optimized content architectures that position your brand as the primary cited source across ChatGPT, Perplexity, and Google AI Overviews.',
     ],
-
     buttons: [
       {
-        label: 'Grow Your Organic Traffic',
-        href: ROUTES.seo,
+        label: 'Request AI Search Audit',
+        href: '/ai-visibility-audit/',
       },
     ],
-
     media: {
       href: ROUTES.caseStudies,
-
       primary:
-        '/images/home-features/feature-03/primary.webp',
-
+        'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/ai_powered.webp?v=1790408507',
       primaryAlt:
-        'CleanCo ecommerce store project',
-
-      primaryWidth: 896,
-      primaryHeight: 1195,
-
-      secondary:
-        '/images/home-features/feature-03/secondary.webp',
-
-      secondaryAlt:
-        'CleanCo ecommerce design project',
-
-      secondaryWidth: 896,
-      secondaryHeight: 1195,
-
-      captionTitle:
-        'CleanCo',
-
-      captionText:
-        'Ecommerce Store Design & Build',
+        'AI search visibility and Core Web Vitals telemetry',
+      primaryWidth: 1920,
+      primaryHeight: 1080,
+      secondary: '',
+      secondaryAlt: '',
+      secondaryWidth: 0,
+      secondaryHeight: 0,
+      captionTitle: 'Generative Engine Optimisation',
+      captionText: 'Conversational Search Visibility & Entity Citations',
     },
   },
 
-
   /* =======================================================
-     04 — SHOPIFY DEVELOPMENT
+     04 - SHOPIFY STORE & THEME DEVELOPMENT
   ======================================================= */
-
   {
     id: 'software-development',
-
     layout: 'media-right',
-
     spacing: 'standard',
-
     theme: 'dark',
-
-    eyebrow:
-      'Custom Applications & Integrations',
-
-    heading:
-      'Connect, Automate & Extend Your Digital Platform',
-
+    eyebrow: 'Shopify Store Development & Custom Themes',
+    heading: 'High-Velocity Custom Storefronts Built for Conversion & Mobile Speed',
     badges: [
       {
         label: 'Custom Themes',
         href: ROUTES.development,
       },
       {
-        label: 'Headless Builds',
+        label: 'Headless Hydrogen',
         href: ROUTES.headless,
       },
       {
-        label: 'Ecommerce Apps',
+        label: 'Shopify Apps',
         href: ROUTES.appDevelopment,
       },
     ],
-
     description: [
-      'Custom custom applications, integrations, and automation can help reduce manual work and extend what your store can do.',
-
-      'Byte Operator connects Software with ERP, CRM, inventory, marketing, payment, fulfilment, and other third-party systems. We also build custom functionality around specific operational needs.',
-
-      'The goal is to improve efficiency without adding unnecessary complexity. Each solution is planned around performance, security, scalability, and long-term maintenance.',
+      'We design and build custom Shopify storefronts with modular Liquid sections, fluid 60fps animations, and friction-free mobile checkout journeys.',
+      'Engineered from the ground up for peak Core Web Vitals, accessible UI components, and rapid merchant merchandising flexibility.',
+      'Our clean code architectures eliminate third-party app bloat and maintain blazing sub-second page loads across all global markets.',
     ],
-
     buttons: [
       {
-        label:
-          'Build Your Software Solution',
-
+        label: 'Build Your Shopify Store',
         href: ROUTES.development,
       },
     ],
-
     media: {
       href: ROUTES.caseStudies,
-
       primary:
-        '/images/home-features/feature-04/primary.webp',
-
+        'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
       primaryAlt:
-        'RNLI ecommerce project',
-
-      primaryWidth: 1000,
-      primaryHeight: 1000,
-
-      secondary:
-        '/images/home-features/feature-04/secondary.webp',
-
-      secondaryAlt:
-        'RNLI Software project',
-
-      secondaryWidth: 1200,
-      secondaryHeight: 800,
-
-      captionTitle:
-        'RNLI',
-
-      captionText:
-        'Software Retainer Support & CRO',
+        'Aydi Active high-performance ecommerce storefront and catalog management',
+      primaryWidth: 1920,
+      primaryHeight: 1080,
+      secondary: '',
+      secondaryAlt: '',
+      secondaryWidth: 0,
+      secondaryHeight: 0,
+      captionTitle: 'Aydi Active',
+      captionText: 'Custom Shopify Theme & Activewear Storefront',
     },
   },
 
-
   /* =======================================================
-     05 — UI / UX DESIGN
+     05 - SPEEDIFY APP & EXTENSIONS
   ======================================================= */
-
   {
     id: 'software-design',
-
     layout: 'media-left',
-
     spacing: 'deep',
-
     theme: 'dark',
-
-    eyebrow:
-      'digital platform design that looks as good as your brand',
-
-    heading:
-      'Digital Platform Design That Reflects Your Brand',
-
+    eyebrow: 'Shopify Apps & AI Optimization Extensions',
+    heading: 'Proprietary App Ecosystems & Speedify Performance Optimization',
     description: [
-      "Your digital platform is often a customer's first impression of your brand. We create visual systems around typography, colour, imagery, and layout so the store feels consistent across every page.",
-
-      'From the homepage to product pages, each design choice should support the brand while keeping the shopping experience clear and easy to use. The result is a store that feels distinct without adding unnecessary complexity.',
+      'Speedify is our proprietary AI-powered Shopify page speed app that automates script hydration, critical asset preloading, and dynamic image compression.',
+      'We build public and private Shopify apps with custom Checkout Extensions, Admin Function APIs, and scalable Node.js/Remix cloud backends.',
+      'Extend platform capabilities and automate complex operational business logic without compromising storefront load times.',
     ],
-
     buttons: [
       {
-        label:
-          'See Our Design Work',
-
-        href: ROUTES.development,
+        label: 'Explore Shopify Apps',
+        href: ROUTES.appDevelopment,
       },
     ],
-
     media: {
       href: ROUTES.caseStudies,
-
       primary:
-        '/images/home-features/feature-05/primary.webp',
-
+        'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/speedify_landing.webp?v=1790408507',
       primaryAlt:
-        'Harbour Lifestyle ecommerce project',
-
-      primaryWidth: 896,
-      primaryHeight: 1195,
-
-      secondary:
-        '/images/home-features/feature-05/secondary.webp',
-
-      secondaryAlt:
-        'Harbour Lifestyle Software design project',
-
-      secondaryWidth: 1024,
-      secondaryHeight: 768,
-
-      captionTitle:
-        'Harbour Lifestyle',
-
-      captionText:
-        'Software Custom Theme',
+        'Speedify AI page speed optimizer app dashboard',
+      primaryWidth: 1920,
+      primaryHeight: 1080,
+      secondary: '',
+      secondaryAlt: '',
+      secondaryWidth: 0,
+      secondaryHeight: 0,
+      captionTitle: 'Speedify App',
+      captionText: 'AI Page Speed Optimization & Custom Shopify Extensions',
     },
   },
 
-
   /* =======================================================
-     06 — SHOPIFY MIGRATION
+     06 - ENTERPRISE MIGRATIONS
   ======================================================= */
-
   {
     id: 'software-migrations',
-
     layout: 'media-right',
-
     spacing: 'standard',
-
     theme: 'dark',
-
-    eyebrow:
-      'Platform & Cloud Migration Agency',
-
-    logos: [
-      {
-        src: LOGOS.launch,
-        alt: 'Launch',
-        width: 257,
-        height: 93,
-      },
-    ],
-
-    heading:
-      'Everything Your Digital Platform Needs to Scale',
-
+    eyebrow: 'Enterprise Platform & Cloud Migrations',
+    heading: 'Seamless Migration from Magento, WooCommerce & BigCommerce',
     badges: [
       {
-        label: 'Software vs Magento',
+        label: 'Magento Migration',
         href: '/magento-software-migrations/',
       },
       {
-        label: 'Software vs WooCommerce',
+        label: 'WooCommerce Migration',
         href: '/woocommerce-software-migrations/',
       },
       {
-        label: 'Software vs BigCommerce',
+        label: 'BigCommerce Migration',
         href: '/bigcommerce-software-migrations/',
       },
       {
-        label: 'Software vs Salesforce',
+        label: 'Salesforce Migration',
         href: '/salesforce-software-migrations/',
       },
     ],
-
     description: [
-      'We support Software brands across strategy, design, development, SEO, AI visibility, CRO, and retention.',
-
-      'Our work goes beyond launching a store. We help improve traffic, conversion, customer retention, and overall ecommerce performance.',
-
-      "Whether you're launching a new digital platform or growing an established brand, our team provides strategy, development, marketing, and ongoing optimisation focused on measurable growth.",
+      'Replatform your digital store with complete data integrity. We migrate historical customer data, complex order histories, and product variants without data loss.',
+      'Rigorous URL redirect mapping and SEO authority safeguards protect your organic rankings, traffic, and revenue during the entire transition.',
+      'Launch on a modern, scalable infrastructure with zero downtime and improved checkout performance.',
     ],
-
     buttons: [
       {
-        label:
-          'Book a Growth Strategy Call',
-
+        label: 'Plan Your Migration',
         href: ROUTES.migrations,
       },
       {
-        label:
-          'View Our Software Work',
-
-        /*
-         * Case studies is already the route wired to this
-         * section (see media.href below), so the secondary
-         * CTA reuses it rather than introducing a new one.
-         */
-         href: '/work',
+        label: 'View Case Studies',
+        href: ROUTES.caseStudies,
       },
     ],
-
     media: {
       href: ROUTES.caseStudies,
-
       primary:
-        '/images/home-features/feature-06/primary.webp',
-
+        'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/shopify_cro_and_migration_store.webp?v=1790407473',
       primaryAlt:
-        '111SKIN ecommerce project',
-
-      primaryWidth: 941,
-      primaryHeight: 1672,
-
-      secondary:
-        '/images/home-features/feature-06/secondary.webp',
-
-      secondaryAlt:
-        '111SKIN Software project',
-
-      secondaryWidth: 1086,
-      secondaryHeight: 1448,
-
-      captionTitle:
-        '111SKIN',
-
-      captionText:
-        'Conversion & Performance Optimization Services',
+        'Shopify CRO and enterprise platform migration',
+      primaryWidth: 1920,
+      primaryHeight: 1080,
+      secondary: '',
+      secondaryAlt: '',
+      secondaryWidth: 0,
+      secondaryHeight: 0,
+      captionTitle: 'OmniRetail Migration',
+      captionText: 'Enterprise Platform Migration & SEO Protection',
     },
   },
 
-
   /* =======================================================
-     07 — SHOPIFY PLUS
+     07 - SHOPIFY PLUS & LUXURY COMMERCE
   ======================================================= */
-
   {
     id: 'software-plus',
-
     layout: 'media-left',
-
     spacing: 'deep',
-
     theme: 'dark',
-
-    eyebrow:
-      'Enterprise Platform Solutions Services',
-
-    heading:
-      'Enterprise Platform Solutions Development & Services',
-
+    eyebrow: 'Shopify Plus & High-AOV Luxury Commerce',
+    heading: 'Enterprise Storefronts & B2B Wholesale Commerce Architecture',
     badges: [
       {
-        label:
-          'Benefits of Enterprise Platform Solutions',
+        label: 'Shopify Plus Agency',
+        href: ROUTES.shopifyPlus,
+      },
+    ],
+    description: [
+      'We design and build high-AOV Shopify Plus stores with custom pricing tiers, automated customer segmentation, and multi-currency global checkouts.',
+      'From luxury furniture and lifestyle goods to high-volume wholesale portals, our architectures support millions in annual GMV.',
+      'Full integration with ERP systems, custom freight calculations, and tailored merchandising rules give enterprise merchants complete operational agility.',
+    ],
+    buttons: [
+      {
+        label: 'Explore Shopify Plus',
+        href: ROUTES.shopifyPlus,
+      },
+    ],
+    media: {
+      href: ROUTES.caseStudies,
+      primary:
+        'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/furniture.webp?v=1790407636',
+      primaryAlt:
+        'Nordic Haven luxury furniture digital storefront',
+      primaryWidth: 1920,
+      primaryHeight: 1080,
+      secondary: '',
+      secondaryAlt: '',
+      secondaryWidth: 0,
+      secondaryHeight: 0,
+      captionTitle: 'Nordic Haven Furniture',
+      captionText: 'Shopify Plus & Enterprise Architecture',
+    },
+  },
 
-        /*
-         * There is currently no dedicated Enterprise Platform Solutions
-         * route in the Byte Operator repository.
-         *
-         * Development is the closest confirmed route.
-         */
+  /* =======================================================
+     08 - N8N WORKFLOW AUTOMATIONS
+  ======================================================= */
+  {
+    id: 'email-sms-retention',
+    layout: 'media-right',
+    spacing: 'standard',
+    theme: 'dark',
+    eyebrow: 'n8n Pipeline Automation & Multi-System Workflows',
+    heading: 'Connecting SaaS Tools, Databases & Automated Operations with n8n',
+    description: [
+      'We build visual, resilient automation pipelines in n8n connecting disparate SaaS tools, payment gateways, databases, and customer support queues.',
+      'Automate repetitive data transformation, invoice generation, customer onboarding, and order fulfillment without brittle manual scripts.',
+      'Self-hosted and cloud n8n architectures deliver total data privacy, zero per-task cost penalties, and enterprise-grade reliability.',
+    ],
+    buttons: [
+      {
+        label: 'Build n8n Workflows',
+        href: ROUTES.integrations,
+      },
+    ],
+    media: {
+      href: ROUTES.caseStudies,
+      primary:
+        'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/n8n.webp?v=1790409457',
+      primaryAlt:
+        'n8n workflow automation and API pipeline orchestration',
+      primaryWidth: 1920,
+      primaryHeight: 1080,
+      secondary: '',
+      secondaryAlt: '',
+      secondaryWidth: 0,
+      secondaryHeight: 0,
+      captionTitle: 'n8n Pipelines',
+      captionText: 'Multi-System Workflow Orchestration',
+    },
+  },
+
+  /* =======================================================
+     09 - INTERACTIVE CATALOGS & TOY STORES
+  ======================================================= */
+  {
+    id: 'software-internationalisation',
+    layout: 'media-left',
+    spacing: 'deep',
+    theme: 'dark',
+    eyebrow: 'Interactive Catalogs & Child-Centric UX Design',
+    heading: 'Engaging Toy Stores & Gamified Product Discovery',
+    description: [
+      'Explore our interactive toy store development featuring dynamic age-group filtering, animated category exploration, and frictionless parent checkout.',
+      'Custom UI animations and responsive catalog search make product discovery fun, engaging, and highly converting.',
+      'Optimized for fast mobile browsing with rich media compression and instant filter reactivity.',
+    ],
+    buttons: [
+      {
+        label: 'Explore Storefront Builds',
         href: ROUTES.development,
       },
     ],
-
-    description: [
-      'Build a Scalable Ecommerce Store with Enterprise Platform Solutions',
-
-      'Our Enterprise Platform Solutions development services help growing and enterprise brands build flexible, scalable ecommerce stores. We handle Enterprise Platform Solutions migrations, custom development, integrations, B2B features, automation, internationalisation, and ongoing optimisation.',
-
-      'From strategy and store architecture to development and long-term support, we help brands get more from Enterprise Platform Solutions. The focus is on better performance, easier management, and a clear experience for customers and internal teams.',
-    ],
-
-    buttons: [
-      {
-        label: 'Explore Retainers',
-
-        /*
-         * No dedicated Retainers route currently exists.
-         * Maintenance is the closest confirmed ongoing
-         * support route.
-         */
-        href: ROUTES.maintenance,
-      },
-    ],
-
     media: {
       href: ROUTES.caseStudies,
-
       primary:
-        '/images/home-features/feature-07/primary.webp',
-
+        'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/toys.webp?v=1790407473',
       primaryAlt:
-        'Billionaire Boys Club ecommerce project',
-
-      primaryWidth: 1086,
-      primaryHeight: 1448,
-
-      secondary:
-        '/images/home-features/feature-07/secondary.webp',
-
-      secondaryAlt:
-        'Billionaire Boys Club Software project',
-
-      secondaryWidth: 896,
-      secondaryHeight: 1195,
-
-      captionTitle:
-        'Billionaire Boys Club',
-
-      captionText:
-        'Software Retainer Support & CRO',
+        'Kids Wonderland toy store development and interactive shopping experience',
+      primaryWidth: 1920,
+      primaryHeight: 1080,
+      secondary: '',
+      secondaryAlt: '',
+      secondaryWidth: 0,
+      secondaryHeight: 0,
+      captionTitle: 'Kids Wonderland',
+      captionText: 'Interactive Storefront & Custom Catalog',
     },
   },
 
-
   /* =======================================================
-     08 — EMAIL + SMS
+     10 - REAL-TIME API & CRM ENDPOINTS
   ======================================================= */
-
-  {
-    id: 'email-sms-retention',
-
-    layout: 'media-right',
-
-    spacing: 'standard',
-
-    theme: 'dark',
-
-    eyebrow:
-      'Software Email Marketing Agency',
-
-    logos: [
-      {
-        src: LOGOS.retain,
-        alt: 'Retain',
-        width: 257,
-        height: 93,
-      },
-    ],
-
-    heading:
-      'Turn First Time Buyers Into Loyal Customers',
-
-    description: [
-      'Retention marketing that increases repeat purchases and customer lifetime value.',
-
-      'Acquiring new customers is expensive, so retention matters. We build Klaviyo email and SMS strategies that help recover abandoned carts, encourage repeat purchases, and keep customers engaged.',
-
-      'We also help brands set up subscription models and B2B ecommerce experiences to create more recurring revenue.',
-    ],
-
-    buttons: [
-      {
-        label: 'Explore Email & SMS',
-        href: ROUTES.emailSms,
-      },
-    ],
-
-    media: {
-      href: ROUTES.caseStudies,
-
-      primary:
-        '/images/home-features/feature-08/primary.webp',
-
-      primaryAlt:
-        'Vollebak ecommerce project',
-
-      primaryWidth: 1086,
-      primaryHeight: 1448,
-
-      secondary:
-        '/images/home-features/feature-08/secondary.webp',
-
-      secondaryAlt:
-        'Vollebak Software project',
-
-      secondaryWidth: 848,
-      secondaryHeight: 1261,
-
-      captionTitle:
-        'Vollebak',
-
-      captionText:
-        'Ecommerce Store Support & Growth',
-    },
-  },
-
-
-  /* =======================================================
-     09 — INTERNATIONALISATION
-  ======================================================= */
-
-  {
-    id: 'software-internationalisation',
-
-    layout: 'media-left',
-
-    spacing: 'deep',
-
-    theme: 'dark',
-
-    eyebrow:
-      'International Software Strategy',
-
-    heading:
-      'Expand Your Digital Platform Worldwide',
-
-    description: [
-      'Launch internationally with confidence using localisation and scalable ecommerce strategies.',
-
-      'Ready to reach customers in new markets? We help Software brands expand internationally with multilingual storefronts, multi-currency experiences, regional SEO, and localisation for different audiences.',
-
-      'From market entry planning to international optimisation, we help brands build a clearer and more scalable approach to selling across borders.',
-    ],
-
-    buttons: [
-      {
-        label:
-          'Scale Internationally',
-
-        /*
-         * No separate Guide route currently exists,
-         * so this points to the confirmed service page.
-         */
-        href:
-          ROUTES.internationalisation,
-      },
-    ],
-
-    media: {
-      href: ROUTES.caseStudies,
-
-      primary:
-        '/images/home-features/feature-09/primary.webp',
-
-      primaryAlt:
-        'Sunnamusk ecommerce project',
-
-      primaryWidth: 1122,
-      primaryHeight: 1402,
-
-      secondary:
-        '/images/home-features/feature-09/secondary.webp',
-
-      secondaryAlt:
-        'Sunnamusk international Software project',
-
-      secondaryWidth: 780,
-      secondaryHeight: 1040,
-
-      captionTitle:
-        'Sunnamusk',
-
-      captionText:
-        'Store Design & Build',
-    },
-  },
-
-
-  /* =======================================================
-     10 — CRO / DATA
-  ======================================================= */
-
   {
     id: 'software-cro',
-
     layout: 'media-right',
-
     spacing: 'standard',
-
     theme: 'dark',
-
-    eyebrow:
-      "Improve every stage of your customer's buying journey with data-driven optimization.",
-
-    logos: [
-      {
-        src: LOGOS.sitelab,
-        alt: 'SiteLab',
-        width: 257,
-        height: 93,
-      },
-    ],
-
-    heading:
-      'Turn More Visitors Into Paying Customers',
-
+    eyebrow: 'Real-Time CRM & Webhook API Synchronization',
+    heading: 'Bi-Directional Data Synchronization & Instant Team Alerts',
     badges: [
       {
-        label:
-        'Conversion Rate Optimisation',
-         href:'/software-cro-agency/',
+        label: 'API Integrations',
+        href: ROUTES.integrations,
       },
       {
-        label:
-          'Email & SMS Marketing',
-
-        href: ROUTES.emailSms,
+        label: 'CRM Synchronization',
+        href: ROUTES.integrations,
       },
       {
-        label:
-          'Technical SEO & Search Architecture',
-
+        label: 'Technical SEO',
         href: ROUTES.seo,
       },
     ],
-
     description: [
-      'Driving traffic is only part of the job. We analyse customer behaviour, improve landing pages and checkout experiences, and use ongoing testing to increase conversion rates.',
-
-      'Our CRO team identifies where visitors drop off and where the buying journey can improve. This helps you generate more revenue from existing traffic without relying on higher advertising spend.',
+      'We connect your storefront directly to HubSpot, Salesforce, Klaviyo, and internal PostgreSQL databases with real-time webhooks.',
+      'Every customer touchpoint, lead score, and order update is synchronized in milliseconds, triggering automated Slack notifications and instant team workflows.',
+      'Eliminate data silos and empower your sales and support teams with comprehensive customer context.',
     ],
-
     buttons: [
       {
-        label:
-          'Explore CRO Services',
-
-         href: '/software-cro-agency/',
+        label: 'Connect API Pipelines',
+        href: ROUTES.integrations,
       },
     ],
-
     media: {
       href: ROUTES.caseStudies,
-
       primary:
-        '/images/home-features/feature-10/primary.webp',
-
+        'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third_party_api_endpoints.png?v=1790403408',
       primaryAlt:
-        'Vollebak ecommerce growth project',
-
-      primaryWidth: 941,
-      primaryHeight: 1672,
-
-      secondary:
-        '/images/home-features/feature-10/secondary.webp',
-
-      secondaryAlt:
-        'Vollebak Software optimisation project',
-
-      secondaryWidth: 816,
-      secondaryHeight: 1456,
-
-      captionTitle:
-        'Vollebak',
-
-      captionText:
-        'Ecommerce Store Support & Growth',
+        'Real-time CRM and third-party webhook endpoints',
+      primaryWidth: 1920,
+      primaryHeight: 1080,
+      secondary: '',
+      secondaryAlt: '',
+      secondaryWidth: 0,
+      secondaryHeight: 0,
+      captionTitle: 'API & Webhook Endpoints',
+      captionText: 'Real-Time CRM & System Integration',
     },
   },
 ] as const satisfies readonly HomeFeatureData[];

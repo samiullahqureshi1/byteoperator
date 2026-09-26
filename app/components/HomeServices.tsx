@@ -36,91 +36,75 @@ export {HOME_CLIENT_LOGOS, type ClientLogoMarqueeItem};
 
 const SERVICES = [
   {
-    title: 'SEO & AI Search Visibility',
+    title: 'AI Automations & Autonomous Agents',
     description:
-      'Engineered for Google rankings, Perplexity, and AI search engines to compound high-intent organic traffic.',
-    href: SHOPIFY_SEO_CLEAN_PATH,
+      'Deploy Replex Engine zero-miss lead capture, n8n workflow pipelines, and autonomous support agents.',
+    href: '/services/ai-ecommerce-agency/',
     badge: '/images/home-services/badges/logo-search-white.svg',
-    badgeAlt: 'Search',
-    image: '/images/home-services/seo-analytics.jpg',
-    imageAlt: 'SEO and AI Search Analytics Dashboard',
+    badgeAlt: 'AI',
   },
 
   {
-    title: 'Enterprise Digital Platforms',
+    title: 'Custom SaaS & Platform Engineering',
     description:
-      'High-velocity digital platform builds designed from the ground up for extreme scale and peak conversions.',
-    href: '/software-theme-development-builds/',
+      'Full-stack web architectures, real-time data engines, and resilient cloud software built to scale.',
+    href: '/services/software-developers/',
     badge: '/images/home-services/badges/logo-launch-white.svg',
-    badgeAlt: 'Launch',
-    image: '/images/home-services/store-builds.jpg',
-    imageAlt: 'Modern Digital Storefront and Checkout UI',
+    badgeAlt: 'Software',
   },
 
   {
-    title: 'Cloud & Platform Migrations',
+    title: 'Shopify Store & Theme Development',
     description:
-      'Zero-downtime migrations with complete data integrity, catalog structure, and SEO authority preserved.',
-    href: '/software-migrations/',
+      'High-velocity custom storefronts, modular custom sections, and mobile-optimized buying funnels.',
+    href: '/services/shopify-web-design/',
     badge: '/images/home-services/badges/logo-launch-white.svg',
-    badgeAlt: 'Launch',
-    image: '/images/home-services/cloud-migrations.jpg',
-    imageAlt: 'Cloud Infrastructure and Data Migration Architecture',
+    badgeAlt: 'Shopify',
   },
 
   {
-    title: 'Conversion Rate Optimisation',
+    title: 'Shopify Apps & Custom Extensions',
     description:
-      'Data-backed A/B testing, user journey heatmaps, and checkout optimization to maximize revenue per visitor.',
-    href: CRO_CLEAN_PATH,
+      'Proprietary tools like Speedify AI page speed optimizer, custom checkout extensions, and admin apps.',
+    href: '/services/shopify-app-development/',
     badge: '/images/home-services/badges/logo-sitelab-white.svg',
-    badgeAlt: 'Sitelab',
-    image: '/images/home-services/cro-testing.jpg',
-    imageAlt: 'Conversion Analytics and Multivariate Testing Funnel',
+    badgeAlt: 'Apps',
   },
 
   {
-    title: 'Custom Software & Theme Engineering',
+    title: 'n8n Workflow & API Pipelines',
     description:
-      'Modular design systems, custom full-stack integrations, and high-performance custom codebases.',
-    href: '/software-theme-development-builds/',
+      'Multi-system visual workflow pipelines connecting ERPs, CRMs, webhooks, and messaging queues.',
+    href: '/services/software-integrations/',
     badge: null,
     badgeAlt: '',
-    image: '/images/home-services/theme-dev.jpg',
-    imageAlt: 'Developer IDE and Modular Design System Architecture',
   },
 
   {
-    title: '24/7 SLA Support & Care',
+    title: 'Platform & Cloud Migrations',
     description:
-      'Proactive monitoring, rapid incident response, speed maintenance, and continuous feature delivery.',
-    href: '/support-and-maintenance/',
+      'Zero-downtime replatforming from Magento, WooCommerce, or BigCommerce with 100% SEO preserved.',
+    href: '/services/shopify-migrations/',
     badge: '/images/home-services/badges/logo-helpdesk-white.svg',
-    badgeAlt: 'Helpdesk',
-    image: '/images/home-services/support-maintenance.jpg',
-    imageAlt: '24/7 Uptime Telemetry and Health Monitoring Dashboard',
+    badgeAlt: 'Migrations',
   },
 
   {
-    title: 'UI / UX Product Design',
+    title: 'Shopify Plus & Enterprise Systems',
     description:
-      'Conversion-focused UX architecture, modern design systems, and immersive digital interfaces.',
-    href: '/software-theme-development-builds/',
+      'Enterprise B2B wholesale portals, multi-store architecture, and high-AOV custom storefronts.',
+    href: '/services/shopify-plus-agency/',
     badge: null,
     badgeAlt: '',
-    image: '/images/home-services/ui-ux-design.jpg',
-    imageAlt: 'Figma UI/UX Design System and Mobile Interfaces',
   },
 
   {
-    title: 'Retention Marketing & Automations',
+    title: 'Technical SEO & AI Search (GEO)',
     description:
-      'Omnichannel lifecycle workflows, AI segmentation, and predictive retention campaigns driving LTV.',
-    href: '/email-marketing-agency/',
+      'Dominant rankings on Google search and primary source citations in ChatGPT and Perplexity AI.',
+    href: '/ai-visibility-audit/',
     badge: '/images/home-services/badges/logo-retain-white.svg',
-    badgeAlt: 'Retain',
-    image: '/images/home-services/email-automation.jpg',
-    imageAlt: 'Omnichannel Customer Journey and Automation Workflow',
+    badgeAlt: 'Search',
   },
 ] as const;
 
@@ -386,19 +370,6 @@ function ServiceCard({
       <span className="ft-home-services__cell-number">
         {cardNumber}
       </span>
-
-      {service.image ? (
-        <div className="ft-home-services__cell-image-wrap">
-          <img
-            src={service.image}
-            alt={service.imageAlt}
-            className="ft-home-services__cell-image"
-            loading="lazy"
-            decoding="async"
-          />
-          <div className="ft-home-services__cell-image-overlay" />
-        </div>
-      ) : null}
 
       <div className="ft-home-services__cell-content">
         <ServiceBadge service={service} />

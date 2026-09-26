@@ -11,93 +11,100 @@ import {useEffect, useRef} from 'react';
 const GALLERY_LAYERS = [
   [
     {
-      title: 'Featured Work',
-      image: '/images/home-gallery/project-01.webp',
-      alt: 'Wooden lattice chair and home decor styled on a side table',
+      title: 'Athletic Running Footwear',
+      image:
+        'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/ryan-waring-164_6wVEHfI-unsplash.jpg?v=1790430992',
+      alt: 'High-performance athletic running footwear',
       url: '/work',
     },
     {
-      title: 'Featured Work',
-      image: '/images/home-gallery/project-02.webp',
-      alt: 'Personalised dog portrait water bottle',
+      title: 'Botanical Lotion & Care',
+      image:
+        'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/nataliya-melnychuk-51sGDpm5S78-unsplash.jpg?v=1790430987',
+      alt: 'Luxury botanical skincare and lotion product',
       url: '/work',
     },
     {
-      title: 'Featured Work',
-      image: '/images/home-gallery/project-03.webp',
-      alt: 'Personalised pet portrait mugs',
+      title: 'Minimalist Glass Beverage',
+      image:
+        'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/joan-tran-reEySFadyJQ-unsplash.jpg?v=1790430977',
+      alt: 'Minimalist designer glass beverage bottle',
       url: '/work',
     },
     {
-      title: 'Featured Work',
+      title: 'Wireless Audio Headphones',
+      image:
+        'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/kiran-ck-LSNJ-pltdu8-unsplash.jpg?v=1790430955',
+      alt: 'Premium wireless headphones and handsfree audio',
+      url: '/work',
+    },
+    {
+      title: 'Active Lifestyle Running',
+      image:
+        'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/reuben-mansell-nwOip8AOZz0-unsplash.jpg?v=1790431668',
+      alt: 'Active runner lifestyle and performance gear',
+      url: '/work',
+    },
+    {
+      title: 'Mitzie Organics Collection',
+      image:
+        'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/mitzie-organics-dnstpPqCBbw-unsplash.jpg?v=1790431660',
+      alt: 'Mitzie organics natural cosmetic skincare range',
+      url: '/work',
+    },
+  ],
+
+  [
+    {
+      title: 'Organic Facial Essence',
+      image:
+        'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/nataliya-melnychuk-51sGDpm5S78-unsplash_837aa5a5-44fa-461d-b117-da92ca95bf85.jpg?v=1790431658',
+      alt: 'Luxury organic facial essence and hydration serum',
+      url: '/work',
+    },
+    {
+      title: 'Fine Jewelry & Diamonds',
       image: '/images/home-gallery/project-04.webp',
-      alt: 'Gold diamond engagement ring on black silk',
+      alt: 'Gold diamond engagement ring and fine jewelry on black silk',
       url: '/work',
     },
     {
-      title: 'Featured Work',
-      image: '/images/home-gallery/project-05.webp',
-      alt: 'Model in a cream lace blouse and skirt',
-      url: '/work',
-    },
-    {
-      title: 'Featured Work',
-      image: '/images/home-gallery/project-06.webp',
-      alt: 'Grey upholstered bar stool',
-      url: '/work',
-    },
-  ],
-
-  [
-    {
-      title: 'Featured Work',
-      image: '/images/home-gallery/project-07.webp',
-      alt: 'Skincare serum bottle on dark stone',
-      url: '/work',
-    },
-    {
-      title: 'Featured Work',
+      title: 'Nordic Interior Living',
       image: '/images/home-gallery/project-08.webp',
-      alt: 'Living room with a tufted sofa and marble coffee table',
+      alt: 'Architectural living room with tufted sofa and marble table',
       url: '/work',
     },
     {
-      title: 'Featured Work',
-      image: '/images/home-gallery/project-09.webp',
-      alt: 'Model holding a blue skincare tube',
+      title: 'Ready-to-Wear Fashion',
+      image: '/images/home-gallery/project-05.webp',
+      alt: 'Fashion model in cream lace blouse and ensemble',
       url: '/work',
     },
     {
-      title: 'Featured Work',
-      image: '/images/home-gallery/project-10.webp',
-      alt: 'Skateboarder riding a longboard',
-      url: '/work',
-    },
-    {
-      title: 'Featured Work',
+      title: 'Designer Apparel',
       image: '/images/home-gallery/project-11.webp',
-      alt: 'Girl in an embroidered denim dress',
+      alt: 'Artisan embroidered designer dress presentation',
       url: '/work',
     },
     {
-      title: 'Featured Work',
-      image: '/images/home-gallery/project-12.webp',
-      alt: 'Woman applying a botanical hair oil outdoors',
+      title: 'Modern Living & Furniture',
+      image: '/images/home-gallery/project-01.webp',
+      alt: 'Wooden lattice chair and contemporary home decor',
       url: '/work',
     },
   ],
 
   [
     {
-      title: 'Featured Work',
+      title: 'Handcrafted Headwear',
       image: '/images/home-gallery/project-13.webp',
-      alt: 'Straw fedora hat on a wooden stand',
+      alt: 'Straw fedora hat on custom wooden stand',
       url: '/work',
     },
     {
-      title: 'Featured Work',
-      image: '/images/home-gallery/project-14.webp',
-      alt: 'Model in a patterned midi dress',
+      title: 'Active Streetwear & Boarding',
+      image: '/images/home-gallery/project-10.webp',
+      alt: 'Urban skateboarder in athletic streetwear',
       url: '/work',
     },
   ],
@@ -141,7 +148,7 @@ export function HomeHeroGallery() {
     <section
       id="ft-home-hero-gallery"
       className="ft-hero-gallery"
-      aria-label="Selected Byte Operator ecommerce projects"
+      aria-label="Selected Byte Operator software and ecommerce projects"
     >
       <div className="ft-hero-gallery__inner">
         <div className="ft-hero-gallery__grid">
@@ -150,29 +157,14 @@ export function HomeHeroGallery() {
               className="ft-hero-gallery__layer"
               key={`gallery-layer-${layerIndex}`}
             >
-              {layer.map((project) => (
-                // Navigation temporarily disabled: was <Link to={project.url} prefetch="intent">.
+              {layer.map((project, itemIndex) => (
                 <div
                   className="ft-hero-gallery__item"
-                  key={project.image}
+                  key={`gallery-item-${layerIndex}-${itemIndex}`}
                 >
                   <img
                     className="ft-hero-gallery__item-image"
-                    src={project.image.replace(
-                      /\.webp$/,
-                      '-750.webp',
-                    )}
-                    srcSet={`${project.image.replace(
-                      /\.webp$/,
-                      '-180.webp',
-                    )} 180w, ${project.image.replace(
-                      /\.webp$/,
-                      '-350.webp',
-                    )} 350w, ${project.image.replace(
-                      /\.webp$/,
-                      '-750.webp',
-                    )} 750w`}
-                    sizes="(min-width: 36rem) 20vw, 30vw"
+                    src={project.image}
                     alt={project.alt}
                     loading="lazy"
                     decoding="async"
