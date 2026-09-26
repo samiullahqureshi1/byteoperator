@@ -30,6 +30,24 @@ const EXPERT_MEDIA = [
     height: 1448,
   },
 ] as const;
+
+export type ExpertMediaItem = {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+};
+
+export type ExpertTestimonial = {
+  quote: string;
+  author: string;
+  role: string;
+  company?: string;
+  avatar?: string;
+  rating?: number;
+  highlight?: string;
+};
+
 export type HomeExpertsProps = {
   eyebrow?: string;
   heading?: string;
@@ -38,6 +56,10 @@ export type HomeExpertsProps = {
   ctaLabel?: string;
   ctaTo?: string;
   variant?: 'default' | 'ecommerce-seo';
+  media?: readonly ExpertMediaItem[];
+  testimonials?: readonly ExpertTestimonial[];
+  testimonial?: ExpertTestimonial;
+  hideMedia?: boolean;
 };
 
 
@@ -51,26 +73,59 @@ export function HomeExperts({
   ctaLabel = 'Get in touch',
   ctaTo = '/contact/',
   variant = 'default',
+  media,
+  testimonials,
+  testimonial,
+  hideMedia = false,
 }: HomeExpertsProps) {
+  const classNames = [
+    'ft-home-experts__media--one',
+    'ft-home-experts__media--two',
+    'ft-home-experts__media--three',
+    'ft-home-experts__media--four',
+  ] as const;
+
+  const testimonialList: readonly ExpertTestimonial[] =
+    testimonials && testimonials.length > 0
+      ? testimonials
+      : testimonial
+        ? [testimonial]
+        : [];
+
+  const hasTestimonials = testimonialList.length > 0;
+  const shouldShowMedia = !hideMedia && !hasTestimonials && media !== undefined ? media.length > 0 : !hideMedia && !hasTestimonials;
+
+  const mediaList = media?.length
+    ? media.map((item, index) => ({
+        src: item.src,
+        alt: item.alt,
+        className: classNames[index % classNames.length],
+        width: item.width ?? 1080,
+        height: item.height ?? 1080,
+      }))
+    : shouldShowMedia
+      ? EXPERT_MEDIA
+      : [];
+
   return (
     <section
-      className={`ft-home-experts${variant === 'ecommerce-seo' ? ' ft-home-experts--ecommerce-seo' : ''}`}
+      className={`ft-home-experts${variant === 'ecommerce-seo' ? ' ft-home-experts--ecommerce-seo' : ''}${hasTestimonials ? ' ft-home-experts--has-testimonials' : ''}`}
       aria-labelledby="ft-home-experts-title"
     >
-      {EXPERT_MEDIA.map((media) => (
+      {shouldShowMedia && mediaList.map((item) => (
         <div
           className={[
             'ft-home-experts__media',
-            media.className,
+            item.className,
           ].join(' ')}
-          key={media.src}
+          key={item.src}
           aria-hidden="true"
         >
           <img
-            src={media.src}
-            width={media.width}
-            height={media.height}
-            alt={media.alt}
+            src={item.src}
+            width={item.width}
+            height={item.height}
+            alt={item.alt}
             loading="lazy"
             decoding="async"
           />
@@ -98,6 +153,81 @@ export function HomeExperts({
               {paragraph}
             </p>
           ))}
+
+          {hasTestimonials ? (
+            <div
+              className={`ft-home-experts__testimonials ${
+                testimonialList.length > 1
+                  ? 'ft-home-experts__testimonials--grid'
+                  : 'ft-home-experts__testimonials--single'
+              }`}
+            >
+              {testimonialList.map((item) => (
+                <div
+                  key={`${item.author}-${item.role}`}
+                  className="ft-home-experts__testimonial-card"
+                >
+                  <div className="ft-home-experts__testimonial-header">
+                    <div
+                      className="ft-home-experts__testimonial-stars"
+                      aria-label={`${item.rating ?? 5} out of 5 stars`}
+                    >
+                      {[...Array(item.rating ?? 5)].map((_, i) => (
+                        <svg
+                          key={i}
+                          className="ft-home-experts__star-icon"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+
+                    {item.highlight ? (
+                      <span className="ft-home-experts__testimonial-highlight">
+                        {item.highlight}
+                      </span>
+                    ) : null}
+                  </div>
+
+                  <p className="ft-home-experts__testimonial-quote">
+                    &ldquo;{item.quote}&rdquo;
+                  </p>
+
+                  <div className="ft-home-experts__testimonial-footer">
+                    {item.avatar ? (
+                      <img
+                        src={item.avatar}
+                        alt={item.author}
+                        className="ft-home-experts__testimonial-avatar"
+                        width={48}
+                        height={48}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div
+                        className="ft-home-experts__testimonial-avatar-fallback"
+                        aria-hidden="true"
+                      >
+                        {item.author.charAt(0)}
+                      </div>
+                    )}
+                    <div className="ft-home-experts__testimonial-info">
+                      <span className="ft-home-experts__testimonial-name">
+                        {item.author}
+                      </span>
+                      <span className="ft-home-experts__testimonial-role">
+                        {item.role}
+                        {item.company ? ` · ${item.company}` : ''}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : null}
 
           <Link
             className="ft-home-experts__button"

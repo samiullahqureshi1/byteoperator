@@ -148,9 +148,15 @@ function FeatureMedia({
 }: {
   feature: HomeFeatureData;
 }) {
+  const hasSecondary = Boolean(
+    feature.media.secondary && feature.media.secondary.trim() !== '',
+  );
+
   return (
     <Link
-      className="ft-home-feature__media"
+      className={`ft-home-feature__media ${
+        !hasSecondary ? 'ft-home-feature__media--single' : ''
+      }`}
       to={resolveCanonicalPath(feature.media.href)}
       prefetch="intent"
       aria-label={`View ${feature.media.captionTitle} case study`}
@@ -166,28 +172,42 @@ function FeatureMedia({
         />
       </div>
 
-      <div className="ft-home-feature__overlap">
-        <div className="ft-home-feature__image ft-home-feature__image--secondary">
-          <img
-            src={feature.media.secondary}
-            width={feature.media.secondaryWidth}
-            height={feature.media.secondaryHeight}
-            alt={feature.media.secondaryAlt}
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
+      {hasSecondary ? (
+        <div className="ft-home-feature__overlap">
+          <div className="ft-home-feature__image ft-home-feature__image--secondary">
+            <img
+              src={feature.media.secondary}
+              width={feature.media.secondaryWidth}
+              height={feature.media.secondaryHeight}
+              alt={feature.media.secondaryAlt}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
 
-        <div className="ft-home-feature__caption">
+          <div className="ft-home-feature__caption">
+            <p className="ft-home-feature__caption-title">
+              {feature.media.captionTitle}
+            </p>
+
+            <p className="ft-home-feature__caption-text">
+              {feature.media.captionText}
+            </p>
+          </div>
+        </div>
+      ) : feature.media.captionTitle ? (
+        <div className="ft-home-feature__caption ft-home-feature__caption--single">
           <p className="ft-home-feature__caption-title">
             {feature.media.captionTitle}
           </p>
 
-          <p className="ft-home-feature__caption-text">
-            {feature.media.captionText}
-          </p>
+          {feature.media.captionText ? (
+            <p className="ft-home-feature__caption-text">
+              {feature.media.captionText}
+            </p>
+          ) : null}
         </div>
-      </div>
+      ) : null}
     </Link>
   );
 }

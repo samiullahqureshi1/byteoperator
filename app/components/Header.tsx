@@ -585,12 +585,12 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
     items: [
       {
         title: 'Custom Software & Platforms',
-        description: 'Bespoke software platforms & scalable web systems',
+        description: 'Collabix all-in-one project, team & workload platform',
         url: '/services/software-developers',
       },
       {
         title: 'Full-Stack Web Development',
-        description: 'Modern frontend, robust backend APIs & databases',
+        description: 'Aydi Active multi-vendor marketplace & custom web platforms',
         url: '/services/software-theme-development-builds',
       },
       {

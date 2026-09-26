@@ -180,6 +180,38 @@
   aspect-ratio: 1;
 }
 
+.ft-home-feature__media--single {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.ft-home-feature__media--single .ft-home-feature__image--primary {
+  width: 100%;
+  aspect-ratio: auto;
+  height: auto;
+  border-radius: 1.5rem;
+  background: #0B1528;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.ft-home-feature__media--single .ft-home-feature__image--primary img {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+.ft-home-feature__caption--single {
+  margin-top: 1.25rem;
+  gap: 0.25rem;
+}
+
 
 /* =========================================================
    OVERLAPPING MEDIA
@@ -682,6 +714,12 @@
 
   .ft-home-feature__image {
     border-radius: 2.2vw;
+  }
+
+  .ft-home-feature__media--single .ft-home-feature__image--primary {
+    aspect-ratio: auto;
+    height: auto;
+    border-radius: 2.5rem;
   }
 
   .ft-home-feature__overlap {

@@ -76,7 +76,7 @@ export function ServiceAboutSection({
 </div>
         </div>
 
-        <div className="ft-service-about__images">
+        <div className={`ft-service-about__images ${!data.media.secondary ? 'ft-service-about__images--single' : ''}`}>
           <div className="ft-service-about__images-left">
             <img
               src={data.media.primary}
@@ -88,16 +88,18 @@ export function ServiceAboutSection({
             />
           </div>
 
-          <div className="ft-service-about__images-right">
-            <img
-              src={data.media.secondary}
-              width={data.media.secondaryWidth}
-              height={data.media.secondaryHeight}
-              alt={data.media.secondaryAlt}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+          {data.media.secondary ? (
+            <div className="ft-service-about__images-right">
+              <img
+                src={data.media.secondary}
+                width={data.media.secondaryWidth}
+                height={data.media.secondaryHeight}
+                alt={data.media.secondaryAlt}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ) : null}
         </div>
 
         {afterMedia}

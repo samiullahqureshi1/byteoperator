@@ -28,7 +28,7 @@ const SERVICES_FEATURE_CONFIG = [
     },
     description: [
       'Byte Operator provides ongoing Software support, maintenance and conversion rate optimisation through flexible monthly retainers. Our retainers cover day-to-day fixes, smaller development tasks and planned enhancements that keep your storefront reliable and easy to manage.',
-      'CRO work combines performance analysis, customer behaviour insights and structured testing to continuously improve the buying journey — aligning practical store changes with your commercial goals.',
+      'CRO work combines performance analysis, customer behaviour insights and structured testing to continuously improve the buying journey, aligning practical store changes with your commercial goals.',
     ],
   },
   {

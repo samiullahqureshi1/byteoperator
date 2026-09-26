@@ -103,7 +103,7 @@ export function HomeObservatory() {
 
           <p className="ft-home-observatory__description">
   Technical SEO & Search Architecture, AI search data, CRO insights and ecommerce
-  news — practical ideas for growing online stores. Free,
+  news: practical ideas for growing online stores. Free,
   once a month.
 </p>
 

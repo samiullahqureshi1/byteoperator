@@ -94,6 +94,18 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     };
   }
 
+  if (
+    canonicalHandle === 'software-developers' ||
+    handle === 'custom-software-platforms' ||
+    handle === 'custom-software-development'
+  ) {
+    return {
+      title: 'Custom Software Development Services | Byte Operator',
+      description:
+        'Byte Operator designs and develops custom software, SaaS platforms, enterprise applications and business systems. Explore our software development services and case studies.',
+    };
+  }
+
   const config = SERVICE_PAGE_CONFIGS[canonicalHandle as ServicePageHandle];
 
   if (config) {
@@ -151,7 +163,6 @@ export default function ServicePage({params}: Props) {
         faqs: (config as any).faqs,
       }}
       config={config}
-      bulkHoursCta={<BulkHoursCta />}
     />
   );
 }

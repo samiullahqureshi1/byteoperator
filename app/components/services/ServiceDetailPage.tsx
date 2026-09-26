@@ -20,14 +20,11 @@ interface ServiceDetailPageProps {
     faqs?: readonly ServiceDetailFaqItem[];
   };
   config: ServicePageConfig;
-  /** Bulk hours section; only service pages supply one (not podcast, guides…). */
-  bulkHoursCta?: ReactNode;
 }
 
 export function ServiceDetailPage({
   page,
   config,
-  bulkHoursCta,
 }: ServiceDetailPageProps) {
   return (
     <div    
@@ -64,8 +61,6 @@ export function ServiceDetailPage({
           ) : null}
 
           <WorkTestimonial />
-
-          {bulkHoursCta}
 
           {config.plusAgencyCta ? (
             <ServicePlusAgencyCta data={config.plusAgencyCta} />

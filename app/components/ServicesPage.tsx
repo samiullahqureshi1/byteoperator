@@ -91,7 +91,7 @@ export function ServicesPage({
       */}
       <VideoModal
         open={isCaseStudyOpen}
-        src="/videos/foldtech-hero-video.mp4"
+        src="https://cdn.shopify.com/videos/c/o/v/1fde2ba0cc3146e88e9b22dd031b9193.mp4"
         ariaLabel="Cambridge Satchel case study video"
         onClose={closeCaseStudy}
       />

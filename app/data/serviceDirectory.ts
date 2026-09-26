@@ -45,7 +45,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Search Engine Optimisation',
         href: SHOPIFY_SEO_CLEAN_PATH,
         summary:
-          'Technical and content SEO built around how Software actually works — its URL structure, collection logic and faceted navigation. We fix what stops pages being crawled and indexed, then build the topical depth that earns rankings for the terms your buyers search.',
+          'Technical and content SEO built around how Software actually works (its URL structure, collection logic and faceted navigation). We fix what stops pages being crawled and indexed, then build the topical depth that earns rankings for the terms your buyers search.',
         highlights: [
           'Technical audit, crawl budget and indexation control',
           'Collection and site architecture built for search',
@@ -86,7 +86,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       {
         name: 'Data-Driven Strategies',
         summary:
-          'Most digital platforms & applications collect far more data than they use. We get your analytics telling the truth — clean GA4 and Software tracking, server-side events that survive ad blockers — then turn it into dashboards and a decision framework your team can actually run on.',
+          'Most digital platforms & applications collect far more data than they use. We get your analytics telling the truth (clean GA4 and Software tracking, server-side events that survive ad blockers) then turn it into dashboards and a decision framework your team can actually run on.',
         highlights: [
           'GA4, Software Analytics and server-side tracking setup',
           'Attribution and channel profitability modelling',
@@ -98,7 +98,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Ecommerce Audits',
         href: '/services/software-audits/',
         summary:
-          'A full read on an existing digital platform across design, front-end code, performance, SEO and conversion. You get a prioritised remediation plan that says what to fix, in what order, and what each fix is worth — not a PDF of screenshots.',
+          'A full read on an existing digital platform across design, front-end code, performance, SEO and conversion. You get a prioritised remediation plan that says what to fix, in what order, and what each fix is worth: not a PDF of screenshots.',
         highlights: [
           'Technical, performance and Core Web Vitals review',
           'SEO and indexation health check',
@@ -109,7 +109,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       {
         name: 'Software Engineering Consultancy',
         summary:
-          'Senior Software advice for teams making decisions they only get to make once — replatform or rebuild, Plus or standard, which apps to commit to, how to structure a multi-store or multi-market setup. Independent guidance, with the implementation detail behind it.',
+          'Senior Software advice for teams making decisions they only get to make once: replatform or rebuild, Plus or standard, which apps to commit to, how to structure a multi-store or multi-market setup. Independent guidance, with the implementation detail behind it.',
         highlights: [
           'Platform and Enterprise Platform Solutions fit assessment',
           'Architecture, app stack and build-versus-buy reviews',
@@ -139,7 +139,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Support & Growth',
         href: '/support-and-maintenance/',
         summary:
-          'A retained Software team for stores past launch. Bugs get fixed, releases get managed, performance gets monitored — and the hours left over go into the improvements that keep the store moving instead of sitting still.',
+          'A retained Software team for stores past launch. Bugs get fixed, releases get managed, performance gets monitored: and the hours left over go into the improvements that keep the store moving instead of sitting still.',
         highlights: [
           'Guaranteed response times and release management',
           'Performance and uptime monitoring',
@@ -151,7 +151,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Development Services',
         href: '/software-theme-development-builds/',
         summary:
-          'software development for teams that already know what they need — custom theme work in Liquid, Software Functions, checkout extensibility, metaobject-driven content and the bespoke features a stock theme cannot reach.',
+          'software development for teams that already know what they need: custom theme work in Liquid, Software Functions, checkout extensibility, metaobject-driven content and the bespoke features a stock theme cannot reach.',
         highlights: [
           'Custom Liquid theme and section development',
           'Software Functions and checkout extensibility',
@@ -187,7 +187,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Internationalisation',
         href: '/software-internationalisation/',
         summary:
-          'Cross-border selling built on Software Markets — multi-currency pricing, translated storefronts, domain strategy and the hreflang and duty handling that stop international expansion turning into a support problem.',
+          'Cross-border selling built on Software Markets: multi-currency pricing, translated storefronts, domain strategy and the hreflang and duty handling that stop international expansion turning into a support problem.',
         highlights: [
           'Software Markets and multi-currency setup',
           'Multi-language storefronts and translation workflow',
@@ -199,7 +199,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'System Integrations',
         href: '/software-integrations/',
         summary:
-          'Connecting Software to the systems that run the business — ERP, PIM, CRM, 3PL, accounting and marketing platforms. Where no connector exists, we build the middleware, with error handling and monitoring so a failed sync surfaces before a customer finds it.',
+          'Connecting Software to the systems that run the business: ERP, PIM, CRM, 3PL, accounting and marketing platforms. Where no connector exists, we build the middleware, with error handling and monitoring so a failed sync surfaces before a customer finds it.',
         highlights: [
           'ERP, PIM, CRM, 3PL and accounting integrations',
           'Custom middleware and API development',
@@ -210,7 +210,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       {
         name: 'AI Automation & Integration',
         summary:
-          'Putting AI to work on the operational load rather than the marketing deck. Product description generation at catalogue scale, support deflection, merchandising and enrichment workflows — integrated into Software with a human review step where accuracy matters.',
+          'Putting AI to work on the operational load rather than the marketing deck. Product description generation at catalogue scale, support deflection, merchandising and enrichment workflows, integrated into Software with a human review step where accuracy matters.',
         highlights: [
           'Catalogue content generation and enrichment',
           'Support automation and ticket deflection',
@@ -222,7 +222,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'App Development',
         href: '/software-app-development/',
         summary:
-          'Custom custom applications, public or private — embedded admin apps, theme app extensions and checkout UI extensions. Built to Custom Application Store standards, whether you are shipping to the store or solving something only your business has.',
+          'Custom custom applications, public or private: embedded admin apps, theme app extensions and checkout UI extensions. Built to Custom Application Store standards, whether you are shipping to the store or solving something only your business has.',
         highlights: [
           'Embedded admin apps built with Polaris',
           'Theme app and checkout UI extensions',
@@ -234,7 +234,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Headless Commerce',
         href: '/headless-commerce',
         summary:
-          'Headless digital platformfronts built with Hydrogen and deployed on Oxygen, for brands that need full control of the front end. Worth doing when performance, bespoke UX or a content platform genuinely demands it — we will tell you when it does not.',
+          'Headless digital platformfronts built with Hydrogen and deployed on Oxygen, for brands that need full control of the front end. Worth doing when performance, bespoke UX or a content platform genuinely demands it: we will tell you when it does not.',
         highlights: [
           'Hydrogen and React Router storefronts',
           'Oxygen deployment and edge caching',
@@ -245,7 +245,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       {
         name: 'Enterprise Software Partners',
         summary:
-          'We work as a Enterprise Platform Solutions partner agency for high-volume and enterprise merchants — the accounts where checkout extensibility, B2B company accounts, multi-store architecture and Software Functions do the heavy lifting, and where launches need proper planning.',
+          'We work as a Enterprise Platform Solutions partner agency for high-volume and enterprise merchants: the accounts where checkout extensibility, B2B company accounts, multi-store architecture and Software Functions do the heavy lifting, and where launches need proper planning.',
         highlights: [
           'Enterprise Platform Solutions architecture and multi-store setup',
           'Checkout extensibility and Software Functions',
@@ -263,7 +263,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Email & SMS Marketing',
         href: '/email-marketing-agency/',
         summary:
-          'Retention programmes that earn their place in the P&L. Lifecycle flows, segmentation and a campaign calendar built on what your customer data actually says — with deliverability treated as a first-class concern, not an afterthought.',
+          'Retention programmes that earn their place in the P&L. Lifecycle flows, segmentation and a campaign calendar built on what your customer data actually says: with deliverability treated as a first-class concern, not an afterthought.',
         highlights: [
           'Welcome, abandonment and post-purchase flows',
           'Klaviyo implementation and data integration',

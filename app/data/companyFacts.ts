@@ -29,9 +29,9 @@ export type CompanyFact = {
 
 export const COMPANY_FACTS = {
   projects: {
-    value: '250+',
+    value: '100+',
     label: 'Projects Completed',
-    target: 250,
+    target: 100,
     prefix: '',
     suffix: '+',
     decimals: 0,
@@ -62,18 +62,6 @@ export const COMPANY_FACTS = {
     description:
       'End-to-end digital engineering and growth engagements completed for high-growth brands.',
     evidence: 'Verified client platform records',
-  },
-
-  hours: {
-    value: '18,500+',
-    label: 'Tracked Delivery Hours',
-    target: 18500,
-    prefix: '',
-    suffix: '+',
-    decimals: 0,
-    description:
-      'Dedicated engineering and strategic hours tracked across digital builds, migrations, and performance sprints.',
-    evidence: 'Tracked delivery system',
   },
 
   jobSuccess: {
@@ -157,15 +145,14 @@ export const COMPANY_FACTS = {
 export const HOME_FACTS = [
   COMPANY_FACTS.projects,
   COMPANY_FACTS.reviews,
-  COMPANY_FACTS.hours,
   COMPANY_FACTS.jobSuccess,
   COMPANY_FACTS.founded,
 ];
 
 /** About page — the depth behind the headline. */
 export const ABOUT_FACTS = [
+  COMPANY_FACTS.projects,
   COMPANY_FACTS.engagements,
-  COMPANY_FACTS.hours,
   COMPANY_FACTS.jobSuccess,
   COMPANY_FACTS.team,
 ];
@@ -188,7 +175,7 @@ export const WORK_FACTS = [
 
 /** Track-record strip — verified figures. */
 export const TRACK_RECORD_FACTS = [
+  COMPANY_FACTS.projects,
   COMPANY_FACTS.engagements,
-  COMPANY_FACTS.hours,
   COMPANY_FACTS.delivered,
 ];

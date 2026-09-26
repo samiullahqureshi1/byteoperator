@@ -1,3 +1,7 @@
+'use client';
+
+import {useEffect, useRef} from 'react';
+
 /*
  * Gallery navigation is temporarily disabled (see the render loop
  * below, which renders a plain <div> instead of a <Link>). Each
@@ -100,6 +104,39 @@ const GALLERY_LAYERS = [
 ] as const;
 
 export function HomeHeroGallery() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Ensure DOM properties are set for bulletproof autoplay
+    video.defaultMuted = true;
+    video.muted = true;
+
+    const playVideo = () => {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Fallback if browser requires interaction
+        });
+      }
+    };
+
+    playVideo();
+
+    const handleVisibilityChange = () => {
+      if (!document.hidden && video.paused) {
+        playVideo();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
   return (
     <section
       id="ft-home-hero-gallery"
@@ -158,16 +195,21 @@ export function HomeHeroGallery() {
 
           <div className="ft-hero-gallery__main-image">
             <video
+              ref={videoRef}
               className="ft-hero-gallery__video"
-              src="/videos/foldtech-hero-video.mp4"
-              poster="/images/home-gallery/hero-video-poster.webp"
+              src="https://cdn.shopify.com/videos/c/o/v/1fde2ba0cc3146e88e9b22dd031b9193.mp4"
               autoPlay
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
               aria-hidden="true"
-            />
+            >
+              <source
+                src="https://cdn.shopify.com/videos/c/o/v/1fde2ba0cc3146e88e9b22dd031b9193.mp4"
+                type="video/mp4"
+              />
+            </video>
           </div>
         </div>
       </div>

@@ -10,11 +10,7 @@ import {ClientLogoGrid} from '~/components/shared/ClientLogoGrid';
 import {SHOPIFY_PLUS_PAGE} from '~/data/softwarePlusPage';
 import {ServiceHero} from './ServiceHero';
 
-export function SoftwarePlusPage({
-  bulkHoursCta,
-}: {
-  bulkHoursCta?: ReactNode;
-}) {
+export function SoftwarePlusPage() {
   return (
     <div
       className="ft-software-plus-page"
@@ -45,8 +41,6 @@ export function SoftwarePlusPage({
       <div className="ft-software-plus-page__partners">
         <HomePartners />
       </div>
-
-      {bulkHoursCta}
 
       <div className="ft-software-plus-page__experts">
         <HomeExperts />

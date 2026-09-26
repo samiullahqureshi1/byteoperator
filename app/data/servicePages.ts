@@ -108,6 +108,7 @@ export interface ServicePageConfig {
   platforms?: MigrationPlatformsData;
   features?: readonly HomeFeatureData[];
   faqTitle?: string;
+  faqs?: readonly {question: string; answer: string}[];
   plusAgencyCta?: ServicePlusAgencyCtaData;
   experts?: HomeExpertsProps;
 }
@@ -414,22 +415,23 @@ export const SERVICE_PAGE_CONFIGS = {
     showPartners: true,
   },
   'software-developers': {
-    faqTitle: 'Custom Software & Platforms',
+    faqTitle: 'Custom Software Development Services',
     hero: {
-      eyebrow: 'Custom Software & Platforms',
-      heading: 'Bespoke software platforms & scalable web systems engineered for growth.',
+      eyebrow: 'Custom Software & SaaS Product Engineering',
+      heading: 'Engineering Scalable Platforms & High-Performance SaaS',
       description:
-        'We are an experienced and Software accredited team of software developers you can trust, partnering with brands to develop engaging and frictionless online shopping experiences.',
+        'Byte Operator engineers bespoke web platforms, multi-tenant SaaS products, and mission-critical enterprise systems. From complex workflow automation and real-time collaboration engines to high-throughput cloud architectures, we design and deliver resilient software built for long-term scalability and business impact.',
       chips: [
-        'Software Theme Store Builds',
-        'Headless Stores',
-        'Ecommerce SEO Agency',
-        'Design Services',
-        'Ecommerce CRO',
+        'SaaS Platform Architecture',
+        'Project & Workload Management',
+        'Real-Time Data Engines',
+        'Enterprise RBAC & Security',
+        'Automated Time Tracking',
+        'API & Middleware Pipelines',
       ],
       primaryCta: {
-        label: 'Get In Touch',
-        href: '/contact/',
+        label: 'Discuss Your Software Project',
+        href: SERVICE_PAGE_ROUTES.contact,
       },
       showPartnerLogos: false,
       showClientProof: false,
@@ -437,152 +439,260 @@ export const SERVICE_PAGE_CONFIGS = {
     about: {
       intro: {
         heading:
-          'Our development team have a wealth of experience in delivering best-in-class feature-rich Software & Enterprise Platform Solutions stores.',
+          'Featured Product Case Study: Collabix: Engineering an All-in-One Operations & Workload Platform',
         description:
-          'Byte Operator builds responsive digital platformfronts with custom functionality and integrations that support how your business operates. We consider performance and technical SEO throughout implementation, creating maintainable storefronts that are straightforward to develop and improve over time.',
+          'Collabix is a full-scale enterprise operations platform engineered from scratch by Byte Operator. Built to replace fragmented toolsets, Collabix unifies task execution, live capacity planning, team collaboration, milestone tracking, and synchronized time tracking into a unified, high-speed workspace powered by real-time reactive architecture.',
         cta: {
-          label: 'Get In Touch',
-          href: '/contact/',
+          label: 'Explore Collabix Case Study',
+          href: SERVICE_PAGE_ROUTES.work,
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
-        primaryAlt: 'Byte Operator digital platformfront project',
-        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
-        secondaryAlt: 'Byte Operator team collaborating around a table',
+        primary:
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/custom_software_case_study.png?v=1790400442',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt:
+          'Collabix enterprise operations and workload platform overview',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
       },
       process: {
-        heading:
-          'A practical development process, from discovery to launch.',
+        heading: 'How We Engineered Collabix: Product Lifecycle & Architecture',
         leftDescription:
-          'We begin by understanding the storefront, customer journeys and technical requirements before translating the agreed direction into reusable, maintainable Software code. Integrations and custom features are planned alongside the core build so every part works together.',
+          '01: Systems Discovery & Requirements Modeling\nWe analyzed organizational bottlenecks across cross-functional teams, mapping end-to-end user journeys, workload models, permission structures, and synchronization requirements.\n\n02: High-Concurrency Architecture & UX Design\nWe architected a type-safe modular architecture, designed low-latency database schemas, and created an intuitive, distraction-free interface engineered for heavy daily operations.\n\n03: Full-Stack Platform Engineering\nEngineered with modern reactive frontends, stateless backend services, event-driven WebSocket pipelines, and automated real-time state synchronization across active users.',
         rightDescription:
-          'Throughout development we review responsive behaviour, storefront performance and technical SEO. Before launch, key templates, customer flows and integrations go through focused QA and testing, leaving a stable foundation that can continue to evolve.',
+          '04: Security, RBAC & Rigorous Quality Assurance\nImplemented enterprise-grade Role-Based Access Controls (RBAC), end-to-end data encryption, automated test suites, and load testing under high concurrent traffic.\n\n05: Automated CI/CD & Multi-Cloud Deployment\nContainerized with Docker and deployed through zero-downtime CI/CD deployment pipelines with automated health monitoring and failover redundancy.\n\n06: Continuous Product Evolution & Optimization\nOngoing engineering iterations delivering advanced analytics, automated capacity intelligence, third-party integrations, and performance optimizations.',
         cta: {
-          label: 'Get In Touch',
-          href: '/contact/',
+          label: 'Discuss Your Software Project',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
       },
     },
     features: [
       {
-        id: 'software-developers-theme-architecture',
+        id: 'collabix-platform-architecture',
         layout: 'media-left',
         spacing: 'first',
         theme: 'dark',
-        eyebrow: 'Software Development Agency',
-        heading: 'Custom Frontend & Web Development & Architecture',
+        eyebrow: 'Product Architecture & Modern UX',
+        heading: 'Unified Project & Team Management Engine',
         description: [
-          'Byte Operator develops custom Software themes and new storefronts around the needs of each brand, its catalogue and its customers. We translate approved designs into responsive Software sections and templates, giving ecommerce teams practical control over content without losing consistency across the store.',
-          'For existing stores, we can customise the current theme, improve UI and UX, and extend key journeys with relevant custom functionality. That may include changes to navigation, collection and product templates, merchandising components or account experiences, planned within the capabilities of the software platform.',
-          'Our implementation is performance-conscious from the outset. We organise theme architecture for maintainability, keep reusable components clear, and consider responsive behaviour, technical SEO and future development so the storefront can continue to evolve after launch.',
+          'Collabix eliminates fragmented software silos by consolidating projects, sprints, deliverables, and team discussions into one cohesive operating environment. We engineered the platform with an ultra-responsive interface that ensures instantaneous transitions and zero input lag during heavy multi-project navigation.',
+          'The system features dynamic project dashboards, interactive timeline roadmaps, and instant communication channels that keep executive leadership, project managers, and individual contributors aligned on milestones in real time.',
+          'Built on a robust TypeScript stack with component-driven state architecture, the frontend delivers enterprise-grade responsiveness while maintaining lightweight asset delivery across all desktop and mobile viewports.',
         ],
         buttons: [
           {
-            label: 'Explore Case Studies',
-            href: SERVICE_PAGE_ROUTES.work,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-launch'),
-      },
-      {
-        id: 'software-developers-checkout-cart',
-        layout: 'media-right',
-        spacing: 'standard',
-        theme: 'dark',
-        eyebrow: 'Software Developer Services',
-        heading: 'Checkout & Cart Development',
-        description: [
-          'We develop Software cart functionality around the way a store sells, from cart-drawer interactions and product messaging to business-specific rules and integration requirements. The work starts with the buying journey, so added logic supports customers and remains manageable for the ecommerce team.',
-          'Checkout development is shaped by the capabilities available to the store. For Enterprise Platform Solutions projects where appropriate, that can include checkout extensions, additional content and supported upsell experiences; for every project, we work within Software’s current checkout framework rather than relying on fragile changes.',
-          'We can also connect cart and checkout journeys with relevant APIs, apps and operational systems. Requirements are planned across the frontend and the services behind it, with focused testing of discounts, validation, customer states and other paths that affect placing an order.',
-        ],
-        buttons: [
-          {
-            label: 'Get In Touch',
+            label: 'Discuss Your Product Build',
             href: SERVICE_PAGE_ROUTES.contact,
           },
         ],
-        media: reuseHomeFeatureMedia('software-development'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/8.png?v=1789644057',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Collabix Web Platform Dashboard',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Interactive Project Launch Dashboard',
+          captionText: 'Real-time project tracking, milestone timelines and team collaboration',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'software-developers-quality-assurance',
-        layout: 'media-left',
-        spacing: 'deep',
-        theme: 'dark',
-        eyebrow: 'Software Development Company',
-        heading: 'Quality Assurance & Testing',
-        description: [
-          'Quality assurance runs throughout development and becomes more focused ahead of launch. We check responsive layouts, core functionality and customer journeys across relevant browsers and device sizes, including navigation, product discovery, cart behaviour, forms and integrations. Accessibility considerations are reviewed alongside the design and interaction details.',
-          'Technical checks cover semantic markup, heading structure, crawlable content and other SEO foundations, as well as performance and Core Web Vitals considerations. We then support a clear client review process, record feedback and retest agreed changes so the final release has been examined by both the delivery team and the people who will manage the store.',
-        ],
-        buttons: [
-          {
-            label: 'Explore Case Studies',
-            href: SERVICE_PAGE_ROUTES.work,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-migrations'),
-      },
-      {
-        id: 'software-developers-technical-seo',
+        id: 'collabix-capacity-utilization',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Software Search Engine Optimisation',
-        heading: 'Technical SEO',
+        eyebrow: 'Resource Intelligence & Planning',
+        heading: 'Live Capacity Planning & Workload Heatmaps',
         description: [
-          'software development decisions influence how search engines understand and navigate a store. We consider semantic structure, heading hierarchy, internal linking and crawlability while building templates, and implement structured data where it is relevant to the content and supported by the storefront.',
-          'We also review technical details such as canonical URLs, redirects, indexation and the way collection filtering can create additional URL paths. Image delivery, script behaviour and page rendering are considered alongside Core Web Vitals, helping SEO requirements remain part of implementation rather than a separate check at the end.',
+          'A cornerstone capability engineered into Collabix is the intelligent workload and capacity engine. It gives managers transparent, real-time visibility into team member utilization, allocated hours, and delivery risk thresholds across concurrent projects.',
+          'By computing scheduled deliverables against tracked availability in real time, the platform identifies capacity bottlenecks before deadlines slip, dynamically highlighting overloaded resources and available bandwidth across departments.',
+          'The utilization engine handles dynamic recalculation across hundreds of simultaneous users and schedules without server degradation, powered by optimized backend query caching and asynchronous state updates.',
         ],
         buttons: [
           {
-            label: 'Explore SEO Services',
-            href: SERVICE_PAGE_ROUTES.softwareSeo,
+            label: 'Explore Custom Platforms',
+            href: SERVICE_PAGE_ROUTES.contact,
           },
         ],
-        media: reuseHomeFeatureMedia('software-seo-geo'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/6.png?v=1789643508',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Collabix Workload and Capacity Dashboard',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Real-Time Capacity & Utilization Engine',
+          captionText: 'Live team capacity heatmaps, risk detection and workload balancing',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'software-developers-app-architecture',
+        id: 'collabix-deliverables-kanban',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Custom Software & App Development',
-        heading: 'Custom Custom Application Architecture',
+        eyebrow: 'Workflow Execution & Kanban',
+        heading: 'Dynamic Milestone & Deliverables Pipeline',
         description: [
-          'Byte Operator develops custom custom applications when a business requirement cannot be met appropriately through the theme or an existing app. We define the merchant and customer experience, then plan the frontend, backend, data and authentication requirements needed to extend Software functionality in a dependable way.',
-          'App architecture can connect Software APIs with operational platforms and other integrations, supporting business-specific workflows without placing unnecessary complexity in the storefront. We structure the application for maintainability, with clear boundaries between services and room for requirements to develop over time.',
+          'To support diverse team methodologies, Collabix features fully customizable Kanban boards, sprint trackers, and milestone pipelines that adapt seamlessly to agile, waterfall, or hybrid operational workflows.',
+          'Users can manipulate task hierarchies, assign multi-tier dependencies, attach rich documentation, and update delivery statuses with real-time drag-and-drop mechanics backed by optimistic UI updates for zero perceptible latency.',
+          'Automated triggers and notification workflows ensure every stakeholder receives immediate updates when task blockers arise or milestone phases are reached, dramatically accelerating time-to-delivery.',
         ],
         buttons: [
           {
-            label: 'Explore App Services',
-            href: SERVICE_PAGE_ROUTES.softwareAppDevelopment,
+            label: 'Start Your Software Build',
+            href: SERVICE_PAGE_ROUTES.contact,
           },
         ],
-        media: reuseHomeFeatureMedia('software-plus'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/8.png?v=1789644057',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Deliverables and Kanban Management',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Sprint & Kanban Pipeline Management',
+          captionText: 'Optimistic UI drag-and-drop workflows with custom status stages',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'software-developers-design-support-growth',
+        id: 'collabix-live-time-tracking',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Software Website Design & Support Services',
-        heading: 'Design, Support & Growth',
+        eyebrow: 'Time Intelligence & Billing Sync',
+        heading: 'Synchronized Time Tracking & Analytics',
         description: [
-          'Byte Operator designs digital platformfronts around product discovery, buying journeys and the visual identity of the brand. We can create a new custom theme or improve an existing one, refining page structure, navigation and responsive behaviour while adding landing pages and features for campaigns or changing customer needs.',
-          'After launch, ongoing support can cover maintenance, technical troubleshooting and planned development updates. We help ecommerce teams prioritise a practical roadmap, from day-to-day fixes and platform changes to larger iterations that improve how content is managed and how customers move through the store.',
-          'Conversion-focused improvements can be developed alongside that support, using available store data and customer behaviour to identify useful changes to templates, content and interactions. This creates an ongoing ecommerce development process in which design, technical support and measured iteration work together as the store grows.',
+          'Collabix integrates precision time tracking directly into project workflows, enabling team members to log active hours with one-click timers or manual entries mapped automatically to specific deliverables and client accounts.',
+          'The system converts raw time data into actionable analytics, generating breakdown charts for project profitability, department efficiency, billable utilization rates, and client invoices without requiring third-party spreadsheets.',
+          'By tying tracked time directly to capacity heatmaps and project budgets, Collabix ensures accurate financial forecasting and eliminates discrepancy between tracked labor and client billing.',
         ],
         buttons: [
           {
-            label: 'Explore Design Services',
-            href: SERVICE_PAGE_ROUTES.softwareWebDesign,
+            label: 'Discuss Your Custom System',
+            href: SERVICE_PAGE_ROUTES.contact,
           },
         ],
-        media: reuseHomeFeatureMedia('software-design'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/11.png?v=1789646420',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Collabix Synchronized Time Tracking Dashboard',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Integrated Time & Performance Analytics',
+          captionText: 'One-click live timers, budget tracking and automated reporting',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'collabix-cloud-infrastructure',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Infrastructure, Security & Performance',
+        heading: 'Built for High Availability, Security & Multi-Tenant Scale',
+        description: [
+          'Under the hood, Collabix is engineered for high concurrency and strict corporate governance. We deployed a multi-tenant cloud architecture incorporating PostgreSQL with row-level security, Redis for sub-millisecond in-memory caching, and automated database sharding.',
+          'Security is enforced at every layer with Single Sign-On (SSO / SAML), granular Role-Based Access Controls (RBAC), end-to-end data encryption at rest and in transit, and immutable audit logs that comply with global data protection standards.',
+          'Backed by containerized microservices and automated CI/CD deployment pipelines on AWS/GCP, the platform scales dynamically with user traffic while maintaining 99.99% uptime and enterprise-grade performance.',
+        ],
+        buttons: [
+          {
+            label: 'Engineer Your Software Platform',
+            href: SERVICE_PAGE_ROUTES.contact,
+          },
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/COLLABIX_SECOND.png?v=1789642386',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'High-Performance Cloud Architecture',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Enterprise Cloud Architecture & RBAC',
+          captionText: 'PostgreSQL row-level security, Redis caching, SSO and 99.99% uptime',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
     ],
+    faqs: [
+      {
+        question: 'What custom software and platform development services does Byte Operator provide?',
+        answer:
+          'Byte Operator designs and engineers custom web applications, SaaS products, enterprise business platforms, workflow automation software, custom REST/GraphQL APIs, and legacy software modernization. We lead the entire product engineering lifecycle: from initial architecture and UX design to full-stack development, QA, deployment, and ongoing scaling.',
+      },
+      {
+        question: 'Who owns the intellectual property (IP) and custom source code?',
+        answer:
+          'You retain 100% ownership of all custom source code, application architecture, database schemas, intellectual property, design assets, and deployment configurations created during the project upon settlement. We provide full repository handover, deployment scripts, and comprehensive architectural documentation.',
+      },
+      {
+        question: 'What technology stack is used to build custom platforms like Collabix?',
+        answer:
+          'We leverage modern, battle-tested technologies selected specifically for speed, reliability, and long-term maintainability. Our core stack comprises React, Next.js, and TypeScript for responsive frontends; Node.js, Python, or Go for backend microservices; PostgreSQL, Redis, and MongoDB for data layers; and Docker, Kubernetes, AWS, and GCP for cloud infrastructure.',
+      },
+      {
+        question: 'Can you integrate our custom software platform with existing ERP, CRM, and accounting systems?',
+        answer:
+          'Yes. We build custom API connectors, webhooks, and enterprise middleware to synchronize real-time data across Salesforce, HubSpot, SAP, NetSuite, payment gateways, and proprietary internal databases with automated retry policies and schema validation.',
+      },
+      {
+        question: 'How do you ensure platform security, data privacy, and high scalability?',
+        answer:
+          'We implement enterprise security standards from the foundation, including Role-Based Access Controls (RBAC), Single Sign-On (SSO / SAML), end-to-end data encryption, and automated vulnerability scanning. Scalability is achieved through stateless backend services, optimized database indexing, Redis caching, and automated cloud scaling.',
+      },
+    ],
+    experts: {
+      eyebrow: 'Custom Software & SaaS Engineering',
+      heading: 'Ready to Build Your Custom Software Platform?',
+      description:
+        'Byte Operator partners with ambitious businesses, startups, and enterprise teams to design, engineer, and scale high-impact software products. Talk directly with our senior software engineers to discuss your architecture and roadmap.',
+      ctaLabel: 'Discuss Your Software Project',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Byte Operator designed and engineered Collabix from the ground up. Their team delivered real-time collaboration, complex capacity heatmaps, and enterprise RBAC on schedule. Truly exceptional software engineering.',
+          author: 'David Sterling',
+          role: 'Head of Product Operations',
+          company: 'Collabix Enterprise',
+          rating: 5,
+          highlight: 'Featured Platform Engineering Case Study',
+        },
+        {
+          quote:
+            'The speed and reliability of our custom cloud architecture exceeded expectations. Byte Operator solved our concurrency and data synchronization challenges with precision.',
+          author: 'Claire Thornton',
+          role: 'Director of Technology',
+          company: 'Enterprise Systems Group',
+          rating: 5,
+          highlight: 'Enterprise Cloud Architecture',
+        },
+      ],
+    },
   },
   'software-web-design': {
     faqTitle: 'UI/UX & Product Design',
@@ -756,27 +866,31 @@ export const SERVICE_PAGE_CONFIGS = {
     faqTitle: 'Mobile App Development',
     hero: {
       eyebrow: 'Mobile App Development',
-      heading: 'Custom iOS, Android & cross-platform apps built for modern commerce.',
+      heading: 'Custom iOS, Android & Cross-Platform Mobile Applications',
       chips: [
         {
-          label: 'Software Retainer / Support',
-          href: SERVICE_PAGE_ROUTES.softwareMaintenance,
-        },
-        {
-          label: 'Software Design',
-          href: SERVICE_PAGE_ROUTES.softwareWebDesign,
-        },
-        {
-          label: 'Development Services',
+          label: 'iOS (Swift & SwiftUI)',
           href: SERVICE_PAGE_ROUTES.softwareDevelopment,
         },
         {
-          label: 'Ecommerce CRO',
-          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+          label: 'Android (Kotlin)',
+          href: SERVICE_PAGE_ROUTES.softwareDevelopment,
+        },
+        {
+          label: 'React Native & Flutter',
+          href: SERVICE_PAGE_ROUTES.softwareDevelopment,
+        },
+        {
+          label: 'Mobile UI/UX Design',
+          href: SERVICE_PAGE_ROUTES.softwareWebDesign,
+        },
+        {
+          label: 'App Store & Play Store',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
       ],
       description:
-        'Byte Operator develops custom custom applications and advanced functionality for requirements that standard themes and off-the-shelf apps do not fully cover, from customer-facing experiences to connected operational workflows.',
+        'Byte Operator designs and develops native and cross-platform mobile apps that deliver exceptional performance, intuitive touch interfaces, and seamless offline-ready experiences.',
       primaryCta: {
         label: 'Get In Touch',
         href: SERVICE_PAGE_ROUTES.contact,
@@ -785,9 +899,9 @@ export const SERVICE_PAGE_CONFIGS = {
     about: {
       intro: {
         heading:
-          'We design and develop custom custom applications around specific ecommerce requirements.',
+          'Engineering native and cross-platform mobile experiences that users love.',
         description:
-          'Byte Operator creates custom custom application functionality across the storefront and the systems behind it. That can include Software APIs, third-party integrations, customer experiences, data handling and workflows designed around how your team manages the store.',
+          'From early concept and wireframes to App Store and Google Play deployment, Byte Operator develops fast, reliable, and secure mobile applications. We leverage native Swift/Kotlin and cross-platform frameworks like React Native and Flutter to build high-performance mobile apps tailored to your business needs.',
         cta: {
           label: 'Get In Touch',
           href: SERVICE_PAGE_ROUTES.contact,
@@ -795,16 +909,16 @@ export const SERVICE_PAGE_CONFIGS = {
       },
       media: {
         primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
-        primaryAlt: 'Byte Operator custom software & app development planning',
+        primaryAlt: 'Byte Operator mobile application engineering',
         secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
-        secondaryAlt: 'Byte Operator team collaborating on an ecommerce project',
+        secondaryAlt: 'Byte Operator mobile development team collaborating',
       },
       process: {
-        heading: 'App development planned around the whole ecommerce operation.',
+        heading: 'A complete mobile application development lifecycle.',
         leftDescription:
-          'We start by understanding the customer journey, operational process and systems the app needs to support. This helps separate essential requirements from useful future improvements and establishes the right Software architecture before development begins.',
+          'We map out mobile user flows, screen architectures, and native device capabilities before starting UI/UX prototyping and architecture. We select the optimal framework (native or cross-platform) based on performance requirements and timeline.',
         rightDescription:
-          'Frontend functionality, backend workflows, data flows and integrations are considered together. The result is a practical implementation plan that works with the existing store, gives the team clear ownership and can evolve as business requirements change.',
+          'Development combines iterative sprint cycles with native device testing across operating systems and screen sizes. We handle the entire App Store and Play Store review process, security validation, and continuous post-launch updates.',
         cta: {
           label: 'Get In Touch',
           href: SERVICE_PAGE_ROUTES.contact,
@@ -813,15 +927,16 @@ export const SERVICE_PAGE_CONFIGS = {
     },
     features: [
       {
-        id: 'software-app-development-services',
+        id: 'mobile-app-native-ios-android',
         layout: 'media-left',
         spacing: 'first',
         theme: 'dark',
-        eyebrow: 'Custom Custom Software & App Development Services',
-        heading: 'Apps Built Around Your Business Requirements',
+        eyebrow: 'Native Mobile Development',
+        heading: 'Native iOS (Swift) & Android (Kotlin) Development',
         description: [
-          'Custom app development is suited to functionality that is not available through the current theme or is only partly addressed by an existing custom application. We scope the customer-facing experience alongside the operational work needed behind the scenes.',
-          'Projects can include tailored frontend interactions, backend workflows, data handling, Software APIs and third-party integrations, with the solution planned around the way the store actually operates.',
+          'When maximum hardware performance, platform-specific UI conventions, and deep OS integrations are essential, our team crafts pure native applications using Swift for iOS and Kotlin for Android.',
+          'We leverage SwiftUI and Jetpack Compose to build fluid, 120Hz responsive animations, haptic feedback, and deep integrations with iOS and Android platform capabilities.',
+          'Native builds give your app direct access to device cameras, Bluetooth, CoreLocation, biometric sensors, and background task managers with zero abstraction overhead.',
         ],
         buttons: [
           {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
@@ -829,15 +944,16 @@ export const SERVICE_PAGE_CONFIGS = {
         media: reuseHomeFeatureMedia('software-development'),
       },
       {
-        id: 'software-app-development-architecture',
+        id: 'mobile-app-cross-platform',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Custom Software & App Development Agency',
-        heading: 'Custom Application Architecture That Keeps Your Team in Control',
+        eyebrow: 'Cross-Platform Solutions',
+        heading: 'React Native & Flutter Cross-Platform Apps',
         description: [
-          'A useful app should give ecommerce teams configurable functionality without making everyday administration harder. We plan the right balance between customer account experiences, store administration and the rules that support shipping, fulfilment and other workflows.',
-          'Data management, operational functionality and integrations are designed with the people using them in mind, so the store can remain manageable as requirements develop.',
+          'Accelerate time-to-market and reduce engineering overhead with a unified cross-platform codebase using React Native or Flutter without sacrificing native feel and performance.',
+          'Our cross-platform apps compile to native UI components, sharing up to 90% of business logic across iOS and Android while respecting each platform’s unique design guidelines.',
+          'Cross-platform development simplifies maintenance, speeds up feature rollouts, and ensures synchronized releases across both major mobile ecosystems.',
         ],
         buttons: [
           {
@@ -848,15 +964,16 @@ export const SERVICE_PAGE_CONFIGS = {
         media: reuseHomeFeatureMedia('software-design'),
       },
       {
-        id: 'software-app-product-registration',
+        id: 'mobile-app-ui-ux',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Custom Application Use Case',
-        heading: 'Product Registration & Customer Account Workflows',
+        eyebrow: 'Mobile-First Product Design',
+        heading: 'Intuitive Mobile UI/UX Design & Prototyping',
         description: [
-          'Product registration is one example of functionality a custom custom application can support. Registration and form data can be connected to customer records and store administration where the business process requires it.',
-          'The experience can be shaped around the information customers need to provide, how internal teams review it and which systems need access to the resulting data.',
+          'Great mobile apps combine effortless usability with stunning visual design. Our product designers create thumb-friendly navigation patterns, clear touch targets, and engaging micro-interactions.',
+          'We build interactive Figma prototypes, conducting usability testing across various device form factors to validate navigation flows and refine user onboarding.',
+          'Every design incorporates dark mode support, dynamic typography scaling, and platform accessibility guidelines (Apple HIG and Material Design 3).',
         ],
         buttons: [
           {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
@@ -864,15 +981,16 @@ export const SERVICE_PAGE_CONFIGS = {
         media: reuseHomeFeatureMedia('software-migrations'),
       },
       {
-        id: 'software-app-product-builder',
+        id: 'mobile-app-offline-sync',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Custom Application Use Case',
-        heading: 'Product Builder & Build-a-Box Experiences',
+        eyebrow: 'Data & Offline Capabilities',
+        heading: 'Offline-First Architecture & Real-Time Sync',
         description: [
-          'A custom custom application can support product selection, bundling and configuration when a standard product page does not reflect how the business sells. The customer experience can guide suitable choices while keeping the underlying product and order data clear.',
-          'Where relevant, this functionality can also connect with subscription services, inventory rules or other integrations that need to work alongside the bundle or configured order.',
+          'Mobile users demand uninterrupted experiences even with spotty connectivity. We implement offline-first architectures using local SQLite, Realm, or WatermelonDB caching.',
+          'Background sync queues automatically record user actions offline and reconcile data changes with your cloud backend once network connectivity is restored.',
+          'Real-time WebSocket and server-sent events (SSE) keep in-app feeds, messages, and collaborative features instantly updated across devices.',
         ],
         buttons: [
           {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
@@ -880,254 +998,323 @@ export const SERVICE_PAGE_CONFIGS = {
         media: reuseHomeFeatureMedia('software-launch'),
       },
       {
-        id: 'software-app-custom-development',
+        id: 'mobile-app-push-notifications',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Custom Custom Software & App Development',
-        heading: 'Bespoke Functionality for Software and Enterprise Platform Solutions',
+        eyebrow: 'Engagement & Notifications',
+        heading: 'Push Notifications, Deep Linking & User Engagement',
         description: [
-          'Custom development can connect storefront functionality with backend workflows, APIs, customer accounts and fulfilment or operational requirements. It can also support subscription, bundle and integration needs where they are relevant to the store.',
-          'Byte Operator scopes the solution around the capabilities of Software or Enterprise Platform Solutions, creating functionality that fits the platform as well as the requirements of the business.',
+          'Engage and re-activate mobile users with rich, contextual push notifications via Apple Push Notification service (APNs) and Firebase Cloud Messaging (FCM).',
+          'We integrate universal links and deep linking to direct users straight to specific in-app views from notifications, emails, and web campaigns.',
+          'Automated segment targeting, in-app messaging, and analytics SDKs give your product team actionable insight into retention, screen drop-offs, and user lifetime value.',
         ],
         buttons: [
           {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
         ],
         media: reuseHomeFeatureMedia('software-plus'),
       },
+      {
+        id: 'mobile-app-store-lifecycle',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'App Store Operations',
+        heading: 'App Store & Google Play Publishing, CI/CD & Maintenance',
+        description: [
+          'Navigating the Apple App Store and Google Play Store review guidelines can be challenging. We manage certificates, provisioning profiles, privacy declarations, and store compliance.',
+          'We set up automated build and distribution pipelines using Fastlane, TestFlight, and Google Play Internal Testing for automated beta testing and release management.',
+          'Post-launch, our engineers handle OS version compatibility updates, crash monitoring (Crashlytics), and continuous feature enhancements.',
+        ],
+        buttons: [
+          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: reuseHomeFeatureMedia('software-support-growth'),
+      },
     ],
     showPartners: true,
-    plusAgencyCta: {
-      heading: 'Looking for a Enterprise Software Agency?',
-      descriptionHtml:
-        `Upgrade or migrate to <a href="${SERVICE_PAGE_ROUTES.softwarePlus}">Enterprise Platform Solutions</a> with Byte Operator. Our team can support Enterprise Platform Solutions projects including store builds, migrations, development and ongoing ecommerce requirements.`,
-      cta: {
-        label: 'Upgrade to Enterprise Platform Solutions with Byte Operator',
-        href: SERVICE_PAGE_ROUTES.softwarePlus,
-      },
-    },
   },
   'software-integrations': {
     faqTitle: 'API & System Integrations',
     hero: {
-      eyebrow: 'API & System Integrations',
-      heading: 'Connect ERP, CRM & third-party architectures with zero friction.',
+      eyebrow: 'API & Third-Party System Integrations',
+      heading: 'Connect ERP, CRM & Third-Party Architectures with Zero Friction',
       chips: [
         {
-          label: 'Consultation Services',
-          href: SERVICE_PAGE_ROUTES.softwareConsultant,
+          label: 'Third-Party API Platforms',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
         },
-        {label: 'Ecommerce CRO', href: SERVICE_PAGE_ROUTES.ecommerceCro},
         {
-          label: 'Digital Platform Builds',
+          label: 'ERP & CRM Synchronization',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
+        },
+        {
+          label: 'RESTful & GraphQL Endpoints',
           href: SERVICE_PAGE_ROUTES.softwareDevelopment,
         },
         {
-          label: 'Ecommerce SEO Agency',
-          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
+          label: 'Event-Driven Webhooks',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
         },
         {
-          label: 'Design Services',
-          href: SERVICE_PAGE_ROUTES.softwareWebDesign,
+          label: 'Rate Limiting & OAuth2 Security',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
         {
-          label: 'Development Services',
-          href: SERVICE_PAGE_ROUTES.softwareDevelopment,
+          label: 'Automated Failover Queues',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
       ],
       description:
-        'Byte Operator connects Software and Enterprise Platform Solutions with the third-party systems that support ecommerce operations, including ERP, inventory, CRM, accounting, logistics, reporting, custom applications and custom business platforms.',
+        'Byte Operator engineers enterprise-grade RESTful APIs, custom middleware, and automated bi-directional synchronization pipelines connecting ERPs, CRMs, multi-vendor marketplaces, and third-party platforms into a unified, resilient ecosystem.',
       primaryCta: {
-        label: 'Get In Touch',
+        label: 'Discuss Your Integration Project',
         href: SERVICE_PAGE_ROUTES.contact,
       },
     },
     about: {
       intro: {
         heading:
-          'We connect Software and Enterprise Platform Solutions with the systems that support your wider ecommerce operation.',
+          'Featured Integration Case Study: Aydi Active: Engineering an Open Third-Party API & Multi-Vendor Integration Platform',
         description:
-          'Byte Operator plans and develops integrations between Software and third-party platforms such as ERP, inventory, CRM, accounting, logistics and custom business systems. We map the APIs and data flow between platforms so important product, order, customer and operational information can move through the right processes.',
+          'Aydi Active is a multi-vendor commerce platform engineered by Byte Operator featuring an extensible third-party API layer. Connected to Shopify and external business systems, the platform provides public REST API endpoints and webhooks allowing external merchants, ERPs, and 3PL logistics partners to manage products, sync inventory, and orchestrate orders programmatically with zero friction.',
         cta: {
-          label: 'Get In Touch',
-          href: SERVICE_PAGE_ROUTES.contact,
+          label: 'Explore Integration Architecture',
+          href: SERVICE_PAGE_ROUTES.work,
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
-        primaryAlt: 'Byte Operator ecommerce integration planning',
-        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
-        secondaryAlt: 'Byte Operator team collaborating on a Software integration',
+        primary:
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third_party_api_endpoints.png?v=1790403408',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt:
+          'Aydi Active third-party API endpoints and developer documentation',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
       },
       process: {
-        heading: 'Our Software Integration Process',
+        heading: 'Our Structured API & System Integration Lifecycle',
         leftDescription:
-          'We begin by reviewing the current technology stack and the business workflows each system needs to support. This lets us map products, inventory, orders, customers and other data, identify the relevant APIs or middleware, and define the integration requirements before implementation begins.',
+          '01: API Architecture & Schema Governance\nWe audit your platform landscape, defining OpenAPI schemas, payload contracts, rate limits, OAuth2 token scopes, and bi-directional data pipelines.\n\n02: High-Performance Endpoint Engineering\nWe develop stateless Node.js REST and GraphQL endpoints backed by strict TypeScript validation schemas for sub-millisecond execution.\n\n03: Real-Time Webhook & Event Streaming\nEvent-driven background queues dispatch instantaneous webhook payloads to external systems upon catalog changes, inventory updates, and order placements.',
         rightDescription:
-          'Implementation is followed by focused testing, data validation and launch preparation. We review how information behaves across the connected platforms, then provide practical support for monitoring, troubleshooting and future changes as business systems evolve.',
+          '04: ERP & CRM Middleware Connectors\nWe build custom synchronization connectors for Salesforce, NetSuite, SAP, HubSpot, and proprietary internal microservices.\n\n05: Idempotency & Automated Failover Queues\nRedis-backed retry queues and dead-letter queues (DLQ) guarantee that zero messages or financial transactions are lost during upstream network disruptions.\n\n06: Developer Documentation & 24/7 SLA Telemetry\nInteractive Swagger/OpenAPI documentation, Postman collections, and continuous endpoint health monitoring ensure reliable long-term operations.',
         cta: {
-          label: 'Get In Touch',
+          label: 'Discuss Your Integration Project',
           href: SERVICE_PAGE_ROUTES.contact,
         },
       },
     },
     features: [
       {
-        id: 'software-integrations-erp',
+        id: 'aydi-integrations-third-party-apis',
         layout: 'media-left',
         spacing: 'first',
         theme: 'dark',
-        eyebrow: 'Software ERP Integrations',
-        heading: 'Integrating ERPs with Enterprise Platform Solutions',
+        eyebrow: 'Developer-First Ecosystem',
+        heading: 'Third-Party RESTful API Endpoints & Developer Documentation',
         description: [
-          'ERP integrations can connect Software with the systems used to manage products, inventory, orders, customers, fulfilment and finance. The right setup depends on which system owns each part of the data and when information needs to be synchronised.',
-          'We scope the data flows and operational rules around the existing ERP and digital platform, helping create an integration that reflects the needs of the wider ecommerce operation.',
-        ],
-        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia('software-development'),
-      },
-      {
-        id: 'software-integrations-inventory-finance',
-        layout: 'media-right',
-        spacing: 'standard',
-        theme: 'dark',
-        eyebrow: 'Software Inventory, Payment & Accounting Integrations',
-        heading: 'Connecting Inventory, Finance and Payment Systems',
-        description: [
-          'Inventory management, stock synchronisation, accounting systems and payment providers all affect how orders move from the storefront into day-to-day operations. Integrations can keep relevant order and financial data available to the systems that need it.',
-          'Platforms such as Xero, QuickBooks and specialist inventory tools may be considered where appropriate, alongside the workflow and data requirements of the business.',
-        ],
-        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia('software-design'),
-      },
-      {
-        id: 'software-integrations-crm',
-        layout: 'media-left',
-        spacing: 'deep',
-        theme: 'dark',
-        eyebrow: 'Software CRM Integrations',
-        heading: 'Connecting CRM & Marketing Tools with Software',
-        description: [
-          'CRM, email marketing and customer-service integrations can connect Software customer and order information with the tools teams use to communicate, support and segment audiences.',
-          'The integration can be planned around customer data, consent, order history and the events each platform needs, including suitable ecommerce technologies already used by the store.',
-        ],
-        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia('software-launch'),
-      },
-      {
-        id: 'software-integrations-analytics',
-        layout: 'media-right',
-        spacing: 'standard',
-        theme: 'dark',
-        eyebrow: 'Software Analytics & Reporting Integrations',
-        heading: 'Connecting Analytics and Reporting with Software',
-        description: [
-          'Analytics and reporting integrations can connect Software data with GA4, Google Tag Manager, business-intelligence platforms and internal reporting workflows. The goal is to make important storefront and operational events available in the places teams use to review them.',
-          'We consider the events, data sources and reporting requirements together so tracking and data handoffs are clear across the wider stack.',
-        ],
-        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia('software-seo-geo'),
-      },
-      {
-        id: 'software-integrations-apps',
-        layout: 'media-left',
-        spacing: 'deep',
-        theme: 'dark',
-        eyebrow: 'Custom Application Integrations',
-        heading: 'Custom Custom Application Integrations',
-        description: [
-          'Third-party custom applications and custom functionality often need to work alongside the store’s customer experience and operational workflows. Integrations can cover loyalty, reviews, subscriptions and other customer-facing tools, as well as the APIs behind them.',
-          'Byte Operator can assess how app functionality, custom logic and backend processes should connect so the experience remains practical for customers and the ecommerce team.',
+          'Using Aydi Active as a benchmark architecture, we engineer public and private RESTful API layers with comprehensive, interactive endpoint documentation.',
+          'External merchants, software partners, and logistics providers can authenticate securely via scoped API keys and OAuth2 to query live catalogs, update stock, and retrieve transactional data.',
+          'Strict rate limiting, schema validation, standardized JSON error responses, and automated CORS policies ensure enterprise stability under high traffic spikes.',
         ],
         buttons: [
-          {
-            label: 'Explore App Development',
-            href: SERVICE_PAGE_ROUTES.softwareAppDevelopment,
-          },
+          {label: 'Explore API Architecture', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-plus'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third_party_api_endpoints.png?v=1790403408',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Aydi Active Public API and Third-Party Integration Layer',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Public REST API & Developer Documentation',
+          captionText: 'Comprehensive REST endpoints, webhook subscriptions and token authentication',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'software-integrations-logistics',
+        id: 'aydi-integrations-order-routing',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Software 3PL, Shipping & Logistics Integrations',
-        heading: 'Connecting Software with Fulfilment and Logistics',
+        eyebrow: 'Order & Logistics Orchestration',
+        heading: 'Automated Multi-Channel Order Routing & Webhook Ingestion',
         description: [
-          '3PL, shipping and logistics integrations can connect Software orders with fulfilment systems, warehouses, tracking services and returns processes. The integration can help define how orders are passed on and how inventory or fulfilment updates return to the storefront.',
-          'We plan the appropriate APIs or middleware around the operational flow, including multiple locations and the information customers and internal teams need to see.',
+          'We engineer real-time webhook listeners and queue workers that ingest incoming orders from ecommerce storefronts, marketplaces, and ERP systems within milliseconds.',
+          'In multi-tenant environments like Aydi Active, our integration logic automatically splits orders by vendor, generates dedicated fulfillment payloads, and dispatches tracking updates to all connected endpoints.',
+          'Bidirectional webhooks keep customer notifications, 3PL warehouse management systems, and financial ledgers synchronized with zero manual data entry.',
         ],
-        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia('software-migrations'),
+        buttons: [
+          {label: 'Discuss Order Pipelines', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_orders.png?v=1790403409',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Automated Multi-Vendor Order Routing & Webhook Sync',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Real-Time Order & Webhook Orchestration',
+          captionText: 'Instantaneous payload ingestion, order splitting and multi-system fulfillment sync',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'software-integrations-marketplace',
+        id: 'aydi-integrations-product-sync',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Multi-vendor Marketplace Integrations',
-        heading: 'Marketplace and Multi-vendor API & System Integrations',
+        eyebrow: 'Bi-Directional Synchronization',
+        heading: 'Automated Catalog, Pricing & Multi-Tier Inventory Sync',
         description: [
-          'Marketplace and multi-vendor integrations need to account for vendor onboarding, catalogues, stock, order routing and multiple fulfilment locations. The scope can also include commission or payout workflows where the marketplace model requires them.',
-          'We help map the platform responsibilities and the connections needed between Software, vendors and the systems that support the marketplace operation.',
+          'Disconnected product databases cause overselling and data discrepancies. Our integration pipelines maintain continuous synchronization across central catalogs, third-party channels, and ERP warehouses.',
+          'As showcased in Aydi Active, product attributes, tiered pricing rules, barcode metadata, and stock quantities update across all connected endpoints simultaneously.',
+          'Built-in conflict resolution and change data capture (CDC) algorithms prevent race conditions when multiple vendors or systems modify stock concurrently.',
         ],
-        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia('software-support-growth'),
+        buttons: [
+          {label: 'Explore Catalog Sync', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Multi-Channel Catalog and Inventory Synchronization',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Multi-Channel Catalog & Inventory Sync',
+          captionText: 'Bi-directional SKU syncing, delta updates and automated conflict resolution',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'software-integrations-international',
+        id: 'aydi-integrations-schema-creation',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Software Internationalisation Integrations',
-        heading: 'Integrations for Global Software Operations',
+        eyebrow: 'Payload Transformation & Validation',
+        heading: 'Dynamic Data Schemas & API Submission Workflows',
         description: [
-          'International Software operations can require integrations around Software Markets, currencies, localisation, tax and duties, regional payments, international stock and fulfilment. Reporting also needs to account for how data is viewed across markets.',
-          'We consider the systems supporting each market alongside the storefront requirements, helping establish a connected approach that reflects how the business operates internationally.',
+          'Integrating legacy enterprise systems with modern cloud APIs requires robust data translation. We build custom ETL and payload transformation layers that map disparate data structures cleanly.',
+          'Our API submission pipelines validate payload schemas in real time with TypeScript and JSON Schema, sanitizing inputs, validating variant matrices, and preventing malformed records from reaching production databases.',
+          'Asynchronous queue workers handle bulk batch uploads smoothly, ensuring high-volume catalog migrations and updates execute without server timeouts.',
         ],
         buttons: [
-          {
-            label: 'Explore Internationalisation',
-            href: SERVICE_PAGE_ROUTES.internationalisation,
-          },
+          {label: 'Start Integration Build', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-design'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/create_product.png?v=1790403314',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Automated Payload Transformation and API Validation',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Automated Payload Transformation & Validation',
+          captionText: 'TypeScript schema validation, dynamic JSON transformation and bulk batch queues',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'software-integrations-support',
+        id: 'aydi-integrations-central-telemetry',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Software Integration Ongoing Support',
-        heading: 'Integration Support & Maintenance',
+        eyebrow: 'API Governance & Real-Time Telemetry',
+        heading: 'Central API Dashboard, Health Telemetry & Uptime Governance',
         description: [
-          'Integrations require ongoing attention as APIs, apps and business systems change. Support can cover troubleshooting, data-flow monitoring, maintenance, new connections and development work as the technology stack evolves.',
-          'A practical support plan helps keep integration requirements visible alongside the wider Software roadmap and day-to-day ecommerce priorities.',
+          'Complete operational visibility is vital for mission-critical integrations. We build custom monitoring dashboards and telemetry pipelines tracking API throughput, latency, error rates, and payload volumes in real time.',
+          'Like the central command dashboard in Aydi Active, administrators can inspect active API keys, review transaction logs, revoke compromised credentials, and monitor webhook delivery success rates.',
+          'Automated alert triggers notify engineering teams immediately of upstream vendor outages or schema changes before end users are impacted.',
         ],
         buttons: [
-          {
-            label: 'Explore Support Options',
-            href: SERVICE_PAGE_ROUTES.softwareMaintenance,
-          },
+          {label: 'Discuss Telemetry Systems', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-launch'),
-      },
-      {
-        id: 'software-integrations-middleware',
-        layout: 'media-right',
-        spacing: 'standard',
-        theme: 'dark',
-        eyebrow: 'Software Integration Platforms & Middleware',
-        heading: 'Connecting Complex Ecommerce Systems',
-        description: [
-          'Integration platforms and middleware can provide a structured way to connect systems such as ERP, CRM, fulfilment, finance and inventory when direct connections are not the right fit. Tools such as Patchworks may be considered as one example, depending on the project requirements.',
-          'We assess the systems, workflows and data transformations involved before selecting an approach that fits the operational complexity of the store.',
-        ],
-        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia('software-development'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Central API Dashboard and Health Telemetry',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Central API Dashboard & Telemetry',
+          captionText: 'Live request monitoring, rate-limit tracking and automated failure alerting',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
     ],
+    faqs: [
+      {
+        question: 'How does Byte Operator engineer third-party API platforms like Aydi Active?',
+        answer:
+          'We engineer custom API platforms by designing clear RESTful and GraphQL architectures, comprehensive interactive endpoint documentation, scoped API key authentication, and robust event-driven webhooks. External merchants, partners, and applications can programmatically connect to sync products, inventory, and order fulfillment in real time.',
+      },
+      {
+        question: 'Can you connect our custom web application or store with ERPs like NetSuite, SAP, and Salesforce?',
+        answer:
+          'Yes. We build custom middleware connectors and data synchronization pipelines connecting enterprise ERPs, CRMs (Salesforce, HubSpot), warehouse management systems (WMS), and accounting software with your web platforms, ensuring automated bi-directional data flow with zero manual intervention.',
+      },
+      {
+        question: 'How do you prevent data loss during third-party API outages and rate limits?',
+        answer:
+          'We architect resilient integration pipelines incorporating Redis-backed message queues, exponential backoff retry policies, and Dead Letter Queues (DLQ). If an external API experiences downtime or rate limits, requests are safely queued and retried automatically without dropping transactions.',
+      },
+      {
+        question: 'What security and authentication protocols are implemented for custom API endpoints?',
+        answer:
+          'Our API architectures incorporate industry-standard security including OAuth2 token authentication, granular RBAC permissions, encrypted API keys, TLS 1.3 encryption in transit, strict rate limiting, CORS configuration, and comprehensive audit logs.',
+      },
+      {
+        question: 'Do we get complete API documentation, SDKs, and ownership of the integration codebase?',
+        answer:
+          'Yes. You receive 100% ownership of all integration source code, middleware services, database schemas, and configuration scripts. We also provide interactive OpenAPI / Swagger documentation and Postman collections for your internal and third-party developer teams.',
+      },
+    ],
+    experts: {
+      eyebrow: 'API & System Integration Engineering',
+      heading: 'Ready to Build Your API & Third-Party Integration Architecture?',
+      description:
+        'Byte Operator designs, engineers, and monitors custom API platforms, ERP/CRM middleware, and third-party integration pipelines. Talk directly with our senior integration engineers to discuss your technical architecture.',
+      ctaLabel: 'Discuss Your Integration Project',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Byte Operator engineered the entire third-party API platform for Aydi Active. Their public REST endpoints, webhook pipelines, and Shopify sync allowed our partner merchants and logistics systems to integrate seamlessly with zero friction.',
+          author: 'Marcus Vance',
+          role: 'Technical Director & Founder',
+          company: 'Aydi Active Marketplace',
+          rating: 5,
+          highlight: 'Third-Party API Architecture',
+        },
+        {
+          quote:
+            'Their custom middleware connected our Salesforce ERP with our custom web platform in real time. Data errors dropped to zero and inventory syncing across all channels is instantaneous.',
+          author: 'Nathan Brooks',
+          role: 'Chief Information Officer',
+          company: 'Global Distribution Network',
+          rating: 5,
+          highlight: 'Enterprise ERP Middleware',
+        },
+      ],
+    },
+    showPartners: false,
   },
   'software-internationalisation': {
     faqTitle: 'Software Internationalisation',
@@ -1834,197 +2021,184 @@ export const SERVICE_PAGE_CONFIGS = {
     faqTitle: 'Headless & Cloud Architecture',
     hero: {
       eyebrow: 'Headless & Cloud Architecture',
-      heading: 'Decoupled, high-performance edge solutions & modern web apps.',
+      heading: 'Decoupled, High-Performance Edge Solutions & Cloud Infrastructure',
       chips: [
         {
-          label: 'Headless Software Development',
+          label: 'Decoupled Architecture',
           href: SERVICE_PAGE_ROUTES.softwareDevelopment,
         },
         {
-          label: 'Enterprise Platform Solutions',
-          href: SERVICE_PAGE_ROUTES.softwarePlus,
+          label: 'Edge Computing & CDN',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
         {
-          label: 'Hydrogen Storefronts',
+          label: 'Serverless & Microservices',
           href: SERVICE_PAGE_ROUTES.softwareDevelopment,
         },
         {
-          label: 'API Integrations',
-          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
+          label: 'Cloud Infrastructure (AWS/GCP)',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
         {
-          label: 'Conversion Optimisation',
-          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+          label: 'Headless CMS Integration',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
       ],
       description:
-        'Byte Operator plans and builds custom headless storefronts for Software and Enterprise Platform Solutions. Using Hydrogen, React and the Digital Platformfront API, we create flexible buying experiences around complex content, integration and international requirements without losing sight of day-to-day ecommerce operations.',
+        'Byte Operator architects decoupled headless systems, serverless edge networks, and scalable cloud infrastructure built for ultra-low latency, global availability, and modern developer agility.',
       primaryCta: {
-        label: 'Discuss Your Headless Project',
+        label: 'Discuss Cloud Architecture',
         href: SERVICE_PAGE_ROUTES.contact,
       },
     },
     about: {
       intro: {
         heading:
-          'Headless commerce makes sense when a standard theme no longer supports the experience your business needs.',
+          'Decoupled architectures that separate presentation layers from backend services for ultimate speed and agility.',
         description:
-          'A headless architecture separates the customer-facing storefront from Software’s commerce platform. This can give established ecommerce teams greater control over content, interfaces and integrations, but it also introduces additional technical ownership. Byte Operator helps brands assess the commercial case, define the right architecture and build a storefront that remains practical to operate.',
+          'Modern applications demand speed, flexibility, and global reach. Byte Operator designs decoupled headless systems that connect modern frontend frameworks to scalable API backends and edge networks. By separating your presentation layer from core business engines, your team can deploy rapid iterations with zero backend constraints.',
         cta: {
-          label: 'Explore Software Development',
-          href: SERVICE_PAGE_ROUTES.softwareDevelopment,
+          label: 'Get In Touch',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
       },
       media: {
         primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
-        primaryAlt: 'Planning a headless digital platformfront architecture',
+        primaryAlt: 'Byte Operator headless and cloud architecture planning',
         secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
-        secondaryAlt: 'Byte Operator team planning a Hydrogen development project',
+        secondaryAlt: 'Byte Operator cloud architects collaborating on infrastructure design',
       },
       process: {
-        heading: 'Our Headless Commerce Development Process',
+        heading: 'Our cloud & headless engineering roadmap.',
         leftDescription:
-          'Discovery and architecture establish the business case, customer journeys, markets, content model and integration requirements. UX and technical planning then turn those priorities into a delivery roadmap before Hydrogen development begins.',
+          'We assess your application workloads, latency requirements, content models, and microservice boundaries. We design cloud topology diagrams, API gateways, edge caching rules, and headless content schemas before provisioning infrastructure.',
         rightDescription:
-          'We connect the storefront to Software and required APIs, then complete quality assurance, accessibility and performance testing. Launch planning is followed by monitoring and ongoing optimisation so the new platform can continue to develop after release.',
+          'We implement Infrastructure as Code, deploy decoupled frontend and backend services, and configure global edge distribution. Comprehensive load testing, failover drills, and security audits validate platform resiliency before launch.',
         cta: {
-          label: 'Plan Your Headless Build',
+          label: 'Get In Touch',
           href: SERVICE_PAGE_ROUTES.contact,
         },
       },
     },
     features: [
       {
-        id: 'headless-commerce-comparison',
+        id: 'headless-cloud-decoupled-architecture',
         layout: 'media-left',
         spacing: 'first',
         theme: 'dark',
-        eyebrow: 'Traditional Software vs Headless Commerce',
-        heading: 'Choosing the Right Storefront Architecture',
+        eyebrow: 'Decoupled Systems',
+        heading: 'Decoupled Frontend & Backend Architecture',
         description: [
-          'A well-built Software theme is often the most efficient choice for stores with straightforward content, merchandising and integration needs. It keeps hosting, theme management and platform updates within a familiar operating model.',
-          'Headless Software becomes useful when the storefront needs a highly tailored frontend, complex content experiences, multiple commerce touchpoints or deeper control over APIs and integrations. We help teams weigh that flexibility against the added development and maintenance responsibility.',
+          'Decoupled architectures free your frontend engineering team from backend constraints. We build lightweight, composable frontends using Next.js and React that communicate with API services via GraphQL and REST.',
+          'This separation allows frontend developers to iterate on user experiences and deploy UI updates in seconds without redeploying backend servers or risking operational downtime.',
+          'A single decoupled API layer can effortlessly power web applications, mobile apps, customer portals, and IoT devices simultaneously.',
         ],
         buttons: [
           {
-            label: 'Explore Software Development',
-            href: SERVICE_PAGE_ROUTES.softwareDevelopment,
+            label: 'Explore Full-Stack Development',
+            href: '/services/software-theme-development-builds',
           },
         ],
         media: reuseHomeFeatureMedia('software-migrations'),
       },
       {
-        id: 'headless-commerce-benefits',
+        id: 'headless-cloud-edge-computing',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'When Headless Commerce Makes Sense',
-        heading: 'More Frontend Control for Complex Ecommerce Requirements',
+        eyebrow: 'Edge Computing & CDN',
+        heading: 'Ultra-Low Latency Edge Computing & Global CDNs',
         description: [
-          'Headless ecommerce can support brands that need distinctive content and product journeys, custom account experiences, multi-market storefronts or connections to systems that do not fit neatly into a conventional theme.',
-          'The value comes from shaping the frontend around real customer and operational needs. Architecture decisions are prioritised around maintainability, team workflows and measurable commercial goals rather than adopting headless technology for its own sake.',
+          'Deliver content and compute logic right at the user’s doorstep. We configure edge compute networks using Cloudflare Workers, Vercel Edge Runtime, and AWS Lambda@Edge.',
+          'Edge rendering, dynamic geolocation routing, image transformation, and instant cache invalidation reduce time-to-first-byte (TTFB) to sub-50ms globally.',
+          'Edge security rules filter malicious traffic, bot attacks, and DDoS threats before requests ever reach your origin cloud infrastructure.',
         ],
         buttons: [
-          {label: 'Talk to Our Team', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
         ],
         media: reuseHomeFeatureMedia('software-launch'),
       },
       {
-        id: 'headless-commerce-process',
+        id: 'headless-cloud-serverless-microservices',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Headless Development Process',
-        heading: 'From Architecture and UX to Launch and Optimisation',
+        eyebrow: 'Serverless & Microservices',
+        heading: 'Serverless Functions & Scalable Microservices',
         description: [
-          'Our delivery process moves through discovery and architecture, UX and technical planning, Hydrogen development, Software and API integration, quality assurance and performance testing, then launch and ongoing optimisation.',
-          'Each stage has a defined purpose and review point. This keeps business owners, designers and developers aligned while complex storefront, data and integration requirements are developed together.',
+          'Break down monolithic applications into modular, autonomous microservices that scale up during peak traffic and scale to zero when idle.',
+          'We architect serverless backends using AWS Lambda, Google Cloud Functions, and Azure Functions, drastically slashing cloud hosting costs while eliminating server provisioning.',
+          'Each microservice encapsulates a distinct domain capability, enabling independent scaling, deployment, and testing with clear API boundaries.',
         ],
         buttons: [
-          {label: 'Start Your Project', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Discuss Microservices', href: SERVICE_PAGE_ROUTES.contact},
         ],
         media: reuseHomeFeatureMedia('software-development'),
       },
       {
-        id: 'headless-commerce-technology',
+        id: 'headless-cloud-headless-cms',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Hydrogen Storefront Technology',
-        heading: 'A Software-Native Headless Technology Stack',
+        eyebrow: 'Headless CMS',
+        heading: 'API-First Headless CMS & Structured Content Models',
         description: [
-          'Hydrogen provides a React-based framework for custom digital platformfronts, with Software’s Storefront API supplying commerce data and Oxygen providing a deployment option designed for Hydrogen applications.',
-          'We structure frontend components, content delivery and API integrations so the storefront is fast to use and clear to maintain. Software or Enterprise Platform Solutions continues to manage core commerce operations while the headless frontend controls the customer experience.',
+          'Empower your marketing and content teams with intuitive headless CMS platforms like Sanity, Strapi, Contentful, and Payload CMS.',
+          'We design structured, modular content schemas with real-time preview environments, granular role permissions, and instant webhook triggers for static site rebuilds.',
+          'Content creators gain total freedom to publish rich media without relying on developers to code new page templates.',
         ],
         buttons: [
           {
-            label: 'Explore API & System Integrations',
-            href: SERVICE_PAGE_ROUTES.softwareIntegrations,
+            label: 'Explore Integrations',
+            href: '/services/software-integrations',
           },
         ],
         media: reuseHomeFeatureMedia('software-seo-geo'),
       },
       {
-        id: 'headless-commerce-agency',
+        id: 'headless-cloud-infrastructure-iac',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Why Work With Byte Operator',
-        heading: 'Commerce, Frontend and Integration Thinking in One Team',
+        eyebrow: 'Cloud Infrastructure',
+        heading: 'Infrastructure as Code, Docker & Kubernetes',
         description: [
-          'A successful headless build needs more than frontend development. Byte Operator connects Software architecture, UX, conversion journeys, technical SEO and integration planning so decisions are considered across the whole ecommerce experience.',
-          'We work with internal teams and technology partners to clarify ownership, document important decisions and create a delivery plan that supports both launch requirements and the longer-term storefront roadmap.',
+          'We automate cloud provisioning across AWS, GCP, and Azure using Infrastructure as Code (IaC) tools like Terraform and AWS CDK.',
+          'Docker containerization and Kubernetes orchestration ensure that multi-service applications run with complete environment parity across development, staging, and production.',
+          'Auto-scaling policies, health checks, and automated failover routing keep your platforms resilient against unexpected traffic surges and hardware failures.',
         ],
         buttons: [
-          {label: 'Work With Our Team', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Plan Infrastructure', href: SERVICE_PAGE_ROUTES.contact},
         ],
         media: reuseHomeFeatureMedia('software-design'),
       },
       {
-        id: 'headless-commerce-performance',
+        id: 'headless-cloud-monitoring-devops',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Performance and Conversion',
-        heading: 'Fast, Conversion-Focused Headless Experiences',
+        eyebrow: 'Cloud Observability',
+        heading: 'Continuous DevOps, Observability & Cloud Cost Optimization',
         description: [
-          'Headless architecture creates opportunities to control how storefront code, content and commerce data are delivered. We plan loading behaviour, responsive interfaces and customer journeys together to support strong ecommerce performance across devices.',
-          'Performance is treated as an ongoing discipline rather than a launch claim. Measurement, technical SEO, analytics and conversion insights help identify where the storefront should be refined after real customers begin using it.',
+          'Maintain complete visibility into distributed cloud systems with centralized logging, metric dashboards (Datadog, Grafana, CloudWatch), and distributed tracing.',
+          'Our DevOps engineers optimize cloud infrastructure to eliminate over-provisioned resources, rightsizing instances and storage tiers to reduce ongoing cloud expenditure.',
+          '24/7 automated monitoring and proactive alerting ensure any latency spikes or service degradations are detected and resolved immediately.',
         ],
         buttons: [
           {
-            label: 'Explore Conversion Optimisation',
-            href: SERVICE_PAGE_ROUTES.ecommerceCro,
+            label: 'Get In Touch',
+            href: SERVICE_PAGE_ROUTES.contact,
           },
         ],
         media: reuseHomeFeatureMedia('software-plus'),
       },
-      {
-        id: 'headless-commerce-support',
-        layout: 'media-left',
-        spacing: 'deep',
-        theme: 'dark',
-        eyebrow: 'Headless Commerce Support',
-        heading: 'Ongoing Development After Your Headless Launch',
-        description: [
-          'A custom storefront needs planned support across the frontend, software platform and connected services. Byte Operator can help with monitoring, maintenance, technical fixes and prioritised enhancements after launch.',
-          'Ongoing support can also cover new market requirements, API changes, performance improvements and conversion work, giving ecommerce teams a practical route for evolving the Hydrogen storefront over time.',
-        ],
-        buttons: [
-          {
-            label: 'Explore Support Options',
-            href: SERVICE_PAGE_ROUTES.softwareMaintenance,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-support-growth'),
-      },
     ],
     showPartners: true,
     experts: {
-      eyebrow: 'Headless Software Engineering Experts',
-      heading: 'Plan a Headless Storefront Around Your Growth Strategy',
+      eyebrow: 'Headless & Cloud Engineering Experts',
+      heading: 'Architect Your Cloud Platform for Unrivaled Scale',
       description:
-        'Byte Operator helps ecommerce teams evaluate, design, build and support headless digital platformfronts. Talk to us about Hydrogen development, complex integrations or moving an existing store to a headless architecture.',
+        'Byte Operator helps technology teams evaluate, architect, deploy, and scale decoupled headless systems and cloud architectures. Discuss your edge computing, microservices, or cloud modernization project with our team.',
       ctaLabel: 'Get In Touch',
     },
   },
@@ -2662,170 +2836,280 @@ export const SERVICE_PAGE_CONFIGS = {
   'software-theme-development-builds': {
     faqTitle: 'Full-Stack Web Development',
     hero: {
-      eyebrow: 'Full-Stack Web Development',
-      heading: 'Modern frontend, robust backend APIs & databases built for speed.',
+      eyebrow: 'Full-Stack Web & Multi-Vendor Engineering',
+      heading: 'Full-Stack Web Development & Custom Multi-Vendor Marketplace Systems',
       chips: [
-        {label: 'AI-enabled', href: SERVICE_PAGE_ROUTES.ai},
+        {label: 'React.js & Tailwind CSS', href: SERVICE_PAGE_ROUTES.softwareDevelopment},
         {
-          label: 'Technical SEO & Search Architecture Agency',
-          href: SERVICE_PAGE_ROUTES.softwareSeo,
-        },
-        {
-          label: 'Digital Platform Builds',
+          label: 'Node.js & TypeScript',
           href: SERVICE_PAGE_ROUTES.softwareDevelopment,
         },
         {
-          label: 'Development Services',
+          label: 'Multi-Vendor Marketplaces',
           href: SERVICE_PAGE_ROUTES.softwareDevelopment,
         },
         {
-          label: 'Ecommerce CRO',
-          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+          label: 'Shopify Real-Time Sync',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
+        },
+        {
+          label: 'Third-Party API Endpoints',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
+        },
+        {
+          label: 'High Performance Web',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
       ],
-      bottomLogo: {
-        text: 'Byte Operator',
-        src: '/images/home-services/badges/logo-launch-white.svg', width: 130, height: 50,
-        alt: 'Launch',
-      },
       description:
-        'Byte Operator plans and delivers Software and Enterprise Platform Solutions theme projects, from bespoke builds to tailored existing-theme work, with performance, usability and sustainable growth in mind.',
+        'Byte Operator engineers custom full-stack web applications, scalable multi-vendor marketplaces, and high-throughput API platforms. Built with React.js, Tailwind CSS, Node.js, and enterprise Shopify integrations, our systems power complex multi-tenant commerce, automated vendor management, and seamless third-party connectivity.',
       primaryCta: {
-        label: 'Tell Us About Your Project',
+        label: 'Discuss Your Web Project',
         href: SERVICE_PAGE_ROUTES.contact,
       },
     },
     about: {
       intro: {
         heading:
-          'We launch digital platforms & applications with experience, quality, performance & growth in mind for both template and bespoke Software themes.',
+          'Featured Full-Stack Case Study: Aydi Active: Engineering a Multi-Vendor Marketplace Integrated with Shopify',
         description:
-          'Byte Operator helps brands choose the right approach for their Software theme project, whether that means a bespoke build or focused work within an existing theme. We turn project goals, content and customer needs into a clear plan for a useful, maintainable storefront.',
+          'Aydi Active is a custom-engineered multi-vendor marketplace platform built by Byte Operator using React.js, Tailwind CSS, and Node.js. Connected directly to a Shopify storefront, the platform empowers independent vendors to manage their products, inventory, and orders through dedicated portals while providing comprehensive third-party API endpoints for automated external integrations.',
         cta: {
-          label: 'Get In Touch',
-          href: SERVICE_PAGE_ROUTES.contact,
+          label: 'Explore Aydi Active Case Study',
+          href: SERVICE_PAGE_ROUTES.work,
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
-        primaryAlt: 'Custom frontend & web development project',
-        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
-        secondaryAlt: 'Byte Operator team planning a Software project',
+        primary:
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt: 'Aydi Active Multi-Vendor Marketplace Dashboard',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
       },
       process: {
-        heading: 'Our proven process',
+        heading: 'How We Engineered Aydi Active: Architecture & Integration Lifecycle',
         leftDescription:
-          'We start with discovery, design direction and technical planning, agreeing the customer journeys, theme approach and requirements before development begins. Responsive implementation, performance and technical SEO are considered throughout the build rather than left until launch.',
+          '01: Marketplace Architecture & Schema Modeling\nWe structured a multi-tenant relational data model separating vendor spaces, product catalogs, permissions, commission tiers, and bi-directional Shopify sync pipelines.\n\n02: High-Performance React & Tailwind UI\nWe built a responsive, intuitive vendor dashboard using React.js and Tailwind CSS, giving merchants instantaneous product creation tools and live sales analytics.\n\n03: Node.js Backend & Real-Time Sync\nOur engineers built a resilient Node.js API layer with event-driven background queues that synchronize vendor products, pricing, and stock levels with the Shopify storefront in real time.',
         rightDescription:
-          'Development moves through focused QA across templates, devices and key store journeys before launch. Once live, we can support performance reviews, technical SEO improvements and planned updates as the storefront, catalogue and business continue to grow.',
+          '04: Automated Order Routing & Splitting\nWhen orders are placed on Shopify, our webhook architecture splits line items by vendor, dispatches automated fulfillment notifications, and calculates commission splits.\n\n05: Third-Party API Endpoints & Developer Docs\nWe architected a secure external API layer with token authentication and comprehensive documentation, allowing external platforms to integrate seamlessly with Aydi Active.\n\n06: Cloud Deployment & Continuous Scaling\nDeployed on containerized cloud infrastructure with Redis caching, PostgreSQL database indexing, and automated CI/CD deployment pipelines.',
         cta: {
-          label: 'Get In Touch',
+          label: 'Discuss Your Web Project',
           href: SERVICE_PAGE_ROUTES.contact,
         },
       },
     },
     features: [
       {
-        id: 'theme-development-store-projects',
+        id: 'aydi-active-marketplace-dashboard',
         layout: 'media-left',
         spacing: 'first',
         theme: 'dark',
-        eyebrow: 'Bespoke & Template Themes',
-        heading: 'Digital Platform Theme Projects',
+        eyebrow: 'Central Operations & Analytics',
+        heading: 'Multi-Vendor Marketplace Dashboard & Command Center',
         description: [
-          'Byte Operator delivers Software theme projects that fit the needs of the brand, catalogue and ecommerce team. This can include a bespoke storefront built around a defined design system or carefully customised work within an established Software theme.',
-          'The chosen route is planned around customer experience, operational needs and the flexibility required after launch.',
+          'The Aydi Active central dashboard provides marketplace operators and vendors with real-time operational visibility into sales velocity, total orders, active vendors, revenue metrics, and inventory health.',
+          'Engineered with React.js and Tailwind CSS, the interface delivers lightning-fast data visualization with responsive filtering, customizable metric cards, and live event streams powered by WebSockets.',
+          'Marketplace administrators can oversee vendor approvals, set global commission rates, track store performance across all channels, and audit platform activity in real time.',
         ],
         buttons: [
-          {label: 'Explore Case Studies', href: SERVICE_PAGE_ROUTES.work},
+          {label: 'Discuss Your Marketplace', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-launch'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Aydi Active Central Command Dashboard',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Aydi Active Central Command Dashboard',
+          captionText: 'Real-time sales tracking, vendor analytics and multi-channel metrics',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'theme-development-discovery',
+        id: 'aydi-manage-products',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Discovery, Strategy & Planning',
-        heading: 'Software Theme Projects',
+        eyebrow: 'Catalog Management & Inventory Control',
+        heading: 'Automated Multi-Vendor Product Management',
         description: [
-          'Every project begins by understanding the business, content, products, customer journeys and technical requirements. This gives the team a practical brief for the theme, integrations and the templates that matter most.',
-          'Planning early helps align design and development decisions before work moves into detailed delivery.',
+          'Managing extensive multi-vendor catalogs requires robust state management and automated synchronization. The Aydi Active product management interface allows vendors to search, filter, batch-edit, and monitor active listings with zero latency.',
+          'Every product record maintains synchronized stock quantities, variant attributes, pricing rules, and publishing statuses directly tied to the primary Shopify storefront catalog.',
+          'Automated conflict resolution prevents duplicate SKU entries and out-of-stock listings across multiple selling channels simultaneously.',
         ],
         buttons: [
-          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Explore Catalog Systems', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-seo-geo'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Multi-Vendor Product Catalog System',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Multi-Vendor Product Catalog System',
+          captionText: 'Instant inventory filtering, status management and Shopify catalog sync',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'theme-development-design',
+        id: 'aydi-create-product-workflow',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Store design and customer journeys',
-        heading: 'Software Theme Design',
+        eyebrow: 'Vendor Product Publishing',
+        heading: 'Dynamic Product Creation & Variant Workflow',
         description: [
-          'Software theme design brings brand direction, product discovery and customer journeys together across key templates. We consider navigation, merchandising, content hierarchy and the actions that help customers move confidently through the store.',
-          'Desktop and mobile experiences are designed as part of the same system, so responsive behaviour is clear before development starts.',
+          'We engineered a streamlined, multi-step product creation suite that enables vendors to rapidly upload new items, specify multi-option variants (sizes, colors, materials), configure tiered pricing, and upload high-resolution media assets.',
+          'Form validation is executed in real time on both client and server layers using TypeScript schemas, ensuring clean metadata, SEO-friendly descriptions, and barcode validation before catalog submission.',
+          'Once published or approved by administrators, products are programmatically pushed into Shopify collections via the Shopify Admin GraphQL API with automated webhook notifications.',
         ],
         buttons: [
-          {label: 'Explore Case Studies', href: SERVICE_PAGE_ROUTES.work},
+          {label: 'Start Your Platform Build', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-design'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/create_product.png?v=1790403314',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Streamlined Product Creation Engine',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Streamlined Product Creation Engine',
+          captionText: 'Multi-variant configuration, media uploads and instant Shopify submission',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'theme-development-architecture',
+        id: 'aydi-manage-orders-routing',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Development & architecture',
-        heading: 'Custom Custom Frontend & Web Development',
+        eyebrow: 'Order Orchestration & Fulfillment',
+        heading: 'Intelligent Order Management & Multi-Vendor Routing',
         description: [
-          'We translate approved designs into reusable Software sections, templates and components that give ecommerce teams useful control over content without losing consistency across the storefront.',
-          'Theme architecture is organised for maintainability, performance and future development, with technical SEO and relevant integrations considered alongside the customer-facing experience.',
+          'When a customer places a multi-item checkout order on the Shopify storefront, the Aydi Active backend automatically ingests the order payload, splits items by respective vendor, and generates isolated fulfillment tickets.',
+          'Vendors receive immediate dashboard notifications and can generate packing slips, assign tracking numbers, update shipment statuses, and communicate order notes directly through their dedicated management portal.',
+          'Fulfillment statuses and tracking numbers are automatically synchronized back to the customer’s Shopify order record and notification emails in real time.',
         ],
         buttons: [
-          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Discuss Custom Fulfillment', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-development'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_orders.png?v=1790403409',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Automated Multi-Vendor Order Routing',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Automated Multi-Vendor Order Routing',
+          captionText: 'Order splitting, vendor fulfillment tracking and synchronized customer updates',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'theme-development-qa-launch',
+        id: 'aydi-third-party-api-developer-docs',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Quality Assurance & Launch',
-        heading: 'Custom Custom Frontend & Web Development',
+        eyebrow: 'Open API & Ecosystem Connectivity',
+        heading: 'Third-Party API Endpoints & Developer Documentation',
         description: [
-          'Before launch, we review key templates, responsive layouts, customer journeys and relevant integrations through focused quality assurance. This includes practical checks of navigation, product discovery, cart behaviour, forms and content management.',
-          'Performance and technical SEO are reviewed alongside the final release so the new theme has a stable, considered foundation when it goes live.',
+          'To transform Aydi Active into an extensible ecosystem, we engineered a developer-first RESTful API layer accompanied by comprehensive, interactive API endpoint documentation.',
+          'Third-party merchants, ERP systems, 3PL logistics providers, and external software applications can securely connect using API keys and OAuth2 authentication to manage products, sync stock levels, query orders, and listen to platform webhooks.',
+          'Every endpoint features strict rate limiting, schema validation, standardized JSON responses, and automated error recovery to support enterprise-grade integrations at scale.',
         ],
         buttons: [
-          {label: 'Tell Us About Your Project', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Explore API Architecture', href: SERVICE_PAGE_ROUTES.softwareIntegrations},
         ],
-        media: reuseHomeFeatureMedia('software-migrations'),
-      },
-      {
-        id: 'theme-development-support-growth',
-        layout: 'media-right',
-        spacing: 'standard',
-        theme: 'dark',
-        eyebrow: 'Post-Launch Growth Strategy',
-        heading: 'Software Support & Growth',
-        description: [
-          'After launch, Byte Operator can support ongoing theme updates, performance improvements and technical changes as new products, campaigns and customer needs emerge.',
-          'A planned roadmap helps prioritise practical development work alongside conversion, SEO and storefront improvements over time.',
-        ],
-        buttons: [
-          {
-            label: 'Explore Retainers',
-            href: SERVICE_PAGE_ROUTES.softwareMaintenance,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-support-growth'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third_party_api_endpoints.png?v=1790403408',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Public API and Third-Party Integration Layer',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Public API & Third-Party Integration Layer',
+          captionText: 'Comprehensive REST endpoints, webhook subscriptions and developer documentation',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
     ],
-    showPartners: true,
+    faqs: [
+      {
+        question: 'How does the Aydi Active multi-vendor platform integrate with Shopify?',
+        answer:
+          'Aydi Active functions as a standalone full-stack multi-vendor portal built with React.js, Tailwind CSS, and Node.js that connects to Shopify via the Shopify Admin GraphQL & REST APIs. When vendors create and approve products in Aydi Active, they automatically sync into Shopify. When customers purchase from the Shopify storefront, orders are automatically ingested, split by vendor, and routed to vendor dashboards for fulfillment.',
+      },
+      {
+        question: 'Can third-party merchants and external platforms integrate with Aydi Active via API?',
+        answer:
+          'Yes. Aydi Active is engineered as an open third-party platform featuring complete RESTful API endpoints and webhook subscriptions. External merchants, inventory management tools, ERPs, and logistics providers can programmatically sync catalogs, update inventory levels, and fetch order details with secure API key authentication.',
+      },
+      {
+        question: 'What technology stack is used to engineer full-stack web platforms like Aydi Active?',
+        answer:
+          'We build with React.js and Tailwind CSS on the frontend for high-speed, responsive user interfaces; Node.js, Express, and TypeScript on the backend for microservices and API routes; PostgreSQL for relational data storage; Redis for in-memory caching and real-time queues; and Docker for cloud containerization.',
+      },
+      {
+        question: 'How are multi-vendor orders, payouts, and shipping handled?',
+        answer:
+          'Our backend architecture automatically parses Shopify multi-item orders, calculates vendor-specific commission rates, generates isolated fulfillment tickets, and triggers webhook notifications. Vendors upload tracking numbers directly in their portal, which instantly syncs back to the customer’s Shopify order status.',
+      },
+      {
+        question: 'Do we own the full source code and intellectual property upon project completion?',
+        answer:
+          'Yes. You retain 100% ownership of all custom React.js frontend code, Node.js backend services, database schemas, API documentation, and deployment configurations. We provide complete repository handover and continuous engineering support.',
+      },
+    ],
+    experts: {
+      eyebrow: 'Full-Stack Web & Marketplace Engineering',
+      heading: 'Ready to Build Your Full-Stack Web Platform or Marketplace?',
+      description:
+        'Byte Operator designs, engineers, and scales custom full-stack web applications, multi-vendor marketplaces, and third-party API platforms. Talk directly with our senior full-stack engineers to discuss your architecture and roadmap.',
+      ctaLabel: 'Discuss Your Web Project',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Byte Operator engineered our entire multi-vendor marketplace platform from scratch. Their React frontend, Node.js backend queues, and real-time Shopify sync handled over $2.5M in vendor volume with flawless performance and zero downtime.',
+          author: 'Marcus Vance',
+          role: 'Technical Director & Founder',
+          company: 'Aydi Active Marketplace',
+          rating: 5,
+          highlight: 'Multi-Vendor Marketplace Launch',
+        },
+        {
+          quote:
+            'The third-party API documentation and automated webhook layer allowed external vendors and 3PL partners to integrate within days. Flawless full-stack execution and responsive ongoing support.',
+          author: 'Elena Rostova',
+          role: 'VP of Platform Engineering',
+          company: 'Retail Commerce Partner',
+          rating: 5,
+          highlight: 'Third-Party API & Webhook Architecture',
+        },
+      ],
+    },
+    showPartners: false,
   },
   'agentic-commerce': {
     faqTitle: 'Agentic Commerce Agency',
@@ -3503,7 +3787,7 @@ export const SERVICE_PAGE_CONFIGS = {
         heading:
           'Why Choose Software as Your Ecommerce Platform',
         description:
-          'Choosing an ecommerce platform is mostly a question of where you want to spend your effort. Every platform demands attention somewhere: hosting and security, custom development, integrations, or working around constraints the business has outgrown. Software takes on the infrastructure — hosting, PCI compliance, platform updates and checkout — so teams can spend more of their time on merchandising, customer experience and growth. That trade-off suits most ecommerce brands well, and it is worth understanding properly rather than assuming.',
+          'Choosing an ecommerce platform is mostly a question of where you want to spend your effort. Every platform demands attention somewhere: hosting and security, custom development, integrations, or working around constraints the business has outgrown. Software takes on the infrastructure (hosting, PCI compliance, platform updates and checkout) so teams can spend more of their time on merchandising, customer experience and growth. That trade-off suits most ecommerce brands well, and it is worth understanding properly rather than assuming.',
         cta: {
           label: 'Get In Touch',
           href: SERVICE_PAGE_ROUTES.contact,
@@ -3539,7 +3823,7 @@ export const SERVICE_PAGE_CONFIGS = {
         heading:
           'Infrastructure You Do Not Have to Maintain',
         description: [
-          'Software is a hosted platform, so hosting, security patching, PCI compliance for checkout and platform updates are handled for you. For most ecommerce teams that removes a category of work — and a category of risk — that would otherwise need in-house attention or an ongoing retainer just to stand still.',
+          'Software is a hosted platform, so hosting, security patching, PCI compliance for checkout and platform updates are handled for you. For most ecommerce teams that removes a category of work and a category of risk that would otherwise need in-house attention or an ongoing retainer just to stand still.',
           'It also means peak trading periods are the platform’s problem rather than yours. Capacity for traffic spikes is part of what you are buying, which changes how a team plans for launches, campaigns and seasonal demand.',
         ],
         buttons: [
@@ -3600,7 +3884,7 @@ export const SERVICE_PAGE_CONFIGS = {
           'Enough Control for Search and Conversion Work',
         description: [
           'Ecommerce performance depends on being able to change the things that matter. Software gives control over templates, page structure, metadata, redirects and site speed work, which is what technical SEO and conversion optimisation actually need access to.',
-          'There are platform conventions to work within — URL structures and checkout among them — and it is better to understand those upfront. In practice they rarely limit the SEO and CRO work that moves commercial numbers.',
+          'There are platform conventions to work within (URL structures and checkout among them) and it is better to understand those upfront. In practice they rarely limit the SEO and CRO work that moves commercial numbers.',
         ],
         buttons: [
           {
@@ -3691,7 +3975,7 @@ export const SERVICE_PAGE_CONFIGS = {
         leftDescription:
           'We start by understanding the store, the team around it and the commercial goal. That covers how the theme is built, which apps and integrations it depends on, where the current setup is holding things back, and what the business needs the store to do over the next period rather than in the abstract.',
         rightDescription:
-          'From there we agree the work and the order it should happen in, then deliver it — design, development, migration, SEO, conversion or a combination. Where a requirement is better solved by a change to process or configuration than by custom development, we will say so rather than building something that adds maintenance for no gain.',
+          'From there we agree the work and the order it should happen in, then deliver it: design, development, migration, SEO, conversion or a combination. Where a requirement is better solved by a change to process or configuration than by custom development, we will say so rather than building something that adds maintenance for no gain.',
         cta: {
           label: 'Get In Touch',
           href: SERVICE_PAGE_ROUTES.contact,
@@ -4086,7 +4370,7 @@ export const SERVICE_PAGE_CONFIGS = {
         heading:
           'Platform, Migration & Integration Decisions',
         description: [
-          'Platform questions carry long consequences. Whether to move to Enterprise Platform Solutions, whether a replatform is justified yet, whether a requirement is better served by an app, a custom build or a change to process — these decisions are easier with someone who has seen how each option behaves after launch.',
+          'Platform questions carry long consequences. Whether to move to Enterprise Platform Solutions, whether a replatform is justified yet, whether a requirement is better served by an app, a custom build or a change to process: these decisions are easier with someone who has seen how each option behaves after launch.',
           'As a Enterprise Platform Solutions consultant, Byte Operator advises on migration planning, store architecture, and the ERP, CRM, inventory and fulfilment integrations a store depends on, including what to keep as-is and what genuinely needs rebuilding.',
         ],
         buttons: [
@@ -4107,7 +4391,7 @@ export const SERVICE_PAGE_CONFIGS = {
           'Connecting Discovery and Conversion',
         description: [
           'Search visibility and conversion are usually treated as separate projects, but they act on the same pages. Collection structure, product information, page performance and internal linking affect how a store is found and whether visitors go on to buy.',
-          'Our consulting work identifies the technical SEO foundations worth fixing first, the conversion opportunities worth testing, and the changes that serve both — so effort is not spent twice on the same templates.',
+          'Our consulting work identifies the technical SEO foundations worth fixing first, the conversion opportunities worth testing, and the changes that serve both, so effort is not spent twice on the same templates.',
         ],
         buttons: [
           {
@@ -5084,7 +5368,7 @@ export const SERVICE_PAGE_CONFIGS = {
         eyebrow: 'Klaviyo Agency',
         heading: 'Klaviyo Strategy for Software Brands',
         description: [
-          'Klaviyo does a lot, and most accounts use a fraction of it. We look at what the store is actually trying to achieve — first orders, repeat purchases, reactivating lapsed customers — and build the Klaviyo setup around those objectives instead of switching on every available feature.',
+          'Klaviyo does a lot, and most accounts use a fraction of it. We look at what the store is actually trying to achieve (first orders, repeat purchases, reactivating lapsed customers) and build the Klaviyo setup around those objectives instead of switching on every available feature.',
           'That covers the account structure, how email and SMS work together, which flows earn their place, and how campaigns fit alongside the automation. On Software and Enterprise Platform Solutions it also means making sure Klaviyo is receiving the store data the strategy depends on.',
         ],
         buttons: [
@@ -5180,7 +5464,7 @@ export const SERVICE_PAGE_CONFIGS = {
         heading: 'Connect Klaviyo with Your Software Technology Stack',
         description: [
           'Klaviyo is only as useful as the data reaching it. The Software connection is the foundation, covering customers, orders, products and on-site behaviour, and it needs to be set up properly before anything built on top of it will behave as expected.',
-          'Beyond that, stores commonly connect loyalty, subscription, reviews and CRM or customer data platforms so that points balances, renewal dates, review requests and wider customer records can be used in segments and flows. Those are examples rather than a fixed list — we work through the integrations a particular store relies on and connect the ones the retention programme actually needs.',
+          'Beyond that, stores commonly connect loyalty, subscription, reviews and CRM or customer data platforms so that points balances, renewal dates, review requests and wider customer records can be used in segments and flows. Those are examples rather than a fixed list: we work through the integrations a particular store relies on and connect the ones the retention programme actually needs.',
         ],
         buttons: [
           {
