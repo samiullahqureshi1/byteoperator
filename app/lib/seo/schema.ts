@@ -32,7 +32,7 @@ export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
 export const LOGO_URL =
-  'https://cdn.software.com/oxygen-v2/57096/165594/338611/4441171/images/favicon_the_fold_tech.png';
+  'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/final.png?v=1790264655';
 
 /* ------------------------------------------------------------------ */
 /* Types                                                               */

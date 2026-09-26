@@ -13,6 +13,12 @@ export type EditorialArticle = {
   authorV2?: {name?: string | null} | null;
   articleType?: {value: string} | null;
   lastModified?: {value: string} | null;
+  image?: {
+    url: string;
+    altText?: string | null;
+    width?: number | null;
+    height?: number | null;
+  } | null;
 };
 
 type Heading = {id: string; text: string; level: number};
@@ -89,10 +95,24 @@ export function ArticleDetail({article}: {article: EditorialArticle}) {
           </nav>
         ) : null}
 
-        <div
-          className="ft-article__body"
-          dangerouslySetInnerHTML={{__html: html}}
-        />
+        <div className="ft-article__content-column">
+          {article.image?.url ? (
+            <div className="ft-article__featured-media">
+              <img
+                src={article.image.url}
+                alt={article.image.altText || article.title}
+                width={article.image.width || 1200}
+                height={article.image.height || 675}
+                loading="eager"
+              />
+            </div>
+          ) : null}
+
+          <div
+            className="ft-article__body"
+            dangerouslySetInnerHTML={{__html: html}}
+          />
+        </div>
       </div>
 
       <HomeExperts />

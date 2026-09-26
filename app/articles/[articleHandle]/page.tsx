@@ -43,6 +43,7 @@ export default function ArticlePage({params}: Props) {
     publishedAt: article.publishedAt,
     authorV2: {name: 'Byte Operator Team'},
     articleType: {value: article.articleType},
+    image: article.image,
   };
 
   return <ArticleDetail article={editorialArticle} />;

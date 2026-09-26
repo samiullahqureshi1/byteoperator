@@ -71,6 +71,12 @@
 @import './styles/articles-listing.css';
 @import './styles/article-detail.css';
 
+/* Resources & Media Styles */
+@import './styles/podcast-page.css';
+@import './styles/webinars-page.css';
+@import './styles/guides-page.css';
+@import './styles/newsletter-page.css';
+
 /* Contact & Audit Styles */
 @import './styles/contact-hero.css';
 @import './styles/contact-info.css';

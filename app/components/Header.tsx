@@ -710,28 +710,28 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
 const RESOURCE_MEGA_LINKS: MegaLink[] = [
   {
     title: 'Articles',
-    description: 'Explore our latest articles',
+    description: 'Explore our latest technical & CRO articles',
     url: '/articles/',
   },
   {
     title: 'Podcast',
-    description: 'Insights and ecommerce conversations',
-    url: '/pages/podcast',
+    description: 'Engineering, AI & ecommerce conversations',
+    url: '/podcast',
   },
   {
     title: 'Webinars',
-    description: 'Watch ecommerce sessions',
-    url: '/pages/webinars',
+    description: 'Live teardowns & architecture masterclasses',
+    url: '/webinars',
   },
   {
     title: 'Guides',
-    description: 'Download useful ecommerce guides',
-    url: '/pages/guides',
+    description: 'Download actionable engineering blueprints',
+    url: '/guides',
   },
   {
     title: 'Join Our Newsletter',
-    description: 'Get weekly ecommerce insights',
-    url: '/contact/',
+    description: 'Get weekly engineering & scale insights',
+    url: '/newsletter',
   },
 ];
 
