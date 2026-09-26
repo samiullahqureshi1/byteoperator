@@ -47,7 +47,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     category: 'Fashion & Apparel',
     tags: ['cro', 'software-plus', 'international', 'fashion', 'development'],
     result: { value: '+42% Mobile Conversion Rate' },
-    services: { value: 'Enterprise Platform Solutions / Bespoke Theme / Global Checkout' },
+    services: { value: 'Enterprise Platform Solutions / Custom Theme / Global Checkout' },
     metrics: [
       { label: 'Mobile Conversion', value: '+42%' },
       { label: 'Avg Order Value', value: '+18%' },
@@ -109,7 +109,7 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     category: 'Accessories & Luxury',
     tags: ['cro', 'software-plus', 'seo', 'design'],
     result: { value: '+65% International Revenue' },
-    services: { value: 'Bespoke Enterprise Platform Solutions / 3D Virtual Try-On' },
+    services: { value: 'Custom Enterprise Platform Solutions / 3D Virtual Try-On' },
     metrics: [
       { label: 'International Revenue', value: '+65%' },
       { label: 'Bounce Rate', value: '-31%' },

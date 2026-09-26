@@ -115,304 +115,286 @@ export interface ServicePageConfig {
 
 export const SERVICE_PAGE_CONFIGS = {
   [SHOPIFY_SEO_PAGE_HANDLE]: {
-    faqTitle: 'Technical SEO & Search Architecture Agency',
+    faqTitle: 'Technical SEO & Architecture',
     hero: {
-      eyebrow: 'Technical SEO & Search Architecture Agency',
-      heading:
-        'Technical SEO & Search Architecture services for ecommerce growth and stronger organic visibility.',
+      eyebrow: 'Technical SEO & Search Architecture',
+      heading: 'Enterprise Technical SEO, Indexation Architecture & Organic Growth',
       chips: [
         {
-          label: 'AI SEO',
-          href: SERVICE_PAGE_ROUTES.ecommerceAiSeo,
-        },
-        {
-          label: 'Ecommerce SEO',
+          label: 'Crawl Budget & Indexing',
           href: SERVICE_PAGE_ROUTES.ecommerceSeo,
         },
         {
-          label: 'SEO Migrations',
+          label: 'Structured JSON-LD Schema',
+          href: SERVICE_PAGE_ROUTES.softwareDevelopment,
+        },
+        {
+          label: 'Core Web Vitals & INP',
+          href: SERVICE_PAGE_ROUTES.softwareAudits,
+        },
+        {
+          label: 'Faceted Navigation SEO',
+          href: SERVICE_PAGE_ROUTES.softwareWebDesign,
+        },
+        {
+          label: 'International Hreflang',
+          href: SERVICE_PAGE_ROUTES.internationalisation,
+        },
+        {
+          label: 'SEO Platform Migrations',
           href: SERVICE_PAGE_ROUTES.seoMigrations,
         },
       ],
-      bottomLogo: {
-        src: '/images/home-services/badges/logo-search-white.svg', width: 130, height: 50,
-        alt: 'Search',
-        text: 'Byte Operator',
-      },
-      promoLink: {
-        label: 'Looking to improve AI Visibility? Explore AI →',
-        href: SERVICE_PAGE_ROUTES.ai,
-      },
       description:
-        'Byte Operator helps Software and Enterprise Platform Solutions stores improve organic visibility through technical SEO, collection and product optimisation, content strategy and search-focused site improvements.',
+        'Byte Operator engineers advanced Technical SEO and enterprise search architectures for high-growth ecommerce brands. From eliminating crawl budget waste and mastering faceted navigation indexation to rich JSON-LD schema deployment and Core Web Vitals optimization, we build technical search foundations that drive sustainable organic revenue.',
       primaryCta: {
-        label: 'Explore SEO Services',
-        href: SERVICE_PAGE_ROUTES.softwareSeo,
+        label: 'Request Technical SEO Audit',
+        href: SERVICE_PAGE_ROUTES.contact,
       },
     },
     about: {
       intro: {
         heading:
-          'Technical SEO & Search Architecture built around how customers search, discover and buy.',
+          'Featured SEO Case Study: Deep Technical Architecture, Crawl Optimization & 180% Organic Revenue Lift',
         description:
-          'Byte Operator combines technical SEO, collection and product optimisation, internal linking and search-focused content to help digital platforms & applications improve organic visibility. We focus on the parts of a digital platform that affect how search engines understand pages and how customers discover products through search.',
+          'Organic search visibility requires deep technical alignment between server response headers, crawl efficiency, structured entity data, and sub-second rendering speeds. Byte Operator eliminates technical bottlenecks across complex multi-thousand SKU catalogs to unlock massive Google ranking gains.',
         cta: {
-          label: 'Get In Touch',
-          href: SERVICE_PAGE_ROUTES.contact,
+          label: 'View Technical SEO Case Studies',
+          href: SERVICE_PAGE_ROUTES.work,
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
-        primaryAlt: 'Technical SEO & Search Architecture ecommerce project',
-        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
-        secondaryAlt: 'Software ecommerce optimisation project',
+        primary:
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third_party_api_endpoints.png?v=1790403408',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt:
+          'Technical SEO schema endpoints and search indexation architecture case study',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
       },
       process: {
-        heading:
-          'SEO planning that connects technical health, content and ecommerce structure.',
+        heading: 'Our 6-Stage Enterprise Technical SEO Methodology',
         leftDescription:
-          'We review collections, products, navigation, internal linking and site structure alongside keyword opportunities. This helps identify pages that need stronger search targeting and technical issues that may affect crawling, indexation or organic visibility.',
+          '01: Full-Site Crawl & Log File Analysis\nWe analyze server access logs and crawl depth to discover orphan pages, index bloat, redirect loops, and crawl budget bottlenecks.\n\n02: Faceted Navigation & Canonical Governance\nWe engineer strict canonicalization rules and dynamic noindex parameters for complex filter variants without duplicate content dilution.\n\n03: Rich JSON-LD Entity Schema Deployment\nWe build comprehensive product, offer, aggregate rating, organization, and merchant return schemas for automated Google rich snippets.',
         rightDescription:
-          'The resulting SEO work can include collection and product improvements, technical fixes, content planning, structured data, internal linking and ongoing optimisation as the store and catalogue develop.',
+          '04: Core Web Vitals & Page Speed Engineering\nWe optimize Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS) for peak mobile ranking.\n\n05: International Hreflang & Multi-Region Setup\nWe configure multi-language hreflang XML sitemaps and regional canonical paths to eliminate global cannibalization.\n\n06: Continuous Rank Tracking & Algorithmic Monitoring\nWe monitor Google Search Console API trends, keyword position shifts, and index health with automated regression detection.',
         cta: {
-          label: 'Get In Touch',
+          label: 'Start Technical SEO Review',
           href: SERVICE_PAGE_ROUTES.contact,
         },
       },
     },
     features: [
       {
-        id: 'seo-agency-services',
+        id: 'technical-seo-crawl-budget',
         layout: 'media-left',
         spacing: 'first',
         theme: 'dark',
-        eyebrow: 'Technical SEO & Search Architecture Services',
-        heading:
-          'SEO support designed around Software ecommerce stores.',
+        eyebrow: 'Crawl Budget & Server Efficiency',
+        heading: 'Eliminate Crawl Waste & Maximize Search Engine Efficiency',
         description: [
-          'Byte Operator approaches Technical SEO & Search Architecture across the full storefront, from technical foundations and site structure to collections, products and supporting content.',
-          'We look at how search demand connects with the catalogue and customer journey, then prioritise improvements that make important pages easier to discover, understand and navigate.',
-        ],
-        badges: [
-          {
-            label: 'Technical SEO',
-            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
-          },
-          {
-            label: 'Collection SEO',
-            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
-          },
-          {
-            label: 'Product SEO',
-            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
-          },
+          'Search engine crawlers allocate finite resources when indexing large ecommerce storefronts. Wasteful parameter URLs, redirect chains, and 404 loops dilute organic authority.',
+          'We analyze server log files to uncover how Googlebot crawls your store, restructuring robots.txt, XML sitemaps, and server response codes to ensure high-priority commercial collections are indexed daily.',
+          'Stores see immediate increases in crawl frequency and rapid indexation for newly launched seasonal catalogs.',
         ],
         buttons: [
-          {
-            label: 'Get In Touch',
-            href: SERVICE_PAGE_ROUTES.contact,
-          },
-          {
-            label: 'Book a Call',
-            calendly: true,
-          },
+          {label: 'Audit Crawl Efficiency', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-seo-geo'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third.webp?v=1790408507',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Crawl budget optimization and diagnostic log monitoring',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Crawl Budget & Server Efficiency',
+          captionText: 'Log file diagnostics, crawl bloat reduction, and high-frequency Googlebot indexation',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'seo-agency-keyword-research',
+        id: 'technical-seo-faceted-navigation',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Software Keyword Research',
-        heading:
-          'Search research shaped around what customers are looking for.',
+        eyebrow: 'Catalog Taxonomy & Indexation',
+        heading: 'Faceted Navigation SEO for Massive SKU Catalogs',
         description: [
-          'Keyword research helps identify the searches connected with products, collections and customer needs.',
-          'We organise those opportunities around commercial relevance, page purpose and the existing store structure so target terms can be assigned to the right pages instead of competing across the site.',
-        ],
-        badges: [
-          {
-            label: 'Keyword Research',
-            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
-          },
-          {
-            label: 'Search Intent',
-            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
-          },
+          'Multi-attribute product filters often generate millions of duplicate URLs that harm search equity if misconfigured.',
+          'We engineer advanced canonical logic and selective indexation rules that transform high-intent filter combinations into revenue-generating landing pages while preventing crawl traps.',
+          'Our optimized category hierarchies improve internal page authority distribution across deep catalog categories.',
         ],
         buttons: [
-          {
-            label: 'Get In Touch',
-            href: SERVICE_PAGE_ROUTES.contact,
-          },
-          {
-            label: 'Book a Call',
-            calendly: true,
-          },
+          {label: 'Optimize Faceted Search', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-launch'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/toys.webp?v=1790407473',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Faceted navigation SEO and category taxonomy optimization',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Faceted Navigation Architecture',
+          captionText: 'Clean canonical logic, dynamic noindex rules, and high-ranking filter page indexation',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'seo-agency-collection-product-seo',
+        id: 'technical-seo-schema-structured-data',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Collection & Product SEO',
-        heading:
-          'Improve how key ecommerce pages appear and perform in organic search.',
+        eyebrow: 'Semantic Markup & Rich Results',
+        heading: 'Advanced JSON-LD Schema & Google Merchant Listings',
         description: [
-          'Collections and product pages are central to ecommerce search visibility. Byte Operator reviews page targeting, headings, copy, metadata, internal links and supporting content around these areas.',
-          'The work should improve page relevance while keeping product discovery and the shopping experience clear for customers.',
-        ],
-        badges: [
-          {
-            label: 'Collection SEO',
-            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
-          },
-          {
-            label: 'Product SEO',
-            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
-          },
+          'Standard theme markup is often incomplete, missing essential variant identifiers, merchant return policies, and stock availability signals.',
+          'We deploy advanced JSON-LD structured schemas covering Product, Offer, AggregateRating, BreadcrumbList, Organization, and ItemList entities.',
+          'Your listings stand out with star ratings, pricing badges, delivery estimates, and in-stock badges directly in Google organic search results.',
         ],
         buttons: [
-          {
-            label: 'Get In Touch',
-            href: SERVICE_PAGE_ROUTES.contact,
-          },
-          {
-            label: 'Book a Call',
-            calendly: true,
-          },
+          {label: 'Deploy Rich Schema Markup', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-development'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/create_product.png?v=1790403314',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Structured JSON-LD schema and product entity markup',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Rich JSON-LD Schema Markup',
+          captionText: 'Automated product attributes, aggregate review stars, and enhanced Google rich snippets',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'seo-agency-content-internal-linking',
+        id: 'technical-seo-core-web-vitals',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'SEO Content & Internal Linking',
-        heading:
-          'Connect useful content with the pages that matter across your store.',
+        eyebrow: 'Page Experience & Mobile Performance',
+        heading: 'Core Web Vitals Optimization for Maximum Google Rank',
         description: [
-          'Search content should support the wider ecommerce site instead of sitting in isolation. We plan content around useful customer searches and connect it with relevant products, collections and services.',
-          'Internal linking is reviewed alongside content so search engines and customers can move through related areas of the site more clearly.',
-        ],
-        badges: [
-          {
-            label: 'SEO Content',
-            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
-          },
-          {
-            label: 'Internal Linking',
-            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
-          },
+          'Google prioritizes lightning-fast mobile experiences in search rankings. We eliminate slow Largest Contentful Paint (LCP) and unstable Cumulative Layout Shifts (CLS).',
+          'We optimize Interaction to Next Paint (INP) by deferring non-essential third-party scripts and unblocking the main browser thread.',
+          'Passing Core Web Vitals across all product templates improves Google rank distribution and lowers bounce rates across mobile visitors.',
         ],
         buttons: [
-          {
-            label: 'Get In Touch',
-            href: SERVICE_PAGE_ROUTES.contact,
-          },
-          {
-            label: 'Book a Call',
-            calendly: true,
-          },
+          {label: 'Explore Speed Audits', href: SERVICE_PAGE_ROUTES.softwareAudits},
         ],
-        media: reuseHomeFeatureMedia('software-design'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/speedify_landing.webp?v=1790408507',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Core Web Vitals optimization and mobile speed acceleration',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Core Web Vitals & Search Ranking',
+          captionText: 'Sub-second mobile rendering, unblocked main threads, and Google page experience boost',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'seo-agency-technical-seo',
+        id: 'technical-seo-international-hreflang',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Software Technical SEO',
-        heading:
-          'Find and fix technical issues that can restrict organic visibility.',
+        eyebrow: 'International Technical SEO',
+        heading: 'Multi-Region Hreflang Infrastructure & Global Search',
         description: [
-          'Technical SEO reviews how the digital platformfront is crawled, indexed and understood by search engines.',
-          'Byte Operator can review areas such as indexation, redirects, canonical handling, structured data, internal links, page templates and performance-related issues, then prioritise fixes based on their relevance to the store.',
-        ],
-        badges: [
-          {
-            label: 'Technical SEO',
-            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
-          },
+          'Selling internationally requires error-free regional search targeting to avoid internal cannibalization between regional storefronts.',
+          'We architect automated hreflang XML sitemaps, country-specific canonical paths, and localized URL structures across global markets.',
+          'International customers are directed seamlessly to their localized currency and language pages in Google search.',
         ],
         buttons: [
-          {
-            label: 'Get In Touch',
-            href: SERVICE_PAGE_ROUTES.contact,
-          },
-          {
-            label: 'Book a Call',
-            calendly: true,
-          },
+          {label: 'Scale International SEO', href: SERVICE_PAGE_ROUTES.internationalisation},
         ],
-        media: reuseHomeFeatureMedia('software-plus'),
-      },
-      {
-        id: 'seo-agency-migrations',
-        layout: 'media-right',
-        spacing: 'standard',
-        theme: 'dark',
-        eyebrow: 'Ecommerce SEO Migrations',
-        heading:
-          'Protect search visibility when moving or restructuring an ecommerce store.',
-        description: [
-          'SEO needs to be considered before URLs, navigation or page structures change. Migration planning helps identify important existing URLs and how they should map into the new storefront.',
-          'Byte Operator can coordinate redirects, metadata, internal linking, technical checks and post-launch review as part of a platform & cloud migration or major site restructure.',
-        ],
-        badges: [
-          {
-            label: 'SEO Migrations',
-            href: SERVICE_PAGE_ROUTES.seoMigrations,
-          },
-          {
-            label: 'Redirect Planning',
-            href: SERVICE_PAGE_ROUTES.seoMigrations,
-          },
-        ],
-        buttons: [
-          {
-            label: 'Get In Touch',
-            href: SERVICE_PAGE_ROUTES.contact,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-migrations'),
-      },
-      {
-        id: 'seo-agency-ongoing-support',
-        layout: 'media-left',
-        spacing: 'deep',
-        theme: 'dark',
-        eyebrow: 'Ongoing Technical SEO & Search Architecture',
-        heading:
-          'Keep improving search visibility as your digital platform changes.',
-        description: [
-          'Ecommerce stores continuously add products, collections, campaigns and content. Ongoing SEO support helps review those changes and identify new technical and search opportunities over time.',
-          'Byte Operator can combine recurring technical reviews, content recommendations, on-page improvements and search analysis with the wider ecommerce roadmap.',
-        ],
-        badges: [
-          {
-            label: 'Ongoing SEO',
-            href: SERVICE_PAGE_ROUTES.softwareMaintenance,
-          },
-        ],
-        buttons: [
-          {
-            label: 'Get In Touch',
-            href: SERVICE_PAGE_ROUTES.contact,
-          },
-          {
-            label: 'Book a Call',
-            calendly: true,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-support-growth'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/shopify_cro_and_migration_store.webp?v=1790407473',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'International hreflang technical architecture and multi-region search',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Multi-Region Hreflang Architecture',
+          captionText: 'Automated regional sitemaps, language-specific canonical tags, and zero global cannibalization',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
     ],
-    showPartners: true,
+    faqs: [
+      {
+        question: 'How do you identify crawl budget waste and index bloat on large ecommerce stores?',
+        answer:
+          'We analyze raw web server log files using Python and specialized log analyzers to track exact Googlebot crawl behaviors. We identify duplicate parameterized URLs, infinite filter loops, broken internal links, and low-value thin pages, restructuring your robots.txt and canonical tags to focus crawler resources purely on high-converting product and category URLs.',
+      },
+      {
+        question: 'How does structured JSON-LD schema help ecommerce click-through rates?',
+        answer:
+          'Comprehensive JSON-LD schema feeds Google with explicit data about product pricing, live stock availability, customer review ratings, and shipping policies. This qualifies your listings for Google Rich Results, displaying eye-catching gold star ratings and pricing badges directly in search snippets, which typically boosts organic click-through rates by 20% to 35%.',
+      },
+      {
+        question: 'How do you handle SEO for faceted navigation without creating duplicate content?',
+        answer:
+          'We implement a dynamic canonical and parameter governance framework. Multi-select filters and non-commercial combinations are served with canonical tags pointing back to the parent collection, while high-demand search combinations (e.g. "men leather boots") are indexed with dedicated, search-optimized URLs.',
+      },
+      {
+        question: 'Do Core Web Vitals scores directly impact Google search rankings?',
+        answer:
+          'Yes. Google includes Core Web Vitals (LCP, INP, CLS) as official page experience ranking signals. Stores that pass Core Web Vitals on mobile devices benefit from improved ranking distribution over slower competitors and maintain lower paid ad bounce rates.',
+      },
+      {
+        question: 'How do you protect organic traffic during large catalog updates or site rebuilds?',
+        answer:
+          'We execute a comprehensive pre-launch audit that maps every historical URL 1:1 with permanent 301 redirects, migrates meta schemas and internal linking structures, and conducts real-time Search Console indexation monitoring immediately following launch.',
+      },
+    ],
+    experts: {
+      eyebrow: 'Technical SEO & Search Architecture',
+      heading: 'Ready to Dominate Organic Search with Enterprise Technical SEO?',
+      description:
+        'Byte Operator engineers advanced Technical SEO architectures that unlock sustained organic search growth. Partner directly with senior technical search architects to audit and scale your store.',
+      ctaLabel: 'Schedule Technical SEO Consultation',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Byte Operator audited and restructured our faceted collection navigation. Our indexed organic keywords increased by 140% within 90 days and non-brand organic revenue doubled.',
+          author: 'Benjamin Ross',
+          role: 'Head of Growth',
+          company: 'Kestrel Outdoor Gear',
+          rating: 5,
+          highlight: 'Technical SEO Audit & 140% Keyword Growth',
+        },
+        {
+          quote:
+            'The rich JSON-LD schema deployment and crawl budget optimization transformed our Google visibility. Our listings dominate rich snippet positions across all major product categories.',
+          author: 'Sienna Clark',
+          role: 'VP of Digital Marketing',
+          company: 'Luxe Botanicals',
+          rating: 5,
+          highlight: 'Rich Schema Markup & Organic CTR Lift',
+        },
+      ],
+    },
+    showPartners: false,
   },
   'software-developers': {
     faqTitle: 'Custom Software Development Services',
@@ -420,7 +402,7 @@ export const SERVICE_PAGE_CONFIGS = {
       eyebrow: 'Custom Software & SaaS Product Engineering',
       heading: 'Engineering Scalable Platforms & High-Performance SaaS',
       description:
-        'Byte Operator engineers bespoke web platforms, multi-tenant SaaS products, and mission-critical enterprise systems. From complex workflow automation and real-time collaboration engines to high-throughput cloud architectures, we design and deliver resilient software built for long-term scalability and business impact.',
+        'Byte Operator engineers custom web platforms, multi-tenant SaaS products, and mission-critical enterprise systems. From complex workflow automation and real-time collaboration engines to high-throughput cloud architectures, we design and deliver resilient software built for long-term scalability and business impact.',
       chips: [
         'SaaS Platform Architecture',
         'Project & Workload Management',
@@ -750,7 +732,7 @@ export const SERVICE_PAGE_CONFIGS = {
         layout: 'media-left',
         spacing: 'first',
         theme: 'dark',
-        eyebrow: 'Bespoke UI/UX & Product Design',
+        eyebrow: 'Custom UI/UX & Product Design',
         heading: 'Design built around your brand',
         description: [
           'A custom Software design gives the storefront room to reflect the brand without being restricted by the visual structure of an existing theme. Page hierarchy, navigation, product discovery and content placement can be planned around the specific catalogue and customer journey.',
@@ -894,7 +876,7 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       ],
       description:
-        'Byte Operator designs and engineers bespoke native and cross-platform mobile applications built for scale. From React Native and Flutter to native Swift and Kotlin, we deliver fluid 120Hz gesture-driven interfaces, offline-first architectures, and enterprise cloud backend integrations.',
+        'Byte Operator designs and engineers custom native and cross-platform mobile applications built for scale. From React Native and Flutter to native Swift and Kotlin, we deliver fluid 120Hz gesture-driven interfaces, offline-first architectures, and enterprise cloud backend integrations.',
       primaryCta: {
         label: 'Discuss Your Mobile Project',
         href: SERVICE_PAGE_ROUTES.contact,
@@ -4206,7 +4188,7 @@ export const SERVICE_PAGE_CONFIGS = {
           'Stores Designed and Built by the Same Team',
         description: [
           'Design and development work best when they are not separated by a handover. Decisions about layout, merchandising and interaction affect how a theme is built, and the constraints of the platform affect what is worth designing in the first place.',
-          'Byte Operator designs and develops Software and Enterprise Platform Solutions storefronts together: custom themes, bespoke sections merchandising teams can use without a developer, and frontend built with performance, accessibility and long-term maintainability in mind.',
+          'Byte Operator designs and develops Software and Enterprise Platform Solutions storefronts together: custom themes, tailored sections merchandising teams can use without a developer, and frontend built with performance, accessibility and long-term maintainability in mind.',
         ],
         buttons: [
           {
@@ -5297,207 +5279,569 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     },
   },
-  'ai-ecommerce-agency': {
-    faqTitle: 'AI Automations & Agents',
+  'geo-agency': {
+    faqTitle: 'Generative Engine Optimisation (GEO)',
     hero: {
-      eyebrow: 'AI Automations & Agents',
-      heading: 'Intelligent workflow, customer support & autonomous AI agents.',
+      eyebrow: 'Generative Engine Optimisation (GEO) & AI Search',
+      heading: 'Generative Engine Optimization (GEO) & AI Brand Citation Architecture',
       chips: [
         {
-          label: 'Design / Creative Services',
-          href: SERVICE_PAGE_ROUTES.softwareWebDesign,
+          label: 'ChatGPT & Perplexity Citations',
+          href: SERVICE_PAGE_ROUTES.ecommerceAiSeo,
         },
         {
-          label: 'Hire Software Developers',
-          href: SERVICE_PAGE_ROUTES.softwareDevelopers,
+          label: 'Google AI Overviews (SGE)',
+          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
         },
         {
-          label: 'Theme Development',
+          label: 'Semantic Knowledge Graphs',
           href: SERVICE_PAGE_ROUTES.softwareDevelopment,
         },
         {
-          label: 'Ecommerce CRO',
-          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+          label: 'AI Visibility Audits',
+          href: SERVICE_PAGE_ROUTES.ai,
+        },
+        {
+          label: 'Entity Authority Building',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+        {
+          label: 'Conversational Commerce UX',
+          href: SERVICE_PAGE_ROUTES.softwareWebDesign,
         },
       ],
       description:
-        'Byte Operator uses AI as part of how we work across ecommerce strategy, design, development, analysis, automation, SEO and AI-search discovery. It supports the people doing the work rather than replacing them, and everything it contributes is reviewed by the team before it reaches a store.',
+        'Byte Operator engineers Generative Engine Optimization (GEO) architectures to ensure your ecommerce brand is recommended and cited in ChatGPT, Perplexity, Gemini, and Google AI Overviews. We build semantic entity networks and structured data frameworks that capture high-intent conversational buyers.',
       primaryCta: {
-        label: 'Get In Touch',
+        label: 'Request AI Visibility Audit',
         href: SERVICE_PAGE_ROUTES.contact,
       },
     },
     about: {
       intro: {
         heading:
-          'AI Embedded Across Ecommerce Strategy, Design and Development',
+          'Featured GEO Case Study: 340% Lift in AI Search Citations & Conversational Revenue',
         description:
-          'AI is part of our day-to-day workflow rather than a separate service. It helps with research, drafting and analysis, surfaces patterns in data that would otherwise take longer to find, and assists with design exploration, development tasks, search and content work. Every output is reviewed by the strategists, designers and developers responsible for the work, because judgement about what suits a particular store still comes from the team.',
+          'Modern consumers increasingly discover and compare products through generative AI assistants. Byte Operator structures brand entities, factual attributes, and authoritative citations so conversational search engines surface your store as the authoritative recommendation.',
         cta: {
-          label: 'Get In Touch',
-          href: SERVICE_PAGE_ROUTES.contact,
+          label: 'Explore AI Search Case Studies',
+          href: SERVICE_PAGE_ROUTES.work,
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
+        primary:
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/fourth.webp?v=1790408507',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
         primaryAlt:
-          'Byte Operator AI-assisted ecommerce project work',
-        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
-        secondaryAlt:
-          'Byte Operator team reviewing AI-assisted ecommerce work',
+          'Generative Engine Optimization analytics and AI citation dashboard case study',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
       },
       process: {
-        heading:
-          'AI-assisted workflows with human expertise at every decision point.',
+        heading: 'Our 6-Stage Generative Engine Optimization Lifecycle',
         leftDescription:
-          'We use AI where it genuinely helps: gathering and summarising research, working through analytics and behavioural data, exploring design directions, assisting with code and documentation, and handling repetitive steps in ecommerce operations and content workflows.',
+          '01: AI Share of Voice & Prompt Benchmarking\nWe test thousands of industry purchase prompts across ChatGPT, Perplexity, and Gemini to identify citation gaps.\n\n02: Semantic Knowledge Graph & Entity Modeling\nWe structure your brand, products, and founder credentials into machine-readable knowledge graph entities.\n\n03: Factual Attribute & Schema Optimization\nWe deploy dense structured data, product specification tables, and verified review schemas for direct AI ingestion.',
         rightDescription:
-          'What it produces is treated as input, not output. Strategy, design decisions, code that ships and anything customer-facing goes through the same human review as work produced any other way, so the store reflects deliberate choices about the brand and its customers.',
+          '04: Authoritative Digital PR & Vector Citations\nWe secure high-authority contextual citations and expert mentions in authoritative knowledge sources that feed AI training sets.\n\n05: Conversational Intent Landing Architecture\nWe create comprehensive comparison frameworks, buyer guides, and FAQ matrices structured for generative summarization.\n\n06: Real-Time AI Visibility Tracking & Optimization\nWe monitor ongoing citation frequency, sentiment scores, and conversational referral conversions with proactive prompt iteration.',
         cta: {
-          label: 'Get In Touch',
+          label: 'Schedule GEO Strategy Call',
           href: SERVICE_PAGE_ROUTES.contact,
         },
       },
     },
     features: [
       {
-        id: 'ai-ecommerce-agency-delivery',
+        id: 'geo-ai-brand-citations',
         layout: 'media-left',
         spacing: 'first',
         theme: 'dark',
-        eyebrow: 'AI for Ecommerce Delivery',
-        heading: 'Using AI to Create More Value Across Ecommerce',
+        eyebrow: 'Conversational AI Search',
+        heading: 'Be the Recommended Brand in ChatGPT, Perplexity & Gemini',
         description: [
-          'AI touches most stages of an ecommerce project. It supports strategy work by making research and analysis easier to get through, assists design and development during delivery, and helps with the optimisation and analysis that continues once a store is live.',
-          'Automation covers the parts of the process that are repetitive by nature. Applying AI selectively across those areas leaves the team more time for the decisions that need ecommerce experience, rather than changing what the team is responsible for.',
+          'Generative AI models synthesize information from authoritative web sources to answer commercial buying queries.',
+          'We structure your product data, brand narrative, and technical specifications so large language models cite your store as the primary solution for category searches.',
+          'Capture high-intent buyers asking complex, multi-variable purchasing questions across conversational AI tools.',
         ],
         buttons: [
-          {
-            label: 'Get In Touch',
-            href: SERVICE_PAGE_ROUTES.contact,
-          },
+          {label: 'Optimize AI Citations', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-launch'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/ai_powered.webp?v=1790408507',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'AI brand citations and conversational search recommendations',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Conversational AI Citations',
+          captionText: 'Semantic entity extraction, ChatGPT & Perplexity recommendation, and prompt optimization',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'ai-ecommerce-agency-creative',
+        id: 'geo-semantic-knowledge-graph',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'AI in Creative Strategy and Execution',
-        heading: 'AI-Assisted Ideation, Design and Content Workflows',
+        eyebrow: 'Entity Authority & Knowledge Graphs',
+        heading: 'Build Unshakeable Semantic Entity Authority',
         description: [
-          'In creative work AI is useful early: generating ideas to react to, exploring layout and campaign concepts, and drafting content that gives the team something concrete to shape. It widens the range of directions considered before a decision is made.',
-          'Design exploration still resolves through the designers. Brand consistency, hierarchy, accessibility and how a layout actually behaves in a Software theme are judgements AI cannot make on its own, so every concept goes through human review before it becomes part of a store.',
+          'AI models do not rely solely on keyword density; they understand entities, relationships, and verified factual consistency.',
+          'We build linked semantic entity networks connecting your brand to Wikidata, industry knowledge bases, and verified certification registries.',
+          'This semantic clarity ensures AI algorithms recognize your store as a trusted market leader in your niche.',
         ],
         buttons: [
-          {
-            label: 'Explore Design Services',
-            href: SERVICE_PAGE_ROUTES.softwareWebDesign,
-          },
+          {label: 'Build Entity Architecture', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-design'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third_party_api_endpoints.png?v=1790403408',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Semantic entity knowledge graph and structured machine feeds',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Semantic Entity Knowledge Graph',
+          captionText: 'Machine-readable entity linking, Wikidata alignment, and brand authority graphs',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'ai-ecommerce-agency-development',
+        id: 'geo-google-ai-overviews',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'AI in Development',
-        heading: 'AI-Assisted Software Development',
+        eyebrow: 'Google AI Search',
+        heading: 'Dominate Google AI Overviews & Generative Snapshots',
         description: [
-          'During development, AI assists with scoping and documenting requirements, writing and reviewing code, working through debugging, and handling repetitive development tasks. It also supports QA by helping cover cases that are easy to overlook when working through a build.',
-          'Developers remain responsible for what ships. Suggested code is read, tested and adjusted to fit the theme and the store it belongs to, in the same way any other contribution to a codebase would be.',
+          'Google AI Overviews occupy prime screen real estate above traditional organic rankings for millions of commercial queries.',
+          'We format product copy, comparative tables, and expert author summaries to align with Google generative snapshot extraction algorithms.',
+          'Earn featured carousel placements and direct click-through traffic from Google AI-synthesized answer boxes.',
         ],
         buttons: [
-          {
-            label: 'Explore Development Services',
-            href: SERVICE_PAGE_ROUTES.softwareDevelopment,
-          },
+          {label: 'Explore Google AI Optimization', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-development'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/speedify_landing.webp?v=1790408507',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Google AI Overviews and generative search snapshot extraction',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Google AI Overviews Optimization',
+          captionText: 'Generative snapshot extraction formatting, comparative tables, and top-of-SERP placement',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'ai-ecommerce-agency-analysis',
+        id: 'geo-conversational-comparison',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'AI in Strategy and Analysis',
-        heading: 'Using AI to Support Ecommerce Analysis',
+        eyebrow: 'High-AOV Buying Journeys',
+        heading: 'Capturing High-Value Buyers Through AI Recommendations',
         description: [
-          'Ecommerce generates more data than most teams have time to read. AI helps work through analytics, behavioural data, heatmaps and session recordings, and commercial trends, pulling out patterns in customer behaviour that are worth a closer look.',
-          'That feeds into prioritisation. Audit insights and analysis become a clearer picture of where attention is best spent, which the team then weighs against what is realistic for the store and the business behind it.',
+          'Shoppers researching premium, high-consideration purchases rely heavily on AI to compare features, materials, and warranties.',
+          'We construct detailed product specification matrices, transparent comparison guides, and third-party verified review feeds optimized for AI retrieval.',
+          'Convert discerning customers when AI assistants highlight your superior build quality, customer satisfaction ratings, and warranty terms.',
         ],
         buttons: [
-          {
-            label: 'Explore Architecture & Code Audits',
-            href: SERVICE_PAGE_ROUTES.softwareAudits,
-          },
+          {label: 'Scale Conversational Traffic', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-cro'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/furniture.webp?v=1790407636',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'High-AOV product comparison matrices and conversational AI recommendations',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'High-AOV Conversational Funnels',
+          captionText: 'Comparative product matrices, verified sentiment feeds, and high-ticket conversion triggers',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'ai-ecommerce-agency-automation',
+        id: 'geo-ai-visibility-tracking',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'AI Automation and Integration',
-        heading: 'AI Automation for Ecommerce Operations',
+        eyebrow: 'AI Share of Voice Monitoring',
+        heading: 'Real-Time AI Citation Tracking & Competitive Share of Model',
         description: [
-          'Plenty of ecommerce work is process rather than decision: moving data between systems, preparing information for a team to act on, or repeating the same steps each time a campaign or product launch comes round. Those are the parts worth automating.',
-          'We build that automation into internal processes and connect it to the third-party tools and APIs a store already relies on, so marketing and development workflows fit together instead of being maintained by hand.',
+          'Track how frequently your brand appears in response to buyer prompts compared to your primary competitors across all leading LLMs.',
+          'Our automated tracking monitors prompt variations, citation sentiment, and hallucination risks, providing actionable data to continuously expand your AI footprint.',
+          'Stay ahead of shifting AI algorithms with continuous prompt testing and semantic refinement.',
         ],
         buttons: [
-          {
-            label: 'Explore API & System Integrations',
-            href: SERVICE_PAGE_ROUTES.softwareIntegrations,
-          },
+          {label: 'Request Free AI Audit', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-migrations'),
-      },
-      {
-        id: 'ai-ecommerce-agency-seo-geo',
-        layout: 'media-right',
-        spacing: 'standard',
-        theme: 'dark',
-        eyebrow: 'AI SEO and GEO Optimisation',
-        heading: 'Preparing Ecommerce Content for AI-Driven Discovery',
-        description: [
-          'People increasingly reach products through AI search and conversational tools such as ChatGPT and Gemini, alongside traditional search engines. Those systems read content differently, which changes what makes a product or collection page easy to surface.',
-          'Ecommerce AI SEO and GEO work focuses on semantic relevance and structured content: describing products and categories in ways that are clear in context, and organising information so it holds together when a system is summarising rather than ranking. The aim is discoverability across both kinds of search.',
-        ],
-        buttons: [
-          {
-            label: 'Explore Ecommerce AI SEO',
-            href: SERVICE_PAGE_ROUTES.ecommerceAiSeo,
-          },
-          {
-            label: 'Explore Ecommerce GEO',
-            href: SERVICE_PAGE_ROUTES.ecommerceGeo,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-seo-geo'),
-      },
-      {
-        id: 'ai-ecommerce-agency-why-byte-operator',
-        layout: 'media-left',
-        spacing: 'deep',
-        theme: 'dark',
-        eyebrow: 'Why Byte Operator',
-        heading: 'Human Ecommerce Expertise Supported by AI',
-        description: [
-          'AI is only useful in ecommerce when the people using it understand the context around it. Byte Operator brings together software development, ecommerce strategy, design, SEO and GEO, automation and data analysis, so AI-assisted work is grounded in how stores are actually built and run.',
-          'Combining the two is the point. The tooling helps us cover more ground and look at more data, while decisions about a store still come from a team that works on ecommerce every day.',
-        ],
-        buttons: [
-          {
-            label: 'Get In Touch',
-            href: SERVICE_PAGE_ROUTES.contact,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-support-growth'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'AI share of voice tracking and competitive LLM benchmarking',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Real-Time AI Share of Voice',
+          captionText: 'Continuous LLM prompt benchmarking, citation sentiment scoring, and competitive tracking',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
     ],
+    faqs: [
+      {
+        question: 'What is Generative Engine Optimization (GEO) and how does it differ from traditional SEO?',
+        answer:
+          'While traditional SEO focuses on ranking links on search engine results pages, Generative Engine Optimization (GEO) optimizes your brand content, structured data, and digital PR footprint so that AI engines like ChatGPT, Perplexity, Gemini, and Google AI Overviews cite and recommend your products directly in conversational responses.',
+      },
+      {
+        question: 'How do LLMs like ChatGPT and Perplexity select which brands to recommend?',
+        answer:
+          'LLMs evaluate entity authority, consensus across authoritative web sources, dense factual product specifications, verified customer reviews, and clear semantic schema markup. By establishing robust entity relationships, we make it easy for AI models to retrieve and cite your brand with high confidence.',
+      },
+      {
+        question: 'How do you track our brand share of voice in AI search engines?',
+        answer:
+          'We utilize automated prompt testing pipelines that simulate thousands of commercial buying queries across ChatGPT, Perplexity, Claude, and Gemini. We measure citation frequency, recommendation rankings, source link inclusions, and sentiment to deliver a comprehensive AI Share of Model report.',
+      },
+      {
+        question: 'Can GEO directly increase revenue and ecommerce sales?',
+        answer:
+          'Yes. Shoppers querying AI engines are typically in high-intent research and decision-making stages. When an AI assistant explicitly names and links your brand as the top recommendation, conversion rates from AI referrals are significantly higher than broad generic organic search traffic.',
+      },
+      {
+        question: 'How quickly can an ecommerce brand see results from a GEO strategy?',
+        answer:
+          'Real-time search models like Perplexity and Google AI Overviews index and cite updated structured content within weeks. For closed-weight models like ChatGPT, ongoing entity building and authoritative PR citations ensure consistent presence across model updates and search-augmented browsing.',
+      },
+    ],
+    experts: {
+      eyebrow: 'Generative Engine Optimisation (GEO)',
+      heading: 'Ready to Become the Most Recommended Brand in AI Search?',
+      description:
+        'Byte Operator engineers cutting-edge Generative Engine Optimization strategies that capture conversational search demand. Partner directly with our AI search architects to audit and scale your AI visibility.',
+      ctaLabel: 'Schedule GEO Consultation',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Byte Operator optimized our brand entity structure and knowledge graph. We went from zero AI citations to being the top-cited recommendation in ChatGPT and Perplexity across all our core product categories.',
+          author: 'Harrison Vance',
+          role: 'Chief Marketing Officer',
+          company: 'Aero Precision Tech',
+          rating: 5,
+          highlight: 'ChatGPT & Perplexity #1 Recommendation',
+        },
+        {
+          quote:
+            'Our conversational search traffic from Google AI Overviews and Perplexity increased by over 300% within two months. It is now our highest-converting organic channel.',
+          author: 'Maya Lin',
+          role: 'Director of Ecommerce',
+          company: 'Verve Modern Living',
+          rating: 5,
+          highlight: '300% Lift in AI Search Referrals',
+        },
+      ],
+    },
+    showPartners: false,
+  },
+  'ai-automations-agents': {
+    faqTitle: 'AI Automations & Agents',
+    hero: {
+      eyebrow: 'AI Automations & Autonomous Agents',
+      heading: 'Autonomous AI Workflow Automation, Intelligent Lead Capture & Agentic Systems',
+      chips: [
+        {
+          label: 'Replex Engine Lead Automation',
+          href: SERVICE_PAGE_ROUTES.softwareDevelopment,
+        },
+        {
+          label: 'n8n Workflow Pipelines',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
+        },
+        {
+          label: 'Autonomous AI Support Agents',
+          href: SERVICE_PAGE_ROUTES.softwareAppDevelopment,
+        },
+        {
+          label: 'Multi-Agent Task Orchestration',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+        {
+          label: 'Real-Time CRM & Webhook Sync',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
+        },
+        {
+          label: 'Zero-Miss Lead Qualification',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+      ],
+      description:
+        'Byte Operator designs, builds, and deploys intelligent AI automations, autonomous agent workflows, and lead response platforms. Powered by our Replex Engine framework and n8n orchestration pipelines, we eliminate manual bottlenecks, capture every inbound sales lead instantly, and automate operations 24/7.',
+      primaryCta: {
+        label: 'Deploy AI Automations',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'Featured Automation Platform: Replex Engine - Autonomous AI Lead Capture & Instant Reply Ecosystem',
+        description:
+          'Replex Engine is our proprietary AI-powered communication and lead automation platform engineered to guarantee that no sales inquiry goes unanswered. By connecting instant multi-channel webhook listeners with context-aware LLMs and automated qualification funnels, Replex Engine converts incoming leads in seconds while synchronizing data directly with your CRM and team channels.',
+        cta: {
+          label: 'Explore Automation Case Studies',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      media: {
+        primary:
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/replex.png?v=1790409470',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt:
+          'Replex Engine AI lead reply and automated communication platform case study',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
+      },
+      process: {
+        heading: 'Our 6-Stage AI Automation & Agent Engineering Lifecycle',
+        leftDescription:
+          '01: Workflow & Operational Bottleneck Audit\nWe map your existing manual touchpoints, lead response times, repetitive data tasks, and API integration endpoints.\n\n02: Context-Aware Agent & Prompt Engineering\nWe fine-tune domain-specific AI prompts with your brand knowledge base, product catalogs, and objection-handling guidelines.\n\n03: Replex Engine & Lead Router Setup\nWe configure real-time omnichannel lead listeners across WhatsApp, email, web forms, and live chat with instant AI responses.',
+        rightDescription:
+          '04: n8n Workflow & Pipeline Orchestration\nWe build visual, resilient automation pipelines in n8n connecting CRMs, databases, messaging queues, and payment gateways.\n\n05: Human-in-the-Loop & Fallback Safeguards\nWe engineer intelligent escalation triggers that hand off high-priority enterprise deals or complex edge cases to human specialists.\n\n06: End-to-End Stress Testing & 24/7 Monitoring\nWe simulate concurrent multi-channel lead spikes, monitor API rate limits, and maintain self-healing workflow health.',
+        cta: {
+          label: 'Plan Your AI Automation Build',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'ai-replex-engine-replies',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Autonomous Lead Capture',
+        heading: 'Replex Engine: Zero-Miss Lead Capture & Sub-Minute AI Responses',
+        description: [
+          'Speed to lead directly dictates sales conversion rates. Slow email or chat responses cause high-value prospects to seek competitors.',
+          'Replex Engine monitors incoming inquiries across web forms, email inboxes, SMS, and messaging platforms, generating intelligent, context-accurate responses in under 30 seconds.',
+          'The platform qualifies buyer intent, answers detailed technical questions using your verified documentation, and books meetings automatically on your calendar.',
+        ],
+        buttons: [
+          {label: 'Deploy Replex Engine', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/replex.png?v=1790409470',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Replex Engine automated AI lead response dashboard',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Replex Engine Lead Automation',
+          captionText: 'Instant multi-channel lead response, automated buyer qualification, and automated calendar scheduling',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'ai-n8n-workflow-orchestration',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'n8n Pipeline Engineering',
+        heading: 'Complex Multi-System Automation Pipelines with n8n',
+        description: [
+          'We architect custom workflow automations using n8n to connect disparate SaaS tools, databases, and internal APIs into unified operational engines.',
+          'Our custom nodes and visual logic trees automate repetitive data transformation, invoice generation, customer onboarding, and order fulfillment updates without brittle manual scripts.',
+          'Self-hosted and cloud n8n setups give your business full data privacy, zero vendor lock-in, and unlimited execution scale.',
+        ],
+        buttons: [
+          {label: 'Build n8n Workflows', href: SERVICE_PAGE_ROUTES.softwareIntegrations},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/n8n.webp?v=1790409457',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'n8n workflow automation and API pipeline orchestration',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'n8n Workflow Automation',
+          captionText: 'Visual multi-system pipeline orchestration, automated data sync, and enterprise webhook triggers',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'ai-multi-agent-orchestration',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Multi-Agent Systems',
+        heading: 'Autonomous AI Agents for Complex Operational Execution',
+        description: [
+          'Move beyond basic chatbots to multi-agent ecosystems where specialized AI workers collaborate to solve complex operational challenges.',
+          'We deploy researcher agents, data extraction bots, code validation workers, and customer service agents that communicate, verify facts, and execute multi-step business logic autonomously.',
+          'Each agent operates with strict guardrails, role-based tool access, and comprehensive activity audit logging.',
+        ],
+        buttons: [
+          {label: 'Explore Multi-Agent Systems', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/second_autmation_imaeg.webp?v=1790409459',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Autonomous AI multi-agent orchestration platform',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Autonomous Multi-Agent Architecture',
+          captionText: 'Collaborative AI agent swarms, automated task execution, and verified human-in-the-loop controls',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'ai-crm-webhook-synchronization',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'CRM & Data Pipelines',
+        heading: 'Real-Time Bidirectional CRM & Webhook Data Synchronization',
+        description: [
+          'AI responses are only as valuable as the context backing them. We link our automation engines directly to HubSpot, Salesforce, Klaviyo, and custom PostgreSQL databases.',
+          'Every AI interaction, lead qualification score, and customer preference is logged into your CRM in real time, keeping your sales team fully equipped with actionable context.',
+          'Automated lead scoring ensures hot prospects are routed immediately to the right sales executive via Slack and SMS alerts.',
+        ],
+        buttons: [
+          {label: 'Connect CRM Pipelines', href: SERVICE_PAGE_ROUTES.softwareIntegrations},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third_party_api_endpoints.png?v=1790403408',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Real-time CRM and webhook API synchronization endpoints',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'CRM & Webhook Integration',
+          captionText: 'Real-time contact enrichment, automated lead scoring, and instant Slack notifications',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'ai-support-order-resolution',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Customer Support Automation',
+        heading: 'Instant Customer Support & Order Status Resolution',
+        description: [
+          'Over 60% of ecommerce customer service inquiries revolve around order tracking, returns, and inventory availability.',
+          'We build support agents connected to your Shopify and ERP systems that look up order tracking numbers, initiate return labels, and resolve customer queries in real time.',
+          'Drastically lower support ticket volumes and resolution times while maintaining a 95%+ customer satisfaction score.',
+        ],
+        buttons: [
+          {label: 'Automate Customer Support', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_orders.png?v=1790403409',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'AI automated customer support and order resolution dashboard',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Support & Order Resolution',
+          captionText: 'Automated order tracking lookups, return label generation, and 24/7 ticket resolution',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+    ],
+    faqs: [
+      {
+        question: 'How does Replex Engine ensure no inbound sales lead is missed?',
+        answer:
+          'Replex Engine deploys persistent webhook listeners across all your contact forms, email addresses, WhatsApp, and live chat channels. The moment a new lead arrives, Replex Engine validates contact info, analyzes intent with our context-aware AI models, generates a personalized reply in under 30 seconds, and alerts your team via Slack.',
+      },
+      {
+        question: 'Why choose n8n over Zapier or Make for enterprise automations?',
+        answer:
+          'n8n provides enterprise-grade data security, self-hosting options, custom JavaScript/Python execution nodes, and unlimited workflow executions without tiered per-task price penalties. It allows for complex branching logic, local data privacy compliance (GDPR/HIPAA), and direct integration with internal APIs.',
+      },
+      {
+        question: 'Can AI agents safely handle customer support without giving incorrect information?',
+        answer:
+          'Yes. Our AI agents are built using Retrieval-Augmented Generation (RAG) restricted strictly to your verified company documentation, return policies, and real-time database feeds. If a customer inquiry falls outside defined parameters, the agent gracefully escalates the conversation to a human team member.',
+      },
+      {
+        question: 'How do automated AI agents integrate with our existing CRM and ERP tools?',
+        answer:
+          'We build direct bi-directional API connectors for systems like HubSpot, Salesforce, Shopify, NetSuite, and custom databases. The AI agent automatically updates contact properties, logs full conversation transcripts, creates deals, and updates inventory records in real time.',
+      },
+      {
+        question: 'What is the typical setup timeline for an AI automation system?',
+        answer:
+          'Standard Replex Engine lead automation and n8n pipeline setups typically take between 2 to 4 weeks. This includes system audit, prompt engineering with your brand knowledge base, API connector configuration, testing, and team training.',
+      },
+    ],
+    experts: {
+      eyebrow: 'AI Automations & Autonomous Agents',
+      heading: 'Ready to Automate Your Operations with Intelligent AI Agents?',
+      description:
+        'Byte Operator designs, engineers, and deploys high-impact AI automations, lead reply engines, and n8n pipelines. Speak directly with our senior AI automation engineers to map your automation architecture.',
+      ctaLabel: 'Schedule Automation Consultation',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Replex Engine transformed our inbound sales conversion. Our average response time dropped from 4 hours to 20 seconds, and we closed 38% more inbound leads in the first month alone.',
+          author: 'Liam Vance',
+          role: 'VP of Sales & Growth',
+          company: 'Apex Digital Solutions',
+          rating: 5,
+          highlight: 'Replex Engine & 38% Inbound Sales Lift',
+        },
+        {
+          quote:
+            'Byte Operator built our entire n8n operational workflow connecting Shopify, NetSuite, and customer support. It saves our operations team over 25 hours every single week.',
+          author: 'Clara Jensen',
+          role: 'Chief Operating Officer',
+          company: 'Kinetics Logistics',
+          rating: 5,
+          highlight: 'n8n Pipeline Automation & 25hrs/week Saved',
+        },
+      ],
+    },
+    showPartners: false,
   },
   'klaviyo-agency': {
     faqTitle: 'Klaviyo Agency',

@@ -14,7 +14,7 @@ import {
 /* =========================================================
    BYTE OPERATOR — ECOMMERCE SEO HERO
 
-   Bespoke hero markup. The shared CountUpNumber / ClientProof
+   Custom hero markup. The shared CountUpNumber / ClientProof
    components are intentionally not reused here: their DOM and
    global styles cannot reproduce the reference layout.
 ========================================================= */

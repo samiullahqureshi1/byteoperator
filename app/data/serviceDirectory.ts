@@ -151,7 +151,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Development Services',
         href: '/software-theme-development-builds/',
         summary:
-          'software development for teams that already know what they need: custom theme work in Liquid, Software Functions, checkout extensibility, metaobject-driven content and the bespoke features a stock theme cannot reach.',
+          'software development for teams that already know what they need: custom theme work in Liquid, Software Functions, checkout extensibility, metaobject-driven content and the custom features a stock theme cannot reach.',
         highlights: [
           'Custom Liquid theme and section development',
           'Software Functions and checkout extensibility',
@@ -234,7 +234,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         name: 'Headless Commerce',
         href: '/headless-commerce',
         summary:
-          'Headless digital platformfronts built with Hydrogen and deployed on Oxygen, for brands that need full control of the front end. Worth doing when performance, bespoke UX or a content platform genuinely demands it: we will tell you when it does not.',
+          'Headless digital platformfronts built with Hydrogen and deployed on Oxygen, for brands that need full control of the front end. Worth doing when performance, custom UX or a content platform genuinely demands it: we will tell you when it does not.',
         highlights: [
           'Hydrogen and React Router storefronts',
           'Oxygen deployment and edge caching',

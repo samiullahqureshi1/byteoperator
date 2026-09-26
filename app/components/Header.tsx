@@ -226,7 +226,7 @@ export function HeaderMenu({
           normalizedTitle === 'resources';
 
         /*
-         * Services and Resources have bespoke mega menus whose contents are
+         * Services and Resources have custom mega menus whose contents are
          * authored in this file. Every other item renders whatever children
          * the Software menu supplies, so a submenu added in the admin appears
          * without a code change.

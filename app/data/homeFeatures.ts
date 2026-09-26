@@ -519,7 +519,7 @@ export const HOME_FEATURES = [
         'Harbour Lifestyle',
 
       captionText:
-        'Software Bespoke Theme',
+        'Software Custom Theme',
     },
   },
 

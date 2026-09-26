@@ -1,19 +1,28 @@
 import type {Metadata} from 'next';
-import {AiVisibilityAuditHero} from '~/components/audit/AiVisibilityAuditHero';
+import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
+import {SERVICE_PAGE_CONFIGS} from '~/data/servicePages';
 
 export const metadata: Metadata = {
-  title: 'Free AI Visibility Audit | Byte Operator',
+  title: 'Generative Engine Optimisation (GEO) & AI Search | Byte Operator',
   description:
-    'Discover how your Software brand appears in ChatGPT, Perplexity, and Gemini searches with our comprehensive AI visibility audit.',
+    'Be the cited brand in ChatGPT, Perplexity, Gemini, and Google AI Overviews with specialized Generative Engine Optimization (GEO).',
   alternates: {
     canonical: 'https://byteoperator.com/ai-visibility-audit',
   },
 };
 
 export default function AiVisibilityAuditPage() {
+  const config = SERVICE_PAGE_CONFIGS['geo-agency'];
   return (
     <div className="ai-visibility-audit-page">
-      <AiVisibilityAuditHero />
+      <ServiceDetailPage
+        page={{
+          handle: 'geo-agency',
+          title: 'Generative Engine Optimisation (GEO)',
+          faqs: config.faqs,
+        }}
+        config={config}
+      />
     </div>
   );
 }

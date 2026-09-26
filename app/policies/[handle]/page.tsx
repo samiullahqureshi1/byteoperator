@@ -37,7 +37,7 @@ const POLICY_DATA: Record<string, {title: string; body: string}> = {
     title: 'Refund Policy',
     body: `
       <h2>1. Project Engagements</h2>
-      <p>Retainers and deposits for bespoke Software design, development, and consulting are allocated toward dedicated engineering sprints and are non-refundable once work has commenced.</p>
+      <p>Retainers and deposits for custom Software design, development, and consulting are allocated toward dedicated engineering sprints and are non-refundable once work has commenced.</p>
       <h2>2. Satisfaction Guarantee</h2>
       <p>We work collaboratively through milestone reviews to ensure every deliverable meets our agreed-upon technical specifications and quality standards.</p>
     `,

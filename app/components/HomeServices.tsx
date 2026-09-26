@@ -82,7 +82,7 @@ const SERVICES = [
   {
     title: 'Custom Software & Theme Engineering',
     description:
-      'Modular design systems, custom full-stack integrations, and high-performance bespoke codebases.',
+      'Modular design systems, custom full-stack integrations, and high-performance custom codebases.',
     href: '/software-theme-development-builds/',
     badge: null,
     badgeAlt: '',

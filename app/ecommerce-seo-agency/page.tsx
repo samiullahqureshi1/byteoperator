@@ -1,41 +1,28 @@
 import type {Metadata} from 'next';
-import {EcommerceSeoHero} from '~/components/seo/EcommerceSeoHero';
-import {EcommerceSeoProofStrip, ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS} from '~/components/seo/EcommerceSeoProofStrip';
-import {EcommerceSeoAboutStatement} from '~/components/seo/EcommerceSeoAboutStatement';
-import {EcommerceSeoCases} from '~/components/seo/EcommerceSeoCases';
-import {EcommerceSeoProcess} from '~/components/seo/EcommerceSeoProcess';
-import {EcommerceSeoServices} from '~/components/seo/EcommerceSeoServices';
-import {EcommerceSeoTechStack} from '~/components/seo/EcommerceSeoTechStack';
-import {EcommerceSeoEducation} from '~/components/seo/EcommerceSeoEducation';
-import {EcommerceSeoReporting} from '~/components/seo/EcommerceSeoReporting';
-import {EcommerceSeoSoftwareSpecialism} from '~/components/seo/EcommerceSeoSoftwareSpecialism';
-import {EcommerceSeoResults} from '~/components/seo/EcommerceSeoResults';
-import {HomeExperts} from '~/components/HomeExperts';
+import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
+import {SERVICE_PAGE_CONFIGS} from '~/data/servicePages';
 
 export const metadata: Metadata = {
-  title: 'Ecommerce SEO Agency | Byte Operator - Dominate Organic & AI Search',
+  title: 'Technical SEO & Search Architecture Agency | Byte Operator',
   description:
-    'Generate predictable revenue from Google, ChatGPT, and Perplexity with specialized Ecommerce SEO and Generative Engine Optimization.',
+    'Deep technical SEO audits, crawl budget optimization, rich JSON-LD schema, and high-converting search architecture for enterprise brands.',
   alternates: {
     canonical: 'https://byteoperator.com/ecommerce-seo-agency',
   },
 };
 
 export default function EcommerceSeoAgencyPage() {
+  const config = SERVICE_PAGE_CONFIGS['seo-agency'];
   return (
     <div className="ecommerce-seo-page">
-      <EcommerceSeoHero />
-      <EcommerceSeoProofStrip items={ECOMMERCE_SEO_VERIFIED_PROOF_ITEMS} />
-      <EcommerceSeoAboutStatement />
-      <EcommerceSeoCases />
-      <EcommerceSeoProcess />
-      <EcommerceSeoServices />
-      <EcommerceSeoTechStack />
-      <EcommerceSeoEducation />
-      <EcommerceSeoReporting />
-      <EcommerceSeoSoftwareSpecialism />
-      <EcommerceSeoResults />
-      <HomeExperts />
+      <ServiceDetailPage
+        page={{
+          handle: 'seo-agency',
+          title: 'Technical SEO & Architecture',
+          faqs: config.faqs,
+        }}
+        config={config}
+      />
     </div>
   );
 }
