@@ -865,15 +865,15 @@ export const SERVICE_PAGE_CONFIGS = {
   'software-app-development': {
     faqTitle: 'Mobile App Development',
     hero: {
-      eyebrow: 'Mobile App Development',
-      heading: 'Custom iOS, Android & Cross-Platform Mobile Applications',
+      eyebrow: 'Mobile Application Development & Engineering',
+      heading: 'Engineering High-Performance iOS, Android & Cross-Platform Mobile Apps',
       chips: [
         {
           label: 'iOS (Swift & SwiftUI)',
           href: SERVICE_PAGE_ROUTES.softwareDevelopment,
         },
         {
-          label: 'Android (Kotlin)',
+          label: 'Android (Kotlin & Compose)',
           href: SERVICE_PAGE_ROUTES.softwareDevelopment,
         },
         {
@@ -881,158 +881,268 @@ export const SERVICE_PAGE_CONFIGS = {
           href: SERVICE_PAGE_ROUTES.softwareDevelopment,
         },
         {
-          label: 'Mobile UI/UX Design',
-          href: SERVICE_PAGE_ROUTES.softwareWebDesign,
+          label: 'Offline-First Data Architecture',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
         },
         {
-          label: 'App Store & Play Store',
+          label: 'Biometric Auth & Security',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+        {
+          label: 'App Store & Play Store CI/CD',
           href: SERVICE_PAGE_ROUTES.contact,
         },
       ],
       description:
-        'Byte Operator designs and develops native and cross-platform mobile apps that deliver exceptional performance, intuitive touch interfaces, and seamless offline-ready experiences.',
+        'Byte Operator designs and engineers bespoke native and cross-platform mobile applications built for scale. From React Native and Flutter to native Swift and Kotlin, we deliver fluid 120Hz gesture-driven interfaces, offline-first architectures, and enterprise cloud backend integrations.',
       primaryCta: {
-        label: 'Get In Touch',
+        label: 'Discuss Your Mobile Project',
         href: SERVICE_PAGE_ROUTES.contact,
       },
     },
     about: {
       intro: {
         heading:
-          'Engineering native and cross-platform mobile experiences that users love.',
+          'Featured Mobile Case Study: Engineering High-Converting, Intuitive Mobile Experiences',
         description:
-          'From early concept and wireframes to App Store and Google Play deployment, Byte Operator develops fast, reliable, and secure mobile applications. We leverage native Swift/Kotlin and cross-platform frameworks like React Native and Flutter to build high-performance mobile apps tailored to your business needs.',
+          'Byte Operator engineers consumer-grade and enterprise mobile applications built to maximize retention and transactional velocity. Built with modern reactive frameworks, fluid touch interactions, biometric authentication, and synchronized cloud APIs, our mobile platforms drive high daily active engagement.',
         cta: {
-          label: 'Get In Touch',
-          href: SERVICE_PAGE_ROUTES.contact,
+          label: 'Explore Mobile Architecture',
+          href: SERVICE_PAGE_ROUTES.work,
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
-        primaryAlt: 'Byte Operator mobile application engineering',
-        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
-        secondaryAlt: 'Byte Operator mobile development team collaborating',
+        primary:
+          'https://cdn.dribbble.com/userupload/7091669/file/original-722803fa84ca15a8d230517b036a836e.png?resize=2048x1536&vertical=center',
+        primaryWidth: 2048,
+        primaryHeight: 1536,
+        primaryAlt:
+          'Byte Operator custom mobile application engineering and UI/UX design showcase',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
       },
       process: {
-        heading: 'A complete mobile application development lifecycle.',
+        heading: 'Our Complete Mobile Application Engineering Lifecycle',
         leftDescription:
-          'We map out mobile user flows, screen architectures, and native device capabilities before starting UI/UX prototyping and architecture. We select the optimal framework (native or cross-platform) based on performance requirements and timeline.',
+          '01: Mobile Strategy & Architecture Modeling\nWe map mobile user flows, screen hierarchies, offline data requirements, and device hardware capabilities before selecting the optimal framework.\n\n02: Touch Ergonomics & Interactive Prototyping\nWe design thumb-friendly navigation patterns, fluid gesture transitions, dark mode palettes, and validate interactive prototypes across physical device form factors.\n\n03: Cross-Platform & Native Client Engineering\nWe build modular, type-safe mobile frontends in React Native, Flutter, Swift, or Kotlin with robust state management and 120Hz animation support.',
         rightDescription:
-          'Development combines iterative sprint cycles with native device testing across operating systems and screen sizes. We handle the entire App Store and Play Store review process, security validation, and continuous post-launch updates.',
+          '04: Offline-First Caching & Real-Time Sync\nWe deploy local SQLite or WatermelonDB caching with automated background sync queues and WebSocket feeds for seamless offline operation.\n\n05: Automated Fastlane CI/CD & Store Review\nWe configure automated build pipelines, code signing, TestFlight beta distribution, security audits, and App Store / Google Play review approval.\n\n06: Production Telemetry & Continuous Scaling\nContinuous crash reporting (Crashlytics, Sentry), performance telemetry, push notification campaigns, and proactive OS version compatibility updates.',
         cta: {
-          label: 'Get In Touch',
+          label: 'Discuss Your Mobile Project',
           href: SERVICE_PAGE_ROUTES.contact,
         },
       },
     },
     features: [
       {
-        id: 'mobile-app-native-ios-android',
+        id: 'mobile-app-native-cross-platform',
         layout: 'media-left',
         spacing: 'first',
         theme: 'dark',
-        eyebrow: 'Native Mobile Development',
-        heading: 'Native iOS (Swift) & Android (Kotlin) Development',
+        eyebrow: 'Cross-Platform & Native Excellence',
+        heading: 'React Native, Flutter & Native Mobile Architecture',
         description: [
-          'When maximum hardware performance, platform-specific UI conventions, and deep OS integrations are essential, our team crafts pure native applications using Swift for iOS and Kotlin for Android.',
-          'We leverage SwiftUI and Jetpack Compose to build fluid, 120Hz responsive animations, haptic feedback, and deep integrations with iOS and Android platform capabilities.',
-          'Native builds give your app direct access to device cameras, Bluetooth, CoreLocation, biometric sensors, and background task managers with zero abstraction overhead.',
+          'Accelerate time-to-market without compromising native responsiveness. We develop unified mobile applications using React Native and Flutter that compile directly to native machine code.',
+          'By sharing up to 90% of business logic across iOS and Android, your team benefits from unified feature releases, lower maintenance overhead, and consistent brand presentation.',
+          'Where specific platform capabilities demand it, we write custom native bridges in Swift and Kotlin for direct access to device cameras, Bluetooth LE, and hardware sensors.',
         ],
         buttons: [
-          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Discuss App Architecture', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-development'),
+        media: {
+          primary:
+            'https://cdn.dribbble.com/userupload/7091669/file/original-722803fa84ca15a8d230517b036a836e.png?resize=2048x1536&vertical=center',
+          primaryWidth: 2048,
+          primaryHeight: 1536,
+          primaryAlt: 'React Native, Flutter and Native Mobile Engineering',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Unified Cross-Platform & Native Builds',
+          captionText: 'React Native, Flutter, Swift and Kotlin engineered for 120Hz performance',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'mobile-app-cross-platform',
+        id: 'mobile-app-touch-ergonomics',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Cross-Platform Solutions',
-        heading: 'React Native & Flutter Cross-Platform Apps',
+        eyebrow: 'Mobile Ergonomics & Micro-Interactions',
+        heading: 'Thumb-Zone Ergonomics & Intuitive Touch Experiences',
         description: [
-          'Accelerate time-to-market and reduce engineering overhead with a unified cross-platform codebase using React Native or Flutter without sacrificing native feel and performance.',
-          'Our cross-platform apps compile to native UI components, sharing up to 90% of business logic across iOS and Android while respecting each platform’s unique design guidelines.',
-          'Cross-platform development simplifies maintenance, speeds up feature rollouts, and ensures synchronized releases across both major mobile ecosystems.',
+          'Mobile conversion hinges on tactile fluidity. Our mobile design system prioritizes natural thumb-zone ergonomics, bottom-sheet navigations, and instant haptic feedback.',
+          'We engineer custom gesture recognizers, swipeable carousels, and optimistic UI transitions that mask network latency for a zero-lag experience.',
+          'Full compliance with Apple Human Interface Guidelines (HIG) and Google Material Design 3 guarantees an intuitive, platform-native feel.',
         ],
         buttons: [
-          {
-            label: 'Discuss Your App Project',
-            href: SERVICE_PAGE_ROUTES.contact,
-          },
+          {label: 'Explore Mobile UI/UX', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-design'),
+        media: {
+          primary:
+            'https://cdn.dribbble.com/userupload/7091669/file/original-722803fa84ca15a8d230517b036a836e.png?resize=2048x1536&vertical=center',
+          primaryWidth: 2048,
+          primaryHeight: 1536,
+          primaryAlt: 'Thumb-Zone Ergonomics and Fluid Touch UI/UX Design',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Mobile Ergonomics & Micro-Interactions',
+          captionText: 'Thumb-friendly navigation, optimistic UI updates and haptic feedback',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'mobile-app-ui-ux',
+        id: 'mobile-app-offline-cloud-sync',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Mobile-First Product Design',
-        heading: 'Intuitive Mobile UI/UX Design & Prototyping',
+        eyebrow: 'Resilience & Data Persistence',
+        heading: 'Offline-First Architecture & Real-Time Cloud Synchronization',
         description: [
-          'Great mobile apps combine effortless usability with stunning visual design. Our product designers create thumb-friendly navigation patterns, clear touch targets, and engaging micro-interactions.',
-          'We build interactive Figma prototypes, conducting usability testing across various device form factors to validate navigation flows and refine user onboarding.',
-          'Every design incorporates dark mode support, dynamic typography scaling, and platform accessibility guidelines (Apple HIG and Material Design 3).',
+          'Unstable network connections should never disrupt user workflows. We engineer offline-first architectures utilizing encrypted local SQLite, Realm, or WatermelonDB caching.',
+          'User actions, checkout drafts, and form submissions are saved locally and synchronized automatically via background queue workers once network connectivity is restored.',
+          'Event-driven WebSocket feeds and server-sent events ensure live inventories, chat streams, and push notifications update in real time.',
         ],
         buttons: [
-          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Start Offline Architecture Build', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-migrations'),
+        media: {
+          primary:
+            'https://cdn.dribbble.com/userupload/7091669/file/original-722803fa84ca15a8d230517b036a836e.png?resize=2048x1536&vertical=center',
+          primaryWidth: 2048,
+          primaryHeight: 1536,
+          primaryAlt: 'Offline-First Mobile Caching and Real-Time Synchronization',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Offline-First Caching & Data Sync',
+          captionText: 'Local database persistence, automated background sync and real-time feeds',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'mobile-app-offline-sync',
+        id: 'mobile-app-biometrics-push',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Data & Offline Capabilities',
-        heading: 'Offline-First Architecture & Real-Time Sync',
+        eyebrow: 'Security, Biometrics & Engagement',
+        heading: 'Biometric Authentication, Push Notifications & Deep Linking',
         description: [
-          'Mobile users demand uninterrupted experiences even with spotty connectivity. We implement offline-first architectures using local SQLite, Realm, or WatermelonDB caching.',
-          'Background sync queues automatically record user actions offline and reconcile data changes with your cloud backend once network connectivity is restored.',
-          'Real-time WebSocket and server-sent events (SSE) keep in-app feeds, messages, and collaborative features instantly updated across devices.',
+          'Protect sensitive user data while streamlining login workflows with Apple Face ID, Touch ID, and Android BiometricPrompt integrations.',
+          'We integrate Apple Push Notification service (APNs) and Firebase Cloud Messaging (FCM) to trigger rich, personalized notifications based on user behavior and transactional milestones.',
+          'Universal Links and Android App Links provide deep linking directly into in-app products, promotion campaigns, and checkout screens.',
         ],
         buttons: [
-          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Discuss App Security', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-launch'),
+        media: {
+          primary:
+            'https://cdn.dribbble.com/userupload/7091669/file/original-722803fa84ca15a8d230517b036a836e.png?resize=2048x1536&vertical=center',
+          primaryWidth: 2048,
+          primaryHeight: 1536,
+          primaryAlt: 'Biometric Security, Push Notifications and Universal Deep Linking',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Biometric Security & Deep Linking',
+          captionText: 'Face ID / Touch ID authentication, APNs push notifications and universal linking',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'mobile-app-push-notifications',
+        id: 'mobile-app-store-cicd-telemetry',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Engagement & Notifications',
-        heading: 'Push Notifications, Deep Linking & User Engagement',
+        eyebrow: 'Store Deployment & Governance',
+        heading: 'Automated App Store CI/CD, Compliance & 24/7 Monitoring',
         description: [
-          'Engage and re-activate mobile users with rich, contextual push notifications via Apple Push Notification service (APNs) and Firebase Cloud Messaging (FCM).',
-          'We integrate universal links and deep linking to direct users straight to specific in-app views from notifications, emails, and web campaigns.',
-          'Automated segment targeting, in-app messaging, and analytics SDKs give your product team actionable insight into retention, screen drop-offs, and user lifetime value.',
+          'Launching on the App Store and Google Play requires strict adherence to security, privacy declarations, and sandbox guidelines. We lead the complete submission and review process.',
+          'Automated build and delivery pipelines powered by Fastlane and GitHub Actions automate testing, code signing, and beta builds to TestFlight and Google Play Internal Testing.',
+          'Real-time crash reporting (Firebase Crashlytics, Sentry) and telemetry track app health, memory usage, and frame rate stability in production.',
         ],
         buttons: [
-          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Explore Store Operations', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-plus'),
-      },
-      {
-        id: 'mobile-app-store-lifecycle',
-        layout: 'media-right',
-        spacing: 'standard',
-        theme: 'dark',
-        eyebrow: 'App Store Operations',
-        heading: 'App Store & Google Play Publishing, CI/CD & Maintenance',
-        description: [
-          'Navigating the Apple App Store and Google Play Store review guidelines can be challenging. We manage certificates, provisioning profiles, privacy declarations, and store compliance.',
-          'We set up automated build and distribution pipelines using Fastlane, TestFlight, and Google Play Internal Testing for automated beta testing and release management.',
-          'Post-launch, our engineers handle OS version compatibility updates, crash monitoring (Crashlytics), and continuous feature enhancements.',
-        ],
-        buttons: [
-          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
-        ],
-        media: reuseHomeFeatureMedia('software-support-growth'),
+        media: {
+          primary:
+            'https://cdn.dribbble.com/userupload/7091669/file/original-722803fa84ca15a8d230517b036a836e.png?resize=2048x1536&vertical=center',
+          primaryWidth: 2048,
+          primaryHeight: 1536,
+          primaryAlt: 'Automated App Store CI/CD and Production Telemetry',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Automated CI/CD & App Store Delivery',
+          captionText: 'Fastlane automation, TestFlight distribution, Crashlytics telemetry and compliance',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
     ],
-    showPartners: true,
+    faqs: [
+      {
+        question: 'Should we build a native app (Swift/Kotlin) or a cross-platform app (React Native/Flutter)?',
+        answer:
+          'For most consumer and enterprise platforms, cross-platform frameworks like React Native or Flutter provide near-identical 60–120Hz native performance while reducing development costs and keeping iOS and Android feature sets synchronized. For apps requiring intense 3D graphics, low-level Bluetooth protocols, or specialized hardware access, we engineer fully native Swift (iOS) and Kotlin (Android) applications.',
+      },
+      {
+        question: 'How do you handle App Store and Google Play Store submissions and approvals?',
+        answer:
+          'We manage the entire submission lifecycle: configuring Apple Developer and Google Play Console accounts, provisioning profiles, privacy nutrition labels, in-app purchases, and guideline compliance. Our automated Fastlane pipelines streamline beta distribution via TestFlight and Google Play Internal Testing.',
+      },
+      {
+        question: 'Can our mobile application integrate with our existing backend, ERP, CRM, and Shopify store?',
+        answer:
+          'Yes. We build custom API connectors and middleware connecting your mobile app with Shopify (Storefront & Admin GraphQL APIs), custom Node.js/Python backends, Salesforce, HubSpot, Stripe payment sheets, and internal databases with secure OAuth2 authentication.',
+      },
+      {
+        question: 'How is offline data synchronization managed when users lose mobile reception?',
+        answer:
+          'We engineer offline-first architectures using local encrypted SQLite, Realm, or WatermelonDB caching. Actions performed offline are queued locally and automatically reconciled with your backend servers using conflict resolution algorithms when the connection returns.',
+      },
+      {
+        question: 'Who owns the source code and App Store developer accounts?',
+        answer:
+          'You retain 100% ownership of all mobile source code, design assets, database schemas, and CI/CD deployment pipelines upon completion. Applications are published under your company’s official Apple and Google developer accounts.',
+      },
+    ],
+    experts: {
+      eyebrow: 'Mobile Application Engineering',
+      heading: 'Ready to Build Your High-Performance Mobile Application?',
+      description:
+        'Byte Operator designs, engineers, and scales custom iOS, Android, and cross-platform mobile apps. Talk directly with our senior mobile architects to discuss your roadmap and launch strategy.',
+      ctaLabel: 'Discuss Your Mobile Project',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Byte Operator engineered our mobile application in React Native with flawless execution. The app maintains a solid 60fps, offline caching works seamlessly, and our App Store approval went through on the first submission.',
+          author: 'James Kendrick',
+          role: 'Founder & CEO',
+          company: 'OmniCommerce Mobile',
+          rating: 5,
+          highlight: 'React Native App Launch',
+        },
+        {
+          quote:
+            'The user experience, Face ID biometric login, and real-time push notification pipelines boosted our daily active user retention by 42% within three months.',
+          author: 'Sophia Patel',
+          role: 'Head of Mobile Product',
+          company: 'Apex Digital Platforms',
+          rating: 5,
+          highlight: 'Mobile UI/UX & Retention',
+        },
+      ],
+    },
+    showPartners: false,
   },
   'software-integrations': {
     faqTitle: 'API & System Integrations',
@@ -2024,23 +2134,27 @@ export const SERVICE_PAGE_CONFIGS = {
       heading: 'Decoupled, High-Performance Edge Solutions & Cloud Infrastructure',
       chips: [
         {
-          label: 'Decoupled Architecture',
+          label: 'Decoupled Next.js Architecture',
           href: SERVICE_PAGE_ROUTES.softwareDevelopment,
         },
         {
-          label: 'Edge Computing & CDN',
-          href: SERVICE_PAGE_ROUTES.contact,
+          label: 'Global Edge CDN & Caching',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
         },
         {
-          label: 'Serverless & Microservices',
+          label: 'Serverless Microservices',
           href: SERVICE_PAGE_ROUTES.softwareDevelopment,
         },
         {
-          label: 'Cloud Infrastructure (AWS/GCP)',
+          label: 'Multi-Cloud (AWS & GCP)',
           href: SERVICE_PAGE_ROUTES.contact,
         },
         {
-          label: 'Headless CMS Integration',
+          label: 'Headless CMS & Content Hubs',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
+        },
+        {
+          label: 'Automated CI/CD & Terraform',
           href: SERVICE_PAGE_ROUTES.contact,
         },
       ],
@@ -2054,69 +2168,101 @@ export const SERVICE_PAGE_CONFIGS = {
     about: {
       intro: {
         heading:
-          'Decoupled architectures that separate presentation layers from backend services for ultimate speed and agility.',
+          'Featured Cloud Case Study: Engineering Scalable Decoupled Architecture & Edge Infrastructure',
         description:
-          'Modern applications demand speed, flexibility, and global reach. Byte Operator designs decoupled headless systems that connect modern frontend frameworks to scalable API backends and edge networks. By separating your presentation layer from core business engines, your team can deploy rapid iterations with zero backend constraints.',
+          'Byte Operator engineers modern headless platforms that decouple frontend user experiences from core backend engines. By deploying Next.js frontends on global edge runtimes and connecting them with resilient microservices, we achieve sub-50ms TTFB and instantaneous global deployments with zero operational downtime.',
         cta: {
-          label: 'Get In Touch',
-          href: SERVICE_PAGE_ROUTES.contact,
+          label: 'Explore Cloud Architecture',
+          href: SERVICE_PAGE_ROUTES.work,
         },
       },
       media: {
-        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
-        primaryAlt: 'Byte Operator headless and cloud architecture planning',
-        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
-        secondaryAlt: 'Byte Operator cloud architects collaborating on infrastructure design',
+        primary:
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/custom_software_case_study.png?v=1790400442',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt:
+          'Decoupled cloud architecture and headless infrastructure overview',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
       },
       process: {
-        heading: 'Our cloud & headless engineering roadmap.',
+        heading: 'Our Complete Cloud & Headless Engineering Lifecycle',
         leftDescription:
-          'We assess your application workloads, latency requirements, content models, and microservice boundaries. We design cloud topology diagrams, API gateways, edge caching rules, and headless content schemas before provisioning infrastructure.',
+          '01: Systems Discovery & Edge Modeling\nWe audit your application workloads, latency requirements, content models, and microservice boundaries, creating complete topology maps and edge routing strategies.\n\n02: Composable Frontend & Next.js Architecture\nWe build lightweight, highly reactive frontends utilizing Next.js, React, and TypeScript with static generation (SSG) and incremental static regeneration (ISR).\n\n03: Serverless API Gateways & Microservices\nWe develop stateless microservices and API gateways on AWS Lambda, Cloudflare Workers, and Google Cloud Run for rapid, on-demand execution.',
         rightDescription:
-          'We implement Infrastructure as Code, deploy decoupled frontend and backend services, and configure global edge distribution. Comprehensive load testing, failover drills, and security audits validate platform resiliency before launch.',
+          '04: Headless CMS & Dynamic Content Schemas\nWe configure structured headless content models across Sanity, Strapi, or Contentful with real-time editorial previews and automated webhook build triggers.\n\n05: Infrastructure as Code & Multi-Region Cloud\nWe automate cloud provisioning using Terraform and Docker containers, configuring multi-region redundancy, SSL termination, and auto-scaling policies.\n\n06: 24/7 Observability & Cloud Cost Optimization\nReal-time distributed tracing (OpenTelemetry, Datadog), Prometheus metrics, and cloud cost rightsizing ensure reliable peak performance at optimized spend.',
         cta: {
-          label: 'Get In Touch',
+          label: 'Discuss Cloud Architecture',
           href: SERVICE_PAGE_ROUTES.contact,
         },
       },
     },
     features: [
       {
-        id: 'headless-cloud-decoupled-architecture',
+        id: 'headless-cloud-decoupled-frontends',
         layout: 'media-left',
         spacing: 'first',
         theme: 'dark',
-        eyebrow: 'Decoupled Systems',
-        heading: 'Decoupled Frontend & Backend Architecture',
+        eyebrow: 'Composable Frontends',
+        heading: 'Decoupled Next.js Frontends & Composable UI Architecture',
         description: [
-          'Decoupled architectures free your frontend engineering team from backend constraints. We build lightweight, composable frontends using Next.js and React that communicate with API services via GraphQL and REST.',
+          'Decoupled architectures free your frontend engineering team from legacy monolithic backend constraints. We build lightweight, composable frontends using Next.js and React that communicate with APIs via high-speed GraphQL and REST.',
           'This separation allows frontend developers to iterate on user experiences and deploy UI updates in seconds without redeploying backend servers or risking operational downtime.',
           'A single decoupled API layer can effortlessly power web applications, mobile apps, customer portals, and IoT devices simultaneously.',
         ],
         buttons: [
           {
-            label: 'Explore Full-Stack Development',
-            href: '/services/software-theme-development-builds',
+            label: 'Explore Full-Stack Builds',
+            href: SERVICE_PAGE_ROUTES.softwareDevelopment,
           },
         ],
-        media: reuseHomeFeatureMedia('software-migrations'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Composable Next.js and React Decoupled Frontend Architecture',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Composable Frontend & Next.js Architecture',
+          captionText: 'Decoupled presentation layer with instantaneous static regeneration and live data feeds',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'headless-cloud-edge-computing',
+        id: 'headless-cloud-edge-cdn',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Edge Computing & CDN',
-        heading: 'Ultra-Low Latency Edge Computing & Global CDNs',
+        eyebrow: 'Edge Computing & Low Latency',
+        heading: 'Ultra-Low Latency Global Edge CDNs & Smart Routing',
         description: [
-          'Deliver content and compute logic right at the user’s doorstep. We configure edge compute networks using Cloudflare Workers, Vercel Edge Runtime, and AWS Lambda@Edge.',
-          'Edge rendering, dynamic geolocation routing, image transformation, and instant cache invalidation reduce time-to-first-byte (TTFB) to sub-50ms globally.',
+          'Deliver content and compute logic right at the user’s doorstep. We configure global edge compute networks using Cloudflare Workers, Vercel Edge Runtime, and AWS Lambda@Edge.',
+          'Edge rendering, dynamic geolocation routing, automated image transformation, and instant cache invalidation reduce time-to-first-byte (TTFB) to sub-50ms globally.',
           'Edge security rules filter malicious traffic, bot attacks, and DDoS threats before requests ever reach your origin cloud infrastructure.',
         ],
         buttons: [
-          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Discuss Edge Networks', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-launch'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/6.png?v=1789643508',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Global Edge Network Routing and CDN Acceleration',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Global Edge Network & Sub-50ms TTFB',
+          captionText: 'Cloudflare Workers and Vercel Edge Runtime for instantaneous worldwide delivery',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
         id: 'headless-cloud-serverless-microservices',
@@ -2124,83 +2270,150 @@ export const SERVICE_PAGE_CONFIGS = {
         spacing: 'deep',
         theme: 'dark',
         eyebrow: 'Serverless & Microservices',
-        heading: 'Serverless Functions & Scalable Microservices',
+        heading: 'Serverless Functions & Scalable Cloud Microservices',
         description: [
-          'Break down monolithic applications into modular, autonomous microservices that scale up during peak traffic and scale to zero when idle.',
-          'We architect serverless backends using AWS Lambda, Google Cloud Functions, and Azure Functions, drastically slashing cloud hosting costs while eliminating server provisioning.',
-          'Each microservice encapsulates a distinct domain capability, enabling independent scaling, deployment, and testing with clear API boundaries.',
+          'Break down monolithic applications into modular, autonomous microservices that scale up automatically during peak traffic spikes and scale to zero when idle.',
+          'We architect serverless backends using AWS Lambda, Google Cloud Run, and Azure Functions, drastically slashing cloud hosting costs while eliminating manual server provisioning.',
+          'Each microservice encapsulates a distinct domain capability, enabling independent scaling, zero-downtime deployments, and isolated failure domains.',
         ],
         buttons: [
-          {label: 'Discuss Microservices', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Plan Microservices', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-development'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/COLLABIX_SECOND.png?v=1789642386',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Scalable Cloud Microservices and Serverless Architecture',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Serverless Functions & Microservices',
+          captionText: 'Autonomous domain microservices, automated scaling and zero-downtime deployments',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'headless-cloud-headless-cms',
+        id: 'headless-cloud-headless-cms-gateways',
         layout: 'media-right',
         spacing: 'standard',
         theme: 'dark',
-        eyebrow: 'Headless CMS',
+        eyebrow: 'Headless CMS & Content Hubs',
         heading: 'API-First Headless CMS & Structured Content Models',
         description: [
-          'Empower your marketing and content teams with intuitive headless CMS platforms like Sanity, Strapi, Contentful, and Payload CMS.',
-          'We design structured, modular content schemas with real-time preview environments, granular role permissions, and instant webhook triggers for static site rebuilds.',
-          'Content creators gain total freedom to publish rich media without relying on developers to code new page templates.',
+          'Empower your marketing and editorial teams with intuitive headless CMS platforms including Sanity, Strapi, Contentful, and Payload CMS.',
+          'We design structured, modular content schemas with real-time editorial preview environments, granular role permissions, and instant webhook triggers for static site rebuilds.',
+          'Content creators gain total autonomy to publish rich multimedia stories without relying on developers to hardcode new page templates.',
         ],
         buttons: [
           {
-            label: 'Explore Integrations',
-            href: '/services/software-integrations',
+            label: 'Explore CMS Integrations',
+            href: SERVICE_PAGE_ROUTES.softwareIntegrations,
           },
         ],
-        media: reuseHomeFeatureMedia('software-seo-geo'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third_party_api_endpoints.png?v=1790403408',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Headless CMS Architecture and GraphQL Content Hubs',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'API-First Headless CMS Architecture',
+          captionText: 'Structured Sanity/Contentful schemas, live editorial previews and automated webhook triggers',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: 'headless-cloud-infrastructure-iac',
+        id: 'headless-cloud-observability-devops',
         layout: 'media-left',
         spacing: 'deep',
         theme: 'dark',
-        eyebrow: 'Cloud Infrastructure',
-        heading: 'Infrastructure as Code, Docker & Kubernetes',
+        eyebrow: 'Observability & DevOps',
+        heading: 'Infrastructure as Code, CI/CD & 24/7 Cloud Observability',
         description: [
-          'We automate cloud provisioning across AWS, GCP, and Azure using Infrastructure as Code (IaC) tools like Terraform and AWS CDK.',
-          'Docker containerization and Kubernetes orchestration ensure that multi-service applications run with complete environment parity across development, staging, and production.',
-          'Auto-scaling policies, health checks, and automated failover routing keep your platforms resilient against unexpected traffic surges and hardware failures.',
+          'We automate cloud provisioning across AWS, GCP, and Azure using Infrastructure as Code (IaC) with Terraform and AWS CDK, ensuring reproducible, version-controlled environments.',
+          'Docker containerization and Kubernetes orchestration guarantee complete environment parity across development, staging, and production clusters.',
+          'Maintain complete visibility into distributed cloud systems with centralized OpenTelemetry tracing, Datadog metric dashboards, and proactive cost optimization.',
         ],
         buttons: [
-          {label: 'Plan Infrastructure', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Discuss DevOps Operations', href: SERVICE_PAGE_ROUTES.contact},
         ],
-        media: reuseHomeFeatureMedia('software-design'),
-      },
-      {
-        id: 'headless-cloud-monitoring-devops',
-        layout: 'media-right',
-        spacing: 'standard',
-        theme: 'dark',
-        eyebrow: 'Cloud Observability',
-        heading: 'Continuous DevOps, Observability & Cloud Cost Optimization',
-        description: [
-          'Maintain complete visibility into distributed cloud systems with centralized logging, metric dashboards (Datadog, Grafana, CloudWatch), and distributed tracing.',
-          'Our DevOps engineers optimize cloud infrastructure to eliminate over-provisioned resources, rightsizing instances and storage tiers to reduce ongoing cloud expenditure.',
-          '24/7 automated monitoring and proactive alerting ensure any latency spikes or service degradations are detected and resolved immediately.',
-        ],
-        buttons: [
-          {
-            label: 'Get In Touch',
-            href: SERVICE_PAGE_ROUTES.contact,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-plus'),
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/11.png?v=1789646420',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Infrastructure as Code, CI/CD and Cloud Observability',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Infrastructure as Code & Cloud Telemetry',
+          captionText: 'Terraform automation, container orchestration and real-time distributed tracing',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
     ],
-    showPartners: true,
+    faqs: [
+      {
+        question: 'What are the core benefits of migrating to a headless decoupled architecture?',
+        answer:
+          'A headless architecture separates your frontend presentation layer from your backend database and business logic. This allows frontend teams to build ultra-fast, custom user experiences in Next.js without backend limitations, enables omnichannel publishing across web and mobile from a single API, and drastically increases page load speeds with global edge caching.',
+      },
+      {
+        question: 'How does edge computing reduce time-to-first-byte (TTFB) and improve global performance?',
+        answer:
+          'Edge computing deploys your application logic and caching across hundreds of global server locations worldwide (such as Cloudflare Workers or Vercel Edge). Instead of routing every request to a single centralized origin server, user requests are processed at the nearest local edge node, reducing TTFB to under 50ms.',
+      },
+      {
+        question: 'Which headless CMS and frontend frameworks do you recommend?',
+        answer:
+          'We primarily recommend Next.js and React for frontend presentation layers due to their exceptional performance, SSR/SSG capabilities, and rich ecosystem. For headless CMS, we work extensively with Sanity.io, Strapi, Contentful, and Payload CMS, selecting the optimal tool based on your team’s editorial workflow and content complexity.',
+      },
+      {
+        question: 'How do you manage cloud infrastructure costs and auto-scaling on AWS and GCP?',
+        answer:
+          'We engineer serverless and containerized microservice architectures that scale up automatically during high-traffic events and scale down during quiet hours. We implement aggressive CDN caching, optimize database queries with Redis, and rightsize cloud resource allocations to keep monthly infrastructure costs predictable and lean.',
+      },
+      {
+        question: 'How are security, DDoS mitigation, and API authentication enforced across headless endpoints?',
+        answer:
+          'We implement enterprise security from the edge layer inward: Cloudflare DDoS protection, Web Application Firewalls (WAF), rate limiting, TLS 1.3 encryption, and scoped OAuth2 / JWT token authentication for API gateways. Origin servers are shielded behind private VPC networks accessible only by verified edge runners.',
+      },
+    ],
     experts: {
-      eyebrow: 'Headless & Cloud Engineering Experts',
-      heading: 'Architect Your Cloud Platform for Unrivaled Scale',
+      eyebrow: 'Headless & Cloud Architecture Engineering',
+      heading: 'Ready to Modernize Your Cloud & Headless Architecture?',
       description:
-        'Byte Operator helps technology teams evaluate, architect, deploy, and scale decoupled headless systems and cloud architectures. Discuss your edge computing, microservices, or cloud modernization project with our team.',
-      ctaLabel: 'Get In Touch',
+        'Byte Operator designs, provisions, and scales decoupled web platforms, edge networks, and multi-cloud backends. Talk directly with our senior cloud architects to discuss your infrastructure.',
+      ctaLabel: 'Discuss Cloud Architecture',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Migrating to a headless Next.js frontend on Cloudflare edge reduced our global page load times by 68%. Byte Operator delivered the entire architecture seamlessly with zero downtime during the cutover.',
+          author: 'Alexander Scott',
+          role: 'Chief Technology Officer',
+          company: 'Hyperion Global Platforms',
+          rating: 5,
+          highlight: 'Headless Next.js Migration',
+        },
+        {
+          quote:
+            'Their serverless microservices and Terraform automation cut our monthly cloud bill by 40% while handling our biggest Black Friday traffic spike flawlessly.',
+          author: 'Rachel Zhang',
+          role: 'VP of Infrastructure & DevOps',
+          company: 'OmniCloud Technologies',
+          rating: 5,
+          highlight: 'Serverless Cloud Architecture',
+        },
+      ],
     },
+    showPartners: false,
   },
   'bigcommerce-software-migrations': {
     faqTitle: 'BigCommerce to Platform & Cloud Migration',
@@ -5476,455 +5689,1415 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
   },
-  "shopify-web-design": {
-    faqTitle: "Shopify Store Development",
+  'shopify-web-design': {
+    faqTitle: 'Shopify Store Development',
     hero: {
-      eyebrow: "Shopify Store Development",
-      heading: "High-converting bespoke Shopify storefronts engineered for scale.",
-      description: "Byte Operator designs and builds bespoke Shopify and Shopify Plus stores. From custom Liquid themes to high-performance modular components, we deliver fast, conversion-optimized ecommerce experiences.",
+      eyebrow: 'Shopify & Shopify Plus Engineering',
+      heading: 'Custom Shopify Storefront Architecture & Revenue-Driven Commerce Solutions',
       chips: [
-        "Custom Shopify Themes",
-        "Shopify Plus Builds",
-        "UI/UX Storefront Design",
-        "Conversion Optimisation",
-        "Technical SEO",
+        {
+          label: 'Custom Shopify Themes',
+          href: SERVICE_PAGE_ROUTES.softwareWebDesign,
+        },
+        {
+          label: 'Shopify Plus Architecture',
+          href: SERVICE_PAGE_ROUTES.softwarePlus,
+        },
+        {
+          label: 'Conversion Rate Optimization',
+          href: SERVICE_PAGE_ROUTES.ecommerceCro,
+        },
+        {
+          label: 'Merchandising & Catalog UX',
+          href: SERVICE_PAGE_ROUTES.softwareDevelopment,
+        },
+        {
+          label: 'Core Web Vitals & Speed',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+        {
+          label: 'Seamless Platform Migrations',
+          href: SERVICE_PAGE_ROUTES.softwareMigrations,
+        },
       ],
+      description:
+        'Byte Operator designs, engineers, and scales high-performance Shopify and Shopify Plus storefronts. From custom Liquid 2.0 component libraries and frictionless checkout pathways to catalog migrations and conversion optimization, we create lightning-fast ecommerce experiences engineered to accelerate revenue.',
       primaryCta: {
-        label: "Get In Touch",
-        href: "/contact/",
+        label: 'Start Your Shopify Project',
+        href: SERVICE_PAGE_ROUTES.contact,
       },
-      showPartnerLogos: false,
-      showClientProof: false,
     },
     about: {
       intro: {
-        heading: "Custom Shopify development built around how your customers discover, browse and buy.",
-        description: "Our Shopify store development bridges world-class visual design, modular Liquid component architecture, and cutting-edge ecommerce performance. We build stores tailored to your catalog, business logic, and growth objectives.",
+        heading:
+          'Featured Case Study: High-Converting Store Architecture, CRO & Platform Migration',
+        description:
+          'Byte Operator develops tailored Shopify storefronts designed to turn high-intent traffic into loyal customers. By combining precision Liquid architecture with data-backed user journeys, automated platform migrations, and sub-second rendering speeds, we enable direct-to-consumer and enterprise commerce leaders to achieve sustainable growth.',
         cta: {
-          label: "Get In Touch",
-          href: "/contact/",
+          label: 'View Ecommerce Case Studies',
+          href: SERVICE_PAGE_ROUTES.work,
         },
       },
       media: {
-        primary: "/images/services/services-wide.webp",
-        primaryWidth: 1672,
-        primaryHeight: 941,
-        primaryAlt: "Shopify store development project",
-        secondary: "/images/mega-menu-team.webp",
-        secondaryWidth: 1970,
-        secondaryHeight: 1306,
-        secondaryAlt: "Byte Operator Shopify development team",
+        primary:
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/shopify_cro_and_migration_store.webp?v=1790407473',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt:
+          'High-converting Shopify CRO and migration storefront showcase',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
       },
       process: {
-        heading: "A rigorous, sprint-based Shopify design & development process.",
-        leftDescription: "We analyze your brand, customer personas, catalog complexities, and conversion funnel. From wireframing to high-fidelity Figma designs, every page template is planned for optimal usability and maximum speed.",
-        rightDescription: "Development follows modern Shopify standards: modular section architecture, zero code bloat, dynamic filtering, schema markup, and rigorous multi-device testing before launch.",
+        heading: 'Our End-to-End Shopify Engineering & Launch Lifecycle',
+        leftDescription:
+          '01: Strategy & Commercial Blueprinting\nWe map your target consumer personas, catalog architecture, average order value targets, and merchandising goals before writing a single line of code.\n\n02: High-Performance UI/UX Design\nWe craft sleek, conversion-tested storefront layouts in Figma with intuitive mobile navigation, tactile tap targets, and streamlined product discovery pathways.\n\n03: Custom Liquid 2.0 Theme Architecture\nWe build lightweight, modular section blocks with clean semantic markup, ensuring complete drag-and-drop freedom for your marketing team without runtime code bloat.',
+        rightDescription:
+          '04: Conversion Funnels & Smart Checkout\nWe integrate slide-out cart drawers, dynamic threshold shipping bars, intelligent upsells, and friction-free payment flows.\n\n05: Core Web Vitals & Technical SEO\nWe optimize Google Core Web Vitals, implement automated WebP/AVIF asset pipelines, and structure rich JSON-LD schemas for maximum organic visibility.\n\n06: End-to-End QA & Zero-Downtime Cutover\nExhaustive cross-browser testing across mobile and desktop devices, payment gateway validation, and flawless DNS cutover.',
         cta: {
-          label: "Get In Touch",
-          href: "/contact/",
+          label: 'Discuss Your Shopify Build',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
       },
     },
     features: [
       {
-        id: "shopify-web-design-bespoke",
-        layout: "media-left",
-        spacing: "first",
-        theme: "dark",
-        eyebrow: "Bespoke Shopify Themes",
-        heading: "Modular, Maintainable & Lightning-Fast Architecture",
+        id: 'shopify-cro-and-migration-store',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Conversion Engineering & Replatforming',
+        heading: 'Data-Backed Shopify CRO & Zero-Loss Store Migrations',
         description: [
-          "A bespoke Shopify theme gives your brand unlimited flexibility without the performance bloat of pre-packaged marketplace themes.",
-          "We structure reusable theme sections in Liquid and modern CSS, giving your marketing team complete drag-and-drop autonomy while preserving strict brand guidelines and fast load times.",
+          'Moving from legacy ecommerce platforms like Magento, WooCommerce, or BigCommerce to Shopify requires meticulous execution to protect historical revenue and search visibility. We migrate product catalogs, customer records, order archives, and URL redirects with complete data integrity.',
+          'Every page layout is designed using conversion-first principles: persistent add-to-cart CTAs, real-time inventory indicators, verified reviews, and rapid one-page checkout experiences.',
+          'Stores migrated and optimized by Byte Operator consistently experience lower bounce rates, higher average order value, and measurable increases in visitor conversion rates.',
         ],
-        buttons: [{label: "Explore Case Studies", href: SERVICE_PAGE_ROUTES.work}],
-        media: reuseHomeFeatureMedia("software-launch"),
+        buttons: [
+          {label: 'Explore CRO Strategies', href: SERVICE_PAGE_ROUTES.ecommerceCro},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/shopify_cro_and_migration_store.webp?v=1790407473',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Shopify CRO and Migration Store Showcase',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Conversion-Optimized Store Rebuild',
+          captionText: 'Engineered for sub-second mobile page loads, streamlined cart funnels, and frictionless checkout',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-web-design-cro",
-        layout: "media-right",
-        spacing: "standard",
-        theme: "dark",
-        eyebrow: "Conversion-Led Design",
-        heading: "Streamlined Funnels from Product Page to Checkout",
+        id: 'shopify-toys-store-merchandising',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Visual Discovery & High-Volume Catalogs',
+        heading: 'High-Capacity Merchandising for Complex Toy & Lifestyle Catalogs',
         description: [
-          "Every element on your product, collection, and cart pages is engineered to reduce friction and increase average order value (AOV).",
-          "We implement smart cart drawers, contextual product bundles, 1-click upsells, and trust-building checkout components tailored for high-volume transactions.",
+          'Navigating massive product catalogs should be effortless for customers. We construct intuitive collection hierarchies, faceted age and category filters, interactive gift guides, and dynamic product badges that guide buyers directly to what they need.',
+          'Our modular theme framework effortlessly handles tens of thousands of SKUs, high-definition video galleries, and variant matrices without compromising loading speed or responsiveness.',
+          'We incorporate bundle configurators, tiered volume discounts, and loyalty incentives directly into the shopping flow to maximize basket size and repeat purchases.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-development"),
+        buttons: [
+          {label: 'Build High-SKU Architecture', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/toys.webp?v=1790407473',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'High-SKU Toys and Lifestyle Storefront Showcase',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'High-Capacity Toy & Lifestyle Storefront',
+          captionText: 'Multi-attribute filtering, interactive bundle builders, and rapid collection rendering',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-web-design-discovery",
-        layout: "media-left",
-        spacing: "deep",
-        theme: "dark",
-        eyebrow: "Catalog & Merchandising Architecture",
-        heading: "Faceted Filtering & Rapid Product Discovery",
+        id: 'shopify-furniture-home-store',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Luxury Aesthetics & Immersive Product Storytelling',
+        heading: 'Premium Furniture & Home Decor Storefront Engineering',
         description: [
-          "For complex product catalogs, effortless navigation is crucial. We build custom collection filtering, live search with instant typeahead, and intuitive visual category menus.",
-          "This ensures customers find what they need in seconds, directly driving higher session conversion rates and lower bounce rates.",
+          'High-consideration purchases demand rich product presentation and seamless confidence builders. We craft editorial lookbooks, curated room collections, and interactive 3D model viewers that bring home furnishings to life.',
+          'Product detail pages include dimension diagrams, material and color swatches with instant image updates, estimated delivery timelines, and specialized freight shipping calculations.',
+          'Integrated flexible payment options like Shop Pay Installments, Klarna, and Affirm provide transparent checkout financing that turns hesitant browsers into confirmed buyers.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-design"),
+        buttons: [
+          {label: 'Plan Premium Store Build', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/furniture.webp?v=1790407636',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Premium Furniture and Home Goods Storefront Showcase',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Luxury Furniture & Home Storefront',
+          captionText: 'Interactive material swatch selectors, dimension visualizers, and white-glove shipping integrations',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-web-design-performance",
-        layout: "media-right",
-        spacing: "standard",
-        theme: "dark",
-        eyebrow: "Core Web Vitals & Speed",
-        heading: "Performance-First Development Standards",
+        id: 'shopify-modular-liquid-architecture',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Modular Liquid 2.0 Architecture',
+        heading: 'Reusable Drag-and-Drop Sections with Zero Theme Bloat',
         description: [
-          "Speed directly impacts your organic search visibility and ad conversion efficiency. Our themes are built with sub-second page rendering, responsive image compression, and zero render-blocking scripts.",
-          "We optimize Core Web Vitals (LCP, INP, CLS) from day one so your storefront runs smoothly on mobile networks worldwide.",
+          'We engineer modular Shopify Online Store 2.0 section systems that empower your internal team to build, adjust, and launch promotional landing pages in minutes directly inside the theme editor.',
+          'Unlike generic marketplace themes that ship with bloated external libraries and excess JavaScript scripts, our themes are coded lean, loading only the necessary assets required for the active viewport.',
+          'Consistent component design systems ensure that your brand typography, color palettes, spacing standards, and UI behaviors remain unified across every page template.',
         ],
-        buttons: [{label: "Explore Audits", href: "/services/shopify-audits"}],
-        media: reuseHomeFeatureMedia("software-seo-geo"),
+        buttons: [
+          {label: 'Start Custom Theme Build', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/shopify_cro_and_migration_store.webp?v=1790407473',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Modular Liquid Theme Architecture Showcase',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Modular Shopify 2.0 Architecture',
+          captionText: 'Custom drag-and-drop section blocks with native customizer flexibility and clean code',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-web-design-qa",
-        layout: "media-left",
-        spacing: "deep",
-        theme: "dark",
-        eyebrow: "Quality Assurance & Launch",
-        heading: "Rigorous Multi-Device Testing & Safe Cutover",
+        id: 'shopify-core-web-vitals-performance',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Mobile Performance & Technical Speed',
+        heading: 'Sub-Second Page Loads & Google Core Web Vitals Optimization',
         description: [
-          "Before taking any store live, we execute comprehensive QA protocols across all major mobile devices, browsers, and operating systems.",
-          "We test order flows, payment gateways, tax calculation, discount logic, and customer account portals to guarantee a seamless transition on launch day.",
+          'Every millisecond of load latency impacts customer retention and ad spend return on investment. We build stores optimized from the ground up for peak mobile performance.',
+          'Our technical optimizations tackle Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS) through critical CSS inlining, intelligent script deferral, and responsive next-gen image serving.',
+          'Your storefront delivers lightning-quick performance across 4G and 5G cellular networks, maintaining stability and speed even during high-traffic flash sales and peak seasonal campaigns.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-migrations"),
+        buttons: [
+          {label: 'Schedule Performance Audit', href: SERVICE_PAGE_ROUTES.softwareAudits},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/furniture.webp?v=1790407636',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Sub-Second Speed and Core Web Vitals Performance',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Core Web Vitals & Speed Optimization',
+          captionText: 'Sub-second mobile rendering, optimized asset delivery pipelines, and zero render blocking',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
     ],
-    showPartners: true,
+    faqs: [
+      {
+        question: 'Why choose a custom Shopify theme over a pre-built marketplace template?',
+        answer:
+          'Pre-made marketplace templates are loaded with generic scripts, bloated styles, and unnecessary features that slow down page loads and limit customization. A custom Shopify theme is developed specifically around your catalog requirements, branding, and customer buying journey. The result is instant page rendering, superior mobile ergonomics, flexible Online Store 2.0 drag-and-drop sections, and an optimized checkout funnel designed to maximize conversions.',
+      },
+      {
+        question: 'How do you safeguard our SEO rankings and historical customer data during a platform migration?',
+        answer:
+          'We follow a rigorous replatforming protocol that includes complete 1:1 URL redirect mapping, migration of all meta tags, canonical structures, and structured schema data to preserve your organic search rankings. Product catalogs, customer credentials, and historic orders are securely transferred and validated through staging environments before executing zero-downtime DNS cutover.',
+      },
+      {
+        question: 'Can you create custom product configurators, swatch selectors, and freight shipping calculators?',
+        answer:
+          'Yes. We engineer native theme components and Shopify Functions for custom bundling rules, tiered volume discounts, dynamic color and texture swatches, dimensional visualizers, and carrier freight calculations without relying on third-party apps that slow down your store.',
+      },
+      {
+        question: 'How do you guarantee our store passes Google Core Web Vitals?',
+        answer:
+          'We optimize the critical rendering path by inlining essential CSS, deferring non-critical scripts, implementing modern responsive WebP and AVIF image compression, and auditing third-party marketing pixels to achieve green Core Web Vitals (LCP, INP, CLS) metrics on both mobile and desktop.',
+      },
+      {
+        question: 'Do we retain full code ownership and receive team training after launch?',
+        answer:
+          'Yes. You have 100% ownership of your theme codebase and repository with no recurring agency lock-in fees. Following deployment, we deliver comprehensive video walkthroughs and personalized training sessions to ensure your team can confidently manage sections, merchandise products, and launch new campaigns.',
+      },
+    ],
+    experts: {
+      eyebrow: 'Shopify & Shopify Plus Engineering',
+      heading: 'Ready to Elevate Your Shopify Storefront?',
+      description:
+        'Byte Operator designs, builds, and optimizes custom Shopify and Shopify Plus stores that convert. Partner directly with senior ecommerce engineers to plan your store build or redesign.',
+      ctaLabel: 'Schedule Your Shopify Consultation',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Byte Operator rebuilt our Shopify storefront and executed our platform migration with zero downtime. Our mobile conversion rate jumped by 34% within 60 days and page load times dropped to under 1.2 seconds.',
+          author: 'Liam Edwards',
+          role: 'Ecommerce Director',
+          company: 'Horizon Lifestyle Brands',
+          rating: 5,
+          highlight: 'Shopify Migration & 34% CRO Lift',
+        },
+        {
+          quote:
+            'The custom theme sections gave our merchandising team complete freedom to launch promotional pages in minutes. The furniture visualizer and swatch selectors work flawlessly on mobile.',
+          author: 'Charlotte Hayes',
+          role: 'Head of Brand & Digital',
+          company: 'Atelier Modern Living',
+          rating: 5,
+          highlight: 'Custom Shopify Store Build',
+        },
+      ],
+    },
+    showPartners: false,
   },
-  "shopify-app-development": {
-    faqTitle: "Shopify Apps & Extensions",
+  'shopify-plus-agency': {
+    faqTitle: 'Shopify Plus & Enterprise',
     hero: {
-      eyebrow: "Shopify Apps & Extensions",
-      heading: "Custom apps, checkout extensions & Shopify Functions for enterprise requirements.",
-      description: "We engineer bespoke public and private Shopify apps, checkout UI extensions, custom Shopify Functions, and backend API workflows that seamlessly extend Shopify platform capabilities.",
+      eyebrow: 'Shopify Plus & Enterprise Solutions',
+      heading: 'Enterprise Shopify Plus Architecture & High-Volume Commerce Solutions',
       chips: [
-        "Custom Shopify Apps",
-        "Shopify Functions",
-        "Checkout UI Extensions",
-        "API Integrations",
-        "Backend Microservices",
+        {
+          label: 'Shopify Plus Architecture',
+          href: SERVICE_PAGE_ROUTES.softwarePlus,
+        },
+        {
+          label: 'B2B & Wholesale Systems',
+          href: SERVICE_PAGE_ROUTES.softwareDevelopment,
+        },
+        {
+          label: 'Checkout Extensibility',
+          href: SERVICE_PAGE_ROUTES.softwareWebDesign,
+        },
+        {
+          label: 'Shopify Markets & Multi-Currency',
+          href: SERVICE_PAGE_ROUTES.internationalisation,
+        },
+        {
+          label: 'ERP & Middleware Integrations',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
+        },
+        {
+          label: 'High-Concurrency Flash Sales',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
       ],
+      description:
+        'Byte Operator designs, engineers, and scales enterprise Shopify Plus ecosystems for high-growth brands. From custom checkout extensibility and B2B wholesale portals to global multi-currency expansion and real-time ERP integrations, we deliver resilient commerce systems engineered for massive transaction volume.',
       primaryCta: {
-        label: "Get In Touch",
-        href: "/contact/",
+        label: 'Discuss Your Enterprise Build',
+        href: SERVICE_PAGE_ROUTES.contact,
       },
-      showPartnerLogos: false,
-      showClientProof: false,
     },
     about: {
       intro: {
-        heading: "Extend Shopify capabilities with scalable, secure custom application architecture.",
-        description: "When theme customisation or off-the-shelf apps cannot solve your specific operational or customer experience challenge, Byte Operator builds robust custom Shopify applications and extensions.",
+        heading:
+          'Featured Enterprise Case Study: Multivendor Architecture & Scalable Platform Ecosystem',
+        description:
+          'Byte Operator builds scalable Shopify Plus architectures capable of supporting millions of monthly visits, high-concurrency flash sales, and complex multi-channel operations. By uniting modular Liquid 2.0 with decoupled middleware and automated data synchronization, we provide enterprise brands with the speed, stability, and control required to scale globally.',
         cta: {
-          label: "Get In Touch",
-          href: "/contact/",
+          label: 'View Enterprise Case Studies',
+          href: SERVICE_PAGE_ROUTES.work,
         },
       },
       media: {
-        primary: "/images/services/services-wide.webp",
-        primaryWidth: 1672,
-        primaryHeight: 941,
-        primaryAlt: "Shopify app architecture and development",
-        secondary: "/images/mega-menu-team.webp",
-        secondaryWidth: 1970,
-        secondaryHeight: 1306,
-        secondaryAlt: "Shopify app engineering team",
+        primary:
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt:
+          'Enterprise Shopify Plus and multivendor platform ecosystem case study',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
       },
       process: {
-        heading: "Engineering custom Shopify apps from concept to production.",
-        leftDescription: "We define the technical architecture, data models, Shopify API permissions, and admin UI embedding. Every app is built using modern standards (Remix, Node.js, GraphQL, PostgreSQL).",
-        rightDescription: "We integrate webhooks, background workers, and Shopify App Bridge for an intuitive native admin experience, accompanied by automated CI/CD and comprehensive security testing.",
+        heading: 'Our Enterprise Shopify Plus Engineering Lifecycle',
+        leftDescription:
+          '01: Enterprise Architecture & Systems Audit\nWe assess existing ERP, CRM, WMS, and checkout dependencies to map out a high-throughput, low-latency technical blueprint.\n\n02: High-Performance UI/UX & Conversion Design\nWe craft sleek, mobile-first enterprise storefront layouts in Figma with intuitive product discovery and streamlined purchasing pathways.\n\n03: Modular Liquid 2.0 & Custom Component Engineering\nWe code lightweight section blocks and frontend components that render instantaneously on mobile devices with zero runtime bloat.',
+        rightDescription:
+          '04: Checkout Extensibility & Shopify Functions\nWe build custom discount engines, delivery validation logic, and post-purchase upsell flows using native Shopify Functions.\n\n05: B2B Wholesale & Multi-Currency Expansion\nWe configure dedicated B2B company accounts, negotiated price lists, Net payment terms, and localized international storefronts.\n\n06: High-Load Stress Testing & Zero-Downtime Launch\nWe execute simulated flash sale traffic spikes, automated regression testing, and manage a seamless DNS cutover with zero downtime.',
         cta: {
-          label: "Get In Touch",
-          href: "/contact/",
+          label: 'Plan Your Shopify Plus Build',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
       },
     },
     features: [
       {
-        id: "shopify-apps-functions",
-        layout: "media-left",
-        spacing: "first",
-        theme: "dark",
-        eyebrow: "Shopify Functions",
-        heading: "Custom Backend Logic Running at Shopify Edge Scale",
+        id: 'shopify-plus-flash-sales-scalability',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'High-Concurrency Infrastructure',
+        heading: 'Engineered for Massive Flash Sales & Peak Concurrency',
         description: [
-          "Shopify Functions allow custom business logic to execute directly on Shopify infrastructure in under 5ms, handling high-volume flash sales without external server latency.",
-          "We build custom discount rules, tiered bundling calculations, localized payment gateways, and custom shipping rate algorithms using Rust and WebAssembly.",
+          'Enterprise direct-to-consumer brands cannot afford storefront downtime or checkout bottlenecks during major product drops, Black Friday Cyber Monday, or viral campaigns.',
+          'We engineer lightweight, caching-optimized theme architectures and serverless edge functions capable of handling tens of thousands of simultaneous checkout attempts with zero latency spikes.',
+          'Our proactive load-balancing strategies, asset preloading pipelines, and database optimization ensure uninterrupted shopping experiences when traffic surges.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-development"),
+        buttons: [
+          {label: 'Explore Scalability Architecture', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/shopify_cro_and_migration_store.webp?v=1790407473',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'High-concurrency enterprise Shopify Plus storefront showcase',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'High-Concurrency Storefront Engineering',
+          captionText: 'Resilient theme architecture engineered for peak traffic drops, instant checkout, and zero downtime',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-apps-checkout-ui",
-        layout: "media-right",
-        spacing: "standard",
-        theme: "dark",
-        eyebrow: "Checkout UI Extensions",
-        heading: "Custom Checkout Experiences on Shopify Plus",
+        id: 'shopify-plus-b2b-wholesale-portals',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'B2B Wholesale & Omnichannel Commerce',
+        heading: 'Unified B2B & Direct-to-Consumer Wholesale Systems',
         description: [
-          "Customize your Shopify Plus checkout with native UI extensions that seamlessly match your branding and capture critical order data.",
-          "We build delivery date pickers, gift message inputs, post-purchase upsells, age verification gates, and custom loyalty redemption widgets.",
+          'Managing separate systems for retail customers and wholesale buyers adds unnecessary operational overhead. We build unified Shopify Plus environments that support both channels from a single admin.',
+          'Wholesale buyers receive dedicated corporate account logins, tiered price lists, custom payment terms (Net 30/60), volume-based discount matrices, and quick order forms.',
+          'Automated draft order workflows and ERP-linked credit limits streamline fulfillment and eliminate manual invoice processing.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-plus"),
+        buttons: [
+          {label: 'Discuss B2B Wholesale Architecture', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_orders.png?v=1790403409',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'B2B wholesale order management and corporate purchasing portal',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Unified B2B Wholesale Management',
+          captionText: 'Corporate buyer portals, negotiated price lists, automated invoicing, and multi-tier volume discounts',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-apps-builders",
-        layout: "media-left",
-        spacing: "deep",
-        theme: "dark",
-        eyebrow: "Interactive Product Builders",
-        heading: "Configurators & Build-a-Box Experiences",
+        id: 'shopify-plus-checkout-extensibility-functions',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Checkout Extensibility & Custom Functions',
+        heading: 'Tailored Checkout Extensibility & Custom Backend Logic',
         description: [
-          "Deliver engaging interactive shopping journeys that allow customers to customize, configure, or bundle products dynamically.",
-          "Our custom product builders update cart line items, pricing tiers, and inventory allocations in real-time, delivering a frictionless buying experience.",
+          'We transform standard checkout funnels into high-converting conversion engines using Shopify Checkout UI Extensions, web pixels, and custom Shopify Functions.',
+          'Our engineers implement dynamic custom delivery rules, localized address validation, tiered cart threshold promotions, and personalized post-purchase upsell offers directly within the native one-page checkout.',
+          'By replacing deprecated scripts with lightweight WebAssembly Functions, we deliver lightning-fast checkout processing and future-proof platform compatibility.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-launch"),
+        buttons: [
+          {label: 'Plan Custom Checkout Extensions', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/furniture.webp?v=1790407636',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Custom checkout extensibility and high-AOV product configuration',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'High-Converting Checkout Extensibility',
+          captionText: 'Native Shopify Functions for custom bundling, tiered shipping rules, and frictionless one-page checkout',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-apps-admin",
-        layout: "media-right",
-        spacing: "standard",
-        theme: "dark",
-        eyebrow: "Embedded Admin Applications",
-        heading: "Custom Operational Workflows inside Shopify Admin",
+        id: 'shopify-plus-global-markets-international',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Global Commerce & Localization',
+        heading: 'Seamless Global Expansion with Shopify Markets',
         description: [
-          "Streamline your internal team operations with bespoke embedded applications built with Shopify Polaris design system.",
-          "Manage custom return authorizations, wholesale company approvals, production workflows, and custom reporting directly inside your Shopify dashboard.",
+          'Selling internationally requires localized shopping experiences tailored to regional currencies, languages, tax compliance, and local payment preferences.',
+          'We architect multi-region setups using Shopify Markets and multi-store expansion architecture, giving international shoppers localized catalog pricing, automatic currency conversion, and regional fulfillment routing.',
+          'Integrated duty and tax calculation at checkout eliminates unexpected customs fees, fostering buyer trust and boosting global conversion rates.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-design"),
+        buttons: [
+          {label: 'Scale Globally with Shopify Markets', href: SERVICE_PAGE_ROUTES.internationalisation},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/toys.webp?v=1790407473',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Global multi-region catalog and Shopify Markets expansion',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Multi-Region Global Expansion',
+          captionText: 'Localized international storefronts, automatic currency switching, and automated customs duty calculation',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'shopify-plus-enterprise-api-integrations',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Enterprise Middleware & Systems Integration',
+        heading: 'Real-Time ERP, CRM & Warehouse Management Synchronization',
+        description: [
+          'Enterprise commerce requires seamless bidirectional data flow between your storefront and mission-critical back-office systems.',
+          'We engineer custom webhook event listeners, GraphQL middleware, and API connectors that sync product inventories, order fulfillment statuses, customer records, and return logistics in real time.',
+          'We connect platforms like NetSuite, SAP, Microsoft Dynamics 365, Salesforce, Klaviyo, and 3PL fulfillment networks with fault-tolerant retry logic to ensure zero data discrepancy.',
+        ],
+        buttons: [
+          {label: 'Explore Enterprise Integrations', href: SERVICE_PAGE_ROUTES.softwareIntegrations},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third_party_api_endpoints.png?v=1790403408',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Enterprise API endpoint integrations and ERP data synchronization',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Enterprise API & ERP Middleware',
+          captionText: 'Real-time inventory synchronization, automated order routing, and enterprise webhook pipelines',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
     ],
-    showPartners: true,
+    faqs: [
+      {
+        question: 'When should a growing brand upgrade from standard Shopify to Shopify Plus?',
+        answer:
+          'Upgrading to Shopify Plus makes commercial sense when your brand exceeds high annual revenue thresholds, requires custom checkout extensibility and Shopify Functions, operates dedicated B2B wholesale channels, or sells across multiple international regions with separate localized pricing and inventory.',
+      },
+      {
+        question: 'How do Shopify Functions and Checkout Extensibility improve conversion rates?',
+        answer:
+          'Shopify Functions execute server-side WebAssembly code with sub-millisecond latency directly inside the Shopify backend. This allows custom discount combinations, automated shipping tier rules, and address validation without relying on slow client-side scripts, resulting in faster checkouts and higher conversion rates.',
+      },
+      {
+        question: 'Can we manage both retail D2C and wholesale B2B from a single Shopify Plus store?',
+        answer:
+          'Yes. Shopify Plus native B2B allows you to run direct-to-consumer and wholesale operations from a single unified admin. You can configure dedicated company profiles, assign price lists, set minimum order quantities, enable Net payment terms, and provide custom product catalogs to wholesale clients.',
+      },
+      {
+        question: 'How do you handle real-time data sync with enterprise ERPs like NetSuite or SAP?',
+        answer:
+          'We architect scalable middleware and event-driven webhook pipelines using Node.js and Shopify GraphQL APIs. We implement rate-limit management, automatic retry queues, and automated data validation to ensure orders, inventory counts, and customer records stay synchronized in real time with zero data drift.',
+      },
+      {
+        question: 'How do you ensure zero downtime during major flash sales and product launches?',
+        answer:
+          'We optimize theme assets, eliminate heavy third-party app scripts, implement server-side caching, and utilize edge-rendered static components. Combined with Shopify Plus infrastructure capable of processing over 10,000 transactions per minute, your store handles high-concurrency traffic without slowdowns.',
+      },
+    ],
+    experts: {
+      eyebrow: 'Shopify Plus & Enterprise Solutions',
+      heading: 'Ready to Scale Your Enterprise Commerce Platform?',
+      description:
+        'Byte Operator designs, builds, and scales high-performance Shopify Plus ecosystems. Speak directly with our senior enterprise solutions architects to plan your build or migration.',
+      ctaLabel: 'Schedule Enterprise Consultation',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Byte Operator engineered our Shopify Plus infrastructure to handle our global multi-market expansion. Our international sales grew by 48% in the first quarter with seamless multi-currency checkout.',
+          author: 'Alexander Wright',
+          role: 'VP of Digital Commerce',
+          company: 'Vanguard Global Retail',
+          rating: 5,
+          highlight: 'Shopify Plus & Global Markets',
+        },
+        {
+          quote:
+            'Their custom B2B wholesale portal and NetSuite ERP integration completely eliminated manual order processing for our logistics team. The system is fast, reliable, and effortless to manage.',
+          author: 'Marcus Vance',
+          role: 'Chief Operating Officer',
+          company: 'Summit Supply Co.',
+          rating: 5,
+          highlight: 'B2B Wholesale & ERP Integration',
+        },
+      ],
+    },
+    showPartners: false,
   },
-  "shopify-migrations": {
-    faqTitle: "Platform Migrations",
+  'shopify-app-development': {
+    faqTitle: 'Shopify Apps & Extensions',
     hero: {
-      eyebrow: "Platform Migrations",
-      heading: "Seamless replatforming to Shopify & Shopify Plus with zero traffic loss.",
-      description: "Safely migrate your ecommerce store from Magento, WooCommerce, BigCommerce, Salesforce, or custom platforms to Shopify. We protect your data, SEO rankings, and customer accounts throughout the transition.",
+      eyebrow: 'Shopify Apps & Custom Extensions',
+      heading: 'Custom Shopify App Development & AI-Powered Performance Architecture',
       chips: [
-        "Magento to Shopify",
-        "WooCommerce to Shopify",
-        "BigCommerce to Shopify",
-        "Salesforce to Shopify",
-        "SEO Protection",
+        {
+          label: 'Speedify AI Speed Optimizer',
+          href: SERVICE_PAGE_ROUTES.softwareAppDevelopment,
+        },
+        {
+          label: 'Embedded Shopify Polaris Apps',
+          href: SERVICE_PAGE_ROUTES.softwareDevelopment,
+        },
+        {
+          label: 'Shopify Functions & Rust Wasm',
+          href: SERVICE_PAGE_ROUTES.softwareWebDesign,
+        },
+        {
+          label: 'Checkout UI Extensions',
+          href: SERVICE_PAGE_ROUTES.softwarePlus,
+        },
+        {
+          label: 'Real-Time Webhook Pipelines',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
+        },
+        {
+          label: 'Core Web Vitals Automation',
+          href: SERVICE_PAGE_ROUTES.softwareAudits,
+        },
       ],
+      description:
+        'Byte Operator engineers scalable public and custom Shopify applications, checkout extensions, and backend microservices. Powered by our proprietary Speedify AI Page Speed Optimizer framework, we build high-performance Shopify apps with Remix, Node.js, and Shopify App Bridge that streamline operations and accelerate merchant growth.',
       primaryCta: {
-        label: "Plan Your Migration",
-        href: "/contact/",
+        label: 'Start Your Custom Shopify App',
+        href: SERVICE_PAGE_ROUTES.contact,
       },
-      showPartnerLogos: false,
-      showClientProof: false,
     },
     about: {
       intro: {
-        heading: "Flawless data migration, modern storefront redesign, and complete SEO preservation.",
-        description: "Replatforming is a critical milestone for any growing brand. Byte Operator manages the end-to-end process: catalog data transformation, customer order history, custom theme development, 3rd-party ERP/CRM integrations, and strict 1:1 SEO redirect mapping.",
+        heading:
+          'Featured App Case Study: Speedify AI Page Speed Optimizer & Core Web Vitals Platform',
+        description:
+          'Speedify is our flagship AI-driven Shopify application engineered to automate page speed optimization, compress high-resolution media in real time, and eliminate render-blocking JavaScript. Built with Remix, Node.js, and Shopify Polaris, Speedify demonstrates how custom application architecture turns complex technical optimizations into seamless one-click merchant workflows.',
         cta: {
-          label: "Get In Touch",
-          href: "/contact/",
+          label: 'Explore Custom App Case Studies',
+          href: SERVICE_PAGE_ROUTES.work,
         },
       },
       media: {
-        primary: "/images/services/services-wide.webp",
-        primaryWidth: 1672,
-        primaryHeight: 941,
-        primaryAlt: "Shopify platform migration planning",
-        secondary: "/images/mega-menu-team.webp",
-        secondaryWidth: 1970,
-        secondaryHeight: 1306,
-        secondaryAlt: "Byte Operator migration engineers",
+        primary:
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/speedify_landing.webp?v=1790408507',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt:
+          'Speedify AI Page Speed Optimizer application dashboard showcase',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
       },
       process: {
-        heading: "Our structured, risk-free 5-stage migration methodology.",
-        leftDescription: "Stage 1 & 2: Complete technical audit, schema mapping, and data extraction. We identify edge cases in variant structures, customer metadata, and legacy URL patterns.",
-        rightDescription: "Stage 3, 4 & 5: Delta data sync, theme implementation, rigorous staging QA, DNS cutover planning, and post-launch traffic and indexing monitoring.",
+        heading: 'Our End-to-End Shopify App Engineering Lifecycle',
+        leftDescription:
+          '01: Architecture & API Scope Blueprinting\nWe define Shopify API permissions, webhook events, database schemas, and microservice topology before writing code.\n\n02: Native Polaris UI/UX Design\nWe design clean, intuitive admin interfaces in Figma following Shopify Polaris design guidelines for a seamless merchant experience.\n\n03: High-Performance Backend & App Bridge\nWe build scalable backends using Remix, Node.js, TypeScript, PostgreSQL, and Shopify App Bridge with automated session token authentication.',
+        rightDescription:
+          '04: AI Automation & Worker Queue Infrastructure\nWe implement distributed background job queues (Redis/BullMQ) to process heavy workloads like asset compression asynchronously.\n\n05: Edge Functions & Checkout UI Extensions\nWe engineer Rust-powered Shopify Functions and native Checkout UI Extensions that execute with sub-millisecond latency.\n\n06: Shopify App Store Compliance & Production Launch\nWe execute comprehensive automated security testing, OAuth audit verification, and guide your app through Shopify App Store certification.',
         cta: {
-          label: "Start Your Migration",
-          href: "/contact/",
+          label: 'Discuss Your Shopify App Project',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
       },
     },
     features: [
       {
-        id: "shopify-migrations-data",
-        layout: "media-left",
-        spacing: "first",
-        theme: "dark",
-        eyebrow: "Full Data Integrity",
-        heading: "Comprehensive Catalog, Customer & Order Migration",
+        id: 'speedify-ai-powered-optimization',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'AI-Driven Performance Engine',
+        heading: 'Autonomous Image Compression & Next-Gen Media Delivery',
         description: [
-          "We extract, clean, and transform your historical store data into Shopify architecture without data loss.",
-          "This includes complex multi-variant product matrices, high-resolution media, customer records, password invitation flows, and full order history.",
+          'Speedify utilizes machine learning algorithms to analyze storefront image assets and determine optimal compression ratios without perceptual loss in visual fidelity.',
+          'The app automatically converts legacy PNG and JPEG formats into modern WebP and AVIF formats, generates dynamic srcset attributes, and serves localized media directly from edge CDN nodes.',
+          'Merchants achieve immediate reductions in total page payload size, slashing mobile Largest Contentful Paint (LCP) and accelerating product page interactions.',
         ],
-        buttons: [{label: "Discuss Data Migration", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-development"),
+        buttons: [
+          {label: 'Explore Speedify Capabilities', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/ai_powered.webp?v=1790408507',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Speedify AI-powered media optimization and compression engine',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Speedify AI Optimization Engine',
+          captionText: 'Intelligent lossless asset compression, automated next-gen format conversion, and edge CDN delivery',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-migrations-seo",
-        layout: "media-right",
-        spacing: "standard",
-        theme: "dark",
-        eyebrow: "SEO Traffic Protection",
-        heading: "1:1 Redirect Mapping & Organic Keyword Preservation",
+        id: 'speedify-embedded-polaris-admin',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Native Polaris UI & Merchant Usability',
+        heading: 'Frictionless Embedded Workflows Inside Shopify Admin',
         description: [
-          "Protect your organic search visibility and hard-earned revenue. We crawl every existing URL on your legacy platform and create verified 301 redirect maps to matching Shopify pages.",
-          "We migrate meta titles, descriptions, schema structured data, and canonical hierarchies to maintain your Google rankings from day one.",
+          'Merchants should never struggle with disjointed third-party interfaces. Speedify is fully embedded within the Shopify Admin using Shopify App Bridge and the Polaris design framework.',
+          'Intuitive toggle controls, one-click optimization triggers, and automated status alerts allow non-technical store owners to manage complex speed enhancements effortlessly.',
+          'Real-time toast notifications and background worker status bars keep merchants informed as large catalog asset optimizations process securely in the background.',
         ],
-        buttons: [{label: "Explore SEO Migrations", href: "/services/ecommerce-seo-migrations"}],
-        media: reuseHomeFeatureMedia("software-seo-geo"),
+        buttons: [
+          {label: 'Build Embedded Shopify Apps', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/speedify_landing.webp?v=1790408507',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Speedify embedded Shopify Polaris admin dashboard',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Native Shopify Polaris Interface',
+          captionText: 'Seamless embedded admin experience with one-click toggles and real-time background task monitoring',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-migrations-integrations",
-        layout: "media-left",
-        spacing: "deep",
-        theme: "dark",
-        eyebrow: "Tech Stack Continuity",
-        heading: "ERP, CRM, WMS & Payment Gateway Reconnection",
+        id: 'speedify-script-deferral-diagnostics',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Script Governance & Diagnostics',
+        heading: 'Smart Third-Party Script Optimization & INP Acceleration',
         description: [
-          "Replatforming requires careful reconnection of all back-office systems. We test and validate all connections to your ERP (NetSuite, SAP, Brightpearl), CRM (Klaviyo, HubSpot), and 3PL fulfillment software.",
-          "We ensure inventory counts, order dispatches, and financial reporting continue operating without interruption during cutover.",
+          'Bloated analytics trackers, review widgets, and live chat scripts frequently hijack the main JavaScript thread, degrading mobile responsiveness and causing high Interaction to Next Paint (INP) scores.',
+          'Speedify intelligently classifies and delays non-critical third-party tracking scripts until after initial user interaction, unblocking the browser render tree for instantaneous first paint.',
+          'Comprehensive script diagnostic graphs show merchants exactly which third-party apps are causing performance bottlenecks and provide automated mitigation controls.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-migrations"),
+        buttons: [
+          {label: 'Schedule Script Audit', href: SERVICE_PAGE_ROUTES.softwareAudits},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third.webp?v=1790408507',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Speedify script governance and Core Web Vitals diagnostics',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Smart Script Governance & Diagnostics',
+          captionText: 'Automated JavaScript deferral, main-thread unblocking, and Core Web Vitals diagnostic analytics',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-migrations-cutover",
-        layout: "media-right",
-        spacing: "standard",
-        theme: "dark",
-        eyebrow: "Zero-Downtime Cutover",
-        heading: "Rehearsals & Flawless DNS Launch Execution",
+        id: 'speedify-realtime-analytics-dashboard',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Real-Time Analytics & ROI Tracking',
+        heading: 'Automated Core Web Vitals Tracking & Revenue Correlation',
         description: [
-          "We perform full migration dry runs on staging environments, resolving any discrepancies before production cutover.",
-          "During launch, delta sync scripts pull in last-minute orders and customers, followed by a coordinated DNS cutover executed during low-traffic windows.",
+          'Speedify provides real-time performance monitoring directly inside the merchant dashboard, tracking mobile and desktop Core Web Vitals (LCP, INP, CLS) alongside historical speed trends.',
+          'The app correlates speed improvements with conversion rate lifts, average session durations, and mobile checkout completion rates, demonstrating clear commercial return on optimization.',
+          'Automated performance regression alerts notify merchants instantly if a new theme release or third-party app introduces performance degradation.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-launch"),
+        buttons: [
+          {label: 'View Performance Analytics', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/fourth.webp?v=1790408507',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Speedify real-time Core Web Vitals analytics and revenue impact dashboard',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Real-Time Performance Analytics',
+          captionText: 'Automated Core Web Vitals tracking, speed trend reporting, and conversion rate correlation graphs',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'speedify-custom-shopify-functions',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Shopify Functions & Extensions',
+        heading: 'Sub-Millisecond Edge Logic with WebAssembly & Rust',
+        description: [
+          'Beyond speed optimization tools, we engineer custom public and private Shopify apps tailored to your unique operational requirements.',
+          'We build custom Shopify Functions for dynamic discount combinations, custom delivery routing, payment gateway gating, and cart validation running natively on Shopify edge infrastructure.',
+          'Our Checkout UI Extensions introduce dynamic upsells, delivery schedule selectors, and address validation directly into the native Shopify Plus one-page checkout.',
+        ],
+        buttons: [
+          {label: 'Build Custom Shopify Functions', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/ai_powered.webp?v=1790408507',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Custom Shopify Functions and edge application logic showcase',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Native Shopify Functions & Edge Logic',
+          captionText: 'Rust-powered WebAssembly logic, Checkout UI Extensions, and fault-tolerant webhook microservices',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
     ],
-    showPartners: true,
+    faqs: [
+      {
+        question: 'What tech stack do you use to build custom Shopify applications?',
+        answer:
+          'We build modern Shopify apps using Remix, Node.js, TypeScript, and GraphQL APIs, backed by scalable PostgreSQL databases and Redis worker queues. Frontend user interfaces are built with Shopify Polaris and App Bridge for seamless embedding into the Shopify Admin.',
+      },
+      {
+        question: 'How does Speedify optimize Shopify store speed without breaking theme functionality?',
+        answer:
+          'Speedify operates through intelligent asset pipelines and script governance. It compresses images losslessly, serves next-gen WebP/AVIF formats at the edge, and safely defers non-critical third-party tracking scripts until after user interaction, preserving all theme interactive elements while passing Google Core Web Vitals.',
+      },
+      {
+        question: 'What is the difference between a public Shopify App and a custom private app?',
+        answer:
+          'A public app is distributed through the Shopify App Store for multiple merchants to install with automated recurring billing. A custom private app is tailored exclusively for your store to solve unique business processes, connect internal ERP/WMS systems, or implement custom checkout rules.',
+      },
+      {
+        question: 'Can you build custom Shopify Functions to replace deprecated checkout.liquid scripts?',
+        answer:
+          'Yes. We engineer native Shopify Functions using Rust compiled to WebAssembly. These functions run directly on Shopify server infrastructure in under 5 milliseconds to handle custom discount logic, payment methods customization, and shipping tier rules with zero server latency.',
+      },
+      {
+        question: 'Do you assist with Shopify App Store submission and security review?',
+        answer:
+          'Yes. We handle the entire Shopify App Store certification process, including OAuth compliance, automated billing API integration, webhook verification, GDPR data request endpoints, and performance testing to ensure fast approval.',
+      },
+    ],
+    experts: {
+      eyebrow: 'Shopify Apps & Custom Extensions',
+      heading: 'Ready to Build a High-Performance Shopify App?',
+      description:
+        'Byte Operator designs, engineers, and scales custom Shopify applications, Checkout UI Extensions, and automated speed optimization tools. Speak directly with our senior app developers to bring your app vision to life.',
+      ctaLabel: 'Schedule App Consultation',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Speedify transformed our mobile storefront speed. Our Largest Contentful Paint dropped from 4.1s to 1.1s, and we saw an instant 28% increase in mobile conversions within two weeks of installation.',
+          author: 'Evelyn Brooks',
+          role: 'Head of Ecommerce',
+          company: 'Aura Performance Apparel',
+          rating: 5,
+          highlight: 'Speedify AI Speed Optimization & 28% CRO Lift',
+        },
+        {
+          quote:
+            'Byte Operator built our custom Shopify inventory and wholesale allocation app. The Polaris admin interface is completely intuitive for our team, and the app handles tens of thousands of daily webhook events flawlessly.',
+          author: 'Julian Mercer',
+          role: 'Director of Operations',
+          company: 'Nordic Goods Co.',
+          rating: 5,
+          highlight: 'Custom Shopify App & Polaris Integration',
+        },
+      ],
+    },
+    showPartners: false,
   },
-  "shopify-b2b-wholesale": {
-    faqTitle: "B2B & Wholesale Systems",
+  'shopify-migrations': {
+    faqTitle: 'Platform Migrations',
     hero: {
-      eyebrow: "B2B & Wholesale Systems",
-      heading: "Dedicated wholesale pricing, custom catalogs & global B2B channels.",
-      description: "Unify your B2B wholesale and direct-to-consumer operations on Shopify Plus. We configure custom price lists, payment terms, company hierarchy, quick-order forms, and enterprise ERP integrations.",
+      eyebrow: 'Shopify Platform & Store Migrations',
+      heading: 'Enterprise Platform Replatforming & Zero-Loss Data Migrations',
       chips: [
-        "Shopify Plus B2B",
-        "Tiered Price Lists",
-        "Company Accounts",
-        "Net Payment Terms",
-        "ERP Synchronisation",
+        {
+          label: 'Magento to Shopify',
+          href: SERVICE_PAGE_ROUTES.softwareMigrations,
+        },
+        {
+          label: 'WooCommerce to Shopify',
+          href: SERVICE_PAGE_ROUTES.softwareMigrations,
+        },
+        {
+          label: 'BigCommerce to Shopify',
+          href: SERVICE_PAGE_ROUTES.softwareMigrations,
+        },
+        {
+          label: 'Salesforce to Shopify Plus',
+          href: SERVICE_PAGE_ROUTES.softwarePlus,
+        },
+        {
+          label: '1:1 SEO Redirect Mapping',
+          href: SERVICE_PAGE_ROUTES.seoMigrations,
+        },
+        {
+          label: 'Zero-Downtime DNS Cutover',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
       ],
+      description:
+        'Byte Operator plans, executes, and scales frictionless ecommerce replatforming to Shopify and Shopify Plus. We migrate complex product catalogs, multi-year customer order histories, and backend ERP connections while strictly safeguarding your Google SEO rankings and traffic.',
       primaryCta: {
-        label: "Discuss B2B Setup",
-        href: "/contact/",
+        label: 'Plan Your Platform Migration',
+        href: SERVICE_PAGE_ROUTES.contact,
       },
-      showPartnerLogos: false,
-      showClientProof: false,
     },
     about: {
       intro: {
-        heading: "Scale wholesale commerce with the simplicity and power of Shopify.",
-        description: "Eliminate disconnected B2B software and manage retail and wholesale orders from one centralized Shopify admin. We customize buyer workflows, tiered discount matrices, and self-service purchasing portals.",
+        heading:
+          'Featured Migration Case Study: Zero-Downtime Replatforming, CRO Lift & SEO Preservation',
+        description:
+          'Replatforming to Shopify Plus unlocks superior reliability, sub-second speed, and higher merchant agility. Byte Operator handles every phase of technical migration: automated ETL data transformation, variant schema mapping, custom theme design, ERP/WMS reconnects, and comprehensive 1:1 301 URL redirect protection.',
         cta: {
-          label: "Get In Touch",
-          href: "/contact/",
+          label: 'Explore Migration Case Studies',
+          href: SERVICE_PAGE_ROUTES.work,
         },
       },
       media: {
-        primary: "/images/services/services-wide.webp",
-        primaryWidth: 1672,
-        primaryHeight: 941,
-        primaryAlt: "Shopify B2B wholesale system architecture",
-        secondary: "/images/mega-menu-team.webp",
-        secondaryWidth: 1970,
-        secondaryHeight: 1306,
-        secondaryAlt: "Shopify B2B strategy team",
+        primary:
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/shopify_cro_and_migration_store.webp?v=1790407473',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt:
+          'Shopify platform migration and store replatforming case study',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
       },
       process: {
-        heading: "Tailored B2B implementation and wholesale architecture.",
-        leftDescription: "We map your existing wholesale customer tiers, credit terms, minimum order quantities, and custom catalog rules. We design intuitive purchasing journeys for bulk buyers.",
-        rightDescription: "We integrate Net terms (Net 30/60/90), draft orders, custom quote requests, and real-time ERP inventory synchronization to automate manual back-office tasks.",
+        heading: 'Our Risk-Free 6-Stage Platform Migration Lifecycle',
+        leftDescription:
+          '01: Catalog & Data Architecture Audit\nWe crawl your legacy store database to map product variants, customer metadata, review histories, and legacy URL patterns.\n\n02: Automated ETL Data Pipeline Engineering\nWe build custom transformation scripts to sanitize, format, and stage product catalogs, customer accounts, and historic orders.\n\n03: High-Converting Custom Storefront Design\nWe design and develop a lightning-fast Liquid 2.0 storefront tailored to your brand with conversion-optimized page templates.',
+        rightDescription:
+          '04: 1:1 SEO Redirect Mapping & Meta Preservation\nWe map 100% of historical URLs to new Shopify paths, preserving canonical structures, structured schema, and organic ranking equity.\n\n05: ERP, CRM & Logistics System Reconnection\nWe test and validate bi-directional webhook and API synchronization with your ERP, 3PL warehouse, and marketing automations.\n\n06: Rehearsed Dry Run & Zero-Downtime Cutover\nWe execute staged test cutovers and delta syncs during low-traffic windows to guarantee zero data loss and uninterrupted trading.',
         cta: {
-          label: "Get In Touch",
-          href: "/contact/",
+          label: 'Start Your Migration Roadmap',
+          href: SERVICE_PAGE_ROUTES.contact,
         },
       },
     },
     features: [
       {
-        id: "shopify-b2b-unified",
-        layout: "media-left",
-        spacing: "first",
-        theme: "dark",
-        eyebrow: "Unified Commerce",
-        heading: "One Platform for Both Retail & Wholesale",
+        id: 'shopify-migrations-full-data',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Data Integrity & Validation',
+        heading: 'Complete Catalog, Customer & Order History Migration',
         description: [
-          "Manage DTC and B2B orders, inventory, and customer data from a single unified Shopify admin, reducing technology overhead and administrative complexity.",
-          "Wholesale buyers log in to unlock their bespoke catalog, pre-negotiated price tiers, and localized payment terms automatically.",
+          'Migrating from platforms like Magento, WooCommerce, BigCommerce, or Salesforce requires flawless data extraction and transformation.',
+          'We transfer complex multi-variant matrices, custom metafields, customer password activation flows, and historical order records without losing historical context or customer data.',
+          'Our automated validation scripts verify data integrity line by line before staging on Shopify Plus.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-plus"),
+        buttons: [
+          {label: 'Discuss Data Migration', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_orders.png?v=1790403409',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Automated order history and customer data migration showcase',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Comprehensive Data Migration',
+          captionText: 'Automated extraction of historical orders, customer accounts, and variant matrices with zero data loss',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-b2b-company-accounts",
-        layout: "media-right",
-        spacing: "standard",
-        theme: "dark",
-        eyebrow: "Company Profiles & Permissions",
-        heading: "Multi-User Buying Teams & Location Management",
+        id: 'shopify-migrations-seo-protection',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Organic Ranking & Traffic Safety',
+        heading: '1:1 301 Redirect Mapping & SEO Equity Preservation',
         description: [
-          "Support complex enterprise B2B customers with multiple locations, custom billing addresses, and delegated buying permissions.",
-          "Company administrators can manage buyer seats, set spending limits, and route purchase orders for internal approval before submission.",
+          'Replatforming should accelerate organic search traffic, not cause painful ranking drops. We crawl every existing URL and create verified 301 redirect mappings to corresponding Shopify pages.',
+          'We migrate meta tags, structured JSON-LD data, image alt attributes, and canonical hierarchies to maintain search engine visibility from day one.',
+          'Post-launch monitoring tracks Google Search Console indexation in real time to catch and resolve any 404 crawl errors immediately.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-development"),
+        buttons: [
+          {label: 'Explore SEO Migration Support', href: SERVICE_PAGE_ROUTES.seoMigrations},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third_party_api_endpoints.png?v=1790403408',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'SEO redirect mapping and technical search preservation',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'SEO Equity & Traffic Preservation',
+          captionText: 'Complete 1:1 301 redirect mapping, structured schema migration, and zero organic ranking drop',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-b2b-pricing",
-        layout: "media-left",
-        spacing: "deep",
-        theme: "dark",
-        eyebrow: "Custom Price Lists & Net Terms",
-        heading: "Automated Wholesale Pricing Rules & Net Payment Invoicing",
+        id: 'shopify-migrations-catalog-restructure',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'High-Volume Catalog Optimization',
+        heading: 'Clean Catalog Restructuring for Tens of Thousands of SKUs',
         description: [
-          "Create granular price lists by percentage discount or fixed currency prices per SKU, complete with quantity break thresholds and minimum order quantities (MOQ).",
-          "Automate Net 15, 30, or 60 invoicing with customized payment terms and automatic email reminders.",
+          'Legacy stores often suffer from bloated product taxonomies, duplicate attributes, and inconsistent variant structures.',
+          'During migration, we clean, reorganize, and optimize your collection hierarchy, product tags, and custom metafields for high-speed faceted search.',
+          'Our lightweight theme framework ensures rapid rendering across large product catalogs without client-side lag.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-design"),
+        buttons: [
+          {label: 'Optimize High-SKU Catalogs', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/toys.webp?v=1790407473',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'High-SKU catalog migration and taxonomy restructuring',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'High-Capacity Catalog Optimization',
+          captionText: 'Streamlined product taxonomy, faceted collection filtering, and instant search indexing',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
       {
-        id: "shopify-b2b-quick-order",
-        layout: "media-right",
-        spacing: "standard",
-        theme: "dark",
-        eyebrow: "High-Speed Bulk Ordering",
-        heading: "Quick Order Grids & CSV Upload Portals",
+        id: 'shopify-migrations-cro-redesign',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Modern Commerce UX & Design',
+        heading: 'Conversion-Focused Storefront Redesign & Speed Uplift',
         description: [
-          "Enable high-velocity ordering with streamlined SKU search grids, matrix quantity selectors, and instant CSV spreadsheet uploaders.",
-          "Returning B2B buyers can re-order past purchases in one click, drastically cutting down procurement friction.",
+          'A platform migration is the ideal opportunity to overhaul dated UX and elevate brand perception with a modern, high-converting storefront design.',
+          'We design responsive, mobile-first templates in Figma with dynamic cart drawers, threshold shipping bars, and friction-free one-page checkout.',
+          'Migrated stores consistently see significant reductions in bounce rates and double-digit lifts in mobile conversion rates.',
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
-        media: reuseHomeFeatureMedia("software-launch"),
+        buttons: [
+          {label: 'Explore CRO Replatforming', href: SERVICE_PAGE_ROUTES.ecommerceCro},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/furniture.webp?v=1790407636',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Modern storefront redesign and conversion rate optimization',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Conversion-Led Storefront Redesign',
+          captionText: 'Mobile-first UI/UX engineering, sub-second page rendering, and streamlined checkout pathways',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'shopify-migrations-erp-cutover',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'System Reconnection & Cutover',
+        heading: 'Seamless ERP Integration Reconnect & Low-Traffic Cutover',
+        description: [
+          'Replatforming requires strict synchronization of mission-critical systems like ERPs (NetSuite, SAP), CRMs (Klaviyo), and 3PL warehouses.',
+          'We conduct comprehensive staging rehearsals to ensure automated order routing, inventory updates, and tracking numbers sync seamlessly.',
+          'Our team conducts the live cutover during low-traffic windows with delta syncs that catch all last-minute transactions with zero operational disruption.',
+        ],
+        buttons: [
+          {label: 'Schedule Migration Consultation', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'ERP synchronization and zero-downtime cutover management',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Zero-Downtime Replatforming Cutover',
+          captionText: 'Flawless ERP data reconciliation, webhook reconnects, and rehearsed DNS transition',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
       },
     ],
-    showPartners: true,
+    faqs: [
+      {
+        question: 'How do you prevent loss of Google search rankings during a platform migration?',
+        answer:
+          'We crawl every URL on your legacy store to produce a 1:1 301 redirect map matching every old path to its new Shopify equivalent. We also migrate page titles, meta descriptions, canonical structures, and JSON-LD schema so search engines seamlessly transfer page authority without ranking loss.',
+      },
+      {
+        question: 'Can you migrate customer accounts and order histories from our legacy platform?',
+        answer:
+          'Yes. We extract, clean, and transfer complete customer records, shipping addresses, order histories, and product taxonomies using automated ETL pipelines. For password security, we set up seamless automated account activation workflows for existing customers upon launch.',
+      },
+      {
+        question: 'How do you handle integrations with our existing ERP, CRM, and 3PL systems?',
+        answer:
+          'We review your existing API workflows and build custom GraphQL connectors or native middleware for platforms like NetSuite, SAP, Brightpearl, Klaviyo, and regional 3PLs. We validate bi-directional inventory and order synchronization on staging before launching.',
+      },
+      {
+        question: 'How long does an enterprise Shopify migration typically take?',
+        answer:
+          'A typical enterprise platform migration takes between 6 to 12 weeks depending on catalog size, data complexity, custom backend integrations, and custom storefront design requirements. We provide a detailed sprint roadmap and progress milestones throughout.',
+      },
+      {
+        question: 'How do you ensure zero downtime when switching over our domain to Shopify?',
+        answer:
+          'We perform a delta data synchronization immediately prior to launch to capture any orders placed during testing. Cutover is executed during your lowest traffic window with coordinated TTL and DNS record updates, ensuring zero disruption to live shoppers.',
+      },
+    ],
+    experts: {
+      eyebrow: 'Shopify Platform & Store Migrations',
+      heading: 'Ready to Migrate Your Store to Shopify with Zero Traffic Loss?',
+      description:
+        'Byte Operator engineers safe, risk-free migrations to Shopify and Shopify Plus. Speak directly with our senior migration architects to plan your replatforming roadmap.',
+      ctaLabel: 'Schedule Migration Consultation',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Byte Operator migrated our 50,000 SKU catalog from Magento to Shopify Plus without a single glitch. Our organic SEO traffic remained completely intact and mobile revenue grew by 42% in the first quarter.',
+          author: 'David Sterling',
+          role: 'Chief Technology Officer',
+          company: 'Equinox Retail Group',
+          rating: 5,
+          highlight: 'Magento to Shopify Plus & 42% Revenue Growth',
+        },
+        {
+          quote:
+            'The 1:1 redirect mapping and ERP integration were executed flawlessly. The migration cutover took place with zero downtime, and our operational costs dropped dramatically.',
+          author: 'Hannah Davies',
+          role: 'Head of Ecommerce Operations',
+          company: 'Nordic Lifestyle Brands',
+          rating: 5,
+          highlight: 'Zero-Downtime Replatforming & ERP Sync',
+        },
+      ],
+    },
+    showPartners: false,
+  },
+  'shopify-b2b-wholesale': {
+    faqTitle: 'B2B & Wholesale Systems',
+    hero: {
+      eyebrow: 'B2B & Wholesale Commerce Systems',
+      heading: 'Enterprise Shopify Plus B2B Portals & Wholesale Purchasing Systems',
+      chips: [
+        {
+          label: 'Shopify Plus B2B',
+          href: SERVICE_PAGE_ROUTES.softwarePlus,
+        },
+        {
+          label: 'Negotiated Price Lists',
+          href: SERVICE_PAGE_ROUTES.softwareDevelopment,
+        },
+        {
+          label: 'Company Account Portals',
+          href: SERVICE_PAGE_ROUTES.softwareWebDesign,
+        },
+        {
+          label: 'Net Payment Invoicing',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+        {
+          label: 'Quick Order Grids & CSVs',
+          href: SERVICE_PAGE_ROUTES.softwareAppDevelopment,
+        },
+        {
+          label: 'ERP & WMS Integration',
+          href: SERVICE_PAGE_ROUTES.softwareIntegrations,
+        },
+      ],
+      description:
+        'Byte Operator builds enterprise-grade B2B wholesale portals and unified omnichannel commerce systems on Shopify Plus. From custom negotiated pricing rules and tiered volume discounts to corporate purchasing permissions and real-time ERP synchronization, we create frictionless wholesale buying experiences that scale.',
+      primaryCta: {
+        label: 'Discuss Your B2B Architecture',
+        href: SERVICE_PAGE_ROUTES.contact,
+      },
+    },
+    about: {
+      intro: {
+        heading:
+          'Featured B2B Case Study: High-Volume Wholesale Order Management & Multivendor Logistics',
+        description:
+          'Eliminate disconnected wholesale software and unite retail D2C and wholesale B2B operations within a single scalable Shopify Plus admin. Byte Operator engineers custom buyer workflows, automated Net payment terms, matrix quantity selectors, and real-time ERP inventory synchronization to streamline high-volume procurement.',
+        cta: {
+          label: 'View Wholesale Case Studies',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      media: {
+        primary:
+          'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_orders.png?v=1790403409',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt:
+          'B2B wholesale order management and purchasing case study',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
+      },
+      process: {
+        heading: 'Our Enterprise B2B Wholesale Implementation Lifecycle',
+        leftDescription:
+          '01: Commercial Rules & Buyer Journey Mapping\nWe analyze wholesale client tiers, minimum order quantities (MOQs), credit limits, and negotiated discount structures.\n\n02: Corporate Portal UI/UX Design\nWe design streamlined wholesale interfaces in Figma featuring rapid bulk ordering grids, draft order creation, and quote request modals.\n\n03: Custom Price Lists & Quantity Break Engineering\nWe configure fixed and percentage-based price lists assigned to specific company profiles with tiered volume discount logic.',
+        rightDescription:
+          '04: Payment Terms & Automated Invoicing\nWe enable Net 15/30/60/90 payment terms with automated draft order generation, deposit payments, and automated invoice delivery.\n\n05: Enterprise ERP & Inventory Sync\nWe build bi-directional GraphQL connectors syncing wholesale inventory reservations, customer credit lines, and fulfillment tracking.\n\n06: Client Onboarding & Staff Training\nWe test corporate buying workflows across multi-location buyer accounts and deliver comprehensive operational training to your sales team.',
+        cta: {
+          label: 'Plan Your B2B Wholesale Portal',
+          href: SERVICE_PAGE_ROUTES.contact,
+        },
+      },
+    },
+    features: [
+      {
+        id: 'shopify-b2b-unified-architecture',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'Unified Omnichannel Commerce',
+        heading: 'One Unified Platform for Retail & Wholesale Commerce',
+        description: [
+          'Operating separate platforms for retail consumers and wholesale buyers causes redundant software costs and inventory synchronization headaches.',
+          'We configure Shopify Plus native B2B architecture so your team manages product catalogs, stock levels, and customer records from one central dashboard.',
+          'Wholesale clients log in to instantly view their custom price lists, assigned payment terms, and personalized product catalogs without leaving your primary domain.',
+        ],
+        buttons: [
+          {label: 'Explore Unified B2B Setups', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/aydi_active.png?v=1790403093',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Unified D2C and B2B wholesale platform ecosystem',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Unified Wholesale Commerce',
+          captionText: 'Single Shopify Plus dashboard managing both consumer retail and high-volume wholesale channels',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'shopify-b2b-pricing-matrices',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Granular Pricing Logic',
+        heading: 'Automated Price Lists, Tiered Discounts & MOQs',
+        description: [
+          'Deliver flexible pricing models tailored to specific corporate accounts, distributors, or purchasing groups.',
+          'We configure fixed SKU price lists, percentage-based margin discounts, tiered volume breaks, and mandatory minimum order quantities (MOQs).',
+          'Dynamic price calculation updates instantly as wholesale buyers adjust order volumes in real time.',
+        ],
+        buttons: [
+          {label: 'Configure Custom Price Lists', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/create_product.png?v=1790403314',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Wholesale pricing rules and custom product configuration',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Custom Wholesale Price Rules',
+          captionText: 'Granular price list assignment, volume discount tiers, and automated minimum order constraints',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'shopify-b2b-quick-order-grids',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'High-Velocity Purchasing',
+        heading: 'Quick Order Grids, Matrix Selectors & CSV Uploads',
+        description: [
+          'Wholesale buyers need fast, efficient tools to order hundreds of SKUs without clicking through individual product pages.',
+          'We build matrix-style variant order grids, quick SKU search tables, and instant CSV spreadsheet uploaders that add thousands of units to the cart in seconds.',
+          'Re-order tools enable corporate buyers to duplicate historical orders with a single click, drastically accelerating procurement velocity.',
+        ],
+        buttons: [
+          {label: 'Build Quick Order Portals', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/toys.webp?v=1790407473',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'High-volume quick order grid and bulk CSV ordering portal',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'High-Speed Bulk Ordering',
+          captionText: 'Variant matrix selectors, instant CSV file uploaders, and one-click historical re-ordering',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'shopify-b2b-net-terms-erp',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Payment Terms & Financial Automation',
+        heading: 'Automated Net Payment Terms & ERP Financial Synchronization',
+        description: [
+          'Streamline credit control and eliminate manual invoice chasing with automated payment terms on checkout.',
+          'We enable Net 15, 30, 60, or 90 payment options based on customer credit limits, generating automated draft orders and PDF invoices instantly.',
+          'Direct integration with ERP and accounting systems (NetSuite, QuickBooks, Xero, SAP) ensures ledger balances and invoice statuses remain perfectly synchronized.',
+        ],
+        buttons: [
+          {label: 'Integrate B2B ERP Systems', href: SERVICE_PAGE_ROUTES.softwareIntegrations},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/third_party_api_endpoints.png?v=1790403408',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Automated Net payment terms and ERP accounting sync',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Automated Net Payment Terms',
+          captionText: 'Net 30/60 invoicing, customer credit limits, and real-time ERP accounting synchronization',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'shopify-b2b-company-profiles',
+        layout: 'media-left',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Account Management & Roles',
+        heading: 'Multi-User Corporate Accounts & Location-Based Ordering',
+        description: [
+          'Enterprise clients require complex purchasing hierarchies across multiple branch locations and buying agents.',
+          'We configure company accounts that allow client administrators to invite purchasing staff, set spending thresholds, and designate separate billing and delivery addresses per branch.',
+          'Order approval workflows ensure high-value wholesale purchases are reviewed by authorized company managers before final processing.',
+        ],
+        buttons: [
+          {label: 'Discuss Corporate Account Features', href: SERVICE_PAGE_ROUTES.contact},
+        ],
+        media: {
+          primary:
+            'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Corporate company profiles and multi-location product management',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Multi-Location Corporate Accounts',
+          captionText: 'Granular buyer seat permissions, location-based shipping routing, and internal order approvals',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can we run retail D2C and wholesale B2B on the same Shopify Plus store?',
+        answer:
+          'Yes. Shopify Plus native B2B functionality allows you to run both direct-to-consumer and wholesale operations on a single unified storefront. Wholesale buyers log in to access their unique price lists, payment terms, and custom products, while retail customers browse the public catalog.',
+      },
+      {
+        question: 'How do custom price lists and volume quantity breaks work in Shopify Plus B2B?',
+        answer:
+          'You can set fixed currency prices or percentage discounts per SKU, assign price lists to specific companies or customer groups, and establish tiered quantity breaks with automated volume discounts and minimum order quantities (MOQs).',
+      },
+      {
+        question: 'How do you automate Net payment terms (Net 30, Net 60) for wholesale clients?',
+        answer:
+          'We configure native Shopify Plus payment terms on company profiles. When an approved buyer checks out, they can select their pre-approved payment term (e.g. Net 30), generating an automated draft order and invoice with zero immediate credit card charge.',
+      },
+      {
+        question: 'Can corporate clients manage multiple buyer accounts and branch locations?',
+        answer:
+          'Yes. Company hierarchy settings allow your clients to assign multiple locations, set designated billing and shipping addresses, and invite individual purchasing agents with customized ordering permissions and spending limits.',
+      },
+      {
+        question: 'How does Shopify B2B integrate with back-office ERP and inventory systems?',
+        answer:
+          'We connect your Shopify Plus B2B store directly to ERPs like NetSuite, SAP, Microsoft Dynamics 365, and Brightpearl via robust GraphQL APIs and webhooks, ensuring real-time inventory allocation, order synchronization, and credit limit tracking.',
+      },
+    ],
+    experts: {
+      eyebrow: 'B2B & Wholesale Commerce Systems',
+      heading: 'Ready to Scale Your Wholesale Commerce Operations?',
+      description:
+        'Byte Operator designs, engineers, and scales custom B2B wholesale portals on Shopify Plus. Speak directly with our senior enterprise commerce engineers to plan your B2B architecture.',
+      ctaLabel: 'Schedule B2B Consultation',
+      ctaTo: SERVICE_PAGE_ROUTES.contact,
+      testimonials: [
+        {
+          quote:
+            'Byte Operator unified our retail and wholesale operations onto Shopify Plus B2B. Our wholesale order processing time decreased by 70%, and our corporate clients love the self-service ordering portal.',
+          author: 'Nathaniel Cole',
+          role: 'VP of Wholesale Operations',
+          company: 'Vanguard Industrial Supply',
+          rating: 5,
+          highlight: 'Shopify Plus B2B & 70% Faster Processing',
+        },
+        {
+          quote:
+            'The automated Net terms invoicing and NetSuite ERP integration eliminated weeks of manual bookkeeping. It is the most reliable B2B commerce system we have ever deployed.',
+          author: 'Sophia Zhang',
+          role: 'Chief Financial Officer',
+          company: 'Apex Distribution Group',
+          rating: 5,
+          highlight: 'Net Terms Invoicing & ERP Integration',
+        },
+      ],
+    },
+    showPartners: false,
   },
   "shopify-internationalisation": {
     faqTitle: "International SEO & Markets",

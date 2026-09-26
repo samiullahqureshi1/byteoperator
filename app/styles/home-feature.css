@@ -187,24 +187,28 @@
 }
 
 .ft-home-feature__media--single .ft-home-feature__image--primary {
-  width: 100%;
-  aspect-ratio: auto;
-  height: auto;
-  border-radius: 1.5rem;
+  width: 100% !important;
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: auto !important;
+  border-radius: 0.875rem !important;
   background: #0B1528;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6);
+  padding: 0.5rem;
   overflow: hidden;
 }
 
 .ft-home-feature__media--single .ft-home-feature__image--primary img {
-  position: relative;
-  inset: auto;
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  object-position: center;
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  display: block !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: 0.5rem;
 }
 
 .ft-home-feature__caption--single {
@@ -717,9 +721,10 @@
   }
 
   .ft-home-feature__media--single .ft-home-feature__image--primary {
-    aspect-ratio: auto;
-    height: auto;
-    border-radius: 2.5rem;
+    aspect-ratio: auto !important;
+    height: auto !important;
+    border-radius: 1rem !important;
+    padding: 0.625rem;
   }
 
   .ft-home-feature__overlap {

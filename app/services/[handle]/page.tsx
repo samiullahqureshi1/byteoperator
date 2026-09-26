@@ -42,6 +42,11 @@ const HANDLE_ALIASES: Record<string, ServicePageHandle> = {
   'shopify-apps-extensions': 'shopify-app-development',
   'platform-migrations': 'shopify-migrations',
   'b2b-wholesale-systems': 'shopify-b2b-wholesale',
+  'shopify-plus': 'shopify-plus-agency',
+  'software-plus': 'shopify-plus-agency',
+  'software-plus-agency': 'shopify-plus-agency',
+  'shopify-enterprise': 'shopify-plus-agency',
+  'enterprise-shopify': 'shopify-plus-agency',
 };
 
 function resolveHandle(rawHandle: string): string {

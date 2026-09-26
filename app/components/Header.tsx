@@ -616,7 +616,7 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
     items: [
       {
         title: 'Shopify Store Development',
-        description: 'High-converting bespoke Shopify storefronts',
+        description: 'High-converting custom Shopify storefronts',
         url: '/services/shopify-web-design',
       },
       {
