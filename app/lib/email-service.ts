@@ -1,6 +1,6 @@
 /**
  * Byte Operator - Lead & Contact Email Dispatch Service
- * Sends customer inquiries directly to samiullah@byteoperator.com
+ * Sends customer inquiries directly to samiullah@byteoperator.com (with fallback for Resend testing)
  */
 
 export interface ContactEnquiryPayload {
@@ -20,7 +20,7 @@ export interface ContactEnquiryPayload {
 }
 
 const PRIMARY_RECIPIENT = process.env.NOTIFICATION_EMAIL || 'samiullah@byteoperator.com';
-const SENDER_EMAIL = process.env.SENDER_EMAIL || 'Byte Operator <notifications@byteoperator.com>';
+const FALLBACK_TEST_EMAIL = 'samiullahqureshi669@gmail.com';
 
 export async function sendLeadNotificationEmail(payload: ContactEnquiryPayload): Promise<{
   success: boolean;
@@ -110,7 +110,7 @@ export async function sendLeadNotificationEmail(payload: ContactEnquiryPayload):
       </div>
     </div>
     <div class="footer">
-      Sent to <strong>${PRIMARY_RECIPIENT}</strong> on ${new Date().toUTCString()} | Source: ${escapeHtml(payload.enquirySource || 'Website')}
+      Sent on ${new Date().toUTCString()} | Funnel Source: ${escapeHtml(payload.enquirySource || 'Website')}
     </div>
   </div>
 </body>
@@ -133,22 +133,24 @@ PROJECT DETAILS:
 ${payload.message || 'No additional message.'}
 
 ------------------------------------
-Recipient: ${PRIMARY_RECIPIENT}
 Date: ${new Date().toISOString()}
   `.trim();
 
   // 1. Resend API Integration
   if (process.env.RESEND_API_KEY) {
+    const fromAddress = process.env.RESEND_FROM_EMAIL || 'Byte Operator <onboarding@resend.dev>';
+    let target = PRIMARY_RECIPIENT;
+
     try {
-      const res = await fetch('https://api.resend.com/emails', {
+      let res = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: process.env.RESEND_FROM_EMAIL || 'Byte Operator <onboarding@resend.dev>',
-          to: [PRIMARY_RECIPIENT],
+          from: fromAddress,
+          to: [target],
           reply_to: payload.email,
           subject,
           html: htmlContent,
@@ -156,15 +158,36 @@ Date: ${new Date().toISOString()}
         }),
       });
 
+      // If Resend returns 403 (domain not verified, testing sandbox only allows registered email), retry to registered email
+      if (res.status === 403 && target !== FALLBACK_TEST_EMAIL) {
+        console.warn(`[Email] Resend domain not verified yet for ${target}. Retrying delivery to registered Resend account: ${FALLBACK_TEST_EMAIL}`);
+        res = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            from: fromAddress,
+            to: [FALLBACK_TEST_EMAIL],
+            reply_to: payload.email,
+            subject: `[Lead Alert] ${subject}`,
+            html: `<div style="background:#fff3cd; color:#856404; padding:12px; border-radius:4px; margin-bottom:16px; font-size:13px;"><strong>Notice:</strong> This lead was delivered to your registered Resend account email (${FALLBACK_TEST_EMAIL}) because byteoperator.com is not yet verified in Resend. To receive directly at ${PRIMARY_RECIPIENT}, verify byteoperator.com at resend.com/domains.</div>` + htmlContent,
+            text: textContent,
+          }),
+        });
+      }
+
       if (res.ok) {
-        console.log(`[Email] Successfully sent lead email to ${PRIMARY_RECIPIENT} via Resend.`);
+        const responseData = await res.json();
+        console.log(`[Email] Successfully delivered lead via Resend! ID:`, responseData.id);
         return {success: true, provider: 'resend'};
       } else {
         const errText = await res.text();
-        console.error('[Email] Resend API error:', errText);
+        console.error('[Email] Resend API error response:', errText);
       }
     } catch (e) {
-      console.error('[Email] Failed to send via Resend:', e);
+      console.error('[Email] Network error while dispatching via Resend:', e);
     }
   }
 
@@ -190,7 +213,7 @@ Date: ${new Date().toISOString()}
       });
 
       if (res.ok) {
-        console.log(`[Email] Successfully sent lead email to ${PRIMARY_RECIPIENT} via SendGrid.`);
+        console.log(`[Email] Successfully sent lead email via SendGrid.`);
         return {success: true, provider: 'sendgrid'};
       }
     } catch (e) {
@@ -198,7 +221,7 @@ Date: ${new Date().toISOString()}
     }
   }
 
-  // 3. Webhook / Zapier / Make / Relay Integration
+  // 3. Webhook Relay
   const webhookUrl = process.env.NOTIFICATION_WEBHOOK_URL || process.env.CONTACT_WEBHOOK_URL;
   if (webhookUrl) {
     try {
@@ -214,7 +237,6 @@ Date: ${new Date().toISOString()}
       });
 
       if (res.ok) {
-        console.log(`[Email] Dispatched lead to webhook relay: ${webhookUrl}`);
         return {success: true, provider: 'webhook'};
       }
     } catch (e) {
@@ -222,10 +244,10 @@ Date: ${new Date().toISOString()}
     }
   }
 
-  // 4. Default Server Logger & Audit Record
+  // 4. Fallback Console Dispatch
   console.log(`
 =============================================================================
-[LEAD NOTIFICATION DISPATCHED TO: ${PRIMARY_RECIPIENT}]
+[LEAD NOTIFICATION DISPATCHED]
 =============================================================================
 ${textContent}
 =============================================================================

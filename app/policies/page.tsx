@@ -2,49 +2,86 @@ import type {Metadata} from 'next';
 import {Link} from '~/lib/router-compat';
 
 export const metadata: Metadata = {
-  title: 'Company Policies | Byte Operator',
-  description: 'Byte Operator company terms, privacy policy, refund policy, and service level agreements.',
+  title: 'Company Policies & Legal Agreements | Byte Operator',
+  description:
+    'Review Byte Operator official company policies, including our Privacy Policy, Terms of Service, Refund & Payment Policy, and Subscription & Cancellation terms.',
   alternates: {
     canonical: 'https://byteoperator.com/policies',
   },
 };
 
 const POLICIES = [
-  {handle: 'privacy-policy', title: 'Privacy Policy', description: 'How we handle and protect your client and visitor data.'},
-  {handle: 'terms-of-service', title: 'Terms of Service', description: 'Terms and conditions governing our agency services and website.'},
-  {handle: 'refund-policy', title: 'Refund Policy', description: 'Policies regarding project retainers, milestone payments, and refunds.'},
-  {handle: 'subscription-policy', title: 'Subscription & Cancellation Policy', description: 'Terms governing ongoing monthly retainers and support hours.'},
+  {
+    handle: 'privacy-policy',
+    title: 'Privacy Policy',
+    hint: 'Data protection, client confidentiality, GDPR compliance, and telemetry security.',
+    tag: 'Legal & Compliance',
+  },
+  {
+    handle: 'terms-of-service',
+    title: 'Terms of Service',
+    hint: 'Contract terms governing software engineering, intellectual property, and deliverables.',
+    tag: 'Service Agreements',
+  },
+  {
+    handle: 'refund-policy',
+    title: 'Refund & Payment Policy',
+    hint: 'Milestone schedules, project sprint payments, acceptance criteria, and refund conditions.',
+    tag: 'Billing & Milestones',
+  },
+  {
+    handle: 'subscription-policy',
+    title: 'Subscription & Cancellation Policy',
+    hint: 'Monthly engineering retainers, SLA hours, rollover policies, and cancellation notice terms.',
+    tag: 'Retainers & SLA',
+  },
 ];
 
 export default function PoliciesIndexPage() {
   return (
-    <div style={{maxWidth: '900px', margin: '0 auto', padding: '120px 24px 80px'}}>
-      <h1 style={{fontSize: '44px', fontWeight: 700, marginBottom: '20px', color: '#fff'}}>Policies</h1>
-      <p style={{fontSize: '18px', color: '#aaa', marginBottom: '48px'}}>
-        Transparency is central to how we partner with brands. Review our formal policies below.
-      </p>
+    <main className="ft-policy-page">
+      <section className="ft-policy-hero">
+        <div className="ft-policy-hero__inner">
+          <p className="ft-policy-hero__eyebrow">Trust &amp; Transparency</p>
+          <h1 className="ft-policy-hero__title">Company Policies &amp; Agreements</h1>
+          <p className="ft-policy-hero__lede">
+            We hold ourselves to the highest standards of technical integrity and commercial clarity. Review the terms, data protections, and operational policies governing Byte Operator client partnerships.
+          </p>
+        </div>
+      </section>
 
-      <div style={{display: 'flex', flexDirection: 'column', gap: '24px'}}>
-        {POLICIES.map((p) => (
-          <Link
-            key={p.handle}
-            href={`/policies/${p.handle}`}
-            style={{
-              padding: '24px',
-              borderRadius: '8px',
-              background: '#161616',
-              border: '1px solid #282828',
-              textDecoration: 'none',
-              transition: 'border-color 0.2s ease',
-            }}
-          >
-            <h2 style={{fontSize: '20px', fontWeight: 600, color: '#fff', marginBottom: '8px'}}>
-              {p.title} →
-            </h2>
-            <p style={{fontSize: '15px', color: '#888', margin: 0}}>{p.description}</p>
-          </Link>
-        ))}
-      </div>
-    </div>
+      <section className="ft-policy-index">
+        <div className="ft-policy-index__grid">
+          {POLICIES.map((p) => (
+            <Link
+              key={p.handle}
+              href={`/policies/${p.handle}`}
+              className="ft-policy-card"
+            >
+              <div className="ft-policy-card__text">
+                <span
+                  style={{
+                    display: 'inline-block',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.06em',
+                    color: '#306CE7',
+                    marginBottom: '0.35rem',
+                  }}
+                >
+                  {p.tag}
+                </span>
+                <span className="ft-policy-card__title">{p.title}</span>
+                <span className="ft-policy-card__hint">{p.hint}</span>
+              </div>
+              <span className="ft-policy-card__arrow" aria-hidden="true">
+                →
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
