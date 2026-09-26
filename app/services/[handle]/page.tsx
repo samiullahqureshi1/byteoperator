@@ -10,6 +10,8 @@ import {
 } from '~/data/servicePages';
 import {BulkHoursCta} from '~/components/services/detail/BulkHoursCta';
 
+const BASE_URL = 'https://byteoperator.com';
+
 interface Props {
   params: {
     handle: string;
@@ -78,11 +80,20 @@ export function generateStaticParams() {
 export async function generateMetadata({params}: Props): Promise<Metadata> {
   const {handle} = params;
   const canonicalHandle = resolveHandle(handle);
+  // Always point the canonical to the resolved (real) handle, not the alias
+  const canonicalUrl = `${BASE_URL}/services/${canonicalHandle}`;
 
   if (handle === 'software-plus-agency' || handle === 'shopify-plus-agency') {
     return {
       title: 'Shopify Plus & Enterprise Agency | Byte Operator',
       description: 'Enterprise Shopify Plus design, development, and scalable growth architecture for high-volume brands.',
+      alternates: {canonical: `${BASE_URL}/shopify-plus-agency`},
+      openGraph: {
+        title: 'Shopify Plus & Enterprise Agency | Byte Operator',
+        description: 'Enterprise Shopify Plus design, development, and scalable growth architecture for high-volume brands.',
+        url: `${BASE_URL}/shopify-plus-agency`,
+        type: 'website',
+      },
     };
   }
 
@@ -96,6 +107,13 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     return {
       title: 'Conversion Rate Optimisation (CRO) Audit & Services | Byte Operator',
       description: 'Data-backed conversion rate optimization, UX testing, and revenue audits for scaling ecommerce brands.',
+      alternates: {canonical: `${BASE_URL}/shopify-cro-audit`},
+      openGraph: {
+        title: 'CRO Audit & Services | Byte Operator',
+        description: 'Data-backed conversion rate optimization, UX testing, and revenue audits for scaling ecommerce brands.',
+        url: `${BASE_URL}/shopify-cro-audit`,
+        type: 'website',
+      },
     };
   }
 
@@ -108,6 +126,13 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
       title: 'Custom Software Development Services | Byte Operator',
       description:
         'Byte Operator designs and develops custom software, SaaS platforms, enterprise applications and business systems. Explore our software development services and case studies.',
+      alternates: {canonical: `${BASE_URL}/services/software-developers`},
+      openGraph: {
+        title: 'Custom Software Development Services | Byte Operator',
+        description: 'Byte Operator designs and develops custom software, SaaS platforms, enterprise applications and business systems.',
+        url: `${BASE_URL}/services/software-developers`,
+        type: 'website',
+      },
     };
   }
 
@@ -115,14 +140,23 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
 
   if (config) {
     const title = config.hero?.eyebrow || config.hero?.heading || handle;
+    const description = config.hero?.description || config.hero?.heading || 'Specialized engineering and ecommerce services by Byte Operator.';
     return {
       title: `${title} | Byte Operator`,
-      description: config.hero?.description || config.hero?.heading || 'Specialized engineering and ecommerce services by Byte Operator.',
+      description,
+      alternates: {canonical: canonicalUrl},
+      openGraph: {
+        title: `${title} | Byte Operator`,
+        description,
+        url: canonicalUrl,
+        type: 'website',
+      },
     };
   }
 
   return {
     title: `${handle} | Byte Operator`,
+    alternates: {canonical: canonicalUrl},
   };
 }
 

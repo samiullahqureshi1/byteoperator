@@ -20,10 +20,8 @@ type CalendlyButtonProps = {
 /**
  * Opens the Calendly booking modal over the current page.
  *
- * Renders a real <button> because the popup is a script call, not navigation —
- * an <a href> would be a broken promise to anyone middle-clicking it. The
- * widget is warmed on hover/focus so the click itself feels instant, and a
- * click that lands before the script is ready simply awaits it.
+ * Renders a real <button> because the popup is a script call, not navigation.
+ * The widget is warmed on hover/focus so the click itself feels instant.
  */
 export function CalendlyButton({
   className = '',
@@ -36,7 +34,6 @@ export function CalendlyButton({
   const [opening, setOpening] = useState(false);
 
   const warm = () => {
-    // A failed preload is not worth surfacing; the click retries and reports.
     void loadCalendly().catch(() => {});
   };
 
@@ -50,13 +47,9 @@ export function CalendlyButton({
       onPointerEnter={warm}
       onFocus={warm}
       onClick={(event) => {
-        // Callers use this to close a menu or drawer before the modal opens.
         onClick?.(event);
-
         setOpening(true);
 
-        // Never navigates. If the widget is unreachable the loader clears its
-        // cached promise, so the button stays live and the next click retries.
         void openCalendly(url)
           .catch(() => {})
           .finally(() => setOpening(false));

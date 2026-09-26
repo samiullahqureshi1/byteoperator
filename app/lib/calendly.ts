@@ -1,18 +1,11 @@
 /**
- * Calendly popup widget loader.
- *
- * The script is fetched on first intent (hover, focus or click) rather than on
- * page load, so it costs nothing until someone actually reaches for the button.
- * One module-level promise means any number of Book a Call buttons on a page
- * share a single script and stylesheet.
- *
- * Everything here is guarded on `document`, so importing this module during
- * server rendering is inert.
+ * Calendly popup widget loader & fallback handler.
+ * Connects directly to Samiullah's Byte Operator Discovery Call event.
  */
 
-/** The event lives in Calendly. Never append month/date params to this. */
 export const CALENDLY_EVENT_URL =
-  'https://calendly.com/thesoftwareexperts/30min';
+  process.env.NEXT_PUBLIC_CALENDLY_URL ||
+  'https://calendly.com/samiullah-byteoperator/discovery-call';
 
 const WIDGET_SCRIPT = 'https://assets.calendly.com/assets/external/widget.js';
 const WIDGET_STYLES = 'https://assets.calendly.com/assets/external/widget.css';
@@ -21,6 +14,7 @@ declare global {
   interface Window {
     Calendly?: {
       initPopupWidget: (options: {url: string}) => void;
+      closePopupWidget?: () => void;
     };
   }
 }
@@ -28,17 +22,15 @@ declare global {
 let pending: Promise<void> | undefined;
 
 /**
- * Injects the widget script and stylesheet once. Safe to call repeatedly and
- * from several buttons at once — later callers await the same promise.
+ * Injects the widget script and stylesheet once.
  */
 export function loadCalendly(): Promise<void> {
-  // Server render, or a non-DOM environment.
   if (typeof document === 'undefined') return Promise.resolve();
-
   if (window.Calendly) return Promise.resolve();
 
   if (!pending) {
     pending = new Promise<void>((resolve, reject) => {
+      // Inject stylesheet
       if (!document.querySelector(`link[href="${WIDGET_STYLES}"]`)) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
@@ -46,6 +38,7 @@ export function loadCalendly(): Promise<void> {
         document.head.appendChild(link);
       }
 
+      // Inject script
       let script = document.querySelector<HTMLScriptElement>(
         `script[src="${WIDGET_SCRIPT}"]`,
       );
@@ -57,20 +50,25 @@ export function loadCalendly(): Promise<void> {
         document.head.appendChild(script);
       }
 
-      script.addEventListener('load', () => resolve(), {once: true});
+      const timer = setTimeout(() => {
+        resolve();
+      }, 2000);
 
-      script.addEventListener(
-        'error',
-        () => {
-          // Let the next click try again rather than failing for the session.
-          pending = undefined;
-          reject(new Error('Calendly widget failed to load'));
-        },
-        {once: true},
-      );
+      script.addEventListener('load', () => {
+        clearTimeout(timer);
+        resolve();
+      }, {once: true});
 
-      // The script tag was already on the page and finished loading.
-      if (window.Calendly) resolve();
+      script.addEventListener('error', () => {
+        clearTimeout(timer);
+        pending = undefined;
+        reject(new Error('Calendly widget script failed to load'));
+      }, {once: true});
+
+      if (window.Calendly) {
+        clearTimeout(timer);
+        resolve();
+      }
     });
   }
 
@@ -78,10 +76,24 @@ export function loadCalendly(): Promise<void> {
 }
 
 /**
- * Opens the booking modal, loading the widget first if it is not ready yet.
- * The visitor stays on the Byte Operator site throughout.
+ * Opens the booking modal with rock-solid fallback.
  */
-export async function openCalendly(url: string = CALENDLY_EVENT_URL) {
-  await loadCalendly();
-  window.Calendly?.initPopupWidget({url});
+export async function openCalendly(targetUrl?: string) {
+  const url = targetUrl || CALENDLY_EVENT_URL;
+
+  try {
+    await loadCalendly();
+
+    if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+      window.Calendly.initPopupWidget({url});
+      return;
+    }
+  } catch (e) {
+    console.warn('[Calendly] Popup widget error, falling back to direct open:', e);
+  }
+
+  // Fallback if popup widget is blocked by browser/adblocker or script didn't load
+  if (typeof window !== 'undefined') {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
 }

@@ -15,6 +15,32 @@ export const metadata: Metadata = {
     url: 'https://byteoperator.com',
     siteName: 'Byte Operator',
     type: 'website',
+    images: [
+      {
+        url: '/images/byte-operator-logo.png',
+        width: 512,
+        height: 512,
+        alt: 'Byte Operator – The Software Agency That Drives Real Growth',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Byte Operator | The Software Agency That Drives Real Growth',
+    description:
+      'High-performing digital platforms & applications, backed by proven CRO, SEO, and AI visibility strategies that deliver measurable results.',
+    images: ['/images/byte-operator-logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
   },
   icons: {
     icon: [

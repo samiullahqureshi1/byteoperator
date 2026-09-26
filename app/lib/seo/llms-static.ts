@@ -140,7 +140,6 @@ export const LLMS_FACTS: string[] = [
   'Founded: 2025. Software Engineering Partner since 2025.',
   'Headquarters: 1001 South Main Street, Suite 500, Kalispell, MT 59901, United States',
   'Email: info@byteoperator.com',
-  'Telephone: +1 (512) 387-6926',
   'Website: https://byteoperator.com',
   'Primary markets: United States and United Kingdom',
 ];

@@ -140,7 +140,6 @@ export const ORGANIZATION: JsonLd = {
     value: COMPANY_FACTS.team.target,
   },
   email: 'info@byteoperator.com',
-  telephone: '+1-512-387-6926',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '1001 South Main Street, Suite 500',
@@ -174,7 +173,6 @@ export const ORGANIZATION: JsonLd = {
       '@type': 'ContactPoint',
       contactType: 'sales',
       email: 'info@byteoperator.com',
-      telephone: '+1-512-387-6926',
       availableLanguage: ['English'],
       areaServed: ['US', 'GB', 'CA', 'AU', 'DE', 'FR', 'IT'],
     },
