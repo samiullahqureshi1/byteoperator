@@ -94,7 +94,8 @@ export interface ArticleInput {
   imageUrl: string;
   datePublished: string; // ISO 8601
   dateModified: string; // ISO 8601
-  authorName: string;
+  /** A real named person. Omit to credit the Organization instead. */
+  authorName?: string;
   authorUrl?: string;
 }
 
@@ -562,7 +563,7 @@ export function faqSchema(path: string, items: FaqItem[]): JsonLd {
   };
 }
 
-/** Article node for blog content. Author must be a real named person. */
+/** Article node for blog content. Author is a real named person, else the Organization. */
 export function articleSchema(input: ArticleInput): JsonLd {
   return {
     '@type': 'Article',
@@ -572,11 +573,13 @@ export function articleSchema(input: ArticleInput): JsonLd {
     image: input.imageUrl,
     datePublished: input.datePublished,
     dateModified: input.dateModified,
-    author: {
-      '@type': 'Person',
-      name: input.authorName,
-      ...(input.authorUrl ? {url: input.authorUrl} : {}),
-    },
+    author: input.authorName
+      ? {
+          '@type': 'Person',
+          name: input.authorName,
+          ...(input.authorUrl ? {url: input.authorUrl} : {}),
+        }
+      : {'@id': ORG_ID},
     publisher: {'@id': ORG_ID},
     /* Resolves against the WebPage node `pageGraph()` emits for this path. */
     mainEntityOfPage: {'@id': `${abs(input.path)}#webpage`},

@@ -29,7 +29,7 @@ import {
 type JsonLd = Record<string, unknown>;
 
 /** A `script:ld+json` meta descriptor. */
-type JsonLdDescriptor = {'script:ld+json': JsonLd};
+export type JsonLdDescriptor = {'script:ld+json': JsonLd};
 
 /**
  * Wraps a page's nodes in ONE `@graph` under ONE `@context`, dropping anything
@@ -225,7 +225,7 @@ export function articleJsonLd(
     imageUrl: input.imageUrl ?? '',
     datePublished: input.publishedAt,
     dateModified: input.updatedAt ?? undefined,
-    authorName: input.authorName ?? 'Byte Operator',
+    authorName: input.authorName ?? undefined,
   } as Parameters<typeof articleSchema>[0]);
 
   // Never emit empty strings or an undefined dateModified.

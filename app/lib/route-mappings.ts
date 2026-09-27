@@ -425,6 +425,17 @@ export const OLD_TO_CLEAN_PATHS = {
   '/services/podcast': '/podcast',
   '/services/webinars': '/webinars',
   '/services/guides': '/guides',
+
+  /* =====================================================
+     RETIRED ARTICLES (replaced 27 Sep 2026) → closest live page.
+  ===================================================== */
+  '/articles/the-complete-guide-to-software-cro-in-2026': CRO_CLEAN_PATH,
+  '/articles/ai-search-and-visibility-optimisation-for-ecommerce':
+    AI_VISIBILITY_AUDIT_CLEAN_PATH,
+  '/articles/migrating-to-software-plus-enterprise-playbook':
+    '/services/software-migrations',
+  '/articles/top-software-apps-for-scale':
+    '/articles/headless-commerce-vs-traditional-ecommerce',
 } as const;
 
 export type LegacyPagePath = keyof typeof OLD_TO_CLEAN_PATHS;

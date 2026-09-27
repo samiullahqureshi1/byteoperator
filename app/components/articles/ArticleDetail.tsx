@@ -30,7 +30,9 @@ export function ArticleDetail({article}: {article: EditorialArticle}) {
   const {html, headings} = useMemo(
     () =>
       withHeadingAnchors(
-        withImageAlts(withCanonicalLinks(article.contentHtml), article.title),
+        withResponsiveImages(
+          withImageAlts(withCanonicalLinks(article.contentHtml), article.title),
+        ),
       ),
     [article.contentHtml, article.title],
   );
@@ -48,6 +50,11 @@ export function ArticleDetail({article}: {article: EditorialArticle}) {
   );
   const eyebrow = article.articleType?.value.trim() || 'Ecommerce insights';
   const author = article.authorV2?.name?.trim();
+  const updated =
+    article.lastModified?.value &&
+    article.lastModified.value.slice(0, 10) !== article.publishedAt.slice(0, 10)
+      ? article.lastModified.value
+      : null;
 
   return (
     <article className="ft-article">
@@ -62,6 +69,7 @@ export function ArticleDetail({article}: {article: EditorialArticle}) {
         <p className="ft-article__meta">
           <span>{eyebrow}</span>
           <span>{formatDate(article.publishedAt)}</span>
+          {updated ? <span>Updated {formatDate(updated)}</span> : null}
           <span>{readingMinutes} min read</span>
           {author ? <span>{author}</span> : null}
         </p>
@@ -223,6 +231,33 @@ function withImageAlts(contentHtml: string, articleTitle: string) {
       return match.replace(/<img\b[^>]*>/gi, describe);
     },
   );
+}
+
+/**
+ * Body images are raw HTML, so they miss the `responsiveImage` props the
+ * featured image gets. Give each local/CDN image a srcset, sizes and lazy
+ * loading so article pages don't download full-size originals.
+ */
+function withResponsiveImages(contentHtml: string) {
+  return contentHtml.replace(/<img\b[^>]*>/gi, (img) => {
+    if (/\ssrcset\s*=/i.test(img)) return img;
+    const src = /\ssrc\s*=\s*"([^"]+)"/i.exec(img)?.[1];
+    if (!src) return img;
+
+    const {src: resized, srcSet, sizes} = responsiveImage(
+      src,
+      '(max-width: 48rem) 100vw, 760px',
+      1920,
+    );
+    if (!srcSet) return img;
+
+    return img
+      .replace(/\ssrc\s*=\s*"[^"]+"/i, ` src="${resized}"`)
+      .replace(
+        /^<img\b/i,
+        `<img srcset="${srcSet}" sizes="${sizes}" loading="lazy" decoding="async"`,
+      );
+  });
 }
 
 function uniqueId(base: string, used: Set<string>) {

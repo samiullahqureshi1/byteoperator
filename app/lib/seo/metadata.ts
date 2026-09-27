@@ -19,6 +19,9 @@ type PageMetadataInput = {
   path: string;
   type?: 'website' | 'article';
   publishedTime?: string;
+  modifiedTime?: string;
+  /** Page-specific share image; defaults to the site card. */
+  image?: {url: string; width: number; height: number; alt: string};
   robots?: Metadata['robots'];
   keywords?: string[];
 };
@@ -36,6 +39,8 @@ export function pageMetadata({
   path,
   type = 'website',
   publishedTime,
+  modifiedTime,
+  image = SHARE_IMAGE,
   robots,
   keywords,
 }: PageMetadataInput): Metadata {
@@ -54,14 +59,15 @@ export function pageMetadata({
       siteName: SITE_NAME,
       locale: 'en_US',
       type,
-      images: [SHARE_IMAGE],
+      images: [image],
       ...(publishedTime ? {publishedTime} : {}),
+      ...(modifiedTime ? {modifiedTime} : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [SHARE_IMAGE],
+      images: [image],
     },
   };
 }
