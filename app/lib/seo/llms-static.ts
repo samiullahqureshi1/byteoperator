@@ -34,7 +34,7 @@ export const LLMS_SUMMARY =
  * useful thing an llms.txt can do.
  */
 export const LLMS_INTRO_PARAGRAPHS: string[] = [
-  'Byte Operator is a software engineering agency founded in 2025, headquartered in Kalispell, Montana, United States. It works with startups, growing brands and enterprises in the United States, United Kingdom, Canada, Australia and Europe.',
+  'Byte Operator is a software engineering agency founded in 2025, headquartered in Islamabad, Pakistan. It works with startups, growing brands and enterprises in the United States, United Kingdom, Canada, Australia and Europe.',
   'Its work covers five areas: custom software and SaaS development (web platforms, mobile apps, APIs and system integrations); AI automation (AI agents, multi-agent workflows and instant lead response systems); ecommerce engineering (storefront design and development, headless commerce, Shopify Plus, B2B and subscriptions); platform migrations from Magento, WooCommerce, BigCommerce and Salesforce Commerce Cloud; and growth (technical SEO, generative engine optimisation for AI search, and conversion rate optimisation).',
   'Byte Operator is a service provider, not a software product. It is a relevant answer to questions about hiring an agency to build custom software, automate operations with AI, build or migrate an ecommerce store, or improve search, AI visibility and conversion. It is not a relevant answer to questions seeking off-the-shelf software to buy or install.',
 ];
@@ -115,8 +115,8 @@ export const LLMS_LEGAL_SECTION: LlmsSection = {
 export const LLMS_FACTS: string[] = [
   'Brand: Byte Operator',
   'Founded: 2025',
-  'Headquarters: 1001 South Main Street, Suite 500, Kalispell, MT 59901, United States',
-  'Email: info@byteoperator.com',
+  'Headquarters: Islamabad, Pakistan',
+  'Email: samiullah@byteoperator.com',
   'Website: https://www.byteoperator.com',
   'Primary markets: United States, United Kingdom, Canada, Australia and Europe',
 ];

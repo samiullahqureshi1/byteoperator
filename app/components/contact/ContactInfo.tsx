@@ -11,8 +11,8 @@ export function ContactInfo() {
               Email us
             </p>
 
-            <a href="mailto:info@byteoperator.com">
-              info@byteoperator.com
+            <a href="mailto:samiullah@byteoperator.com">
+              samiullah@byteoperator.com
             </a>
           </div>
 
@@ -21,7 +21,7 @@ export function ContactInfo() {
               Location
             </p>
 
-            <p>Kalispell, MT — US</p>
+            <p>Islamabad — Pakistan</p>
           </div>
         </div>
       </div>
