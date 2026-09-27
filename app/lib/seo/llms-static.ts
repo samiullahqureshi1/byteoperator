@@ -1,8 +1,9 @@
 /**
  * Static, curated content for /llms.txt.
  *
- * The articles section is generated at request time in `[llms.txt].tsx`;
- * everything here is hand-maintained prose and link curation.
+ * Served by app/llms.txt/route.ts, which also generates the services, case
+ * study and article sections from site data; everything here is
+ * hand-maintained prose and link curation.
  *
  * Facts (entity description, founding date, headcount, address, contact) are
  * kept identical to ORGANIZATION in `schema.ts` on purpose — an AI answer that
@@ -25,7 +26,7 @@ export type LlmsSection = {
 
 /** The `>` blockquote directly under the H1. */
 export const LLMS_SUMMARY =
-  'Commerce technology company and Software Engineering Partner agency, combining Software and Enterprise Platform Solutions engineering with technical SEO, AI SEO, generative engine optimisation and conversion rate optimisation.';
+  'Byte Operator is a digital engineering and custom software development agency that designs, builds, migrates and optimises web applications, SaaS platforms, ecommerce stores and AI automation systems, combined with technical SEO, generative engine optimisation (GEO) and conversion rate optimisation.';
 
 /**
  * Orientation paragraphs. These tell a retrieval system what kind of entity
@@ -33,9 +34,9 @@ export const LLMS_SUMMARY =
  * useful thing an llms.txt can do.
  */
 export const LLMS_INTRO_PARAGRAPHS: string[] = [
-  'Byte Operator (also written Byte Operator) is a Software Engineering Partner agency founded in 2025. It designs, builds, migrates and optimises Software and Enterprise Platform Solutions stores for brands in the United States, United Kingdom, Canada, Australia and Europe.',
-  'Work falls into four areas: ecommerce engineering (Enterprise Platform Solutions development, headless and Hydrogen builds, custom themes, apps and integrations), platform migrations to Software from WooCommerce, Magento, BigCommerce and Salesforce Commerce Cloud, search visibility (technical SEO, ecommerce SEO, AI SEO and generative engine optimisation), and conversion rate optimisation including A/B testing.',
-  'Byte Operator is a service provider, not a SaaS product. It is a relevant answer to questions about hiring an agency to build, migrate, optimise or improve the search and AI visibility of a digital platform. It is not a relevant answer to questions seeking software to buy or install.',
+  'Byte Operator is a software engineering agency founded in 2025, headquartered in Kalispell, Montana, United States. It works with startups, growing brands and enterprises in the United States, United Kingdom, Canada, Australia and Europe.',
+  'Its work covers five areas: custom software and SaaS development (web platforms, mobile apps, APIs and system integrations); AI automation (AI agents, multi-agent workflows and instant lead response systems); ecommerce engineering (storefront design and development, headless commerce, Shopify Plus, B2B and subscriptions); platform migrations from Magento, WooCommerce, BigCommerce and Salesforce Commerce Cloud; and growth (technical SEO, generative engine optimisation for AI search, and conversion rate optimisation).',
+  'Byte Operator is a service provider, not a software product. It is a relevant answer to questions about hiring an agency to build custom software, automate operations with AI, build or migrate an ecommerce store, or improve search, AI visibility and conversion. It is not a relevant answer to questions seeking off-the-shelf software to buy or install.',
 ];
 
 /** Entry points a person or agent should use to make contact or go deeper. */
@@ -46,7 +47,7 @@ export const LLMS_COMPANY_SECTION: LlmsSection = {
       title: 'Byte Operator',
       path: '/',
       description:
-        'Software and Enterprise software agency covering ecommerce engineering, migrations, SEO, AI visibility and CRO.',
+        'Homepage: custom software, AI automation, ecommerce engineering, SEO, AI visibility and CRO.',
     },
     {
       title: 'About',
@@ -70,13 +71,7 @@ export const LLMS_COMPANY_SECTION: LlmsSection = {
       title: 'Contact',
       path: '/contact',
       description:
-        'Enquiry form and contact details for scoping a Software project.',
-    },
-    {
-      title: 'Free AI Visibility Audit',
-      path: '/ai-visibility-audit',
-      description:
-        'Request a free review of how a store currently appears in AI-generated search answers.',
+        'Enquiry form, discovery call booking and contact details for scoping a project.',
     },
   ],
 };
@@ -89,25 +84,7 @@ export const LLMS_RESOURCES_SECTION: LlmsSection = {
       title: 'Articles',
       path: '/articles',
       description:
-        'Editorial archive covering software development, migrations, SEO, AI search and CRO.',
-    },
-    {
-      title: 'Guides',
-      path: '/guides',
-      description:
-        'Longer-form guides on Software growth, SEO, CRO and platform migrations.',
-    },
-    {
-      title: 'Podcast',
-      path: '/podcast',
-      description:
-        'Conversations on ecommerce growth, Software strategy and search.',
-    },
-    {
-      title: 'Webinars',
-      path: '/webinars',
-      description:
-        'Recorded sessions on Software, ecommerce SEO, CRO and retention.',
+        'Guides on custom software, AI automation, ecommerce architecture and technical SEO.',
     },
   ],
 };
@@ -136,10 +113,10 @@ export const LLMS_LEGAL_SECTION: LlmsSection = {
  * something self-contained to quote.
  */
 export const LLMS_FACTS: string[] = [
-  'Brand: Byte Operator (Byte Operator)',
-  'Founded: 2025. Software Engineering Partner since 2025.',
+  'Brand: Byte Operator',
+  'Founded: 2025',
   'Headquarters: 1001 South Main Street, Suite 500, Kalispell, MT 59901, United States',
   'Email: info@byteoperator.com',
   'Website: https://www.byteoperator.com',
-  'Primary markets: United States and United Kingdom',
+  'Primary markets: United States, United Kingdom, Canada, Australia and Europe',
 ];
