@@ -20,11 +20,14 @@ interface ServiceDetailPageProps {
     faqs?: readonly ServiceDetailFaqItem[];
   };
   config: ServicePageConfig;
+  /** Optional page-specific section rendered right after the About block. */
+  afterAbout?: ReactNode;
 }
 
 export function ServiceDetailPage({
   page,
   config,
+  afterAbout,
 }: ServiceDetailPageProps) {
   return (
     <div    
@@ -47,6 +50,8 @@ export function ServiceDetailPage({
             />
           ) : null}
 
+          {afterAbout}
+
           {config.features?.map((feature) => (
             <HomeFeature key={feature.id} feature={feature} />
           ))}
@@ -60,7 +65,7 @@ export function ServiceDetailPage({
             />
           ) : null}
 
-          <WorkTestimonial />
+          {config.showTestimonial === false ? null : <WorkTestimonial />}
 
           {config.plusAgencyCta ? (
             <ServicePlusAgencyCta data={config.plusAgencyCta} />

@@ -61,8 +61,8 @@ export function EcommerceSeoTechStack() {
 
               <div className="ft-ecommerce-seo-stack__hub">
                 <img
-                  src="/images/home-partners/software.svg"
-                  alt="Software"
+                  src="/images/home-partners/shopify.svg"
+                  alt="Shopify logo"
                   width="179"
                   height="76"
                   className="ft-ecommerce-seo-stack__hub-logo"

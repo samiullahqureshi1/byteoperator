@@ -421,6 +421,8 @@ export const OLD_TO_CLEAN_PATHS = {
   // Same config rendered at a root landing page.
   '/services/seo-agency': ECOMMERCE_SEO_CLEAN_PATH,
   '/services/geo-agency': AI_VISIBILITY_AUDIT_CLEAN_PATH,
+  // Generic "experts" overview merged into the main custom software page (SEO batch 6).
+  '/services/software-experts': '/services/software-developers',
   // Service-page copies of the resource hubs.
   '/services/podcast': '/podcast',
   '/services/webinars': '/webinars',

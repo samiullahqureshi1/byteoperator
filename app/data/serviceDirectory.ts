@@ -208,6 +208,28 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
         ],
       },
       {
+        name: 'SaaS & MVP Development',
+        href: '/services/saas-mvp-development',
+        summary:
+          'Scoping, designing and building SaaS products and MVPs: a first release focused on the core job users need done, on an architecture that can grow with the product.',
+        highlights: [
+          'MVP scoping and product UX',
+          'SaaS architecture, roles and permissions',
+          'Integrations, CI/CD and cloud deployment',
+        ],
+      },
+      {
+        name: 'AI Application Development',
+        href: '/services/ai-application-development',
+        summary:
+          'AI features built into your software: LLM integration, AI assistants and chat interfaces, and retrieval-augmented generation that answers from your own data.',
+        highlights: [
+          'OpenAI and Anthropic API integration',
+          'AI assistants and chat interfaces',
+          'RAG pipelines and vector knowledge bases',
+        ],
+      },
+      {
         name: 'AI Automation & Integration',
         summary:
           'Putting AI to work on the operational load rather than the marketing deck. Product description generation at catalogue scale, support deflection, merchandising and enrichment workflows, integrated into Software with a human review step where accuracy matters.',

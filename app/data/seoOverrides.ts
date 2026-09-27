@@ -85,27 +85,32 @@ export const SERVICE_SEO: Record<string, SeoCopy> = {
       'Protect rankings during replatforming and rebuilds. We audit URLs, content, redirects and technical setup before and after launch to reduce migration risk.',
   },
   'email-marketing-agency': {
-    title: 'Software Email Marketing Agency',
+    title: 'Email & SMS Retention Marketing Agency',
     description:
       'Email and SMS retention for ecommerce: segmentation, automated lifecycle flows, campaign planning, loyalty and subscriptions that drive repeat purchases.',
   },
   'why-custom-software': {
-    title: 'Why Custom Software',
+    title: 'Choosing an Enterprise Ecommerce Platform',
     description:
       'What a modern commerce platform offers growing brands: hosted infrastructure, room for custom development, deep integrations and flexible SEO and CRO.',
   },
-  'software-experts': {
-    title: 'Software Engineering Experts',
+  'saas-mvp-development': {
+    title: 'SaaS & MVP Development Services',
     description:
-      'A team of Software experts covering design, development, migrations, integrations, SEO and conversion work for brands building and scaling online.',
+      'SaaS and MVP development: scoping the first release, product UX, SaaS architecture, integrations and cloud deployment for products built to grow.',
+  },
+  'ai-application-development': {
+    title: 'AI Application Development & LLM Integration',
+    description:
+      'AI features built into your software: LLM integration with OpenAI and Anthropic APIs, AI assistants and chat, and RAG that answers from your own data.',
   },
   memberships: {
-    title: 'Software Retainers & Memberships',
+    title: 'Dedicated Development Retainers',
     description:
-      'Monthly retainers for continuous support: maintenance, development time, conversion work and technical help from a team that already knows your store.',
+      'Monthly retainers that give you dedicated development capacity: development time, conversion work and technical help from a team that knows your platform.',
   },
   'software-consultant': {
-    title: 'Software Engineering Consultancy',
+    title: 'Software Architecture & Strategy Consulting',
     description:
       'Senior architecture and ecommerce consulting before you commit budget: audits, platform and migration decisions, SEO and CRO priorities, and a roadmap.',
   },
@@ -120,7 +125,7 @@ export const SERVICE_SEO: Record<string, SeoCopy> = {
       'Subscription commerce done right: recurring purchase options, a smooth signup journey, self-serve account tools and the integrations behind them.',
   },
   'support-and-maintenance': {
-    title: 'Dedicated Engineering Support',
+    title: 'Support & Maintenance Services',
     description:
       'Ongoing support and maintenance after launch: bug fixes, troubleshooting, theme changes, app and integration support, and performance improvements.',
   },
@@ -130,7 +135,7 @@ export const SERVICE_SEO: Record<string, SeoCopy> = {
       'Intelligent AI automations, autonomous agent workflows and instant lead response, powered by our Replex Engine and n8n pipelines, running 24/7.',
   },
   'klaviyo-agency': {
-    title: 'Klaviyo Email Marketing Agency',
+    title: 'Klaviyo Agency: Setup, Flows & Integrations',
     description:
       'Klaviyo email, SMS, automated flows and segmentation built around how your customers actually buy, using the store data Klaviyo already receives.',
   },
@@ -140,7 +145,7 @@ export const SERVICE_SEO: Record<string, SeoCopy> = {
       'Public and custom Shopify apps, checkout extensions and backend microservices built with Remix, Node.js and App Bridge to streamline merchant operations.',
   },
   'shopify-audits': {
-    title: 'Performance & Speed Audits',
+    title: 'Shopify Speed & Core Web Vitals Audits',
     description:
       'Deep analysis of your Shopify theme, apps, scripts and asset delivery, with code-level fixes that improve Core Web Vitals, page speed and conversion.',
   },

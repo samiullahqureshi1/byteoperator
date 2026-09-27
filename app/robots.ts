@@ -6,7 +6,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/search'],
+        // /contact?service=… and ?subject=… prefill the form; they all
+        // canonicalise to /contact, so crawlers need not fetch each one.
+        disallow: ['/api/', '/search', '/contact?'],
       },
     ],
     sitemap: 'https://www.byteoperator.com/sitemap.xml',

@@ -143,7 +143,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
 
       <h2>How to reduce cost without cutting quality</h2>
       <ul>
-        <li><strong>Start with an MVP</strong> that solves one core problem well, then invest based on real usage.</li>
+        <li><strong>Start with an MVP</strong> that solves one core problem well, then invest based on real usage. See our <a href="/services/saas-mvp-development">SaaS and MVP development</a> service.</li>
         <li><strong>Invest in discovery</strong> – clear requirements are the single best protection against overruns.</li>
         <li><strong>Buy what is not your advantage</strong> – use proven services for payments, authentication and email, and build what makes you different.</li>
         <li><strong>Choose a maintainable stack</strong> that is widely used and easy to hire for.</li>
@@ -151,7 +151,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
       </ul>
 
       <h2>Build or buy: when is custom software worth it?</h2>
-      <p>Off-the-shelf software is faster and cheaper when your process is standard. Custom software is worth the investment when the software is your competitive advantage, when off-the-shelf tools force costly workarounds, when you need to connect many systems, or when per-user licence fees outgrow the cost of owning your own platform. We explore this in more depth in <a href="/services/why-custom-software">why custom software</a>.</p>
+      <p>Off-the-shelf software is faster and cheaper when your process is standard. Custom software is worth the investment when the software is your competitive advantage, when off-the-shelf tools force costly workarounds, when you need to connect many systems, or when per-user licence fees outgrow the cost of owning your own platform. If an off-the-shelf ecommerce platform could cover your needs, see <a href="/services/why-custom-software">choosing an enterprise ecommerce platform</a>.</p>
 
       <h2>How to get an accurate quote</h2>
       <p>The more clearly you describe the project, the more accurate and comparable your quotes will be. Prepare:</p>
@@ -290,7 +290,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
         <li>Error rates and the share of actions needing human correction.</li>
         <li>Total running cost compared with the manual process.</li>
       </ul>
-      <p>Ready to find the right first process to automate? Explore our <a href="/services/ai-automations-agents">AI automations and autonomous agents</a> service or <a href="/contact">book a discovery call</a>.</p>
+      <p>Ready to find the right first process to automate? Explore our <a href="/services/ai-automations-agents">AI automations and autonomous agents</a> service, see <a href="/services/ai-application-development">AI application development</a> for AI features inside your own product, or <a href="/contact">book a discovery call</a>.</p>
     `,
     faqs: [
       {

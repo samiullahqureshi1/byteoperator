@@ -358,7 +358,7 @@ function PlusIcon() {
 const FOOTER_SOCIAL_LINKS = [
   {
     label: 'Facebook',
-    href: 'https://www.facebook.com/byteoperator',
+    href: 'https://www.facebook.com/profile.php?id=61595095910822',
     Icon: FacebookIcon,
   },
   {

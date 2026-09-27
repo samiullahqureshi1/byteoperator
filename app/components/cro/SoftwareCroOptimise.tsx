@@ -99,8 +99,8 @@ export function SoftwareCroOptimise({
           <div className="ft-cro-optimise__left">
             <p className="ft-cro-optimise__eyebrow">{eyebrow}</p>
 
-            {/* The page's H1: this section opens /shopify-cro-audit. */}
-            <h1
+            {/* H2: the service hero above supplies the page's H1. */}
+            <h2
               className="ft-cro-optimise__title"
               id="ft-cro-optimise-title"
             >
@@ -112,7 +112,7 @@ export function SoftwareCroOptimise({
                   {line}
                 </Fragment>
               ))}
-            </h1>
+            </h2>
 
             <ul className="ft-cro-optimise__list">
               {items.map((item) => {

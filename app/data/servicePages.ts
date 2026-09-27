@@ -111,6 +111,11 @@ export interface ServicePageConfig {
   faqs?: readonly {question: string; answer: string}[];
   plusAgencyCta?: ServicePlusAgencyCtaData;
   experts?: HomeExpertsProps;
+  /**
+   * The shared client testimonial block. Defaults to shown; pages without a
+   * verified testimonial set this to false.
+   */
+  showTestimonial?: boolean;
 }
 
 export const SERVICE_PAGE_CONFIGS = {
@@ -471,7 +476,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Discuss Your Product Build',
             href: SERVICE_PAGE_ROUTES.contact,
           },
-          {label: 'Why Choose Custom Software', href: '/services/why-custom-software'},
+          {label: 'Explore SaaS & MVP Development', href: '/services/saas-mvp-development'},
         ],
         media: {
           primary:
@@ -801,6 +806,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Get In Touch',
             href: SERVICE_PAGE_ROUTES.contact,
           },
+          {label: 'Read the Kids Wonderland Case Study', href: '/work/kids-wonderland'},
         ],
         media: reuseHomeFeatureMedia('software-seo-geo'),
       },
@@ -1884,6 +1890,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {label: 'Discuss Data Migration', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Read the OmniRetail Migration Case Study', href: '/work/omniretail-migration'},
         ],
         media: reuseHomeFeatureMedia('software-development'),
       },
@@ -2974,6 +2981,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Read the OmniRetail Migration Case Study', href: '/work/omniretail-migration'},
         ],
         media: reuseHomeFeatureMedia('software-development'),
       },
@@ -3628,6 +3636,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Get In Touch',
             href: SERVICE_PAGE_ROUTES.contact,
           },
+          {label: 'Read the OmniRetail Migration Case Study', href: '/work/omniretail-migration'},
         ],
         media: reuseHomeFeatureMedia('software-launch'),
       },
@@ -3753,9 +3762,9 @@ export const SERVICE_PAGE_CONFIGS = {
   'email-marketing-agency': {
     faqTitle: 'Software Email Marketing',
     hero: {
-      eyebrow: 'Software Email Marketing Agency',
+      eyebrow: 'Email & SMS Retention Marketing',
       heading:
-        'Software Email Marketing Agency for Ecommerce Brands',
+        'Email & SMS Retention Marketing for Ecommerce Brands',
       chips: [
         {
           label: 'Klaviyo Agency',
@@ -4106,181 +4115,13 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
   },
-  'software-experts': {
-    faqTitle: 'Software Engineering Experts & Development',
-    hero: {
-      eyebrow: 'Software Engineering Experts',
-      heading:
-        'Software Engineering Experts for Design, Development & Growth',
-      chips: [
-        {
-          label: 'Development Services',
-          href: SERVICE_PAGE_ROUTES.softwareDevelopment,
-        },
-        {
-          label: 'Design Services',
-          href: SERVICE_PAGE_ROUTES.softwareWebDesign,
-        },
-        {
-          label: 'Ecommerce SEO',
-          href: SERVICE_PAGE_ROUTES.ecommerceSeo,
-        },
-        {
-          label: 'Ecommerce CRO',
-          href: SERVICE_PAGE_ROUTES.ecommerceCro,
-        },
-        {
-          label: 'Enterprise Platform Solutions',
-          href: SERVICE_PAGE_ROUTES.softwarePlus,
-        },
-      ],
-      description:
-        'Byte Operator is a team of Software experts covering design, development, migrations, integrations, SEO and conversion work for brands building and growing on Software and Enterprise Platform Solutions.',
-      primaryCta: {
-        label: 'Get In Touch',
-        href: SERVICE_PAGE_ROUTES.contact,
-      },
-    },
-    about: {
-      intro: {
-        heading:
-          'Software Engineering Experts for Every Stage of Your Store',
-        description:
-          '"Software expert" covers a wide range of work, and most stores need more than one kind of it. A build needs design and development. A migration needs data, redirects and integration planning. Growth needs SEO, conversion work and someone maintaining the store while it happens. Byte Operator brings those disciplines together so decisions in one area account for their effect on the others, rather than being handed between separate suppliers who each see a different part of the store.',
-        cta: {
-          label: 'Get In Touch',
-          href: SERVICE_PAGE_ROUTES.contact,
-        },
-      },
-      media: {
-        primary: '/images/services/services-wide.webp', primaryWidth: 1672, primaryHeight: 941,
-        primaryAlt:
-          'Byte Operator Software experts working on ecommerce store projects',
-        secondary: '/images/mega-menu-team.webp', secondaryWidth: 1970, secondaryHeight: 1306,
-        secondaryAlt:
-          'Byte Operator software development and design team',
-      },
-      process: {
-        heading: 'How We Work as Your Software Engineering Experts',
-        leftDescription:
-          'We start by understanding the store, the team around it and the commercial goal. That covers how the theme is built, which apps and integrations it depends on, where the current setup is holding things back, and what the business needs the store to do over the next period rather than in the abstract.',
-        rightDescription:
-          'From there we agree the work and the order it should happen in, then deliver it: design, development, migration, SEO, conversion or a combination. Where a requirement is better solved by a change to process or configuration than by custom development, we will say so rather than building something that adds maintenance for no gain.',
-        cta: {
-          label: 'Get In Touch',
-          href: SERVICE_PAGE_ROUTES.contact,
-        },
-      },
-    },
-    features: [
-      {
-        id: 'software-experts-design-development',
-        layout: 'media-left',
-        spacing: 'first',
-        theme: 'dark',
-        eyebrow: 'Software Design & Development',
-        heading:
-          'Stores Designed and Built by the Same Team',
-        description: [
-          'Design and development work best when they are not separated by a handover. Decisions about layout, merchandising and interaction affect how a theme is built, and the constraints of the platform affect what is worth designing in the first place.',
-          'Byte Operator designs and develops Software and Enterprise Platform Solutions storefronts together: custom themes, tailored sections merchandising teams can use without a developer, and frontend built with performance, accessibility and long-term maintainability in mind.',
-        ],
-        buttons: [
-          {
-            label: 'Explore Development Services',
-            href: SERVICE_PAGE_ROUTES.softwareDevelopment,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-plus'),
-      },
-      {
-        id: 'software-experts-migrations-integrations',
-        layout: 'media-right',
-        spacing: 'standard',
-        theme: 'dark',
-        eyebrow: 'Migrations & Integrations',
-        heading:
-          'Moving to Software and Connecting What Surrounds It',
-        description: [
-          'Migrations are where detail matters most. Products, variants, customers, orders, content and URL structures all have to arrive intact, with redirects mapped so existing search visibility is carried across rather than rebuilt from scratch.',
-          'Integration work continues past launch. We connect Software with the ERP, CRM, inventory, fulfilment and marketing systems a business already runs on, and build custom functionality where an app does not fit the requirement.',
-        ],
-        buttons: [
-          {
-            label: 'Explore Platform & Cloud Migrations',
-            href: SERVICE_PAGE_ROUTES.softwareMigrations,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-migrations'),
-      },
-      {
-        id: 'software-experts-seo-cro',
-        layout: 'media-left',
-        spacing: 'deep',
-        theme: 'dark',
-        eyebrow: 'SEO & Conversion Expertise',
-        heading:
-          'Helping Customers Find You and Buy From You',
-        description: [
-          'Search visibility and conversion act on the same templates. Collection structure, product information, internal linking and page performance decide how a store is found, and the same pages decide whether visitors go on to buy.',
-          'Our SEO and CRO specialists work alongside the developers building the store, so technical foundations, content structure and conversion improvements are planned together instead of arriving as competing change requests.',
-        ],
-        buttons: [
-          {
-            label: 'Explore Ecommerce SEO',
-            href: SERVICE_PAGE_ROUTES.ecommerceSeo,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-development'),
-      },
-      {
-        id: 'software-experts-software-plus',
-        layout: 'media-right',
-        spacing: 'standard',
-        theme: 'dark',
-        eyebrow: 'Enterprise Platform Solutions Experts',
-        heading:
-          'Expertise for More Complex Ecommerce Requirements',
-        description: [
-          'Enterprise Platform Solutions stores tend to carry more moving parts: additional integrations, international and multi-currency requirements, B2B alongside DTC, and internal teams who need their own workflows supported.',
-          'As Enterprise Platform Solutions experts we advise on platform decisions and store architecture, build the customisations those requirements need, and keep the setup practical for the people managing it day to day.',
-        ],
-        buttons: [
-          {
-            label: 'Explore Enterprise Platform Solutions',
-            href: SERVICE_PAGE_ROUTES.softwarePlus,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-cro'),
-      },
-      {
-        id: 'software-experts-ongoing-support',
-        layout: 'media-left',
-        spacing: 'deep',
-        theme: 'dark',
-        eyebrow: 'Ongoing Support & Ecommerce Growth',
-        heading:
-          'Experts Who Stay With the Store After Launch',
-        description: [
-          'Launch is the start of the work, not the end of it. Ranges change, campaigns need new pages, apps update, and the improvements identified during a build need someone to pick them up.',
-          'Byte Operator continues as a long-term partner through maintenance, development time, conversion work and technical support, so the store keeps improving instead of slowly drifting between projects.',
-        ],
-        buttons: [
-          {
-            label: 'Explore Support & Growth',
-            href: SERVICE_PAGE_ROUTES.softwareMaintenance,
-          },
-        ],
-        media: reuseHomeFeatureMedia('software-design'),
-      },
-    ],
-  },
+  // 'software-experts' was merged into 'software-developers' (301 in route-mappings).
   memberships: {
-    faqTitle: 'Software Retainers & Memberships',
+    faqTitle: 'Dedicated Development Retainers',
     hero: {
-      eyebrow: 'Software Retainers & Memberships',
+      eyebrow: 'Dedicated Development Retainers',
       heading:
-        'Software Retainers for Ongoing Support & Growth',
+        'Dedicated Development Capacity on a Monthly Retainer',
       chips: [
         {
           label: 'Support & Maintenance',
@@ -4304,7 +4145,7 @@ export const SERVICE_PAGE_CONFIGS = {
         },
       ],
       description:
-        'Byte Operator memberships are monthly Software retainers for brands that need continuous support rather than one-off projects: maintenance, development time, conversion work and technical help from a team that already knows the store.',
+        'Byte Operator memberships give you dedicated development capacity on a monthly retainer instead of one-off projects: development time, conversion work, technical help and maintenance from a team that already knows the store.',
       primaryCta: {
         label: 'Get In Touch',
         href: SERVICE_PAGE_ROUTES.contact,
@@ -4359,6 +4200,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Explore Support & Maintenance',
             href: SERVICE_PAGE_ROUTES.softwareMaintenance,
           },
+          {label: 'Explore Support & Maintenance', href: '/services/support-and-maintenance'},
         ],
         media: reuseHomeFeatureMedia('software-plus'),
       },
@@ -4449,7 +4291,7 @@ export const SERVICE_PAGE_CONFIGS = {
     hero: {
       eyebrow: 'Software Engineering Consultancy',
       heading:
-        'Software Architect & Consultant & Ecommerce Strategy Support',
+        'Software Architecture & Ecommerce Strategy Consulting',
       chips: [
         {
           label: 'Ecommerce Audits',
@@ -4548,7 +4390,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Explore Our Services',
             href: SERVICE_PAGE_ROUTES.services,
           },
-          {label: 'Meet Our Software Engineering Experts', href: '/services/software-experts'},
+          {label: 'Explore Custom Software Development', href: '/services/software-developers'},
         ],
         media: reuseHomeFeatureMedia('software-development'),
       },
@@ -4569,6 +4411,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Explore Platform & Cloud Migrations',
             href: SERVICE_PAGE_ROUTES.softwareMigrations,
           },
+          {label: 'Choosing an Enterprise Ecommerce Platform', href: '/services/why-custom-software'},
         ],
         media: reuseHomeFeatureMedia('software-migrations'),
       },
@@ -4756,6 +4599,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Get In Touch',
             href: SERVICE_PAGE_ROUTES.contact,
           },
+          {label: 'Read the Nordic Haven Case Study', href: '/work/nordic-haven'},
         ],
         media: reuseHomeFeatureMedia('software-cro'),
       },
@@ -5054,10 +4898,10 @@ export const SERVICE_PAGE_CONFIGS = {
     ],
   },
   'support-and-maintenance': {
-    faqTitle: 'Dedicated Engineering Support',
+    faqTitle: 'Support & Maintenance',
     hero: {
-      eyebrow: 'Dedicated Engineering Support',
-      heading: 'Ongoing technical maintenance, continuous delivery & sprint capacity.',
+      eyebrow: 'Support & Maintenance',
+      heading: 'Support & Maintenance Services',
       chips: [
         {
           label: 'Digital Platform Builds',
@@ -5148,7 +4992,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Get In Touch',
             href: SERVICE_PAGE_ROUTES.contact,
           },
-          {label: 'Meet Our Software Engineering Experts', href: '/services/software-experts'},
+          {label: 'Meet the Team Behind Byte Operator', href: '/about'},
         ],
         media: reuseHomeFeatureMedia('software-development'),
       },
@@ -5679,6 +5523,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {label: 'Build n8n Workflows', href: SERVICE_PAGE_ROUTES.softwareIntegrations},
+          {label: 'Read the Agent Swarms Case Study', href: '/work/autonomous-agent-swarms'},
         ],
         media: {
           primary:
@@ -5770,6 +5615,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {label: 'Automate Customer Support', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Explore AI Application Development', href: '/services/ai-application-development'},
         ],
         media: {
           primary:
@@ -5850,7 +5696,7 @@ export const SERVICE_PAGE_CONFIGS = {
       eyebrow:
         'Klaviyo Email Marketing Agency for Software and Enterprise Platform Solutions',
       heading:
-        'Klaviyo Expertise for Software Email, SMS and Retention',
+        'Klaviyo Setup, Flows, Segmentation & Integrations',
       chips: [
         {
           label: 'Email Marketing Agency',
@@ -5963,7 +5809,7 @@ export const SERVICE_PAGE_CONFIGS = {
         spacing: 'deep',
         theme: 'dark',
         eyebrow: 'Klaviyo Segmentation',
-        heading: 'More Relevant Customer Segmentation',
+        heading: 'Klaviyo Segments Your Team Can Use',
         description: [
           'Segmentation is what stops a Klaviyo account from sending the same message to everyone. Klaviyo holds purchase history, browsing behaviour, engagement and profile data from Software, which is enough to separate first-time buyers from regulars, recent customers from lapsed ones, and engaged subscribers from those who have stopped opening.',
           'We build segments that a team can actually use week to week, then apply them to both campaigns and flows. Keeping messaging relevant also protects list health, since subscribers are far less likely to disengage when what arrives reflects their relationship with the store.',
@@ -5982,7 +5828,7 @@ export const SERVICE_PAGE_CONFIGS = {
         spacing: 'standard',
         theme: 'dark',
         eyebrow: 'Klaviyo Email Design',
-        heading: 'Email Design That Fits Your Brand',
+        heading: 'Klaviyo Templates Built Around Your Brand',
         description: [
           'Emails are part of the brand experience, so they should look like the store rather than a default template. We design Klaviyo templates around the existing brand: typography, colour, imagery and the way products are presented, with a clear hierarchy that works on a phone as well as a desktop inbox.',
           'Templates are built to be reusable, so the team can put a campaign together without rebuilding a layout each time. Accessibility, readable type and sensible fallbacks are handled as part of the build rather than afterwards.',
@@ -6001,7 +5847,7 @@ export const SERVICE_PAGE_CONFIGS = {
         spacing: 'deep',
         theme: 'dark',
         eyebrow: 'Klaviyo SMS',
-        heading: 'Connect SMS with Your Retention Strategy',
+        heading: 'Running SMS Inside Klaviyo',
         description: [
           'SMS is a more immediate channel than email and a more intrusive one, so it works best when it is used sparingly and for messages that suit it: an order update, a short-window promotion, a back-in-stock alert. Running it inside Klaviyo means it shares the same profiles and segments as email.',
           'We plan where SMS adds something rather than repeating an email, set up consent collection correctly, and build flows that use both channels in sequence. The result is a single retention programme rather than two that happen to run in parallel.',
@@ -6435,6 +6281,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {label: 'Discuss B2B Wholesale Architecture', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Read the Nordic Haven Case Study', href: '/work/nordic-haven'},
         ],
         media: {
           primary:
@@ -6687,6 +6534,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {label: 'Explore Speedify Capabilities', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Read the Speedify AI Case Study', href: '/work/speedify-ai'},
         ],
         media: {
           primary:
@@ -7558,7 +7406,7 @@ export const SERVICE_PAGE_CONFIGS = {
     faqTitle: "Performance & Speed Audits",
     hero: {
       eyebrow: "Performance & Speed Audits",
-      heading: "Core Web Vitals, site speed & code efficiency audits for Shopify.",
+      heading: "Shopify Speed & Core Web Vitals Audits",
       description: "Deep technical analysis of your Shopify theme, apps, third-party scripts, and asset delivery. We identify bottlenecks and deliver actionable code-level fixes to maximize page speed and conversion rates.",
       chips: [
         "Core Web Vitals (LCP, INP, CLS)",
@@ -7629,7 +7477,10 @@ export const SERVICE_PAGE_CONFIGS = {
           "Old uninstalled Shopify apps often leave behind orphaned scripts that execute on every page load, draining mobile CPU performance.",
           "We audit all third-party tracking tags, marketing pixels, and app embeds, removing redundant code and deferring non-critical scripts.",
         ],
-        buttons: [{label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact}],
+        buttons: [
+          {label: "Get In Touch", href: SERVICE_PAGE_ROUTES.contact},
+          {label: "See Speedify AI, Our Performance App", href: "/work/speedify-ai"},
+        ],
         media: reuseHomeFeatureMedia("software-seo-geo"),
       },
       {
@@ -7743,6 +7594,380 @@ export const SERVICE_PAGE_CONFIGS = {
       },
     ],
     showPartners: true,
+  },
+
+  /*
+   * SaaS & MVP development. Early-stage product focus; enterprise and
+   * bespoke platforms stay on /services/software-developers. Built only from
+   * capabilities stated elsewhere on the site (Collabix build process, stack,
+   * IP terms). No timelines, prices or results.
+   */
+  'saas-mvp-development': {
+    faqTitle: 'SaaS & MVP Development FAQs',
+    showTestimonial: false,
+    hero: {
+      eyebrow: 'SaaS & MVP Development',
+      heading: 'SaaS & MVP Development Services',
+      description:
+        'Byte Operator plans, designs and builds SaaS products and MVPs, from scoping the first release to the architecture, integrations and cloud infrastructure a product needs to grow.',
+      chips: ['MVP Scoping', 'Product UX', 'SaaS Architecture', 'Integrations', 'Cloud Deployment'],
+      primaryCta: {label: 'Discuss Your Product', href: '/contact'},
+      showPartnerLogos: false,
+      showClientProof: false,
+    },
+    about: {
+      intro: {
+        heading: 'From First Release to Scalable Product',
+        description:
+          'An MVP should prove the core idea with real users, without painting the product into a corner. We help you decide what belongs in the first release and what can wait, then build it on an architecture that can carry the product as it grows, so version two does not start with a rewrite.',
+        cta: {label: 'Discuss Your Product', href: '/contact'},
+      },
+      media: {
+        primary: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/custom_software_case_study.png?v=1790400442',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt: 'SaaS platform architecture and product dashboard',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
+      },
+      process: {
+        heading: 'How We Build SaaS Products & MVPs',
+        leftDescription:
+          '01: Discovery & Scoping\nWe map the users, the core workflows and the problem the product solves, then separate must-have features from later ones.\n\n02: Product UX\nUser journeys, wireframes and interface design for the workflows that matter most.\n\n03: Architecture\nData model, multi-tenancy, roles and permissions, and integrations are planned before build starts.',
+        rightDescription:
+          '04: Build & Test\nFront end, back end and APIs, with automated tests from the start.\n\n05: Deploy\nCI/CD pipelines and cloud infrastructure so releases are repeatable.\n\n06: Learn & Extend\nShip, see how people use the product, and plan the next release from real usage.',
+        cta: {label: 'Start Your Product Build', href: '/contact'},
+      },
+    },
+    features: [
+      {
+        id: 'saas-mvp-scoping',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'MVP Planning',
+        heading: 'Scoping an MVP That Tests the Idea',
+        description: [
+          'The fastest route to a useful product is a first release focused on the one job users need done. We work through the workflows, users and edge cases with you and agree what the MVP includes before any code is written.',
+          'Clear scope also makes the estimate reliable: a better use of budget than building features nobody has asked for yet.',
+        ],
+        buttons: [
+          {label: 'Discuss Your Product', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Custom Software Cost Guide', href: '/articles/custom-software-development-cost'},
+        ],
+        media: {
+          primary: 'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/8.png?v=1789644057',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'SaaS product dashboard designed during MVP planning',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Product Planning',
+          captionText: 'Core workflows, users and first-release scope agreed up front',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'saas-mvp-architecture',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'SaaS Architecture',
+        heading: 'Architecture Built for Growth',
+        description: [
+          'SaaS products need decisions made early: how tenants are separated, how roles and permissions work, and how data is secured. We design these in from the first release.',
+          'Our core stack is React, Next.js and TypeScript on the front end, Node.js, Python or Go on the back end, PostgreSQL, Redis or MongoDB for data, and Docker, Kubernetes, AWS or GCP for infrastructure.',
+        ],
+        buttons: [{label: 'Explore Headless & Cloud Architecture', href: '/services/headless-commerce'}],
+        media: {
+          primary: 'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/COLLABIX_SECOND.png?v=1789642386',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Multi-tenant SaaS cloud architecture',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Multi-Tenant Architecture',
+          captionText: 'Role-based access control, secure data layers and cloud infrastructure',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'saas-mvp-integrations',
+        layout: 'media-left',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'Integrations',
+        heading: 'Connected to the Tools Your Users Rely On',
+        description: [
+          'Most products need to talk to other systems: payments, CRMs, ERPs, email and analytics. We build those connections through APIs and webhooks as part of the product, not as an afterthought.',
+        ],
+        buttons: [{label: 'Explore API & System Integrations', href: '/services/software-integrations'}],
+        media: {
+          primary: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/n8n.webp?v=1790409457',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'API and system integrations for a SaaS product',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'API Integrations',
+          captionText: 'Payments, CRM, ERP and analytics connected through APIs and webhooks',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'saas-mvp-collabix',
+        layout: 'media-right',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Related Work',
+        heading: 'Case Study: Collabix SaaS Platform',
+        description: [
+          'For Collabix, Byte Operator designed and built a collaborative SaaS platform covering real-time collaboration, an event-driven back end and the cloud infrastructure it runs on.',
+        ],
+        buttons: [{label: 'Read the Collabix Case Study', href: '/work/collabix'}],
+        media: {
+          primary: 'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/6.png?v=1789643508',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Collabix SaaS platform workload dashboard',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Collabix',
+          captionText: 'Collaborative SaaS platform built by Byte Operator',
+          href: '/work/collabix',
+        },
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between an MVP and a full SaaS product?',
+        answer:
+          'An MVP is the smallest version of the product that lets real users complete the core job, so you can learn before investing further. A full SaaS product adds the wider feature set, administration, billing and scale work once the core is proven.',
+      },
+      {
+        question: 'Do you work with early-stage founders?',
+        answer:
+          'Yes. We work with founders and product teams to scope, design and build first releases, as well as with established businesses building new products.',
+      },
+      {
+        question: 'Who owns the source code?',
+        answer:
+          'You own the custom source code, architecture, database schemas and design assets created for the project upon settlement, with a full repository handover and documentation.',
+      },
+      {
+        question: 'How long does an MVP take and what does it cost?',
+        answer:
+          'It depends on the scope agreed during discovery: the number of workflows, user types and integrations. We give you an estimate once the scope is clear, and our custom software cost guide explains the factors involved.',
+      },
+      {
+        question: 'Can you add AI features to our product?',
+        answer:
+          'Yes. We integrate large language models and AI assistants into products; see our AI application development service.',
+      },
+    ],
+    experts: {
+      eyebrow: 'SaaS & MVP Development',
+      heading: 'Planning a new SaaS product or MVP?',
+      description: 'Book a call to talk through your product, your users and what the first release needs to include.',
+      ctaLabel: 'Book a Product Call',
+      testimonials: [],
+    },
+  },
+
+  /*
+   * AI application development: AI features inside software products.
+   * Distinct from /services/ai-automations-agents (operational workflows).
+   * Built from the AI stack stated on the site (OpenAI, Anthropic, LangChain,
+   * LlamaIndex, RAG & vector knowledge bases) and Replex Engine (in-house).
+   * Byte Operator integrates existing models; it does not train its own.
+   */
+  'ai-application-development': {
+    faqTitle: 'AI Application Development FAQs',
+    showTestimonial: false,
+    hero: {
+      eyebrow: 'AI Application Development',
+      heading: 'AI Application Development & LLM Integration',
+      description:
+        'Byte Operator builds AI features into software products: large language model integrations, AI assistants and chat interfaces, and retrieval-augmented generation (RAG) that answers from your own data.',
+      chips: ['LLM Integration', 'AI Assistants & Chat', 'RAG & Knowledge Bases', 'OpenAI & Anthropic APIs', 'Human-in-the-Loop Controls'],
+      primaryCta: {label: 'Discuss Your AI Feature', href: '/contact'},
+      showPartnerLogos: false,
+      showClientProof: false,
+    },
+    about: {
+      intro: {
+        heading: 'AI Inside Your Product',
+        description:
+          'This service is about the AI your users interact with: an assistant inside your app, search that understands questions, or a feature that drafts, summarises or classifies. If you want AI to run internal operations and workflows behind the scenes instead, see our AI automations and autonomous agents service.',
+        cta: {label: 'Explore AI Automations & Agents', href: '/services/ai-automations-agents'},
+      },
+      media: {
+        primary: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/ai_powered.webp?v=1790408507',
+        primaryWidth: 1920,
+        primaryHeight: 1080,
+        primaryAlt: 'AI features integrated into a software product',
+        secondary: '',
+        secondaryWidth: 0,
+        secondaryHeight: 0,
+        secondaryAlt: '',
+      },
+      process: {
+        heading: 'How We Build AI Features',
+        leftDescription:
+          '01: Use Case\nWe define what the AI feature should do, for whom, and how you will know it is working.\n\n02: Data & Knowledge\nWe identify the documents, product data or records the feature should draw on, and who is allowed to see what.\n\n03: Architecture\nWe choose the model provider and design the retrieval pipeline and prompts around your use case.',
+        rightDescription:
+          '04: Build & Integrate\nAPI integration, the user interface and the connections to your existing application.\n\n05: Controls\nHuman review where decisions matter, logging, and access controls on the data the feature can use.\n\n06: Launch & Monitor\nWe release, monitor quality and usage costs, and refine the feature from real use.',
+        cta: {label: 'Discuss Your AI Feature', href: '/contact'},
+      },
+    },
+    features: [
+      {
+        id: 'ai-app-llm-integration',
+        layout: 'media-left',
+        spacing: 'first',
+        theme: 'dark',
+        eyebrow: 'LLM Integration',
+        heading: 'Large Language Models, Integrated Properly',
+        description: [
+          'We integrate models from providers such as OpenAI and Anthropic into your application through their APIs, with the prompts, structured outputs and error handling a production feature needs.',
+          'We do not train proprietary foundation models; we build on proven ones and focus on making them useful and reliable inside your product.',
+        ],
+        buttons: [{label: 'Discuss Your AI Feature', href: SERVICE_PAGE_ROUTES.contact}],
+        media: {
+          primary: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/ai_powered.webp?v=1790408507',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Large language model integration in an application',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'LLM Integration',
+          captionText: 'OpenAI and Anthropic models integrated through their APIs',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'ai-app-assistants',
+        layout: 'media-right',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'AI Assistants & Chat',
+        heading: 'AI Assistants and Chat Interfaces',
+        description: [
+          'Assistants that answer questions, guide users through tasks or help your team work faster, built into your product with a chat interface that fits your design.',
+        ],
+        buttons: [{label: 'Discuss Your AI Feature', href: SERVICE_PAGE_ROUTES.contact}],
+        media: {
+          primary: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_orders.png?v=1790403409',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'AI assistant answering customer questions',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'AI Assistants',
+          captionText: 'Conversational assistants built into your application',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'ai-app-rag',
+        layout: 'media-left',
+        spacing: 'standard',
+        theme: 'dark',
+        eyebrow: 'RAG & Knowledge Bases',
+        heading: 'Answers Grounded in Your Own Data',
+        description: [
+          'Retrieval-augmented generation (RAG) lets an AI feature look up your documents, product data or records before it answers, so responses are based on your information rather than the model’s general knowledge.',
+          'We build these pipelines with tools such as LangChain and LlamaIndex and vector knowledge bases, with access controls on what each user can retrieve.',
+        ],
+        buttons: [{label: 'Discuss Your AI Feature', href: SERVICE_PAGE_ROUTES.contact}],
+        media: {
+          primary: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/n8n.webp?v=1790409457',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Retrieval pipeline connecting an AI feature to company data',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Retrieval Pipelines',
+          captionText: 'Documents and records indexed in a vector knowledge base',
+          href: SERVICE_PAGE_ROUTES.work,
+        },
+      },
+      {
+        id: 'ai-app-replex',
+        layout: 'media-right',
+        spacing: 'deep',
+        theme: 'dark',
+        eyebrow: 'Related Work',
+        heading: 'Built on What We Use Ourselves',
+        description: [
+          'Replex Engine, Byte Operator’s own AI product, is an autonomous lead response system trained on brand knowledge that replies to and qualifies inbound enquiries.',
+        ],
+        buttons: [{label: 'Read About Replex Engine', href: '/work/replex-engine'}],
+        media: {
+          primary: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/replex.png?v=1790409470',
+          primaryWidth: 1920,
+          primaryHeight: 1080,
+          primaryAlt: 'Replex Engine AI lead response dashboard',
+          secondary: '',
+          secondaryWidth: 0,
+          secondaryHeight: 0,
+          secondaryAlt: '',
+          captionTitle: 'Replex Engine',
+          captionText: 'In-house AI product built by Byte Operator',
+          href: '/work/replex-engine',
+        },
+      },
+    ],
+    faqs: [
+      {
+        question: 'How is this different from AI automation?',
+        answer:
+          'AI application development adds AI features that your users interact with inside a product. AI automation uses agents and workflows to run business operations behind the scenes. Many projects combine both.',
+      },
+      {
+        question: 'Which AI models do you work with?',
+        answer:
+          'We integrate models from providers such as OpenAI and Anthropic through their APIs, and choose the model for each feature based on the task.',
+      },
+      {
+        question: 'Do you build your own AI models?',
+        answer:
+          'No. We build on existing foundation models and focus on integrating them into your product with the right data, prompts and controls.',
+      },
+      {
+        question: 'Can AI answer questions from our own documents?',
+        answer:
+          'Yes. Retrieval-augmented generation (RAG) lets the feature look up your documents or records before answering, with access controls on what each user can see.',
+      },
+      {
+        question: 'Can you add AI to an existing application?',
+        answer:
+          'Yes. Most AI features are added to existing applications through APIs, alongside the product you already have.',
+      },
+    ],
+    experts: {
+      eyebrow: 'AI Application Development',
+      heading: 'Planning an AI feature for your product?',
+      description: 'Book a call to talk through the use case, the data it needs and how it fits into your application.',
+      ctaLabel: 'Book an AI Product Call',
+      testimonials: [],
+    },
   },
 } as const satisfies Record<string, ServicePageConfig>;
 

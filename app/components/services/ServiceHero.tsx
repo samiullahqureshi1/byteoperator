@@ -212,8 +212,8 @@ export function ServiceHero({
               {showPartnerLogos ? (
                 <div className="ft-services-hero__partners">
                   <img
-                    src="/images/home-partners/software.svg"
-                    alt="Software"
+                    src="/images/home-partners/shopify.svg"
+                    alt="Shopify logo"
                     width="179"
                     height="76"
                     loading="lazy"
@@ -223,8 +223,8 @@ export function ServiceHero({
                   <span className="ft-services-hero__partner-divider" />
 
                   <img
-                    src="/images/home-partners/software-plus.svg"
-                    alt="Enterprise Platform Solutions"
+                    src="/images/home-partners/shopify-plus.svg"
+                    alt="Shopify Plus logo"
                     width="234"
                     height="103"
                     loading="lazy"

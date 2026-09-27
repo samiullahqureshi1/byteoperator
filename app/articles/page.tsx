@@ -3,7 +3,7 @@ import {pageMetadata} from '~/lib/seo/metadata';
 import {contentPageJsonLd} from '~/lib/seo/jsonld';
 import {JsonLd} from '~/components/shared/JsonLd';
 import {ArticlesPageView} from '~/components/articles/ArticlesPageView';
-import {ARTICLES_DATA} from '~/data/articlesData';
+import {ARTICLES_DATA, type ArticleItem} from '~/data/articlesData';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Articles & Insights | Byte Operator',
@@ -13,7 +13,10 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function ArticlesPage() {
-  const featuredArticle = ARTICLES_DATA.find((a) => a.mainFeatured) || ARTICLES_DATA[0];
+  // The listing only shows cards, so the full article bodies and FAQs are
+  // left out of the props (they were serialized into every /articles page).
+  const cards = ARTICLES_DATA.map(({contentHtml, faqs, seo, ...card}) => card);
+  const featuredArticle = cards.find((a) => a.mainFeatured) || cards[0];
 
   // CollectionPage + ItemList of the articles this page lists.
   const graph = contentPageJsonLd({
@@ -29,8 +32,8 @@ export default function ArticlesPage() {
     <>
       <JsonLd graph={graph} />
       <ArticlesPageView
-        articles={ARTICLES_DATA}
-        featuredArticle={featuredArticle}
+        articles={cards as ArticleItem[]}
+        featuredArticle={featuredArticle as ArticleItem}
       />
     </>
   );
