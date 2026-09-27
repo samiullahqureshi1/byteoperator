@@ -1,4 +1,5 @@
 import {Link} from '~/lib/router-compat';
+import {responsiveImage} from '~/lib/responsive-image';
 
 type HomePeopleContent = {
   eyebrow?: string;
@@ -30,7 +31,7 @@ export function HomePeople({
       <div className="ft-home-people__container">
         <div className="ft-home-people__image">
           <img
-            src="/images/home-people/people.webp"
+            {...responsiveImage('/images/home-people/people.webp', '100vw', 1920)}
             alt="Byte Operator team working together"
             width="1668"
             height="700"

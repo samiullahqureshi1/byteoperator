@@ -1,4 +1,5 @@
 import {Link} from '~/lib/router-compat';
+import {responsiveImage} from '~/lib/responsive-image';
 
 const TEAM_IMAGES = [
   {
@@ -88,7 +89,7 @@ export function WorkTeamCta() {
             <div className="ft-work-team__media ft-work-team__media--tall">
               <img
                 className="ft-work-team__image"
-                src={first.src}
+                {...responsiveImage(first.src, '(max-width: 48rem) 50vw, 25vw', 1080)}
                 width={first.width}
                 height={first.height}
                 alt={first.alt}
@@ -100,7 +101,7 @@ export function WorkTeamCta() {
             <div className="ft-work-team__media ft-work-team__media--short">
               <img
                 className="ft-work-team__image"
-                src={second.src}
+                {...responsiveImage(second.src, '(max-width: 48rem) 50vw, 25vw', 1080)}
                 width={second.width}
                 height={second.height}
                 alt={second.alt}
@@ -114,7 +115,7 @@ export function WorkTeamCta() {
             <div className="ft-work-team__media ft-work-team__media--short">
               <img
                 className="ft-work-team__image"
-                src={third.src}
+                {...responsiveImage(third.src, '(max-width: 48rem) 50vw, 25vw', 1080)}
                 width={third.width}
                 height={third.height}
                 alt={third.alt}
@@ -126,7 +127,7 @@ export function WorkTeamCta() {
             <div className="ft-work-team__media ft-work-team__media--tall">
               <img
                 className="ft-work-team__image"
-                src={fourth.src}
+                {...responsiveImage(fourth.src, '(max-width: 48rem) 50vw, 25vw', 1080)}
                 width={fourth.width}
                 height={fourth.height}
                 alt={fourth.alt}

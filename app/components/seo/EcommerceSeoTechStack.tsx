@@ -150,7 +150,7 @@ export function EcommerceSeoTechStack() {
             </p>
 
             <Link
-              to="/services/seo-agency"
+              to="/ecommerce-seo-agency"
               className="ft-ecommerce-seo-stack__cta"
               prefetch="intent"
             >

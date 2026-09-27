@@ -1,15 +1,14 @@
 import type {Metadata} from 'next';
+import {pageMetadata} from '~/lib/seo/metadata';
 import {ServiceDetailPage} from '~/components/services/ServiceDetailPage';
 import {SERVICE_PAGE_CONFIGS} from '~/data/servicePages';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Technical SEO & Search Architecture Agency | Byte Operator',
   description:
     'Deep technical SEO audits, crawl budget optimization, rich JSON-LD schema, and high-converting search architecture for enterprise brands.',
-  alternates: {
-    canonical: 'https://www.byteoperator.com/ecommerce-seo-agency',
-  },
-};
+  path: '/ecommerce-seo-agency',
+});
 
 export default function EcommerceSeoAgencyPage() {
   const config = SERVICE_PAGE_CONFIGS['seo-agency'];

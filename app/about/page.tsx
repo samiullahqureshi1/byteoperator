@@ -1,4 +1,5 @@
 import type {Metadata} from 'next';
+import {pageMetadata} from '~/lib/seo/metadata';
 import {AboutHero} from '~/components/about/AboutHero';
 import {AboutStoryStats} from '~/components/about/AboutStoryStats';
 import {AboutValues} from '~/components/about/AboutValues';
@@ -8,14 +9,12 @@ import {AboutSpace} from '~/components/about/AboutSpace';
 import {AboutJoin} from '~/components/about/AboutJoin';
 import {HomeObservatory} from '~/components/HomeObservatory';
 
-export const metadata: Metadata = {
-  title: 'About Us | Byte Operator - Elite Software Engineering, Commerce & AI Agency',
+export const metadata: Metadata = pageMetadata({
+  title: 'About Byte Operator | Software, Commerce & AI Agency',
   description:
-    'Discover Byte Operator, an elite software engineering agency specializing in high-performance web development, headless ecommerce, conversion rate optimization, and autonomous AI automation.',
-  alternates: {
-    canonical: 'https://www.byteoperator.com/about',
-  },
-};
+    'Byte Operator is a software engineering agency for high-performance web development, headless ecommerce, conversion optimization and AI automation.',
+  path: '/about',
+});
 
 export default function AboutPage() {
   return (

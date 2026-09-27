@@ -1,4 +1,5 @@
 import type {Metadata} from 'next';
+import {pageMetadata} from '~/lib/seo/metadata';
 import {HomeSideRail} from '~/components/HomeSideRail';
 import {HomeHero} from '~/components/HomeHero';
 import {HomeHeroGallery} from '~/components/HomeHeroGallery';
@@ -17,19 +18,12 @@ const HOME_TITLE = 'Byte Operator | The Software Agency That Drives Real Growth'
 const HOME_DESCRIPTION =
   'High-performing digital platforms & applications, backed by proven CRO, SEO, and AI visibility strategies that deliver measurable results.';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: HOME_TITLE,
-  description: HOME_DESCRIPTION,
-  openGraph: {
-    title: HOME_TITLE,
-    description: HOME_DESCRIPTION,
-    url: 'https://www.byteoperator.com',
-    type: 'website',
-  },
-  alternates: {
-    canonical: 'https://www.byteoperator.com',
-  },
-};
+  description:
+    HOME_DESCRIPTION,
+  path: '/',
+});
 
 export default function Homepage() {
   return (

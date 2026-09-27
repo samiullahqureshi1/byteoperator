@@ -9,7 +9,7 @@ export const CONTACT_PAGE_HANDLE = 'contact';
 export const CONTACT_CLEAN_PATH = '/contact';
 
 export const SHOPIFY_SEO_PAGE_HANDLE = 'seo-agency';
-export const SHOPIFY_SEO_CLEAN_PATH = '/services/seo-agency';
+export const SHOPIFY_SEO_CLEAN_PATH = '/ecommerce-seo-agency';
 
 export const ECOMMERCE_SEO_PAGE_HANDLE = 'ecommerce-seo-agency';
 export const ECOMMERCE_SEO_CLEAN_PATH = '/ecommerce-seo-agency';
@@ -103,13 +103,13 @@ export const OLD_TO_CLEAN_PATHS = {
   '/software-theme-development-builds': '/services/software-theme-development-builds',
   '/pages/software-developers': '/services/software-developers',
   '/software-developers': '/services/software-developers',
-  '/pages/software-web-design': '/services/shopify-web-design',
-  '/software-web-design': '/services/shopify-web-design',
+  '/pages/software-web-design': '/services/software-web-design',
+  '/software-web-design': '/services/software-web-design',
   [`/pages/${SHOPIFY_PLUS_PAGE_HANDLE}`]: SHOPIFY_PLUS_CLEAN_PATH,
   '/pages/software-plus': SHOPIFY_PLUS_CLEAN_PATH,
   '/software-plus': SHOPIFY_PLUS_CLEAN_PATH,
-  '/pages/software-migrations': '/services/shopify-migrations',
-  '/software-migrations': '/services/shopify-migrations',
+  '/pages/software-migrations': '/services/software-migrations',
+  '/software-migrations': '/services/software-migrations',
   '/pages/software-app-development': '/services/software-app-development',
   '/software-app-development': '/services/software-app-development',
   '/pages/software-integrations': '/services/software-integrations',
@@ -151,12 +151,12 @@ export const OLD_TO_CLEAN_PATHS = {
   '/software-support': '/services/support-and-maintenance',
   '/pages/support-maintenance': '/services/support-and-maintenance',
   '/support-maintenance': '/services/support-and-maintenance',
-  '/pages/software-audits': '/services/shopify-audits',
-  '/software-audits': '/services/shopify-audits',
-  '/pages/software-internationalisation': '/services/shopify-internationalisation',
-  '/pages/internationalisation': '/services/shopify-internationalisation',
-  '/software-internationalisation': '/services/shopify-internationalisation',
-  '/internationalisation': '/services/shopify-internationalisation',
+  '/pages/software-audits': '/services/software-audits',
+  '/software-audits': '/services/software-audits',
+  '/pages/software-internationalisation': '/services/software-internationalisation',
+  '/pages/internationalisation': '/services/software-internationalisation',
+  '/software-internationalisation': '/services/software-internationalisation',
+  '/internationalisation': '/services/software-internationalisation',
   '/pages/email-marketing-agency': '/services/email-marketing-agency',
   '/email-marketing-agency': '/services/email-marketing-agency',
   '/pages/email-sms-marketing': '/services/email-marketing-agency',
@@ -171,12 +171,12 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/cro-agency': '/shopify-cro-audit',
   '/cro-agency': '/shopify-cro-audit',
   '/software-cro-agency': '/shopify-cro-audit',
-  '/pages/software-b2b-wholesale': '/services/shopify-b2b-wholesale',
-  '/pages/software-b2b': '/services/shopify-b2b-wholesale',
-  '/software-b2b': '/services/shopify-b2b-wholesale',
-  '/software-b2b-wholesale': '/services/shopify-b2b-wholesale',
-  '/pages/b2b': '/services/shopify-b2b-wholesale',
-  '/b2b': '/services/shopify-b2b-wholesale',
+  '/pages/software-b2b-wholesale': '/services/software-b2b-wholesale',
+  '/pages/software-b2b': '/services/software-b2b-wholesale',
+  '/software-b2b': '/services/software-b2b-wholesale',
+  '/software-b2b-wholesale': '/services/software-b2b-wholesale',
+  '/pages/b2b': '/services/software-b2b-wholesale',
+  '/b2b': '/services/software-b2b-wholesale',
   '/pages/subscriptions-on-software': '/services/subscriptions-on-software',
   '/pages/software-subscriptions': '/services/subscriptions-on-software',
   '/software-subscriptions': '/services/subscriptions-on-software',
@@ -187,8 +187,8 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/ab-testing': AB_TESTING_CLEAN_PATH,
   '/ab-testing': AB_TESTING_CLEAN_PATH,
   /* Architecture & Tech consulting */
-  '/pages/software-consultant': '/services/shopify-consultant',
-  '/software-consultant': '/services/shopify-consultant',
+  '/pages/software-consultant': '/services/software-consultant',
+  '/software-consultant': '/services/software-consultant',
   '/pages/magento-software-migrations': '/services/magento-software-migrations',
   '/magento-software-migrations': '/services/magento-software-migrations',
   '/pages/woocommerce-software-migrations': '/services/woocommerce-software-migrations',
@@ -240,15 +240,15 @@ export const OLD_TO_CLEAN_PATHS = {
   ===================================================== */
 
   // Retired service pages.
-  '/pages/software-migration': '/services/shopify-migrations',
+  '/pages/software-migration': '/services/software-migrations',
   '/pages/magento-to-software-plus-migration': '/services/magento-software-migrations',
   '/pages/bigcommerce-to-software-plus-migration':
     '/services/bigcommerce-software-migrations',
   '/pages/bigcommerce-to-software-plus': '/services/bigcommerce-software-migrations',
   '/pages/woocommerce-to-software-plus-migration':
     '/services/woocommerce-software-migrations',
-  '/pages/wix-to-software-migration': '/services/shopify-migrations',
-  '/pages/wix-to-software': '/services/shopify-migrations',
+  '/pages/wix-to-software-migration': '/services/software-migrations',
+  '/pages/wix-to-software': '/services/software-migrations',
   '/pages/software-plus-maintenance': '/services/support-and-maintenance',
   '/pages/software-development-services': '/services/software-theme-development-builds',
   '/pages/email-marketing-services': '/services/email-marketing-agency',
@@ -256,7 +256,7 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/free-software-audit-software-store-seo-cro-and-speed-review':
     '/services/shopify-audits',
   '/pages/software-plus-custom-solutions': SHOPIFY_PLUS_CLEAN_PATH,
-  '/pages/software-website-design': '/services/shopify-web-design',
+  '/pages/software-website-design': '/services/software-web-design',
   '/pages/store-speed': '/services/software-developers',
   '/pages/about-us-1': '/about',
 
@@ -267,23 +267,23 @@ export const OLD_TO_CLEAN_PATHS = {
 
   // Old theme's service products and collections.
   '/products/software-experts-the-fold-tech-software-logo-and-visual-branding-services':
-    '/services/shopify-web-design',
+    '/services/software-web-design',
   '/products/software-experts-the-fold-tech-software-store-build-or-redesign-services':
-    '/services/shopify-web-design',
+    '/services/software-web-design',
   '/products/software-experts-the-fold-tech-software-seo-search-engine-optimization-services':
     ECOMMERCE_SEO_CLEAN_PATH,
   '/products/software-experts-the-fold-tech-software-analytics-and-tracking-services':
     '/services',
-  '/products/premium-package': '/services/shopify-web-design',
+  '/products/premium-package': '/services/software-web-design',
   '/products/premium-theme-license': '/services/software-theme-development-builds',
   '/products/edit-credits': CONTACT_CLEAN_PATH,
   '/products/dedicated-hourly-service': CONTACT_CLEAN_PATH,
   '/products/monthly-dedicated-resource': CONTACT_CLEAN_PATH,
   '/products/buy-bulk-hours': CONTACT_CLEAN_PATH,
   '/products/service-invoice-0001844': '/services',
-  '/collections/store-setup': '/services/shopify-web-design',
-  '/collections/visual-content-and-branding': '/services/shopify-web-design',
-  '/collections/turnkey-dropshipping-websites-for-sale': '/services/shopify-web-design',
+  '/collections/store-setup': '/services/software-web-design',
+  '/collections/visual-content-and-branding': '/services/software-web-design',
+  '/collections/turnkey-dropshipping-websites-for-sale': '/services/software-web-design',
   '/collections/development-and-troubleshooting': '/services/support-and-maintenance',
   '/collections/marketing-and-sales': '/services',
   '/collections/frontpage': '/services',
@@ -313,7 +313,7 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/free-ai-visibility-snapshot': AI_VISIBILITY_AUDIT_CLEAN_PATH,
   '/pages/resources': '/guides',
   '/pages/reviews': '/work',
-  '/pages/software-design-services': '/services/shopify-web-design',
+  '/pages/software-design-services': '/services/software-web-design',
   '/pages/software-development-services-1': '/services/software-developers',
   '/pages/software-marketing-services': '/services',
   '/pages/software-speed-optimization': '/services/shopify-audits',
@@ -323,7 +323,7 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/branding-creative-direction': '/services',
   '/pages/cart-drawer': '/services/software-developers',
   '/pages/case-studies-1': '/work',
-  '/pages/custom-store-project': '/services/shopify-web-design',
+  '/pages/custom-store-project': '/services/software-web-design',
   '/pages/digital-branding-creative-direction-services': '/services',
   '/pages/free-software-audit': '/services/shopify-audits',
   '/pages/funnel-building-lead-generation': '/services',
@@ -345,7 +345,7 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/software-maintenance-services-1': '/services/support-and-maintenance',
   '/pages/software-marketing-automation': '/services/email-marketing-agency',
   '/pages/software-marketing-seo': ECOMMERCE_SEO_CLEAN_PATH,
-  '/pages/software-migration-services': '/services/shopify-migrations',
+  '/pages/software-migration-services': '/services/software-migrations',
   '/pages/software-paid-social': '/services',
   '/pages/software-plus-partner-agency': '/shopify-plus-agency',
   '/pages/software-seo-services': ECOMMERCE_SEO_CLEAN_PATH,
@@ -355,7 +355,7 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/the-fold-tech-approach-to-cro': '/shopify-cro-audit',
   '/pages/website-audit-service': '/services/shopify-audits',
   '/pages/website-audit-services': '/services/shopify-audits',
-  '/pages/wix-to-software-migration-1': '/services/shopify-migrations',
+  '/pages/wix-to-software-migration-1': '/services/software-migrations',
   '/pages/woocommerce-to-software': '/services/woocommerce-software-migrations',
   '/pages/woocommerce-to-software-migration': '/services/woocommerce-software-migrations',
 
@@ -384,19 +384,19 @@ export const OLD_TO_CLEAN_PATHS = {
   '/services/headless-cloud-architecture': '/services/headless-commerce',
   '/services/technical-seo-architecture': SHOPIFY_SEO_CLEAN_PATH,
   '/services/ecommerce-seo': SHOPIFY_SEO_CLEAN_PATH,
-  '/services/generative-engine-optimisation': '/services/geo-agency',
-  '/services/ai-visibility-audit': '/services/geo-agency',
+  '/services/generative-engine-optimisation': AI_VISIBILITY_AUDIT_CLEAN_PATH,
+  '/services/ai-visibility-audit': AI_VISIBILITY_AUDIT_CLEAN_PATH,
   '/services/ai-automation': '/services/ai-automations-agents',
   '/services/ai-ecommerce-agency': '/services/ai-automations-agents',
   '/services/platform-seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
-  '/services/international-seo-markets': '/services/shopify-internationalisation',
+  '/services/international-seo-markets': '/services/software-internationalisation',
   '/services/performance-speed-audits': '/services/shopify-audits',
   '/services/dedicated-engineering-support': '/services/support-and-maintenance',
-  '/services/architecture-tech-consulting': '/services/shopify-consultant',
-  '/services/shopify-store-development': '/services/shopify-web-design',
+  '/services/architecture-tech-consulting': '/services/software-consultant',
+  '/services/shopify-store-development': '/services/software-web-design',
   '/services/shopify-apps-extensions': '/services/shopify-app-development',
-  '/services/platform-migrations': '/services/shopify-migrations',
-  '/services/b2b-wholesale-systems': '/services/shopify-b2b-wholesale',
+  '/services/platform-migrations': '/services/software-migrations',
+  '/services/b2b-wholesale-systems': '/services/software-b2b-wholesale',
   '/services/shopify-plus': SHOPIFY_PLUS_CLEAN_PATH,
   '/services/shopify-plus-agency': SHOPIFY_PLUS_CLEAN_PATH,
   '/services/software-plus': SHOPIFY_PLUS_CLEAN_PATH,
@@ -408,6 +408,23 @@ export const OLD_TO_CLEAN_PATHS = {
   '/services/cro-agency': CRO_CLEAN_PATH,
   '/services/software-cro-agency': CRO_CLEAN_PATH,
   '/services/conversion-rate-optimisation': CRO_CLEAN_PATH,
+
+  /* =====================================================
+     DUPLICATE PAGES — consolidated to one URL each (SEO phase 4).
+  ===================================================== */
+  // Shopify twins of the platform-neutral service pages.
+  '/services/shopify-web-design': '/services/software-web-design',
+  '/services/shopify-migrations': '/services/software-migrations',
+  '/services/shopify-b2b-wholesale': '/services/software-b2b-wholesale',
+  '/services/shopify-internationalisation': '/services/software-internationalisation',
+  '/services/shopify-consultant': '/services/software-consultant',
+  // Same config rendered at a root landing page.
+  '/services/seo-agency': ECOMMERCE_SEO_CLEAN_PATH,
+  '/services/geo-agency': AI_VISIBILITY_AUDIT_CLEAN_PATH,
+  // Service-page copies of the resource hubs.
+  '/services/podcast': '/podcast',
+  '/services/webinars': '/webinars',
+  '/services/guides': '/guides',
 } as const;
 
 export type LegacyPagePath = keyof typeof OLD_TO_CLEAN_PATHS;

@@ -1,7 +1,9 @@
 import type {Metadata} from 'next';
+import {pageMetadata} from '~/lib/seo/metadata';
 import {notFound} from 'next/navigation';
 import {CaseStudyLayout} from '~/components/work/CaseStudyDetail';
 import {CASE_STUDIES, getCaseStudyByHandle} from '~/data/caseStudiesData';
+import {CASE_STUDY_SEO} from '~/data/seoOverrides';
 
 interface Props {
   params: {
@@ -20,13 +22,15 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
   if (!caseStudy) {
     return {title: 'Case Study | Byte Operator'};
   }
-  return {
-    title: `${caseStudy.title} Software Case Study | Byte Operator`,
-    description: caseStudy.intro || `${caseStudy.title} project results and transformation with Byte Operator.`,
-    alternates: {
-      canonical: `https://www.byteoperator.com/work/${caseStudy.handle}`,
-    },
-  };
+  const seo = CASE_STUDY_SEO[caseStudy.handle];
+  return pageMetadata({
+    title: `${seo?.title || `${caseStudy.title} Case Study`} | Byte Operator`,
+    description:
+      seo?.description ||
+      caseStudy.intro ||
+      `${caseStudy.title} project results and transformation with Byte Operator.`,
+    path: `/work/${caseStudy.handle}`,
+  });
 }
 
 export default function CaseStudyPage({params}: Props) {

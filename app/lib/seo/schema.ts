@@ -227,7 +227,7 @@ export const SERVICES: ServiceDefinition[] = [
       'Enterprise Enterprise Platform Solutions development, including Software Functions, checkout extensibility, B2B company accounts and multi-store architecture.',
   },
   {
-    path: '/services/shopify-web-design',
+    path: '/services/software-web-design',
     name: 'Custom Digital Platform Project',
     serviceType: 'Ecommerce store design and build',
     description:
@@ -241,7 +241,7 @@ export const SERVICES: ServiceDefinition[] = [
       'Custom Custom frontend & web development in Liquid, built for Core Web Vitals performance and merchandising flexibility.',
   },
   {
-    path: '/services/shopify-web-design',
+    path: '/services/software-web-design',
     name: 'UI/UX & Product Design',
     serviceType: 'Ecommerce web design',
     description:
@@ -271,7 +271,7 @@ export const SERVICES: ServiceDefinition[] = [
 
   /* --- Migrate --------------------------------------------------- */
   {
-    path: '/services/shopify-migrations',
+    path: '/services/software-migrations',
     name: 'Platform & Cloud Migrations',
     serviceType: 'Ecommerce replatforming',
     description:
@@ -343,7 +343,7 @@ export const SERVICES: ServiceDefinition[] = [
       'Retained Software technical support covering bug fixing, release management, performance monitoring and ongoing development capacity.',
   },
   {
-    path: '/services/shopify-internationalisation',
+    path: '/services/software-internationalisation',
     name: 'Software Internationalisation',
     serviceType: 'International ecommerce expansion',
     description:
@@ -352,7 +352,7 @@ export const SERVICES: ServiceDefinition[] = [
 
   /* --- Search and AI visibility ---------------------------------- */
   {
-    path: '/services/seo-agency',
+    path: '/ecommerce-seo-agency',
     name: 'SEO Services',
     serviceType: 'Search engine optimisation',
     description:
@@ -410,7 +410,7 @@ export const SERVICES: ServiceDefinition[] = [
       'Klaviyo implementation and optimisation, including data integration, automated flows, segmentation and deliverability.',
   },
   {
-    path: '/services/shopify-b2b-wholesale',
+    path: '/services/software-b2b-wholesale',
     name: 'Software B2B and Wholesale',
     serviceType: 'B2B ecommerce implementation',
     description:

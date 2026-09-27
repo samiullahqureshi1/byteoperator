@@ -3,6 +3,7 @@
 import {useState} from 'react';
 import {WEBINARS_DATA, WEBINAR_CATEGORIES, type WebinarItem} from '~/data/webinarsData';
 import {HomeObservatory} from '~/components/HomeObservatory';
+import {responsiveImage} from '~/lib/responsive-image';
 
 export function WebinarsPageView() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All Sessions');
@@ -214,7 +215,7 @@ export function WebinarsPageView() {
             <article className="ft-webinar-card" key={webinar.id}>
               <div className="ft-webinar-card-thumbnail">
                 <img
-                  src={webinar.thumbnail}
+                  {...responsiveImage(webinar.thumbnail, '(max-width: 48rem) 100vw, 33vw', 1080)}
                   alt={webinar.title}
                   loading="lazy"
                 />

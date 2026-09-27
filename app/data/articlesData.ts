@@ -44,7 +44,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
       height: 675,
     },
     seo: {
-      title: 'The Complete Guide to Conversion & Performance Optimization | Byte Operator',
+      title: 'The 2026 Guide to Conversion Optimization | Byte Operator',
       description: 'Explore data-backed conversion rate optimization strategies specifically tailored for high-volume Enterprise brands in 2026.',
     },
     contentHtml: `
@@ -97,8 +97,8 @@ export const ARTICLES_DATA: ArticleItem[] = [
       height: 675,
     },
     seo: {
-      title: 'Generative Engine Optimization (GEO) for Ecommerce | Byte Operator',
-      description: 'Learn how generative AI search platforms index and recommend products in 2026.',
+      title: 'Generative Engine Optimization for Ecommerce | Byte Operator',
+      description: 'How ChatGPT, Perplexity and Google AI Overviews index and recommend products in 2026, and what ecommerce brands can do to get cited.',
     },
     contentHtml: `
       <p>As millions of consumers transition from Google keyword queries to conversational search engines like ChatGPT Search, Perplexity Pro, and Google Gemini, traditional keyword-based SEO is being superseded by Generative Engine Optimization (GEO).</p>
@@ -148,7 +148,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
     },
     seo: {
       title: 'Enterprise Platform Migration Playbook | Byte Operator',
-      description: 'A comprehensive technical guide to zero-downtime replatforming for enterprise commerce.',
+      description: 'A technical playbook for zero-downtime enterprise replatforming, from automated 301 redirect mapping to customer data and password preservation.',
     },
     contentHtml: `
       <p>Replatforming an 8-figure enterprise catalog requires meticulous planning, data normalization ETL scripts, and comprehensive SEO equity safeguards to avoid business disruption.</p>
@@ -188,7 +188,7 @@ export const ARTICLES_DATA: ArticleItem[] = [
     },
     seo: {
       title: 'Top Enterprise Platform Apps for Scale | Byte Operator',
-      description: 'Curated tech stack for high-performance digital platforms and headless storefronts.',
+      description: 'A curated stack of enterprise apps and composable microservices, from server-side reviews to retention and lifecycle automation, built for scale.',
     },
     contentHtml: `
       <p>Excessive third-party app scripts are the single largest contributor to slow Time to First Byte (TTFB) and main-thread blocking. Here is how to assemble a lean, high-velocity enterprise stack.</p>

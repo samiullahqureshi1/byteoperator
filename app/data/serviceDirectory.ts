@@ -161,7 +161,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Design Services',
-        href: '/services/shopify-web-design',
+        href: '/services/software-web-design',
         summary:
           'Ecommerce design that holds up commercially. Art direction and a design system that make the brand look like itself on every template, with the buying journey designed around conversion rather than decorated after the fact.',
         highlights: [
@@ -173,7 +173,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Migrations',
-        href: '/services/shopify-migrations',
+        href: '/services/software-migrations',
         summary:
           'Replatforming to Software or Enterprise Platform Solutions from WooCommerce, Magento, BigCommerce or Salesforce Commerce Cloud. Products, customers and order history move across intact, and a complete redirect map protects the organic traffic you already earned.',
         highlights: [
@@ -185,7 +185,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Internationalisation',
-        href: '/services/shopify-internationalisation',
+        href: '/services/software-internationalisation',
         summary:
           'Cross-border selling built on Software Markets: multi-currency pricing, translated storefronts, domain strategy and the hreflang and duty handling that stop international expansion turning into a support problem.',
         highlights: [

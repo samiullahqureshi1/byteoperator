@@ -1,3 +1,5 @@
+import {responsiveImage} from '~/lib/responsive-image';
+
 const TESTIMONIAL = {
   quote: 'Byte Operator transformed our entire technical infrastructure. The execution was flawless, delivering lightning-fast load times and an immediate 68% uplift in mobile conversion.',
   author: 'Marcus Vance, VP of Ecommerce at Aydi Active',
@@ -37,7 +39,7 @@ export function WorkTestimonial({
         <figure className="ft-work-testimonial__inner">
           <img
             className="ft-work-testimonial__bg"
-            src={image}
+            {...responsiveImage(image, '100vw', 1920)}
             width={imageWidth}
             height={imageHeight}
             alt={alt}

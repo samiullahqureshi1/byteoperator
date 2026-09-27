@@ -1,6 +1,7 @@
 'use client';
 
 import {useEffect, useRef} from 'react';
+import {responsiveImage} from '~/lib/responsive-image';
 
 /*
  * Gallery navigation is temporarily disabled (see the render loop
@@ -164,7 +165,7 @@ export function HomeHeroGallery() {
                 >
                   <img
                     className="ft-hero-gallery__item-image"
-                    src={project.image}
+                    {...responsiveImage(project.image, '(max-width: 37.5rem) 34vw, 16vw', 828)}
                     alt={project.alt}
                     loading="lazy"
                     decoding="async"

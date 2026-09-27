@@ -1,10 +1,12 @@
+import {responsiveImage} from '~/lib/responsive-image';
+
 export function AboutValues() {
   return (
     <section className="ft-about-values">
       <div className="ft-about-values__fluid">
         <div className="ft-about-values__image">
           <img
-            src="/images/about/values-team.webp"
+            {...responsiveImage('/images/about/values-team.webp', '100vw', 1920)}
             width={1970}
             height={1306}
             alt="Byte Operator engineering team collaborating on architecture"

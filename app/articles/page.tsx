@@ -1,15 +1,14 @@
 import type {Metadata} from 'next';
+import {pageMetadata} from '~/lib/seo/metadata';
 import {ArticlesPageView} from '~/components/articles/ArticlesPageView';
 import {ARTICLES_DATA} from '~/data/articlesData';
 
-export const metadata: Metadata = {
-  title: 'Articles & Insights | Byte Operator - Software & Ecommerce Strategy',
+export const metadata: Metadata = pageMetadata({
+  title: 'Articles & Insights | Byte Operator',
   description:
     'Read our latest insights on software development, CRO frameworks, SEO strategies, and generative AI commerce optimization.',
-  alternates: {
-    canonical: 'https://www.byteoperator.com/articles',
-  },
-};
+  path: '/articles',
+});
 
 export default function ArticlesPage() {
   const featuredArticle = ARTICLES_DATA.find((a) => a.mainFeatured) || ARTICLES_DATA[0];

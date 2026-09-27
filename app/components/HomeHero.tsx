@@ -24,7 +24,7 @@ const HERO_SERVICES = [
     title: 'Shopify Store Development',
     description:
       'High-converting custom storefronts, Shopify Plus architecture & proprietary app extensions.',
-    url: '/services/shopify-web-design',
+    url: '/services/software-web-design',
   },
   {
     title: 'API & Cloud Integrations',

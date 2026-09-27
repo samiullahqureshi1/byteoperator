@@ -1,4 +1,5 @@
 import type {Metadata} from 'next';
+import {pageMetadata} from '~/lib/seo/metadata';
 import {notFound} from 'next/navigation';
 import {ArticleDetail} from '~/components/articles/ArticleDetail';
 import {ARTICLES_DATA, getArticleByHandle} from '~/data/articlesData';
@@ -20,13 +21,13 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
   if (!article) {
     return {title: 'Article | Byte Operator'};
   }
-  return {
+  return pageMetadata({
     title: article.seo?.title || `${article.title} | Byte Operator`,
     description: article.seo?.description || article.excerpt || '',
-    alternates: {
-      canonical: `https://www.byteoperator.com/articles/${article.handle}`,
-    },
-  };
+    path: `/articles/${article.handle}`,
+    type: 'article',
+    publishedTime: article.publishedAt,
+  });
 }
 
 export default function ArticlePage({params}: Props) {

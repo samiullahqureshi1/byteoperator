@@ -8,8 +8,8 @@ import {
 } from '~/data/servicePages';
 import {BulkHoursCta} from '~/components/services/detail/BulkHoursCta';
 import {resolveCanonicalPath} from '~/lib/route-mappings';
-
-const BASE_URL = 'https://www.byteoperator.com';
+import {pageMetadata} from '~/lib/seo/metadata';
+import {SERVICE_SEO} from '~/data/seoOverrides';
 
 interface Props {
   params: {
@@ -32,44 +32,26 @@ export function generateStaticParams() {
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
   const {handle} = params;
-  const canonicalUrl = `${BASE_URL}/services/${handle}`;
-
-  if (handle === 'software-developers') {
-    return {
-      title: 'Custom Software Development Services | Byte Operator',
-      description:
-        'Byte Operator designs and develops custom software, SaaS platforms, enterprise applications and business systems. Explore our software development services and case studies.',
-      alternates: {canonical: canonicalUrl},
-      openGraph: {
-        title: 'Custom Software Development Services | Byte Operator',
-        description: 'Byte Operator designs and develops custom software, SaaS platforms, enterprise applications and business systems.',
-        url: canonicalUrl,
-        type: 'website',
-      },
-    };
-  }
-
   const config = isCanonicalHandle(handle)
     ? SERVICE_PAGE_CONFIGS[handle as ServicePageHandle]
     : undefined;
 
-  if (config) {
-    const title = config.hero?.eyebrow || config.hero?.heading || handle;
-    const description = config.hero?.description || config.hero?.heading || 'Specialized engineering and ecommerce services by Byte Operator.';
-    return {
-      title: `${title} | Byte Operator`,
-      description,
-      alternates: {canonical: canonicalUrl},
-      openGraph: {
-        title: `${title} | Byte Operator`,
-        description,
-        url: canonicalUrl,
-        type: 'website',
-      },
-    };
+  if (!config) {
+    return {title: 'Service Not Found | Byte Operator'};
   }
 
-  return {title: 'Service Not Found | Byte Operator'};
+  const seo = SERVICE_SEO[handle];
+  const title = seo?.title || config.hero?.eyebrow || config.hero?.heading || handle;
+  const description =
+    seo?.description ||
+    config.hero?.description ||
+    'Specialized engineering and ecommerce services by Byte Operator.';
+
+  return pageMetadata({
+    title: `${title} | Byte Operator`,
+    description,
+    path: `/services/${handle}`,
+  });
 }
 
 export default function ServicePage({params}: Props) {

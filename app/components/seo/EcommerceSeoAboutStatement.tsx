@@ -7,7 +7,7 @@ const SEO_PILLS = [
   },
   {
     label: 'Technical SEO & Search Architecture',
-    href: '/services/seo-agency',
+    href: '/ecommerce-seo-agency',
   },
   {
     label: 'CRO Services',

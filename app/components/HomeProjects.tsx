@@ -2,6 +2,7 @@
 
 import {useEffect, useRef} from 'react';
 import {Link} from '~/lib/router-compat';
+import {responsiveImage} from '~/lib/responsive-image';
 
 export type HomeProjectData = {
   title: string;
@@ -81,7 +82,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
     title: 'Kids Wonderland',
     type: 'Shopify Store Development & Custom Catalog',
-    href: '/services/shopify-web-design',
+    href: '/services/software-web-design',
     image:
       'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/toys.webp?v=1790407473',
     imageWidth: 1920,
@@ -119,7 +120,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
     title: 'OmniRetail CRO & Migration',
     type: 'Conversion Rate Optimisation & Enterprise Migration',
-    href: '/services/shopify-migrations',
+    href: '/services/software-migrations',
     image:
       'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/shopify_cro_and_migration_store.webp?v=1790407473',
     imageWidth: 1920,
@@ -412,7 +413,7 @@ export function HomeProjects({
                   >
                     <img
                       className="ft-home-projects__media-image"
-                      src={project.image}
+                      {...responsiveImage(project.image, '(max-width: 48rem) 90vw, 30vw', 1080)}
                       width={project.imageWidth}
                       height={project.imageHeight}
                       alt={project.alt}

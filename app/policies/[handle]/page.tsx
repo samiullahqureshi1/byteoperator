@@ -1,4 +1,5 @@
 import type {Metadata} from 'next';
+import {pageMetadata} from '~/lib/seo/metadata';
 import {notFound} from 'next/navigation';
 import {Link} from '~/lib/router-compat';
 
@@ -284,13 +285,11 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     };
   }
 
-  return {
+  return pageMetadata({
     title: `${policy.title} | Byte Operator`,
     description: policy.description,
-    alternates: {
-      canonical: `https://www.byteoperator.com/policies/${params.handle}`,
-    },
-  };
+    path: `/policies/${params.handle}`,
+  });
 }
 
 export default function PolicyDetailPage({params}: Props) {

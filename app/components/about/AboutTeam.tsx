@@ -1,4 +1,5 @@
 import {CalendlyButton} from '~/components/shared/CalendlyButton';
+import {responsiveImage} from '~/lib/responsive-image';
 
 const TEAM_MEMBERS = [
   {
@@ -94,7 +95,7 @@ export function AboutTeam() {
               >
                 <div className="ft-about-team__item-image">
                   <img
-                    src={member.image}
+                    {...responsiveImage(member.image, '(max-width: 48rem) 50vw, 290px', 640)}
                     width={290}
                     height={378}
                     alt={member.name}

@@ -1,5 +1,6 @@
 import {Link} from '~/lib/router-compat';
 import type {ReactNode} from 'react';
+import {responsiveImage} from '~/lib/responsive-image';
 
 type ServiceAboutCta = {
   label: string;
@@ -79,7 +80,7 @@ export function ServiceAboutSection({
         <div className={`ft-service-about__images ${!data.media.secondary ? 'ft-service-about__images--single' : ''}`}>
           <div className="ft-service-about__images-left">
             <img
-              src={data.media.primary}
+              {...responsiveImage(data.media.primary, '(max-width: 48rem) 100vw, 45vw', 1200)}
               width={data.media.primaryWidth}
               height={data.media.primaryHeight}
               alt={data.media.primaryAlt}
@@ -91,7 +92,7 @@ export function ServiceAboutSection({
           {data.media.secondary ? (
             <div className="ft-service-about__images-right">
               <img
-                src={data.media.secondary}
+                {...responsiveImage(data.media.secondary, '(max-width: 48rem) 100vw, 45vw', 1200)}
                 width={data.media.secondaryWidth}
                 height={data.media.secondaryHeight}
                 alt={data.media.secondaryAlt}

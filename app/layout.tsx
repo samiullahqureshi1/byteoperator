@@ -8,28 +8,15 @@ export const metadata: Metadata = {
   description:
     'High-performing digital platforms & applications, backed by proven CRO, SEO, and AI visibility strategies that deliver measurable results.',
   metadataBase: new URL('https://www.byteoperator.com'),
+  // Pages set their own url/title/description via pageMetadata(); the share
+  // image comes from app/opengraph-image.tsx.
   openGraph: {
-    title: 'Byte Operator | The Software Agency That Drives Real Growth',
-    description:
-      'High-performing digital platforms & applications, backed by proven CRO, SEO, and AI visibility strategies that deliver measurable results.',
-    url: 'https://www.byteoperator.com',
     siteName: 'Byte Operator',
+    locale: 'en_US',
     type: 'website',
-    images: [
-      {
-        url: '/images/byte-operator-logo.png',
-        width: 512,
-        height: 512,
-        alt: 'Byte Operator – The Software Agency That Drives Real Growth',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Byte Operator | The Software Agency That Drives Real Growth',
-    description:
-      'High-performing digital platforms & applications, backed by proven CRO, SEO, and AI visibility strategies that deliver measurable results.',
-    images: ['/images/byte-operator-logo.png'],
   },
   robots: {
     index: true,

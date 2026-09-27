@@ -1,14 +1,13 @@
 import type {Metadata} from 'next';
+import {pageMetadata} from '~/lib/seo/metadata';
 import {ServicesPage} from '~/components/ServicesPage';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Software Services & Solutions | Byte Operator',
   description:
     'End-to-end Software and Enterprise Platform Solutions services: from custom theme development, CRO and SEO to enterprise migrations and ongoing support.',
-  alternates: {
-    canonical: 'https://www.byteoperator.com/services',
-  },
-};
+  path: '/services',
+});
 
 export default function Services() {
   return (

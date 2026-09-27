@@ -4,6 +4,7 @@ import React, {useId} from 'react';
 import {useLocation} from '~/lib/router-compat';
 import {Link} from '~/lib/router-compat';
 import {FloatingContactCta} from './FloatingContactCta';
+import {BookingLinkInterceptor} from './BookingLinkInterceptor';
 import {Aside, useAside} from '~/components/Aside';
 import {Footer} from '~/components/Footer';
 import {Header, HeaderMenu} from '~/components/Header';
@@ -35,6 +36,7 @@ export function PageLayout({children = null}: PageLayoutProps) {
         publicStoreDomain="byteoperator.com"
       />
       <FloatingContactCta />
+      <BookingLinkInterceptor />
     </Aside.Provider>
   );
 }

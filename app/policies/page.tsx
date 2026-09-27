@@ -1,14 +1,13 @@
 import type {Metadata} from 'next';
+import {pageMetadata} from '~/lib/seo/metadata';
 import {Link} from '~/lib/router-compat';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Company Policies & Legal Agreements | Byte Operator',
   description:
     'Review Byte Operator official company policies, including our Privacy Policy, Terms of Service, Refund & Payment Policy, and Subscription & Cancellation terms.',
-  alternates: {
-    canonical: 'https://www.byteoperator.com/policies',
-  },
-};
+  path: '/policies',
+});
 
 const POLICIES = [
   {

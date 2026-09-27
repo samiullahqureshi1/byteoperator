@@ -2,6 +2,7 @@ import type {MetadataRoute} from 'next';
 import {SERVICE_PAGE_CONFIGS} from '~/data/servicePages';
 import {CASE_STUDIES} from '~/data/caseStudiesData';
 import {ARTICLES_DATA} from '~/data/articlesData';
+import {resolveCanonicalPath} from '~/lib/route-mappings';
 
 const POLICY_HANDLES = [
   'privacy-policy',
@@ -9,9 +10,6 @@ const POLICY_HANDLES = [
   'refund-policy',
   'subscription-policy',
 ];
-
-// Service configs whose canonical URL lives outside /services/[handle].
-const NON_CANONICAL_SERVICE_HANDLES = new Set(['shopify-plus-agency']);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.byteoperator.com';
@@ -95,7 +93,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const serviceRoutes: MetadataRoute.Sitemap = Object.keys(SERVICE_PAGE_CONFIGS)
-    .filter((handle) => !NON_CANONICAL_SERVICE_HANDLES.has(handle))
+    // Skip handles that 301 elsewhere (aliases, consolidated duplicates).
+    .filter((handle) => resolveCanonicalPath(`/services/${handle}`) === `/services/${handle}`)
     .map((handle) => ({
       url: `${baseUrl}/services/${handle}`,
       changeFrequency: 'weekly',

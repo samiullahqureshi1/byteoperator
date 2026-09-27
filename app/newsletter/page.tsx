@@ -1,22 +1,13 @@
 import type {Metadata} from 'next';
+import {pageMetadata} from '~/lib/seo/metadata';
 import {NewsletterPageView} from '~/components/newsletter/NewsletterPageView';
 
-export const metadata: Metadata = {
-  title: 'The Operator Dispatch | Byte Operator - Weekly Engineering & Growth Newsletter',
+export const metadata: Metadata = pageMetadata({
+  title: 'The Operator Dispatch Newsletter | Byte Operator',
   description:
-    'Join CTOs, ecommerce directors, and software engineers. Receive weekly deep-dives on Next.js performance, conversion rate optimization, and AI search architecture.',
-  alternates: {
-    canonical: 'https://www.byteoperator.com/newsletter',
-  },
-  openGraph: {
-    title: 'The Operator Dispatch: Weekly Briefing for CTOs & Growth Engineers | Byte Operator',
-    description:
-      'Weekly deep-dives on Next.js performance, CRO split tests, and AI search algorithms — from the engineering team at Byte Operator.',
-    url: 'https://www.byteoperator.com/newsletter',
-    siteName: 'Byte Operator',
-    type: 'website',
-  },
-};
+    'Weekly deep-dives for CTOs, ecommerce leaders and engineers on Next.js performance, conversion rate optimization and AI search architecture.',
+  path: '/newsletter',
+});
 
 export default function NewsletterPage() {
   const jsonLd = {

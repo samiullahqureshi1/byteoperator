@@ -12,6 +12,7 @@ import {useAside} from '~/components/Aside';
 import {BULK_HOURS_IMAGE, BULK_HOURS_PATH} from '~/components/BulkHours';
 import {normalizeMenuUrl} from '~/lib/normalize-menu-url';
 import {resolveCanonicalPath} from '~/lib/route-mappings';
+import {responsiveImage} from '~/lib/responsive-image';
 
 interface HeaderProps {
   header: HeaderQuery;
@@ -65,7 +66,7 @@ export function Header({
           >
             <img
               className="charle-header__logo"
-              src="https://cdn.shopify.com/s/files/1/0928/7421/1691/files/final.png?v=1790264655"
+              {...responsiveImage('https://cdn.shopify.com/s/files/1/0928/7421/1691/files/final.png?v=1790264655', '260px', 640)}
               alt="Byte Operator"
               width="240"
               height="60"
@@ -360,6 +361,8 @@ type MegaLink = {
   title: string;
   description: string;
   url: string;
+  /** Shown with a "Coming soon" badge and not linked until the page launches. */
+  comingSoon?: boolean;
 };
 
 type ServiceMegaColumn = {
@@ -480,7 +483,7 @@ function BulkHoursPromo({onNavigate}: {onNavigate?: () => void}) {
     >
       <span className="ft-bulk-promo__image">
         <img
-          src="/images/mega-menu-team.webp"
+          {...responsiveImage('/images/mega-menu-team.webp', '320px', 640)}
           alt="Byte Operator team"
           aria-hidden="true"
           width={1400}
@@ -519,18 +522,33 @@ function ResourcesMegaMenu() {
       aria-label="Resources"
     >
       <div className="ft-resources-mega__links">
-        {RESOURCE_MEGA_LINKS.map((link) => (
-          <NavLink
-            className="ft-resources-mega__link"
-            key={link.title}
-            prefetch="intent"
-            to={resolveCanonicalPath(link.url)}
-          >
-            <strong>{link.title}</strong>
+        {RESOURCE_MEGA_LINKS.map((link) =>
+          link.comingSoon ? (
+            <div
+              className="ft-resources-mega__link ft-resources-mega__link--soon"
+              key={link.title}
+              aria-disabled="true"
+            >
+              <strong>
+                {link.title}
+                <em className="ft-coming-soon-badge">Coming soon</em>
+              </strong>
 
-            <span>{link.description}</span>
-          </NavLink>
-        ))}
+              <span>{link.description}</span>
+            </div>
+          ) : (
+            <NavLink
+              className="ft-resources-mega__link"
+              key={link.title}
+              prefetch="intent"
+              to={resolveCanonicalPath(link.url)}
+            >
+              <strong>{link.title}</strong>
+
+              <span>{link.description}</span>
+            </NavLink>
+          ),
+        )}
       </div>
 
       <NavLink
@@ -540,7 +558,7 @@ function ResourcesMegaMenu() {
       >
         <div className="ft-resources-mega__featured-image">
           <img
-            src="/images/mega-menu-resources.webp"
+            {...responsiveImage('/images/mega-menu-resources.webp', '340px', 828)}
             alt="digital platformfront design with annotated page sections"
             aria-hidden="true"
             width="800"
@@ -617,7 +635,7 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       {
         title: 'Shopify Store Development',
         description: 'High-converting custom Shopify storefronts',
-        url: '/services/shopify-web-design',
+        url: '/services/software-web-design',
       },
       {
         title: 'Shopify Plus & Enterprise',
@@ -632,12 +650,12 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       {
         title: 'Platform Migrations',
         description: 'Seamless replatforming with zero traffic loss',
-        url: '/services/shopify-migrations',
+        url: '/services/software-migrations',
       },
       {
         title: 'B2B & Wholesale Systems',
         description: 'Dedicated wholesale pricing & global channels',
-        url: '/services/shopify-b2b-wholesale',
+        url: '/services/software-b2b-wholesale',
       },
     ],
   },
@@ -668,7 +686,7 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       {
         title: 'International SEO & Markets',
         description: 'Global search visibility & multi-market setup',
-        url: '/services/shopify-internationalisation',
+        url: '/services/software-internationalisation',
       },
     ],
   },
@@ -694,7 +712,7 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       {
         title: 'Architecture & Tech Consulting',
         description: 'Senior guidance on platform & tech strategy',
-        url: '/services/shopify-consultant',
+        url: '/services/software-consultant',
       },
     ],
   },
@@ -717,21 +735,25 @@ const RESOURCE_MEGA_LINKS: MegaLink[] = [
     title: 'Podcast',
     description: 'Engineering, AI & ecommerce conversations',
     url: '/podcast',
+    comingSoon: true,
   },
   {
     title: 'Webinars',
     description: 'Live teardowns & architecture masterclasses',
     url: '/webinars',
+    comingSoon: true,
   },
   {
     title: 'Guides',
     description: 'Download actionable engineering blueprints',
     url: '/guides',
+    comingSoon: true,
   },
   {
     title: 'Join Our Newsletter',
     description: 'Get weekly engineering & scale insights',
     url: '/newsletter',
+    comingSoon: true,
   },
 ];
 
@@ -1181,7 +1203,22 @@ function MobileHeaderMenu({
 
               <div className="ft-mobile-resources__links">
                 {RESOURCE_MEGA_LINKS.map(
-                  (link) => (
+                  (link) => link.comingSoon ? (
+                    <div
+                      className="ft-mobile-resources__link ft-mobile-resources__link--soon"
+                      key={link.title}
+                      aria-disabled="true"
+                    >
+                      <strong>
+                        {link.title}
+                        <em className="ft-coming-soon-badge">Coming soon</em>
+                      </strong>
+
+                      <span>
+                        {link.description}
+                      </span>
+                    </div>
+                  ) : (
                     <NavLink
                       className="ft-mobile-resources__link"
                       key={link.title}
@@ -1209,7 +1246,7 @@ function MobileHeaderMenu({
               >
                 <div className="ft-mobile-resources__image">
                   <img
-                    src="/images/mega-menu-resources.webp"
+                    {...responsiveImage('/images/mega-menu-resources.webp', '100vw', 1080)}
                     alt="digital platformfront design with annotated page sections"
                     aria-hidden="true"
                     width="720"
@@ -1266,7 +1303,7 @@ function MobileMenuTopbar({
         aria-label="Byte Operator homepage"
       >
         <img
-          src="https://cdn.shopify.com/s/files/1/0928/7421/1691/files/final.png?v=1790264655"
+          {...responsiveImage('https://cdn.shopify.com/s/files/1/0928/7421/1691/files/final.png?v=1790264655', '200px', 640)}
           alt="Byte Operator"
           width="200"
           height="50"
@@ -1315,7 +1352,7 @@ function MobileMenuFooter({
 
       <div className="ft-mobile-menu__footer-image">
         <img
-          src="/images/mega-menu-team.webp"
+          {...responsiveImage('/images/mega-menu-team.webp', '100vw', 1080)}
           alt="Byte Operator team"
           width="720"
           height="400"

@@ -3,6 +3,7 @@ import {resolveCanonicalPath} from '~/lib/route-mappings';
 
 import type {HomeFeatureData} from '~/data/homeFeatures';
 import {CalendlyButton} from '~/components/shared/CalendlyButton';
+import {responsiveImage} from '~/lib/responsive-image';
 
 /* =========================================================
    BYTE OPERATOR - REUSABLE HOME FEATURE
@@ -163,7 +164,7 @@ function FeatureMedia({
     >
       <div className="ft-home-feature__image ft-home-feature__image--primary">
         <img
-          src={feature.media.primary}
+          {...responsiveImage(feature.media.primary, '(max-width: 48rem) 100vw, 45vw', 1200)}
           width={feature.media.primaryWidth}
           height={feature.media.primaryHeight}
           alt={feature.media.primaryAlt}
@@ -176,7 +177,7 @@ function FeatureMedia({
         <div className="ft-home-feature__overlap">
           <div className="ft-home-feature__image ft-home-feature__image--secondary">
             <img
-              src={feature.media.secondary}
+              {...responsiveImage(feature.media.secondary, '(max-width: 48rem) 100vw, 45vw', 1200)}
               width={feature.media.secondaryWidth}
               height={feature.media.secondaryHeight}
               alt={feature.media.secondaryAlt}

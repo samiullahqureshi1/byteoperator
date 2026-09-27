@@ -57,7 +57,7 @@ const SERVICES = [
     title: 'Shopify Store & Theme Development',
     description:
       'High-velocity custom storefronts, modular custom sections, and mobile-optimized buying funnels.',
-    href: '/services/shopify-web-design',
+    href: '/services/software-web-design',
     badge: '/images/home-services/badges/logo-launch-white.svg',
     badgeAlt: 'Shopify',
   },
@@ -84,7 +84,7 @@ const SERVICES = [
     title: 'Platform & Cloud Migrations',
     description:
       'Zero-downtime replatforming from Magento, WooCommerce, or BigCommerce with 100% SEO preserved.',
-    href: '/services/shopify-migrations',
+    href: '/services/software-migrations',
     badge: '/images/home-services/badges/logo-helpdesk-white.svg',
     badgeAlt: 'Migrations',
   },

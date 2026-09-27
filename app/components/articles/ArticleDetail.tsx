@@ -4,6 +4,7 @@ import {useEffect, useMemo, useState} from 'react';
 import {Link} from '~/lib/router-compat';
 import {HomeExperts} from '../HomeExperts';
 import {ARTICLES_CLEAN_PATH, withCanonicalLinks} from '~/lib/route-mappings';
+import {responsiveImage} from '~/lib/responsive-image';
 
 export type EditorialArticle = {
   title: string;
@@ -99,7 +100,7 @@ export function ArticleDetail({article}: {article: EditorialArticle}) {
           {article.image?.url ? (
             <div className="ft-article__featured-media">
               <img
-                src={article.image.url}
+                {...responsiveImage(article.image.url, '(max-width: 75rem) 100vw, 1200px', 1920)}
                 alt={article.image.altText || article.title}
                 width={article.image.width || 1200}
                 height={article.image.height || 675}
