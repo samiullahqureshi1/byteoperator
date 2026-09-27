@@ -178,6 +178,14 @@ export function Footer({
               © {new Date().getFullYear()} Byte Operator.
               All rights reserved.
             </p>
+
+            <p className="ft-footer__contact">
+              <a href="mailto:samiullah@byteoperator.com">
+                samiullah@byteoperator.com
+              </a>
+              <span aria-hidden="true"> · </span>
+              <span>Islamabad, Pakistan</span>
+            </p>
           </div>
 
           <div className="ft-footer__bottom-right">

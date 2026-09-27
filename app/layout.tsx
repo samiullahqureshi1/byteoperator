@@ -29,13 +29,16 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
+  // Google Search shows a favicon only if it is square and a multiple of
+  // 48px, so every icon here is 48/96/192/512. /favicon.ico (16/32/48) is
+  // served from public/ for browsers and crawlers that request it directly.
   icons: {
     icon: [
-      {url: '/images/site-icon.png', sizes: 'any', type: 'image/png'},
-      {url: '/images/favicon-32.png', sizes: '32x32', type: 'image/png'},
-      {url: '/images/byte-operator-logo.png', sizes: '512x512', type: 'image/png'},
+      {url: '/favicon.ico', sizes: '48x48'},
+      {url: '/images/favicon-48.png', sizes: '48x48', type: 'image/png'},
+      {url: '/images/favicon-96.png', sizes: '96x96', type: 'image/png'},
+      {url: '/images/favicon-192.png', sizes: '192x192', type: 'image/png'},
     ],
-    shortcut: '/images/site-icon.png',
     apple: [{url: '/images/apple-touch-icon.png', sizes: '180x180', type: 'image/png'}],
   },
 };
@@ -48,9 +51,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/images/site-icon.png" type="image/png" sizes="any" />
-        <link rel="shortcut icon" href="/images/site-icon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
         <meta
           name="google-site-verification"
           content="MH80_WYTkwy23muXrl99RBVKfe76gOw3bmDJFHEQTlk"
