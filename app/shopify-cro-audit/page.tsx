@@ -1,5 +1,7 @@
 import type {Metadata} from 'next';
 import {pageMetadata} from '~/lib/seo/metadata';
+import {serviceJsonLd} from '~/lib/seo/jsonld';
+import {JsonLd} from '~/components/shared/JsonLd';
 import {SoftwareCroOptimise} from '~/components/cro/SoftwareCroOptimise';
 
 export const metadata: Metadata = pageMetadata({
@@ -10,9 +12,19 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function SoftwareCroAudit() {
+  // Service schema from this page's own title and description.
+  const graph = serviceJsonLd({
+    path: '/shopify-cro-audit',
+    name: String(metadata.title).replace(/ \| Byte Operator$/, ''),
+    description: String(metadata.description),
+  });
+
   return (
-    <div className="software-cro-page-wrap">
-      <SoftwareCroOptimise />
-    </div>
+    <>
+      <JsonLd graph={graph} />
+      <div className="software-cro-page-wrap">
+        <SoftwareCroOptimise />
+      </div>
+    </>
   );
 }

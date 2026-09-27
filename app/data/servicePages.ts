@@ -471,6 +471,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Discuss Your Product Build',
             href: SERVICE_PAGE_ROUTES.contact,
           },
+          {label: 'Why Choose Custom Software', href: '/services/why-custom-software'},
         ],
         media: {
           primary:
@@ -932,6 +933,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {label: 'Discuss App Architecture', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Explore Shopify App Development', href: '/services/shopify-app-development'},
         ],
         media: {
           primary:
@@ -1762,7 +1764,10 @@ export const SERVICE_PAGE_CONFIGS = {
           'A site speed audit reviews what the browser is actually being asked to load: theme assets, images and media, third-party scripts, app injections, fonts and render-blocking resources, measured against Core Web Vitals on both mobile and desktop.',
           'We separate the changes that are quick to make from the ones that need theme or template work, so performance improvements can be sequenced sensibly.',
         ],
-        buttons: [{label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact}],
+        buttons: [
+          {label: 'Get In Touch', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Explore Speed & Performance Audits', href: '/services/shopify-audits'},
+        ],
         media: reuseHomeFeatureMedia('software-support-growth'),
       },
     ],
@@ -1771,7 +1776,7 @@ export const SERVICE_PAGE_CONFIGS = {
     faqTitle: 'Magento to Platform & Cloud Migration',
     hero: {
       eyebrow: 'Migrate from Magento to Software',
-      heading: 'Magento to Platform & Cloud Migration Services',
+      heading: 'Magento & Adobe Commerce Migration Services',
       chips: [
         {
           label: 'Migration Services',
@@ -1925,7 +1930,7 @@ export const SERVICE_PAGE_CONFIGS = {
     faqTitle: 'WooCommerce to Platform & Cloud Migration',
     hero: {
       eyebrow: 'Migrate from WooCommerce to Software',
-      heading: 'WooCommerce to Platform & Cloud Migration Services',
+      heading: 'WordPress & WooCommerce Migration Services',
       chips: [
         {
           label: 'Migration Services',
@@ -2396,7 +2401,7 @@ export const SERVICE_PAGE_CONFIGS = {
     faqTitle: 'BigCommerce to Platform & Cloud Migration',
     hero: {
       eyebrow: 'Migrate from BigCommerce to Software',
-      heading: 'BigCommerce to Platform & Cloud Migration Services',
+      heading: 'BigCommerce Migration Services',
       chips: [
         {
           label: 'Migration Services',
@@ -2580,7 +2585,7 @@ export const SERVICE_PAGE_CONFIGS = {
     faqTitle: 'Salesforce Commerce Cloud to Platform & Cloud Migration',
     hero: {
       eyebrow: 'Migrate from Salesforce Commerce Cloud to Software',
-      heading: 'Salesforce to Platform & Cloud Migration Services',
+      heading: 'Salesforce Commerce Cloud Migration Services',
       chips: [
         {
           label: 'Migration Services',
@@ -2765,8 +2770,7 @@ export const SERVICE_PAGE_CONFIGS = {
     faqTitle: 'Platform & Cloud Migration Agency',
     hero: {
       eyebrow: 'Platform & Cloud Migration Agency Services',
-      heading:
-        'platform & cloud migration services for ecommerce stores moving to Software and Enterprise Platform Solutions.',
+      heading: 'Platform & Cloud Migration Services for Ecommerce',
       chips: [
         {
           label: 'Software Development',
@@ -3927,6 +3931,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Explore Ecommerce CRO',
             href: SERVICE_PAGE_ROUTES.ecommerceCro,
           },
+          {label: 'Explore Subscription Services', href: '/services/subscriptions-on-software'},
         ],
         media: reuseHomeFeatureMedia('software-plus'),
       },
@@ -4543,6 +4548,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Explore Our Services',
             href: SERVICE_PAGE_ROUTES.services,
           },
+          {label: 'Meet Our Software Engineering Experts', href: '/services/software-experts'},
         ],
         media: reuseHomeFeatureMedia('software-development'),
       },
@@ -5041,6 +5047,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Explore Ecommerce CRO',
             href: SERVICE_PAGE_ROUTES.ecommerceCro,
           },
+          {label: 'Explore Klaviyo Services', href: '/services/klaviyo-agency'},
         ],
         media: reuseHomeFeatureMedia('software-support-growth'),
       },
@@ -5141,6 +5148,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Get In Touch',
             href: SERVICE_PAGE_ROUTES.contact,
           },
+          {label: 'Meet Our Software Engineering Experts', href: '/services/software-experts'},
         ],
         media: reuseHomeFeatureMedia('software-development'),
       },
@@ -5179,6 +5187,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Get In Touch',
             href: SERVICE_PAGE_ROUTES.contact,
           },
+          {label: 'Explore Monthly Retainers', href: '/services/memberships'},
         ],
         media: reuseHomeFeatureMedia('software-launch'),
       },
@@ -5447,6 +5456,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {label: 'Scale Conversational Traffic', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Explore Agentic Commerce', href: '/services/agentic-commerce'},
         ],
         media: {
           primary:
@@ -5699,6 +5709,7 @@ export const SERVICE_PAGE_CONFIGS = {
         ],
         buttons: [
           {label: 'Explore Multi-Agent Systems', href: SERVICE_PAGE_ROUTES.contact},
+          {label: 'Explore Agentic Commerce', href: '/services/agentic-commerce'},
         ],
         media: {
           primary:
@@ -5942,6 +5953,7 @@ export const SERVICE_PAGE_CONFIGS = {
             label: 'Explore Email Marketing',
             href: SERVICE_PAGE_ROUTES.emailMarketingAgency,
           },
+          {label: 'Explore Subscription Services', href: '/services/subscriptions-on-software'},
         ],
         media: reuseHomeFeatureMedia('software-launch'),
       },

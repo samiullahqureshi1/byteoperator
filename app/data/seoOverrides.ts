@@ -40,12 +40,12 @@ export const SERVICE_SEO: Record<string, SeoCopy> = {
       "A full audit of your store's UX, conversion, development, SEO and performance, delivered as a prioritised list of practical recommendations.",
   },
   'magento-software-migrations': {
-    title: 'Migrate from Magento to Software',
+    title: 'Magento & Adobe Commerce Migration Services',
     description:
       'Move from Magento or Adobe Commerce with data migration, storefront development, integrations, SEO migration and launch preparation handled for you.',
   },
   'woocommerce-software-migrations': {
-    title: 'Migrate from WooCommerce to Software',
+    title: 'WordPress & WooCommerce Migration Services',
     description:
       'Move from WordPress and WooCommerce with migration planning, store data transfer, storefront development, integrations and SEO migration handled for you.',
   },
@@ -55,12 +55,12 @@ export const SERVICE_SEO: Record<string, SeoCopy> = {
       'Decoupled headless systems, serverless edge networks and scalable cloud infrastructure built for low latency, global availability and developer speed.',
   },
   'bigcommerce-software-migrations': {
-    title: 'Migrate from BigCommerce to Software',
+    title: 'BigCommerce Migration Services',
     description:
       'Replatform from BigCommerce with migration planning, store data transfer, storefront development, integrations and SEO migration handled end to end.',
   },
   'salesforce-software-migrations': {
-    title: 'Salesforce Commerce Cloud Migration',
+    title: 'Salesforce Commerce Cloud Migration Services',
     description:
       'Move from Salesforce Commerce Cloud with migration planning, data transfer, storefront development, integrations, SEO migration, testing and launch.',
   },
@@ -150,35 +150,35 @@ export const SERVICE_SEO: Record<string, SeoCopy> = {
 export const CASE_STUDY_SEO: Record<string, Partial<SeoCopy>> = {
   collabix: {
     description:
-      'How Byte Operator built Collabix, an enterprise collaborative SaaS platform with real-time sync, high-throughput pipelines and resilient cloud scaling.',
+      'How Byte Operator built Collabix, a collaborative SaaS platform with real-time sync, an event-driven back end and scalable cloud infrastructure.',
   },
   'replex-engine': {
     description:
-      'How Byte Operator built Replex Engine, an autonomous AI system that responds to and qualifies every inbound lead instantly, 24/7, so no sale is missed.',
+      'Replex Engine is Byte Operator’s own AI product: an autonomous system that replies to and qualifies inbound leads around the clock.',
   },
   'aydi-active': {
     description:
-      'How Byte Operator built a fast custom storefront for Aydi Active with seamless product discovery, instant variant switching and strong mobile conversion.',
+      'How Byte Operator built a custom Shopify Plus storefront for Aydi Active, focused on fast mobile product discovery and clear variant selection.',
   },
   'kids-wonderland': {
     description:
-      'How we turned an online toy store into an engaging destination for parents and kids, lifting session duration and average basket value.',
+      'How Byte Operator redesigned the Kids Wonderland toy store with age and interest filters, an interactive gift finder and a smarter cart drawer.',
   },
   'nordic-haven': {
     description:
-      'A digital flagship for Nordic Haven: Scandinavian brand storytelling, interactive 3D room staging and an automated B2B wholesale portal on Shopify Plus.',
+      'A Shopify Plus flagship for Nordic Haven: Scandinavian brand storytelling, a room and fabric visualiser and a B2B wholesale trade portal.',
   },
   'omniretail-migration': {
     title: 'OmniRetail Enterprise Migration Case Study',
     description:
-      'Migrating a global retailer from on-premise Magento to Shopify Plus: 500,000+ SKUs, zero downtime and top Google keyword rankings fully preserved.',
+      'How Byte Operator migrated OmniRetail Global from on-premise Magento to Shopify Plus, including data, ERP connections and a full 301 redirect plan.',
   },
   'speedify-ai': {
     description:
-      'How Byte Operator built Speedify AI, a performance app that automates critical CSS, asset compression and script deferral for faster ecommerce stores.',
+      'Speedify AI is Byte Operator’s own performance app, automating critical CSS, image compression and script deferral for ecommerce storefronts.',
   },
   'autonomous-agent-swarms': {
     description:
-      'Autonomous multi-agent AI swarms and n8n workflows connecting CRM, ERP, inventory and customer messaging into self-running operational systems.',
+      'Multi-agent AI workflows and n8n pipelines connecting CRM, ERP, inventory and customer messaging for a supply chain and logistics client.',
   },
 };

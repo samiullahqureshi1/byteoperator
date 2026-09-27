@@ -1,4 +1,16 @@
+import type {Metadata} from 'next';
 import {Link} from '~/lib/router-compat';
+
+// Overrides the root layout's `index, follow` so a 404 carries one
+// consistent directive, and replaces the homepage title/description.
+export const metadata: Metadata = {
+  title: 'Page Not Found | Byte Operator',
+  description: 'The page you are looking for could not be found.',
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function NotFound() {
   return (

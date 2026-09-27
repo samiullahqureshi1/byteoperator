@@ -18,7 +18,6 @@ import {
   WorkCaseStudies,
   type WorkCaseStudyArticle,
 } from './work/WorkCaseStudies';
-import {WorkTestimonial} from './work/WorkTestimonial';
 import type {IndustryFilter} from './work/IndustryFilters';
 import {
   WORK_HERO_LOGOS,
@@ -74,7 +73,9 @@ export function WorkPage({
             }}
           />
         </div>
-        <WorkTestimonial />
+        {/* The shared WorkTestimonial (quote attributed to "Marcus Vance, Aydi
+            Active", with a 68% figure) was removed from this hub: it
+            contradicts the About page and has no verified source. */}
         <div className="ft-work-experts">
           <HomeExperts
             eyebrow={'Ready to Build & Scale?'}

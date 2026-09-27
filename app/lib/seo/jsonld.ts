@@ -12,7 +12,6 @@
  */
 
 import {
-  SERVICES,
   absoluteUrl,
   articleSchema,
   breadcrumbSchema,
@@ -52,40 +51,22 @@ export function pageGraph(
   ];
 }
 
-const trimSlash = (p: string) =>
-  p.length > 1 && p.endsWith('/') ? p.slice(0, -1) : p;
-
-/**
- * SERVICES paths are written exactly as they resolve live, and some carry a
- * trailing slash while others don't (`/geo-agency/` vs `/software-plus-agency`).
- * Matching ignores that difference so a request either spelling still finds its
- * definition, but the value returned is always the canonical spelling from
- * SERVICES — so the emitted `url` and `@id` are the ones the module defines,
- * never the request's.
- */
-export function findService(pathname: string): ServiceDefinition | null {
-  const target = trimSlash(pathname);
-  return SERVICES.find((s) => trimSlash(s.path) === target) ?? null;
-}
-
 /**
  * Full graph for a service page: WebPage + BreadcrumbList + Service, plus
- * FAQPage when the page renders FAQs. Empty for any other path.
+ * FAQPage when the page renders FAQs. `def` must use the page's own visible
+ * title and meta description.
  *
  * `faqs` must be the same items the page renders visibly — see `faqSchema`.
  */
 export function serviceJsonLd(
-  pathname: string,
-  opts: {description?: string | null; faqs?: readonly FaqItem[]} = {},
+  def: ServiceDefinition,
+  opts: {faqs?: readonly FaqItem[]} = {},
 ): JsonLdDescriptor[] {
-  const def = findService(pathname);
-  if (!def) return [];
-
   return pageGraph([
     webPageSchema({
       path: def.path,
       name: def.name,
-      description: opts.description?.trim() || def.description,
+      description: def.description,
       mainEntityId: `${absoluteUrl(def.path)}#service`,
       hasBreadcrumb: true,
     }),
@@ -93,7 +74,7 @@ export function serviceJsonLd(
       {name: 'Services', path: '/services'},
       {name: def.name, path: def.path},
     ]),
-    serviceSchema(def.path),
+    serviceSchema(def),
     opts.faqs?.length ? faqSchema(def.path, [...opts.faqs]) : null,
   ]);
 }

@@ -11,12 +11,8 @@ const TESTIMONIALS = [
     name: 'Marcus Vance',
     company: 'Co-Founder & CTO, Collabix Platform',
   },
-  {
-    quote:
-      'The autonomous AI automation pipeline Byte Operator architected eliminated hundreds of manual hours every week and drove our customer response time from hours to under 30 seconds. A truly elite engineering partner.',
-    name: 'Elena Rostova',
-    company: 'VP of Growth, Replex Engine',
-  },
+  // A "VP of Growth, Replex Engine" testimonial was removed (2026-09-27):
+  // Replex Engine is Byte Operator's own product, not an external client.
   {
     quote:
       'Migrating our global omnichannel storefront to a modern Shopify Plus architecture with Byte Operator resulted in a 42% lift in mobile conversion and a 98/100 Core Web Vitals score across all international locales.',

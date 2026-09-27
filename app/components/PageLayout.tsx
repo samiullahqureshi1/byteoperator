@@ -31,7 +31,7 @@ export function PageLayout({children = null}: PageLayoutProps) {
       />
       <main>{children}</main>
       <Footer
-        footer={Promise.resolve(SITE_FOOTER_MENU as any)}
+        footer={SITE_FOOTER_MENU as any}
         header={SITE_HEADER_MENU as any}
         publicStoreDomain="byteoperator.com"
       />

@@ -5,8 +5,13 @@ import {WebinarsPageView} from '~/components/webinars/WebinarsPageView';
 export const metadata: Metadata = pageMetadata({
   title: 'Webinars & Masterclasses | Byte Operator',
   description:
-    'Live technical teardowns and architecture masterclasses on Core Web Vitals, headless Next.js engineering and Generative Engine Optimization (GEO).',
+    'Coming soon: planned live sessions from the Byte Operator team on Core Web Vitals, AI search and conversion optimisation.',
   path: '/webinars',
+  // Not launched yet: reachable, but kept out of the index and sitemap.
+  robots: {
+    index: false,
+    follow: true,
+  },
   keywords: [
     'Byte Operator Webinars',
     'Ecommerce Masterclasses',
@@ -19,27 +24,5 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function WebinarsPage() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'EventSeries',
-    name: 'Byte Operator Architecture & CRO Masterclasses',
-    description:
-      'High-impact technical teardowns, Core Web Vitals audits, and headless commerce masterclasses.',
-    url: 'https://www.byteoperator.com/webinars',
-    organizer: {
-      '@type': 'Organization',
-      name: 'Byte Operator',
-      url: 'https://www.byteoperator.com',
-    },
-  };
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
-      />
-      <WebinarsPageView />
-    </>
-  );
+  return <WebinarsPageView />;
 }

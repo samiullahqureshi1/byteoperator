@@ -4,7 +4,8 @@ import {PageLayout} from '~/components/PageLayout';
 import {SITEWIDE_GRAPH, jsonLdString} from '~/lib/seo/schema';
 
 export const metadata: Metadata = {
-  title: 'Byte Operator | The Software Agency That Drives Real Growth',
+  // Fallback only: every page sets its own title via pageMetadata().
+  title: 'Software & AI Agency | Byte Operator',
   description:
     'High-performing digital platforms & applications, backed by proven CRO, SEO, and AI visibility strategies that deliver measurable results.',
   metadataBase: new URL('https://www.byteoperator.com'),

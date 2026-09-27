@@ -1,5 +1,7 @@
 import type {Metadata} from 'next';
 import {pageMetadata} from '~/lib/seo/metadata';
+import {contentPageJsonLd} from '~/lib/seo/jsonld';
+import {JsonLd} from '~/components/shared/JsonLd';
 import {ServicesPage} from '~/components/ServicesPage';
 
 export const metadata: Metadata = pageMetadata({
@@ -10,12 +12,22 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function Services() {
+  const graph = contentPageJsonLd({
+    path: '/services',
+    name: String(metadata.title).replace(/ \| Byte Operator$/, ''),
+    description: String(metadata.description),
+    breadcrumbs: [{name: 'Services', path: '/services'}],
+  });
+
   return (
-    <ServicesPage
-      page={{
-        handle: 'services',
-        body: '<p>Byte Operator delivers end-to-end Software solutions.</p>',
-      }}
-    />
+    <>
+      <JsonLd graph={graph} />
+      <ServicesPage
+        page={{
+          handle: 'services',
+          body: '<p>Byte Operator delivers end-to-end Software solutions.</p>',
+        }}
+      />
+    </>
   );
 }

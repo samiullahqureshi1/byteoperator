@@ -39,7 +39,7 @@ export function WorkHero({
             </h1>
 
             <p className="ft-work-hero__description">
-              Explore how Byte Operator architects resilient custom SaaS platforms, autonomous AI lead engines, high-converting Shopify Plus storefronts, and zero-downtime enterprise cloud migrations that drive measurable revenue.
+              Explore client projects and Byte Operator’s own products: custom SaaS platforms, AI automation, Shopify Plus storefronts and enterprise platform migrations.
             </p>
 
             {/* <p className='ft-work-hero__description'>

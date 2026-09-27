@@ -53,7 +53,14 @@ export type CaseStudyArticle = {
   } | null;
 };
 
-type Detail = {label: string; value: string; href?: string};
+type Detail = {
+  label: string;
+  value: string;
+  /** External URL (opens in a new tab), e.g. the client's website. */
+  href?: string;
+  /** Internal pages, rendered as same-tab links separated by commas. */
+  links?: {label: string; href: string}[];
+};
 
 type CaseStudyLayoutProps = {
   title: string;
@@ -98,7 +105,14 @@ export function CaseStudyLayout({
               <div className="ft-cs__fact" key={detail.label}>
                 <dt>{detail.label}</dt>
                 <dd>
-                  {detail.href ? (
+                  {detail.links?.length ? (
+                    detail.links.map((link, index) => (
+                      <span key={link.href}>
+                        {index > 0 ? ', ' : null}
+                        <Link to={link.href}>{link.label}</Link>
+                      </span>
+                    ))
+                  ) : detail.href ? (
                     <a href={detail.href} target="_blank" rel="noreferrer">
                       {detail.value}
                     </a>
@@ -113,6 +127,9 @@ export function CaseStudyLayout({
 
         <div className="ft-cs__actions">
           <CalendlyButton className="ft-cs__book" />
+          <Link className="ft-cs__more" to="/contact">
+            Discuss a similar project
+          </Link>
           <Link className="ft-cs__more" to="/work">
             See more work
           </Link>

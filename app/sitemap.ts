@@ -61,26 +61,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/podcast`,
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/webinars`,
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/guides`,
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/newsletter`,
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-    {
       url: `${baseUrl}/contact`,
       changeFrequency: 'monthly',
       priority: 0.9,

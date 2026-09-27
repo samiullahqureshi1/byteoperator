@@ -5,8 +5,13 @@ import {PodcastPageView} from '~/components/podcast/PodcastPageView';
 export const metadata: Metadata = pageMetadata({
   title: 'Architecting Scale Podcast | Byte Operator',
   description:
-    'Architecting Scale, the engineering podcast by Byte Operator: technical teardowns, Next.js commerce architecture, GEO and high-growth CTO strategy.',
+    'Coming soon: Architecting Scale, a planned podcast of engineering conversations and architecture teardowns from the Byte Operator team.',
   path: '/podcast',
+  // Not launched yet: reachable, but kept out of the index and sitemap.
+  robots: {
+    index: false,
+    follow: true,
+  },
   keywords: [
     'Byte Operator Podcast',
     'Ecommerce Engineering Podcast',
@@ -19,27 +24,5 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function PodcastPage() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'PodcastSeries',
-    name: 'Architecting Scale: The CTO & Commerce Podcast',
-    description:
-      'Unfiltered engineering conversations, architecture teardowns, and growth masterclasses with top CTOs, AI researchers, and high-growth ecommerce founders.',
-    url: 'https://www.byteoperator.com/podcast',
-    creator: {
-      '@type': 'Organization',
-      name: 'Byte Operator',
-      url: 'https://www.byteoperator.com',
-    },
-  };
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
-      />
-      <PodcastPageView />
-    </>
-  );
+  return <PodcastPageView />;
 }

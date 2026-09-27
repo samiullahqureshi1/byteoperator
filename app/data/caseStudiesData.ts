@@ -8,6 +8,7 @@ export interface CaseStudyItem {
   href?: string;
   result?: { value: string };
   services?: { value: string };
+  /** Deprecated: unverified figures were removed. Add only with evidence. */
   metrics?: Array<{ label: string; value: string }>;
   client?: string;
   industry?: string;
@@ -29,6 +30,8 @@ export interface CaseStudyItem {
   };
   intro?: string;
   details?: Array<{ label: string; value: string }>;
+  /** Service pages this project demonstrates (based on its stated services/platform). */
+  relatedServices?: Array<{ label: string; path: string }>;
   stats?: Array<{ value: string; label: string }>;
   chapters?: Array<{
     number: string;
@@ -38,82 +41,86 @@ export interface CaseStudyItem {
   }>;
 }
 
+/*
+  CASE STUDIES — BYTE OPERATOR
+  Proof pages: publish only verifiable information.
+  - Numbers (conversion, speed, revenue, uptime, SKUs, users, hours…) were
+    removed on 2026-09-27 because none had recorded evidence. Add a figure back
+    only with its source, e.g. an analytics export or client sign-off, noted in
+    a comment next to it.
+  - Replex Engine and Speedify AI are Byte Operator's own products, not client
+    engagements; keep them labelled as such.
+  - Client names below were confirmed as real Byte Operator clients.
+*/
 export const CASE_STUDIES: CaseStudyItem[] = [
   {
     id: 'cs-collabix',
     handle: 'collabix',
     title: 'Collabix SaaS Platform',
-    subtitle: 'Enterprise SaaS Architecture, Real-Time Data Pipeline & Cloud Engineering',
+    subtitle: 'Enterprise SaaS Architecture, Real-Time Collaboration & Cloud Engineering',
     category: 'SaaS & Custom Software',
     tags: ['all', 'saas & custom software', 'saas', 'software', 'cloud', 'architecture'],
-    result: { value: '+340% Processing Speed & 99.99% Uptime' },
+    result: { value: 'Custom SaaS Platform Build' },
     services: { value: 'Full-Stack Web Architecture / Distributed Cloud Infrastructure / Real-Time Data' },
-    metrics: [
-      { label: 'Processing Velocity', value: '+340%' },
-      { label: 'System Uptime', value: '99.99%' },
-      { label: 'Concurrent Users', value: '100k+' },
-    ],
     image: {
       url: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/custom_software_case_study.png?v=1790400442',
       altText: 'Collabix custom software and SaaS platform architecture',
       width: 1920,
       height: 1080,
     },
-    intro: 'How Byte Operator architected and deployed Collabix, an enterprise-grade collaborative SaaS engine engineered for high-throughput teams, real-time collaboration, and bulletproof cloud scalability.',
+    intro: 'Byte Operator designed and built Collabix, a collaborative SaaS platform for teams, covering real-time collaboration, the event-driven back end and the cloud infrastructure it runs on.',
+    relatedServices: [
+      { label: 'Custom Software Development', path: '/services/software-developers' },
+    ],
     details: [
       { label: 'Client', value: 'Collabix Inc.' },
       { label: 'Industry', value: 'Enterprise SaaS & Cloud Software' },
       { label: 'Platform', value: 'Next.js, Node.js, GraphQL & Distributed Microservices' },
       { label: 'Services', value: 'Custom SaaS Engineering, Real-Time WebSockets, Cloud Infrastructure' },
     ],
-    stats: [
-      { value: '+340%', label: 'Throughput Increase' },
-      { value: '99.99%', label: 'Guaranteed Cloud Uptime' },
-      { value: '<40ms', label: 'Real-Time Sync Latency' },
-    ],
     chapters: [
       {
         number: '01',
         title: 'The Challenge',
-        subheading: 'Scaling real-time collaborative state across hundreds of thousands of active users without latency spikes',
+        subheading: 'Keeping shared team data in sync in real time as usage grows',
         points: [
           {
             title: 'Distributed State Synchronization',
-            text: 'Teams required instantaneous multi-user document updates, task state changes, and workspace sync without conflict errors.',
+            text: 'Teams required instant multi-user document updates, task state changes and workspace sync without conflict errors.',
           },
           {
             title: 'Legacy Performance Bottlenecks',
-            text: 'Monolithic data structures caused memory spikes and slow response times during peak business hours.',
+            text: 'Monolithic data structures caused memory spikes and slow response times during busy periods.',
           },
         ],
       },
       {
         number: '02',
-        title: 'The Solution',
-        subheading: 'Modern event-driven reactive microservices with edge caching and optimized database partitioning',
+        title: 'What Byte Operator Did',
+        subheading: 'Event-driven microservices with edge caching and partitioned data',
         points: [
           {
             title: 'Event-Driven Pipeline',
-            text: 'Engineered an asynchronous queue system processing over 10 million daily event messages with sub-40ms propagation.',
+            text: 'Engineered an asynchronous queue system that propagates collaboration events between services and connected users.',
           },
           {
             title: 'Tailored UI / UX System',
-            text: 'Built an ultra-fast, keyboard-first web interface designed for focused productivity and deep workflows.',
+            text: 'Built a keyboard-first web interface designed for focused, uninterrupted work.',
           },
         ],
       },
       {
         number: '03',
-        title: 'The Results',
-        subheading: 'Unmatched performance benchmarks and frictionless user growth across enterprise clients',
+        title: 'The Outcome',
+        subheading: 'A custom platform built for real-time team collaboration',
         points: [
           {
-            title: '340% Performance Uplift',
-            text: 'Workspaces load in under 300ms globally, resulting in a 4.9/5 user satisfaction rating.',
+            title: 'Real-Time Collaboration',
+            text: 'Document, task and workspace changes are shared between users through the event-driven pipeline rather than the previous monolithic data layer.',
           },
           {
-            title: 'Enterprise Reliability',
-            text: 'Maintained 99.99% system availability during heavy peak load cycles.',
+            title: 'Scalable Architecture',
+            text: 'Microservices, edge caching and partitioned data give the platform room to grow without a rebuild.',
           },
         ],
       },
@@ -124,77 +131,70 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     id: 'cs-replex',
     handle: 'replex-engine',
     title: 'Replex AI Lead Engine',
-    subtitle: 'Autonomous AI Communication, Lead Qualification & Zero-Miss Reply Platform',
+    subtitle: 'In-House Product: Autonomous AI Lead Response & Qualification',
     category: 'AI & Automation',
     tags: ['all', 'ai & automation', 'ai', 'automation', 'lead-capture', 'replex'],
-    result: { value: '0 Missed Inquiries & <15s First Response' },
+    result: { value: 'In-House Byte Operator Product' },
     services: { value: 'Autonomous AI Reply Agent / Multi-Channel Inbound Router / Automated Pipeline' },
-    metrics: [
-      { label: 'Missed Leads', value: '0' },
-      { label: 'First Response Time', value: '<15s' },
-      { label: 'Lead Qualification', value: '+64%' },
-    ],
     image: {
       url: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/replex.png?v=1790409470',
       altText: 'Replex Engine AI communication and lead reply automation',
       width: 1920,
       height: 1080,
     },
-    intro: 'How Byte Operator designed and developed Replex Engine, an autonomous AI lead response and qualification system that ensures sales teams never miss an inbound opportunity by responding instantly 24/7.',
+    intro: 'Replex Engine is Byte Operator’s own AI product: an autonomous lead response and qualification system that replies to inbound enquiries around the clock. We designed and built it in-house, and it powers the lead-capture automations we deliver.',
+    relatedServices: [
+      { label: 'AI Automations & Autonomous Agents', path: '/services/ai-automations-agents' },
+    ],
     details: [
-      { label: 'Client', value: 'Replex Platform' },
+      { label: 'Type', value: 'In-house product built by Byte Operator' },
       { label: 'Industry', value: 'AI Sales Automation & CRM' },
       { label: 'Platform', value: 'Autonomous LLM Agents, Multi-Channel Webhooks & REST APIs' },
       { label: 'Services', value: 'Conversational AI, Lead Ingestion Pipeline, Custom Dashboard' },
     ],
-    stats: [
-      { value: '100%', label: 'Inbound Lead Coverage' },
-      { value: '<15s', label: 'Average Response Time' },
-      { value: '+64%', label: 'Qualified Sales Opportunities' },
-    ],
     chapters: [
       {
         number: '01',
-        title: 'The Challenge',
-        subheading: 'Eliminating inbound lead decay and slow response cycles that cost businesses thousands in lost pipeline',
+        title: 'The Problem',
+        subheading: 'Slow or missed replies to inbound leads',
         points: [
           {
             title: 'The Speed-to-Lead Problem',
-            text: 'Studies show conversion rates plummet by 80% if leads are not answered within the first 5 minutes.',
+            text: 'Leads that wait for a reply go cold, and sales teams cannot answer every enquiry immediately, especially outside working hours.',
           },
           {
             title: 'Fragmented Channels',
-            text: 'Inbound requests arriving across email, website chat, SMS, and marketplaces created administrative chaos.',
+            text: 'Inbound requests arriving across email, website chat, SMS and marketplaces are hard to track in one place.',
           },
         ],
       },
       {
         number: '02',
-        title: 'The Solution',
-        subheading: 'Context-aware autonomous agent trained on brand knowledge bases with instant reply orchestration',
+        title: 'What We Built',
+        subheading: 'A context-aware agent trained on brand knowledge, with instant reply orchestration',
         points: [
           {
             title: 'Instant Autonomous Replies',
-            text: 'Replex evaluates inbound context, qualifies buyer intent, answers product questions, and schedules meetings instantly.',
+            text: 'Replex evaluates inbound context, qualifies buyer intent, answers product questions and schedules meetings.',
           },
           {
             title: 'Unified Lead Dashboard',
-            text: 'Live telemetry tracking every conversation stage, sentiment score, and booked appointment.',
+            text: 'Live telemetry tracks every conversation stage, sentiment score and booked appointment.',
           },
         ],
       },
       {
         number: '03',
-        title: 'The Results',
-        subheading: 'Total transformation of lead conversion metrics and complete elimination of missed inquiries',
+        title: 'What It Does',
+        subheading: 'Automated first response and qualification for every inbound channel',
         points: [
           {
-            title: 'Zero Missed Opportunities',
-            text: '100% of all incoming leads receive human-quality responses within 15 seconds around the clock.',
+            title: 'Always-On Responses',
+            text: 'Inbound enquiries from connected channels receive a reply without waiting for a team member to be available.',
           },
           {
-            title: '64% Pipeline Growth',
-            text: 'Clients reported a 64% increase in sales pipeline velocity within the first 60 days of deployment.',
+            title: 'One View of the Pipeline',
+            text: 'Conversations, qualification status and booked meetings are visible in a single dashboard.',
           },
         ],
       },
@@ -205,77 +205,71 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     id: 'cs-aydi',
     handle: 'aydi-active',
     title: 'Aydi Active Ecommerce',
-    subtitle: 'High-Velocity Activewear Storefront, Custom Theme Architecture & Mobile UX',
+    subtitle: 'Activewear Storefront, Custom Theme Architecture & Mobile UX',
     category: 'Ecommerce & Storefronts',
     tags: ['all', 'ecommerce & storefronts', 'fashion', 'storefront', 'cro', 'development'],
-    result: { value: '+68% Mobile Conversion & 0.7s Load Speed' },
+    result: { value: 'Custom Shopify Plus Storefront' },
     services: { value: 'Custom Storefront Engineering / High-Velocity Checkout / Mobile UX' },
-    metrics: [
-      { label: 'Mobile Conversion', value: '+68%' },
-      { label: 'Page Load Speed', value: '0.7s' },
-      { label: 'Average Order Value', value: '+24%' },
-    ],
     image: {
       url: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/manage_products_of_aydi.png?v=1790403225',
       altText: 'Aydi Active high-performance ecommerce storefront and catalog management',
       width: 1920,
       height: 1080,
     },
-    intro: 'How Byte Operator developed a custom, high-velocity digital storefront for Aydi Active, delivering seamless product discovery, instant variant switching, and industry-leading mobile conversion rates.',
+    intro: 'Byte Operator developed a custom Shopify Plus storefront for Aydi Active, focused on fast mobile product discovery, clear variant selection and a premium brand presentation.',
+    relatedServices: [
+      { label: 'Shopify Plus & Enterprise', path: '/shopify-plus-agency' },
+      { label: 'CRO Audit & Conversion Optimization', path: '/shopify-cro-audit' },
+    ],
     details: [
       { label: 'Client', value: 'Aydi Active' },
       { label: 'Industry', value: 'Athletic Wear & Active Lifestyle' },
       { label: 'Platform', value: 'Shopify Plus & Custom Modular Theme' },
       { label: 'Services', value: 'Custom Theme Engineering, Mobile CRO, Performance Tuning' },
     ],
-    stats: [
-      { value: '+68%', label: 'Mobile Conversion Uplift' },
-      { value: '0.7s', label: 'First Contentful Paint' },
-      { value: '+24%', label: 'Average Order Value' },
-    ],
     chapters: [
       {
         number: '01',
         title: 'The Challenge',
-        subheading: 'High mobile bounce rates and sluggish catalog filtering on the previous off-the-shelf theme',
+        subheading: 'Mobile friction and slow catalogue filtering on an off-the-shelf theme',
         points: [
           {
             title: 'Mobile Friction',
-            text: 'Over 82% of shoppers arrived on mobile devices but faced cumbersome product swatch selection and slow page loads.',
+            text: 'Most shoppers arrived on mobile, where swatch selection was cumbersome and pages loaded slowly.',
           },
           {
             title: 'Brand Elevation',
-            text: 'The brand needed an editorial, premium design aesthetic that reflected their high-performance athletic apparel.',
+            text: 'The brand needed an editorial, premium design that reflected its performance apparel.',
           },
         ],
       },
       {
         number: '02',
-        title: 'The Solution',
-        subheading: 'Lightweight modular architecture with instant sticky cart, rich swatch previews, and sub-second navigation',
+        title: 'What Byte Operator Did',
+        subheading: 'A lightweight modular theme with a sticky cart, rich swatch previews and fast navigation',
         points: [
           {
             title: 'Custom Modular Components',
-            text: 'Built responsive product detail modules with fluid video integration, size recommendation calculators, and quick-buy drawers.',
+            text: 'Built responsive product detail modules with video, a size recommendation calculator and quick-buy drawers.',
           },
           {
             title: 'Speed Optimization',
-            text: 'Eliminated bloated third-party scripts and implemented asset preloading for instantaneous page transitions.',
+            text: 'Removed heavy third-party scripts and added asset preloading for quicker page transitions.',
           },
         ],
       },
       {
         number: '03',
-        title: 'The Results',
-        subheading: 'Immediate surge in direct-to-consumer sales and sustained return customer loyalty',
+        title: 'The Outcome',
+        subheading: 'A faster, mobile-first storefront that reflects the brand',
         points: [
           {
-            title: '68% Conversion Boost',
-            text: 'Mobile purchase completion rates surged 68% in the first quarter post-launch.',
+            title: 'Easier Mobile Buying',
+            text: 'Swatch previews, the size calculator, quick-buy drawers and a sticky cart replaced the old theme’s multi-step mobile flow.',
           },
           {
-            title: 'Sub-Second Speed',
-            text: 'Achieved an average 0.7s load time across worldwide mobile networks.',
+            title: 'Leaner Pages',
+            text: 'The custom theme ships without the third-party scripts that previously slowed the storefront down.',
           },
         ],
       },
@@ -286,77 +280,70 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     id: 'cs-toys',
     handle: 'kids-wonderland',
     title: 'Kids Wonderland Toy Store',
-    subtitle: 'Interactive Gamified Retail Storefront & Custom Catalog Discovery Engine',
+    subtitle: 'Interactive Retail Storefront & Custom Catalogue Discovery',
     category: 'Ecommerce & Storefronts',
     tags: ['all', 'ecommerce & storefronts', 'retail', 'design', 'development'],
-    result: { value: '+120% Engagement & +45% Average Basket Value' },
+    result: { value: 'Gift Finder & Custom Cart Experience' },
     services: { value: 'Modular Storefront Architecture / Gamified Product Filtering / Custom Cart Drawer' },
-    metrics: [
-      { label: 'Session Duration', value: '+120%' },
-      { label: 'Average Order Value', value: '+45%' },
-      { label: 'Cart Abandonment', value: '-35%' },
-    ],
     image: {
       url: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/toys.webp?v=1790407473',
       altText: 'Kids Wonderland interactive toy store development',
       width: 1920,
       height: 1080,
     },
-    intro: 'Transforming an online toy and game destination into an engaging digital wonderland that makes shopping effortless for parents and exciting for kids, driving substantial gains in session duration and average basket value.',
+    intro: 'Byte Operator redesigned the Kids Wonderland online toy store around easier discovery for gift buyers, with age- and interest-based filtering, an interactive gift finder and a smarter cart.',
+    relatedServices: [
+      { label: 'Software Website Design', path: '/services/software-web-design' },
+    ],
     details: [
       { label: 'Client', value: 'Kids Wonderland' },
       { label: 'Industry', value: 'Toys, Games & Children Retail' },
       { label: 'Platform', value: 'Shopify Custom Architecture' },
       { label: 'Services', value: 'Interactive UI / UX, Age & Interest Filtering, Upsell Engine' },
     ],
-    stats: [
-      { value: '+120%', label: 'Session Time Increase' },
-      { value: '+45%', label: 'Average Order Value' },
-      { value: '-35%', label: 'Cart Abandonment Drop' },
-    ],
     chapters: [
       {
         number: '01',
         title: 'The Challenge',
-        subheading: 'Navigating extensive SKU catalogs with over 5,000 products without confusing gift buyers',
+        subheading: 'Helping gift buyers find the right toy in a large catalogue',
         points: [
           {
             title: 'Complex Categorization',
-            text: 'Shoppers needed to quickly find toys by age group, educational stage, interest, and price range.',
+            text: 'Shoppers needed to find toys quickly by age group, educational stage, interest and price range.',
           },
           {
             title: 'Checkout Abandonment',
-            text: 'Cluttered cart pages caused high drop-offs during holiday peak shopping seasons.',
+            text: 'Cluttered cart pages caused drop-offs during busy holiday shopping periods.',
           },
         ],
       },
       {
         number: '02',
-        title: 'The Solution',
-        subheading: 'Playful visual filtering, personalized gift finder quizzes, and dynamic bundle builders',
+        title: 'What Byte Operator Did',
+        subheading: 'Visual filtering, a personalised gift finder and bundle suggestions',
         points: [
           {
             title: 'Interactive Gift Finder',
-            text: 'Engineered a 3-step interactive gift quiz that matches recipient age and hobbies to top-rated toy bundles.',
+            text: 'Built a three-step gift quiz that matches the recipient’s age and hobbies to toy bundles.',
           },
           {
             title: 'Smart Cart Drawer',
-            text: 'Equipped the cart drawer with free shipping progress bars, gift wrapping toggles, and relevant add-ons.',
+            text: 'Added a free-shipping progress bar, gift-wrapping options and relevant add-ons to the cart drawer.',
           },
         ],
       },
       {
         number: '03',
-        title: 'The Results',
-        subheading: 'Record-setting holiday revenue and massive growth in multi-item cart purchases',
+        title: 'The Outcome',
+        subheading: 'A simpler path from browsing to checkout for gift buyers',
         points: [
           {
-            title: '45% Higher AOV',
-            text: 'Dynamic bundle suggestions increased average units per transaction from 1.6 to 2.8.',
+            title: 'Guided Discovery',
+            text: 'Age and interest filters and the gift finder give shoppers a clear starting point instead of browsing the whole catalogue.',
           },
           {
-            title: 'Seamless Scalability',
-            text: 'Handled over 50,000 simultaneous holiday shoppers with zero downtime or performance degradation.',
+            title: 'A Cleaner Cart',
+            text: 'The cart drawer replaced the cluttered cart page, keeping shipping progress and add-ons in one place.',
           },
         ],
       },
@@ -367,77 +354,71 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     id: 'cs-furniture',
     handle: 'nordic-haven',
     title: 'Nordic Haven Furniture Flagship',
-    subtitle: 'Luxury Scandinavian Interior Storefront & B2B Wholesale Commerce Engine',
+    subtitle: 'Scandinavian Interior Storefront & B2B Wholesale Commerce',
     category: 'Shopify Plus & Migrations',
     tags: ['all', 'shopify plus & migrations', 'furniture', 'enterprise', 'shopify-plus'],
-    result: { value: '+92% High-Ticket Sales & B2B Wholesale Portal' },
+    result: { value: 'Shopify Plus Storefront & B2B Trade Portal' },
     services: { value: 'Shopify Plus Enterprise Architecture / Room Staging Visualizer / Custom B2B Checkout' },
-    metrics: [
-      { label: 'High-Ticket Conversion', value: '+92%' },
-      { label: 'Average Basket Value', value: '$1,850' },
-      { label: 'B2B Wholesale Onboarding', value: '100% Automated' },
-    ],
     image: {
       url: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/furniture.webp?v=1790407636',
       altText: 'Nordic Haven luxury furniture digital storefront',
       width: 1920,
       height: 1080,
     },
-    intro: 'How Byte Operator created a digital flagship for Nordic Haven, combining high-end Scandinavian aesthetic storytelling, interactive 3D room staging, and an automated B2B wholesale ordering portal on Shopify Plus.',
+    intro: 'Byte Operator built a Shopify Plus flagship for Nordic Haven, combining Scandinavian brand storytelling, an interactive room and fabric visualiser, and a B2B wholesale ordering portal for trade clients.',
+    relatedServices: [
+      { label: 'Shopify Plus & Enterprise', path: '/shopify-plus-agency' },
+      { label: 'B2B & Wholesale Ecommerce', path: '/services/software-b2b-wholesale' },
+    ],
     details: [
       { label: 'Client', value: 'Nordic Haven Living' },
       { label: 'Industry', value: 'Luxury Furniture & Scandinavian Interior Design' },
       { label: 'Platform', value: 'Shopify Plus Enterprise' },
       { label: 'Services', value: 'Enterprise Storefront, B2B Tier Pricing, 3D Product Modeling' },
     ],
-    stats: [
-      { value: '+92%', label: 'High-Ticket Conversion' },
-      { value: '$1.85k', label: 'Average Basket Value' },
-      { value: '100%', label: 'Automated B2B Portals' },
-    ],
     chapters: [
       {
         number: '01',
         title: 'The Challenge',
-        subheading: 'High purchase hesitation online for high-ticket handcrafted furniture items ($2,000+)',
+        subheading: 'Buyer hesitation on high-ticket furniture, and manual trade ordering',
         points: [
           {
             title: 'Visual Trust & Texture',
-            text: 'Customers needed confidence in material quality, fabric swatches, and physical dimensions before purchasing.',
+            text: 'Customers needed confidence in materials, fabric swatches and dimensions before buying high-ticket pieces online.',
           },
           {
             title: 'Manual Wholesale Processing',
-            text: 'B2B interior designers and commercial trade clients had to email purchase orders manually.',
+            text: 'Interior designers and commercial trade clients had to email purchase orders manually.',
           },
         ],
       },
       {
         number: '02',
-        title: 'The Solution',
-        subheading: 'High-definition 3D room visualizer with dedicated Shopify Plus B2B wholesale pricing tiers',
+        title: 'What Byte Operator Did',
+        subheading: 'A room and fabric visualiser plus Shopify Plus B2B wholesale pricing',
         points: [
           {
             title: 'Fabric Swatch & Dimension Viewer',
-            text: 'Enabled customers to customize wood finishes and fabrics in real time with precise scale indicators.',
+            text: 'Customers can customise wood finishes and fabrics in real time, with scale indicators for each piece.',
           },
           {
             title: 'B2B Trade Portal',
-            text: 'Integrated wholesale account approvals, net-30 terms, tiered quantity discounts, and instant tax exemption handling.',
+            text: 'Integrated wholesale account approvals, net-30 terms, tiered quantity discounts and tax exemption handling.',
           },
         ],
       },
       {
         number: '03',
-        title: 'The Results',
-        subheading: 'Remarkable revenue growth across both consumer DTC and high-volume commercial channels',
+        title: 'The Outcome',
+        subheading: 'One platform for both retail customers and trade buyers',
         points: [
           {
-            title: '92% Increase in Large Orders',
-            text: 'High-ticket room set purchases grew by 92% in the first six months.',
+            title: 'More Confident Buying',
+            text: 'Shoppers can see finishes, fabrics and dimensions before committing to a high-ticket purchase.',
           },
           {
-            title: 'Automated Trade Operations',
-            text: 'Trade client orders are processed entirely digitally, saving over 30 operational hours each week.',
+            title: 'Digital Trade Ordering',
+            text: 'Trade clients now order through the B2B portal with their own pricing and terms, instead of emailing purchase orders.',
           },
         ],
       },
@@ -448,77 +429,71 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     id: 'cs-omniretail',
     handle: 'omniretail-migration',
     title: 'OmniRetail Global Enterprise Migration',
-    subtitle: 'Zero-Downtime Magento Replatforming & 100% Organic SEO Preservation',
+    subtitle: 'Magento to Shopify Plus Replatforming & SEO Migration',
     category: 'Shopify Plus & Migrations',
     tags: ['all', 'shopify plus & migrations', 'migrations', 'cro', 'seo', 'enterprise'],
-    result: { value: '0s Downtime & +54% Organic Search Revenue' },
-    services: { value: 'Zero-Downtime Data Replatforming / 301 Redirect Mapping Matrix / High-Converting UI' },
-    metrics: [
-      { label: 'Launch Downtime', value: '0s' },
-      { label: 'SKUs Migrated', value: '500k+' },
-      { label: 'Organic Search Revenue', value: '+54%' },
-    ],
+    result: { value: 'Magento to Shopify Plus Migration' },
+    services: { value: 'Data Replatforming / 301 Redirect Mapping / High-Converting UI' },
     image: {
       url: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/shopify_cro_and_migration_store.webp?v=1790407473',
       altText: 'Shopify CRO and enterprise platform migration',
       width: 1920,
       height: 1080,
     },
-    intro: 'Migrating an international retail enterprise from a legacy on-premise Magento cluster to Shopify Plus with over 500,000 SKUs, zero downtime, and complete preservation of top Google keyword rankings.',
+    intro: 'Byte Operator migrated OmniRetail Global, a multi-brand retailer, from a legacy on-premise Magento setup to Shopify Plus, including product and customer data, ERP connections and a full SEO redirect plan.',
+    relatedServices: [
+      { label: 'Magento & Adobe Commerce Migration', path: '/services/magento-software-migrations' },
+      { label: 'Platform SEO Migrations', path: '/services/ecommerce-seo-migrations' },
+    ],
     details: [
       { label: 'Client', value: 'OmniRetail Global' },
       { label: 'Industry', value: 'Multi-Brand Omnichannel Retail' },
       { label: 'Platform', value: 'Magento to Shopify Plus Enterprise' },
       { label: 'Services', value: 'Data Pipeline, 301 SEO Mapping, Custom ERP Connector' },
     ],
-    stats: [
-      { value: '0s', label: 'Migration Downtime' },
-      { value: '500k+', label: 'Products & Customers Migrated' },
-      { value: '+54%', label: 'Year-1 Organic Revenue' },
-    ],
     chapters: [
       {
         number: '01',
         title: 'The Challenge',
-        subheading: 'Transitioning complex enterprise data, ERP connections, and millions of organic search rankings safely',
+        subheading: 'Moving complex enterprise data, ERP connections and search rankings safely',
         points: [
           {
             title: 'High-Risk Data Complexity',
-            text: 'Over 500,000 product variants, 10 years of historical customer records, and complex multi-warehouse inventory.',
+            text: 'A large product catalogue with many variants, years of customer history and multi-warehouse inventory had to move intact.',
           },
           {
             title: 'SEO Vulnerability',
-            text: 'Legacy URLs ranked on page 1 for thousands of competitive search terms that could not afford any ranking drop.',
+            text: 'Legacy URLs held valuable search rankings that could be lost if the migration broke them.',
           },
         ],
       },
       {
         number: '02',
-        title: 'The Solution',
-        subheading: 'Automated data transformation scripts, airtight 301 redirect architecture, and real-time ERP sync',
+        title: 'What Byte Operator Did',
+        subheading: 'Automated data transformation, a complete 301 redirect map and real-time ERP sync',
         points: [
           {
-            title: 'Precision Data ETL',
-            text: 'Engineered custom validation scripts that cleaned, mapped, and imported product data with 100% integrity.',
+            title: 'Data Transformation & Validation',
+            text: 'Built custom scripts that cleaned, mapped, validated and imported the product and customer data.',
           },
           {
-            title: 'Airtight SEO Matrix',
-            text: 'Mapped 100% of legacy URLs to clean canonical structures and enriched JSON-LD structured schema.',
+            title: 'SEO Redirect Matrix',
+            text: 'Mapped legacy URLs to clean canonical structures and added JSON-LD structured data on the new platform.',
           },
         ],
       },
       {
         number: '03',
-        title: 'The Results',
-        subheading: 'Zero downtime launch with immediate speed gains and an acceleration in organic revenue',
+        title: 'The Outcome',
+        subheading: 'The business moved from on-premise Magento to Shopify Plus',
         points: [
           {
-            title: 'Flawless Cutover',
-            text: 'The entire replatforming completed seamlessly with zero downtime and uninterrupted order processing.',
+            title: 'Replatformed with SEO Safeguards',
+            text: 'Legacy URLs redirect to their new equivalents, so existing rankings and links point to live pages.',
           },
           {
-            title: '54% Organic Revenue Growth',
-            text: 'Faster server response times and cleaner mobile layouts drove a 54% lift in organic search revenue within year one.',
+            title: 'Connected Operations',
+            text: 'A custom ERP connector keeps inventory and order data in sync between Shopify Plus and the back office.',
           },
         ],
       },
@@ -529,77 +504,72 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     id: 'cs-speedify',
     handle: 'speedify-ai',
     title: 'Speedify AI Performance App',
-    subtitle: 'Proprietary Core Web Vitals Optimization App & Edge Asset Compression',
+    subtitle: 'In-House Product: Core Web Vitals Optimisation App & Asset Compression',
     category: 'Apps & Tools',
     tags: ['all', 'apps & tools', 'apps', 'speed', 'ai', 'development'],
-    result: { value: '98/100 Mobile PageSpeed Score' },
+    result: { value: 'In-House Byte Operator Product' },
     services: { value: 'AI Asset Compression / Script Offloading / Speed Telemetry' },
-    metrics: [
-      { label: 'Mobile Lighthouse', value: '98/100' },
-      { label: 'LCP Duration', value: '0.6s' },
-      { label: 'Bounce Rate Reduction', value: '-42%' },
-    ],
     image: {
       url: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/speedify_landing.webp?v=1790408507',
       altText: 'Speedify AI page speed optimizer app dashboard',
       width: 1920,
       height: 1080,
     },
-    intro: 'How Byte Operator engineered Speedify AI, a proprietary performance optimization app that automates critical CSS generation, asset compression, and JavaScript script deferral for ecommerce storefronts.',
+    intro: 'Speedify AI is Byte Operator’s own performance app. We built it in-house to automate critical CSS generation, image compression and JavaScript deferral for ecommerce storefronts.',
+    relatedServices: [
+      { label: 'Shopify App Development', path: '/services/shopify-app-development' },
+      { label: 'Performance & Speed Audits', path: '/services/shopify-audits' },
+    ],
     details: [
+      { label: 'Type', value: 'In-house product built by Byte Operator' },
       { label: 'Product', value: 'Speedify AI' },
       { label: 'Industry', value: 'Web Performance & Developer Tooling' },
       { label: 'Platform', value: 'Shopify App Bridge, Cloudflare Workers & Rust Engine' },
       { label: 'Services', value: 'App Development, Core Web Vitals Engineering, Telemetry UI' },
     ],
-    stats: [
-      { value: '98/100', label: 'Average Mobile Score' },
-      { value: '0.6s', label: 'Largest Contentful Paint' },
-      { value: '-42%', label: 'Mobile Bounce Rate' },
-    ],
     chapters: [
       {
         number: '01',
-        title: 'The Challenge',
-        subheading: 'Third-party tracking scripts and heavy assets slowing down mobile storefront load times',
+        title: 'The Problem',
+        subheading: 'Third-party scripts and heavy assets slowing down mobile storefronts',
         points: [
           {
-            title: 'Core Web Vitals Penalties',
-            text: 'Google algorithms penalize slow sites in search rankings and paid ad quality scores.',
+            title: 'Core Web Vitals',
+            text: 'Core Web Vitals are part of Google’s page experience signals, and slow pages lose shoppers before they buy.',
           },
           {
             title: 'Technical Complexity',
-            text: 'Manual speed optimization requires ongoing developer effort whenever new apps or marketing pixels are added.',
+            text: 'Manual speed work needs ongoing developer effort every time a new app or marketing pixel is added.',
           },
         ],
       },
       {
         number: '02',
-        title: 'The Solution',
-        subheading: 'Automated AI engine that dynamically analyzes page trees and defers non-critical execution',
+        title: 'What We Built',
+        subheading: 'An automated engine that analyses pages and defers non-critical work',
         points: [
           {
             title: 'Critical CSS & Asset Offloading',
-            text: 'Generates atomic critical stylesheets on the fly and converts all images to modern AVIF/WebP formats.',
+            text: 'Generates critical stylesheets on the fly and converts images to modern AVIF and WebP formats.',
           },
           {
             title: 'Live Telemetry Dashboard',
-            text: 'Empowers store owners to monitor real-user speed metrics and Core Web Vitals pass rates in real time.',
+            text: 'Lets store owners monitor real-user speed metrics and Core Web Vitals in real time.',
           },
         ],
       },
       {
         number: '03',
-        title: 'The Results',
-        subheading: 'Instant speed jumps for hundreds of active stores, driving measurable conversion uplifts',
+        title: 'What It Does',
+        subheading: 'Automates the performance work that usually needs a developer',
         points: [
           {
-            title: '98/100 Mobile Scores',
-            text: 'Stores using Speedify AI consistently score in the green tier on Google PageSpeed Insights.',
+            title: 'Automated Optimisation',
+            text: 'Critical CSS, image conversion and script deferral run automatically instead of being hand-tuned for each change.',
           },
           {
-            title: 'Conversion Acceleration',
-            text: 'Faster render times reduced bounce rates by 42% and lifted average checkout completion by 18%.',
+            title: 'Visible Performance',
+            text: 'The telemetry dashboard shows how real visitors experience the store, so problems surface early.',
           },
         ],
       },
@@ -613,74 +583,68 @@ export const CASE_STUDIES: CaseStudyItem[] = [
     subtitle: 'Visual Workflow Orchestration, n8n Pipelines & Multi-System Automation',
     category: 'AI & Automation',
     tags: ['all', 'ai & automation', 'ai', 'automation', 'n8n', 'integrations'],
-    result: { value: '94% Reduction in Operational Hours' },
+    result: { value: 'Multi-Agent Operations Automation' },
     services: { value: 'n8n Pipeline Architecture / Multi-Agent LLM Orchestration / ERP Webhook Sync' },
-    metrics: [
-      { label: 'Manual Hours Saved', value: '94%' },
-      { label: 'Automated Operations', value: '24/7' },
-      { label: 'Daily Events Processed', value: '50k+' },
-    ],
     image: {
       url: 'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/second_autmation_imaeg.webp?v=1790409459',
       altText: 'Autonomous multi-agent task execution and AI workflow swarms',
       width: 1920,
       height: 1080,
     },
-    intro: 'How Byte Operator designed and implemented autonomous multi-agent AI swarms and visual n8n workflow pipelines, connecting CRM, ERP, inventory, and customer messaging into self-driving operational systems.',
+    intro: 'Byte Operator designed and implemented multi-agent AI workflows and n8n pipelines for a supply chain and ecommerce logistics client, connecting CRM, ERP, inventory and customer messaging.',
+    relatedServices: [
+      { label: 'AI Automations & Autonomous Agents', path: '/services/ai-automations-agents' },
+      { label: 'API & System Integrations', path: '/services/software-integrations' },
+    ],
     details: [
       { label: 'Client', value: 'Enterprise Operations Client' },
       { label: 'Industry', value: 'Supply Chain & Ecommerce Logistics' },
       { label: 'Platform', value: 'n8n, Multi-Agent LLMs, Custom Webhooks' },
       { label: 'Services', value: 'Workflow Engineering, Agent Swarms, API Integration' },
     ],
-    stats: [
-      { value: '94%', label: 'Manual Hours Saved' },
-      { value: '24/7', label: 'Continuous Execution' },
-      { value: '50k+', label: 'Daily Actions Automated' },
-    ],
     chapters: [
       {
         number: '01',
         title: 'The Challenge',
-        subheading: 'Siloed data across ERPs, spreadsheets, and support desks requiring massive manual overhead',
+        subheading: 'Siloed data across ERPs, spreadsheets and support desks, maintained by hand',
         points: [
           {
             title: 'Operational Bottlenecks',
-            text: 'Teams spent hundreds of hours weekly re-keying customer order data and resolving sync errors between warehouses.',
+            text: 'Teams spent significant time re-keying order data and resolving sync errors between warehouses.',
           },
           {
             title: 'Slow Exception Handling',
-            text: 'Inventory discrepancies and order fulfillment delays required human intervention that stalled shipping.',
+            text: 'Inventory discrepancies and fulfilment delays needed human intervention, which held up shipping.',
           },
         ],
       },
       {
         number: '02',
-        title: 'The Solution',
-        subheading: 'Multi-agent AI swarms working synchronously through visual n8n execution pipelines',
+        title: 'What Byte Operator Did',
+        subheading: 'Specialised AI agents working through visual n8n execution pipelines',
         points: [
           {
             title: 'Agent Task Distribution',
-            text: 'Specialized autonomous AI agents monitor webhook queues, parse complex supplier invoices, and update inventory counts.',
+            text: 'Specialised AI agents monitor webhook queues, parse supplier invoices and update inventory counts.',
           },
           {
             title: 'Self-Healing Fallbacks',
-            text: 'Built automated validation loops that correct formatting errors and alert engineers only when anomalies occur.',
+            text: 'Automated validation loops correct formatting errors and alert engineers only when anomalies occur.',
           },
         ],
       },
       {
         number: '03',
-        title: 'The Results',
-        subheading: 'Dramatic operational efficiency gains and zero human error in everyday fulfillment flows',
+        title: 'The Outcome',
+        subheading: 'Routine data work handled by automated workflows',
         points: [
           {
-            title: '94% Time Reclaimed',
-            text: 'Operational teams transitioned from manual data entry to strategic growth initiatives.',
+            title: 'Less Manual Re-Keying',
+            text: 'Order, invoice and inventory updates move between systems through the pipelines instead of being entered by hand.',
           },
           {
-            title: 'Flawless Accuracy',
-            text: 'Order processing accuracy improved to 99.98% across 50,000+ daily transactions.',
+            title: 'Exceptions Surface Early',
+            text: 'Validation loops fix routine formatting issues and escalate genuine anomalies to the team.',
           },
         ],
       },

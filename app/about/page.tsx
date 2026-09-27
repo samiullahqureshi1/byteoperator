@@ -3,7 +3,7 @@ import {pageMetadata} from '~/lib/seo/metadata';
 import {AboutHero} from '~/components/about/AboutHero';
 import {AboutStoryStats} from '~/components/about/AboutStoryStats';
 import {AboutValues} from '~/components/about/AboutValues';
-import {AboutTeam} from '~/components/about/AboutTeam';
+import {AboutFounders} from '~/components/about/AboutFounders';
 import {AboutTestimonials} from '~/components/about/AboutTestimonials';
 import {AboutSpace} from '~/components/about/AboutSpace';
 import {AboutJoin} from '~/components/about/AboutJoin';
@@ -22,7 +22,7 @@ export default function AboutPage() {
       <AboutHero />
       <AboutStoryStats />
       <AboutValues />
-      {/* <AboutTeam /> */}
+      <AboutFounders />
       <AboutTestimonials />
       <AboutSpace />
       <AboutJoin />

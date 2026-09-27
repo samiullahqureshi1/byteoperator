@@ -2,8 +2,15 @@ import type {Metadata} from 'next';
 import {pageMetadata} from '~/lib/seo/metadata';
 import {notFound} from 'next/navigation';
 import {CaseStudyLayout} from '~/components/work/CaseStudyDetail';
-import {CASE_STUDIES, getCaseStudyByHandle} from '~/data/caseStudiesData';
+import {
+  CASE_STUDIES,
+  getCaseStudyByHandle,
+  type CaseStudyItem,
+} from '~/data/caseStudiesData';
 import {CASE_STUDY_SEO} from '~/data/seoOverrides';
+import {caseStudyJsonLd} from '~/lib/seo/jsonld';
+import {absoluteUrl} from '~/lib/seo/schema';
+import {JsonLd} from '~/components/shared/JsonLd';
 
 interface Props {
   params: {
@@ -25,12 +32,17 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
   const seo = CASE_STUDY_SEO[caseStudy.handle];
   return pageMetadata({
     title: `${seo?.title || `${caseStudy.title} Case Study`} | Byte Operator`,
-    description:
-      seo?.description ||
-      caseStudy.intro ||
-      `${caseStudy.title} project results and transformation with Byte Operator.`,
+    description: caseStudyDescription(caseStudy),
     path: `/work/${caseStudy.handle}`,
   });
+}
+
+function caseStudyDescription(caseStudy: CaseStudyItem): string {
+  return (
+    CASE_STUDY_SEO[caseStudy.handle]?.description ||
+    caseStudy.intro ||
+    `${caseStudy.title} project results and transformation with Byte Operator.`
+  );
 }
 
 export default function CaseStudyPage({params}: Props) {
@@ -50,14 +62,43 @@ export default function CaseStudyPage({params}: Props) {
   const images = caseStudy.image ? [caseStudy.image] : [];
   const chips = caseStudy.tags || [];
 
+  // CreativeWork + WebPage + BreadcrumbList. No client name or dates: the
+  // data does not reliably carry them, so nothing is guessed.
+  const imageUrl = caseStudy.image?.url;
+  const graph = caseStudyJsonLd({
+    path: `/work/${caseStudy.handle}`,
+    headline: caseStudy.title,
+    description: caseStudyDescription(caseStudy),
+    ...(imageUrl
+      ? {imageUrl: imageUrl.startsWith('/') ? absoluteUrl(imageUrl) : imageUrl}
+      : {}),
+  });
+
   return (
-    <CaseStudyLayout
-      title={caseStudy.title}
-      subtitle={caseStudy.subtitle}
-      content={content}
-      details={caseStudy.details || []}
-      chips={chips}
-      images={images as any}
-    />
+    <>
+      <JsonLd graph={graph} />
+      <CaseStudyLayout
+        title={caseStudy.title}
+        subtitle={caseStudy.subtitle}
+        content={content}
+        details={[
+          ...(caseStudy.details || []),
+          ...(caseStudy.relatedServices?.length
+            ? [
+                {
+                  label: 'Related services',
+                  value: caseStudy.relatedServices.map((service) => service.label).join(', '),
+                  links: caseStudy.relatedServices.map((service) => ({
+                    label: service.label,
+                    href: service.path,
+                  })),
+                },
+              ]
+            : []),
+        ]}
+        chips={chips}
+        images={images as any}
+      />
+    </>
   );
 }

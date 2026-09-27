@@ -10,6 +10,8 @@ import {BulkHoursCta} from '~/components/services/detail/BulkHoursCta';
 import {resolveCanonicalPath} from '~/lib/route-mappings';
 import {pageMetadata} from '~/lib/seo/metadata';
 import {SERVICE_SEO} from '~/data/seoOverrides';
+import {contentPageJsonLd, serviceJsonLd} from '~/lib/seo/jsonld';
+import {JsonLd} from '~/components/shared/JsonLd';
 
 interface Props {
   params: {
@@ -22,6 +24,22 @@ interface Props {
 function isCanonicalHandle(handle: string): boolean {
   const path = `/services/${handle}`;
   return resolveCanonicalPath(path) === path;
+}
+
+// Informational pages that live under /services but do not describe a
+// service offering: they get a breadcrumb, but no Service node.
+const NON_SERVICE_HANDLES = new Set(['why-custom-software']);
+
+/** The page's visible <title> stem and meta description. */
+function serviceSeo(handle: string, config: ServicePageConfig) {
+  const seo = SERVICE_SEO[handle];
+  return {
+    title: seo?.title || config.hero?.eyebrow || config.hero?.heading || handle,
+    description:
+      seo?.description ||
+      config.hero?.description ||
+      'Specialized engineering and ecommerce services by Byte Operator.',
+  };
 }
 
 export function generateStaticParams() {
@@ -40,12 +58,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     return {title: 'Service Not Found | Byte Operator'};
   }
 
-  const seo = SERVICE_SEO[handle];
-  const title = seo?.title || config.hero?.eyebrow || config.hero?.heading || handle;
-  const description =
-    seo?.description ||
-    config.hero?.description ||
-    'Specialized engineering and ecommerce services by Byte Operator.';
+  const {title, description} = serviceSeo(handle, config);
 
   return pageMetadata({
     title: `${title} | Byte Operator`,
@@ -66,15 +79,31 @@ export default function ServicePage({params}: Props) {
   }
 
   const title = config.hero?.eyebrow || config.hero?.heading || handle;
+  const seo = serviceSeo(handle, config);
+  const path = `/services/${handle}`;
+  const graph = NON_SERVICE_HANDLES.has(handle)
+    ? contentPageJsonLd({
+        path,
+        name: seo.title,
+        description: seo.description,
+        breadcrumbs: [
+          {name: 'Services', path: '/services'},
+          {name: seo.title, path},
+        ],
+      })
+    : serviceJsonLd({path, name: seo.title, description: seo.description});
 
   return (
-    <ServiceDetailPage
-      page={{
-        handle,
-        title,
-        faqs: (config as any).faqs,
-      }}
-      config={config}
-    />
+    <>
+      <JsonLd graph={graph} />
+      <ServiceDetailPage
+        page={{
+          handle,
+          title,
+          faqs: (config as any).faqs,
+        }}
+        config={config}
+      />
+    </>
   );
 }

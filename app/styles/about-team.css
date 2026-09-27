@@ -273,3 +273,48 @@
     display: none;
   }
 }
+/* =========================
+   FOUNDERS (About page)
+   Reuses the team layout; two text-only cards until real photos exist.
+========================= */
+
+.ft-about-founders .ft-about-team__right {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+}
+
+.ft-about-founders__item--text {
+  padding: 1.5rem;
+
+  border-radius: 0.625rem;
+  background: #10192F;
+  border: 1px solid #1F2A44;
+}
+
+.ft-about-founders__item--text .ft-about-team__item-content {
+  gap: 0.75rem;
+}
+
+.ft-about-founders__link {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.15;
+
+  color: #3B82F6;
+  text-decoration: none;
+}
+
+.ft-about-founders__link:hover {
+  text-decoration: underline;
+}
+
+.ft-about-founders__link:focus-visible {
+  outline: 0.125rem solid #3B82F6;
+  outline-offset: 0.2rem;
+}
+
+@media (max-width: 36.24rem) {
+  .ft-about-founders .ft-about-team__right {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

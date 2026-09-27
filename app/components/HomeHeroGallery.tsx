@@ -4,6 +4,10 @@ import {useEffect, useRef} from 'react';
 import {responsiveImage} from '~/lib/responsive-image';
 
 /*
+ * Entries whose image is an Unsplash stock photo are labelled "(Concept)":
+ * they are illustrative, not Byte Operator client projects. Use real project
+ * screenshots (with permission) before presenting an entry as client work.
+ *
  * Gallery navigation is temporarily disabled (see the render loop
  * below, which renders a plain <div> instead of a <Link>). Each
  * entry's `url` is intentionally kept here, unused, so navigation
@@ -12,52 +16,52 @@ import {responsiveImage} from '~/lib/responsive-image';
 const GALLERY_LAYERS = [
   [
     {
-      title: 'Athletic Running Footwear',
+      title: 'Athletic Running Footwear (Concept)',
       image:
         'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/ryan-waring-164_6wVEHfI-unsplash.jpg?v=1790430992',
       alt: 'High-performance athletic running footwear',
       url: '/work',
     },
     {
-      title: 'Botanical Lotion & Care',
+      title: 'Botanical Lotion & Care (Concept)',
       image:
         'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/nataliya-melnychuk-51sGDpm5S78-unsplash.jpg?v=1790430987',
       alt: 'Luxury botanical skincare and lotion product',
       url: '/work',
     },
     {
-      title: 'Minimalist Glass Beverage',
+      title: 'Minimalist Glass Beverage (Concept)',
       image:
         'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/joan-tran-reEySFadyJQ-unsplash.jpg?v=1790430977',
       alt: 'Minimalist designer glass beverage bottle',
       url: '/work',
     },
     {
-      title: 'Wireless Audio Headphones',
+      title: 'Wireless Audio Headphones (Concept)',
       image:
         'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/kiran-ck-LSNJ-pltdu8-unsplash.jpg?v=1790430955',
       alt: 'Premium wireless headphones and handsfree audio',
       url: '/work',
     },
     {
-      title: 'Active Lifestyle Running',
+      title: 'Active Lifestyle Running (Concept)',
       image:
         'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/reuben-mansell-nwOip8AOZz0-unsplash.jpg?v=1790431668',
       alt: 'Active runner lifestyle and performance gear',
       url: '/work',
     },
     {
-      title: 'Mitzie Organics Collection',
+      title: 'Organic Skincare (Concept)',
       image:
         'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/mitzie-organics-dnstpPqCBbw-unsplash.jpg?v=1790431660',
-      alt: 'Mitzie organics natural cosmetic skincare range',
+      alt: 'Natural organic cosmetic skincare range',
       url: '/work',
     },
   ],
 
   [
     {
-      title: 'Organic Facial Essence',
+      title: 'Organic Facial Essence (Concept)',
       image:
         'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/nataliya-melnychuk-51sGDpm5S78-unsplash_837aa5a5-44fa-461d-b117-da92ca95bf85.jpg?v=1790431658',
       alt: 'Luxury organic facial essence and hydration serum',
@@ -149,7 +153,7 @@ export function HomeHeroGallery() {
     <section
       id="ft-home-hero-gallery"
       className="ft-hero-gallery"
-      aria-label="Selected Byte Operator software and ecommerce projects"
+      aria-label="Ecommerce storefront design concepts"
     >
       <div className="ft-hero-gallery__inner">
         <div className="ft-hero-gallery__grid">

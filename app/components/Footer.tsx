@@ -1,7 +1,7 @@
 'use client';
 
-import {Suspense, useState, type FormEvent} from 'react';
-import {Await, NavLink} from '~/lib/router-compat';
+import {useState, type FormEvent} from 'react';
+import {NavLink} from '~/lib/router-compat';
 
 import type {
   FooterQuery,
@@ -11,7 +11,8 @@ import {normalizeMenuUrl} from '~/lib/normalize-menu-url';
 import {CalendlyButton} from '~/components/shared/CalendlyButton';
 
 interface FooterProps {
-  footer: Promise<FooterQuery | null>;
+  /** Static menu data, rendered directly so the links are in the server HTML. */
+  footer: FooterQuery | null;
   header: HeaderQuery;
   publicStoreDomain: string;
 }
@@ -132,26 +133,13 @@ export function Footer({
             FOOTER NAVIGATION
         ================================================= */}
 
-        <Suspense
-          fallback={
-            <nav
-              className="ft-footer__nav"
-              aria-label="Footer"
-            />
-          }
-        >
-          <Await resolve={footer}>
-            {(footerData) => (
-              <FooterNavigation
-                footerData={footerData}
-                primaryDomainUrl={header.shop.primaryDomain.url}
-                publicStoreDomain={publicStoreDomain}
-                openGroup={openGroup}
-                onToggleGroup={toggleGroup}
-              />
-            )}
-          </Await>
-        </Suspense>
+        <FooterNavigation
+          footerData={footer}
+          primaryDomainUrl={header.shop.primaryDomain.url}
+          publicStoreDomain={publicStoreDomain}
+          openGroup={openGroup}
+          onToggleGroup={toggleGroup}
+        />
 
         {/* =================================================
             BOTTOM BAR
