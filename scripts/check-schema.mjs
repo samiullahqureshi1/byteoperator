@@ -23,7 +23,7 @@
  *
  *   node scripts/check-schema.mjs                  # every URL in sitemap.xml
  *   node scripts/check-schema.mjs --sample         # one of each page type
- *   node scripts/check-schema.mjs --origin=https://byteoperator.com
+ *   node scripts/check-schema.mjs --origin=https://www.byteoperator.com
  *   node scripts/check-schema.mjs --paths=/,/about,/contact
  */
 

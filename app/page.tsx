@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: HOME_TITLE,
     description: HOME_DESCRIPTION,
-    url: 'https://byteoperator.com',
+    url: 'https://www.byteoperator.com',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://byteoperator.com',
+    canonical: 'https://www.byteoperator.com',
   },
 };
 

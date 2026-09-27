@@ -39,7 +39,7 @@ const SERVICES = [
     title: 'AI Automations & Autonomous Agents',
     description:
       'Deploy Replex Engine zero-miss lead capture, n8n workflow pipelines, and autonomous support agents.',
-    href: '/services/ai-ecommerce-agency/',
+    href: '/services/ai-automations-agents',
     badge: '/images/home-services/badges/logo-search-white.svg',
     badgeAlt: 'AI',
   },
@@ -48,7 +48,7 @@ const SERVICES = [
     title: 'Custom SaaS & Platform Engineering',
     description:
       'Full-stack web architectures, real-time data engines, and resilient cloud software built to scale.',
-    href: '/services/software-developers/',
+    href: '/services/software-developers',
     badge: '/images/home-services/badges/logo-launch-white.svg',
     badgeAlt: 'Software',
   },
@@ -57,7 +57,7 @@ const SERVICES = [
     title: 'Shopify Store & Theme Development',
     description:
       'High-velocity custom storefronts, modular custom sections, and mobile-optimized buying funnels.',
-    href: '/services/shopify-web-design/',
+    href: '/services/shopify-web-design',
     badge: '/images/home-services/badges/logo-launch-white.svg',
     badgeAlt: 'Shopify',
   },
@@ -66,7 +66,7 @@ const SERVICES = [
     title: 'Shopify Apps & Custom Extensions',
     description:
       'Proprietary tools like Speedify AI page speed optimizer, custom checkout extensions, and admin apps.',
-    href: '/services/shopify-app-development/',
+    href: '/services/shopify-app-development',
     badge: '/images/home-services/badges/logo-sitelab-white.svg',
     badgeAlt: 'Apps',
   },
@@ -75,7 +75,7 @@ const SERVICES = [
     title: 'n8n Workflow & API Pipelines',
     description:
       'Multi-system visual workflow pipelines connecting ERPs, CRMs, webhooks, and messaging queues.',
-    href: '/services/software-integrations/',
+    href: '/services/software-integrations',
     badge: null,
     badgeAlt: '',
   },
@@ -84,7 +84,7 @@ const SERVICES = [
     title: 'Platform & Cloud Migrations',
     description:
       'Zero-downtime replatforming from Magento, WooCommerce, or BigCommerce with 100% SEO preserved.',
-    href: '/services/shopify-migrations/',
+    href: '/services/shopify-migrations',
     badge: '/images/home-services/badges/logo-helpdesk-white.svg',
     badgeAlt: 'Migrations',
   },
@@ -93,7 +93,7 @@ const SERVICES = [
     title: 'Shopify Plus & Enterprise Systems',
     description:
       'Enterprise B2B wholesale portals, multi-store architecture, and high-AOV custom storefronts.',
-    href: '/services/shopify-plus-agency/',
+    href: '/shopify-plus-agency',
     badge: null,
     badgeAlt: '',
   },
@@ -102,7 +102,7 @@ const SERVICES = [
     title: 'Technical SEO & AI Search (GEO)',
     description:
       'Dominant rankings on Google search and primary source citations in ChatGPT and Perplexity AI.',
-    href: '/ai-visibility-audit/',
+    href: '/ai-visibility-audit',
     badge: '/images/home-services/badges/logo-retain-white.svg',
     badgeAlt: 'Search',
   },
@@ -123,7 +123,7 @@ const SERVICE_PRODUCTS = [
 
   {
     label: 'Launch',
-    href: '/software-theme-development-builds/',
+    href: '/services/software-theme-development-builds',
     logo:
       '/images/home-services/badges/logo-launch-white.svg',
   },
@@ -137,14 +137,14 @@ const SERVICE_PRODUCTS = [
 
   {
     label: 'Helpdesk',
-    href: '/support-and-maintenance/',
+    href: '/services/support-and-maintenance',
     logo:
       '/images/home-services/badges/logo-helpdesk-white.svg',
   },
 
   {
     label: 'Retain',
-    href: '/email-marketing-agency/',
+    href: '/services/email-marketing-agency',
     logo:
       '/images/home-services/badges/logo-retain-white.svg',
   },

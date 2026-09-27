@@ -88,7 +88,7 @@ const POLICY_DATA: Record<string, PolicyDocument> = {
       <p>
         <strong>Byte Operator Privacy Team</strong><br />
         Email: <a href="mailto:samiullah@byteoperator.com">samiullah@byteoperator.com</a><br />
-        Website: <a href="https://byteoperator.com">https://byteoperator.com</a>
+        Website: <a href="https://www.byteoperator.com">https://www.byteoperator.com</a>
       </p>
     `,
   },
@@ -100,7 +100,7 @@ const POLICY_DATA: Record<string, PolicyDocument> = {
     body: `
       <h2>1. Agreement to Terms</h2>
       <p>
-        These Terms of Service ("Terms") govern your access to and use of the Byte Operator website (<a href="https://byteoperator.com">byteoperator.com</a>) and all software engineering, ecommerce development, conversion rate optimization, and AI automation services provided by Byte Operator. By accessing our website or engaging our agency services, you agree to be bound by these Terms and any specific Statement of Work (SOW) executed between the parties.
+        These Terms of Service ("Terms") govern your access to and use of the Byte Operator website (<a href="https://www.byteoperator.com">byteoperator.com</a>) and all software engineering, ecommerce development, conversion rate optimization, and AI automation services provided by Byte Operator. By accessing our website or engaging our agency services, you agree to be bound by these Terms and any specific Statement of Work (SOW) executed between the parties.
       </p>
 
       <h2>2. Scope of Services &amp; Statements of Work</h2>
@@ -266,7 +266,7 @@ const POLICY_DATA: Record<string, PolicyDocument> = {
       <p>
         <strong>Byte Operator Client Operations</strong><br />
         Email: <a href="mailto:samiullah@byteoperator.com">samiullah@byteoperator.com</a><br />
-        Website: <a href="https://byteoperator.com">https://byteoperator.com</a>
+        Website: <a href="https://www.byteoperator.com">https://www.byteoperator.com</a>
       </p>
     `,
   },
@@ -288,7 +288,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     title: `${policy.title} | Byte Operator`,
     description: policy.description,
     alternates: {
-      canonical: `https://byteoperator.com/policies/${params.handle}`,
+      canonical: `https://www.byteoperator.com/policies/${params.handle}`,
     },
   };
 }

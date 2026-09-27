@@ -70,7 +70,7 @@ export function NewsletterPageView() {
           </h1>
 
           <p className="ft-newsletter-subtitle">
-            Join 14,000+ software architects, ecommerce directors, and technical founders receiving our weekly deep-dives on Next.js performance, CRO split tests, and AI search algorithms.
+            Weekly deep-dives on Next.js performance, CRO split tests, and AI search algorithms — written by the engineering team at Byte Operator.
           </p>
 
           {status === 'success' ? (
@@ -250,7 +250,7 @@ export function NewsletterPageView() {
                   window.scrollTo({top: 0, behavior: 'smooth'});
                 }}
               >
-                Join 14,000+ Readers →
+                Join The Dispatch →
               </button>
             </div>
           </div>

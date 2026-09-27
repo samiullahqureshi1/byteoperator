@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'Review Byte Operator official company policies, including our Privacy Policy, Terms of Service, Refund & Payment Policy, and Subscription & Cancellation terms.',
   alternates: {
-    canonical: 'https://byteoperator.com/policies',
+    canonical: 'https://www.byteoperator.com/policies',
   },
 };
 

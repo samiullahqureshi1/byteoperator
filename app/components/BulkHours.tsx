@@ -26,7 +26,9 @@ import {
  * the same hours with the card the customer saved at checkout.
  */
 export const BULK_HOURS_HANDLE = 'buy-bulk-hours';
-export const BULK_HOURS_PATH = `/products/${BULK_HOURS_HANDLE}`;
+// The Shopify bulk-hours product page does not exist on this site; enquiries
+// go through the contact form.
+export const BULK_HOURS_PATH = '/contact';
 
 /*
  * Quick picks under the slider. Filtered against the plan's own rules, so

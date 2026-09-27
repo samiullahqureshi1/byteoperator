@@ -24,7 +24,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     title: article.seo?.title || `${article.title} | Byte Operator`,
     description: article.seo?.description || article.excerpt || '',
     alternates: {
-      canonical: `https://byteoperator.com/articles/${article.handle}`,
+      canonical: `https://www.byteoperator.com/articles/${article.handle}`,
     },
   };
 }

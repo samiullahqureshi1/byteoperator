@@ -3,7 +3,7 @@ import {Link} from '~/lib/router-compat';
 export function FloatingContactCta() {
   return (
     <Link
-      to="/contact/"
+      to="/contact"
       className="ft-floating-cta"
       aria-label="Get in touch"
       prefetch="intent"

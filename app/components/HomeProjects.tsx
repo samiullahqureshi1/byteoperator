@@ -43,7 +43,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
     title: 'Autonomous AI Agents',
     type: 'Multi-Agent Task Orchestration & Automated Workflows',
-    href: '/services/ai-ecommerce-agency',
+    href: '/services/ai-automations-agents',
     image:
       'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/second_autmation_imaeg.webp?v=1790409459',
     imageWidth: 1920,
@@ -62,7 +62,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
     title: 'Replex Engine',
     type: 'Autonomous AI Lead Capture & Sub-Minute Replies',
-    href: '/services/ai-ecommerce-agency',
+    href: '/services/ai-automations-agents',
     image:
       'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/replex.png?v=1790409470',
     imageWidth: 1920,
@@ -100,7 +100,7 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
   {
     title: 'Nordic Haven Furniture',
     type: 'Shopify Plus & Luxury Furniture Storefront',
-    href: '/services/shopify-plus-agency',
+    href: '/shopify-plus-agency',
     image:
       'https://cdn.shopify.com/s/files/1/0673/9610/8363/files/furniture.webp?v=1790407636',
     imageWidth: 1920,

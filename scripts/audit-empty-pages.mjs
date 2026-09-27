@@ -26,7 +26,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 const args = process.argv.slice(2);
 const originArg = args.find((a) => a.startsWith('--origin='));
-const ORIGIN = originArg ? originArg.split('=')[1] : 'https://byteoperator.com';
+const ORIGIN = originArg ? originArg.split('=')[1] : 'https://www.byteoperator.com';
 const SITEMAP = `${ORIGIN}/sitemap/pages/1.xml`;
 
 /** Header + footer chrome alone lands well under this. */
@@ -251,7 +251,7 @@ const sitemapXml = await (await fetch(`${SITEMAP}?cb=${Date.now()}`)).text();
  */
 const urls = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => {
   const loc = m[1].trim();
-  if (ORIGIN === 'https://byteoperator.com') return loc;
+  if (ORIGIN === 'https://www.byteoperator.com') return loc;
   return loc.replace(/^https?:\/\/[^/]+/, ORIGIN);
 });
 

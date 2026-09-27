@@ -248,7 +248,7 @@ export function articleJsonLd(
       dateModified: input.updatedAt ?? undefined,
     }),
     breadcrumbSchema([
-      {name: 'Articles', path: '/articles/'},
+      {name: 'Articles', path: '/articles'},
       {name: input.title, path: input.path},
     ]),
     node,

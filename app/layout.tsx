@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: 'Byte Operator | The Software Agency That Drives Real Growth',
   description:
     'High-performing digital platforms & applications, backed by proven CRO, SEO, and AI visibility strategies that deliver measurable results.',
-  metadataBase: new URL('https://byteoperator.com'),
+  metadataBase: new URL('https://www.byteoperator.com'),
   openGraph: {
     title: 'Byte Operator | The Software Agency That Drives Real Growth',
     description:
       'High-performing digital platforms & applications, backed by proven CRO, SEO, and AI visibility strategies that deliver measurable results.',
-    url: 'https://byteoperator.com',
+    url: 'https://www.byteoperator.com',
     siteName: 'Byte Operator',
     type: 'website',
     images: [

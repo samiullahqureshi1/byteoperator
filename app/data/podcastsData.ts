@@ -1,3 +1,15 @@
+/*
+  PODCAST EPISODES — BYTE OPERATOR
+  "Architecting Scale" — The CTO & Commerce Engineering Podcast
+
+  HOW TO ADD A REAL EPISODE:
+  1. Upload the real audio file to your CDN or hosting
+  2. Replace audioUrl with the real MP3/M4A URL
+  3. Replace spotifyUrl with the direct episode URL (not just spotify.com)
+  4. Replace applePodcastsUrl with the direct episode URL
+  5. Set featured: true for the most recent episode
+*/
+
 export interface PodcastEpisode {
   id: string;
   episodeNumber: number;
@@ -19,14 +31,15 @@ export interface PodcastEpisode {
     company: string;
     avatar: string;
   };
-  audioUrl: string;
-  spotifyUrl: string;
-  applePodcastsUrl: string;
-  youtubeUrl?: string;
+  audioUrl: string | null;         // null = not yet published
+  spotifyUrl: string | null;       // null = not yet on Spotify
+  applePodcastsUrl: string | null; // null = not yet on Apple Podcasts
+  youtubeUrl?: string | null;
   featured?: boolean;
   topics: string[];
   takeaways: string[];
   transcriptExcerpt: string;
+  comingSoon?: boolean;            // true = show as upcoming episode
 }
 
 export const PODCAST_CATEGORIES = [
@@ -37,6 +50,11 @@ export const PODCAST_CATEGORIES = [
   'Scale & Strategy',
 ] as const;
 
+/*
+  Episodes below are planned/recorded episodes.
+  Set comingSoon: true and audioUrl: null until the real episode is live.
+  Replace null values with real URLs when published.
+*/
 export const PODCAST_EPISODES: PodcastEpisode[] = [
   {
     id: 'ep-12',
@@ -46,10 +64,11 @@ export const PODCAST_EPISODES: PodcastEpisode[] = [
     description:
       'A deep-dive masterclass on architecting modular storefronts, decoupling CMS workflows, and preserving 100% of SEO equity during complex platform migrations.',
     summary:
-      'We sit down with Principal Solutions Architect Hamza Tariq to dissect the exact multi-phase blueprint used to migrate enterprise commerce brands from legacy monolithic themes to sub-second headless architectures.',
+      'Principal Solutions Architect Hamza Tariq dissects the exact multi-phase blueprint used to migrate enterprise commerce brands from legacy monolithic themes to sub-second headless architectures.',
     category: 'Tech & Architecture',
     duration: '48 min',
-    publishedAt: 'Sep 24, 2026',
+    publishedAt: 'Coming Soon',
+    comingSoon: true,
     host: {
       name: 'Sami Ullah Qureshi',
       role: 'CTO & Host',
@@ -61,10 +80,10 @@ export const PODCAST_EPISODES: PodcastEpisode[] = [
       company: 'Byte Operator',
       avatar: '/images/about/team-02.webp',
     },
-    audioUrl: 'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/sample-podcast.mp3?v=1',
-    spotifyUrl: 'https://open.spotify.com',
-    applePodcastsUrl: 'https://podcasts.apple.com',
-    youtubeUrl: 'https://youtube.com',
+    audioUrl: null,
+    spotifyUrl: null,
+    applePodcastsUrl: null,
+    youtubeUrl: null,
     featured: true,
     topics: [
       'Next.js App Router Commerce',
@@ -78,7 +97,7 @@ export const PODCAST_EPISODES: PodcastEpisode[] = [
       'The exact reverse-proxy fallback architecture that guarantees 99.99% uptime during DNS cutover.',
     ],
     transcriptExcerpt:
-      '"When you cross $20M in GMV, every 100ms of latency starts burning real conversion dollars. But the biggest fear CTOs have isn\'t performance—it is the catastrophic SEO drop that often plagues bad headless migrations. Today we break down how to eliminate that risk entirely."',
+      '"When you cross $20M in GMV, every 100ms of latency starts burning real conversion dollars. But the biggest fear CTOs have isn\'t performance — it is the catastrophic SEO drop that often plagues bad headless migrations."',
   },
   {
     id: 'ep-11',
@@ -88,10 +107,11 @@ export const PODCAST_EPISODES: PodcastEpisode[] = [
     description:
       'How AI search engines cite, synthesize, and recommend products, and what engineering teams must do to capture high-intent conversational search traffic.',
     summary:
-      'Lead AI Systems Engineer Zeeshan Ali joins us to unpack LLM citation graphs, entity extraction schema, and the technical protocols needed for generative search visibility.',
+      'Lead AI Systems Engineer Zeeshan Ali unpacks LLM citation graphs, entity extraction schema, and the technical protocols needed for generative search visibility.',
     category: 'AI & Automation',
     duration: '42 min',
-    publishedAt: 'Sep 18, 2026',
+    publishedAt: 'Coming Soon',
+    comingSoon: true,
     host: {
       name: 'Sami Ullah Qureshi',
       role: 'CTO & Host',
@@ -100,12 +120,12 @@ export const PODCAST_EPISODES: PodcastEpisode[] = [
     guest: {
       name: 'Zeeshan Ali',
       role: 'Lead AI Systems Engineer',
-      company: 'Byte Operator AI Labs',
+      company: 'Byte Operator',
       avatar: '/images/about/team-03.webp',
     },
-    audioUrl: 'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/sample-podcast.mp3?v=1',
-    spotifyUrl: 'https://open.spotify.com',
-    applePodcastsUrl: 'https://podcasts.apple.com',
+    audioUrl: null,
+    spotifyUrl: null,
+    applePodcastsUrl: null,
     featured: false,
     topics: [
       'Entity Graph Optimization',
@@ -132,7 +152,8 @@ export const PODCAST_EPISODES: PodcastEpisode[] = [
       'Head of Commerce Strategy Sarah Jenkins breaks down mathematical experimentation, Bayesian test validation, and the most common UI pitfalls sabotaging mobile conversions.',
     category: 'CRO & Performance',
     duration: '51 min',
-    publishedAt: 'Sep 10, 2026',
+    publishedAt: 'Coming Soon',
+    comingSoon: true,
     host: {
       name: 'Sami Ullah Qureshi',
       role: 'CTO & Host',
@@ -144,9 +165,9 @@ export const PODCAST_EPISODES: PodcastEpisode[] = [
       company: 'Byte Operator',
       avatar: '/images/about/team-04.webp',
     },
-    audioUrl: 'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/sample-podcast.mp3?v=1',
-    spotifyUrl: 'https://open.spotify.com',
-    applePodcastsUrl: 'https://podcasts.apple.com',
+    audioUrl: null,
+    spotifyUrl: null,
+    applePodcastsUrl: null,
     featured: false,
     topics: [
       'Sticky Cart Drawer Architecture',
@@ -173,7 +194,8 @@ export const PODCAST_EPISODES: PodcastEpisode[] = [
       'An engineering exploration into building autonomous workflows with LangChain, Claude, and Next.js server actions to cut operational overhead by 70%.',
     category: 'AI & Automation',
     duration: '44 min',
-    publishedAt: 'Sep 02, 2026',
+    publishedAt: 'Coming Soon',
+    comingSoon: true,
     host: {
       name: 'Sami Ullah Qureshi',
       role: 'CTO & Host',
@@ -185,9 +207,9 @@ export const PODCAST_EPISODES: PodcastEpisode[] = [
       company: 'Byte Operator',
       avatar: '/images/about/team-05.webp',
     },
-    audioUrl: 'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/sample-podcast.mp3?v=1',
-    spotifyUrl: 'https://open.spotify.com',
-    applePodcastsUrl: 'https://podcasts.apple.com',
+    audioUrl: null,
+    spotifyUrl: null,
+    applePodcastsUrl: null,
     featured: false,
     topics: [
       'Multi-Agent System Architecture',
@@ -214,7 +236,8 @@ export const PODCAST_EPISODES: PodcastEpisode[] = [
       'A strategic discussion on avoiding technical debt, choosing between unified monoliths versus composable headless tech stacks, and managing global microservices.',
     category: 'Scale & Strategy',
     duration: '55 min',
-    publishedAt: 'Aug 26, 2026',
+    publishedAt: 'Coming Soon',
+    comingSoon: true,
     host: {
       name: 'Sami Ullah Qureshi',
       role: 'CTO & Host',
@@ -226,9 +249,9 @@ export const PODCAST_EPISODES: PodcastEpisode[] = [
       company: 'Byte Operator',
       avatar: '/images/about/team-06.webp',
     },
-    audioUrl: 'https://cdn.shopify.com/s/files/1/0928/7421/1691/files/sample-podcast.mp3?v=1',
-    spotifyUrl: 'https://open.spotify.com',
-    applePodcastsUrl: 'https://podcasts.apple.com',
+    audioUrl: null,
+    spotifyUrl: null,
+    applePodcastsUrl: null,
     featured: false,
     topics: [
       'Global Multi-Currency Routing',

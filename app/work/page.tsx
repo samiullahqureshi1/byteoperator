@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Explore our portfolio of enterprise SaaS architectures, autonomous AI automation platforms, high-velocity Shopify Plus storefronts, and zero-downtime cloud migrations.',
   alternates: {
-    canonical: 'https://byteoperator.com/work',
+    canonical: 'https://www.byteoperator.com/work',
   },
 };
 

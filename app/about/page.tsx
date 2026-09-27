@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     'Discover Byte Operator, an elite software engineering agency specializing in high-performance web development, headless ecommerce, conversion rate optimization, and autonomous AI automation.',
   alternates: {
-    canonical: 'https://byteoperator.com/about',
+    canonical: 'https://www.byteoperator.com/about',
   },
 };
 

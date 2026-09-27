@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Be the cited brand in ChatGPT, Perplexity, Gemini, and Google AI Overviews with specialized Generative Engine Optimization (GEO).',
   alternates: {
-    canonical: 'https://byteoperator.com/ai-visibility-audit',
+    canonical: 'https://www.byteoperator.com/ai-visibility-audit',
   },
 };
 

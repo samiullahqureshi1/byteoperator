@@ -55,7 +55,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'GEO / AI Search Optimisation',
-        href: '/geo-agency/',
+        href: '/ai-visibility-audit',
         summary:
           'Shoppers increasingly ask ChatGPT, Perplexity, Gemini and Google AI Overviews before they ever reach a search results page. Generative engine optimisation makes your brand the one those systems retrieve and cite, measured as citation share on the prompts that carry buying intent.',
         highlights: [
@@ -96,7 +96,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Ecommerce Audits',
-        href: '/services/software-audits/',
+        href: '/services/software-audits',
         summary:
           'A full read on an existing digital platform across design, front-end code, performance, SEO and conversion. You get a prioritised remediation plan that says what to fix, in what order, and what each fix is worth: not a PDF of screenshots.',
         highlights: [
@@ -125,7 +125,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
     services: [
       {
         name: 'New build projects',
-        href: '/software-theme-development-builds/',
+        href: '/services/software-theme-development-builds',
         summary:
           'End-to-end custom software builds, from discovery and information architecture through to launch. We plan the storefront around how your customers actually buy, then build it to be fast, accessible and straightforward for your team to merchandise without a developer.',
         highlights: [
@@ -137,7 +137,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Support & Growth',
-        href: '/support-and-maintenance/',
+        href: '/services/support-and-maintenance',
         summary:
           'A retained Software team for stores past launch. Bugs get fixed, releases get managed, performance gets monitored: and the hours left over go into the improvements that keep the store moving instead of sitting still.',
         highlights: [
@@ -149,7 +149,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Development Services',
-        href: '/software-theme-development-builds/',
+        href: '/services/software-theme-development-builds',
         summary:
           'software development for teams that already know what they need: custom theme work in Liquid, Software Functions, checkout extensibility, metaobject-driven content and the custom features a stock theme cannot reach.',
         highlights: [
@@ -161,7 +161,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Design Services',
-        href: '/software-web-design',
+        href: '/services/shopify-web-design',
         summary:
           'Ecommerce design that holds up commercially. Art direction and a design system that make the brand look like itself on every template, with the buying journey designed around conversion rather than decorated after the fact.',
         highlights: [
@@ -173,7 +173,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Migrations',
-        href: '/software-migrations/',
+        href: '/services/shopify-migrations',
         summary:
           'Replatforming to Software or Enterprise Platform Solutions from WooCommerce, Magento, BigCommerce or Salesforce Commerce Cloud. Products, customers and order history move across intact, and a complete redirect map protects the organic traffic you already earned.',
         highlights: [
@@ -185,7 +185,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Internationalisation',
-        href: '/software-internationalisation/',
+        href: '/services/shopify-internationalisation',
         summary:
           'Cross-border selling built on Software Markets: multi-currency pricing, translated storefronts, domain strategy and the hreflang and duty handling that stop international expansion turning into a support problem.',
         highlights: [
@@ -197,7 +197,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'System Integrations',
-        href: '/software-integrations/',
+        href: '/services/software-integrations',
         summary:
           'Connecting Software to the systems that run the business: ERP, PIM, CRM, 3PL, accounting and marketing platforms. Where no connector exists, we build the middleware, with error handling and monitoring so a failed sync surfaces before a customer finds it.',
         highlights: [
@@ -220,7 +220,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'App Development',
-        href: '/software-app-development/',
+        href: '/services/software-app-development',
         summary:
           'Custom custom applications, public or private: embedded admin apps, theme app extensions and checkout UI extensions. Built to Custom Application Store standards, whether you are shipping to the store or solving something only your business has.',
         highlights: [
@@ -232,7 +232,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
       },
       {
         name: 'Headless Commerce',
-        href: '/headless-commerce',
+        href: '/services/headless-commerce',
         summary:
           'Headless digital platformfronts built with Hydrogen and deployed on Oxygen, for brands that need full control of the front end. Worth doing when performance, custom UX or a content platform genuinely demands it: we will tell you when it does not.',
         highlights: [
@@ -261,7 +261,7 @@ export const SERVICE_DIRECTORY: readonly ServiceDirectoryGroup[] = [
     services: [
       {
         name: 'Email & SMS Marketing',
-        href: '/email-marketing-agency/',
+        href: '/services/email-marketing-agency',
         summary:
           'Retention programmes that earn their place in the P&L. Lifecycle flows, segmentation and a campaign calendar built on what your customer data actually says: with deliverability treated as a first-class concern, not an afterthought.',
         highlights: [

@@ -3,19 +3,19 @@ import {Link} from '~/lib/router-compat';
 const SEO_PILLS = [
   {
     label: 'Ecommerce SEO',
-    href: '/ecommerce-seo-agency/',
+    href: '/ecommerce-seo-agency',
   },
   {
     label: 'Technical SEO & Search Architecture',
-    href: '/seo-agency',
+    href: '/services/seo-agency',
   },
   {
     label: 'CRO Services',
-    href: '/software-cro-agency/',
+    href: '/shopify-cro-audit',
   },
   {
     label: 'Software Support',
-    href: '/support-and-maintenance/',
+    href: '/services/support-and-maintenance',
   },
 ] as const;
 
@@ -46,7 +46,7 @@ export function EcommerceSeoAboutStatement() {
 
         <Link
           className="ft-ecommerce-seo-about__guide"
-          to="/ecommerce-seo-agency/"
+          to="/ecommerce-seo-agency"
           prefetch="intent"
         >
           <span
@@ -95,7 +95,7 @@ export function EcommerceSeoAboutStatement() {
 
         <Link
           className="ft-ecommerce-seo-about__cta"
-          to="/contact/"
+          to="/contact"
           prefetch="intent"
         >
           <span>Enquire about ecommerce SEO</span>

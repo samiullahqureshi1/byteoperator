@@ -1996,12 +1996,7 @@ export const SERVICE_PAGE_CONFIGS = {
           'WooCommerce is built on WordPress and can offer flexibility through plugins and extensions, while hosting, updates and maintenance remain part of the store team’s technical responsibilities.',
           'Software provides a hosted ecommerce platform with central store administration, an app ecosystem and storefront and checkout tools. Enterprise Platform Solutions can be considered where larger operational requirements are involved.',
         ],
-        buttons: [
-          {
-            label: 'WooCommerce vs Software',
-            href: '/articles/woocommerce-vs-software-full-comparison/',
-          },
-        ],
+        buttons: [],
         media: reuseHomeFeatureMedia('software-migrations'),
       },
       {
@@ -2473,12 +2468,7 @@ export const SERVICE_PAGE_CONFIGS = {
           'BigCommerce is an ecommerce platform with built-in functionality for catalogue management and integrations, and store teams work within its administration and configuration model to run the storefront day to day.',
           'Software provides a hosted ecommerce platform with central store administration, a theme and storefront ecosystem, and an app and integration ecosystem. Enterprise Platform Solutions can be considered where more complex operational requirements are involved.',
         ],
-        buttons: [
-          {
-            label: 'BigCommerce vs Software',
-            href: '/articles/software-vs-bigcommerce-head-to-head-comparison/',
-          },
-        ],
+        buttons: [],
         media: reuseHomeFeatureMedia('software-migrations'),
       },
       {
@@ -2811,7 +2801,7 @@ export const SERVICE_PAGE_CONFIGS = {
       intro: {
         heading:
           'platform & cloud migrations planned around the store, data and customer experience you need to carry forward.',
-        descriptionHtml: `Byte Operator supports ecommerce brands moving or replatforming from <a href="/magento-software-migrations/">Magento</a>, <a href="/woocommerce-software-migrations/">WooCommerce</a>, <a href="/bigcommerce-software-migrations/">BigCommerce</a>, <a href="/salesforce-software-migrations/">Salesforce</a> and other ecommerce platforms to Software or Enterprise Platform Solutions.`,
+        descriptionHtml: `Byte Operator supports ecommerce brands moving or replatforming from <a href="/services/magento-software-migrations">Magento</a>, <a href="/services/woocommerce-software-migrations">WooCommerce</a>, <a href="/services/bigcommerce-software-migrations">BigCommerce</a>, <a href="/services/salesforce-software-migrations">Salesforce</a> and other ecommerce platforms to Software or Enterprise Platform Solutions.`,
         cta: {
           label: 'Get In Touch',
           href: SERVICE_PAGE_ROUTES.contact,
@@ -2845,36 +2835,36 @@ export const SERVICE_PAGE_CONFIGS = {
       title: 'Magento',
       descriptionHtml: `
         <p>
-          Byte Operator supports ecommerce teams moving from Magento to Software or Enterprise Platform Solutions, including storefront requirements, product and customer data, integrations and launch planning. Learn more about our <a href="/magento-software-migrations/">Magento to platform & cloud migrations</a>.
+          Byte Operator supports ecommerce teams moving from Magento to Software or Enterprise Platform Solutions, including storefront requirements, product and customer data, integrations and launch planning. Learn more about our <a href="/services/magento-software-migrations">Magento to platform & cloud migrations</a>.
         </p>
       `,
       cta: {
         label: 'Magento to Platform & Cloud Migration',
-        href: '/magento-software-migrations/',
+        href: '/services/magento-software-migrations',
       },
     },
     {
       title: 'WooCommerce',
       descriptionHtml: `
         <p>
-          We support businesses moving from WordPress and WooCommerce to Software, with migration planning covering store data, storefront functionality, integrations and the customer experience. Learn more about our <a href="/woocommerce-software-migrations/">WooCommerce migration services</a>.
+          We support businesses moving from WordPress and WooCommerce to Software, with migration planning covering store data, storefront functionality, integrations and the customer experience. Learn more about our <a href="/services/woocommerce-software-migrations">WooCommerce migration services</a>.
         </p>
       `,
       cta: {
         label: 'WooCommerce to Platform & Cloud Migration',
-        href: '/woocommerce-software-migrations/',
+        href: '/services/woocommerce-software-migrations',
       },
     },
     {
       title: 'BigCommerce',
       descriptionHtml: `
         <p>
-          Byte Operator can support a move from BigCommerce to Software or Enterprise Platform Solutions, including data requirements, theme development, integrations and launch preparation. Learn more about our <a href="/bigcommerce-software-migrations/">BigCommerce to platform & cloud migration services</a>.
+          Byte Operator can support a move from BigCommerce to Software or Enterprise Platform Solutions, including data requirements, theme development, integrations and launch preparation. Learn more about our <a href="/services/bigcommerce-software-migrations">BigCommerce to platform & cloud migration services</a>.
         </p>
       `,
       cta: {
         label: 'BigCommerce to Platform & Cloud Migration',
-        href: '/bigcommerce-software-migrations/',
+        href: '/services/bigcommerce-software-migrations',
       },
     },
     {
@@ -2893,12 +2883,12 @@ export const SERVICE_PAGE_CONFIGS = {
       title: 'Salesforce',
       descriptionHtml: `
         <p>
-          Byte Operator can support businesses moving from Salesforce Commerce Cloud to Enterprise Platform Solutions, including storefront development, ecommerce data, integrations and migration planning. Learn more about our <a href="/salesforce-software-migrations/">Salesforce to platform & cloud migrations</a>.
+          Byte Operator can support businesses moving from Salesforce Commerce Cloud to Enterprise Platform Solutions, including storefront development, ecommerce data, integrations and migration planning. Learn more about our <a href="/services/salesforce-software-migrations">Salesforce to platform & cloud migrations</a>.
         </p>
       `,
       cta: {
         label: 'Salesforce vs Software',
-        href: '/salesforce-software-migrations/',
+        href: '/services/salesforce-software-migrations',
       },
     },
     {
@@ -7458,7 +7448,7 @@ export const SERVICE_PAGE_CONFIGS = {
       ],
       primaryCta: {
         label: "Get In Touch",
-        href: "/contact/",
+        href: "/contact",
       },
       showPartnerLogos: false,
       showClientProof: false,
@@ -7469,7 +7459,7 @@ export const SERVICE_PAGE_CONFIGS = {
         description: "Selling internationally requires more than basic translation. We help brands configure Shopify Markets, manage regional catalog availability, localize currency and tax calculation, and implement bulletproof international SEO.",
         cta: {
           label: "Get In Touch",
-          href: "/contact/",
+          href: "/contact",
         },
       },
       media: {
@@ -7488,7 +7478,7 @@ export const SERVICE_PAGE_CONFIGS = {
         rightDescription: "We configure domain structures (ccTLD vs subfolders), automated IP geolocation redirects, accurate hreflang markup, and market-specific merchandising.",
         cta: {
           label: "Get In Touch",
-          href: "/contact/",
+          href: "/contact",
         },
       },
     },
@@ -7567,7 +7557,7 @@ export const SERVICE_PAGE_CONFIGS = {
       ],
       primaryCta: {
         label: "Request an Audit",
-        href: "/contact/",
+        href: "/contact",
       },
       showPartnerLogos: false,
       showClientProof: false,
@@ -7578,7 +7568,7 @@ export const SERVICE_PAGE_CONFIGS = {
         description: "Every 100ms delay in page speed harms conversion rates and search rankings. Byte Operator conducts comprehensive technical audits to uncover unoptimized JavaScript, render-blocking resources, and bloated Liquid code.",
         cta: {
           label: "Get In Touch",
-          href: "/contact/",
+          href: "/contact",
         },
       },
       media: {
@@ -7597,7 +7587,7 @@ export const SERVICE_PAGE_CONFIGS = {
         rightDescription: "You receive a detailed technical report with prioritized code fixes, estimated performance gains, and an actionable roadmap for achieving green Core Web Vitals.",
         cta: {
           label: "Get In Touch",
-          href: "/contact/",
+          href: "/contact",
         },
       },
     },
@@ -7662,7 +7652,7 @@ export const SERVICE_PAGE_CONFIGS = {
       ],
       primaryCta: {
         label: "Book Advisory Session",
-        href: "/contact/",
+        href: "/contact",
       },
       showPartnerLogos: false,
       showClientProof: false,
@@ -7673,7 +7663,7 @@ export const SERVICE_PAGE_CONFIGS = {
         description: "Making the right technology choices saves hundreds of thousands in development rework. Byte Operator provides independent, senior-level technical advisory to help ambitious brands scale with confidence.",
         cta: {
           label: "Get In Touch",
-          href: "/contact/",
+          href: "/contact",
         },
       },
       media: {
@@ -7692,7 +7682,7 @@ export const SERVICE_PAGE_CONFIGS = {
         rightDescription: "We deliver comprehensive architecture blueprints, RFP specifications, integration schematics, and ongoing sprint advisory for your leadership team.",
         cta: {
           label: "Get In Touch",
-          href: "/contact/",
+          href: "/contact",
         },
       },
     },

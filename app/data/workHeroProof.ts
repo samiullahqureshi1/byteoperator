@@ -15,7 +15,7 @@ export const WORK_HERO_TESTIMONIAL: ClientProofTestimonial = {
   quote:
     'Byte Operator helped us create a stronger ecommerce experience built around growth and performance.',
   person: 'Liana',
-  company: 'Company Name',
+  company: 'Byte Operator Client',
   image: '/images/work/liana-review.webp',
   imageWidth: 260,
   imageHeight: 260,

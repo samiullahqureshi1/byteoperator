@@ -1,36 +1,36 @@
 export const SHOPIFY_PLUS_PAGE_HANDLE = 'software-plus-agency';
-export const SHOPIFY_PLUS_CLEAN_PATH = '/software-plus-agency';
+export const SHOPIFY_PLUS_CLEAN_PATH = '/shopify-plus-agency';
 
 export const ARTICLES_BLOG_HANDLE = 'news';
 export const LEGACY_JOURNAL_BLOG_HANDLE = 'journal';
-export const ARTICLES_CLEAN_PATH = '/articles/';
+export const ARTICLES_CLEAN_PATH = '/articles';
 
 export const CONTACT_PAGE_HANDLE = 'contact';
-export const CONTACT_CLEAN_PATH = '/contact/';
+export const CONTACT_CLEAN_PATH = '/contact';
 
 export const SHOPIFY_SEO_PAGE_HANDLE = 'seo-agency';
-export const SHOPIFY_SEO_CLEAN_PATH = '/seo-agency';
+export const SHOPIFY_SEO_CLEAN_PATH = '/services/seo-agency';
 
 export const ECOMMERCE_SEO_PAGE_HANDLE = 'ecommerce-seo-agency';
-export const ECOMMERCE_SEO_CLEAN_PATH = '/ecommerce-seo-agency/';
+export const ECOMMERCE_SEO_CLEAN_PATH = '/ecommerce-seo-agency';
 
 export const AI_SEO_PAGE_HANDLE = 'ai-seo-agency';
-export const AI_SEO_CLEAN_PATH = '/ai-seo-agency/';
+export const AI_SEO_CLEAN_PATH = '/ai-visibility-audit';
 
 export const GEO_PAGE_HANDLE = 'geo-agency';
-export const GEO_CLEAN_PATH = '/geo-agency/';
+export const GEO_CLEAN_PATH = '/ai-visibility-audit';
 
 export const AI_VISIBILITY_AUDIT_PAGE_HANDLE = 'ai-visibility-audit';
-export const AI_VISIBILITY_AUDIT_CLEAN_PATH = '/ai-visibility-audit/';
+export const AI_VISIBILITY_AUDIT_CLEAN_PATH = '/ai-visibility-audit';
 
 export const CRO_PAGE_HANDLE = 'software-cro-agency';
-export const CRO_CLEAN_PATH = '/software-cro-agency/';
+export const CRO_CLEAN_PATH = '/shopify-cro-audit';
 
 export const AB_TESTING_PAGE_HANDLE = 'ab-testing';
-export const AB_TESTING_CLEAN_PATH = '/ab-testing';
+export const AB_TESTING_CLEAN_PATH = '/shopify-cro-audit';
 
 export const ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE = 'ecommerce-seo-migrations';
-export const ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH = '/ecommerce-seo-migrations/';
+export const ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH = '/services/ecommerce-seo-migrations';
 
 const SERVICE_CONFIG_HANDLES_BY_SHOPIFY_HANDLE = {
   'software-development': 'software-theme-development-builds',
@@ -46,19 +46,17 @@ export const OLD_TO_CLEAN_PATHS = {
   // source handle stays first so `resolveLegacyPath` keeps querying
   // `ai-ecommerce-agency`; the retired `/ai` spellings are one-way aliases
   // below it and resolve to the canonical path in a single hop.
-  '/pages/ai-ecommerce-agency': '/ai-ecommerce-agency/',
-  '/pages/ai': '/ai-ecommerce-agency/',
-  '/ai': '/ai-ecommerce-agency/',
-  '/ai/': '/ai-ecommerce-agency/',
+  '/pages/ai-ecommerce-agency': '/services/ai-automations-agents',
+  '/pages/ai': '/services/ai-automations-agents',
+  '/ai': '/services/ai-automations-agents',
+  '/ai-ecommerce-agency': '/services/ai-automations-agents',
   // Sits under AI in the Software main menu.
-  '/pages/ai-visibility-audit': '/ai-visibility-audit/',
+  '/pages/ai-visibility-audit': AI_VISIBILITY_AUDIT_CLEAN_PATH,
   [`/pages/${CONTACT_PAGE_HANDLE}`]: CONTACT_CLEAN_PATH,
   '/pages/contact-us': CONTACT_CLEAN_PATH,
-  '/pages/contact-us/': CONTACT_CLEAN_PATH,
   // Keep these backend pages pointed to the main contact flow instead of
   // rendering the Software-managed content.
   '/pages/discovery-meeting-with-the-software-experts': CONTACT_CLEAN_PATH,
-  '/pages/discovery-meeting-with-the-software-experts/': CONTACT_CLEAN_PATH,
   /*
    * Both spellings go to /contact, which matches the explicit rule in
    * `pages.$handle.tsx`'s loader that treats `software-experts` as a booking
@@ -78,14 +76,12 @@ export const OLD_TO_CLEAN_PATHS = {
    * the redirect check in `pages.$handle.tsx`.
    */
   '/pages/software-experts': CONTACT_CLEAN_PATH,
-  '/pages/software-experts/': CONTACT_CLEAN_PATH,
   /*
    * The clean spellings too. Without these, `/software-experts` 404s — nothing
    * links to it, but it is a URL people and crawlers have, and a 301 to the
    * contact flow is a better answer than a dead end.
    */
   '/software-experts': CONTACT_CLEAN_PATH,
-  '/software-experts/': CONTACT_CLEAN_PATH,
   /*
    * `/case-studies` was never a real page — no Software page carries that
    * handle, so the clean URL 404'd while `/pages/case-studies` happily 301'd
@@ -105,25 +101,19 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/software-development': '/services/software-theme-development-builds',
   '/software-development': '/services/software-theme-development-builds',
   '/software-theme-development-builds': '/services/software-theme-development-builds',
-  '/software-theme-development-builds/': '/services/software-theme-development-builds',
   '/pages/software-developers': '/services/software-developers',
   '/software-developers': '/services/software-developers',
-  '/software-developers/': '/services/software-developers',
   '/pages/software-web-design': '/services/shopify-web-design',
   '/software-web-design': '/services/shopify-web-design',
-  '/software-web-design/': '/services/shopify-web-design',
   [`/pages/${SHOPIFY_PLUS_PAGE_HANDLE}`]: SHOPIFY_PLUS_CLEAN_PATH,
   '/pages/software-plus': SHOPIFY_PLUS_CLEAN_PATH,
   '/software-plus': SHOPIFY_PLUS_CLEAN_PATH,
   '/pages/software-migrations': '/services/shopify-migrations',
   '/software-migrations': '/services/shopify-migrations',
-  '/software-migrations/': '/services/shopify-migrations',
   '/pages/software-app-development': '/services/software-app-development',
   '/software-app-development': '/services/software-app-development',
-  '/software-app-development/': '/services/software-app-development',
   '/pages/software-integrations': '/services/software-integrations',
   '/software-integrations': '/services/software-integrations',
-  '/software-integrations/': '/services/software-integrations',
   '/pages/integrations': '/services/software-integrations',
   '/integrations': '/services/software-integrations',
   [`/pages/${SHOPIFY_SEO_PAGE_HANDLE}`]: ECOMMERCE_SEO_CLEAN_PATH,
@@ -134,58 +124,45 @@ export const OLD_TO_CLEAN_PATHS = {
   [`/pages/${ECOMMERCE_SEO_PAGE_HANDLE}`]: ECOMMERCE_SEO_CLEAN_PATH,
   '/pages/ecommerce-seo': ECOMMERCE_SEO_CLEAN_PATH,
   '/ecommerce-seo': ECOMMERCE_SEO_CLEAN_PATH,
-  '/ecommerce-seo/': ECOMMERCE_SEO_CLEAN_PATH,
   // The Software source handle is canonical; the retired ecommerce-ai-seo
   // spellings remain one-way aliases so redirects complete in one hop.
   [`/pages/${AI_SEO_PAGE_HANDLE}`]: AI_SEO_CLEAN_PATH,
   '/pages/ecommerce-ai-seo': AI_SEO_CLEAN_PATH,
   '/ecommerce-ai-seo': AI_SEO_CLEAN_PATH,
-  '/ecommerce-ai-seo/': AI_SEO_CLEAN_PATH,
   '/ai-seo-agency': AI_SEO_CLEAN_PATH,
   '/pages/geo-agency': AI_VISIBILITY_AUDIT_CLEAN_PATH,
   '/pages/ecommerce-geo': AI_VISIBILITY_AUDIT_CLEAN_PATH,
   '/ecommerce-geo': AI_VISIBILITY_AUDIT_CLEAN_PATH,
-  '/ecommerce-geo/': AI_VISIBILITY_AUDIT_CLEAN_PATH,
   '/geo-agency': AI_VISIBILITY_AUDIT_CLEAN_PATH,
   /* `/pages/ab-testing` is already mapped further down this table. */
-  '/ab-testing/': AB_TESTING_CLEAN_PATH,
   [`/pages/${ECOMMERCE_SEO_MIGRATIONS_PAGE_HANDLE}`]:
     '/services/ecommerce-seo-migrations',
   '/pages/seo-migrations': '/services/ecommerce-seo-migrations',
   '/seo-migrations': '/services/ecommerce-seo-migrations',
   '/ecommerce-seo-migrations': '/services/ecommerce-seo-migrations',
-  '/ecommerce-seo-migrations/': '/services/ecommerce-seo-migrations',
   '/pages/headless-commerce': '/services/headless-commerce',
   '/headless-commerce': '/services/headless-commerce',
-  '/headless-commerce/': '/services/headless-commerce',
   '/conversion-rate-optimisation': '/shopify-cro-audit',
-  '/conversion-rate-optimisation/': '/shopify-cro-audit',
   '/pages/support-and-maintenance': '/services/support-and-maintenance',
   '/pages/software-maintenance': '/services/support-and-maintenance',
   '/software-maintenance': '/services/support-and-maintenance',
   '/support-and-maintenance': '/services/support-and-maintenance',
-  '/support-and-maintenance/': '/services/support-and-maintenance',
   '/pages/software-support': '/services/support-and-maintenance',
   '/software-support': '/services/support-and-maintenance',
   '/pages/support-maintenance': '/services/support-and-maintenance',
   '/support-maintenance': '/services/support-and-maintenance',
   '/pages/software-audits': '/services/shopify-audits',
   '/software-audits': '/services/shopify-audits',
-  '/software-audits/': '/services/shopify-audits',
   '/pages/software-internationalisation': '/services/shopify-internationalisation',
   '/pages/internationalisation': '/services/shopify-internationalisation',
   '/software-internationalisation': '/services/shopify-internationalisation',
   '/internationalisation': '/services/shopify-internationalisation',
-  '/internationalisation/': '/services/shopify-internationalisation',
   '/pages/email-marketing-agency': '/services/email-marketing-agency',
   '/email-marketing-agency': '/services/email-marketing-agency',
-  '/email-marketing-agency/': '/services/email-marketing-agency',
   '/pages/email-sms-marketing': '/services/email-marketing-agency',
   '/email-sms-marketing': '/services/email-marketing-agency',
-  '/email-sms-marketing/': '/services/email-marketing-agency',
   '/pages/email-marketing-services-1': '/services/email-marketing-agency',
   '/email-marketing-services-1': '/services/email-marketing-agency',
-  '/email-marketing-services-1/': '/services/email-marketing-agency',
   '/pages/klaviyo-agency': '/services/klaviyo-agency',
   '/pages/klaviyo': '/services/klaviyo-agency',
   '/klaviyo': '/services/klaviyo-agency',
@@ -193,29 +170,25 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/conversion-rate-optimisation': '/shopify-cro-audit',
   '/pages/cro-agency': '/shopify-cro-audit',
   '/cro-agency': '/shopify-cro-audit',
-  '/cro-agency/': '/shopify-cro-audit',
   '/software-cro-agency': '/shopify-cro-audit',
   '/pages/software-b2b-wholesale': '/services/shopify-b2b-wholesale',
   '/pages/software-b2b': '/services/shopify-b2b-wholesale',
   '/software-b2b': '/services/shopify-b2b-wholesale',
   '/software-b2b-wholesale': '/services/shopify-b2b-wholesale',
-  '/software-b2b-wholesale/': '/services/shopify-b2b-wholesale',
   '/pages/b2b': '/services/shopify-b2b-wholesale',
   '/b2b': '/services/shopify-b2b-wholesale',
   '/pages/subscriptions-on-software': '/services/subscriptions-on-software',
   '/pages/software-subscriptions': '/services/subscriptions-on-software',
   '/software-subscriptions': '/services/subscriptions-on-software',
-  '/software-subscriptions/': '/services/subscriptions-on-software',
   '/pages/subscriptions': '/services/subscriptions-on-software',
   '/subscriptions': '/services/subscriptions-on-software',
   '/pages/agentic-commerce': '/services/agentic-commerce',
   '/agentic-commerce': '/services/agentic-commerce',
-  '/agentic-commerce/': '/services/agentic-commerce',
-  '/pages/ab-testing': '/ab-testing',
+  '/pages/ab-testing': AB_TESTING_CLEAN_PATH,
+  '/ab-testing': AB_TESTING_CLEAN_PATH,
   /* Architecture & Tech consulting */
   '/pages/software-consultant': '/services/shopify-consultant',
   '/software-consultant': '/services/shopify-consultant',
-  '/software-consultant/': '/services/shopify-consultant',
   '/pages/magento-software-migrations': '/services/magento-software-migrations',
   '/magento-software-migrations': '/services/magento-software-migrations',
   '/pages/woocommerce-software-migrations': '/services/woocommerce-software-migrations',
@@ -227,7 +200,7 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/theme-development': '/services/software-theme-development-builds',
   '/theme-development': '/services/software-theme-development-builds',
   '/pages/memberships': '/services/memberships',
-  '/pages/search-first': '/search-first',
+  '/pages/search-first': '/search',
   /*
    * `/pages/software-experts` is NOT mapped here. It used to be, which made
    * `/pages/software-experts` resolve to `/software-experts` — a URL that 404s,
@@ -237,7 +210,6 @@ export const OLD_TO_CLEAN_PATHS = {
    */
   '/pages/ecommerce-agency': ECOMMERCE_SEO_CLEAN_PATH,
   '/ecommerce-agency': ECOMMERCE_SEO_CLEAN_PATH,
-  '/ecommerce-agency/': ECOMMERCE_SEO_CLEAN_PATH,
   '/pages/podcast': '/podcast',
   '/pages/webinars': '/webinars',
   '/pages/guides': '/guides',
@@ -251,9 +223,12 @@ export const OLD_TO_CLEAN_PATHS = {
    */
   '/pages/join-our-newsletter': '/newsletter',
   '/pages/newsletter': '/newsletter',
-  '/pages/events': '/events',
-  '/pages/careers': '/careers',
-  '/pages/why-custom-software': '/why-custom-software',
+  '/pages/events': '/webinars',
+  '/events': '/webinars',
+  '/pages/careers': '/about',
+  '/careers': '/about',
+  '/pages/why-custom-software': '/services/why-custom-software',
+  '/why-custom-software': '/services/why-custom-software',
 
   /* =====================================================
      DEAD LINKS — site crawl, 21 Sep 2026
@@ -301,9 +276,10 @@ export const OLD_TO_CLEAN_PATHS = {
     '/services',
   '/products/premium-package': '/services/shopify-web-design',
   '/products/premium-theme-license': '/services/software-theme-development-builds',
-  '/products/edit-credits': '/products/buy-bulk-hours',
-  '/products/dedicated-hourly-service': '/products/buy-bulk-hours',
-  '/products/monthly-dedicated-resource': '/products/buy-bulk-hours',
+  '/products/edit-credits': CONTACT_CLEAN_PATH,
+  '/products/dedicated-hourly-service': CONTACT_CLEAN_PATH,
+  '/products/monthly-dedicated-resource': CONTACT_CLEAN_PATH,
+  '/products/buy-bulk-hours': CONTACT_CLEAN_PATH,
   '/products/service-invoice-0001844': '/services',
   '/collections/store-setup': '/services/shopify-web-design',
   '/collections/visual-content-and-branding': '/services/shopify-web-design',
@@ -314,11 +290,10 @@ export const OLD_TO_CLEAN_PATHS = {
 
   // Blog URLs whose post was renamed, unpublished or never existed.
   '/blogs/news/10-best-omnichannel-platforms-in-2025-pricing-pros-amp-cons':
-    '/articles/best-omnichannel-platforms/',
-  '/articles/10-best-omnichannel-platforms-in-2025-pricing-pros-amp-cons/':
-    '/articles/best-omnichannel-platforms/',
-  '/blogs/news/tagged/css-z-index-what-it-is':
-    '/articles/the-css-z-index-what-it-is-and-how-to-use-it/',
+    ARTICLES_CLEAN_PATH,
+  '/articles/10-best-omnichannel-platforms-in-2025-pricing-pros-amp-cons':
+    ARTICLES_CLEAN_PATH,
+  '/blogs/news/tagged/css-z-index-what-it-is': ARTICLES_CLEAN_PATH,
   '/blogs/news/byteoperator.com': ARTICLES_CLEAN_PATH,
   '/blogs/news/the-pros-and-cons-of-law-firm-seo-services':
     ECOMMERCE_SEO_CLEAN_PATH,
@@ -330,12 +305,12 @@ export const OLD_TO_CLEAN_PATHS = {
   ===================================================== */
 
   // Reachable from a live menu — a visitor can click into these.
-  '/pages/ai-visibility': '/ai-visibility-audit/',
-  '/pages/ai-visibility-implementation': '/ai-visibility-audit/',
-  '/pages/ai-visibility-monitoring': '/ai-visibility-audit/',
+  '/pages/ai-visibility': AI_VISIBILITY_AUDIT_CLEAN_PATH,
+  '/pages/ai-visibility-implementation': AI_VISIBILITY_AUDIT_CLEAN_PATH,
+  '/pages/ai-visibility-monitoring': AI_VISIBILITY_AUDIT_CLEAN_PATH,
   '/pages/bigcommerce-to-software-migration': '/services/bigcommerce-software-migrations',
   '/pages/conversion-rate-optimization': '/shopify-cro-audit',
-  '/pages/free-ai-visibility-snapshot': '/ai-visibility-audit/',
+  '/pages/free-ai-visibility-snapshot': AI_VISIBILITY_AUDIT_CLEAN_PATH,
   '/pages/resources': '/guides',
   '/pages/reviews': '/work',
   '/pages/software-design-services': '/services/shopify-web-design',
@@ -352,7 +327,7 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/digital-branding-creative-direction-services': '/services',
   '/pages/free-software-audit': '/services/shopify-audits',
   '/pages/funnel-building-lead-generation': '/services',
-  '/pages/getting-started': '/contact/',
+  '/pages/getting-started': CONTACT_CLEAN_PATH,
   '/pages/launch': '/services',
   '/pages/lead-generation-services-and-funnel-building': '/services',
   '/pages/learn-more': '/about',
@@ -362,7 +337,7 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/marketing-sales': '/services',
   '/pages/paid-social-scaling': '/services',
   '/pages/retain': '/services/support-and-maintenance',
-  '/pages/search': '/search-first',
+  '/pages/search': '/search',
   '/pages/search-engine-optimization-seo': ECOMMERCE_SEO_CLEAN_PATH,
   '/pages/software-app-development-services': '/services/software-app-development',
   '/pages/software-conversion-rate-optimization': '/shopify-cro-audit',
@@ -383,6 +358,56 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/wix-to-software-migration-1': '/services/shopify-migrations',
   '/pages/woocommerce-to-software': '/services/woocommerce-software-migrations',
   '/pages/woocommerce-to-software-migration': '/services/woocommerce-software-migrations',
+
+  /* =====================================================
+     ROOT-LEVEL HYDROGEN PATHS — these were real routes on the
+     old storefront; the Next.js app only serves /services/*.
+  ===================================================== */
+  '/seo-agency': SHOPIFY_SEO_CLEAN_PATH,
+  '/software-plus-agency': SHOPIFY_PLUS_CLEAN_PATH,
+  '/software-cro-audit': CRO_CLEAN_PATH,
+  '/klaviyo-agency': '/services/klaviyo-agency',
+  '/subscriptions-on-software': '/services/subscriptions-on-software',
+  '/memberships': '/services/memberships',
+
+  /* =====================================================
+     SERVICE ALIASES — alternate /services/* handles that used
+     to render duplicate copies of a service page.
+  ===================================================== */
+  '/services/custom-software-platforms': '/services/software-developers',
+  '/services/custom-software-development': '/services/software-developers',
+  '/services/full-stack-web-development': '/services/software-theme-development-builds',
+  '/services/software-development': '/services/software-theme-development-builds',
+  '/services/mobile-app-development': '/services/software-app-development',
+  '/services/api-system-integrations': '/services/software-integrations',
+  '/services/integrations': '/services/software-integrations',
+  '/services/headless-cloud-architecture': '/services/headless-commerce',
+  '/services/technical-seo-architecture': SHOPIFY_SEO_CLEAN_PATH,
+  '/services/ecommerce-seo': SHOPIFY_SEO_CLEAN_PATH,
+  '/services/generative-engine-optimisation': '/services/geo-agency',
+  '/services/ai-visibility-audit': '/services/geo-agency',
+  '/services/ai-automation': '/services/ai-automations-agents',
+  '/services/ai-ecommerce-agency': '/services/ai-automations-agents',
+  '/services/platform-seo-migrations': ECOMMERCE_SEO_MIGRATIONS_CLEAN_PATH,
+  '/services/international-seo-markets': '/services/shopify-internationalisation',
+  '/services/performance-speed-audits': '/services/shopify-audits',
+  '/services/dedicated-engineering-support': '/services/support-and-maintenance',
+  '/services/architecture-tech-consulting': '/services/shopify-consultant',
+  '/services/shopify-store-development': '/services/shopify-web-design',
+  '/services/shopify-apps-extensions': '/services/shopify-app-development',
+  '/services/platform-migrations': '/services/shopify-migrations',
+  '/services/b2b-wholesale-systems': '/services/shopify-b2b-wholesale',
+  '/services/shopify-plus': SHOPIFY_PLUS_CLEAN_PATH,
+  '/services/shopify-plus-agency': SHOPIFY_PLUS_CLEAN_PATH,
+  '/services/software-plus': SHOPIFY_PLUS_CLEAN_PATH,
+  '/services/software-plus-agency': SHOPIFY_PLUS_CLEAN_PATH,
+  '/services/shopify-enterprise': SHOPIFY_PLUS_CLEAN_PATH,
+  '/services/enterprise-shopify': SHOPIFY_PLUS_CLEAN_PATH,
+  '/services/shopify-cro-audit': CRO_CLEAN_PATH,
+  '/services/software-cro-audit': CRO_CLEAN_PATH,
+  '/services/cro-agency': CRO_CLEAN_PATH,
+  '/services/software-cro-agency': CRO_CLEAN_PATH,
+  '/services/conversion-rate-optimisation': CRO_CLEAN_PATH,
 } as const;
 
 export type LegacyPagePath = keyof typeof OLD_TO_CLEAN_PATHS;
@@ -390,7 +415,7 @@ export type CleanPagePath = (typeof OLD_TO_CLEAN_PATHS)[LegacyPagePath];
 export type SoftwarePagePath = Extract<LegacyPagePath, `/pages/${string}`>;
 
 export function getArticlePath(articleHandle: string): string {
-  return `${ARTICLES_CLEAN_PATH}${articleHandle}/`;
+  return `${ARTICLES_CLEAN_PATH}/${articleHandle}`;
 }
 
 /** Blogs whose articles are client case studies, served at `/work/:handle`. */
@@ -461,7 +486,7 @@ export function resolveArticlesPath(pathname: string): string | null {
   return null;
 }
 
-/** Software page `cs-{name}` is the case study served at `/case-studies/{name}`. */
+/** Software page `cs-{name}` is the case study served at `/work/{name}`. */
 export const CASE_STUDY_PAGE_PREFIX = 'cs-';
 
 export function resolveCleanPath(pathname: string): string {
@@ -469,9 +494,17 @@ export function resolveCleanPath(pathname: string): string {
   const name = pathname.startsWith(csPrefix)
     ? trimTrailingSlash(pathname).slice(csPrefix.length)
     : '';
-  if (name && !name.includes('/')) return `/case-studies/${name}`;
+  if (name && !name.includes('/')) return getCaseStudyPath(name);
 
-  return OLD_TO_CLEAN_PATHS[pathname as LegacyPagePath] ?? pathname;
+  // `/case-studies/{name}` duplicated `/work/{name}`.
+  const caseStudy = /^\/case-studies\/([^/]+)\/?$/.exec(pathname);
+  if (caseStudy) return getCaseStudyPath(caseStudy[1]);
+
+  return (
+    OLD_TO_CLEAN_PATHS[pathname as LegacyPagePath] ??
+    OLD_TO_CLEAN_PATHS[trimTrailingSlash(pathname) as LegacyPagePath] ??
+    pathname
+  );
 }
 
 export function resolveServiceConfigHandle(softwareHandle: string): string {

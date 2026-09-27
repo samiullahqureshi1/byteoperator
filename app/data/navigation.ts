@@ -8,7 +8,7 @@ export interface HeaderMenuItem {
 export const SITE_HEADER_MENU = {
   shop: {
     primaryDomain: {
-      url: 'https://byteoperator.com',
+      url: 'https://www.byteoperator.com',
     },
   },
   menu: {

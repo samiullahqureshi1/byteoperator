@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // middleware.ts strips trailing slashes together with legacy redirects.
+  skipTrailingSlashRedirect: true,
   images: {
     remotePatterns: [
       {

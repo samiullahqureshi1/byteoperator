@@ -24,7 +24,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     title: `${caseStudy.title} Software Case Study | Byte Operator`,
     description: caseStudy.intro || `${caseStudy.title} project results and transformation with Byte Operator.`,
     alternates: {
-      canonical: `https://byteoperator.com/work/${caseStudy.handle}`,
+      canonical: `https://www.byteoperator.com/work/${caseStudy.handle}`,
     },
   };
 }

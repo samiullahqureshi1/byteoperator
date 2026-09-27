@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'End-to-end Software and Enterprise Platform Solutions services: from custom theme development, CRO and SEO to enterprise migrations and ongoing support.',
   alternates: {
-    canonical: 'https://byteoperator.com/services',
+    canonical: 'https://www.byteoperator.com/services',
   },
 };
 

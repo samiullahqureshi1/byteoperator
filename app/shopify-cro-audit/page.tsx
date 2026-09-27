@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     'Turn more store visitors into paying customers with our rigorous, data-driven Conversion & Performance Optimization audits and testing programs.',
   alternates: {
-    canonical: 'https://byteoperator.com/shopify-cro-audit',
+    canonical: 'https://www.byteoperator.com/shopify-cro-audit',
   },
   openGraph: {
     title: 'Conversion & Performance Optimization | Byte Operator',
     description:
       'Turn more store visitors into paying customers with our rigorous, data-driven CRO audits and testing programs.',
-    url: 'https://byteoperator.com/shopify-cro-audit',
+    url: 'https://www.byteoperator.com/shopify-cro-audit',
     type: 'website',
   },
 };

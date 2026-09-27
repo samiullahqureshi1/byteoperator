@@ -22,7 +22,7 @@ import {resolve, dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://byteoperator.com';
+const SITE = 'https://www.byteoperator.com';
 
 function loadEnv() {
   const env = {};

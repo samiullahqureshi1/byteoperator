@@ -73,12 +73,12 @@ function SearchAside() {
           <p style={{fontSize: '13px', color: '#888', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '12px'}}>Popular Searches</p>
           <ul style={{listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px'}}>
             <li>
-              <Link href="/software-plus-agency" style={{color: '#fff', textDecoration: 'none', fontSize: '15px'}} onClick={close}>
+              <Link href="/shopify-plus-agency" style={{color: '#fff', textDecoration: 'none', fontSize: '15px'}} onClick={close}>
                 Enterprise Software Agency →
               </Link>
             </li>
             <li>
-              <Link href="/software-cro-audit" style={{color: '#fff', textDecoration: 'none', fontSize: '15px'}} onClick={close}>
+              <Link href="/shopify-cro-audit" style={{color: '#fff', textDecoration: 'none', fontSize: '15px'}} onClick={close}>
                 Conversion & Performance Optimization Audit →
               </Link>
             </li>

@@ -68,13 +68,13 @@ export const LLMS_COMPANY_SECTION: LlmsSection = {
     },
     {
       title: 'Contact',
-      path: '/contact/',
+      path: '/contact',
       description:
         'Enquiry form and contact details for scoping a Software project.',
     },
     {
       title: 'Free AI Visibility Audit',
-      path: '/ai-visibility-audit/',
+      path: '/ai-visibility-audit',
       description:
         'Request a free review of how a store currently appears in AI-generated search answers.',
     },
@@ -87,7 +87,7 @@ export const LLMS_RESOURCES_SECTION: LlmsSection = {
   links: [
     {
       title: 'Articles',
-      path: '/articles/',
+      path: '/articles',
       description:
         'Editorial archive covering software development, migrations, SEO, AI search and CRO.',
     },
@@ -140,6 +140,6 @@ export const LLMS_FACTS: string[] = [
   'Founded: 2025. Software Engineering Partner since 2025.',
   'Headquarters: 1001 South Main Street, Suite 500, Kalispell, MT 59901, United States',
   'Email: info@byteoperator.com',
-  'Website: https://byteoperator.com',
+  'Website: https://www.byteoperator.com',
   'Primary markets: United States and United Kingdom',
 ];

@@ -65,7 +65,7 @@ export function WorkTeamCta() {
           <div className="ft-work-team__actions">
             <Link
               className="ft-work-team__button ft-work-team__button--primary"
-              to="/contact/"
+              to="/contact"
               prefetch="intent"
             >
               <span>Tell us about your project</span>

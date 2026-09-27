@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     'Shopify Plus Enterprise Architecture',
   ],
   alternates: {
-    canonical: 'https://byteoperator.com/guides',
+    canonical: 'https://www.byteoperator.com/guides',
   },
   openGraph: {
     title: 'Technical Guides & Blueprints | Byte Operator',
     description:
       'Download our battle-tested whitepapers, headless architecture runbooks, CRO audit frameworks, and AI search protocols used to scale 8-figure enterprise storefronts.',
-    url: 'https://byteoperator.com/guides',
+    url: 'https://www.byteoperator.com/guides',
     siteName: 'Byte Operator',
     type: 'website',
   },
@@ -34,11 +34,11 @@ export default function GuidesPage() {
     name: 'Byte Operator Technical Guides & Blueprints',
     description:
       'Download actionable engineering blueprints, Next.js commerce whitepapers, and scientific CRO audit checklists.',
-    url: 'https://byteoperator.com/guides',
+    url: 'https://www.byteoperator.com/guides',
     provider: {
       '@type': 'Organization',
       name: 'Byte Operator',
-      url: 'https://byteoperator.com',
+      url: 'https://www.byteoperator.com',
     },
   };
 

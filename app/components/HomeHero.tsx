@@ -12,25 +12,25 @@ const HERO_SERVICES = [
     title: 'Custom Software & SaaS',
     description:
       'High-performance web applications, multi-tenant SaaS platforms & scalable cloud architectures.',
-    url: '/services/software-developers/',
+    url: '/services/software-developers',
   },
   {
     title: 'AI Automations & Agents',
     description:
       'Replex Engine lead replies, n8n workflow pipelines & autonomous multi-agent task execution.',
-    url: '/services/ai-ecommerce-agency/',
+    url: '/services/ai-automations-agents',
   },
   {
     title: 'Shopify Store Development',
     description:
       'High-converting custom storefronts, Shopify Plus architecture & proprietary app extensions.',
-    url: '/services/shopify-web-design/',
+    url: '/services/shopify-web-design',
   },
   {
     title: 'API & Cloud Integrations',
     description:
       'Real-time bi-directional CRM, ERP, webhook pipelines & mission-critical database sync.',
-    url: '/services/software-integrations/',
+    url: '/services/software-integrations',
   },
 ] as const;
 

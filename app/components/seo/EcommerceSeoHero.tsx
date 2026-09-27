@@ -59,7 +59,7 @@ export function EcommerceSeoHero({
   ctaLabel = 'Talk to our SEO team',
   description = 'Byte Operator helps ecommerce brands improve organic visibility through technical SEO, content strategy, on-page optimisation, ecommerce architecture and search-led growth work.',
   pillLabel = 'Looking to improve AI visibility? Explore AI SEO',
-  pillTo = '/ai-seo-agency/',
+  pillTo = '/ai-visibility-audit',
   secondaryCta,
   showStats = true,
   title = 'Ecommerce SEO Agency Built for Organic Revenue Growth',
@@ -147,7 +147,7 @@ export function EcommerceSeoHero({
               <div className="ft-ecommerce-seo-hero__ctas">
                 <Link
                   className="ft-ecommerce-seo-hero__cta"
-                  to="/contact/"
+                  to="/contact"
                   prefetch="intent"
                 >
                   <span>{ctaLabel}</span>

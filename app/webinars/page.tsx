@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     'Shopify Plus Architecture Workshops',
   ],
   alternates: {
-    canonical: 'https://byteoperator.com/webinars',
+    canonical: 'https://www.byteoperator.com/webinars',
   },
   openGraph: {
     title: 'Webinars & Masterclasses | Byte Operator',
     description:
       'Watch real-world code refactors, Core Web Vitals audits, AI search integrations, and conversion rate optimization teardowns led by elite software engineers.',
-    url: 'https://byteoperator.com/webinars',
+    url: 'https://www.byteoperator.com/webinars',
     siteName: 'Byte Operator',
     type: 'website',
   },
@@ -34,11 +34,11 @@ export default function WebinarsPage() {
     name: 'Byte Operator Architecture & CRO Masterclasses',
     description:
       'High-impact technical teardowns, Core Web Vitals audits, and headless commerce masterclasses.',
-    url: 'https://byteoperator.com/webinars',
+    url: 'https://www.byteoperator.com/webinars',
     organizer: {
       '@type': 'Organization',
       name: 'Byte Operator',
-      url: 'https://byteoperator.com',
+      url: 'https://www.byteoperator.com',
     },
   };
 

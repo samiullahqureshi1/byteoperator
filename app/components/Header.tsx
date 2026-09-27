@@ -83,7 +83,7 @@ export function Header({
           <NavLink
             className="charle-header__cta"
             prefetch="intent"
-            to="/contact/"
+            to="/contact"
           >
             <span>Get in touch</span>
             <ArrowUpRightIcon />
@@ -475,7 +475,7 @@ function BulkHoursPromo({onNavigate}: {onNavigate?: () => void}) {
     <NavLink
       className="ft-bulk-promo"
       prefetch="intent"
-      to="/contact/"
+      to="/contact"
       onClick={onNavigate}
     >
       <span className="ft-bulk-promo__image">
@@ -536,7 +536,7 @@ function ResourcesMegaMenu() {
       <NavLink
         className="ft-resources-mega__featured"
         prefetch="intent"
-        to="/articles/"
+        to="/articles"
       >
         <div className="ft-resources-mega__featured-image">
           <img
@@ -658,7 +658,7 @@ const SERVICE_MEGA_COLUMNS: ServiceMegaColumn[] = [
       {
         title: 'AI Automations & Agents',
         description: 'Intelligent workflow & support automations',
-        url: '/services/ai-ecommerce-agency',
+        url: '/services/ai-automations-agents',
       },
       {
         title: 'Platform SEO Migrations',
@@ -711,7 +711,7 @@ const RESOURCE_MEGA_LINKS: MegaLink[] = [
   {
     title: 'Articles',
     description: 'Explore our latest technical & CRO articles',
-    url: '/articles/',
+    url: '/articles',
   },
   {
     title: 'Podcast',
@@ -1203,7 +1203,7 @@ function MobileHeaderMenu({
 
               {/* <NavLink
                 className="ft-mobile-resources__featured test"
-                to="/articles/"
+                to="/articles"
                 prefetch="intent"
                 onClick={closeMenu}
               >
@@ -1303,7 +1303,7 @@ function MobileMenuFooter({
 
         <NavLink
           className="ft-mobile-menu__footer-cta"
-          to="/contact/"
+          to="/contact"
           prefetch="intent"
           onClick={onNavigate}
         >
@@ -1510,7 +1510,7 @@ const FALLBACK_HEADER_MENU = {
       tags: [],
       title: 'Our Work',
       type: 'HTTP',
-      url: '/pages/our-work',
+      url: '/work',
       items: [],
     },
     {
@@ -1519,7 +1519,7 @@ const FALLBACK_HEADER_MENU = {
       tags: [],
       title: 'Services',
       type: 'HTTP',
-      url: '/pages/services',
+      url: '/services',
       items: [],
     },
     {
@@ -1528,7 +1528,7 @@ const FALLBACK_HEADER_MENU = {
       tags: [],
       title: 'AI',
       type: 'HTTP',
-      url: '/pages/ai',
+      url: '/services/ai-automations-agents',
       items: [],
     },
     {
@@ -1537,7 +1537,7 @@ const FALLBACK_HEADER_MENU = {
       tags: [],
       title: 'About us',
       type: 'HTTP',
-      url: '/pages/about',
+      url: '/about',
       items: [],
     },
     {
@@ -1546,7 +1546,7 @@ const FALLBACK_HEADER_MENU = {
       tags: [],
       title: 'Resources',
       type: 'HTTP',
-      url: '/articles/',
+      url: '/articles',
       items: [],
     },
     {
@@ -1555,7 +1555,7 @@ const FALLBACK_HEADER_MENU = {
       tags: [],
       title: 'Contact',
       type: 'HTTP',
-      url: '/contact/',
+      url: '/contact',
       items: [],
     },
   ],

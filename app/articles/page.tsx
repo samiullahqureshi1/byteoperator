@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Read our latest insights on software development, CRO frameworks, SEO strategies, and generative AI commerce optimization.',
   alternates: {
-    canonical: 'https://byteoperator.com/articles',
+    canonical: 'https://www.byteoperator.com/articles',
   },
 };
 

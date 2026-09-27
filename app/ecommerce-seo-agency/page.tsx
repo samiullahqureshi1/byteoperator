@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Deep technical SEO audits, crawl budget optimization, rich JSON-LD schema, and high-converting search architecture for enterprise brands.',
   alternates: {
-    canonical: 'https://byteoperator.com/ecommerce-seo-agency',
+    canonical: 'https://www.byteoperator.com/ecommerce-seo-agency',
   },
 };
 

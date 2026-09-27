@@ -11,7 +11,7 @@ const SERVICES_FEATURE_CONFIG = [
     heading: 'Design & Development Services',
     button: {
       label: 'Explore New Store Services',
-      href: '/pages/software-development',
+      href: '/services/software-theme-development-builds',
     },
     description: [
       'Byte Operator brings digital platform design, development and technical implementation together for new builds and existing themes. We carefully plan storefront structure, buying journeys and functionality around your brand and customers.',
@@ -24,7 +24,7 @@ const SERVICES_FEATURE_CONFIG = [
     heading: 'Support & CRO Retainers',
     button: {
       label: 'Explore Retainers',
-      href: '/pages/software-maintenance',
+      href: '/services/support-and-maintenance',
     },
     description: [
       'Byte Operator provides ongoing Software support, maintenance and conversion rate optimisation through flexible monthly retainers. Our retainers cover day-to-day fixes, smaller development tasks and planned enhancements that keep your storefront reliable and easy to manage.',
@@ -49,7 +49,7 @@ const SERVICES_FEATURE_CONFIG = [
     heading: 'Email & SMS Marketing for Ecommerce Growth',
     button: {
       label: 'Explore Email Marketing',
-      href: '/pages/email-sms-marketing',
+      href: '/services/email-marketing-agency',
     },
     description: [
       'We design email and SMS strategies that engage customers at the right moments in their journey. From audience segmentation and targeted campaigns to automated flows and triggered messages, our work helps increase retention and repeat purchases.',

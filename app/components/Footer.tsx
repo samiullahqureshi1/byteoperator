@@ -71,7 +71,7 @@ export function Footer({
 
               <NavLink
                 className="ft-footer__primary-cta ft-footer__primary-cta--secondary"
-                to="/contact/"
+                to="/contact"
                 prefetch="intent"
               >
                 <span>Get in touch</span>

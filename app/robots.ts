@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/search'],
       },
     ],
-    sitemap: 'https://byteoperator.com/sitemap.xml',
-    host: 'https://byteoperator.com',
+    sitemap: 'https://www.byteoperator.com/sitemap.xml',
+    host: 'https://www.byteoperator.com',
   };
 }

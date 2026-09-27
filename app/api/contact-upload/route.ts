@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     console.log(`[Upload] File received: ${fileName} (${(file.size / 1024).toFixed(1)} KB)`);
 
     // Return a reference URL or placeholder acknowledgment
-    const simulatedUrl = `https://byteoperator.com/uploads/${Date.now()}_${fileName}`;
+    const simulatedUrl = `https://www.byteoperator.com/uploads/${Date.now()}_${fileName}`;
 
     return NextResponse.json({
       ok: true,

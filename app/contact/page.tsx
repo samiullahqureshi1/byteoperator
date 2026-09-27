@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     'Start your Software project with Byte Operator. Reach out for new store builds, CRO audits, SEO optimization, and migrations.',
   alternates: {
-    canonical: 'https://byteoperator.com/contact',
+    canonical: 'https://www.byteoperator.com/contact',
   },
 };
 

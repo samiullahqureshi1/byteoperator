@@ -217,7 +217,7 @@ export const HOME_FEATURES = [
     buttons: [
       {
         label: 'Request AI Search Audit',
-        href: '/ai-visibility-audit/',
+        href: '/ai-visibility-audit',
       },
     ],
     media: {
@@ -340,19 +340,19 @@ export const HOME_FEATURES = [
     badges: [
       {
         label: 'Magento Migration',
-        href: '/magento-software-migrations/',
+        href: '/services/magento-software-migrations',
       },
       {
         label: 'WooCommerce Migration',
-        href: '/woocommerce-software-migrations/',
+        href: '/services/woocommerce-software-migrations',
       },
       {
         label: 'BigCommerce Migration',
-        href: '/bigcommerce-software-migrations/',
+        href: '/services/bigcommerce-software-migrations',
       },
       {
         label: 'Salesforce Migration',
-        href: '/salesforce-software-migrations/',
+        href: '/services/salesforce-software-migrations',
       },
     ],
     description: [

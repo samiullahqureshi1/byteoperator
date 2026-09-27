@@ -6,6 +6,10 @@
    Every surface that shows a company figure reads from here:
    the homepage, the About page, the contact hero, the SEO
    results block, the Enterprise Platform Solutions hero chips.
+
+   RULE: Only publish figures that can be verified from internal
+   records. Do not inflate or estimate upward. A conservative
+   real number is worth more than an impressive false one.
 ========================================================= */
 
 export type CompanyFact = {
@@ -29,39 +33,39 @@ export type CompanyFact = {
 
 export const COMPANY_FACTS = {
   projects: {
-    value: '100+',
-    label: 'Projects Completed',
-    target: 100,
+    value: '20+',
+    label: 'Projects Delivered',
+    target: 20,
     prefix: '',
     suffix: '+',
     decimals: 0,
     description:
-      'Digital commerce, engineering, and performance optimisation projects delivered across client engagements.',
+      'Digital engineering, platform builds, and performance optimisation projects delivered since 2025.',
     evidence: 'Internal delivery record',
   },
 
   reviews: {
     value: '4.9/5.0',
-    label: '414 Client Reviews',
+    label: 'Client Satisfaction',
     target: 4.9,
     prefix: '',
     suffix: '/5.0',
     decimals: 1,
     description:
-      'Our client rating across verified project deliveries, reflecting our commitment to engineering excellence.',
-    evidence: 'Verified client reviews',
+      'Our client satisfaction rating across delivered projects, reflecting our commitment to engineering excellence.',
+    evidence: 'Client feedback on file',
   },
 
   engagements: {
-    value: '180+',
+    value: '15+',
     label: 'Client Engagements',
-    target: 180,
+    target: 15,
     prefix: '',
     suffix: '+',
     decimals: 0,
     description:
-      'End-to-end digital engineering and growth engagements completed for high-growth brands.',
-    evidence: 'Verified client platform records',
+      'End-to-end digital engineering and growth engagements completed for high-growth brands since 2025.',
+    evidence: 'Internal client register',
   },
 
   jobSuccess: {
@@ -72,38 +76,38 @@ export const COMPANY_FACTS = {
     suffix: '%',
     decimals: 0,
     description:
-      'A 100% job success rate sustained across every client project and enterprise rollout.',
+      'A 100% on-time delivery rate sustained across every client project and enterprise rollout.',
     evidence: 'Client delivery record',
   },
 
   clients: {
-    value: '85+',
-    label: 'Unique Clients Served',
-    target: 85,
+    value: '15+',
+    label: 'Clients Served',
+    target: 15,
     prefix: '',
     suffix: '+',
     decimals: 0,
     description:
-      'Brands supported across build, migration, search, and conversion optimisation work.',
+      'Brands supported across build, migration, search, and conversion optimisation work since 2025.',
     evidence: 'Internal client register',
   },
 
   delivered: {
-    value: '$2M+',
+    value: '$500K+',
     label: 'Contract Value Delivered',
-    target: 2,
+    target: 500,
     prefix: '$',
-    suffix: 'M+',
+    suffix: 'K+',
     decimals: 0,
     description:
-      'Client contract value delivered and settled through enterprise platform projects.',
+      'Client contract value delivered through engineering, platform, and growth projects.',
     evidence: 'Client contract records',
   },
 
   team: {
-    value: '~35',
+    value: '~10',
     label: 'Specialists On The Team',
-    target: 35,
+    target: 10,
     prefix: '~',
     suffix: '',
     decimals: 0,

@@ -26,7 +26,7 @@
 
 import {COMPANY_FACTS} from '~/data/companyFacts';
 
-export const SITE_URL = 'https://byteoperator.com';
+export const SITE_URL = 'https://www.byteoperator.com';
 
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -220,49 +220,49 @@ export const SITEWIDE_GRAPH: JsonLd = {
 export const SERVICES: ServiceDefinition[] = [
   /* --- Build ----------------------------------------------------- */
   {
-    path: '/software-plus-agency',
+    path: '/shopify-plus-agency',
     name: 'Enterprise Platform Solutions Development',
     serviceType: 'Enterprise Platform Solutions development',
     description:
       'Enterprise Enterprise Platform Solutions development, including Software Functions, checkout extensibility, B2B company accounts and multi-store architecture.',
   },
   {
-    path: '/pages/custom-store-project',
+    path: '/services/shopify-web-design',
     name: 'Custom Digital Platform Project',
     serviceType: 'Ecommerce store design and build',
     description:
       'End-to-end design and build of a custom digital platform, from discovery and information architecture through launch.',
   },
   {
-    path: '/software-theme-development-builds/',
+    path: '/services/software-theme-development-builds',
     name: 'Custom Frontend & Web Development',
     serviceType: 'Custom frontend & web development',
     description:
       'Custom Custom frontend & web development in Liquid, built for Core Web Vitals performance and merchandising flexibility.',
   },
   {
-    path: '/software-web-design',
+    path: '/services/shopify-web-design',
     name: 'UI/UX & Product Design',
     serviceType: 'Ecommerce web design',
     description:
       'Ecommerce web design for digital platforms & applications, covering art direction, design systems and conversion-focused user experience.',
   },
   {
-    path: '/headless-commerce',
+    path: '/services/headless-commerce',
     name: 'Headless Commerce and Hydrogen Development',
     serviceType: 'Headless commerce development',
     description:
       'Headless digital platformfronts built with Hydrogen and deployed on Oxygen, for brands that need full control of the front end.',
   },
   {
-    path: '/software-app-development/',
+    path: '/services/software-app-development',
     name: 'Custom Software & App Development',
     serviceType: 'custom software & app development',
     description:
       'Custom public and private custom software & app development, including embedded admin apps, theme app extensions and checkout UI extensions.',
   },
   {
-    path: '/software-integrations/',
+    path: '/services/software-integrations',
     name: 'API & System Integrations',
     serviceType: 'Ecommerce systems integration',
     description:
@@ -271,42 +271,42 @@ export const SERVICES: ServiceDefinition[] = [
 
   /* --- Migrate --------------------------------------------------- */
   {
-    path: '/software-migrations/',
+    path: '/services/shopify-migrations',
     name: 'Platform & Cloud Migrations',
     serviceType: 'Ecommerce replatforming',
     description:
       'Replatforming to Software and Enterprise Platform Solutions with full product, customer and order migration plus a complete URL redirect map.',
   },
   {
-    path: '/woocommerce-software-migrations/',
+    path: '/services/woocommerce-software-migrations',
     name: 'WooCommerce to Platform & Cloud Migration',
     serviceType: 'WooCommerce to platform & cloud migration',
     description:
       'Migration from WooCommerce to Software, preserving catalogue structure, customer accounts, order history and organic search rankings.',
   },
   {
-    path: '/magento-software-migrations/',
+    path: '/services/magento-software-migrations',
     name: 'Magento to Platform & Cloud Migration',
     serviceType: 'Magento to platform & cloud migration',
     description:
       'Migration from Magento or Adobe Commerce to Enterprise Platform Solutions, including complex attribute sets, customer groups and B2B pricing structures.',
   },
   {
-    path: '/bigcommerce-software-migrations/',
+    path: '/services/bigcommerce-software-migrations',
     name: 'BigCommerce to Platform & Cloud Migration',
     serviceType: 'BigCommerce to platform & cloud migration',
     description:
       'Migration from BigCommerce to Software, covering catalogue, content, customers and redirect mapping.',
   },
   {
-    path: '/salesforce-software-migrations/',
+    path: '/services/salesforce-software-migrations',
     name: 'Salesforce Commerce Cloud to Platform & Cloud Migration',
     serviceType: 'Salesforce Commerce Cloud to platform & cloud migration',
     description:
       'Replatforming from Salesforce Commerce Cloud to Enterprise Platform Solutions, including catalogue modelling, integration rebuild and phased cutover.',
   },
   {
-    path: '/ecommerce-seo-migrations/',
+    path: '/services/ecommerce-seo-migrations',
     name: 'Ecommerce SEO Migration',
     serviceType: 'SEO migration',
     description:
@@ -315,35 +315,35 @@ export const SERVICES: ServiceDefinition[] = [
 
   /* --- Optimise -------------------------------------------------- */
   {
-    path: '/software-cro-agency/',
+    path: '/shopify-cro-audit',
     name: 'Software Conversion Rate Optimisation',
     serviceType: 'Conversion rate optimisation',
     description:
       'Research-led conversion rate optimisation for digital platforms & applications, combining analytics, qualitative research and structured experimentation.',
   },
   {
-    path: '/ab-testing',
+    path: '/shopify-cro-audit',
     name: 'A/B Testing',
     serviceType: 'Ecommerce experimentation',
     description:
       'Ongoing A/B and multivariate testing programmes for Software and Enterprise Platform Solutions stores, with statistical rigour applied to result calls.',
   },
   {
-    path: '/services/software-audits/',
+    path: '/services/software-audits',
     name: 'Architecture & Code Audits',
     serviceType: 'Ecommerce audit',
     description:
       'Design, technical, performance and SEO audits of an existing digital platform, delivered as a prioritised remediation plan.',
   },
   {
-    path: '/support-and-maintenance/',
+    path: '/services/support-and-maintenance',
     name: 'Software Support and Maintenance',
     serviceType: 'Ecommerce technical support',
     description:
       'Retained Software technical support covering bug fixing, release management, performance monitoring and ongoing development capacity.',
   },
   {
-    path: '/software-internationalisation/',
+    path: '/services/shopify-internationalisation',
     name: 'Software Internationalisation',
     serviceType: 'International ecommerce expansion',
     description:
@@ -352,42 +352,42 @@ export const SERVICES: ServiceDefinition[] = [
 
   /* --- Search and AI visibility ---------------------------------- */
   {
-    path: '/seo-agency',
+    path: '/services/seo-agency',
     name: 'SEO Services',
     serviceType: 'Search engine optimisation',
     description:
       'Technical and content SEO for commerce brands, covering crawlability, indexation, site architecture and topical authority.',
   },
   {
-    path: '/ecommerce-seo-agency/',
+    path: '/ecommerce-seo-agency',
     name: 'Ecommerce SEO',
     serviceType: 'Ecommerce SEO',
     description:
       'Organic growth for ecommerce catalogues, covering collection architecture, faceted navigation, indexation control and product content.',
   },
   {
-    path: '/ai-seo-agency/',
+    path: '/ai-visibility-audit',
     name: 'Ecommerce AI SEO',
     serviceType: 'AI search optimisation',
     description:
       'Optimising ecommerce sites for AI-powered search, including entity modelling, structured data and content built to be retrieved and cited.',
   },
   {
-    path: '/geo-agency/',
+    path: '/ai-visibility-audit',
     name: 'Generative Engine Optimisation',
     serviceType: 'Generative engine optimisation',
     description:
       'Making a brand visible and citable inside ChatGPT, Perplexity, Gemini, Copilot and Google AI Overviews, measured as citation share on buying-intent prompts.',
   },
   {
-    path: '/ai-ecommerce-agency/',
+    path: '/services/ai-automations-agents',
     name: 'AI Ecommerce Services',
     serviceType: 'AI implementation for ecommerce',
     description:
       'Applying AI to ecommerce operations, merchandising, content production and customer experience on Software.',
   },
   {
-    path: '/agentic-commerce/',
+    path: '/services/agentic-commerce',
     name: 'Agentic Commerce Readiness',
     serviceType: 'Agentic commerce enablement',
     description:
@@ -396,28 +396,28 @@ export const SERVICES: ServiceDefinition[] = [
 
   /* --- Retain ---------------------------------------------------- */
   {
-    path: '/email-marketing-agency/',
+    path: '/services/email-marketing-agency',
     name: 'Email and SMS Marketing',
     serviceType: 'Retention marketing',
     description:
       'Email and SMS retention programmes for ecommerce brands, covering lifecycle flows, segmentation and campaign calendars.',
   },
   {
-    path: '/klaviyo-agency/',
+    path: '/services/klaviyo-agency',
     name: 'Klaviyo Services',
     serviceType: 'Klaviyo implementation',
     description:
       'Klaviyo implementation and optimisation, including data integration, automated flows, segmentation and deliverability.',
   },
   {
-    path: '/software-b2b-wholesale/',
+    path: '/services/shopify-b2b-wholesale',
     name: 'Software B2B and Wholesale',
     serviceType: 'B2B ecommerce implementation',
     description:
       'B2B selling on Software, covering company accounts, price lists, payment terms, quantity rules and wholesale channel setup.',
   },
   {
-    path: '/subscriptions-on-software/',
+    path: '/services/subscriptions-on-software',
     name: 'Software Subscriptions',
     serviceType: 'Subscription commerce implementation',
     description:
