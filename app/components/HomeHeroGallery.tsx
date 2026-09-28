@@ -241,8 +241,6 @@ export function HomeHeroGallery() {
                   <img
                     className="ft-hero-gallery__item-image"
                     {...responsiveImage(project.image, '(max-width: 37.5rem) 34vw, 16vw', 828)}
-                    width={828}
-                    height={1035}
                     alt={project.alt}
                     loading="lazy"
                     decoding="async"
@@ -268,8 +266,6 @@ export function HomeHeroGallery() {
               ref={videoRef}
               className="ft-hero-gallery__video"
               poster={HERO_VIDEO.poster}
-              width={1600}
-              height={1200}
               muted
               loop
               playsInline
