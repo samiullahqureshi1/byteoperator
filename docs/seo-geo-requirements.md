@@ -1,7 +1,7 @@
 # The Complete SEO & GEO Requirements Standard
 
-**Version** 1.0 · **Date** 13 September 2026 · **Owner** TAB ON TECH / Byte Operator
-**Applies to** byteoperator.com (Software Hydrogen on Oxygen) and, as a reusable standard, every client site TAB ON TECH delivers
+**Version** 1.0 · **Date** 13 September 2026 · **Owner** Byte Operator
+**Applies to** byteoperator.com and, as a reusable standard, every client site Byte Operator delivers
 
 ---
 

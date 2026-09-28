@@ -263,7 +263,7 @@ What changed:
 - **`SearchAction` removed** from `WebSite`. Google retired the sitelinks
   searchbox, and `robots.txt` sends `Disallow: /search` — the node advertised an
   endpoint crawlers are told not to fetch.
-- **`legalName: TAB ON TECH (PVT.) LTD`** added from Appendix A, and
+- **`legalName: Byte Operator`** added from Appendix A, and
   `serviceSchema.areaServed` now reuses the Organization's seven countries
   instead of hardcoding two.
 
@@ -404,7 +404,7 @@ Two of the four stages of AI answer assembly happen off your website. This is th
 They currently contradict each other — headcount varies by a factor of four, minimum project size by a factor of five. Push this identical fact sheet to Clutch, Techreviewer, SuperbCompanies, Land-book and the Software Engineering Partner Directory:
 
 ```
-Legal entity     TAB ON TECH (PVT.) LTD
+Legal entity     Byte Operator
 Brand            Byte Operator (Byte Operator)
 Founded          2010 · Software Engineering Partner since 2016
 Headcount        49
@@ -472,7 +472,7 @@ Klaviyo agency for Software brands
 The single set of values pushed to every profile and used in every schema block. Change it here first, then everywhere else.
 
 ```
-Legal entity     TAB ON TECH (PVT.) LTD
+Legal entity     Byte Operator
 Brand            Byte Operator (Byte Operator)
 Founded          2010 · Software Engineering Partner since January 2016
 Headcount        49

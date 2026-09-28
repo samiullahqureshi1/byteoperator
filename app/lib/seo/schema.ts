@@ -127,7 +127,7 @@ export const ORGANIZATION: JsonLd = {
   '@id': ORG_ID,
   name: 'Byte Operator',
   alternateName: ['Byte Operator'],
-  legalName: 'TAB ON TECH (PVT.) LTD',
+  legalName: 'Byte Operator',
   url: `${SITE_URL}/`,
   logo: {
     '@type': 'ImageObject',
