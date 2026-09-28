@@ -1,4 +1,5 @@
 import {Link} from '~/lib/router-compat';
+import {responsiveImage} from '~/lib/responsive-image';
 
 const EXPERT_MEDIA = [
   {
@@ -74,26 +75,9 @@ export function HomeExperts({
   ctaTo = '/contact',
   variant = 'default',
   media,
-  testimonials = [
-    {
-      quote:
-        'Replex Engine transformed our inbound sales conversion. Our average response time dropped from 4 hours to 20 seconds, and we closed 38% more inbound leads in the first month alone.',
-      author: 'Liam Vance',
-      role: 'VP of Sales & Growth',
-      company: 'Apex Digital',
-      rating: 5,
-      highlight: 'Replex Engine & 38% Sales Lift',
-    },
-    {
-      quote:
-        'Byte Operator built our entire n8n operational workflow connecting Shopify, NetSuite, and customer support. It saves our operations team over 25 hours every single week.',
-      author: 'Clara Jensen',
-      role: 'Chief Operating Officer',
-      company: 'Kinetics Logistics',
-      rating: 5,
-      highlight: 'n8n Pipeline Automation & 25hrs/wk Saved',
-    },
-  ],
+  // No default testimonials: the previous defaults (Liam Vance / Apex
+  // Digital, Clara Jensen / Kinetics Logistics) could not be verified.
+  testimonials = [],
   testimonial,
   hideMedia = false,
 }: HomeExpertsProps) {
@@ -141,7 +125,7 @@ export function HomeExperts({
           aria-hidden="true"
         >
           <img
-            src={item.src}
+            {...responsiveImage(item.src, '(min-width: 48rem) 20vw, 42vw', 1080)}
             width={item.width}
             height={item.height}
             alt={item.alt}

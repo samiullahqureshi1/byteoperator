@@ -378,26 +378,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator engineers advanced Technical SEO architectures that unlock sustained organic search growth. Partner directly with senior technical search architects to audit and scale your store.',
       ctaLabel: 'Schedule Technical SEO Consultation',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Byte Operator audited and restructured our faceted collection navigation. Our indexed organic keywords increased by 140% within 90 days and non-brand organic revenue doubled.',
-          author: 'Benjamin Ross',
-          role: 'Head of Growth',
-          company: 'Kestrel Outdoor Gear',
-          rating: 5,
-          highlight: 'Technical SEO Audit & 140% Keyword Growth',
-        },
-        {
-          quote:
-            'The rich JSON-LD schema deployment and crawl budget optimization transformed our Google visibility. Our listings dominate rich snippet positions across all major product categories.',
-          author: 'Sienna Clark',
-          role: 'VP of Digital Marketing',
-          company: 'Luxe Botanicals',
-          rating: 5,
-          highlight: 'Rich Schema Markup & Organic CTR Lift',
-        },
-      ],
+      testimonials: [],
     },
     showPartners: false,
   },
@@ -602,7 +583,7 @@ export const SERVICE_PAGE_CONFIGS = {
         description: [
           'Under the hood, Collabix is engineered for high concurrency and strict corporate governance. We deployed a multi-tenant cloud architecture incorporating PostgreSQL with row-level security, Redis for sub-millisecond in-memory caching, and automated database sharding.',
           'Security is enforced at every layer with Single Sign-On (SSO / SAML), granular Role-Based Access Controls (RBAC), end-to-end data encryption at rest and in transit, and immutable audit logs that comply with global data protection standards.',
-          'Backed by containerized microservices and automated CI/CD deployment pipelines on AWS/GCP, the platform scales dynamically with user traffic while maintaining 99.99% uptime and enterprise-grade performance.',
+          'Backed by containerized microservices and automated CI/CD deployment pipelines on AWS/GCP, the platform scales dynamically with user traffic while staying reliable and performant.',
         ],
         buttons: [
           {
@@ -621,7 +602,7 @@ export const SERVICE_PAGE_CONFIGS = {
           secondaryHeight: 0,
           secondaryAlt: '',
           captionTitle: 'Enterprise Cloud Architecture & RBAC',
-          captionText: 'PostgreSQL row-level security, Redis caching, SSO and 99.99% uptime',
+          captionText: 'PostgreSQL row-level security, Redis caching, SSO and high-availability hosting',
           href: SERVICE_PAGE_ROUTES.work,
         },
       },
@@ -660,26 +641,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator partners with ambitious businesses, startups, and enterprise teams to design, engineer, and scale high-impact software products. Talk directly with our senior software engineers to discuss your architecture and roadmap.',
       ctaLabel: 'Discuss Your Software Project',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Byte Operator designed and engineered Collabix from the ground up. Their team delivered real-time collaboration, complex capacity heatmaps, and enterprise RBAC on schedule. Truly exceptional software engineering.',
-          author: 'David Sterling',
-          role: 'Head of Product Operations',
-          company: 'Collabix Enterprise',
-          rating: 5,
-          highlight: 'Featured Platform Engineering Case Study',
-        },
-        {
-          quote:
-            'The speed and reliability of our custom cloud architecture exceeded expectations. Byte Operator solved our concurrency and data synchronization challenges with precision.',
-          author: 'Claire Thornton',
-          role: 'Director of Technology',
-          company: 'Enterprise Systems Group',
-          rating: 5,
-          highlight: 'Enterprise Cloud Architecture',
-        },
-      ],
+      testimonials: [],
     },
   },
   'software-web-design': {
@@ -1111,26 +1073,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator designs, engineers, and scales custom iOS, Android, and cross-platform mobile apps. Talk directly with our senior mobile architects to discuss your roadmap and launch strategy.',
       ctaLabel: 'Discuss Your Mobile Project',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Byte Operator engineered our mobile application in React Native with flawless execution. The app maintains a solid 60fps, offline caching works seamlessly, and our App Store approval went through on the first submission.',
-          author: 'James Kendrick',
-          role: 'Founder & CEO',
-          company: 'OmniCommerce Mobile',
-          rating: 5,
-          highlight: 'React Native App Launch',
-        },
-        {
-          quote:
-            'The user experience, Face ID biometric login, and real-time push notification pipelines boosted our daily active user retention by 42% within three months.',
-          author: 'Sophia Patel',
-          role: 'Head of Mobile Product',
-          company: 'Apex Digital Platforms',
-          rating: 5,
-          highlight: 'Mobile UI/UX & Retention',
-        },
-      ],
+      testimonials: [],
     },
     showPartners: false,
   },
@@ -1393,26 +1336,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator designs, engineers, and monitors custom API platforms, ERP/CRM middleware, and third-party integration pipelines. Talk directly with our senior integration engineers to discuss your technical architecture.',
       ctaLabel: 'Discuss Your Integration Project',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Byte Operator engineered the entire third-party API platform for Aydi Active. Their public REST endpoints, webhook pipelines, and Shopify sync allowed our partner merchants and logistics systems to integrate seamlessly with zero friction.',
-          author: 'Marcus Vance',
-          role: 'Technical Director & Founder',
-          company: 'Aydi Active Marketplace',
-          rating: 5,
-          highlight: 'Third-Party API Architecture',
-        },
-        {
-          quote:
-            'Their custom middleware connected our Salesforce ERP with our custom web platform in real time. Data errors dropped to zero and inventory syncing across all channels is instantaneous.',
-          author: 'Nathan Brooks',
-          role: 'Chief Information Officer',
-          company: 'Global Distribution Network',
-          rating: 5,
-          highlight: 'Enterprise ERP Middleware',
-        },
-      ],
+      testimonials: [],
     },
     showPartners: false,
   },
@@ -2381,26 +2305,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator designs, provisions, and scales decoupled web platforms, edge networks, and multi-cloud backends. Talk directly with our senior cloud architects to discuss your infrastructure.',
       ctaLabel: 'Discuss Cloud Architecture',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Migrating to a headless Next.js frontend on Cloudflare edge reduced our global page load times by 68%. Byte Operator delivered the entire architecture seamlessly with zero downtime during the cutover.',
-          author: 'Alexander Scott',
-          role: 'Chief Technology Officer',
-          company: 'Hyperion Global Platforms',
-          rating: 5,
-          highlight: 'Headless Next.js Migration',
-        },
-        {
-          quote:
-            'Their serverless microservices and Terraform automation cut our monthly cloud bill by 40% while handling our biggest Black Friday traffic spike flawlessly.',
-          author: 'Rachel Zhang',
-          role: 'VP of Infrastructure & DevOps',
-          company: 'OmniCloud Technologies',
-          rating: 5,
-          highlight: 'Serverless Cloud Architecture',
-        },
-      ],
+      testimonials: [],
     },
     showPartners: false,
   },
@@ -3285,26 +3190,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator designs, engineers, and scales custom full-stack web applications, multi-vendor marketplaces, and third-party API platforms. Talk directly with our senior full-stack engineers to discuss your architecture and roadmap.',
       ctaLabel: 'Discuss Your Web Project',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Byte Operator engineered our entire multi-vendor marketplace platform from scratch. Their React frontend, Node.js backend queues, and real-time Shopify sync handled over $2.5M in vendor volume with flawless performance and zero downtime.',
-          author: 'Marcus Vance',
-          role: 'Technical Director & Founder',
-          company: 'Aydi Active Marketplace',
-          rating: 5,
-          highlight: 'Multi-Vendor Marketplace Launch',
-        },
-        {
-          quote:
-            'The third-party API documentation and automated webhook layer allowed external vendors and 3PL partners to integrate within days. Flawless full-stack execution and responsive ongoing support.',
-          author: 'Elena Rostova',
-          role: 'VP of Platform Engineering',
-          company: 'Retail Commerce Partner',
-          rating: 5,
-          highlight: 'Third-Party API & Webhook Architecture',
-        },
-      ],
+      testimonials: [],
     },
     showPartners: false,
   },
@@ -5382,26 +5268,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator engineers cutting-edge Generative Engine Optimization strategies that capture conversational search demand. Partner directly with our AI search architects to audit and scale your AI visibility.',
       ctaLabel: 'Schedule GEO Consultation',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Byte Operator optimized our brand entity structure and knowledge graph. We went from zero AI citations to being the top-cited recommendation in ChatGPT and Perplexity across all our core product categories.',
-          author: 'Harrison Vance',
-          role: 'Chief Marketing Officer',
-          company: 'Aero Precision Tech',
-          rating: 5,
-          highlight: 'ChatGPT & Perplexity #1 Recommendation',
-        },
-        {
-          quote:
-            'Our conversational search traffic from Google AI Overviews and Perplexity increased by over 300% within two months. It is now our highest-converting organic channel.',
-          author: 'Maya Lin',
-          role: 'Director of Ecommerce',
-          company: 'Verve Modern Living',
-          rating: 5,
-          highlight: '300% Lift in AI Search Referrals',
-        },
-      ],
+      testimonials: [],
     },
     showPartners: false,
   },
@@ -5667,26 +5534,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator designs, engineers, and deploys high-impact AI automations, lead reply engines, and n8n pipelines. Speak directly with our senior AI automation engineers to map your automation architecture.',
       ctaLabel: 'Schedule Automation Consultation',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Replex Engine transformed our inbound sales conversion. Our average response time dropped from 4 hours to 20 seconds, and we closed 38% more inbound leads in the first month alone.',
-          author: 'Liam Vance',
-          role: 'VP of Sales & Growth',
-          company: 'Apex Digital Solutions',
-          rating: 5,
-          highlight: 'Replex Engine & 38% Inbound Sales Lift',
-        },
-        {
-          quote:
-            'Byte Operator built our entire n8n operational workflow connecting Shopify, NetSuite, and customer support. It saves our operations team over 25 hours every single week.',
-          author: 'Clara Jensen',
-          role: 'Chief Operating Officer',
-          company: 'Kinetics Logistics',
-          rating: 5,
-          highlight: 'n8n Pipeline Automation & 25hrs/week Saved',
-        },
-      ],
+      testimonials: [],
     },
     showPartners: false,
   },
@@ -6140,26 +5988,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator designs, builds, and optimizes custom Shopify and Shopify Plus stores that convert. Partner directly with senior ecommerce engineers to plan your store build or redesign.',
       ctaLabel: 'Schedule Your Shopify Consultation',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Byte Operator rebuilt our Shopify storefront and executed our platform migration with zero downtime. Our mobile conversion rate jumped by 34% within 60 days and page load times dropped to under 1.2 seconds.',
-          author: 'Liam Edwards',
-          role: 'Ecommerce Director',
-          company: 'Horizon Lifestyle Brands',
-          rating: 5,
-          highlight: 'Shopify Migration & 34% CRO Lift',
-        },
-        {
-          quote:
-            'The custom theme sections gave our merchandising team complete freedom to launch promotional pages in minutes. The furniture visualizer and swatch selectors work flawlessly on mobile.',
-          author: 'Charlotte Hayes',
-          role: 'Head of Brand & Digital',
-          company: 'Atelier Modern Living',
-          rating: 5,
-          highlight: 'Custom Shopify Store Build',
-        },
-      ],
+      testimonials: [],
     },
     showPartners: false,
   },
@@ -6423,26 +6252,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator designs, builds, and scales high-performance Shopify Plus ecosystems. Speak directly with our senior enterprise solutions architects to plan your build or migration.',
       ctaLabel: 'Schedule Enterprise Consultation',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Byte Operator engineered our Shopify Plus infrastructure to handle our global multi-market expansion. Our international sales grew by 48% in the first quarter with seamless multi-currency checkout.',
-          author: 'Alexander Wright',
-          role: 'VP of Digital Commerce',
-          company: 'Vanguard Global Retail',
-          rating: 5,
-          highlight: 'Shopify Plus & Global Markets',
-        },
-        {
-          quote:
-            'Their custom B2B wholesale portal and NetSuite ERP integration completely eliminated manual order processing for our logistics team. The system is fast, reliable, and effortless to manage.',
-          author: 'Marcus Vance',
-          role: 'Chief Operating Officer',
-          company: 'Summit Supply Co.',
-          rating: 5,
-          highlight: 'B2B Wholesale & ERP Integration',
-        },
-      ],
+      testimonials: [],
     },
     showPartners: false,
   },
@@ -6706,26 +6516,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator designs, engineers, and scales custom Shopify applications, Checkout UI Extensions, and automated speed optimization tools. Speak directly with our senior app developers to bring your app vision to life.',
       ctaLabel: 'Schedule App Consultation',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Speedify transformed our mobile storefront speed. Our Largest Contentful Paint dropped from 4.1s to 1.1s, and we saw an instant 28% increase in mobile conversions within two weeks of installation.',
-          author: 'Evelyn Brooks',
-          role: 'Head of Ecommerce',
-          company: 'Aura Performance Apparel',
-          rating: 5,
-          highlight: 'Speedify AI Speed Optimization & 28% CRO Lift',
-        },
-        {
-          quote:
-            'Byte Operator built our custom Shopify inventory and wholesale allocation app. The Polaris admin interface is completely intuitive for our team, and the app handles tens of thousands of daily webhook events flawlessly.',
-          author: 'Julian Mercer',
-          role: 'Director of Operations',
-          company: 'Nordic Goods Co.',
-          rating: 5,
-          highlight: 'Custom Shopify App & Polaris Integration',
-        },
-      ],
+      testimonials: [],
     },
     showPartners: false,
   },
@@ -6988,26 +6779,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator engineers safe, risk-free migrations to Shopify and Shopify Plus. Speak directly with our senior migration architects to plan your replatforming roadmap.',
       ctaLabel: 'Schedule Migration Consultation',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Byte Operator migrated our 50,000 SKU catalog from Magento to Shopify Plus without a single glitch. Our organic SEO traffic remained completely intact and mobile revenue grew by 42% in the first quarter.',
-          author: 'David Sterling',
-          role: 'Chief Technology Officer',
-          company: 'Equinox Retail Group',
-          rating: 5,
-          highlight: 'Magento to Shopify Plus & 42% Revenue Growth',
-        },
-        {
-          quote:
-            'The 1:1 redirect mapping and ERP integration were executed flawlessly. The migration cutover took place with zero downtime, and our operational costs dropped dramatically.',
-          author: 'Hannah Davies',
-          role: 'Head of Ecommerce Operations',
-          company: 'Nordic Lifestyle Brands',
-          rating: 5,
-          highlight: 'Zero-Downtime Replatforming & ERP Sync',
-        },
-      ],
+      testimonials: [],
     },
     showPartners: false,
   },
@@ -7270,26 +7042,7 @@ export const SERVICE_PAGE_CONFIGS = {
         'Byte Operator designs, engineers, and scales custom B2B wholesale portals on Shopify Plus. Speak directly with our senior enterprise commerce engineers to plan your B2B architecture.',
       ctaLabel: 'Schedule B2B Consultation',
       ctaTo: SERVICE_PAGE_ROUTES.contact,
-      testimonials: [
-        {
-          quote:
-            'Byte Operator unified our retail and wholesale operations onto Shopify Plus B2B. Our wholesale order processing time decreased by 70%, and our corporate clients love the self-service ordering portal.',
-          author: 'Nathaniel Cole',
-          role: 'VP of Wholesale Operations',
-          company: 'Vanguard Industrial Supply',
-          rating: 5,
-          highlight: 'Shopify Plus B2B & 70% Faster Processing',
-        },
-        {
-          quote:
-            'The automated Net terms invoicing and NetSuite ERP integration eliminated weeks of manual bookkeeping. It is the most reliable B2B commerce system we have ever deployed.',
-          author: 'Sophia Zhang',
-          role: 'Chief Financial Officer',
-          company: 'Apex Distribution Group',
-          rating: 5,
-          highlight: 'Net Terms Invoicing & ERP Integration',
-        },
-      ],
+      testimonials: [],
     },
     showPartners: false,
   },

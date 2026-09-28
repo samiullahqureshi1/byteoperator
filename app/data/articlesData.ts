@@ -570,6 +570,387 @@ export const ARTICLES_DATA: ArticleItem[] = [
       },
     ],
   },
+  {
+    id: 'art-9',
+    handle: 'how-to-build-a-saas-mvp',
+    path: '/articles/how-to-build-a-saas-mvp',
+    title: 'How to Build a SaaS MVP in 2026: A Step-by-Step Guide from Idea to Launch',
+    excerpt:
+      'A practical roadmap for founders: validating the problem, scoping the first release, choosing a SaaS architecture and stack, building multi-tenancy, billing and onboarding, and launching without over-building.',
+    publishedAt: '2026-09-28T09:00:00Z',
+    category: 'platform',
+    articleType: 'Guide',
+    featured: false,
+    image: {
+      url: '/images/articles/saas-mvp-development-guide.png',
+      altText:
+        'Illustration of a SaaS dashboard with a growth chart, a product roadmap timeline and a launching rocket',
+      width: 1376,
+      height: 768,
+    },
+    seo: {
+      title: 'How to Build a SaaS MVP (2026 Guide) | Byte Operator',
+      description:
+        'A step-by-step guide to building a SaaS MVP: validation, scoping, architecture, tech stack, multi-tenancy, billing, security and launch, without over-building.',
+    },
+    contentHtml: `
+      <p><strong>To build a SaaS MVP, validate one painful problem with real users, scope the smallest release that solves it end to end, build it on a proven, maintainable stack with multi-tenancy, authentication and billing designed in from day one, and launch to a small group of users as early as possible.</strong> Most successful MVPs take two to four months to build with an experienced team.</p>
+      <p>An MVP (minimum viable product) is not a cheaper version of your final product. It is the smallest version that lets real customers get real value, so you can learn what to build next from evidence rather than assumptions. This guide walks through each step.</p>
+
+      <h2>Step 1: Validate the problem before writing code</h2>
+      <p>The most expensive mistake in SaaS is building something nobody needs. Before development starts, you should be able to answer:</p>
+      <ul>
+        <li><strong>Who has the problem?</strong> A specific type of user in a specific type of business, not "everyone".</li>
+        <li><strong>How do they solve it today?</strong> Spreadsheets, manual work or a tool they dislike are all good signs of an opportunity.</li>
+        <li><strong>What does the problem cost them?</strong> Time, money, errors or missed revenue. Problems with a clear cost are easier to sell.</li>
+        <li><strong>Will they pay?</strong> Pre-orders, letters of intent or paid pilots are far stronger signals than "that sounds useful".</li>
+      </ul>
+      <p>Customer interviews, a landing page with a waitlist and a clickable prototype are cheap ways to test demand before committing a development budget.</p>
+
+      <h2>Step 2: Scope the smallest release that delivers value</h2>
+      <p>List every feature you can imagine, then ruthlessly sort them. A useful method is to write the single core job your product does, then keep only the features without which that job cannot be completed.</p>
+      <table>
+        <thead>
+          <tr><th>Keep in the MVP</th><th>Usually leave for later</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>The core workflow, end to end</td><td>Secondary workflows and edge-case features</td></tr>
+          <tr><td>Sign-up, login and basic account settings</td><td>Advanced roles, permissions and SSO (unless selling to enterprise)</td></tr>
+          <tr><td>Simple subscription billing</td><td>Complex usage-based pricing and invoicing</td></tr>
+          <tr><td>Essential integrations your users cannot work without</td><td>Nice-to-have integrations and a public API</td></tr>
+          <tr><td>Basic analytics to learn how the product is used</td><td>Custom reporting dashboards</td></tr>
+        </tbody>
+      </table>
+      <p>A good MVP scope fits on one page. If it does not, it is probably not minimal yet.</p>
+
+      <h2>Step 3: Design the user experience</h2>
+      <p>Map the journey from sign-up to the moment a user first gets value (often called the "aha moment"), then design the shortest path to it. Wireframes and a clickable prototype let you test the flow with users before any code is written, which is far cheaper than changing it later. A simple, consistent design system also speeds up development and keeps the product coherent as it grows.</p>
+
+      <h2>Step 4: Choose the architecture and tech stack</h2>
+      <p>For most SaaS MVPs, the right stack is the one your team knows well, that is widely used and easy to hire for. Exotic technology rarely helps an early product. A common, proven setup looks like this:</p>
+      <ul>
+        <li><strong>Front end:</strong> React or Next.js with TypeScript.</li>
+        <li><strong>Back end:</strong> Node.js, Python or another mainstream framework, exposing a clean API.</li>
+        <li><strong>Database:</strong> a relational database such as PostgreSQL, which suits most business data.</li>
+        <li><strong>Hosting:</strong> a managed cloud platform (such as AWS, Google Cloud or Vercel) so you are not maintaining servers.</li>
+        <li><strong>Services you should buy, not build:</strong> authentication, payments, transactional email, error monitoring and analytics.</li>
+      </ul>
+      <p>Start with a well-structured single application (a "modular monolith") rather than microservices. It is faster to build, cheaper to run and easy to split later if scale demands it.</p>
+
+      <h2>Step 5: Build the SaaS foundations correctly</h2>
+      <p>Some decisions are cheap to get right at the start and very expensive to change later. Build these into the MVP:</p>
+      <ul>
+        <li><strong>Multi-tenancy:</strong> every record belongs to an account (tenant), and every query is scoped to it. Techniques such as row-level security in PostgreSQL help ensure one customer can never see another's data.</li>
+        <li><strong>Authentication and accounts:</strong> secure sign-up, login, password reset and the ability to invite team members to an account.</li>
+        <li><strong>Subscription billing:</strong> a payment provider such as Stripe for plans, trials, upgrades and failed-payment handling.</li>
+        <li><strong>Security basics:</strong> encrypted connections, secure secret storage, input validation, rate limiting and regular dependency updates.</li>
+        <li><strong>Observability:</strong> error tracking, logging and uptime monitoring so you know about problems before customers report them.</li>
+        <li><strong>Automated testing and deployment:</strong> a CI/CD pipeline makes every future change faster and safer.</li>
+      </ul>
+
+      <h2>Step 6: Consider AI features carefully</h2>
+      <p>AI can make an MVP genuinely more useful, for example by summarising data, drafting content or answering questions from a customer's own documents. Add it where it removes real work for the user, not as decoration. Plan for model costs, response times and how you will handle incorrect answers. Our <a href="/services/ai-application-development">AI application development</a> service covers LLM integration and retrieval-augmented generation (RAG) for SaaS products.</p>
+
+      <h2>Step 7: Launch small and learn fast</h2>
+      <ol>
+        <li><strong>Private beta:</strong> invite a small group of target users, ideally the people you interviewed in step 1.</li>
+        <li><strong>Onboard personally:</strong> watch where users get stuck. Early conversations are worth more than any dashboard.</li>
+        <li><strong>Measure activation and retention:</strong> do users reach the core value, and do they come back?</li>
+        <li><strong>Charge early:</strong> payment is the clearest proof that the product solves a real problem.</li>
+        <li><strong>Iterate in short cycles:</strong> ship improvements weekly or fortnightly based on what you learn.</li>
+      </ol>
+
+      <h2>How long does a SaaS MVP take and what does it cost?</h2>
+      <p>With an experienced team, a focused SaaS MVP typically takes two to four months. Cost depends mainly on scope, integrations and design. Our guide to <a href="/articles/custom-software-development-cost">custom software development costs</a> explains typical ranges and what drives them.</p>
+
+      <h2>Common SaaS MVP mistakes to avoid</h2>
+      <ul>
+        <li><strong>Building for months without user feedback.</strong> Show real users something as early as possible.</li>
+        <li><strong>Adding features instead of fixing the core flow.</strong> A polished core beats a long feature list.</li>
+        <li><strong>Skipping multi-tenancy and security foundations.</strong> Retrofitting them later is slow and risky.</li>
+        <li><strong>Over-engineering for scale you do not have yet.</strong> Build for the next stage of growth, not the tenth.</li>
+        <li><strong>Choosing a team on price alone.</strong> Rework usually costs more than experience.</li>
+      </ul>
+
+      <h2>Next steps</h2>
+      <p>See how we approach product builds in the <a href="/work/collabix">Collabix SaaS platform case study</a>, explore our <a href="/services/saas-mvp-development">SaaS and MVP development service</a>, or <a href="/contact">tell us about your product idea</a> and we will help you scope a realistic first release.</p>
+    `,
+    faqs: [
+      {
+        question: 'What is a SaaS MVP?',
+        answer:
+          'A SaaS MVP (minimum viable product) is the smallest version of a software-as-a-service product that lets real customers complete its core job and get real value. It is used to test demand and learn what to build next with the least time and money.',
+      },
+      {
+        question: 'How long does it take to build a SaaS MVP?',
+        answer:
+          'With an experienced team, a focused SaaS MVP usually takes two to four months, including discovery, design, development, testing and launch. Larger scopes and many integrations take longer.',
+      },
+      {
+        question: 'What features should a SaaS MVP include?',
+        answer:
+          'The core workflow end to end, sign-up and login, simple subscription billing, the integrations users cannot work without, and basic analytics. Advanced permissions, custom reporting and secondary features can usually wait until after launch.',
+      },
+      {
+        question: 'What is the best tech stack for a SaaS MVP?',
+        answer:
+          'A mainstream, well-supported stack your team knows well, such as React or Next.js with TypeScript on the front end, Node.js or Python on the back end, PostgreSQL for data and a managed cloud platform for hosting. Buy authentication, payments and email rather than building them.',
+      },
+      {
+        question: 'Should a SaaS MVP be multi-tenant from the start?',
+        answer:
+          'Yes, in most cases. Designing every record and query around the customer account from day one is simple at the start and very expensive to retrofit later, and it is essential for keeping each customer’s data separate.',
+      },
+    ],
+  },
+  {
+    id: 'art-10',
+    handle: 'generative-engine-optimization-guide',
+    path: '/articles/generative-engine-optimization-guide',
+    title: 'Generative Engine Optimization (GEO): How to Get Your Brand Cited in AI Search',
+    excerpt:
+      'How AI search tools such as ChatGPT, Perplexity and Google AI Overviews choose their sources, how GEO differs from SEO, and the practical steps that make your content easier for AI assistants to find, trust and cite.',
+    publishedAt: '2026-09-28T09:10:00Z',
+    category: 'seo',
+    articleType: 'Guide',
+    featured: false,
+    image: {
+      url: '/images/articles/generative-engine-optimization.png',
+      altText:
+        'Illustration of an AI search answer panel citing a highlighted source from a list of websites',
+      width: 1376,
+      height: 768,
+    },
+    seo: {
+      title: 'Generative Engine Optimization (GEO) Guide | Byte Operator',
+      description:
+        'What generative engine optimization is, how AI search tools pick sources, and practical steps to get cited by ChatGPT, Perplexity and AI Overviews.',
+    },
+    contentHtml: `
+      <p><strong>Generative engine optimization (GEO) is the practice of making your content easy for AI-powered search tools, such as ChatGPT search, Perplexity, Microsoft Copilot and Google AI Overviews, to find, understand, trust and cite in their answers.</strong> It builds on strong SEO foundations, then adds a focus on clear answers, verifiable facts, structured content and a consistent brand presence across the web.</p>
+      <p>More people now ask AI assistants for recommendations and explanations instead of scanning a page of links. When an assistant answers, it usually names or links to only a handful of sources. GEO is about being one of them.</p>
+
+      <h2>How AI search tools choose their sources</h2>
+      <p>Each AI search product works differently, and none publishes a complete ranking formula. In broad terms, most follow a similar pattern:</p>
+      <ol>
+        <li><strong>Retrieve:</strong> the tool searches a web index (its own, or a search engine's such as Bing or Google) for pages relevant to the question.</li>
+        <li><strong>Select:</strong> it picks the passages that answer the question most directly and appear most trustworthy.</li>
+        <li><strong>Synthesise:</strong> a language model writes an answer from those passages.</li>
+        <li><strong>Cite:</strong> it links to or names some of the sources it used.</li>
+      </ol>
+      <p>This has a practical consequence: <strong>if your pages are not crawlable and indexed by search engines, AI search tools are unlikely to find them</strong>. Technical SEO is the entry ticket to GEO, not a separate discipline. Our <a href="/articles/technical-seo-checklist">technical SEO checklist</a> covers the foundations.</p>
+
+      <h2>GEO vs SEO: what is different?</h2>
+      <table>
+        <thead>
+          <tr><th></th><th>Traditional SEO</th><th>Generative engine optimization</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Goal</td><td>Rank a page in a list of results</td><td>Be quoted, cited or recommended inside an AI answer</td></tr>
+          <tr><td>Unit that competes</td><td>The whole page</td><td>Individual passages, facts and definitions</td></tr>
+          <tr><td>What wins</td><td>Relevance, authority, links and page experience</td><td>All of that, plus clear, self-contained answers and consistent facts across the web</td></tr>
+          <tr><td>How you measure it</td><td>Rankings, impressions and clicks</td><td>Citations and brand mentions in AI answers, and referral traffic from AI tools</td></tr>
+        </tbody>
+      </table>
+
+      <h2>10 practical steps to improve your visibility in AI search</h2>
+      <ol>
+        <li><strong>Make sure AI search crawlers can reach you.</strong> Check that robots.txt does not block the crawlers you want to be found by, such as OAI-SearchBot (ChatGPT search), PerplexityBot and Bingbot. Blocking training-only crawlers such as GPTBot or Google-Extended is a separate decision and does not remove you from Google Search.</li>
+        <li><strong>Get indexed by both Google and Bing.</strong> Several AI tools draw on Bing's index, so verify your site in Bing Webmaster Tools as well as Google Search Console and submit your sitemap to both.</li>
+        <li><strong>Answer the question in the first sentence.</strong> Open each page or section with a direct, self-contained answer of one to three sentences, then expand. AI tools favour passages they can quote without extra context.</li>
+        <li><strong>Structure content around real questions.</strong> Use clear H2 and H3 headings phrased the way people ask, short paragraphs, lists and comparison tables.</li>
+        <li><strong>Add visible FAQs.</strong> Answer the follow-up questions your customers actually ask, on the page, in plain language.</li>
+        <li><strong>Use structured data.</strong> Organization, Service, Article, FAQPage and BreadcrumbList schema help machines understand who you are and what each page is about. Only mark up content that is visible on the page.</li>
+        <li><strong>Be specific and verifiable.</strong> Define terms precisely, cite sources for facts and avoid vague marketing claims. Unsupported numbers can damage trust with both people and AI systems.</li>
+        <li><strong>Show who is behind the content.</strong> Clear company information, author or team pages and real case studies are signals of experience and trustworthiness.</li>
+        <li><strong>Keep your brand facts consistent everywhere.</strong> Your name, services, location and contact details should match across your website, social profiles, directories and review platforms, so AI tools form a single, accurate picture of your business.</li>
+        <li><strong>Earn mentions on other trusted sites.</strong> AI answers often draw on third-party sources such as industry publications, comparison articles, reviews and community discussions. Being mentioned there matters as much as your own pages.</li>
+      </ol>
+
+      <h2>What about llms.txt?</h2>
+      <p>llms.txt is a proposed standard: a plain-text file at the root of a site that gives AI tools a concise overview of the site's most important pages. It is cheap to add and can help tools that choose to read it, but it is not an official standard and major AI search engines have not confirmed that they use it. Treat it as a small extra, not a replacement for the steps above.</p>
+
+      <h2>How to measure GEO</h2>
+      <p>Measurement is still less mature than for traditional SEO, but you can track:</p>
+      <ul>
+        <li><strong>Referral traffic from AI tools</strong> in your analytics, for example visits from chatgpt.com, perplexity.ai and copilot.microsoft.com.</li>
+        <li><strong>Manual prompt checks:</strong> a fixed list of questions your customers ask, tested regularly across several AI tools, recording whether and how your brand is mentioned.</li>
+        <li><strong>Search Console and Bing Webmaster Tools data</strong> for the queries and pages that already perform in search.</li>
+        <li><strong>Branded search volume</strong>, which often rises when AI tools recommend you.</li>
+      </ul>
+
+      <h2>Common GEO mistakes</h2>
+      <ul>
+        <li><strong>Blocking AI crawlers by accident</strong> through an overly broad robots.txt or firewall rule.</li>
+        <li><strong>Hiding answers</strong> behind long introductions, tabs that need JavaScript or gated PDFs.</li>
+        <li><strong>Publishing thin, generic content</strong> that says nothing a model does not already know.</li>
+        <li><strong>Inconsistent business details</strong> across the web, which make it harder for AI tools to describe you accurately.</li>
+        <li><strong>Expecting instant results.</strong> Crawling, indexing and third-party mentions take time to build up.</li>
+      </ul>
+
+      <h2>Next steps</h2>
+      <p>If you want to know how AI search tools currently see your brand and what to fix first, our <a href="/ai-visibility-audit">AI search visibility audit</a> reviews crawlability, structured data, content and brand signals. You can also <a href="/contact">talk to us about your site</a>.</p>
+    `,
+    faqs: [
+      {
+        question: 'What is generative engine optimization (GEO)?',
+        answer:
+          'Generative engine optimization is the practice of making content easy for AI-powered search tools such as ChatGPT search, Perplexity, Microsoft Copilot and Google AI Overviews to find, understand, trust and cite in their answers.',
+      },
+      {
+        question: 'Is GEO different from SEO?',
+        answer:
+          'GEO builds on SEO rather than replacing it. AI search tools generally retrieve pages from a search index first, so crawlability, indexing and authority still matter. GEO adds a focus on clear, quotable answers, verifiable facts, structured data and consistent brand information across the web.',
+      },
+      {
+        question: 'How do I get my website cited by ChatGPT?',
+        answer:
+          'Make sure the ChatGPT search crawler (OAI-SearchBot) is not blocked, get your site indexed by Google and Bing, answer common questions directly and clearly on your pages, use accurate structured data, and earn mentions on other trusted sites. There is no guaranteed method, but these steps make citation more likely.',
+      },
+      {
+        question: 'Does blocking GPTBot remove my site from ChatGPT search?',
+        answer:
+          'Not necessarily. OpenAI uses GPTBot for model training and OAI-SearchBot for ChatGPT search, and they can be allowed or blocked separately in robots.txt. Check the current documentation from each AI provider before changing your settings.',
+      },
+      {
+        question: 'Do I need an llms.txt file?',
+        answer:
+          'It is optional. llms.txt is a proposed format that summarises a site for AI tools. It is quick to add and does no harm, but major AI search engines have not confirmed that they rely on it, so it should not replace SEO and content work.',
+      },
+    ],
+  },
+  {
+    id: 'art-11',
+    handle: 'ecommerce-platform-migration-seo',
+    path: '/articles/ecommerce-platform-migration-seo',
+    title: 'Ecommerce Platform Migration: How to Replatform Without Losing SEO Rankings',
+    excerpt:
+      'A step-by-step replatforming plan: benchmarking before you move, mapping every URL to a 301 redirect, migrating data and content safely, launch-day checks and the monitoring that protects your rankings afterwards.',
+    publishedAt: '2026-09-28T09:20:00Z',
+    category: 'platform',
+    articleType: 'Checklist',
+    featured: false,
+    image: {
+      url: '/images/articles/ecommerce-platform-migration-seo.png',
+      altText:
+        'Illustration of an old online store and a new online store connected by a list of redirected URLs, with a rising traffic line above',
+      width: 1376,
+      height: 768,
+    },
+    seo: {
+      title: 'Ecommerce Migration Without Losing SEO | Byte Operator',
+      description:
+        'How to move your store to a new platform without losing rankings: benchmarking, URL mapping, 301 redirects, data migration, launch checks and monitoring.',
+    },
+    contentHtml: `
+      <p><strong>To migrate an ecommerce store without losing SEO, benchmark your current traffic and rankings, map every important old URL to its closest new equivalent with a 301 redirect, carry over titles, descriptions, content and structured data, test everything on a blocked staging site, and monitor crawling, indexing and traffic closely for several months after launch.</strong></p>
+      <p>A platform migration, whether from Magento, WooCommerce, BigCommerce or Salesforce Commerce Cloud to a platform such as Shopify Plus or a headless build, is one of the riskiest moments for organic search. Most of that risk comes from a small number of avoidable mistakes. This guide covers the process we follow.</p>
+
+      <h2>Why migrations lose rankings</h2>
+      <p>Search engines rank individual URLs. When URLs change without a clear signal of where the content has moved, the history attached to the old URLs can be lost. The most common causes of lost traffic are:</p>
+      <ul>
+        <li><strong>Missing or incorrect redirects</strong>, leaving old URLs returning 404 errors.</li>
+        <li><strong>Redirecting everything to the homepage</strong> instead of to the equivalent product or category page.</li>
+        <li><strong>Lost content</strong>, such as category descriptions, product copy, reviews or FAQs that were not migrated.</li>
+        <li><strong>Changed titles, meta descriptions and headings</strong> that weaken relevance for the queries a page ranked for.</li>
+        <li><strong>Staging settings left live</strong>, such as a sitewide noindex or a robots.txt that blocks crawling.</li>
+        <li><strong>Slower pages or new technical problems</strong> introduced by the new theme or apps.</li>
+      </ul>
+
+      <h2>Phase 1: Plan and benchmark before you move</h2>
+      <ol>
+        <li><strong>Crawl the current site</strong> with a crawler such as Screaming Frog or Sitebulb to capture every URL, title, meta description, heading, canonical and status code.</li>
+        <li><strong>Export performance data</strong> from Google Search Console and your analytics: top pages by clicks, revenue and backlinks, and the queries they rank for.</li>
+        <li><strong>Record key rankings and Core Web Vitals</strong> so you have a baseline to compare against after launch.</li>
+        <li><strong>Identify your most valuable URLs.</strong> These get the most careful mapping and testing.</li>
+        <li><strong>Choose the timing.</strong> Avoid launching just before your busiest trading period, and allow time to fix issues.</li>
+      </ol>
+
+      <h2>Phase 2: Map every URL and plan redirects</h2>
+      <p>URL mapping is the heart of an SEO-safe migration. Build a spreadsheet with every old URL and its new destination:</p>
+      <ul>
+        <li><strong>Products</strong> map to the same product on the new platform.</li>
+        <li><strong>Categories</strong> map to the equivalent collection or category.</li>
+        <li><strong>Content pages and blog posts</strong> map to their new versions.</li>
+        <li><strong>Discontinued items</strong> map to the closest relevant category or replacement, not the homepage.</li>
+        <li><strong>Old redirects</strong> are updated so they point directly at the final URL, avoiding redirect chains.</li>
+      </ul>
+      <p>Use permanent <strong>301 redirects</strong>, keep them in place long term, and keep URLs as similar as the new platform allows. Where the platform imposes a fixed URL structure (Shopify, for example, uses /products/ and /collections/ paths), redirect mapping becomes even more important.</p>
+
+      <h2>Phase 3: Migrate data and SEO content</h2>
+      <p>Move more than just products and prices. Make sure the new store carries over:</p>
+      <ul>
+        <li>Page titles, meta descriptions, H1s and on-page copy for products, categories and content pages.</li>
+        <li>Product attributes, variants, images and image alt text.</li>
+        <li>Customer reviews and ratings, where the platform allows.</li>
+        <li>Blog posts, guides and FAQs, with their internal links updated to the new URLs.</li>
+        <li>Structured data for products, breadcrumbs, organisation and articles.</li>
+        <li>Canonical tags, hreflang for international stores and XML sitemaps.</li>
+      </ul>
+      <p>Customer accounts, order history and integrations with ERP, CRM and fulfilment systems need their own plan. Our <a href="/services/software-integrations">integrations</a> team handles these connections as part of a migration.</p>
+
+      <h2>Phase 4: Test on staging</h2>
+      <p>Build and test the new store on a staging environment that search engines cannot index (password protection is the safest method). Before launch, check:</p>
+      <ul>
+        <li>Every redirect in your map resolves in a single hop to a page returning a 200 status.</li>
+        <li>No important page is missing, blocked or set to noindex by mistake.</li>
+        <li>Titles, descriptions, headings and structured data match the plan.</li>
+        <li>Internal links point directly at new URLs rather than through redirects.</li>
+        <li>Page speed and Core Web Vitals are at least as good as the old site on key templates.</li>
+        <li>Analytics, conversion tracking and marketing tags fire correctly.</li>
+      </ul>
+
+      <h2>Phase 5: Launch day checklist</h2>
+      <ol>
+        <li>Remove staging protection and any sitewide noindex tag.</li>
+        <li>Confirm robots.txt allows crawling of important pages.</li>
+        <li>Switch DNS and confirm HTTPS works on every domain variant.</li>
+        <li>Run your redirect map against the live site and fix any failures immediately.</li>
+        <li>Submit the new XML sitemap in Google Search Console and Bing Webmaster Tools.</li>
+        <li>Test purchases, payments and emails end to end.</li>
+      </ol>
+
+      <h2>Phase 6: Monitor after launch</h2>
+      <p>Some fluctuation after a migration is normal while search engines recrawl the site. Watch closely for the first weeks and keep monitoring for several months:</p>
+      <ul>
+        <li><strong>Search Console coverage and crawl errors</strong>, especially new 404s from URLs missed in the map.</li>
+        <li><strong>Organic traffic, rankings and revenue</strong> for your most valuable pages, compared with the benchmark.</li>
+        <li><strong>Server logs or crawl stats</strong> to confirm search engines are discovering the new URLs.</li>
+        <li><strong>Core Web Vitals</strong> field data as real user data comes in.</li>
+      </ul>
+      <p>Fix missed redirects as soon as you find them. The faster problems are corrected, the less impact they have.</p>
+
+      <h2>Choosing a migration partner</h2>
+      <p>An SEO-safe migration needs developers and SEO specialists working from the same plan. Ask any partner how they handle URL mapping, redirect testing, content migration and post-launch monitoring, and who is responsible for each. You can read how we approached an enterprise move in the <a href="/work/omniretail-migration">OmniRetail migration case study</a>, and see our <a href="/services/software-migrations">platform migration services</a>, including <a href="/services/magento-software-migrations">Magento</a> and <a href="/services/woocommerce-software-migrations">WooCommerce</a> migrations, and our dedicated <a href="/services/ecommerce-seo-migrations">SEO migration service</a>. Or <a href="/contact">talk to us about your migration</a>.</p>
+    `,
+    faqs: [
+      {
+        question: 'Will I lose SEO rankings when I change ecommerce platforms?',
+        answer:
+          'Not if the migration is planned well. Short-term fluctuation is common while search engines recrawl the site, but with complete 301 redirects, migrated content and metadata, and careful testing, rankings usually recover and can improve if the new site is faster and better structured.',
+      },
+      {
+        question: 'What is a 301 redirect and why does it matter in a migration?',
+        answer:
+          'A 301 redirect permanently sends visitors and search engines from an old URL to a new one. It tells search engines that the content has moved, so the ranking signals built up by the old URL can pass to the new one.',
+      },
+      {
+        question: 'Should I redirect old product URLs to the homepage?',
+        answer:
+          'No. Redirect each old URL to the most relevant new page, such as the same product or its category. Mass redirects to the homepage are usually treated like missing pages and lose the relevance of the original URL.',
+      },
+      {
+        question: 'How long does it take for rankings to recover after a migration?',
+        answer:
+          'For a well-executed migration, many sites see rankings settle within a few weeks, while larger sites can take several months to be fully recrawled. Monitoring Search Console and fixing issues quickly shortens the recovery period.',
+      },
+      {
+        question: 'How long should I keep redirects in place after a migration?',
+        answer:
+          'Keep them long term. Old URLs can still receive links, bookmarks and search engine visits for years, and removing redirects later can turn that traffic into 404 errors.',
+      },
+    ],
+  },
 ];
 
 export function getArticleByHandle(handle: string): ArticleItem | undefined {

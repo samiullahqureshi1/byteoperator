@@ -444,7 +444,7 @@ export function HomeProjects({
                   <div className="ft-home-projects__content">
                     <div className="ft-home-projects__thumbnail">
                       <img
-                        src={project.thumbnail}
+                        {...responsiveImage(project.thumbnail, '(min-width: 48rem) 8vw, 16vw', 384)}
                         width={project.thumbnailWidth}
                         height={project.thumbnailHeight}
                         alt={`${project.alt} project thumbnail`}

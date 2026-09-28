@@ -247,6 +247,7 @@ export function caseStudyJsonLd(opts: {
   path: string;
   /** Omitted rather than guessed — see `caseStudySchema`. */
   clientName?: string;
+  product?: {name: string; url?: string; description: string; dateCreated?: string};
   headline: string;
   description?: string;
   imageUrl?: string;
@@ -271,6 +272,7 @@ export function caseStudyJsonLd(opts: {
     caseStudySchema({
       path: opts.path,
       clientName: opts.clientName,
+      ...(opts.product ? {product: opts.product} : {}),
       headline: opts.headline,
       description: opts.description ?? '',
       ...(opts.imageUrl ? {imageUrl: opts.imageUrl} : {}),

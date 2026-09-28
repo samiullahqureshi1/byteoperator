@@ -409,6 +409,8 @@ export function articleSchema(input: ArticleInput): JsonLd {
 export function caseStudySchema(opts: {
   path: string;
   clientName?: string;
+  /** In-house product the case study is about (no client). */
+  product?: {name: string; url?: string; description: string; dateCreated?: string};
   headline: string;
   description: string;
   imageUrl?: string;
@@ -423,6 +425,21 @@ export function caseStudySchema(opts: {
     ...(opts.description ? {description: opts.description} : {}),
     ...(opts.clientName
       ? {about: {'@type': 'Organization', name: opts.clientName}}
+      : {}),
+    ...(opts.product
+      ? {
+          about: {
+            '@type': 'SoftwareApplication',
+            name: opts.product.name,
+            description: opts.product.description,
+            applicationCategory: 'BusinessApplication',
+            ...(opts.product.url ? {url: opts.product.url} : {}),
+            ...(opts.product.dateCreated
+              ? {dateCreated: opts.product.dateCreated}
+              : {}),
+            creator: {'@id': ORG_ID},
+          },
+        }
       : {}),
     creator: {'@id': ORG_ID},
     publisher: {'@id': ORG_ID},

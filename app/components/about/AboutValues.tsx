@@ -27,7 +27,7 @@ export function AboutValues() {
             </h3>
 
             <p className="ft-about-values__description">
-              We reject brittle code and bloated dependencies. Every system we build is architected with modern TypeScript, modular Next.js components, optimized GraphQL schemas, and resilient database layers designed to achieve top-tier Core Web Vitals and 99.99% operational uptime.
+              We reject brittle code and bloated dependencies. Every system we build is architected with modern TypeScript, modular Next.js components, optimized GraphQL schemas, and resilient database layers designed for strong Core Web Vitals and dependable, monitored uptime.
             </p>
 
             <h3 className="ft-about-values__subheading">

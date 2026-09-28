@@ -2,6 +2,8 @@ import {Link} from '~/lib/router-compat';
 import {HomeExperts} from '../HomeExperts';
 import {CalendlyButton} from '~/components/shared/CalendlyButton';
 import {softwareImageSrcSet} from '~/lib/software-cdn-image';
+import {responsiveImage} from '~/lib/responsive-image';
+import {TechIcon} from './TechIcon';
 import {parseCaseStudy, type CaseStudyContent} from '~/lib/case-study-page';
 
 type SoftwareImage = {
@@ -62,17 +64,43 @@ type Detail = {
   links?: {label: string; href: string}[];
 };
 
+export type RelatedCaseStudy = {
+  title: string;
+  href: string;
+  category?: string;
+  summary?: string;
+  image?: {url: string; altText?: string; width?: number; height?: number};
+};
+
 type CaseStudyLayoutProps = {
   title: string;
   subtitle?: string;
   content: CaseStudyContent;
-  /** Short facts shown in the hero bar. */
+  /** Short facts shown in the hero bar (the first four). */
   details: Detail[];
-  /** Technologies, rendered as chips under the brief. */
+  /** Technologies, rendered with icons in their own section. */
   chips: string[];
+  /** Services delivered, shown in the "Services" section. */
+  services?: string[];
+  /** Service pages this project relates to. */
+  serviceLinks?: Array<{label: string; href: string}>;
   /** First image leads the page; the rest sit between chapters. */
   images: SoftwareImage[];
   videos?: Video[];
+  /** "More case studies" cards at the end of the page. */
+  related?: RelatedCaseStudy[];
+  /** Live product or client website, shown as a "Visit Website" button. */
+  website?: string;
+  /** Show the lead image at its own aspect ratio instead of a 16:9 crop. */
+  naturalLeadImage?: boolean;
+  /** Overrides the closing call-to-action copy. */
+  cta?: {
+    eyebrow?: string;
+    heading: string;
+    description: string[];
+    /** Hide the decorative photos in the closing section. */
+    hideMedia?: boolean;
+  };
 };
 
 /** Shared layout for `/work/:handle` and `/case-studies/:handle`. */
@@ -82,10 +110,17 @@ export function CaseStudyLayout({
   content,
   details,
   chips,
+  services = [],
+  serviceLinks = [],
   images,
   videos = [],
+  related = [],
+  website,
+  naturalLeadImage = false,
+  cta,
 }: CaseStudyLayoutProps) {
   const [leadImage, ...galleryImages] = images;
+  const heroDetails = details.slice(0, 4);
 
   return (
     <article className="ft-cs">
@@ -99,9 +134,9 @@ export function CaseStudyLayout({
         <h1 className="ft-cs__title">{title}</h1>
         {subtitle ? <p className="ft-cs__subtitle">{subtitle}</p> : null}
 
-        {details.length ? (
+        {heroDetails.length ? (
           <dl className="ft-cs__facts">
-            {details.map((detail) => (
+            {heroDetails.map((detail) => (
               <div className="ft-cs__fact" key={detail.label}>
                 <dt>{detail.label}</dt>
                 <dd>
@@ -127,6 +162,18 @@ export function CaseStudyLayout({
 
         <div className="ft-cs__actions">
           <CalendlyButton className="ft-cs__book" />
+          {website ? (
+            <a
+              className="ft-cs__visit"
+              href={website}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit Website
+              <span aria-hidden="true">↗</span>
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          ) : null}
           <Link className="ft-cs__more" to="/contact">
             Discuss a similar project
           </Link>
@@ -136,21 +183,80 @@ export function CaseStudyLayout({
         </div>
       </header>
 
-      {leadImage ? <ProjectImage image={leadImage} alt={title} eager /> : null}
+      {leadImage ? (
+        <ProjectImage
+          image={leadImage}
+          alt={title}
+          eager
+          natural={naturalLeadImage}
+        />
+      ) : null}
 
-      {content.intro || chips.length ? (
+      {content.intro ? (
         <section className="ft-cs__brief" aria-labelledby="ft-cs-brief">
           <p className="ft-cs__eyebrow" id="ft-cs-brief">
             The Brief
           </p>
-          {content.intro ? (
-            <p className="ft-cs__intro">{content.intro}</p>
-          ) : null}
-          {chips.length ? (
-            <ul className="ft-cs__chips" aria-label="Technologies">
-              {chips.map((chip) => (
-                <li key={chip}>{chip}</li>
+          <p className="ft-cs__intro">{content.intro}</p>
+        </section>
+      ) : null}
+
+      {chips.length ? (
+        <section className="ft-cs__section" aria-labelledby="ft-cs-tech">
+          <header className="ft-cs__chapter-head">
+            <p className="ft-cs__eyebrow">Tech Stack</p>
+            <h2 id="ft-cs-tech">Technologies</h2>
+          </header>
+          <ul className="ft-cs__tech">
+            {chips.map((chip) => (
+              <li key={chip}>
+                <TechIcon name={chip} />
+                <span>{chip}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      {services.length || serviceLinks.length || website ? (
+        <section className="ft-cs__section" aria-labelledby="ft-cs-services">
+          <header className="ft-cs__chapter-head">
+            <p className="ft-cs__eyebrow">What We Delivered</p>
+            <h2 id="ft-cs-services">Services</h2>
+          </header>
+          {services.length ? (
+            <ul className="ft-cs__services">
+              {services.map((service) => (
+                <li key={service}>{service}</li>
               ))}
+            </ul>
+          ) : null}
+          {serviceLinks.length || website ? (
+            <ul className="ft-cs__service-links">
+              {serviceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link className="ft-cs__service-link" to={link.href}>
+                    <span className="ft-cs__service-label">Related service</span>
+                    <span>{link.label}</span>
+                  </Link>
+                </li>
+              ))}
+              {website ? (
+                <li>
+                  <a
+                    className="ft-cs__service-link"
+                    href={website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="ft-cs__service-label">Website</span>
+                    <span>
+                      {website.replace(/^https?:\/\//, '').replace(/\/$/, '')}{' '}
+                      <span aria-hidden="true">↗</span>
+                    </span>
+                  </a>
+                </li>
+              ) : null}
             </ul>
           ) : null}
         </section>
@@ -175,6 +281,16 @@ export function CaseStudyLayout({
               <h2>{chapter.title}</h2>
               {chapter.subheading ? <p>{chapter.subheading}</p> : null}
             </header>
+            {chapter.body?.length ? (
+              <div className="ft-cs__chapter-body">
+                {chapter.body.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            ) : null}
+            {chapter.image ? (
+              <ProjectImage image={chapter.image} alt={chapter.title} natural />
+            ) : null}
             <ul className="ft-cs__points">
               {chapter.points.map((point) => (
                 <li key={point.title || point.text}>
@@ -218,8 +334,57 @@ export function CaseStudyLayout({
         </section>
       ) : null}
 
+      {related.length ? (
+        <section className="ft-cs__related" aria-labelledby="ft-cs-related">
+          <header className="ft-cs__chapter-head">
+            <p className="ft-cs__eyebrow">More Work</p>
+            <h2 id="ft-cs-related">More case studies</h2>
+          </header>
+          <ul className="ft-cs__related-grid">
+            {related.map((item) => (
+              <li key={item.href}>
+                <Link className="ft-cs__related-card" to={item.href}>
+                  {item.image ? (
+                    <img
+                      className="ft-cs__related-image"
+                      {...responsiveImage(
+                        item.image.url,
+                        '(min-width: 56rem) 30vw, 92vw',
+                        1080,
+                      )}
+                      width={item.image.width ?? 1920}
+                      height={item.image.height ?? 1080}
+                      alt={item.image.altText || item.title}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : null}
+                  <span className="ft-cs__related-body">
+                    {item.category ? (
+                      <span className="ft-cs__eyebrow">{item.category}</span>
+                    ) : null}
+                    <span className="ft-cs__related-title">{item.title}</span>
+                    {item.summary ? (
+                      <span className="ft-cs__related-summary">{item.summary}</span>
+                    ) : null}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
-      <HomeExperts />
+      <HomeExperts
+        {...(cta
+          ? {
+              eyebrow: cta.eyebrow,
+              heading: cta.heading,
+              description: cta.description,
+              hideMedia: cta.hideMedia,
+            }
+          : {})}
+      />
     </article>
   );
 }
@@ -289,16 +454,24 @@ function ProjectImage({
   image,
   alt,
   eager = false,
+  natural = false,
 }: {
   image: SoftwareImage;
   alt: string;
   eager?: boolean;
+  /** Product screenshots keep their own aspect ratio instead of 16:9. */
+  natural?: boolean;
 }) {
   return (
-    <figure className="ft-cs__visual">
+    <figure
+      className={natural ? 'ft-cs__visual ft-cs__visual--natural' : 'ft-cs__visual'}
+    >
       <img
         src={image.url}
-        srcSet={softwareImageSrcSet(image.url, [800, 1400, 2000])}
+        srcSet={softwareImageSrcSet(
+          image.url,
+          natural ? [640, 1080, 1600] : [800, 1400, 2000],
+        )}
         sizes="(min-width: 80rem) 80rem, 92vw"
         alt={image.altText || alt}
         width={image.width ?? undefined}

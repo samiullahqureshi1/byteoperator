@@ -4,28 +4,17 @@ import {useCallback, useEffect, useState} from 'react';
 
 const AUTOPLAY_DELAY = 6000;
 
-const TESTIMONIALS = [
-  {
-    quote:
-      'Byte Operator engineered our core real-time collaboration engine on Next.js and WebSockets with near-zero latency. Their architectural discipline and speed to production completely transformed our product velocity.',
-    name: 'Marcus Vance',
-    company: 'Co-Founder & CTO, Collabix Platform',
-  },
-  // A "VP of Growth, Replex Engine" testimonial was removed (2026-09-27):
-  // Replex Engine is Byte Operator's own product, not an external client.
-  {
-    quote:
-      'Migrating our global omnichannel storefront to a modern Shopify Plus architecture with Byte Operator resulted in a 42% lift in mobile conversion and a 98/100 Core Web Vitals score across all international locales.',
-    name: 'Tariq Al-Mansoor',
-    company: 'Head of Digital Commerce, Aydi Active',
-  },
-  {
-    quote:
-      'Byte Operator does not just write clean code; they understand enterprise commerce economics. Their technical CRO and headless engineering directly accelerated our multi-currency European expansion.',
-    name: 'Freja Lindqvist',
-    company: 'Managing Director, Nordic Haven',
-  },
-] as const;
+type Testimonial = {quote: string; name: string; company: string};
+
+/*
+  Client testimonials, shown only when the client has approved the quote and
+  attribution. The previous entries (Marcus Vance / Collabix, Tariq Al-Mansoor
+  / Aydi Active, Freja Lindqvist / Nordic Haven) were removed on 2026-09-28
+  pending verification; the Replex Engine entry was removed on 2026-09-27
+  because Replex is Byte Operator's own product. With no entries the section
+  renders nothing.
+*/
+const TESTIMONIALS: readonly Testimonial[] = [];
 
 export function AboutTestimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -51,12 +40,14 @@ export function AboutTestimonials() {
   }, []);
 
   useEffect(() => {
-    if (isAutoplayPaused) return;
+    if (isAutoplayPaused || TESTIMONIALS.length < 2) return;
 
     const intervalId = window.setInterval(goNext, AUTOPLAY_DELAY);
 
     return () => window.clearInterval(intervalId);
   }, [goNext, isAutoplayPaused]);
+
+  if (!TESTIMONIALS.length) return null;
 
   return (
     <section

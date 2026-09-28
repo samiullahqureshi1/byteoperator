@@ -2,6 +2,7 @@
 
 import {
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
 } from 'react';
@@ -63,6 +64,15 @@ interface CountUpNumberProps {
   fact: CompanyFact;
 }
 
+// useLayoutEffect warns during server rendering; it only matters in the browser.
+const useIsomorphicLayoutEffect =
+  typeof window === 'undefined' ? useEffect : useLayoutEffect;
+
+/**
+ * The server renders the final value (`value` is null), so crawlers and no-JS
+ * visitors see the real figure. In the browser it resets to zero before the
+ * first paint and counts up once in view, unless reduced motion is preferred.
+ */
 export function CountUpNumber({fact}: CountUpNumberProps) {
   const {target} = fact;
 
@@ -70,12 +80,21 @@ export function CountUpNumber({fact}: CountUpNumberProps) {
   const hasAnimated = useRef(false);
   const animationFrame = useRef<number | null>(null);
 
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState<number | null>(null);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const element = elementRef.current;
 
-    if (!element) return;
+    if (
+      !element ||
+      hasAnimated.current ||
+      !('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      return;
+    }
+
+    setValue(0);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -88,16 +107,6 @@ export function CountUpNumber({fact}: CountUpNumberProps) {
 
         hasAnimated.current = true;
         observer.disconnect();
-
-        const reduceMotion =
-          window.matchMedia(
-            '(prefers-reduced-motion: reduce)',
-          ).matches;
-
-        if (reduceMotion) {
-          setValue(target);
-          return;
-        }
 
         const duration = 1800;
         const startTime = performance.now();
@@ -119,7 +128,7 @@ export function CountUpNumber({fact}: CountUpNumberProps) {
             animationFrame.current =
               requestAnimationFrame(animate);
           } else {
-            setValue(target);
+            setValue(null);
           }
         };
 
@@ -144,5 +153,9 @@ export function CountUpNumber({fact}: CountUpNumberProps) {
     };
   }, [target]);
 
-  return <span ref={elementRef}>{formatStatValue(fact, value)}</span>;
+  return (
+    <span ref={elementRef}>
+      {value === null ? fact.value : formatStatValue(fact, value)}
+    </span>
+  );
 }

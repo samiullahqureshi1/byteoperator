@@ -1,8 +1,11 @@
 import {responsiveImage} from '~/lib/responsive-image';
 
-const TESTIMONIAL = {
-  quote: 'Byte Operator transformed our entire technical infrastructure. The execution was flawless, delivering lightning-fast load times and an immediate 68% uplift in mobile conversion.',
-  author: 'Marcus Vance, VP of Ecommerce at Aydi Active',
+/*
+  No client testimonial is shown by default: the previous quote and its
+  attribution could not be verified. Pass `heading` and `meta` only with a
+  quote the client has approved; without them the section renders nothing.
+*/
+const TESTIMONIAL_IMAGE = {
   image: '/images/work/testimonial.webp',
   imageWidth: 1530,
   imageHeight: 650,
@@ -21,15 +24,17 @@ interface WorkTestimonialProps {
 }
 
 export function WorkTestimonial({
-  image = TESTIMONIAL.image,
-  imageWidth = TESTIMONIAL.imageWidth,
-  imageHeight = TESTIMONIAL.imageHeight,
-  alt = TESTIMONIAL.alt,
-  heading = TESTIMONIAL.quote,
-  meta = TESTIMONIAL.author,
+  image = TESTIMONIAL_IMAGE.image,
+  imageWidth = TESTIMONIAL_IMAGE.imageWidth,
+  imageHeight = TESTIMONIAL_IMAGE.imageHeight,
+  alt = TESTIMONIAL_IMAGE.alt,
+  heading,
+  meta,
   actionLabel,
   onAction,
 }: WorkTestimonialProps = {}) {
+  if (!heading || !meta) return null;
+
   return (
     <section
       className="ft-work-testimonial"

@@ -75,4 +75,59 @@ ${[[790,580],[935,580],[1080,580]].map(([x,y])=>`<path d="M${x+62} 408 V${y-62}"
 ${cube(790,520,62,'#16357f')}${cube(935,520,62,'#16357f')}${cube(1080,520,62,'#16357f')}
 `);
 
-export default {'custom-software-development-cost':cost,'ai-agents-business-automation':agents,'headless-vs-traditional-commerce':headless};
+/* 4. SaaS MVP development: product window + launch roadmap */
+const step=(x,label,done)=>`<circle cx="${x}" cy="610" r="${done?16:13}" fill="${done?'url(#blue)':'#070f2b'}" stroke="#4d86ff" stroke-width="3"/>${done?`<path d="M${x-7} 610 l5 5 l9 -10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`:''}<rect x="${x-40}" y="640" width="80" height="10" rx="5" fill="#ffffff" fill-opacity="${done?0.45:0.2}"/>`;
+const saas=base(620,360,`
+<rect x="170" y="110" width="720" height="440" rx="22" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<rect x="170" y="110" width="720" height="44" rx="22" fill="#1b2c5c"/><rect x="170" y="132" width="720" height="22" fill="#1b2c5c"/>
+<circle cx="202" cy="132" r="7" fill="#ff5f7a"/><circle cx="226" cy="132" r="7" fill="#ffc14d"/><circle cx="250" cy="132" r="7" fill="#3ddc97"/>
+<rect x="170" y="154" width="150" height="396" fill="#0f1b3d"/>
+${[0,1,2,3,4].map(i=>`<rect x="192" y="${186+i*44}" width="${i===0?106:86}" height="14" rx="7" fill="${i===0?'url(#cyan)':'#ffffff'}" fill-opacity="${i===0?1:0.22}"/>`).join('')}
+${[0,1,2].map(i=>`<rect x="${346+i*176}" y="180" width="156" height="96" rx="14" fill="#0b1a44" stroke="#2a3f7a"/><rect x="${364+i*176}" y="202" width="64" height="10" rx="5" fill="#ffffff" fill-opacity="0.35"/><rect x="${364+i*176}" y="226" width="${[92,70,110][i]}" height="24" rx="6" fill="${['url(#cyan)','#4d86ff','#ffffff'][i]}" fill-opacity="${[1,1,0.25][i]}"/>`).join('')}
+<rect x="346" y="300" width="508" height="220" rx="14" fill="#0b1a44" stroke="#2a3f7a"/>
+<path d="M372 480 C430 470 460 420 520 430 S620 360 680 372 S780 318 830 322" fill="none" stroke="#38d6ff" stroke-width="4" stroke-linecap="round"/>
+<path d="M372 480 C430 470 460 420 520 430 S620 360 680 372 S780 318 830 322 V500 H372Z" fill="#0550ff" fill-opacity="0.14"/>
+<path d="M150 610 H1230" stroke="#2a3f7a" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"/>
+${step(260,'',1)}${step(480,'',1)}${step(700,'',1)}${step(920,'',0)}
+<g transform="translate(1060 150)">
+<path d="M90 0 C150 50 160 150 130 250 H50 C20 150 30 50 90 0Z" fill="url(#blue)"/>
+<circle cx="90" cy="110" r="30" fill="#070f2b" stroke="#38d6ff" stroke-width="5"/>
+<path d="M50 190 L0 260 L50 250Z M130 190 L180 260 L130 250Z" fill="#2c4a9e"/>
+<path d="M60 262 Q90 350 120 262Z" fill="#38d6ff" fill-opacity="0.85"/><path d="M75 262 Q90 320 105 262Z" fill="#fff" fill-opacity="0.8"/>
+</g>
+<circle cx="1150" cy="610" r="20" fill="#070f2b" stroke="#38d6ff" stroke-width="4"/><path d="M1150 598 v24 M1138 610 h24" stroke="#38d6ff" stroke-width="4" stroke-linecap="round"/>
+`);
+
+/* 5. Generative engine optimisation: AI answer citing sources */
+const src=(x,y,w,hi)=>`<rect x="${x}" y="${y}" width="${w}" height="86" rx="16" fill="url(#panel)" stroke="${hi?'#38d6ff':'#2a3f7a'}" stroke-width="${hi?3:2}"/><rect x="${x+20}" y="${y+20}" width="40" height="40" rx="10" fill="${hi?'url(#cyan)':'#1b2c5c'}"/><rect x="${x+76}" y="${y+24}" width="${w*0.45}" height="12" rx="6" fill="#ffffff" fill-opacity="${hi?0.7:0.4}"/><rect x="${x+76}" y="${y+48}" width="${w*0.3}" height="9" rx="4.5" fill="#ffffff" fill-opacity="0.2"/>`;
+const geo=base(560,360,`
+<rect x="150" y="90" width="700" height="72" rx="36" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+<circle cx="196" cy="126" r="15" fill="none" stroke="#fff" stroke-width="4"/><path d="M207 137 l14 14" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<rect x="240" y="118" width="380" height="16" rx="8" fill="#ffffff" fill-opacity="0.55"/>
+<rect x="760" y="104" width="72" height="44" rx="22" fill="url(#blue)"/><path d="M788 116 l12 10 l-12 10" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="150" y="200" width="700" height="360" rx="24" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<g transform="translate(182 232)"><rect width="56" height="56" rx="16" fill="url(#blue)"/><path d="M28 12 l4 11 l11 4 l-11 4 l-4 11 l-4 -11 l-11 -4 l11 -4z" fill="#fff"/></g>
+${[[260,250,420],[260,280,500],[260,310,460],[260,340,380]].map(([x,y,w])=>`<rect x="${x}" y="${y}" width="${w}" height="12" rx="6" fill="#ffffff" fill-opacity="0.35"/>`).join('')}
+<rect x="646" y="336" width="44" height="22" rx="11" fill="url(#cyan)"/><rect x="700" y="336" width="44" height="22" rx="11" fill="#1b2c5c" stroke="#3a5bb0"/>
+${[[260,392,560],[260,422,480],[260,452,520]].map(([x,y,w])=>`<rect x="${x}" y="${y}" width="${w}" height="12" rx="6" fill="#ffffff" fill-opacity="0.22"/>`).join('')}
+<rect x="260" y="492" width="120" height="30" rx="15" fill="#0b1a44" stroke="#2a3f7a"/><rect x="392" y="492" width="120" height="30" rx="15" fill="#0b1a44" stroke="#2a3f7a"/>
+${src(930,150,300,1)}${src(930,270,300,0)}${src(930,390,300,0)}${src(930,510,300,0)}
+<path d="M690 347 C800 347 820 193 930 193" fill="none" stroke="#38d6ff" stroke-width="3" stroke-dasharray="6 8"/>
+<path d="M744 347 C830 347 850 313 930 313" fill="none" stroke="#4d86ff" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="6 8"/>
+`);
+
+/* 6. Ecommerce platform migration without losing SEO */
+const store=(x,y,accent,op)=>`<g opacity="${op}"><rect x="${x}" y="${y}" width="300" height="340" rx="22" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+<path d="M${x+30} ${y+40} h240 l-18 50 h-204z" fill="${accent}"/>${[0,1,2,3,4].map(i=>`<path d="M${x+48+i*48} ${y+40} v50" stroke="#070f2b" stroke-opacity="0.35" stroke-width="3"/>`).join('')}
+${[0,1].map(r=>[0,1,2].map(c=>`<rect x="${x+30+c*84}" y="${y+120+r*100}" width="72" height="84" rx="10" fill="#0b1a44" stroke="#2a3f7a"/><rect x="${x+40+c*84}" y="${y+130+r*100}" width="52" height="40" rx="6" fill="${accent}" fill-opacity="0.5"/><rect x="${x+40+c*84}" y="${y+180+r*100}" width="40" height="8" rx="4" fill="#ffffff" fill-opacity="0.35"/>`).join('')).join('')}</g>`;
+const migrate=base(688,380,`
+${store(110,210,'#2c4a9e',0.6)}
+${store(966,210,'url(#cyan)',1)}
+${[0,1,2,3,4].map(i=>`<rect x="470" y="${200+i*76}" width="436" height="54" rx="27" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/><rect x="494" y="${220+i*76}" width="${[110,90,130,100,120][i]}" height="12" rx="6" fill="#ffffff" fill-opacity="0.3"/><text x="660" y="${234+i*76}" font-family="monospace" font-size="18" font-weight="700" fill="#38d6ff">301</text><path d="M708 ${227+i*76} h36" stroke="#38d6ff" stroke-width="3" stroke-linecap="round"/><path d="M736 ${219+i*76} l9 8 l-9 8" fill="none" stroke="#38d6ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="${760}" y="${220+i*76}" width="${[110,90,120,96,116][i]}" height="12" rx="6" fill="#ffffff" fill-opacity="0.6"/>`).join('')}
+<path d="M420 380 H455" stroke="#4d86ff" stroke-width="4" stroke-linecap="round"/><path d="M921 380 H956" stroke="#4d86ff" stroke-width="4" stroke-linecap="round"/>
+<g transform="translate(560 90)"><rect width="256" height="70" rx="35" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+<path d="M40 48 l22 -18 l18 12 l28 -24" fill="none" stroke="#3ddc97" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="130" y="24" width="96" height="10" rx="5" fill="#ffffff" fill-opacity="0.55"/><rect x="130" y="42" width="66" height="8" rx="4" fill="#ffffff" fill-opacity="0.25"/></g>
+`);
+
+export default {'custom-software-development-cost':cost,'ai-agents-business-automation':agents,'headless-vs-traditional-commerce':headless,'saas-mvp-development-guide':saas,'generative-engine-optimization':geo,'ecommerce-platform-migration-seo':migrate};

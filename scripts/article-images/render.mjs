@@ -3,7 +3,8 @@
  * to 1376×768 PNGs in public/images/articles/, using the same renderer as
  * app/opengraph-image.tsx.
  *
- *   node scripts/article-images/render.mjs
+ *   node scripts/article-images/render.mjs            # all
+ *   node scripts/article-images/render.mjs name ...   # only these
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -18,7 +19,10 @@ const size = {width: 1376, height: 768};
 
 fs.mkdirSync(outDir, {recursive: true});
 
+const only = process.argv.slice(2);
+
 for (const [name, svg] of Object.entries(illustrations)) {
+  if (only.length && !only.includes(name)) continue;
   const image = new ImageResponse(
     React.createElement('img', {
       src: `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`,

@@ -154,12 +154,14 @@ export const SERVICE_SEO: Record<string, SeoCopy> = {
 /** Keyed by /work/[handle]. */
 export const CASE_STUDY_SEO: Record<string, Partial<SeoCopy>> = {
   collabix: {
+    title: 'Collabix: Project Management SaaS Case Study',
     description:
-      'How Byte Operator built Collabix, a collaborative SaaS platform with real-time sync, an event-driven back end and scalable cloud infrastructure.',
+      'How Byte Operator built Collabix, a custom platform that brings Kanban project management, team capacity, time tracking, milestones and team chat together.',
   },
   'replex-engine': {
+    title: 'Replex Engine AI Automation Platform',
     description:
-      'Replex Engine is Byte Operator’s own AI product: an autonomous system that replies to and qualifies inbound leads around the clock.',
+      'See how Byte Operator built Replex Engine, an AI automation platform designed to help businesses manage leads and reduce missed opportunities.',
   },
   'aydi-active': {
     description:

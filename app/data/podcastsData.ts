@@ -94,7 +94,7 @@ export const PODCAST_EPISODES: PodcastEpisode[] = [
     takeaways: [
       'Why pre-rendering static routes at build time with On-Demand Revalidation beats pure SSR for enterprise catalogs.',
       'How to establish automated regression tests for structured data and canonical tags during deployment pipelines.',
-      'The exact reverse-proxy fallback architecture that guarantees 99.99% uptime during DNS cutover.',
+      'The exact reverse-proxy fallback architecture that keeps the store online during DNS cutover.',
     ],
     transcriptExcerpt:
       '"When you cross $20M in GMV, every 100ms of latency starts burning real conversion dollars. But the biggest fear CTOs have isn\'t performance — it is the catastrophic SEO drop that often plagues bad headless migrations."',

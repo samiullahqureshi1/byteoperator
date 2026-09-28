@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, useRef} from 'react';
-import {responsiveImage} from '~/lib/responsive-image';
+import {resizedImageUrl, responsiveImage} from '~/lib/responsive-image';
 
 /*
  * Entries whose image is an Unsplash stock photo are labelled "(Concept)":
@@ -115,6 +115,23 @@ const GALLERY_LAYERS = [
   ],
 ] as const;
 
+/*
+ * Centre video. The original upload (Shopify CDN, 1600x1200 60fps, ~20MB)
+ * is re-encoded into two H.264 files with the moov atom up front so they
+ * start streaming immediately:
+ *   - 1600x1200 60fps (~5.8MB) for wider screens
+ *   - 960x720 30fps (~2.3MB) for phones, where the cell is small and square
+ * Nothing is downloaded until the gallery is about to scroll into view;
+ * until then (and permanently for reduced-motion users) the first frame
+ * shows as the poster.
+ */
+const HERO_VIDEO = {
+  desktop: '/videos/home-hero-1600.mp4',
+  mobile: '/videos/home-hero-960.mp4',
+  mobileQuery: '(max-width: 48rem)',
+  poster: resizedImageUrl('/images/home-gallery/home-hero-video-poster.jpg', 1200),
+};
+
 export function HomeHeroGallery() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -126,7 +143,21 @@ export function HomeHeroGallery() {
     video.defaultMuted = true;
     video.muted = true;
 
+    // Reduced motion, or no way to tell when the video is on screen:
+    // keep the poster and never download the video.
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      !('IntersectionObserver' in window)
+    ) {
+      return;
+    }
+
+    let isVisible = false;
+    let isPageLoaded = document.readyState === 'complete';
+
     const playVideo = () => {
+      if (!video.src || document.hidden || !isVisible) return;
+
       const playPromise = video.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => {
@@ -135,7 +166,45 @@ export function HomeHeroGallery() {
       }
     };
 
-    playVideo();
+    // Only fetch once the page itself has finished loading, so the video
+    // never competes with the hero's own CSS, fonts and images.
+    const startVideo = () => {
+      if (!isVisible || !isPageLoaded) return;
+
+      if (!video.src) {
+        video.src = window.matchMedia(HERO_VIDEO.mobileQuery).matches
+          ? HERO_VIDEO.mobile
+          : HERO_VIDEO.desktop;
+      }
+
+      playVideo();
+    };
+
+    const handleLoad = () => {
+      isPageLoaded = true;
+      startVideo();
+    };
+
+    if (!isPageLoaded) {
+      window.addEventListener('load', handleLoad, {once: true});
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = Boolean(entry?.isIntersecting);
+
+        if (!isVisible) {
+          video.pause();
+          return;
+        }
+
+        startVideo();
+      },
+      // Start loading shortly before the gallery reaches the viewport.
+      {rootMargin: '25% 0px'},
+    );
+
+    observer.observe(video);
 
     const handleVisibilityChange = () => {
       if (!document.hidden && video.paused) {
@@ -145,6 +214,8 @@ export function HomeHeroGallery() {
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
     return () => {
+      observer.disconnect();
+      window.removeEventListener('load', handleLoad);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
@@ -170,6 +241,8 @@ export function HomeHeroGallery() {
                   <img
                     className="ft-hero-gallery__item-image"
                     {...responsiveImage(project.image, '(max-width: 37.5rem) 34vw, 16vw', 828)}
+                    width={828}
+                    height={1035}
                     alt={project.alt}
                     loading="lazy"
                     decoding="async"
@@ -194,19 +267,15 @@ export function HomeHeroGallery() {
             <video
               ref={videoRef}
               className="ft-hero-gallery__video"
-              src="https://cdn.shopify.com/videos/c/o/v/1fde2ba0cc3146e88e9b22dd031b9193.mp4"
-              autoPlay
+              poster={HERO_VIDEO.poster}
+              width={1600}
+              height={1200}
               muted
               loop
               playsInline
-              preload="auto"
+              preload="none"
               aria-hidden="true"
-            >
-              <source
-                src="https://cdn.shopify.com/videos/c/o/v/1fde2ba0cc3146e88e9b22dd031b9193.mp4"
-                type="video/mp4"
-              />
-            </video>
+            />
           </div>
         </div>
       </div>

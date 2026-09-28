@@ -20,8 +20,19 @@ export type CaseStudyContent = {
     number: string;
     title: string;
     subheading: string;
+    /** Optional paragraphs under the chapter heading. */
+    body?: string[];
+    /** Optional screenshot shown at its natural aspect ratio. */
+    image?: CaseStudyImage;
     points: Array<{title: string; text: string}>;
   }>;
+};
+
+export type CaseStudyImage = {
+  url: string;
+  altText?: string;
+  width?: number;
+  height?: number;
 };
 
 export function parseCaseStudy(
