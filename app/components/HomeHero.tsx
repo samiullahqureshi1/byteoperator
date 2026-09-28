@@ -65,7 +65,7 @@ export function HomeHero() {
 
       <div className="ft-home-hero__content">
         <p className="ft-home-hero__eyebrow">
-          Full-Stack Software Engineering, AI Automations & High-Performance Platforms
+          Byte Operator — AI Automation &amp; Custom Software Engineering
         </p>
 
         <h1
@@ -75,15 +75,15 @@ export function HomeHero() {
           {/* The {' '} gaps are for crawlers and copy/paste: without them the
               heading's text reads "TheSoftware AgencyThat". Flex drops them. */}
           <span className="ft-home-hero__title-line">
-            <span>The</span> <strong>Software & AI Agency</strong>
+            <span>Byte Operator:</span> <strong>AI Automation &amp; Custom</strong>
           </span>{' '}
           <span className="ft-home-hero__title-line">
-            That Drives Real Growth
+            Software Engineering
           </span>
         </h1>
 
         <p className="ft-home-hero__description">
-          Byte Operator designs, engineers, and deploys high-velocity web platforms, autonomous AI lead capture systems, and enterprise digital architectures built for extreme performance.
+          Byte Operator is an independent software engineering and AI automation company. We design, engineer, and deploy high-velocity web platforms, custom SaaS architectures, and autonomous AI systems built for extreme performance.
         </p>
 
         <div className="ft-home-hero__services">

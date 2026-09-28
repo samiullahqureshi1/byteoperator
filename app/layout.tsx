@@ -5,9 +5,9 @@ import {SITEWIDE_GRAPH, jsonLdString} from '~/lib/seo/schema';
 
 export const metadata: Metadata = {
   // Fallback only: every page sets its own title via pageMetadata().
-  title: 'Software & AI Agency | Byte Operator',
+  title: 'Byte Operator — AI Automation & Custom Software Engineering',
   description:
-    'High-performing digital platforms & applications, backed by proven CRO, SEO, and AI visibility strategies that deliver measurable results.',
+    'Byte Operator is an independent software engineering and AI automation company. We build high-performance web applications, custom SaaS platforms, and autonomous AI systems.',
   metadataBase: new URL('https://www.byteoperator.com'),
   // Pages set their own url/title/description via pageMetadata(); the share
   // image comes from app/opengraph-image.tsx.

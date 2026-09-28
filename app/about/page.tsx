@@ -10,9 +10,9 @@ import {AboutJoin} from '~/components/about/AboutJoin';
 import {HomeObservatory} from '~/components/HomeObservatory';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'About Byte Operator | Software, Commerce & AI Agency',
+  title: 'About Byte Operator — AI Automation & Custom Software Engineering',
   description:
-    'Byte Operator is a software engineering agency for high-performance web development, headless ecommerce, conversion optimization and AI automation.',
+    'Learn about Byte Operator, an independent software engineering and AI automation company delivering custom SaaS platforms, modern web apps, and intelligent agent workflows.',
   path: '/about',
 });
 

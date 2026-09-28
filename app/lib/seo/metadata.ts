@@ -9,7 +9,7 @@ const SHARE_IMAGE = {
   url: '/opengraph-image',
   width: 1200,
   height: 630,
-  alt: 'Byte Operator – The Software Agency That Drives Real Growth',
+  alt: 'Byte Operator — AI Automation & Custom Software Engineering',
 };
 
 type PageMetadataInput = {

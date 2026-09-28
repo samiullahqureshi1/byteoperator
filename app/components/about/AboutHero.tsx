@@ -6,7 +6,7 @@ export function AboutHero() {
       <div className="ft-about-hero__container">
         <div className="ft-about-hero__inner">
           <h1 className="ft-about-hero__title">
-            Byte Operator is a modern software engineering, digital commerce, and AI automation agency empowering high-growth brands with resilient architectures, sub-second performance, and autonomous operational scale.
+            Byte Operator is an independent AI automation and custom software engineering company empowering high-growth brands with resilient cloud architectures, high-performance web applications, and autonomous operational scale.
           </h1>
         </div>
       </div>

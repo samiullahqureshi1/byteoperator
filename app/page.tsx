@@ -14,9 +14,9 @@ import {HomeExperts} from '~/components/HomeExperts';
 import {HomeObservatory} from '~/components/HomeObservatory';
 import {contentPageJsonLd} from '~/lib/seo/jsonld';
 
-const HOME_TITLE = 'Software & AI Agency | Byte Operator';
+const HOME_TITLE = 'Byte Operator — AI Automation & Custom Software Engineering';
 const HOME_DESCRIPTION =
-  'High-performing digital platforms & applications, backed by proven CRO, SEO, and AI visibility strategies that deliver measurable results.';
+  'Byte Operator is an independent software engineering and AI automation company. We design, engineer, and deploy high-velocity web platforms, custom SaaS architectures, and autonomous AI automation systems.';
 
 export const metadata: Metadata = pageMetadata({
   title: HOME_TITLE,

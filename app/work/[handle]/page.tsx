@@ -89,9 +89,12 @@ export default function CaseStudyPage({params}: Props) {
   // The hero keeps short facts; services, website and technologies have
   // their own sections further down the page.
   const SECTION_LABELS = ['Services', 'Website', 'Technologies'];
-  const heroDetails = (caseStudy.details || []).filter(
-    (detail) => !SECTION_LABELS.includes(detail.label),
-  );
+  const heroDetails = [
+    {label: 'Engineering', value: 'Built by Byte Operator'},
+    ...(caseStudy.details || []).filter(
+      (detail) => !SECTION_LABELS.includes(detail.label),
+    ),
+  ];
   const services = (
     caseStudy.details?.find((detail) => detail.label === 'Services')?.value || ''
   )

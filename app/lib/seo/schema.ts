@@ -126,7 +126,7 @@ export const ORGANIZATION: JsonLd = {
   '@type': 'ProfessionalService',
   '@id': ORG_ID,
   name: 'Byte Operator',
-  alternateName: ['Byte Operator', 'Byte Operator Software Agency'],
+  alternateName: ['Byte Operator'],
   legalName: 'TAB ON TECH (PVT.) LTD',
   url: `${SITE_URL}/`,
   logo: {
@@ -137,8 +137,10 @@ export const ORGANIZATION: JsonLd = {
   },
   image: LOGO_URL,
   description:
-    'Byte Operator is a premier digital engineering and custom software development agency. It designs, builds, migrates and optimises scalable web applications, enterprise platforms, and cloud systems, combining modern full-stack engineering with technical SEO, AI systems, and conversion rate optimisation.',
-  slogan: 'The software agency that drives real growth',
+    'Byte Operator is an independent AI automation and custom software engineering company. It designs, builds, and scales high-performance web applications, custom SaaS platforms, enterprise cloud architectures, and autonomous AI workflows.',
+  disambiguatingDescription:
+    'Byte Operator is an independent software engineering and AI automation company founded in 2025. Byte Operator is an independent entity and is not affiliated with Byte Software or any other company with "Byte" in its name.',
+  slogan: 'AI Automation & Custom Software Engineering',
   foundingDate: '2025',
   numberOfEmployees: {
     '@type': 'QuantitativeValue',
@@ -155,6 +157,7 @@ export const ORGANIZATION: JsonLd = {
   currenciesAccepted: 'USD',
   areaServed: AREA_SERVED,
   knowsAbout: [
+    'AI Automation & Intelligent Agents',
     'Custom Software Engineering',
     'Full-Stack Web Development',
     'Enterprise Cloud Architecture',
@@ -201,7 +204,7 @@ export const WEBSITE: JsonLd = {
   url: `${SITE_URL}/`,
   name: 'Byte Operator',
   description:
-    'Software and Enterprise Platform Solutions design, development, migration, SEO and AI search visibility services.',
+    'Byte Operator — AI Automation & Custom Software Engineering. High-performance web applications, SaaS platforms, and enterprise digital solutions.',
   publisher: {'@id': ORG_ID},
   inLanguage: 'en',
   /*

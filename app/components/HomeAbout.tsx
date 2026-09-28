@@ -23,17 +23,17 @@ export type HomeAboutData = {
 
 const DEFAULT_HOME_ABOUT_DATA: HomeAboutData = {
   eyebrow:
-    'Engineering & AI Automation Partners for High-Growth Brands',
+    'Independent AI Automation & Custom Software Engineering',
   heading:
-    'We Architect, Automate & Scale Digital Platforms for Real Business Impact',
+    'Byte Operator Architects, Automates & Scales Digital Platforms for Measurable Business Growth',
   stats: HOME_FACTS,
   rightHeading: {
-    prefix: 'Your',
-    emphasis: 'Full-Lifecycle',
-    suffix: 'Software & AI Automation Agency',
+    prefix: 'About',
+    emphasis: 'Byte Operator',
+    suffix: '— Independent AI & Software Engineering',
   },
   description:
-    'At Byte Operator, we engineer high-performance SaaS platforms, Shopify storefronts, and autonomous AI automation systems. Powered by our proprietary Replex Engine framework, visual n8n pipelines, and full-stack cloud architectures, we eliminate manual operational bottlenecks, capture every qualified inbound lead, and maximize digital revenue.',
+    'Byte Operator is an independent AI automation and custom software engineering company. We engineer high-performance SaaS platforms, modern web applications, and autonomous AI workflow systems. Powered by our proprietary Replex Engine framework, visual n8n pipelines, and full-stack cloud architectures, we eliminate manual operational bottlenecks, capture every qualified inbound lead, and scale digital revenue.',
   cta: {
     label: 'Explore Our Case Studies',
     href: '/work',

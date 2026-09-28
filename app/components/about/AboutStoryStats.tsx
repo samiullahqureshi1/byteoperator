@@ -28,15 +28,19 @@ export function AboutStoryStats() {
             <div className="ft-about-story__right">
               <div className="ft-about-story__description">
                 <p>
-                  Byte Operator was established on a clear premise: modern brands outgrow generic agency templates, fragile monolithic codebases, and fragmented vendor stacks. We bridge high-level product strategy, full-stack software engineering, conversion rate optimization, and autonomous AI automation into one cohesive, high-impact delivery team.
+                  <strong>Byte Operator</strong> is an independent AI automation and custom software engineering company founded on a clear premise: modern organizations outgrow generic templates, fragile monolithic codebases, and fragmented vendor stacks. We bridge high-level product strategy, full-stack software engineering, and autonomous AI automation into one cohesive, high-impact delivery team.
                 </p>
 
                 <p>
-                  From building sub-second headless storefronts on Next.js, React, and Shopify Hydrogen to deploying enterprise platforms across Shopify Plus, BigCommerce, WooCommerce, and Magento, we craft scalable digital infrastructure. Beyond the storefront, we architect autonomous multi-agent pipelines with our proprietary Replex Engine and n8n workflows, turning manual operational bottlenecks into instant, zero-latency business growth.
+                  As an independent engineering firm founded by Samiullah Qureshi and Uzair Khan, Byte Operator operates with its own proprietary architectures, workflows, and dedicated engineers—completely separate and distinct from any other organizations using the word &ldquo;Byte&rdquo;.
                 </p>
 
                 <p>
-                  We partner directly with founders, CTOs, and ecommerce leaders as an embedded engineering force, delivering measurable revenue increases, bulletproof reliability, and enduring competitive advantages.
+                  From engineering custom SaaS platforms and full-stack web applications to deploying autonomous multi-agent pipelines with our proprietary Replex Engine and n8n workflows, we eliminate manual operational bottlenecks and accelerate technical velocity.
+                </p>
+
+                <p>
+                  We partner directly with founders, CTOs, and technical leaders as an embedded engineering force, delivering measurable revenue increases, bulletproof reliability, and enduring competitive advantages.
                 </p>
               </div>
 
