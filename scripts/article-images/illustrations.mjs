@@ -130,4 +130,40 @@ ${[0,1,2,3,4].map(i=>`<rect x="470" y="${200+i*76}" width="436" height="54" rx="
 <rect x="130" y="24" width="96" height="10" rx="5" fill="#ffffff" fill-opacity="0.55"/><rect x="130" y="42" width="66" height="8" rx="4" fill="#ffffff" fill-opacity="0.25"/></g>
 `);
 
-export default {'custom-software-development-cost':cost,'ai-agents-business-automation':agents,'headless-vs-traditional-commerce':headless,'saas-mvp-development-guide':saas,'generative-engine-optimization':geo,'ecommerce-platform-migration-seo':migrate};
+/* 7. Technical SEO Checklist: audit clipboard, green checks, Core Web Vitals gauges */
+const checkItem=(x,y,w,label)=>`<g transform="translate(${x} ${y})"><rect width="${w}" height="56" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/><circle cx="32" cy="28" r="14" fill="#0b1a44" stroke="#3ddc97" stroke-width="2.5"/><path d="M26 28 l4 4 l8 -8" fill="none" stroke="#3ddc97" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="60" y="22" width="${w-80}" height="12" rx="6" fill="#ffffff" fill-opacity="0.6"/></g>`;
+const gauge=(x,y,score,label,unit)=>`<g transform="translate(${x} ${y})"><rect width="180" height="150" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/><circle cx="90" cy="70" r="42" fill="none" stroke="#0b1a44" stroke-width="10"/><circle cx="90" cy="70" r="42" fill="none" stroke="#3ddc97" stroke-width="10" stroke-dasharray="264" stroke-dashoffset="30" stroke-linecap="round"/><text x="90" y="78" font-family="sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">${score}</text><text x="90" y="128" font-family="sans-serif" font-size="14" font-weight="600" fill="#38d6ff" text-anchor="middle">${label}</text></g>`;
+
+const techSeo=base(688,380,`
+<rect x="140" y="100" width="600" height="540" rx="24" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<rect x="140" y="100" width="600" height="48" rx="24" fill="#1b2c5c"/><rect x="140" y="124" width="600" height="24" fill="#1b2c5c"/>
+<circle cx="172" cy="124" r="7" fill="#ff5f7a"/><circle cx="196" cy="124" r="7" fill="#ffc14d"/><circle cx="220" cy="124" r="7" fill="#3ddc97"/>
+<rect x="250" y="116" width="300" height="16" rx="8" fill="#ffffff" fill-opacity="0.4"/>
+<g transform="translate(180 180)">
+${checkItem(0,0,520,'')}
+${checkItem(0,76,520,'')}
+${checkItem(0,152,520,'')}
+${checkItem(0,228,520,'')}
+${checkItem(0,304,520,'')}
+</g>
+<g transform="translate(780 100)">
+<rect width="456" height="540" rx="24" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+<rect x="30" y="30" width="396" height="40" rx="10" fill="#0b1a44"/><rect x="50" y="44" width="220" height="12" rx="6" fill="url(#cyan)"/>
+${gauge(30,100,'100','LCP 0.8s','')}
+${gauge(246,100,'100','INP 34ms','')}
+${gauge(30,280,'0.00','CLS Zero','')}
+${gauge(246,280,'100','Core Vitals','')}
+<rect x="30" y="460" width="396" height="48" rx="24" fill="url(#blue)"/><path d="M190 484 l14 -10 l14 10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+</g>
+`);
+
+export default {
+  'custom-software-development-cost': cost,
+  'ai-agents-business-automation': agents,
+  'headless-vs-traditional-commerce': headless,
+  'saas-mvp-development-guide': saas,
+  'generative-engine-optimization': geo,
+  'ecommerce-platform-migration-seo': migrate,
+  'technical-seo-checklist': techSeo,
+};
+
