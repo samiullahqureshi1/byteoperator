@@ -206,48 +206,54 @@ const shopifyApp = base(688, 380, `
 
 /* 9. Enterprise AI Automation & Agentic Workflows */
 const aiEnterprise = base(688, 380, `
-<g transform="translate(140 100)">
-  <rect width="520" height="540" rx="24" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
-  <rect width="520" height="48" rx="24" fill="#1b2c5c"/><rect y="24" width="520" height="24" fill="#1b2c5c"/>
-  <circle cx="32" cy="24" r="7" fill="#ff5f7a"/><circle cx="56" cy="24" r="7" fill="#ffc14d"/><circle cx="80" cy="24" r="7" fill="#3ddc97"/>
-  <text x="110" y="30" font-family="sans-serif" font-size="15" font-weight="600" fill="#ffffff" fill-opacity="0.8">LangGraph Multi-Agent Orchestration</text>
-  
-  <rect x="40" y="80" width="440" height="90" rx="16" fill="#0b1a44" stroke="#3a5bb0" stroke-width="2"/>
-  <text x="70" y="125" font-family="sans-serif" font-size="18" font-weight="700" fill="#38d6ff">Supervisor Agent (Router)</text>
-  <text x="70" y="148" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.5">Intent classification & plan decomposition</text>
-  
-  <path d="M260 170 V210" stroke="#38d6ff" stroke-width="4" stroke-linecap="round"/>
-  
-  <rect x="40" y="210" width="205" height="120" rx="16" fill="#0b1a44" stroke="#2a3f7a"/>
-  <text x="60" y="250" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">RAG Agent</text>
-  <text x="60" y="275" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Vector DB query</text>
-  <text x="60" y="300" font-family="sans-serif" font-size="12" fill="#3ddc97">pgvector embeddings</text>
-  
-  <rect x="275" y="210" width="205" height="120" rx="16" fill="#0b1a44" stroke="#2a3f7a"/>
-  <text x="295" y="250" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">Tool Agent</text>
-  <text x="295" y="275" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">ERP & CRM APIs</text>
-  <text x="295" y="300" font-family="sans-serif" font-size="12" fill="#38d6ff">Deterministic execution</text>
+<rect x="140" y="100" width="560" height="540" rx="24" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<rect x="140" y="100" width="560" height="48" rx="24" fill="#1b2c5c"/><rect x="140" y="124" width="560" height="24" fill="#1b2c5c"/>
+<circle cx="172" cy="124" r="7" fill="#ff5f7a"/><circle cx="196" cy="124" r="7" fill="#ffc14d"/><circle cx="220" cy="124" r="7" fill="#3ddc97"/>
+<rect x="250" y="116" width="260" height="16" rx="8" fill="#ffffff" fill-opacity="0.4"/>
 
-  <path d="M260 330 V370" stroke="#38d6ff" stroke-width="4" stroke-linecap="round"/>
-  
-  <rect x="40" y="370" width="440" height="110" rx="16" fill="url(#panel)" stroke="#3ddc97" stroke-width="2"/>
-  <text x="70" y="415" font-family="sans-serif" font-size="18" font-weight="700" fill="#3ddc97">Evaluation & HITL Gate</text>
-  <text x="70" y="440" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Schema validation & human approval</text>
+<g transform="translate(180 180)">
+  <rect width="480" height="90" rx="16" fill="#0b1a44" stroke="#3a5bb0" stroke-width="2"/>
+  <circle cx="50" cy="45" r="22" fill="url(#blue)"/>
+  <rect x="90" y="30" width="220" height="14" rx="7" fill="url(#cyan)"/>
+  <rect x="90" y="52" width="160" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
 </g>
-<g transform="translate(700 100)">
-  <rect width="536" height="540" rx="24" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
-  <rect x="40" y="40" width="456" height="60" rx="14" fill="#0b1a44"/>
-  <text x="70" y="76" font-family="sans-serif" font-size="18" font-weight="700" fill="#ffffff">Enterprise Guardrails</text>
-  ${[
-    ['Zero-Data Retention Policy', 'Enterprise private endpoints', '#3ddc97'],
-    ['Pydantic / Zod Output Schemas', 'Strict deterministic typing', '#38d6ff'],
-    ['Least-Privilege API Scopes', 'Granular IAM credentials', 'url(#blue)'],
-    ['Immutable Audit Logs', 'Full tracing with OpenTelemetry', '#4d86ff']
-  ].map(([title, sub, color], i) => `
-    <rect x="40" y="${120 + i * 95}" width="456" height="78" rx="14" fill="#0b1a44" stroke="#2a3f7a"/>
-    <circle cx="75" cy="${159 + i * 95}" r="12" fill="${color}"/>
-    <text x="105" y="${154 + i * 95}" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">${title}</text>
-    <text x="105" y="${176 + i * 95}" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.55">${sub}</text>
+
+<path d="M420 270 V310" stroke="#38d6ff" stroke-width="4" stroke-linecap="round"/>
+
+<g transform="translate(180 310)">
+  <rect width="225" height="130" rx="16" fill="#0b1a44" stroke="#2a3f7a"/>
+  <circle cx="45" cy="45" r="18" fill="#3ddc97"/>
+  <rect x="75" y="35" width="100" height="12" rx="6" fill="#ffffff" fill-opacity="0.8"/>
+  <rect x="30" y="80" width="165" height="10" rx="5" fill="#ffffff" fill-opacity="0.25"/>
+  <rect x="30" y="98" width="120" height="10" rx="5" fill="#ffffff" fill-opacity="0.2"/>
+</g>
+
+<g transform="translate(435 310)">
+  <rect width="225" height="130" rx="16" fill="#0b1a44" stroke="#2a3f7a"/>
+  <circle cx="45" cy="45" r="18" fill="url(#blue)"/>
+  <rect x="75" y="35" width="100" height="12" rx="6" fill="#ffffff" fill-opacity="0.8"/>
+  <rect x="30" y="80" width="165" height="10" rx="5" fill="#ffffff" fill-opacity="0.25"/>
+  <rect x="30" y="98" width="120" height="10" rx="5" fill="#ffffff" fill-opacity="0.2"/>
+</g>
+
+<path d="M420 440 V470" stroke="#38d6ff" stroke-width="4" stroke-linecap="round"/>
+
+<g transform="translate(180 470)">
+  <rect width="480" height="120" rx="16" fill="url(#panel)" stroke="#3ddc97" stroke-width="2"/>
+  <circle cx="50" cy="60" r="22" fill="#3ddc97"/>
+  <rect x="90" y="42" width="240" height="14" rx="7" fill="#ffffff" fill-opacity="0.9"/>
+  <rect x="90" y="66" width="180" height="10" rx="5" fill="#ffffff" fill-opacity="0.4"/>
+</g>
+
+<g transform="translate(740 100)">
+  <rect width="496" height="540" rx="24" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <rect x="30" y="30" width="436" height="50" rx="12" fill="#0b1a44"/>
+  <rect x="50" y="48" width="220" height="14" rx="7" fill="url(#cyan)"/>
+  ${[0, 1, 2, 3].map(i => `
+    <rect x="30" y="${100 + i * 105}" width="436" height="85" rx="14" fill="#0b1a44" stroke="#2a3f7a"/>
+    <circle cx="65" cy="${142 + i * 105}" r="16" fill="${['#3ddc97', '#38d6ff', 'url(#blue)', '#4d86ff'][i]}"/>
+    <rect x="100" y="${128 + i * 105}" width="${[220, 260, 200, 240][i]}" height="14" rx="7" fill="#ffffff" fill-opacity="0.75"/>
+    <rect x="100" y="${150 + i * 105}" width="${[160, 190, 140, 170][i]}" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
   `).join('')}
 </g>
 `);
@@ -257,50 +263,39 @@ const nextjsSaas = base(688, 380, `
 <rect x="140" y="100" width="700" height="540" rx="24" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
 <rect x="140" y="100" width="700" height="48" rx="24" fill="#1b2c5c"/><rect x="140" y="124" width="700" height="24" fill="#1b2c5c"/>
 <circle cx="172" cy="124" r="7" fill="#ff5f7a"/><circle cx="196" cy="124" r="7" fill="#ffc14d"/><circle cx="220" cy="124" r="7" fill="#3ddc97"/>
-<text x="250" y="130" font-family="sans-serif" font-size="15" font-weight="600" fill="#ffffff" fill-opacity="0.8">Next.js 14 App Router + Multi-Tenant Architecture</text>
+<rect x="250" y="116" width="320" height="16" rx="8" fill="#ffffff" fill-opacity="0.4"/>
 
 <g transform="translate(180 180)">
   <rect width="620" height="90" rx="16" fill="#0b1a44" stroke="#3a5bb0" stroke-width="2"/>
   <rect x="25" y="25" width="160" height="40" rx="10" fill="url(#cyan)"/>
-  <text x="45" y="50" font-family="sans-serif" font-size="15" font-weight="700" fill="#070f2b">Server Actions</text>
   <rect x="205" y="25" width="160" height="40" rx="10" fill="url(#blue)"/>
-  <text x="225" y="50" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffffff">Edge Middleware</text>
   <rect x="385" y="25" width="210" height="40" rx="10" fill="#16244d" stroke="#3a5bb0"/>
-  <text x="405" y="50" font-family="sans-serif" font-size="15" font-weight="700" fill="#38d6ff">Tenant Subdomain /app</text>
 </g>
 
 <g transform="translate(180 290)">
   <rect width="620" height="150" rx="16" fill="#0b1a44" stroke="#2a3f7a"/>
-  <text x="30" y="40" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">PostgreSQL Row-Level Security (RLS)</text>
-  <text x="30" y="70" font-family="monospace" font-size="14" fill="#38d6ff">CREATE POLICY tenant_isolation_policy ON organizations</text>
-  <text x="30" y="95" font-family="monospace" font-size="14" fill="#ffffff" fill-opacity="0.7">USING (tenant_id = current_setting('app.current_tenant'));</text>
-  <rect x="30" y="115" width="140" height="20" rx="6" fill="url(#cyan)" fill-opacity="0.8"/>
+  <rect x="30" y="25" width="260" height="14" rx="7" fill="#ffffff" fill-opacity="0.8"/>
+  <rect x="30" y="55" width="560" height="10" rx="5" fill="#38d6ff" fill-opacity="0.6"/>
+  <rect x="30" y="75" width="480" height="10" rx="5" fill="#ffffff" fill-opacity="0.3"/>
+  <rect x="30" y="105" width="140" height="26" rx="13" fill="url(#cyan)" fill-opacity="0.9"/>
 </g>
 
 <g transform="translate(180 460)">
   <rect width="620" height="140" rx="16" fill="#0b1a44" stroke="#3a5bb0" stroke-width="2"/>
-  <text x="30" y="40" font-family="sans-serif" font-size="16" font-weight="700" fill="#3ddc97">Stripe Subscriptions & Webhook Queue</text>
-  <rect x="30" y="60" width="180" height="50" rx="10" fill="#16244d"/>
-  <text x="45" y="90" font-family="sans-serif" font-size="14" font-weight="600" fill="#ffffff">invoice.paid</text>
-  <rect x="230" y="60" width="180" height="50" rx="10" fill="#16244d"/>
-  <text x="245" y="90" font-family="sans-serif" font-size="14" font-weight="600" fill="#ffffff">customer.updated</text>
-  <rect x="430" y="60" width="160" height="50" rx="10" fill="url(#blue)"/>
-  <text x="445" y="90" font-family="sans-serif" font-size="14" font-weight="600" fill="#ffffff">Idempotent Sync</text>
+  <rect x="30" y="25" width="240" height="14" rx="7" fill="#3ddc97"/>
+  <rect x="30" y="55" width="180" height="50" rx="10" fill="#16244d"/>
+  <rect x="230" y="55" width="180" height="50" rx="10" fill="#16244d"/>
+  <rect x="430" y="55" width="160" height="50" rx="10" fill="url(#blue)"/>
 </g>
 
 <g transform="translate(880 140)">
   <rect width="360" height="460" rx="24" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
-  <text x="35" y="55" font-family="sans-serif" font-size="20" font-weight="700" fill="#ffffff">Production Stack</text>
-  ${[
-    ['Next.js 14 App Router', 'React Server Components'],
-    ['Prisma / Drizzle ORM', 'Type-safe SQL queries'],
-    ['Clerk / NextAuth', 'Secure session JWTs'],
-    ['Inngest / BullMQ', 'Background job workers'],
-    ['Tailwind + shadcn/ui', 'Reusable design system']
-  ].map(([t, s], i) => `
-    <rect x="30" y="${80 + i * 72}" width="300" height="60" rx="12" fill="#0b1a44" stroke="#2a3f7a"/>
-    <text x="50" y="${108 + i * 72}" font-family="sans-serif" font-size="15" font-weight="700" fill="#38d6ff">${t}</text>
-    <text x="50" y="${128 + i * 72}" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">${s}</text>
+  <rect x="30" y="30" width="300" height="40" rx="10" fill="#0b1a44"/>
+  <rect x="50" y="44" width="180" height="12" rx="6" fill="url(#cyan)"/>
+  ${[0, 1, 2, 3, 4].map(i => `
+    <rect x="30" y="${85 + i * 70}" width="300" height="56" rx="12" fill="#0b1a44" stroke="#2a3f7a"/>
+    <rect x="50" y="${100 + i * 70}" width="${[180, 160, 140, 170, 190][i]}" height="12" rx="6" fill="#38d6ff"/>
+    <rect x="50" y="${118 + i * 70}" width="${[120, 100, 90, 110, 130][i]}" height="8" rx="4" fill="#ffffff" fill-opacity="0.3"/>
   `).join('')}
 </g>
 `);
@@ -309,45 +304,38 @@ const nextjsSaas = base(688, 380, `
 const shopifyCustomMigrate = base(688, 380, `
 <g transform="translate(120 140)">
   <rect width="320" height="480" rx="22" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
-  <text x="40" y="55" font-family="sans-serif" font-size="20" font-weight="700" fill="#ff5f7a">Legacy Shopify Store</text>
-  <rect x="40" y="80" width="240" height="60" rx="12" fill="#0b1a44"/>
-  <text x="60" y="115" font-family="sans-serif" font-size="15" fill="#ffffff">Liquid Templates</text>
-  <rect x="40" y="160" width="240" height="60" rx="12" fill="#0b1a44"/>
-  <text x="60" y="195" font-family="sans-serif" font-size="15" fill="#ffffff">App Script Injections</text>
-  <rect x="40" y="240" width="240" height="60" rx="12" fill="#0b1a44"/>
-  <text x="60" y="275" font-family="sans-serif" font-size="15" fill="#ffffff">Monolithic Limits</text>
-  <rect x="40" y="320" width="240" height="120" rx="12" fill="#1b2c5c"/>
-  <text x="60" y="360" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.6">Data Export:</text>
-  <text x="60" y="390" font-family="monospace" font-size="13" fill="#38d6ff">JSON / REST / GraphQL</text>
+  <rect x="40" y="35" width="180" height="16" rx="8" fill="#ff5f7a"/>
+  <rect x="40" y="70" width="240" height="70" rx="14" fill="#0b1a44"/>
+  <rect x="60" y="95" width="140" height="12" rx="6" fill="#ffffff" fill-opacity="0.7"/>
+  <rect x="40" y="160" width="240" height="70" rx="14" fill="#0b1a44"/>
+  <rect x="60" y="185" width="160" height="12" rx="6" fill="#ffffff" fill-opacity="0.7"/>
+  <rect x="40" y="250" width="240" height="70" rx="14" fill="#0b1a44"/>
+  <rect x="60" y="275" width="130" height="12" rx="6" fill="#ffffff" fill-opacity="0.7"/>
+  <rect x="40" y="340" width="240" height="100" rx="14" fill="#1b2c5c"/>
+  <rect x="60" y="380" width="150" height="14" rx="7" fill="#38d6ff"/>
 </g>
 
 <g transform="translate(480 200)">
   <rect width="416" height="360" rx="20" fill="url(#panel)" stroke="#38d6ff" stroke-width="2"/>
-  <text x="40" y="50" font-family="sans-serif" font-size="18" font-weight="700" fill="#38d6ff">ETL & Migration Pipeline</text>
-  ${[
-    ['1. Customer & Hash Porting', 'Multipass / bcrypt verification'],
-    ['2. Order & Transaction Sync', 'Preserve order histories'],
-    ['3. URL 1-to-1 Redirect Rules', 'Zero 404s, 100% PageRank'],
-    ['4. Delta Sync Cutover', 'Zero downtime cutover']
-  ].map(([t, s], i) => `
-    <rect x="30" y="${75 + i * 65}" width="356" height="52" rx="10" fill="#0b1a44" stroke="#2a3f7a"/>
-    <text x="50" y="${100 + i * 65}" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">${t}</text>
-    <text x="50" y="${118 + i * 65}" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">${s}</text>
+  <rect x="40" y="30" width="220" height="16" rx="8" fill="url(#cyan)"/>
+  ${[0, 1, 2, 3].map(i => `
+    <rect x="30" y="${65 + i * 68}" width="356" height="54" rx="12" fill="#0b1a44" stroke="#2a3f7a"/>
+    <rect x="50" y="${80 + i * 68}" width="${[180, 160, 200, 150][i]}" height="12" rx="6" fill="#ffffff" fill-opacity="0.8"/>
+    <rect x="50" y="${98 + i * 68}" width="${[120, 110, 140, 90][i]}" height="8" rx="4" fill="#ffffff" fill-opacity="0.3"/>
   `).join('')}
 </g>
 
 <g transform="translate(936 140)">
   <rect width="320" height="480" rx="22" fill="url(#panel)" stroke="#3ddc97" stroke-width="2"/>
-  <text x="40" y="55" font-family="sans-serif" font-size="20" font-weight="700" fill="#3ddc97">Custom Web Platform</text>
-  <rect x="40" y="80" width="240" height="60" rx="12" fill="#0b1a44"/>
-  <text x="60" y="115" font-family="sans-serif" font-size="15" fill="#ffffff">Next.js Edge Frontend</text>
-  <rect x="40" y="160" width="240" height="60" rx="12" fill="#0b1a44"/>
-  <text x="60" y="195" font-family="sans-serif" font-size="15" fill="#ffffff">Node.js Microservices</text>
-  <rect x="40" y="240" width="240" height="60" rx="12" fill="#0b1a44"/>
-  <text x="60" y="275" font-family="sans-serif" font-size="15" fill="#ffffff">PostgreSQL / Redis</text>
-  <rect x="40" y="320" width="240" height="120" rx="12" fill="url(#blue)" fill-opacity="0.3"/>
-  <text x="60" y="365" font-family="sans-serif" font-size="15" font-weight="700" fill="#3ddc97">Full Custom Ownership</text>
-  <text x="60" y="395" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.8">Sub-second global TTFB</text>
+  <rect x="40" y="35" width="200" height="16" rx="8" fill="#3ddc97"/>
+  <rect x="40" y="70" width="240" height="70" rx="14" fill="#0b1a44"/>
+  <rect x="60" y="95" width="160" height="12" rx="6" fill="#ffffff" fill-opacity="0.8"/>
+  <rect x="40" y="160" width="240" height="70" rx="14" fill="#0b1a44"/>
+  <rect x="60" y="185" width="170" height="12" rx="6" fill="#ffffff" fill-opacity="0.8"/>
+  <rect x="40" y="250" width="240" height="70" rx="14" fill="#0b1a44"/>
+  <rect x="60" y="275" width="150" height="12" rx="6" fill="#ffffff" fill-opacity="0.8"/>
+  <rect x="40" y="340" width="240" height="100" rx="14" fill="url(#blue)" fill-opacity="0.3"/>
+  <rect x="60" y="375" width="180" height="14" rx="7" fill="#3ddc97"/>
 </g>
 `);
 
