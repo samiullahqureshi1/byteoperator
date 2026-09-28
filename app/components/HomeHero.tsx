@@ -72,13 +72,11 @@ export function HomeHero() {
           className="ft-home-hero__title"
           id="ft-home-hero-title"
         >
-          {/* The {' '} gaps are for crawlers and copy/paste: without them the
-              heading's text reads "TheSoftware AgencyThat". Flex drops them. */}
           <span className="ft-home-hero__title-line">
-            <span>Byte Operator:</span> <strong>AI Automation &amp; Custom</strong>
+            Byte Operator
           </span>{' '}
           <span className="ft-home-hero__title-line">
-            Software Engineering
+            <strong>AI Automation &amp; Custom Software Engineering</strong>
           </span>
         </h1>
 
