@@ -30,16 +30,18 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
-  // Google Search shows a favicon only if it is square and a multiple of
-  // 48px, so every icon here is 48/96/192/512. /favicon.ico (16/32/48) is
-  // served from public/ for browsers and crawlers that request it directly.
+  // Google Search shows a favicon only if it is square and ≥48px.
+  // /favicon.ico must be served from public/ at the root for crawlers.
   icons: {
     icon: [
-      {url: '/favicon.ico', sizes: '48x48'},
+      // favicon.ico — no sizes attr; let the browser/crawler auto-detect
+      {url: '/favicon.ico', type: 'image/x-icon'},
       {url: '/images/favicon-48.png', sizes: '48x48', type: 'image/png'},
       {url: '/images/favicon-96.png', sizes: '96x96', type: 'image/png'},
       {url: '/images/favicon-192.png', sizes: '192x192', type: 'image/png'},
+      {url: '/images/favicon-512.png', sizes: '512x512', type: 'image/png'},
     ],
+    shortcut: [{url: '/favicon.ico', type: 'image/x-icon'}],
     apple: [{url: '/images/apple-touch-icon.png', sizes: '180x180', type: 'image/png'}],
   },
 };
@@ -52,6 +54,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Explicit shortcut icon — picked up by Google's favicon crawler */}
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         <meta
           name="google-site-verification"
           content="MH80_WYTkwy23muXrl99RBVKfe76gOw3bmDJFHEQTlk"
