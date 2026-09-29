@@ -339,6 +339,334 @@ const shopifyCustomMigrate = base(688, 380, `
 </g>
 `);
 
+// --- shopify-speed-optimization ---
+const shopifySpeed = base(688, 380, `
+<rect x="140" y="80" width="1096" height="56" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="200" y="118" font-family="sans-serif" font-size="26" font-weight="700" fill="#38d6ff">Shopify Speed Optimization Guide 2026</text>
+<text x="920" y="118" font-family="sans-serif" font-size="18" fill="#4d86ff">Core Web Vitals</text>
+
+<g transform="translate(140 170)">
+  <rect width="300" height="180" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="150" y="44" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.6">LCP</text>
+  <text x="150" y="90" text-anchor="middle" font-family="sans-serif" font-size="52" font-weight="800" fill="url(#cyan)">1.8s</text>
+  <text x="150" y="130" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#3ddc97">Good (&lt;2.5s)</text>
+  <rect x="30" y="150" width="240" height="10" rx="5" fill="#0b1a44"/>
+  <rect x="30" y="150" width="170" height="10" rx="5" fill="url(#blue)"/>
+</g>
+
+<g transform="translate(470 170)">
+  <rect width="300" height="180" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="150" y="44" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.6">INP</text>
+  <text x="150" y="90" text-anchor="middle" font-family="sans-serif" font-size="52" font-weight="800" fill="#3ddc97">62ms</text>
+  <text x="150" y="130" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#3ddc97">Good (&lt;200ms)</text>
+  <rect x="30" y="150" width="240" height="10" rx="5" fill="#0b1a44"/>
+  <rect x="30" y="150" width="74" height="10" rx="5" fill="#3ddc97"/>
+</g>
+
+<g transform="translate(800 170)">
+  <rect width="300" height="180" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="150" y="44" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.6">CLS</text>
+  <text x="150" y="90" text-anchor="middle" font-family="sans-serif" font-size="52" font-weight="800" fill="url(#cyan)">0.04</text>
+  <text x="150" y="130" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#3ddc97">Good (&lt;0.1)</text>
+  <rect x="30" y="150" width="240" height="10" rx="5" fill="#0b1a44"/>
+  <rect x="30" y="150" width="96" height="10" rx="5" fill="url(#cyan)"/>
+</g>
+
+<g transform="translate(140 390)">
+  <rect width="620" height="300" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="40" font-family="sans-serif" font-size="16" font-weight="700" fill="url(#cyan)">Optimization Checklist</text>
+  <rect x="30" y="60" width="560" height="28" rx="8" fill="#0b1a44"/>
+  <text x="50" y="79" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">Preload LCP image with fetchpriority=high</text>
+  <rect x="30" y="98" width="560" height="28" rx="8" fill="#0b1a44"/>
+  <text x="50" y="117" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">Defer non-critical third-party scripts</text>
+  <rect x="30" y="136" width="560" height="28" rx="8" fill="#0b1a44"/>
+  <text x="50" y="155" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">Serve WebP images via Shopify CDN</text>
+  <rect x="30" y="174" width="560" height="28" rx="8" fill="#0b1a44"/>
+  <text x="50" y="193" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">Add explicit width/height on all images</text>
+  <rect x="30" y="212" width="560" height="28" rx="8" fill="#0b1a44"/>
+  <text x="50" y="231" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">Remove unused app scripts from theme</text>
+  <rect x="30" y="250" width="200" height="32" rx="16" fill="url(#blue)"/>
+  <text x="130" y="271" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">Run PageSpeed Audit</text>
+</g>
+
+<g transform="translate(800 390)">
+  <rect width="436" height="300" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="40" font-family="sans-serif" font-size="16" font-weight="700" fill="#38d6ff">TTFB Breakdown</text>
+  <rect x="30" y="60" width="376" height="44" rx="10" fill="#0b1a44"/>
+  <text x="50" y="78" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">DNS Lookup</text>
+  <rect x="220" y="70" width="60" height="12" rx="6" fill="url(#cyan)"/>
+  <text x="290" y="82" font-family="sans-serif" font-size="12" fill="#38d6ff">12ms</text>
+  <rect x="30" y="116" width="376" height="44" rx="10" fill="#0b1a44"/>
+  <text x="50" y="134" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">TLS Handshake</text>
+  <rect x="220" y="126" width="80" height="12" rx="6" fill="url(#blue)"/>
+  <text x="310" y="138" font-family="sans-serif" font-size="12" fill="#4d86ff">38ms</text>
+  <rect x="30" y="172" width="376" height="44" rx="10" fill="#0b1a44"/>
+  <text x="50" y="190" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Server Response</text>
+  <rect x="220" y="182" width="140" height="12" rx="6" fill="#3ddc97"/>
+  <text x="368" y="194" font-family="sans-serif" font-size="12" fill="#3ddc97">160ms</text>
+  <rect x="30" y="240" width="376" height="32" rx="16" fill="#3ddc97" fill-opacity="0.2"/>
+  <text x="218" y="261" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#3ddc97">Total TTFB: 210ms</text>
+</g>
+`);
+
+// --- mern-stack-development ---
+const mernStack = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#ffffff">MERN Stack Full-Stack Development Guide 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="240" height="160" rx="18" fill="url(#panel)" stroke="#3ddc97" stroke-width="3"/>
+  <text x="120" y="55" text-anchor="middle" font-family="sans-serif" font-size="48" font-weight="900" fill="#3ddc97">M</text>
+  <text x="120" y="95" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#ffffff">MongoDB</text>
+  <text x="120" y="120" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.5">NoSQL Database</text>
+  <rect x="30" y="135" width="180" height="8" rx="4" fill="#3ddc97" fill-opacity="0.3"/>
+</g>
+
+<g transform="translate(410 150)">
+  <rect width="240" height="160" rx="18" fill="url(#panel)" stroke="#ffc14d" stroke-width="3"/>
+  <text x="120" y="55" text-anchor="middle" font-family="sans-serif" font-size="48" font-weight="900" fill="#ffc14d">E</text>
+  <text x="120" y="95" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#ffffff">Express.js</text>
+  <text x="120" y="120" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.5">REST API Layer</text>
+  <rect x="30" y="135" width="180" height="8" rx="4" fill="#ffc14d" fill-opacity="0.3"/>
+</g>
+
+<g transform="translate(680 150)">
+  <rect width="240" height="160" rx="18" fill="url(#panel)" stroke="#38d6ff" stroke-width="3"/>
+  <text x="120" y="55" text-anchor="middle" font-family="sans-serif" font-size="48" font-weight="900" fill="#38d6ff">R</text>
+  <text x="120" y="95" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#ffffff">React.js</text>
+  <text x="120" y="120" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.5">Frontend UI</text>
+  <rect x="30" y="135" width="180" height="8" rx="4" fill="url(#cyan)"/>
+</g>
+
+<g transform="translate(950 150)">
+  <rect width="240" height="160" rx="18" fill="url(#panel)" stroke="#4d86ff" stroke-width="3"/>
+  <text x="120" y="55" text-anchor="middle" font-family="sans-serif" font-size="48" font-weight="900" fill="url(#blue)">N</text>
+  <text x="120" y="95" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="700" fill="#ffffff">Node.js</text>
+  <text x="120" y="120" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.5">Server Runtime</text>
+  <rect x="30" y="135" width="180" height="8" rx="4" fill="url(#blue)"/>
+</g>
+
+<line x1="380" y1="230" x2="410" y2="230" stroke="#2a3f7a" stroke-width="3"/>
+<line x1="650" y1="230" x2="680" y2="230" stroke="#2a3f7a" stroke-width="3"/>
+<line x1="920" y1="230" x2="950" y2="230" stroke="#2a3f7a" stroke-width="3"/>
+
+<g transform="translate(140 360)">
+  <rect width="1096" height="320" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="16" font-weight="700" fill="url(#cyan)">Typical MERN Architecture</text>
+  <rect x="30" y="60" width="1036" height="48" rx="10" fill="#0b1a44"/>
+  <text x="50" y="80" font-family="monospace" font-size="14" fill="#38d6ff">Client (React)</text>
+  <text x="230" y="80" font-family="monospace" font-size="14" fill="#ffffff" fill-opacity="0.5">--HTTP/WS--&gt;</text>
+  <text x="420" y="80" font-family="monospace" font-size="14" fill="#ffc14d">Express API</text>
+  <text x="580" y="80" font-family="monospace" font-size="14" fill="#ffffff" fill-opacity="0.5">--Mongoose--&gt;</text>
+  <text x="760" y="80" font-family="monospace" font-size="14" fill="#3ddc97">MongoDB</text>
+  <text x="50" y="98" font-family="monospace" font-size="12" fill="#ffffff" fill-opacity="0.35">useState / React Query</text>
+  <text x="420" y="98" font-family="monospace" font-size="12" fill="#ffffff" fill-opacity="0.35">JWT Auth Middleware</text>
+  <text x="760" y="98" font-family="monospace" font-size="12" fill="#ffffff" fill-opacity="0.35">Atlas / Self-hosted</text>
+  <rect x="30" y="124" width="340" height="60" rx="10" fill="#0b1a44"/>
+  <text x="50" y="148" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">State Management</text>
+  <text x="50" y="170" font-family="sans-serif" font-size="13" fill="#38d6ff">React Query + Zustand</text>
+  <rect x="390" y="124" width="340" height="60" rx="10" fill="#0b1a44"/>
+  <text x="410" y="148" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Authentication</text>
+  <text x="410" y="170" font-family="sans-serif" font-size="13" fill="#ffc14d">JWT + HTTP-only Cookies</text>
+  <rect x="750" y="124" width="316" height="60" rx="10" fill="#0b1a44"/>
+  <text x="770" y="148" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Deployment</text>
+  <text x="770" y="170" font-family="sans-serif" font-size="13" fill="#3ddc97">Vercel + Railway + Atlas</text>
+  <rect x="30" y="210" width="200" height="80" rx="10" fill="#0b1a44"/>
+  <text x="50" y="234" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Real-time</text>
+  <text x="50" y="258" font-family="sans-serif" font-size="14" font-weight="700" fill="#38d6ff">Socket.io</text>
+  <rect x="248" y="210" width="200" height="80" rx="10" fill="#0b1a44"/>
+  <text x="268" y="234" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Validation</text>
+  <text x="268" y="258" font-family="sans-serif" font-size="14" font-weight="700" fill="#4d86ff">Zod / Joi</text>
+  <rect x="466" y="210" width="200" height="80" rx="10" fill="#0b1a44"/>
+  <text x="486" y="234" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">ORM</text>
+  <text x="486" y="258" font-family="sans-serif" font-size="14" font-weight="700" fill="#3ddc97">Mongoose</text>
+  <rect x="684" y="210" width="200" height="80" rx="10" fill="#0b1a44"/>
+  <text x="704" y="234" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Bundler</text>
+  <text x="704" y="258" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffc14d">Vite / CRA</text>
+  <rect x="900" y="210" width="196" height="80" rx="10" fill="#0b1a44"/>
+  <text x="920" y="234" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Testing</text>
+  <text x="920" y="258" font-family="sans-serif" font-size="14" font-weight="700" fill="url(#cyan)">Jest + RTL</text>
+</g>
+`);
+
+// --- api-integration-best-practices ---
+const apiIntegration = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">API Integration Best Practices 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="1096" height="140" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="40" font-family="sans-serif" font-size="15" font-weight="700" fill="url(#cyan)">Integration Patterns Comparison</text>
+  <rect x="30" y="56" width="180" height="60" rx="10" fill="#0b1a44"/>
+  <text x="120" y="80" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#38d6ff">REST API</text>
+  <text x="120" y="100" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Request/Response</text>
+  <rect x="228" y="56" width="180" height="60" rx="10" fill="#0b1a44"/>
+  <text x="318" y="80" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#4d86ff">GraphQL</text>
+  <text x="318" y="100" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Query/Mutation</text>
+  <rect x="426" y="56" width="180" height="60" rx="10" fill="#0b1a44"/>
+  <text x="516" y="80" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#3ddc97">Webhooks</text>
+  <text x="516" y="100" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Server Push Events</text>
+  <rect x="624" y="56" width="180" height="60" rx="10" fill="#0b1a44"/>
+  <text x="714" y="80" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffc14d">WebSocket</text>
+  <text x="714" y="100" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Real-time Bidirectional</text>
+  <rect x="822" y="56" width="244" height="60" rx="10" fill="#0b1a44"/>
+  <text x="944" y="80" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ff5f7a">Message Queue</text>
+  <text x="944" y="100" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Async Decoupled Processing</text>
+</g>
+
+<g transform="translate(140 330)">
+  <rect width="520" height="370" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="16" font-weight="700" fill="url(#cyan)">Security Checklist</text>
+  <rect x="30" y="60" width="460" height="36" rx="8" fill="#0b1a44"/>
+  <text x="50" y="83" font-family="sans-serif" font-size="14" fill="#3ddc97">OAuth 2.0 for third-party auth flows</text>
+  <rect x="30" y="106" width="460" height="36" rx="8" fill="#0b1a44"/>
+  <text x="50" y="129" font-family="sans-serif" font-size="14" fill="#3ddc97">JWT with short expiry + refresh rotation</text>
+  <rect x="30" y="152" width="460" height="36" rx="8" fill="#0b1a44"/>
+  <text x="50" y="175" font-family="sans-serif" font-size="14" fill="#3ddc97">HMAC-SHA256 webhook signature verify</text>
+  <rect x="30" y="198" width="460" height="36" rx="8" fill="#0b1a44"/>
+  <text x="50" y="221" font-family="sans-serif" font-size="14" fill="#3ddc97">API keys in secrets manager only</text>
+  <rect x="30" y="244" width="460" height="36" rx="8" fill="#0b1a44"/>
+  <text x="50" y="267" font-family="sans-serif" font-size="14" fill="#3ddc97">Rate limit headers respected</text>
+  <rect x="30" y="290" width="460" height="36" rx="8" fill="#0b1a44"/>
+  <text x="50" y="313" font-family="sans-serif" font-size="14" fill="#3ddc97">Idempotency keys on mutations</text>
+</g>
+
+<g transform="translate(700 330)">
+  <rect width="536" height="370" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="16" font-weight="700" fill="#4d86ff">Resilience Patterns</text>
+  <rect x="30" y="60" width="476" height="68" rx="10" fill="#0b1a44"/>
+  <text x="50" y="86" font-family="sans-serif" font-size="14" font-weight="700" fill="#38d6ff">Circuit Breaker</text>
+  <text x="50" y="110" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Open on failure threshold; auto-recover on health check</text>
+  <rect x="30" y="140" width="476" height="68" rx="10" fill="#0b1a44"/>
+  <text x="50" y="166" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffc14d">Exponential Backoff</text>
+  <text x="50" y="190" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">1s, 2s, 4s, 8s + jitter on 429 / 5xx responses</text>
+  <rect x="30" y="220" width="476" height="68" rx="10" fill="#0b1a44"/>
+  <text x="50" y="246" font-family="sans-serif" font-size="14" font-weight="700" fill="#3ddc97">Idempotent Retries</text>
+  <text x="50" y="270" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Unique idempotency key per mutation; safe to retry</text>
+  <rect x="30" y="300" width="476" height="40" rx="16" fill="url(#blue)"/>
+  <text x="238" y="326" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+`);
+
+// --- ecommerce-conversion-rate-optimization ---
+const ecommerceCro = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">eCommerce Conversion Rate Optimization 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="560" height="530" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="16" font-weight="700" fill="url(#cyan)">Conversion Funnel</text>
+  <rect x="40" y="60" width="480" height="60" rx="10" fill="url(#blue)" fill-opacity="0.5"/>
+  <text x="280" y="95" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="600" fill="#ffffff">Visitors Land on Store</text>
+  <rect x="70" y="132" width="420" height="60" rx="10" fill="url(#blue)" fill-opacity="0.4"/>
+  <text x="280" y="167" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="600" fill="#ffffff">Product Page Views</text>
+  <rect x="100" y="204" width="360" height="60" rx="10" fill="url(#blue)" fill-opacity="0.3"/>
+  <text x="280" y="239" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="600" fill="#ffffff">Add to Cart</text>
+  <rect x="130" y="276" width="300" height="60" rx="10" fill="url(#blue)" fill-opacity="0.25"/>
+  <text x="280" y="311" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="600" fill="#ffffff">Checkout Initiated</text>
+  <rect x="160" y="348" width="240" height="60" rx="10" fill="url(#blue)" fill-opacity="0.9"/>
+  <text x="280" y="383" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffffff">Purchase Completed</text>
+  <rect x="40" y="430" width="480" height="70" rx="12" fill="#0b1a44"/>
+  <text x="280" y="458" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.6">Optimize highest drop-off step first</text>
+  <text x="280" y="482" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#38d6ff">Use GA4 Funnel Exploration Reports</text>
+</g>
+
+<g transform="translate(740 150)">
+  <rect width="496" height="530" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="16" font-weight="700" fill="#4d86ff">Top CRO Tactics</text>
+  <rect x="30" y="60" width="436" height="40" rx="8" fill="#0b1a44"/>
+  <text x="50" y="85" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">A/B Test CTAs, headlines, images</text>
+  <rect x="30" y="110" width="436" height="40" rx="8" fill="#0b1a44"/>
+  <text x="50" y="135" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">One-page / guest checkout</text>
+  <rect x="30" y="160" width="436" height="40" rx="8" fill="#0b1a44"/>
+  <text x="50" y="185" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">Show shipping cost before checkout</text>
+  <rect x="30" y="210" width="436" height="40" rx="8" fill="#0b1a44"/>
+  <text x="50" y="235" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">Verified customer reviews + UGC</text>
+  <rect x="30" y="260" width="436" height="40" rx="8" fill="#0b1a44"/>
+  <text x="50" y="285" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">Apple Pay / Shop Pay one-tap mobile</text>
+  <rect x="30" y="310" width="436" height="40" rx="8" fill="#0b1a44"/>
+  <text x="50" y="335" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">LCP under 2.5s on mobile</text>
+  <rect x="30" y="360" width="436" height="40" rx="8" fill="#0b1a44"/>
+  <text x="50" y="385" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">Exit intent offers for abandoning users</text>
+  <rect x="30" y="410" width="436" height="40" rx="8" fill="#0b1a44"/>
+  <text x="50" y="435" font-family="sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.85">Product images: multi-angle + lifestyle</text>
+  <rect x="30" y="462" width="436" height="40" rx="16" fill="url(#blue)"/>
+  <text x="218" y="487" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+`);
+
+// --- ai-automation-roi-guide ---
+const aiRoi = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">AI Automation ROI Measurement Guide 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="680" height="530" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="16" font-weight="700" fill="url(#cyan)">Illustrative ROI Framework</text>
+  <rect x="30" y="60" width="620" height="36" rx="8" fill="#0b1a44"/>
+  <text x="340" y="83" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.5">ROI = (Net Benefit / Total Cost) x 100</text>
+  <rect x="30" y="108" width="290" height="80" rx="10" fill="#0b1a44"/>
+  <text x="175" y="134" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.6">Benefit Types</text>
+  <text x="50" y="158" font-family="sans-serif" font-size="12" fill="#3ddc97">Labor savings</text>
+  <text x="50" y="175" font-family="sans-serif" font-size="12" fill="#3ddc97">Error reduction</text>
+  <rect x="340" y="108" width="310" height="80" rx="10" fill="#0b1a44"/>
+  <text x="495" y="134" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.6">Cost Types</text>
+  <text x="360" y="158" font-family="sans-serif" font-size="12" fill="#ff5f7a">Dev + integration</text>
+  <text x="360" y="175" font-family="sans-serif" font-size="12" fill="#ff5f7a">API + maintenance</text>
+  <rect x="30" y="210" width="620" height="56" rx="10" fill="#0b1a44" stroke="#2a3f7a" stroke-width="1"/>
+  <text x="50" y="234" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.6">Time savings (illustrative example range)</text>
+  <rect x="340" y="224" width="180" height="20" rx="10" fill="#2a3f7a"/>
+  <rect x="340" y="224" width="126" height="20" rx="10" fill="url(#blue)"/>
+  <text x="530" y="239" font-family="sans-serif" font-size="13" fill="#38d6ff">40-70%</text>
+  <rect x="30" y="278" width="620" height="56" rx="10" fill="#0b1a44" stroke="#2a3f7a" stroke-width="1"/>
+  <text x="50" y="302" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.6">Error reduction (illustrative example range)</text>
+  <rect x="340" y="292" width="180" height="20" rx="10" fill="#2a3f7a"/>
+  <rect x="340" y="292" width="144" height="20" rx="10" fill="#3ddc97" fill-opacity="0.8"/>
+  <text x="530" y="307" font-family="sans-serif" font-size="13" fill="#3ddc97">Up to 80%</text>
+  <rect x="30" y="350" width="620" height="36" rx="8" fill="#0b1a44"/>
+  <text x="50" y="373" font-family="sans-serif" font-size="12" fill="#ffc14d">Actual results vary by process, industry, and implementation quality</text>
+  <rect x="30" y="402" width="290" height="80" rx="10" fill="#0b1a44"/>
+  <text x="50" y="426" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.6">High ROI processes</text>
+  <text x="50" y="450" font-family="sans-serif" font-size="12" fill="#38d6ff">Document extraction</text>
+  <text x="50" y="467" font-family="sans-serif" font-size="12" fill="#38d6ff">Customer service tier-1</text>
+  <rect x="340" y="402" width="310" height="80" rx="10" fill="#0b1a44"/>
+  <text x="360" y="426" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.6">Lower ROI processes</text>
+  <text x="360" y="450" font-family="sans-serif" font-size="12" fill="#ff5f7a">Low volume tasks</text>
+  <text x="360" y="467" font-family="sans-serif" font-size="12" fill="#ff5f7a">High judgment required</text>
+</g>
+
+<g transform="translate(860 150)">
+  <rect width="376" height="530" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="16" font-weight="700" fill="#4d86ff">Business Case Steps</text>
+  <rect x="30" y="60" width="316" height="60" rx="10" fill="#0b1a44"/>
+  <circle cx="52" cy="90" r="14" fill="url(#blue)"/>
+  <text x="52" y="95" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">1</text>
+  <text x="80" y="84" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Measure baseline</text>
+  <text x="80" y="102" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">Hours, errors, cycle time</text>
+  <rect x="30" y="132" width="316" height="60" rx="10" fill="#0b1a44"/>
+  <circle cx="52" cy="162" r="14" fill="url(#blue)"/>
+  <text x="52" y="167" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">2</text>
+  <text x="80" y="156" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Conservative estimates</text>
+  <text x="80" y="174" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">Use 50-60% of theoretical max</text>
+  <rect x="30" y="204" width="316" height="60" rx="10" fill="#0b1a44"/>
+  <circle cx="52" cy="234" r="14" fill="url(#blue)"/>
+  <text x="52" y="239" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">3</text>
+  <text x="80" y="228" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Full cost accounting</text>
+  <text x="80" y="246" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">Dev + API + maintenance</text>
+  <rect x="30" y="276" width="316" height="60" rx="10" fill="#0b1a44"/>
+  <circle cx="52" cy="306" r="14" fill="url(#blue)"/>
+  <text x="52" y="311" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">4</text>
+  <text x="80" y="300" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Pilot phase first</text>
+  <text x="80" y="318" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">Validate before full rollout</text>
+  <rect x="30" y="348" width="316" height="60" rx="10" fill="#0b1a44"/>
+  <circle cx="52" cy="378" r="14" fill="#3ddc97"/>
+  <text x="52" y="383" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">5</text>
+  <text x="80" y="372" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Define KPIs upfront</text>
+  <text x="80" y="390" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">Measure actual vs projected</text>
+  <rect x="30" y="440" width="316" height="60" rx="16" fill="url(#blue)"/>
+  <text x="188" y="475" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+`);
 export default {
   'custom-software-development-cost': cost,
   'ai-agents-business-automation': agents,
@@ -351,6 +679,11 @@ export default {
   'enterprise-ai-automation': aiEnterprise,
   'nextjs-saas-architecture': nextjsSaas,
   'shopify-to-custom-platform': shopifyCustomMigrate,
+  'shopify-speed-optimization': shopifySpeed,
+  'mern-stack-development': mernStack,
+  'api-integration-best-practices': apiIntegration,
+  'ecommerce-conversion-rate-optimization': ecommerceCro,
+  'ai-automation-roi-guide': aiRoi,
 };
 
 
