@@ -667,6 +667,372 @@ const aiRoi = base(688, 380, `
   <text x="188" y="475" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffffff">byteoperator.com</text>
 </g>
 `);
+// --- web3-blockchain-development ---
+const web3Blockchain = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">Web3 &amp; Blockchain Development Guide 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="340" height="540" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="170" y="44" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="url(#cyan)">Blockchain Layers</text>
+  <rect x="20" y="60" width="300" height="56" rx="10" fill="#0b1a44" stroke="#4d86ff" stroke-width="1"/>
+  <text x="170" y="84" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">Layer 1 — Base Chain</text>
+  <text x="170" y="104" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Ethereum / Solana / Polygon</text>
+  <rect x="20" y="128" width="300" height="56" rx="10" fill="#0b1a44" stroke="#3ddc97" stroke-width="1"/>
+  <text x="170" y="152" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">Layer 2 — Scaling</text>
+  <text x="170" y="172" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Arbitrum / Optimism / zkSync</text>
+  <rect x="20" y="196" width="300" height="56" rx="10" fill="#0b1a44" stroke="#ffc14d" stroke-width="1"/>
+  <text x="170" y="220" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">Smart Contracts</text>
+  <text x="170" y="240" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Solidity / Rust / Vyper</text>
+  <rect x="20" y="264" width="300" height="56" rx="10" fill="#0b1a44" stroke="#4d86ff" stroke-width="1"/>
+  <text x="170" y="288" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#4d86ff">dApp Frontend</text>
+  <text x="170" y="308" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">React + ethers.js / wagmi</text>
+  <rect x="20" y="332" width="300" height="56" rx="10" fill="#0b1a44" stroke="#ff5f7a" stroke-width="1"/>
+  <text x="170" y="356" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ff5f7a">Wallet &amp; Auth</text>
+  <text x="170" y="376" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">MetaMask / WalletConnect / SIWE</text>
+  <rect x="20" y="400" width="300" height="56" rx="10" fill="#0b1a44" stroke="#a78bfa" stroke-width="1"/>
+  <text x="170" y="424" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">Indexing &amp; Storage</text>
+  <text x="170" y="444" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">The Graph / IPFS / Arweave</text>
+  <rect x="20" y="468" width="300" height="40" rx="16" fill="url(#blue)"/>
+  <text x="170" y="493" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+
+<g transform="translate(510 150)">
+  <rect width="726" height="260" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#4d86ff">Smart Contract Code Pattern</text>
+  <rect x="20" y="58" width="686" height="180" rx="10" fill="#070f2b"/>
+  <text x="40" y="85" font-family="monospace" font-size="13" fill="#38d6ff">// SPDX-License-Identifier: MIT</text>
+  <text x="40" y="108" font-family="monospace" font-size="13" fill="#4d86ff">pragma solidity</text>
+  <text x="185" y="108" font-family="monospace" font-size="13" fill="#ffffff" fill-opacity="0.8">^0.8.20;</text>
+  <text x="40" y="131" font-family="monospace" font-size="13" fill="#ffc14d">contract</text>
+  <text x="130" y="131" font-family="monospace" font-size="13" fill="#3ddc97">ByteToken</text>
+  <text x="220" y="131" font-family="monospace" font-size="13" fill="#ffffff" fill-opacity="0.6">is ERC20 {</text>
+  <text x="60" y="154" font-family="monospace" font-size="13" fill="#4d86ff">mapping</text>
+  <text x="130" y="154" font-family="monospace" font-size="13" fill="#ffffff" fill-opacity="0.6">(address =&gt; uint256)</text>
+  <text x="320" y="154" font-family="monospace" font-size="13" fill="#ffc14d">public</text>
+  <text x="375" y="154" font-family="monospace" font-size="13" fill="#38d6ff">balances;</text>
+  <text x="60" y="177" font-family="monospace" font-size="13" fill="#3ddc97">event</text>
+  <text x="108" y="177" font-family="monospace" font-size="13" fill="#ffffff" fill-opacity="0.8">Transfer(address indexed from, address to, uint256 val);</text>
+  <text x="40" y="220" font-family="monospace" font-size="13" fill="#ffffff" fill-opacity="0.3">}</text>
+</g>
+
+<g transform="translate(510 432)">
+  <rect width="340" height="258" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#3ddc97">Security Checklist</text>
+  <rect x="20" y="58" width="300" height="32" rx="8" fill="#0b1a44"/>
+  <text x="36" y="79" font-family="sans-serif" font-size="13" fill="#3ddc97">Reentrancy guard pattern</text>
+  <rect x="20" y="100" width="300" height="32" rx="8" fill="#0b1a44"/>
+  <text x="36" y="121" font-family="sans-serif" font-size="13" fill="#3ddc97">Audit via Slither / MythX</text>
+  <rect x="20" y="142" width="300" height="32" rx="8" fill="#0b1a44"/>
+  <text x="36" y="163" font-family="sans-serif" font-size="13" fill="#3ddc97">Multi-sig for admin functions</text>
+  <rect x="20" y="184" width="300" height="32" rx="8" fill="#0b1a44"/>
+  <text x="36" y="205" font-family="sans-serif" font-size="13" fill="#3ddc97">Testnet deploy before mainnet</text>
+</g>
+
+<g transform="translate(872 432)">
+  <rect width="364" height="258" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffc14d">Use Cases</text>
+  <rect x="20" y="58" width="324" height="32" rx="8" fill="#0b1a44"/>
+  <text x="36" y="79" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">DeFi Protocols &amp; DEX</text>
+  <rect x="20" y="100" width="324" height="32" rx="8" fill="#0b1a44"/>
+  <text x="36" y="121" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">NFT Marketplaces</text>
+  <rect x="20" y="142" width="324" height="32" rx="8" fill="#0b1a44"/>
+  <text x="36" y="163" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">DAOs &amp; On-chain Governance</text>
+  <rect x="20" y="184" width="324" height="32" rx="8" fill="#0b1a44"/>
+  <text x="36" y="205" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Supply Chain &amp; Provenance</text>
+</g>
+`);
+
+// --- react-performance-optimization ---
+const reactPerf = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">React Performance Optimization Guide 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="500" height="540" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="url(#cyan)">Bundle Size Waterfall</text>
+  <rect x="20" y="60" width="460" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="83" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Initial JS Bundle (before)</text>
+  <rect x="250" y="68" width="210" height="20" rx="6" fill="#ff5f7a" fill-opacity="0.8"/>
+  <text x="465" y="83" font-family="sans-serif" font-size="12" fill="#ff5f7a">1.8 MB</text>
+  <rect x="20" y="106" width="460" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="129" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">After Code Splitting</text>
+  <rect x="250" y="114" width="130" height="20" rx="6" fill="#ffc14d" fill-opacity="0.8"/>
+  <text x="385" y="129" font-family="sans-serif" font-size="12" fill="#ffc14d">1.1 MB</text>
+  <rect x="20" y="152" width="460" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="175" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">After Tree Shaking</text>
+  <rect x="250" y="160" width="86" height="20" rx="6" fill="#3ddc97" fill-opacity="0.8"/>
+  <text x="340" y="175" font-family="sans-serif" font-size="12" fill="#3ddc97">720 KB</text>
+  <rect x="20" y="198" width="460" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="221" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">After Lazy + Suspense</text>
+  <rect x="250" y="206" width="54" height="20" rx="6" fill="url(#blue)"/>
+  <text x="308" y="221" font-family="sans-serif" font-size="12" fill="#38d6ff">450 KB</text>
+  <text x="30" y="266" font-family="sans-serif" font-size="15" font-weight="700" fill="#4d86ff">Rendering Techniques</text>
+  <rect x="20" y="278" width="220" height="60" rx="10" fill="#0b1a44"/>
+  <text x="130" y="302" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">React.memo</text>
+  <text x="130" y="322" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Skip unchanged re-renders</text>
+  <rect x="258" y="278" width="220" height="60" rx="10" fill="#0b1a44"/>
+  <text x="368" y="302" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">useMemo / useCallback</text>
+  <text x="368" y="322" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Memoize heavy computations</text>
+  <rect x="20" y="352" width="220" height="60" rx="10" fill="#0b1a44"/>
+  <text x="130" y="376" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">Virtualization</text>
+  <text x="130" y="396" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">react-window / TanStack</text>
+  <rect x="258" y="352" width="220" height="60" rx="10" fill="#0b1a44"/>
+  <text x="368" y="376" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">Concurrent Mode</text>
+  <text x="368" y="396" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">useTransition / Suspense</text>
+  <rect x="20" y="430" width="460" height="60" rx="10" fill="#0b1a44"/>
+  <text x="36" y="454" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Server Components (React 19)</text>
+  <text x="36" y="474" font-family="sans-serif" font-size="12" fill="#38d6ff">Zero-bundle client JS for static content</text>
+</g>
+
+<g transform="translate(668 150)">
+  <rect width="568" height="260" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#3ddc97">Profiling with DevTools</text>
+  <rect x="20" y="58" width="528" height="48" rx="10" fill="#070f2b"/>
+  <text x="40" y="78" font-family="monospace" font-size="13" fill="#ffc14d">import</text>
+  <text x="100" y="78" font-family="monospace" font-size="13" fill="#ffffff" fill-opacity="0.8">&#123; Profiler &#125;</text>
+  <text x="210" y="78" font-family="monospace" font-size="13" fill="#ffc14d">from</text>
+  <text x="248" y="78" font-family="monospace" font-size="13" fill="#3ddc97">'react'</text>
+  <text x="40" y="98" font-family="monospace" font-size="12" fill="#ffffff" fill-opacity="0.4">onRender: (id, phase, duration) =&gt; console.log(id, duration)</text>
+  <rect x="20" y="118" width="248" height="56" rx="10" fill="#0b1a44"/>
+  <text x="144" y="142" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Flame Graph</text>
+  <text x="144" y="162" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#38d6ff">Chrome DevTools</text>
+  <rect x="280" y="118" width="248" height="56" rx="10" fill="#0b1a44"/>
+  <text x="404" y="142" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Component Render Count</text>
+  <text x="404" y="162" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="700" fill="#3ddc97">React DevTools</text>
+</g>
+
+<g transform="translate(668 432)">
+  <rect width="568" height="258" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffc14d">Performance Checklist</text>
+  <rect x="20" y="58" width="256" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="81" font-family="sans-serif" font-size="13" fill="#3ddc97">Dynamic import() for routes</text>
+  <rect x="292" y="58" width="256" height="36" rx="8" fill="#0b1a44"/>
+  <text x="308" y="81" font-family="sans-serif" font-size="13" fill="#3ddc97">Avoid anonymous functions in JSX</text>
+  <rect x="20" y="104" width="256" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="127" font-family="sans-serif" font-size="13" fill="#3ddc97">Key prop stability in lists</text>
+  <rect x="292" y="104" width="256" height="36" rx="8" fill="#0b1a44"/>
+  <text x="308" y="127" font-family="sans-serif" font-size="13" fill="#3ddc97">Debounce expensive handlers</text>
+  <rect x="20" y="150" width="256" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="173" font-family="sans-serif" font-size="13" fill="#3ddc97">Virtualize long lists (&gt;200 rows)</text>
+  <rect x="292" y="150" width="256" height="36" rx="8" fill="#0b1a44"/>
+  <text x="308" y="173" font-family="sans-serif" font-size="13" fill="#3ddc97">Use next/image for lazy loading</text>
+  <rect x="20" y="196" width="528" height="40" rx="16" fill="url(#blue)"/>
+  <text x="284" y="221" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+`);
+
+// --- multi-tenant-saas-architecture ---
+const multiTenantSaas = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">Multi-Tenant SaaS Architecture Guide 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="1096" height="160" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="url(#cyan)">Tenancy Models Comparison</text>
+  <rect x="20" y="58" width="340" height="80" rx="12" fill="#0b1a44" stroke="#4d86ff" stroke-width="1"/>
+  <text x="190" y="82" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#38d6ff">Shared DB + Schema</text>
+  <text x="190" y="104" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">tenant_id column per row</text>
+  <text x="190" y="124" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#3ddc97">Low cost / High density</text>
+  <rect x="378" y="58" width="340" height="80" rx="12" fill="#0b1a44" stroke="#ffc14d" stroke-width="1"/>
+  <text x="548" y="82" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffc14d">Shared DB + Schema-per-Tenant</text>
+  <text x="548" y="104" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">Postgres row-level security</text>
+  <text x="548" y="124" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffc14d">Balanced isolation</text>
+  <rect x="736" y="58" width="340" height="80" rx="12" fill="#0b1a44" stroke="#3ddc97" stroke-width="1"/>
+  <text x="906" y="82" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#3ddc97">Database-per-Tenant</text>
+  <text x="906" y="104" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">Full isolation per customer</text>
+  <text x="906" y="124" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ff5f7a">Higher cost / Enterprise tier</text>
+</g>
+
+<g transform="translate(140 338)">
+  <rect width="500" height="352" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#4d86ff">Architecture Layers</text>
+  <rect x="20" y="60" width="460" height="44" rx="10" fill="#0b1a44" stroke="#38d6ff" stroke-width="1"/>
+  <text x="250" y="86" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">Tenant Resolver Middleware</text>
+  <line x1="250" y1="104" x2="250" y2="120" stroke="#334155" stroke-width="2"/>
+  <rect x="20" y="120" width="460" height="44" rx="10" fill="#0b1a44" stroke="#ffc14d" stroke-width="1"/>
+  <text x="250" y="146" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">Auth &amp; RBAC Layer</text>
+  <line x1="250" y1="164" x2="250" y2="180" stroke="#334155" stroke-width="2"/>
+  <rect x="20" y="180" width="460" height="44" rx="10" fill="#0b1a44" stroke="#3ddc97" stroke-width="1"/>
+  <text x="250" y="206" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">Business Logic / API Layer</text>
+  <line x1="250" y1="224" x2="250" y2="240" stroke="#334155" stroke-width="2"/>
+  <rect x="20" y="240" width="460" height="44" rx="10" fill="#0b1a44" stroke="#4d86ff" stroke-width="1"/>
+  <text x="250" y="266" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#4d86ff">Tenant-Scoped Data Access</text>
+  <line x1="250" y1="284" x2="250" y2="300" stroke="#334155" stroke-width="2"/>
+  <rect x="20" y="300" width="460" height="32" rx="16" fill="url(#blue)"/>
+  <text x="250" y="321" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffffff">Isolated Database / Schema</text>
+</g>
+
+<g transform="translate(668 338)">
+  <rect width="568" height="352" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#3ddc97">Implementation Checklist</text>
+  <rect x="20" y="60" width="528" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="83" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Subdomain routing: tenant.app.com or app.com/tenant</text>
+  <rect x="20" y="106" width="528" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="129" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Row-Level Security (RLS) in PostgreSQL</text>
+  <rect x="20" y="152" width="528" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="175" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Tenant context injected at request boundary</text>
+  <rect x="20" y="198" width="528" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="221" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Feature flags scoped per subscription plan</text>
+  <rect x="20" y="244" width="528" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="267" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Usage metering per tenant (Stripe billing)</text>
+  <rect x="20" y="292" width="528" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="315" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Separate audit logs per tenant</text>
+</g>
+`);
+
+// --- ecommerce-email-marketing ---
+const emailMarketing = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">eCommerce Email Marketing Strategy 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="440" height="540" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="url(#cyan)">Email Automation Flows</text>
+  <rect x="20" y="60" width="400" height="52" rx="10" fill="#0b1a44" stroke="#3ddc97" stroke-width="1"/>
+  <circle cx="50" cy="86" r="14" fill="#3ddc97"/>
+  <text x="50" y="91" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#070f2b">1</text>
+  <text x="76" y="80" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">Welcome Series (3 emails)</text>
+  <text x="76" y="100" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Day 0, 3, 7 — Brand + offer intro</text>
+  <rect x="20" y="124" width="400" height="52" rx="10" fill="#0b1a44" stroke="#38d6ff" stroke-width="1"/>
+  <circle cx="50" cy="150" r="14" fill="#38d6ff"/>
+  <text x="50" y="155" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#070f2b">2</text>
+  <text x="76" y="144" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">Abandoned Cart Recovery</text>
+  <text x="76" y="164" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">1h, 24h, 72h after abandonment</text>
+  <rect x="20" y="188" width="400" height="52" rx="10" fill="#0b1a44" stroke="#ffc14d" stroke-width="1"/>
+  <circle cx="50" cy="214" r="14" fill="#ffc14d"/>
+  <text x="50" y="219" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#070f2b">3</text>
+  <text x="76" y="208" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">Post-Purchase Sequence</text>
+  <text x="76" y="228" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Confirmation, review ask, upsell</text>
+  <rect x="20" y="252" width="400" height="52" rx="10" fill="#0b1a44" stroke="#4d86ff" stroke-width="1"/>
+  <circle cx="50" cy="278" r="14" fill="url(#blue)"/>
+  <text x="50" y="283" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">4</text>
+  <text x="76" y="272" font-family="sans-serif" font-size="13" font-weight="700" fill="#4d86ff">Browse Abandonment</text>
+  <text x="76" y="292" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Viewed but didn't add to cart</text>
+  <rect x="20" y="316" width="400" height="52" rx="10" fill="#0b1a44" stroke="#a78bfa" stroke-width="1"/>
+  <circle cx="50" cy="342" r="14" fill="#a78bfa"/>
+  <text x="50" y="347" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">5</text>
+  <text x="76" y="336" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">Win-Back Campaign</text>
+  <text x="76" y="356" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">90-day inactive subscribers</text>
+  <rect x="20" y="380" width="400" height="52" rx="10" fill="#0b1a44" stroke="#ff5f7a" stroke-width="1"/>
+  <circle cx="50" cy="406" r="14" fill="#ff5f7a"/>
+  <text x="50" y="411" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">6</text>
+  <text x="76" y="400" font-family="sans-serif" font-size="13" font-weight="700" fill="#ff5f7a">VIP / Loyalty Rewards</text>
+  <text x="76" y="420" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Top 20% revenue customers</text>
+  <rect x="20" y="466" width="400" height="40" rx="16" fill="url(#blue)"/>
+  <text x="220" y="491" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+
+<g transform="translate(608 150)">
+  <rect width="628" height="260" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffc14d">Key Email Metrics</text>
+  <rect x="20" y="58" width="180" height="80" rx="12" fill="#0b1a44"/>
+  <text x="110" y="88" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.6">Open Rate</text>
+  <text x="110" y="114" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="800" fill="#3ddc97">35-45%</text>
+  <rect x="220" y="58" width="180" height="80" rx="12" fill="#0b1a44"/>
+  <text x="310" y="88" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.6">Click Rate</text>
+  <text x="310" y="114" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="800" fill="#38d6ff">3-8%</text>
+  <rect x="420" y="58" width="188" height="80" rx="12" fill="#0b1a44"/>
+  <text x="514" y="88" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.6">Revenue Share</text>
+  <text x="514" y="114" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="800" fill="#ffc14d">25-35%</text>
+  <text x="314" y="168" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#475569">Typical ranges for automated eCommerce flows — actual results vary by list quality and niche</text>
+  <rect x="20" y="180" width="588" height="56" rx="10" fill="#0b1a44"/>
+  <text x="36" y="200" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Top platforms: Klaviyo / Mailchimp / Drip / Omnisend</text>
+  <text x="36" y="222" font-family="sans-serif" font-size="12" fill="#38d6ff">Klaviyo has deep Shopify integration + predictive analytics</text>
+</g>
+
+<g transform="translate(608 432)">
+  <rect width="628" height="258" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#4d86ff">Segmentation Strategy</text>
+  <rect x="20" y="58" width="290" height="60" rx="10" fill="#0b1a44"/>
+  <text x="165" y="82" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">RFM Model</text>
+  <text x="165" y="104" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Recency / Frequency / Monetary</text>
+  <rect x="318" y="58" width="290" height="60" rx="10" fill="#0b1a44"/>
+  <text x="463" y="82" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">Lifecycle Stage</text>
+  <text x="463" y="104" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">New / Active / At-risk / Lapsed</text>
+  <rect x="20" y="130" width="290" height="60" rx="10" fill="#0b1a44"/>
+  <text x="165" y="154" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">Category Affinity</text>
+  <text x="165" y="174" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Based on purchase history</text>
+  <rect x="318" y="130" width="290" height="60" rx="10" fill="#0b1a44"/>
+  <text x="463" y="154" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">AOV Tier</text>
+  <text x="463" y="174" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">High / Mid / Low spenders</text>
+  <rect x="20" y="200" width="588" height="40" rx="16" fill="url(#blue)"/>
+  <text x="314" y="225" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+`);
+
+// --- cloud-cost-optimization ---
+const cloudCost = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">Cloud Cost Optimization Guide 2026 — AWS, GCP &amp; Azure</text>
+
+<g transform="translate(140 150)">
+  <rect width="680" height="540" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="url(#cyan)">Cost Reduction Strategies</text>
+  <rect x="20" y="58" width="640" height="56" rx="10" fill="#0b1a44"/>
+  <circle cx="46" cy="86" r="14" fill="url(#blue)"/>
+  <text x="46" y="91" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">1</text>
+  <text x="74" y="78" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">Right-Sizing Compute</text>
+  <text x="74" y="98" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">Match instance type to actual CPU/RAM utilization metrics</text>
+  <rect x="20" y="124" width="640" height="56" rx="10" fill="#0b1a44"/>
+  <circle cx="46" cy="152" r="14" fill="url(#blue)"/>
+  <text x="46" y="157" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">2</text>
+  <text x="74" y="144" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">Reserved Instances / Savings Plans</text>
+  <text x="74" y="164" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">1-3 year commitments can reduce On-Demand pricing significantly</text>
+  <rect x="20" y="190" width="640" height="56" rx="10" fill="#0b1a44"/>
+  <circle cx="46" cy="218" r="14" fill="url(#blue)"/>
+  <text x="46" y="223" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">3</text>
+  <text x="74" y="210" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">Spot / Preemptible Instances</text>
+  <text x="74" y="230" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">For fault-tolerant batch workloads at fraction of On-Demand cost</text>
+  <rect x="20" y="256" width="640" height="56" rx="10" fill="#0b1a44"/>
+  <circle cx="46" cy="284" r="14" fill="url(#blue)"/>
+  <text x="46" y="289" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">4</text>
+  <text x="74" y="276" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">Storage Lifecycle Policies</text>
+  <text x="74" y="296" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">Auto-tier S3/GCS objects to cheaper storage classes over time</text>
+  <rect x="20" y="322" width="640" height="56" rx="10" fill="#0b1a44"/>
+  <circle cx="46" cy="350" r="14" fill="url(#blue)"/>
+  <text x="46" y="355" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">5</text>
+  <text x="74" y="342" font-family="sans-serif" font-size="13" font-weight="700" fill="#ff5f7a">Serverless for Spiky Workloads</text>
+  <text x="74" y="362" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">Lambda / Cloud Run — pay only per invocation, no idle cost</text>
+  <rect x="20" y="388" width="640" height="56" rx="10" fill="#0b1a44"/>
+  <circle cx="46" cy="416" r="14" fill="#3ddc97"/>
+  <text x="46" y="421" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#070f2b">6</text>
+  <text x="74" y="408" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">Eliminate Idle / Orphaned Resources</text>
+  <text x="74" y="428" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.5">Unattached volumes, unused IPs, old snapshots, zombie VMs</text>
+  <rect x="20" y="466" width="640" height="40" rx="16" fill="url(#blue)"/>
+  <text x="340" y="491" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+
+<g transform="translate(848 150)">
+  <rect width="388" height="260" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffc14d">Cloud Provider Tools</text>
+  <rect x="20" y="58" width="348" height="40" rx="8" fill="#0b1a44"/>
+  <text x="36" y="83" font-family="sans-serif" font-size="13" fill="#ff9900">AWS</text>
+  <text x="80" y="83" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Cost Explorer + Trusted Advisor</text>
+  <rect x="20" y="108" width="348" height="40" rx="8" fill="#0b1a44"/>
+  <text x="36" y="133" font-family="sans-serif" font-size="13" fill="#4285f4">GCP</text>
+  <text x="80" y="133" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Recommender API + Budget Alerts</text>
+  <rect x="20" y="158" width="348" height="40" rx="8" fill="#0b1a44"/>
+  <text x="36" y="183" font-family="sans-serif" font-size="13" fill="#0089d6">Azure</text>
+  <text x="80" y="183" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.7">Cost Management + Advisor</text>
+  <rect x="20" y="208" width="348" height="28" rx="8" fill="#070f2b"/>
+  <text x="36" y="226" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.4">3rd party: Infracost, CloudHealth, Spot.io</text>
+</g>
+
+<g transform="translate(848 432)">
+  <rect width="388" height="258" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#3ddc97">FinOps Practices</text>
+  <rect x="20" y="58" width="348" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="81" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Tag all resources with team / env / project</text>
+  <rect x="20" y="104" width="348" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="127" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Set budget alerts at 50%, 80%, 100%</text>
+  <rect x="20" y="150" width="348" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="173" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Weekly cost review per team / service</text>
+  <rect x="20" y="196" width="348" height="36" rx="8" fill="#0b1a44"/>
+  <text x="36" y="219" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Infrastructure as Code for auditability</text>
+</g>
+`);
+
 export default {
   'custom-software-development-cost': cost,
   'ai-agents-business-automation': agents,
@@ -684,6 +1050,11 @@ export default {
   'api-integration-best-practices': apiIntegration,
   'ecommerce-conversion-rate-optimization': ecommerceCro,
   'ai-automation-roi-guide': aiRoi,
+  'web3-blockchain-development': web3Blockchain,
+  'react-performance-optimization': reactPerf,
+  'multi-tenant-saas-architecture': multiTenantSaas,
+  'ecommerce-email-marketing-strategy': emailMarketing,
+  'cloud-cost-optimization-guide': cloudCost,
 };
 
 
