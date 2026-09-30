@@ -14,7 +14,7 @@ const POLICY_HANDLES = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.byteoperator.com';
 
-  const now = new Date('2026-09-28T16:00:00Z');
+  const now = new Date('2026-09-30T10:00:00Z');
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
