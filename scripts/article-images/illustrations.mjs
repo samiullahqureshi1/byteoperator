@@ -1033,6 +1033,340 @@ const cloudCost = base(688, 380, `
 </g>
 `);
 
+// --- rag-architecture-enterprise-llm ---
+const ragArchitecture = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">Enterprise RAG Architecture Guide 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="330" height="540" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="165" y="44" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="700" fill="url(#cyan)">Ingestion Pipeline</text>
+  <rect x="20" y="60" width="290" height="60" rx="10" fill="#0b1a44" stroke="#4d86ff" stroke-width="1"/>
+  <text x="165" y="85" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">1. Raw Documents</text>
+  <text x="165" y="105" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">PDF, Notion, SQL, Docs</text>
+  <rect x="20" y="132" width="290" height="60" rx="10" fill="#0b1a44" stroke="#3ddc97" stroke-width="1"/>
+  <text x="165" y="157" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">2. Semantic Chunking</text>
+  <text x="165" y="177" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">512-token sliding window + overlap</text>
+  <rect x="20" y="204" width="290" height="60" rx="10" fill="#0b1a44" stroke="#ffc14d" stroke-width="1"/>
+  <text x="165" y="229" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">3. Vector Embeddings</text>
+  <text x="165" y="249" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">text-embedding-3-large / Voyage</text>
+  <rect x="20" y="276" width="290" height="60" rx="10" fill="#0b1a44" stroke="#a78bfa" stroke-width="1"/>
+  <text x="165" y="301" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">4. Vector Database Index</text>
+  <text x="165" y="321" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Qdrant, Pinecone, pgvector (HNSW)</text>
+  <rect x="20" y="348" width="290" height="100" rx="10" fill="#0b1a44"/>
+  <text x="36" y="375" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">Hybrid Search</text>
+  <text x="36" y="398" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.7">Dense (Cosine) + Sparse (BM25)</text>
+  <text x="36" y="420" font-family="sans-serif" font-size="12" fill="#38d6ff">Reciprocal Rank Fusion (RRF)</text>
+  <rect x="20" y="468" width="290" height="42" rx="16" fill="url(#blue)"/>
+  <text x="165" y="494" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+
+<g transform="translate(500 150)">
+  <rect width="736" height="260" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#4d86ff">Query &amp; Retrieval Flow</text>
+  <rect x="20" y="60" width="220" height="74" rx="10" fill="#0b1a44" stroke="#38d6ff" stroke-width="1"/>
+  <text x="130" y="86" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">User Prompt</text>
+  <text x="130" y="108" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Query Transformation</text>
+  <text x="250" y="102" font-family="sans-serif" font-size="18" fill="#4d86ff">&#8594;</text>
+  <rect x="270" y="60" width="210" height="74" rx="10" fill="#0b1a44" stroke="#ffc14d" stroke-width="1"/>
+  <text x="375" y="86" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">Hybrid Retriever</text>
+  <text x="375" y="108" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Top-K Chunks (k=50)</text>
+  <text x="490" y="102" font-family="sans-serif" font-size="18" fill="#4d86ff">&#8594;</text>
+  <rect x="510" y="60" width="206" height="74" rx="10" fill="#0b1a44" stroke="#3ddc97" stroke-width="1"/>
+  <text x="613" y="86" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">Cross-Encoder</text>
+  <text x="613" y="108" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Cohere Rerank (k=5)</text>
+  
+  <rect x="20" y="150" width="696" height="88" rx="12" fill="#070f2b"/>
+  <text x="40" y="178" font-family="monospace" font-size="13" fill="#38d6ff">SYSTEM_PROMPT = "Context:\n" + reranked_chunks + "\nAnswer accurately..."</text>
+  <text x="40" y="202" font-family="monospace" font-size="12" fill="#3ddc97">LLM Response Generation &#8212; Claude 3.5 Sonnet / GPT-4o / Llama 3</text>
+  <text x="40" y="222" font-family="monospace" font-size="11" fill="#ffffff" fill-opacity="0.4">Output grounded in enterprise data &#8226; Near-zero hallucination</text>
+</g>
+
+<g transform="translate(500 432)">
+  <rect width="350" height="258" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#3ddc97">Evaluation Frameworks</text>
+  <rect x="20" y="58" width="310" height="34" rx="8" fill="#0b1a44"/>
+  <text x="36" y="80" font-family="sans-serif" font-size="13" fill="#38d6ff">Ragas &#8226; Faithfulness &amp; Relevancy</text>
+  <rect x="20" y="100" width="310" height="34" rx="8" fill="#0b1a44"/>
+  <text x="36" y="122" font-family="sans-serif" font-size="13" fill="#3ddc97">TruLens &#8226; Groundedness Metric</text>
+  <rect x="20" y="142" width="310" height="34" rx="8" fill="#0b1a44"/>
+  <text x="36" y="164" font-family="sans-serif" font-size="13" fill="#ffc14d">Context Recall &amp; Precision</text>
+  <rect x="20" y="184" width="310" height="34" rx="8" fill="#0b1a44"/>
+  <text x="36" y="206" font-family="sans-serif" font-size="13" fill="#a78bfa">Continuous Evals on Production Logs</text>
+</g>
+
+<g transform="translate(870 432)">
+  <rect width="366" height="258" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffc14d">Production Guardrails</text>
+  <rect x="20" y="58" width="326" height="34" rx="8" fill="#0b1a44"/>
+  <text x="36" y="80" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">NeMo Guardrails &#8226; Scope Filtering</text>
+  <rect x="20" y="100" width="326" height="34" rx="8" fill="#0b1a44"/>
+  <text x="36" y="122" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">PII Masking &amp; Data Redaction</text>
+  <rect x="20" y="142" width="326" height="34" rx="8" fill="#0b1a44"/>
+  <text x="36" y="164" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Sub-500ms Vector Search Latency</text>
+  <rect x="20" y="184" width="326" height="34" rx="8" fill="#0b1a44"/>
+  <text x="36" y="206" font-family="sans-serif" font-size="13" fill="#ffffff" fill-opacity="0.85">Role-Based Document Access (ACL)</text>
+</g>
+`);
+
+// --- event-driven-architecture-microservices ---
+const eventDriven = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">Event-Driven Architecture &amp; Microservices 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="1096" height="150" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="42" font-family="sans-serif" font-size="15" font-weight="700" fill="url(#cyan)">Distributed Event Stream Pipeline</text>
+  <rect x="20" y="60" width="220" height="64" rx="10" fill="#0b1a44" stroke="#4d86ff" stroke-width="1"/>
+  <text x="130" y="88" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#38d6ff">Order Service</text>
+  <text x="130" y="110" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Emits: OrderCreated</text>
+  <text x="250" y="98" font-family="sans-serif" font-size="20" fill="#4d86ff">&#8594;</text>
+  <rect x="275" y="55" width="290" height="74" rx="12" fill="#0b1a44" stroke="#3ddc97" stroke-width="2"/>
+  <text x="420" y="85" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="800" fill="#3ddc97">Kafka / RabbitMQ Broker</text>
+  <text x="420" y="108" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.7">Partitioned Topics &#8226; Log Retention</text>
+  <text x="575" y="98" font-family="sans-serif" font-size="20" fill="#4d86ff">&#8594;</text>
+  <rect x="600" y="60" width="230" height="64" rx="10" fill="#0b1a44" stroke="#ffc14d" stroke-width="1"/>
+  <text x="715" y="88" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffc14d">Payment Service</text>
+  <text x="715" y="110" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Consumer Group A</text>
+  <rect x="850" y="60" width="226" height="64" rx="10" fill="#0b1a44" stroke="#ff5f7a" stroke-width="1"/>
+  <text x="963" y="88" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ff5f7a">Inventory Service</text>
+  <text x="963" y="110" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Consumer Group B</text>
+</g>
+
+<g transform="translate(140 326)">
+  <rect width="520" height="364" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#4d86ff">Core Resilience Patterns</text>
+  <rect x="20" y="60" width="480" height="62" rx="10" fill="#0b1a44"/>
+  <text x="40" y="86" font-family="sans-serif" font-size="14" font-weight="700" fill="#38d6ff">Transactional Outbox Pattern</text>
+  <text x="40" y="108" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Atomic DB transaction + Debezium CDC for zero lost events</text>
+  <rect x="20" y="132" width="480" height="62" rx="10" fill="#0b1a44"/>
+  <text x="40" y="158" font-family="sans-serif" font-size="14" font-weight="700" fill="#3ddc97">Idempotent Consumer Logic</text>
+  <text x="40" y="180" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Deduplication keys &amp; Redis locking prevent duplicate execution</text>
+  <rect x="20" y="204" width="480" height="62" rx="10" fill="#0b1a44"/>
+  <text x="40" y="230" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffc14d">Dead Letter Queue (DLQ) &amp; Backoff</text>
+  <text x="40" y="252" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Exponential retry with jitter; poison messages isolated to DLQ</text>
+  <rect x="20" y="276" width="480" height="42" rx="14" fill="#0b1a44"/>
+  <text x="40" y="302" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">Schema Registry (Avro / Protobuf) for backwards compatibility</text>
+</g>
+
+<g transform="translate(688 326)">
+  <rect width="548" height="364" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#3ddc97">Broker Comparison Matrix</text>
+  <rect x="20" y="60" width="508" height="48" rx="8" fill="#0b1a44"/>
+  <text x="36" y="82" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">Apache Kafka</text>
+  <text x="36" y="99" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.6">High-throughput streaming, event replay, log retention</text>
+  <rect x="20" y="116" width="508" height="48" rx="8" fill="#0b1a44"/>
+  <text x="36" y="138" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">RabbitMQ</text>
+  <text x="36" y="155" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.6">Complex routing (AMQP), priority queues, per-message ack</text>
+  <rect x="20" y="172" width="508" height="48" rx="8" fill="#0b1a44"/>
+  <text x="36" y="194" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">AWS SQS / SNS &amp; EventBridge</text>
+  <text x="36" y="211" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.6">Serverless, zero ops, native cloud event orchestration</text>
+  <rect x="20" y="230" width="508" height="48" rx="8" fill="#0b1a44"/>
+  <text x="36" y="252" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">NATS / Redpanda</text>
+  <text x="36" y="269" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.6">Ultra-low latency pub/sub, C++ based Kafka-compatible engine</text>
+  <rect x="20" y="296" width="508" height="44" rx="16" fill="url(#blue)"/>
+  <text x="274" y="323" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+`);
+
+// --- devops-ci-cd-pipeline-best-practices ---
+const devopsCicd = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">DevOps &amp; CI/CD Pipeline Best Practices 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="1096" height="150" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="42" font-family="sans-serif" font-size="15" font-weight="700" fill="url(#cyan)">Automated GitOps CI/CD Lifecycle</text>
+  
+  <rect x="20" y="58" width="190" height="66" rx="10" fill="#0b1a44" stroke="#4d86ff" stroke-width="1"/>
+  <text x="115" y="85" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">1. Git Push</text>
+  <text x="115" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Trunk-Based PR</text>
+  
+  <text x="218" y="96" font-family="sans-serif" font-size="18" fill="#4d86ff">&#8594;</text>
+  <rect x="235" y="58" width="190" height="66" rx="10" fill="#0b1a44" stroke="#3ddc97" stroke-width="1"/>
+  <text x="330" y="85" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">2. Test &amp; Lint</text>
+  <text x="330" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Jest, ESLint, Playwright</text>
+  
+  <text x="433" y="96" font-family="sans-serif" font-size="18" fill="#4d86ff">&#8594;</text>
+  <rect x="450" y="58" width="190" height="66" rx="10" fill="#0b1a44" stroke="#ffc14d" stroke-width="1"/>
+  <text x="545" y="85" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">3. Build &amp; Scan</text>
+  <text x="545" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Docker + Trivy / Snyk</text>
+  
+  <text x="648" y="96" font-family="sans-serif" font-size="18" fill="#4d86ff">&#8594;</text>
+  <rect x="665" y="58" width="190" height="66" rx="10" fill="#0b1a44" stroke="#a78bfa" stroke-width="1"/>
+  <text x="760" y="85" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">4. GitOps Deploy</text>
+  <text x="760" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">ArgoCD &#8594; K8s Cluster</text>
+  
+  <text x="863" y="96" font-family="sans-serif" font-size="18" fill="#4d86ff">&#8594;</text>
+  <rect x="880" y="58" width="196" height="66" rx="10" fill="#0b1a44" stroke="#3ddc97" stroke-width="1"/>
+  <text x="978" y="85" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">5. Monitor</text>
+  <text x="978" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Prometheus + Grafana</text>
+</g>
+
+<g transform="translate(140 326)">
+  <rect width="520" height="364" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#4d86ff">Zero-Downtime Deployment Strategies</text>
+  <rect x="20" y="60" width="480" height="64" rx="10" fill="#0b1a44"/>
+  <text x="40" y="86" font-family="sans-serif" font-size="14" font-weight="700" fill="#38d6ff">Canary Deployments</text>
+  <text x="40" y="108" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Route 5% traffic to v2 &#8594; monitor error rate &#8594; auto-promote</text>
+  <rect x="20" y="134" width="480" height="64" rx="10" fill="#0b1a44"/>
+  <text x="40" y="160" font-family="sans-serif" font-size="14" font-weight="700" fill="#3ddc97">Blue/Green Deployments</text>
+  <text x="40" y="182" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Instant cutover with rollback capability via Ingress / Route53</text>
+  <rect x="20" y="208" width="480" height="64" rx="10" fill="#0b1a44"/>
+  <text x="40" y="234" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffc14d">Rolling Updates with Healthchecks</text>
+  <text x="40" y="256" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Kubernetes readiness &amp; liveness probes ensure zero dropouts</text>
+  <rect x="20" y="282" width="480" height="42" rx="14" fill="#0b1a44"/>
+  <text x="40" y="308" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">Feature Flags (LaunchDarkly / Unleash) decouple deploy from release</text>
+</g>
+
+<g transform="translate(688 326)">
+  <rect width="548" height="364" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#3ddc97">DevOps Toolchain Matrix</text>
+  <rect x="20" y="60" width="508" height="44" rx="8" fill="#0b1a44"/>
+  <text x="36" y="83" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">CI / Automation</text>
+  <text x="180" y="83" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.8">GitHub Actions, GitLab CI, Buildkite</text>
+  <rect x="20" y="112" width="508" height="44" rx="8" fill="#0b1a44"/>
+  <text x="36" y="135" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">GitOps &amp; K8s</text>
+  <text x="180" y="135" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.8">ArgoCD, Flux, Helm, Kustomize</text>
+  <rect x="20" y="164" width="508" height="44" rx="8" fill="#0b1a44"/>
+  <text x="36" y="187" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">Infrastructure as Code</text>
+  <text x="210" y="187" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.8">Terraform, OpenTofu, Pulumi</text>
+  <rect x="20" y="216" width="508" height="44" rx="8" fill="#0b1a44"/>
+  <text x="36" y="239" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">Observability</text>
+  <text x="180" y="239" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.8">Datadog, OpenTelemetry, Grafana Mimir</text>
+  <rect x="20" y="280" width="508" height="48" rx="16" fill="url(#blue)"/>
+  <text x="274" y="310" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+`);
+
+// --- web-application-security-owasp-guide ---
+const webSecurity = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">Web Application Security &amp; OWASP Top 10 Guide 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="520" height="540" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="url(#cyan)">Top Attack Vectors &amp; Defenses</text>
+  
+  <rect x="20" y="60" width="480" height="68" rx="10" fill="#0b1a44" stroke="#ff5f7a" stroke-width="1"/>
+  <text x="40" y="86" font-family="sans-serif" font-size="14" font-weight="700" fill="#ff5f7a">1. Broken Access Control (BOLA / IDOR)</text>
+  <text x="40" y="108" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.7">Defense: Server-side tenant checks &amp; object ownership verification</text>
+  
+  <rect x="20" y="138" width="480" height="68" rx="10" fill="#0b1a44" stroke="#ffc14d" stroke-width="1"/>
+  <text x="40" y="164" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffc14d">2. Cryptographic Failures &amp; Leaked Secrets</text>
+  <text x="40" y="186" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.7">Defense: AWS Secrets Manager, Argon2id passwords, TLS 1.3</text>
+  
+  <rect x="20" y="216" width="480" height="68" rx="10" fill="#0b1a44" stroke="#38d6ff" stroke-width="1"/>
+  <text x="40" y="242" font-family="sans-serif" font-size="14" font-weight="700" fill="#38d6ff">3. Injection (SQL, NoSQL, Command)</text>
+  <text x="40" y="264" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.7">Defense: Parameterized queries (Prisma/Drizzle), Zod input validation</text>
+  
+  <rect x="20" y="294" width="480" height="68" rx="10" fill="#0b1a44" stroke="#a78bfa" stroke-width="1"/>
+  <text x="40" y="320" font-family="sans-serif" font-size="14" font-weight="700" fill="#a78bfa">4. Server-Side Request Forgery (SSRF)</text>
+  <text x="40" y="342" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.7">Defense: Whitelist outbound domains, block cloud metadata (169.254)</text>
+
+  <rect x="20" y="372" width="480" height="68" rx="10" fill="#0b1a44" stroke="#3ddc97" stroke-width="1"/>
+  <text x="40" y="398" font-family="sans-serif" font-size="14" font-weight="700" fill="#3ddc97">5. Security Misconfiguration &amp; CORS</text>
+  <text x="40" y="420" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.7">Defense: Strict CSP headers, disable debug mode, remove defaults</text>
+
+  <rect x="20" y="460" width="480" height="48" rx="16" fill="url(#blue)"/>
+  <text x="260" y="490" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+
+<g transform="translate(688 150)">
+  <rect width="548" height="540" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#3ddc97">Security Headers &amp; DevSecOps Checklist</text>
+  
+  <rect x="20" y="60" width="508" height="150" rx="12" fill="#070f2b"/>
+  <text x="40" y="88" font-family="monospace" font-size="12" fill="#38d6ff">Content-Security-Policy: default-src 'self'; script-src 'self'</text>
+  <text x="40" y="112" font-family="monospace" font-size="12" fill="#3ddc97">Strict-Transport-Security: max-age=63072000; includeSubDomains</text>
+  <text x="40" y="136" font-family="monospace" font-size="12" fill="#ffc14d">X-Frame-Options: DENY</text>
+  <text x="40" y="160" font-family="monospace" font-size="12" fill="#4d86ff">X-Content-Type-Options: nosniff</text>
+  <text x="40" y="184" font-family="monospace" font-size="12" fill="#a78bfa">Referrer-Policy: strict-origin-when-cross-origin</text>
+
+  <rect x="20" y="230" width="508" height="56" rx="10" fill="#0b1a44"/>
+  <text x="40" y="254" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">SAST &amp; DAST in CI/CD Pipeline</text>
+  <text x="40" y="274" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.6">Semgrep, SonarQube, OWASP ZAP automated pull-request scans</text>
+
+  <rect x="20" y="296" width="508" height="56" rx="10" fill="#0b1a44"/>
+  <text x="40" y="320" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">Rate Limiting &amp; DDoS Mitigation</text>
+  <text x="40" y="340" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.6">Cloudflare WAF + Upstash Redis sliding window per IP/User</text>
+
+  <rect x="20" y="362" width="508" height="56" rx="10" fill="#0b1a44"/>
+  <text x="40" y="386" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">Auth &amp; Session Management</text>
+  <text x="40" y="406" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.6">HTTP-Only SameSite=Strict cookies; MFA for administrative routes</text>
+
+  <rect x="20" y="428" width="508" height="56" rx="10" fill="#0b1a44"/>
+  <text x="40" y="452" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">Audit Logging &amp; SIEM</text>
+  <text x="40" y="472" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.6">Immutable event logs forwarded to Datadog / AWS CloudWatch</text>
+</g>
+`);
+
+// --- headless-cms-nextjs-architecture-guide ---
+const headlessCms = base(688, 380, `
+<rect x="140" y="60" width="1096" height="60" rx="14" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<text x="688" y="100" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#ffffff">Headless CMS Architecture with Next.js 2026</text>
+
+<g transform="translate(140 150)">
+  <rect width="1096" height="150" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="42" font-family="sans-serif" font-size="15" font-weight="700" fill="url(#cyan)">Decoupled Headless Content Delivery Engine</text>
+  
+  <rect x="20" y="58" width="230" height="66" rx="10" fill="#0b1a44" stroke="#4d86ff" stroke-width="1"/>
+  <text x="135" y="85" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#38d6ff">Headless CMS</text>
+  <text x="135" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">Sanity / Strapi / Contentful</text>
+  
+  <text x="265" y="96" font-family="sans-serif" font-size="18" fill="#4d86ff">&#8594;</text>
+  <rect x="290" y="58" width="250" height="66" rx="10" fill="#0b1a44" stroke="#ffc14d" stroke-width="1"/>
+  <text x="415" y="85" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffc14d">On-Demand Webhook</text>
+  <text x="415" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">HMAC-signed payload on publish</text>
+  
+  <text x="555" y="96" font-family="sans-serif" font-size="18" fill="#4d86ff">&#8594;</text>
+  <rect x="580" y="58" width="240" height="66" rx="10" fill="#0b1a44" stroke="#3ddc97" stroke-width="1"/>
+  <text x="700" y="85" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#3ddc97">Next.js App Router</text>
+  <text x="700" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">revalidateTag('content') &#8226; ISR</text>
+  
+  <text x="835" y="96" font-family="sans-serif" font-size="18" fill="#4d86ff">&#8594;</text>
+  <rect x="860" y="58" width="216" height="66" rx="10" fill="#0b1a44" stroke="#a78bfa" stroke-width="1"/>
+  <text x="968" y="85" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#a78bfa">Global Edge CDN</text>
+  <text x="968" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.5">&lt;50ms TTFB worldwide</text>
+</g>
+
+<g transform="translate(140 326)">
+  <rect width="530" height="364" rx="18" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#4d86ff">Headless CMS Platforms Comparison</text>
+  <rect x="20" y="60" width="490" height="64" rx="10" fill="#0b1a44"/>
+  <text x="40" y="86" font-family="sans-serif" font-size="14" font-weight="700" fill="#38d6ff">Sanity.io</text>
+  <text x="40" y="108" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Real-time collaboration, GROQ/GraphQL, portable text, live visual preview</text>
+  <rect x="20" y="134" width="490" height="64" rx="10" fill="#0b1a44"/>
+  <text x="40" y="160" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffc14d">Strapi (Open-Source)</text>
+  <text x="40" y="182" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Self-hosted or Cloud, Node.js backend, full database ownership, customizable REST/GraphQL</text>
+  <rect x="20" y="208" width="490" height="64" rx="10" fill="#0b1a44"/>
+  <text x="40" y="234" font-family="sans-serif" font-size="14" font-weight="700" fill="#3ddc97">Contentful</text>
+  <text x="40" y="256" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Enterprise governance, multi-space localization, robust ecosystem &amp; SLA</text>
+  <rect x="20" y="282" width="490" height="64" rx="10" fill="#0b1a44"/>
+  <text x="40" y="308" font-family="sans-serif" font-size="14" font-weight="700" fill="#a78bfa">Payload CMS</text>
+  <text x="40" y="330" font-family="sans-serif" font-size="12" fill="#ffffff" fill-opacity="0.6">Native TypeScript &amp; Next.js integration, code-first schemas, zero overhead</text>
+</g>
+
+<g transform="translate(698 326)">
+  <rect width="538" height="364" rx="18" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="15" font-weight="700" fill="#3ddc97">Architectural Best Practices</text>
+  <rect x="20" y="60" width="498" height="48" rx="8" fill="#0b1a44"/>
+  <text x="36" y="82" font-family="sans-serif" font-size="13" font-weight="700" fill="#38d6ff">Granular Cache Tagging</text>
+  <text x="36" y="99" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.6">Tag fetches by entity: fetch(url, { next: { tags: ['blog', slug] } })</text>
+  <rect x="20" y="116" width="498" height="48" rx="8" fill="#0b1a44"/>
+  <text x="36" y="138" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffc14d">Visual Draft Mode</text>
+  <text x="36" y="155" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.6">Enable Next.js draftMode() for real-time editorial preview before publishing</text>
+  <rect x="20" y="172" width="498" height="48" rx="8" fill="#0b1a44"/>
+  <text x="36" y="194" font-family="sans-serif" font-size="13" font-weight="700" fill="#3ddc97">Modular Content Blocks</text>
+  <text x="36" y="211" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.6">Polymorphic page builder schemas: Hero, Features, CTA, Testimonial</text>
+  <rect x="20" y="228" width="498" height="48" rx="8" fill="#0b1a44"/>
+  <text x="36" y="250" font-family="sans-serif" font-size="13" font-weight="700" fill="#a78bfa">Automated Asset Optimization</text>
+  <text x="36" y="267" font-family="sans-serif" font-size="11" fill="#ffffff" fill-opacity="0.6">CDN image resizing (WebP/AVIF) paired with Next.js next/image</text>
+  <rect x="20" y="292" width="498" height="48" rx="16" fill="url(#blue)"/>
+  <text x="269" y="322" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="700" fill="#ffffff">byteoperator.com</text>
+</g>
+`);
+
 export default {
   'custom-software-development-cost': cost,
   'ai-agents-business-automation': agents,
@@ -1055,6 +1389,11 @@ export default {
   'multi-tenant-saas-architecture': multiTenantSaas,
   'ecommerce-email-marketing-strategy': emailMarketing,
   'cloud-cost-optimization-guide': cloudCost,
+  'rag-architecture-enterprise-llm': ragArchitecture,
+  'event-driven-architecture-microservices': eventDriven,
+  'devops-ci-cd-pipeline-best-practices': devopsCicd,
+  'web-application-security-owasp-guide': webSecurity,
+  'headless-cms-nextjs-architecture-guide': headlessCms,
 };
 
 
