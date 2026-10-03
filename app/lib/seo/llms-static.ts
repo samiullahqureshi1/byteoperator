@@ -116,7 +116,7 @@ export const LLMS_FACTS: string[] = [
   'Brand: Byte Operator',
   'Founded: 2025',
   'Headquarters: Islamabad, Pakistan',
-  'Email: samiullah@byteoperator.com',
+  'Email: info@byteoperator.com',
   'Website: https://www.byteoperator.com',
   'Primary markets: United States, United Kingdom, Canada, Australia and Europe',
 ];

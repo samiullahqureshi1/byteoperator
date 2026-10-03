@@ -1,6 +1,6 @@
 /**
  * Byte Operator - Lead & Contact Email Dispatch Service
- * Sends customer inquiries directly to samiullah@byteoperator.com (with fallback for Resend testing)
+ * Sends customer inquiries directly to info@byteoperator.com (with fallback for Resend testing)
  */
 
 export interface ContactEnquiryPayload {
@@ -19,7 +19,7 @@ export interface ContactEnquiryPayload {
   marketingConsent?: boolean;
 }
 
-const PRIMARY_RECIPIENT = process.env.NOTIFICATION_EMAIL || 'samiullah@byteoperator.com';
+const PRIMARY_RECIPIENT = process.env.NOTIFICATION_EMAIL || 'info@byteoperator.com';
 const FALLBACK_TEST_EMAIL = 'samiullahqureshi669@gmail.com';
 
 export async function sendLeadNotificationEmail(payload: ContactEnquiryPayload): Promise<{

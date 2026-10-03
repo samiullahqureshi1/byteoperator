@@ -168,8 +168,8 @@ export function Footer({
             </p>
 
             <p className="ft-footer__contact">
-              <a href="mailto:samiullah@byteoperator.com">
-                samiullah@byteoperator.com
+              <a href="mailto:info@byteoperator.com">
+                info@byteoperator.com
               </a>
               <span aria-hidden="true"> · </span>
               <span>Islamabad, Pakistan</span>

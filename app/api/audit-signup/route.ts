@@ -36,7 +36,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Forward Audit request directly to samiullah@byteoperator.com
+    // Forward Audit request directly to info@byteoperator.com
     await sendLeadNotificationEmail({
       name: payload.name || 'AI Audit Requester',
       email: payload.email,

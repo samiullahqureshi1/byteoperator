@@ -146,7 +146,7 @@ export const ORGANIZATION: JsonLd = {
     '@type': 'QuantitativeValue',
     value: COMPANY_FACTS.team.target,
   },
-  email: 'samiullah@byteoperator.com',
+  email: 'info@byteoperator.com',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Islamabad',
@@ -181,14 +181,14 @@ export const ORGANIZATION: JsonLd = {
     {
       '@type': 'ContactPoint',
       contactType: 'sales',
-      email: 'samiullah@byteoperator.com',
+      email: 'info@byteoperator.com',
       availableLanguage: ['English'],
       areaServed: ['US', 'GB', 'CA', 'AU', 'DE', 'FR', 'IT'],
     },
     {
       '@type': 'ContactPoint',
       contactType: 'customer support',
-      email: 'samiullah@byteoperator.com',
+      email: 'info@byteoperator.com',
       availableLanguage: ['English'],
     },
   ],

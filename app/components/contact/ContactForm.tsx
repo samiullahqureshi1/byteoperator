@@ -76,7 +76,7 @@ export function ContactForm({
     if (!response.ok || !result.ok) {
       throw new Error(
         result.error ||
-          'We could not send your enquiry. Please try again or email samiullah@byteoperator.com.',
+          'We could not send your enquiry. Please try again or email info@byteoperator.com.',
       );
     }
   }

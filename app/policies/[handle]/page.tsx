@@ -88,7 +88,7 @@ const POLICY_DATA: Record<string, PolicyDocument> = {
       </p>
       <p>
         <strong>Byte Operator Privacy Team</strong><br />
-        Email: <a href="mailto:samiullah@byteoperator.com">samiullah@byteoperator.com</a><br />
+        Email: <a href="mailto:info@byteoperator.com">info@byteoperator.com</a><br />
         Website: <a href="https://www.byteoperator.com">https://www.byteoperator.com</a>
       </p>
     `,
@@ -204,7 +204,7 @@ const POLICY_DATA: Record<string, PolicyDocument> = {
       </p>
       <p>
         <strong>Byte Operator Finance &amp; Accounts</strong><br />
-        Email: <a href="mailto:samiullah@byteoperator.com">samiullah@byteoperator.com</a><br />
+        Email: <a href="mailto:info@byteoperator.com">info@byteoperator.com</a><br />
         Subject: Billing &amp; Milestone Inquiry
       </p>
     `,
@@ -241,7 +241,7 @@ const POLICY_DATA: Record<string, PolicyDocument> = {
       </p>
       <ul>
         <li><strong>Notice Period:</strong> Monthly retainer subscriptions may be modified, upgraded, downgraded, or cancelled with a thirty (30) calendar day written notice prior to the start of the next billing cycle.</li>
-        <li><strong>Notice Submission:</strong> Notice must be submitted via email to your dedicated Account Director or sent directly to <a href="mailto:samiullah@byteoperator.com">samiullah@byteoperator.com</a>.</li>
+        <li><strong>Notice Submission:</strong> Notice must be submitted via email to your dedicated Account Director or sent directly to <a href="mailto:info@byteoperator.com">info@byteoperator.com</a>.</li>
         <li><strong>Active Month Fulfillment:</strong> During the 30-day notice period, our engineering team will continue delivering scheduled sprint backlog items and comprehensive offboarding documentation.</li>
       </ul>
 
@@ -266,7 +266,7 @@ const POLICY_DATA: Record<string, PolicyDocument> = {
       </p>
       <p>
         <strong>Byte Operator Client Operations</strong><br />
-        Email: <a href="mailto:samiullah@byteoperator.com">samiullah@byteoperator.com</a><br />
+        Email: <a href="mailto:info@byteoperator.com">info@byteoperator.com</a><br />
         Website: <a href="https://www.byteoperator.com">https://www.byteoperator.com</a>
       </p>
     `,
@@ -327,8 +327,8 @@ export default function PolicyDetailPage({params}: Props) {
 
           <p style={{fontSize: '0.8125rem', color: '#8E9FB8', margin: 0}}>
             Last updated: <strong>{policy.lastUpdated}</strong>. For questions regarding our company policies, email{' '}
-            <a href="mailto:samiullah@byteoperator.com" style={{color: '#3B82F6'}}>
-              samiullah@byteoperator.com
+            <a href="mailto:info@byteoperator.com" style={{color: '#3B82F6'}}>
+              info@byteoperator.com
             </a>.
           </p>
         </div>

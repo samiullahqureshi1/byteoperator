@@ -11,8 +11,8 @@ export function ContactInfo() {
               Email us
             </p>
 
-            <a href="mailto:samiullah@byteoperator.com">
-              samiullah@byteoperator.com
+            <a href="mailto:info@byteoperator.com">
+              info@byteoperator.com
             </a>
           </div>
 

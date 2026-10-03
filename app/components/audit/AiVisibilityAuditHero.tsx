@@ -252,7 +252,7 @@ export function AiVisibilityAuditHero() {
 
       setSubmitError(
         result.error ||
-          'We could not submit your request. Please try again or email samiullah@byteoperator.com.',
+          'We could not submit your request. Please try again or email info@byteoperator.com.',
       );
 
       return;

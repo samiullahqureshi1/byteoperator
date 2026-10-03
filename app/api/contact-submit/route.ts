@@ -41,7 +41,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send notification email to samiullah@byteoperator.com
+    // Send notification email to info@byteoperator.com
     await sendLeadNotificationEmail({
       firstName: payload.firstName,
       lastName: payload.lastName,
