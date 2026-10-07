@@ -34,7 +34,9 @@ const HERO_SERVICES = [
   },
 ] as const;
 
-export function HomeHero() {
+import type {HomePageContent} from '~/lib/cms/types';
+
+export function HomeHero({content}: {content?: HomePageContent} = {}) {
   const scrollToGallery = () => {
     const gallery = document.getElementById(
       'ft-home-hero-gallery',
@@ -53,6 +55,15 @@ export function HomeHero() {
       behavior: 'smooth',
     });
   };
+
+  const eyebrow = content?.heroEyebrow || 'Byte Operator — AI Automation & Custom Software Engineering';
+  const prefix = content?.heroTitlePrefix || 'Byte Operator';
+  const highlight = content?.heroTitleHighlight || 'AI Automation & Custom Software Engineering';
+  const description =
+    content?.heroSubtitle ||
+    'Byte Operator is an independent software engineering and AI automation company. We design, engineer, and deploy high-velocity web platforms, custom SaaS architectures, and autonomous AI systems built for extreme performance.';
+  const primaryCta = content?.primaryCtaText || 'Explore our platforms';
+
   return (
     <section
       className="ft-home-hero"
@@ -65,7 +76,7 @@ export function HomeHero() {
 
       <div className="ft-home-hero__content">
         <p className="ft-home-hero__eyebrow">
-          Byte Operator — AI Automation &amp; Custom Software Engineering
+          {eyebrow}
         </p>
 
         <h1
@@ -73,15 +84,15 @@ export function HomeHero() {
           id="ft-home-hero-title"
         >
           <span className="ft-home-hero__title-line">
-            Byte Operator
+            {prefix}
           </span>{' '}
           <span className="ft-home-hero__title-line">
-            <strong>AI Automation &amp; Custom Software Engineering</strong>
+            <strong>{highlight}</strong>
           </span>
         </h1>
 
         <p className="ft-home-hero__description">
-          Byte Operator is an independent software engineering and AI automation company. We design, engineer, and deploy high-velocity web platforms, custom SaaS architectures, and autonomous AI systems built for extreme performance.
+          {description}
         </p>
 
         <div className="ft-home-hero__services">
@@ -102,15 +113,15 @@ export function HomeHero() {
           <CalendlyButton className="ft-home-hero__book-cta" />
 
           <a
-          className="ft-home-hero__work-link"
-          href="#ft-home-hero-gallery"
-          onClick={(event) => {
-            event.preventDefault();
-            scrollToGallery();
-          }}
-        >
-          <span>Explore our platforms</span>
-          <ArrowDownIcon />
+            className="ft-home-hero__work-link"
+            href="#ft-home-hero-gallery"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToGallery();
+            }}
+          >
+            <span>{primaryCta}</span>
+            <ArrowDownIcon />
           </a>
         </div>
       </div>

@@ -118,6 +118,8 @@ export const ALL_TECHNOLOGY_CATEGORIES: readonly TechCategory[] = [
   },
 ];
 
+import type {HomePageContent} from '~/lib/cms/types';
+
 interface HomePartnersProps {
   description?: readonly string[];
   ecommerceLogos?: readonly PartnerLogo[];
@@ -126,6 +128,7 @@ interface HomePartnersProps {
   logos?: readonly PartnerLogo[];
   showCta?: boolean;
   techLogos?: readonly PartnerLogo[];
+  content?: HomePageContent;
 }
 
 export function HomePartners({
@@ -141,8 +144,13 @@ export function HomePartners({
   label = 'Platforms & Technologies',
   showCta = true,
   techLogos = TECH_STACK_LOGOS,
+  content,
 }: HomePartnersProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  if (content?.partnersShowSection === false) {
+    return null;
+  }
 
   return (
     <section

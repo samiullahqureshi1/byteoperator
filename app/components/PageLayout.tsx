@@ -16,6 +16,12 @@ interface PageLayoutProps {
 
 export function PageLayout({children = null}: PageLayoutProps) {
   const {pathname} = useLocation();
+  const isCmsOrAuthRoute = pathname.startsWith('/portal-') || pathname === '/login';
+
+  if (isCmsOrAuthRoute) {
+    return <main>{children}</main>;
+  }
+
   const isAboutPage = pathname.replace(/\/+$/, '') === '/about';
 
   return (

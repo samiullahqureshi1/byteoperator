@@ -8,19 +8,28 @@ import {AboutTestimonials} from '~/components/about/AboutTestimonials';
 import {AboutSpace} from '~/components/about/AboutSpace';
 import {AboutJoin} from '~/components/about/AboutJoin';
 import {HomeObservatory} from '~/components/HomeObservatory';
+import {getSiteContent} from '~/lib/cms/db';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'About Byte Operator — AI Automation & Custom Software Engineering',
-  description:
-    'Learn about Byte Operator, an independent software engineering and AI automation company delivering custom SaaS platforms, modern web apps, and intelligent agent workflows.',
-  path: '/about',
-});
+export const dynamic = 'force-dynamic';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const cmsContent = getSiteContent();
+  const about = cmsContent.about;
+  return pageMetadata({
+    title: about?.seoTitle || 'About Byte Operator — AI Automation & Custom Software Engineering',
+    description:
+      about?.seoDescription ||
+      'Learn about Byte Operator, an independent software engineering and AI automation company delivering custom SaaS platforms, modern web apps, and intelligent agent workflows.',
+    path: '/about',
+  });
+}
 
 export default function AboutPage() {
+  const cmsContent = getSiteContent();
   return (
     <div className="about-page">
-      <AboutHero />
-      <AboutStoryStats />
+      <AboutHero content={cmsContent.about} />
+      <AboutStoryStats content={cmsContent.about} />
       <AboutValues />
       <AboutFounders />
       <AboutTestimonials />

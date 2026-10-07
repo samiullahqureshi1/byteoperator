@@ -58,25 +58,52 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     return {title: 'Service Not Found | Byte Operator'};
   }
 
+  const cmsContent = getSiteContent();
+  const serviceOverride = cmsContent.servicePages?.[handle];
   const {title, description} = serviceSeo(handle, config);
 
   return pageMetadata({
-    title: `${title} | Byte Operator`,
-    description,
+    title: serviceOverride?.seoTitle || `${title} | Byte Operator`,
+    description: serviceOverride?.seoDescription || description,
     path: `/services/${handle}`,
   });
 }
 
+import {getSiteContent} from '~/lib/cms/db';
+
+export const dynamic = 'force-dynamic';
+
 export default function ServicePage({params}: Props) {
   const {handle} = params;
 
-  const config = isCanonicalHandle(handle)
+  const baseConfig = isCanonicalHandle(handle)
     ? SERVICE_PAGE_CONFIGS[handle as ServicePageHandle]
     : undefined;
 
-  if (!config) {
+  if (!baseConfig) {
     notFound();
   }
+
+  const cmsContent = getSiteContent();
+  const serviceOverride = cmsContent.servicePages?.[handle];
+
+  const config: ServicePageConfig = serviceOverride
+    ? {
+        ...baseConfig,
+        hero: {
+          ...baseConfig.hero,
+          eyebrow: serviceOverride.eyebrow || baseConfig.hero?.eyebrow,
+          heading: serviceOverride.heading || baseConfig.hero?.heading,
+          description: serviceOverride.description || baseConfig.hero?.description,
+          primaryCta: serviceOverride.ctaButtonText
+            ? {
+                label: serviceOverride.ctaButtonText,
+                href: baseConfig.hero?.primaryCta?.href || '/book-a-call',
+              }
+            : baseConfig.hero?.primaryCta,
+        },
+      }
+    : baseConfig;
 
   const title = config.hero?.eyebrow || config.hero?.heading || handle;
   const seo = serviceSeo(handle, config);

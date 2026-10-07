@@ -151,12 +151,23 @@ const SERVICE_PRODUCTS = [
 ] as const;
 
 
+import type {HomePageContent} from '~/lib/cms/types';
+
 /* =========================================================
    MAIN COMPONENT
 ========================================================= */
 
-export function HomeServices() {
+export function HomeServices({content}: {content?: HomePageContent} = {}) {
   const sectionRef = useRef<HTMLElement>(null);
+
+  if (content?.servicesShowSection === false) {
+    return null;
+  }
+
+  const heading = content?.servicesHeading || 'Our Services';
+  const subtitle = content?.servicesSubtitle || 'Delivering Growth';
+  const ctaText = content?.servicesCtaText || 'View all services';
+  const ctaLink = content?.servicesCtaLink || '/services';
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -213,6 +224,17 @@ export function HomeServices() {
     };
   }, []);
 
+  const servicesToRender =
+    content?.servicesList && content.servicesList.length > 0
+      ? content.servicesList.map((s, idx) => ({
+          title: s.title,
+          description: s.description,
+          href: s.href,
+          badge: s.badge !== undefined ? s.badge : (SERVICES[idx] ? SERVICES[idx].badge : null),
+          badgeAlt: s.badgeAlt || (SERVICES[idx] ? SERVICES[idx].badgeAlt : ''),
+        }))
+      : SERVICES;
+
   return (
     <section
       ref={sectionRef}
@@ -224,16 +246,16 @@ export function HomeServices() {
 
         <div className="ft-home-services__mobile-heading">
           <p className="ft-home-services__mobile-heading-sub">
-            Delivering Growth
+            {subtitle}
           </p>
 
           <h2 className="ft-home-services__mobile-heading-main">
-            Our Services
+            {heading}
           </h2>
         </div>
 
         <div className="ft-home-services__grid">
-          {SERVICES.map((service, index) => (
+          {servicesToRender.map((service, index) => (
             <ServiceCard
               key={service.title}
               service={service}
@@ -267,10 +289,10 @@ export function HomeServices() {
         <div className="ft-home-services__cta-wrap">
           <Link
             className="ft-home-services__cta"
-            to="/services"
+            to={ctaLink}
             prefetch="intent"
           >
-            <span>View all services</span>
+            <span>{ctaText}</span>
 
             <ArrowIcon />
           </Link>

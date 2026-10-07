@@ -6,13 +6,21 @@ import {ContactPartners} from '~/components/contact/ContactPartners';
 import {WorkFeaturedProjects} from '~/components/work/WorkFeaturedProjects';
 import {CASE_STUDIES} from '~/data/caseStudiesData';
 import {Link} from '~/lib/router-compat';
+import {getSiteContent} from '~/lib/cms/db';
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Contact Us | Byte Operator - Get In Touch',
-  description:
-    'Start your Software project with Byte Operator. Reach out for new store builds, CRO audits, SEO optimization, and migrations.',
-  path: '/contact',
-});
+export const dynamic = 'force-dynamic';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const cmsContent = getSiteContent();
+  const contact = cmsContent.contact;
+  return pageMetadata({
+    title: contact?.seoTitle || 'Contact Us | Byte Operator - Get In Touch',
+    description:
+      contact?.seoDescription ||
+      'Start your Software project with Byte Operator. Reach out for new store builds, CRO audits, SEO optimization, and migrations.',
+    path: '/contact',
+  });
+}
 
 export default function Contact() {
   const featuredArticles: any[] = CASE_STUDIES.slice(0, 3).map((cs) => ({

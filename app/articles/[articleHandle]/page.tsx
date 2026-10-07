@@ -6,7 +6,9 @@ import {
   ARTICLES_DATA,
   getArticleByHandle,
   type ArticleFaq,
+  type ArticleItem,
 } from '~/data/articlesData';
+import {getCmsArticleByHandle, getCmsArticles} from '~/lib/cms/db';
 import {articleJsonLd} from '~/lib/seo/jsonld';
 import {absoluteUrl, faqSchema, jsonLdString} from '~/lib/seo/schema';
 
@@ -16,14 +18,44 @@ interface Props {
   };
 }
 
+export const dynamic = 'force-dynamic';
+
 export function generateStaticParams() {
-  return ARTICLES_DATA.map((article) => ({
-    articleHandle: article.handle,
+  const cmsArts = getCmsArticles(false);
+  const handles = new Set<string>();
+  cmsArts.forEach(a => handles.add(a.handle));
+  ARTICLES_DATA.forEach(a => handles.add(a.handle));
+
+  return Array.from(handles).map((handle) => ({
+    articleHandle: handle,
   }));
 }
 
+function resolveArticle(handle: string): ArticleItem | undefined {
+  const cmsArt = getCmsArticleByHandle(handle);
+  if (cmsArt && cmsArt.status === 'published') {
+    return {
+      id: cmsArt.id,
+      handle: cmsArt.handle,
+      path: `/articles/${cmsArt.handle}`,
+      title: cmsArt.title,
+      excerpt: cmsArt.excerpt,
+      contentHtml: cmsArt.contentHtml,
+      publishedAt: cmsArt.publishedAt,
+      updatedAt: cmsArt.updatedAt,
+      category: cmsArt.category,
+      articleType: cmsArt.articleType,
+      featured: cmsArt.featured,
+      mainFeatured: cmsArt.mainFeatured,
+      image: cmsArt.image,
+      seo: cmsArt.seo,
+    };
+  }
+  return getArticleByHandle(handle);
+}
+
 export async function generateMetadata({params}: Props): Promise<Metadata> {
-  const article = getArticleByHandle(params.articleHandle);
+  const article = resolveArticle(params.articleHandle);
   if (!article) {
     return {title: 'Article | Byte Operator'};
   }
@@ -48,7 +80,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
 }
 
 export default function ArticlePage({params}: Props) {
-  const article = getArticleByHandle(params.articleHandle);
+  const article = resolveArticle(params.articleHandle);
 
   if (!article) {
     notFound();
@@ -107,6 +139,7 @@ function relatedHtml(currentHandle: string): string {
   if (!related.length) return '';
 
   return `<p><strong>Related reading:</strong></p><ul>${related
+    .slice(0, 4)
     .map((a) => `<li><a href="${a.path}">${escapeHtml(a.title)}</a></li>`)
     .join('')}</ul>`;
 }

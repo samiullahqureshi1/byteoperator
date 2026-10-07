@@ -273,6 +273,17 @@ const POLICY_DATA: Record<string, PolicyDocument> = {
   },
 };
 
+import {getSiteContent} from '~/lib/cms/db';
+
+export const dynamic = 'force-dynamic';
+
+const HANDLE_KEY_MAP: Record<string, 'privacyPolicy' | 'termsOfService' | 'refundPolicy' | 'subscriptionPolicy'> = {
+  'privacy-policy': 'privacyPolicy',
+  'terms-of-service': 'termsOfService',
+  'refund-policy': 'refundPolicy',
+  'subscription-policy': 'subscriptionPolicy',
+};
+
 export function generateStaticParams() {
   return Object.keys(POLICY_DATA).map((handle) => ({handle}));
 }
@@ -285,19 +296,35 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     };
   }
 
+  const cmsContent = getSiteContent();
+  const cmsKey = HANDLE_KEY_MAP[params.handle];
+  const cmsOverride = cmsKey ? cmsContent[cmsKey] : undefined;
+
   return pageMetadata({
-    title: `${policy.title} | Byte Operator`,
-    description: policy.description,
+    title: cmsOverride?.seoTitle || `${cmsOverride?.title || policy.title} | Byte Operator`,
+    description: cmsOverride?.seoDescription || cmsOverride?.summary || policy.description,
     path: `/policies/${params.handle}`,
   });
 }
 
 export default function PolicyDetailPage({params}: Props) {
-  const policy = POLICY_DATA[params.handle];
+  const basePolicy = POLICY_DATA[params.handle];
 
-  if (!policy) {
+  if (!basePolicy) {
     notFound();
   }
+
+  const cmsContent = getSiteContent();
+  const cmsKey = HANDLE_KEY_MAP[params.handle];
+  const cmsOverride = cmsKey ? cmsContent[cmsKey] : undefined;
+
+  const policy = {
+    title: cmsOverride?.title || basePolicy.title,
+    category: basePolicy.category,
+    lastUpdated: cmsOverride?.lastUpdated || basePolicy.lastUpdated,
+    description: cmsOverride?.summary || basePolicy.description,
+    body: cmsOverride?.contentHtml || basePolicy.body,
+  };
 
   return (
     <main className="ft-policy-page">

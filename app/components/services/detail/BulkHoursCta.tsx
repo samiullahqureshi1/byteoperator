@@ -108,6 +108,8 @@ export function BulkHoursCta({
               <Marker className="ft-bulk-hours-cta__marker--drive" />
               <Link
                 href={`/contact?hours=${hours}`}
+                rel="nofollow"
+                prefetch={false}
               >
                 {hours} hours
               </Link>

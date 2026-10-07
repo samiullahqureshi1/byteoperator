@@ -137,6 +137,8 @@ export const HOME_PROJECTS: readonly HomeProjectData[] = [
   },
 ] as const;
 
+import type {HomePageContent} from '~/lib/cms/types';
+
 export type HomeProjectsProps = {
   heading?: string;
   projects?: readonly HomeProjectData[];
@@ -144,6 +146,7 @@ export type HomeProjectsProps = {
     label: string;
     href: string;
   };
+  content?: HomePageContent;
 };
 
 export function HomeProjects({
@@ -154,9 +157,36 @@ export function HomeProjects({
     label: 'Explore Case Studies',
     href: '/work',
   },
+  content,
 }: HomeProjectsProps = {}) {
   const trackRef =
     useRef<HTMLDivElement>(null);
+
+  if (content?.projectsShowSection === false) {
+    return null;
+  }
+
+  const sectionHeading = content?.projectsHeading || heading;
+
+  const projectsToRender: readonly HomeProjectData[] =
+    content?.projectsList && content.projectsList.length > 0
+      ? content.projectsList.map((p) => ({
+          title: p.title,
+          type: p.type,
+          href: p.href,
+          image: p.image,
+          imageWidth: 1920,
+          imageHeight: 1080,
+          logo: '',
+          logoImageWidth: 0,
+          logoImageHeight: 0,
+          thumbnail: p.image,
+          thumbnailWidth: 800,
+          thumbnailHeight: 800,
+          logoWidth: '25%',
+          alt: p.alt || p.title,
+        }))
+      : projects;
 
   const dragState = useRef({
     active: false,
@@ -386,7 +416,7 @@ export function HomeProjects({
           className="ft-home-projects__heading"
           id="ft-home-projects-title"
         >
-          {heading}
+          {sectionHeading}
         </h2>
 
         <div className="ft-home-projects__carousel">
@@ -399,7 +429,7 @@ export function HomeProjects({
             onPointerCancel={endDragging}
             onClickCapture={handleTrackClick}
           >
-            {projects.map((project) => (
+            {projectsToRender.map((project) => (
               <article
                 className="ft-home-projects__slide"
                 key={project.title}

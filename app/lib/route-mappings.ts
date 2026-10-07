@@ -40,6 +40,11 @@ export const OLD_TO_CLEAN_PATHS = {
   '/pages/services': '/services',
   '/pages/work': '/work',
   '/pages/our-work': '/work',
+  // Retired case-study handles: they used to render a duplicate of another
+  // case study (flagged by Google as "Alternative page with proper canonical
+  // tag"). A 301 consolidates them into the live page instead.
+  '/work/triangl': '/work/collabix',
+  '/work/chimi-eyewear': '/work/replex-engine',
   '/pages/about-us': '/about',
   '/pages/about': '/about',
   // Root-level canonical URL for the AI ecommerce agency page. The Software

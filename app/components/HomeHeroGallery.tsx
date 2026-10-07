@@ -2,18 +2,9 @@
 
 import {useEffect, useRef} from 'react';
 import {resizedImageUrl, responsiveImage} from '~/lib/responsive-image';
+import type {HomePageContent} from '~/lib/cms/types';
 
-/*
- * Entries whose image is an Unsplash stock photo are labelled "(Concept)":
- * they are illustrative, not Byte Operator client projects. Use real project
- * screenshots (with permission) before presenting an entry as client work.
- *
- * Gallery navigation is temporarily disabled (see the render loop
- * below, which renders a plain <div> instead of a <Link>). Each
- * entry's `url` is intentionally kept here, unused, so navigation
- * can be restored later by swapping the <div> back to a <Link to={project.url}>.
- */
-const GALLERY_LAYERS = [
+const DEFAULT_GALLERY_LAYERS = [
   [
     {
       title: 'Athletic Running Footwear (Concept)',
@@ -113,38 +104,28 @@ const GALLERY_LAYERS = [
       url: '/work',
     },
   ],
-] as const;
+];
 
-/*
- * Centre video. The original upload (Shopify CDN, 1600x1200 60fps, ~20MB)
- * is re-encoded into two H.264 files with the moov atom up front so they
- * start streaming immediately:
- *   - 1600x1200 60fps (~5.8MB) for wider screens
- *   - 960x720 30fps (~2.3MB) for phones, where the cell is small and square
- * Nothing is downloaded until the gallery is about to scroll into view;
- * until then (and permanently for reduced-motion users) the first frame
- * shows as the poster.
- */
-const HERO_VIDEO = {
-  desktop: '/videos/home-hero-1600.mp4',
-  mobile: '/videos/home-hero-960.mp4',
-  mobileQuery: '(max-width: 48rem)',
-  poster: resizedImageUrl('/images/home-gallery/home-hero-video-poster.jpg', 1200),
-};
-
-export function HomeHeroGallery() {
+export function HomeHeroGallery({content}: {content?: HomePageContent} = {}) {
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  if (content?.galleryShowSection === false) {
+    return null;
+  }
+
+  const mediaType = content?.galleryMediaType || 'gallery';
+
+  const heroVideoDesktop = content?.galleryVideoUrl || '/videos/home-hero-1600.mp4';
+  const heroVideoMobile = content?.galleryVideoMobileUrl || '/videos/home-hero-960.mp4';
+  const heroVideoPoster = content?.galleryVideoPoster || resizedImageUrl('/images/home-gallery/home-hero-video-poster.jpg', 1200);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Ensure DOM properties are set for bulletproof autoplay
     video.defaultMuted = true;
     video.muted = true;
 
-    // Reduced motion, or no way to tell when the video is on screen:
-    // keep the poster and never download the video.
     if (
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
       !('IntersectionObserver' in window)
@@ -157,26 +138,19 @@ export function HomeHeroGallery() {
 
     const playVideo = () => {
       if (!video.src || document.hidden || !isVisible) return;
-
       const playPromise = video.play();
       if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Fallback if browser requires interaction
-        });
+        playPromise.catch(() => {});
       }
     };
 
-    // Only fetch once the page itself has finished loading, so the video
-    // never competes with the hero's own CSS, fonts and images.
     const startVideo = () => {
       if (!isVisible || !isPageLoaded) return;
-
       if (!video.src) {
-        video.src = window.matchMedia(HERO_VIDEO.mobileQuery).matches
-          ? HERO_VIDEO.mobile
-          : HERO_VIDEO.desktop;
+        video.src = window.matchMedia('(max-width: 48rem)').matches
+          ? heroVideoMobile
+          : heroVideoDesktop;
       }
-
       playVideo();
     };
 
@@ -192,15 +166,12 @@ export function HomeHeroGallery() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = Boolean(entry?.isIntersecting);
-
         if (!isVisible) {
           video.pause();
           return;
         }
-
         startVideo();
       },
-      // Start loading shortly before the gallery reaches the viewport.
       {rootMargin: '25% 0px'},
     );
 
@@ -218,7 +189,112 @@ export function HomeHeroGallery() {
       window.removeEventListener('load', handleLoad);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, []);
+  }, [heroVideoDesktop, heroVideoMobile]);
+
+  // Mode 2: Single Image Mode
+  if (mediaType === 'image') {
+    const singleImgUrl =
+      content?.gallerySingleImageUrl ||
+      'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/ryan-waring-164_6wVEHfI-unsplash.jpg?v=1790430992';
+    const singleImgAlt =
+      content?.gallerySingleImageAlt || 'Byte Operator Engineering Platform';
+
+    return (
+      <section
+        id="ft-home-hero-gallery"
+        className="ft-hero-gallery"
+        aria-label="Byte Operator Hero Visual"
+        style={{ padding: '24px 0 48px', overflow: 'hidden' }}
+      >
+        <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 24px' }}>
+          <div
+            style={{
+              position: 'relative',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              border: '1px solid rgba(255,255,255,0.08)',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+              backgroundColor: '#0a0d18',
+              maxHeight: '720px',
+            }}
+          >
+            <img
+              src={singleImgUrl}
+              alt={singleImgAlt}
+              style={{
+                width: '100%',
+                height: 'auto',
+                maxHeight: '720px',
+                objectFit: 'cover',
+                display: 'block',
+              }}
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Mode 3: Single Video Mode
+  if (mediaType === 'video') {
+    return (
+      <section
+        id="ft-home-hero-gallery"
+        className="ft-hero-gallery"
+        aria-label="Byte Operator Hero Video"
+        style={{ padding: '24px 0 48px', overflow: 'hidden' }}
+      >
+        <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 24px' }}>
+          <div
+            style={{
+              position: 'relative',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              border: '1px solid rgba(255,255,255,0.08)',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+              backgroundColor: '#0a0d18',
+            }}
+          >
+            <video
+              ref={videoRef}
+              style={{
+                width: '100%',
+                height: 'auto',
+                maxHeight: '720px',
+                objectFit: 'cover',
+                display: 'block',
+              }}
+              poster={heroVideoPoster}
+              muted
+              loop
+              playsInline
+              controls
+              preload="none"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Mode 1: Full Interactive Multi-Layer Gallery Mode
+  // If custom items are in CMS, map them into the 3 parallax layers
+  const customItems = content?.galleryItems;
+  const layers = customItems && customItems.length >= 14
+    ? [
+        customItems.slice(0, 6),
+        customItems.slice(6, 12),
+        customItems.slice(12),
+      ]
+    : customItems && customItems.length > 0
+      ? [
+          customItems.slice(0, Math.min(customItems.length, 6)),
+          customItems.slice(6, Math.min(customItems.length, 12)),
+          customItems.slice(12),
+        ].filter((l) => l.length > 0)
+      : DEFAULT_GALLERY_LAYERS;
 
   return (
     <section
@@ -228,7 +304,7 @@ export function HomeHeroGallery() {
     >
       <div className="ft-hero-gallery__inner">
         <div className="ft-hero-gallery__grid">
-          {GALLERY_LAYERS.map((layer, layerIndex) => (
+          {layers.map((layer, layerIndex) => (
             <div
               className="ft-hero-gallery__layer"
               key={`gallery-layer-${layerIndex}`}
@@ -241,7 +317,7 @@ export function HomeHeroGallery() {
                   <img
                     className="ft-hero-gallery__item-image"
                     {...responsiveImage(project.image, '(max-width: 37.5rem) 34vw, 16vw', 828)}
-                    alt={project.alt}
+                    alt={project.alt || project.title}
                     loading="lazy"
                     decoding="async"
                   />
@@ -252,7 +328,6 @@ export function HomeHeroGallery() {
                   >
                     <div className="ft-hero-gallery__item-content">
                       <p>{project.title}</p>
-
                       <ArrowIcon />
                     </div>
                   </div>
@@ -265,7 +340,7 @@ export function HomeHeroGallery() {
             <video
               ref={videoRef}
               className="ft-hero-gallery__video"
-              poster={HERO_VIDEO.poster}
+              poster={heroVideoPoster}
               muted
               loop
               playsInline

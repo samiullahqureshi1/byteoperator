@@ -2,11 +2,47 @@
 
 import {Link} from '~/lib/router-compat';
 
-import {ABOUT_FACTS} from '~/data/companyFacts';
+import {ABOUT_FACTS, COMPANY_FACTS} from '~/data/companyFacts';
 import {useCountUp} from '~/lib/useCountUp';
 
-export function AboutStoryStats() {
-  const {ref: statsRef, displayValues} = useCountUp<HTMLElement>(ABOUT_FACTS);
+interface AboutStoryStatsProps {
+  content?: {
+    storyHeading?: string;
+    storyParagraph1?: string;
+    storyParagraph2?: string;
+    statTeamCount?: string;
+    statRetentionRate?: string;
+    statClientRating?: string;
+    statProjectsDelivered?: string;
+    storyImage?: string;
+  };
+}
+
+export function AboutStoryStats({content}: AboutStoryStatsProps = {}) {
+  const dynamicFacts = [
+    {
+      ...COMPANY_FACTS.projects,
+      value: content?.statProjectsDelivered || COMPANY_FACTS.projects.value,
+      target: parseFloat(content?.statProjectsDelivered || '20') || COMPANY_FACTS.projects.target,
+    },
+    {
+      ...COMPANY_FACTS.engagements,
+      value: content?.statClientRating || COMPANY_FACTS.engagements.value,
+      target: parseFloat(content?.statClientRating || '15') || COMPANY_FACTS.engagements.target,
+    },
+    {
+      ...COMPANY_FACTS.jobSuccess,
+      value: content?.statRetentionRate || COMPANY_FACTS.jobSuccess.value,
+      target: parseFloat(content?.statRetentionRate || '98') || COMPANY_FACTS.jobSuccess.target,
+    },
+    {
+      ...COMPANY_FACTS.team,
+      value: content?.statTeamCount || COMPANY_FACTS.team.value,
+      target: parseFloat(content?.statTeamCount || '10') || COMPANY_FACTS.team.target,
+    },
+  ];
+
+  const {ref: statsRef, displayValues} = useCountUp<HTMLElement>(dynamicFacts);
 
   return (
     <section className="ft-about-story-stats">
@@ -21,19 +57,28 @@ export function AboutStoryStats() {
           <div className="ft-about-story__inner">
             <div className="ft-about-story__left">
               <h2 className="ft-about-story__heading">
-                The story of Byte Operator: Built by engineers to replace bloated agency models with pure technical velocity.
+                {content?.storyHeading ||
+                  'The story of Byte Operator: Built by engineers to replace bloated agency models with pure technical velocity.'}
               </h2>
             </div>
 
             <div className="ft-about-story__right">
               <div className="ft-about-story__description">
-                <p>
-                  <strong>Byte Operator</strong> is an independent AI automation and custom software engineering company founded on a clear premise: modern organizations outgrow generic templates, fragile monolithic codebases, and fragmented vendor stacks. We bridge high-level product strategy, full-stack software engineering, and autonomous AI automation into one cohesive, high-impact delivery team.
-                </p>
+                {content?.storyParagraph1 ? (
+                  <p>{content.storyParagraph1}</p>
+                ) : (
+                  <p>
+                    <strong>Byte Operator</strong> is an independent AI automation and custom software engineering company founded on a clear premise: modern organizations outgrow generic templates, fragile monolithic codebases, and fragmented vendor stacks. We bridge high-level product strategy, full-stack software engineering, and autonomous AI automation into one cohesive, high-impact delivery team.
+                  </p>
+                )}
 
-                <p>
-                  As an independent engineering firm founded by Samiullah Qureshi and Uzair Khan, Byte Operator operates with its own proprietary architectures, workflows, and dedicated engineers—completely separate and distinct from any other organizations using the word &ldquo;Byte&rdquo;.
-                </p>
+                {content?.storyParagraph2 ? (
+                  <p>{content.storyParagraph2}</p>
+                ) : (
+                  <p>
+                    As an independent engineering firm founded by Samiullah Qureshi and Uzair Khan, Byte Operator operates with its own proprietary architectures, workflows, and dedicated engineers—completely separate and distinct from any other organizations using the word &ldquo;Byte&rdquo;.
+                  </p>
+                )}
 
                 <p>
                   From engineering custom SaaS platforms and full-stack web applications to deploying autonomous multi-agent pipelines with our proprietary Replex Engine and n8n workflows, we eliminate manual operational bottlenecks and accelerate technical velocity.

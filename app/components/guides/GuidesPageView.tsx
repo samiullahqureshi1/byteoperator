@@ -5,7 +5,17 @@ import {ComingSoonNotice} from '~/components/shared/ComingSoonNotice';
  * Guides have not launched. Guide data in `~/data/guidesData.ts` is
  * intentionally not rendered until real, downloadable files exist.
  */
-export function GuidesPageView() {
+interface GuidesContentProps {
+  content?: {
+    heroEyebrow?: string;
+    heroTitle?: string;
+    heroSubtitle?: string;
+    heroImage?: string;
+    coverImage?: string;
+  };
+}
+
+export function GuidesPageView({content}: GuidesContentProps = {}) {
   return (
     <div className="ft-guides-page">
       <div className="ft-guides-container">
@@ -15,16 +25,16 @@ export function GuidesPageView() {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19 2H6c-1.2 0-2 .8-2 2v16c0 1.2.8 2 2 2h13c1.2 0 2-.8 2-2V4c0-1.2-.8-2-2-2zm-1 18H6V4h12v16z" />
             </svg>
-            Byte Operator Technical Library
+            {content?.heroEyebrow || 'Byte Operator Technical Library'}
           </div>
 
           <h1 className="ft-guides-title">
-            Actionable Engineering &amp; <span>Growth Blueprints</span>
+            {content?.heroTitle || 'Actionable Engineering & Growth Blueprints'}
           </h1>
 
           <p className="ft-guides-subtitle">
-            Planned in-depth guides on software architecture, platform
-            migrations, conversion optimisation and AI search.
+            {content?.heroSubtitle ||
+              'Planned in-depth guides on software architecture, platform migrations, conversion optimisation and AI search.'}
           </p>
         </section>
 

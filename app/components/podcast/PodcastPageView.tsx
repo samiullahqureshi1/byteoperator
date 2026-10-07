@@ -6,7 +6,17 @@ import {ComingSoonNotice} from '~/components/shared/ComingSoonNotice';
  * `~/data/podcastsData.ts` (all `comingSoon: true`) and are intentionally not
  * rendered until real audio and platform links exist.
  */
-export function PodcastPageView() {
+interface PodcastContentProps {
+  content?: {
+    heroEyebrow?: string;
+    heroTitle?: string;
+    heroSubtitle?: string;
+    heroImage?: string;
+    coverImage?: string;
+  };
+}
+
+export function PodcastPageView({content}: PodcastContentProps = {}) {
   return (
     <div className="ft-podcast-page">
       <div className="ft-podcast-bg-glow" />
@@ -18,16 +28,16 @@ export function PodcastPageView() {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zm5 7a1 1 0 0 0-2 0 3 3 0 0 1-6 0 1 1 0 0 0-2 0 5 5 0 0 0 4 4.9V16h-2a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2h-2v-2.1A5 5 0 0 0 17 9z" />
             </svg>
-            The Byte Operator Audio Experience
+            {content?.heroEyebrow || 'The Byte Operator Audio Experience'}
           </div>
 
           <h1 className="ft-podcast-title">
-            Architecting Scale: <span>The CTO & Ecommerce Podcast</span>
+            {content?.heroTitle || 'Architecting Scale: The CTO & Ecommerce Podcast'}
           </h1>
 
           <p className="ft-podcast-subtitle">
-            A planned podcast of engineering conversations and architecture
-            teardowns from the Byte Operator team.
+            {content?.heroSubtitle ||
+              'A planned podcast of engineering conversations and architecture teardowns from the Byte Operator team.'}
           </p>
         </section>
 
