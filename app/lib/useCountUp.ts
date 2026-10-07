@@ -43,31 +43,30 @@ export function useCountUp<T extends HTMLElement>(
   facts: readonly CompanyFact[],
 ) {
   const ref = useRef<T>(null);
+  const factsRef = useRef(facts);
+  factsRef.current = facts;
   const hasAnimatedRef = useRef(false);
+  const isIntersectingRef = useRef(false);
+
   const [displayValues, setDisplayValues] = useState<string[]>(() =>
     facts.map((fact) => fact.value),
   );
 
   useIsomorphicLayoutEffect(() => {
     const element = ref.current;
-
     if (!element) return;
-
-    const showFinalValues = () => {
-      hasAnimatedRef.current = true;
-      setDisplayValues(facts.map((fact) => fact.value));
-    };
 
     if (
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
       !('IntersectionObserver' in window)
     ) {
-      showFinalValues();
+      hasAnimatedRef.current = true;
+      setDisplayValues(factsRef.current.map((fact) => fact.value));
       return;
     }
 
-    if (!hasAnimatedRef.current) {
-      setDisplayValues(facts.map((fact) => formatStatValue(fact, 0)));
+    if (!hasAnimatedRef.current && !isIntersectingRef.current) {
+      setDisplayValues(factsRef.current.map((fact) => formatStatValue(fact, 0)));
     }
 
     let animationFrameId: number | undefined;
@@ -76,9 +75,11 @@ export function useCountUp<T extends HTMLElement>(
       ([entry]) => {
         if (!entry?.isIntersecting || hasAnimatedRef.current) return;
 
+        isIntersectingRef.current = true;
         hasAnimatedRef.current = true;
         observer.disconnect();
 
+        const currentFacts = factsRef.current;
         const startTime = performance.now();
 
         const animate = (currentTime: number) => {
@@ -89,7 +90,7 @@ export function useCountUp<T extends HTMLElement>(
           const easedProgress = 1 - Math.pow(1 - progress, 3);
 
           setDisplayValues(
-            facts.map((fact) =>
+            currentFacts.map((fact) =>
               formatStatValue(fact, fact.target * easedProgress),
             ),
           );
@@ -97,7 +98,7 @@ export function useCountUp<T extends HTMLElement>(
           if (progress < 1) {
             animationFrameId = requestAnimationFrame(animate);
           } else {
-            setDisplayValues(facts.map((fact) => fact.value));
+            setDisplayValues(currentFacts.map((fact) => fact.value));
           }
         };
 
@@ -110,12 +111,11 @@ export function useCountUp<T extends HTMLElement>(
 
     return () => {
       observer.disconnect();
-
       if (animationFrameId !== undefined) {
         cancelAnimationFrame(animationFrameId);
       }
     };
-  }, [facts]);
+  }, []);
 
   return {ref, displayValues};
 }

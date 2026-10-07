@@ -1,5 +1,6 @@
 'use client';
 
+import {useMemo} from 'react';
 import {Link} from '~/lib/router-compat';
 import {HOME_FACTS, type CompanyFact} from '~/data/companyFacts';
 import {useCountUp} from '~/lib/useCountUp';
@@ -60,37 +61,49 @@ export function HomeAbout({
   const ctaLabel = content?.aboutCtaText || data?.cta?.label || DEFAULT_HOME_ABOUT_DATA.cta.label;
   const ctaHref = content?.aboutCtaLink || data?.cta?.href || DEFAULT_HOME_ABOUT_DATA.cta.href;
 
-  const statsList: readonly CompanyFact[] = (data?.stats || HOME_FACTS).map((defaultFact, idx) => {
-    if (idx === 0) {
-      return {
-        ...defaultFact,
-        value: content?.aboutStat1Value || defaultFact.value,
-        label: content?.aboutStat1Label || defaultFact.label,
-      };
-    }
-    if (idx === 1) {
-      return {
-        ...defaultFact,
-        value: content?.aboutStat2Value || defaultFact.value,
-        label: content?.aboutStat2Label || defaultFact.label,
-      };
-    }
-    if (idx === 2) {
-      return {
-        ...defaultFact,
-        value: content?.aboutStat3Value || defaultFact.value,
-        label: content?.aboutStat3Label || defaultFact.label,
-      };
-    }
-    if (idx === 3) {
-      return {
-        ...defaultFact,
-        value: content?.aboutStat4Value || defaultFact.value,
-        label: content?.aboutStat4Label || defaultFact.label,
-      };
-    }
-    return defaultFact;
-  });
+  const statsList: readonly CompanyFact[] = useMemo(() => {
+    return (data?.stats || HOME_FACTS).map((defaultFact, idx) => {
+      if (idx === 0) {
+        return {
+          ...defaultFact,
+          value: content?.aboutStat1Value || defaultFact.value,
+          label: content?.aboutStat1Label || defaultFact.label,
+        };
+      }
+      if (idx === 1) {
+        return {
+          ...defaultFact,
+          value: content?.aboutStat2Value || defaultFact.value,
+          label: content?.aboutStat2Label || defaultFact.label,
+        };
+      }
+      if (idx === 2) {
+        return {
+          ...defaultFact,
+          value: content?.aboutStat3Value || defaultFact.value,
+          label: content?.aboutStat3Label || defaultFact.label,
+        };
+      }
+      if (idx === 3) {
+        return {
+          ...defaultFact,
+          value: content?.aboutStat4Value || defaultFact.value,
+          label: content?.aboutStat4Label || defaultFact.label,
+        };
+      }
+      return defaultFact;
+    });
+  }, [
+    data?.stats,
+    content?.aboutStat1Value,
+    content?.aboutStat1Label,
+    content?.aboutStat2Value,
+    content?.aboutStat2Label,
+    content?.aboutStat3Value,
+    content?.aboutStat3Label,
+    content?.aboutStat4Value,
+    content?.aboutStat4Label,
+  ]);
 
   const {ref: statsRef, displayValues} = useCountUp<HTMLDivElement>(statsList);
 

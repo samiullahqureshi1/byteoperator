@@ -1,5 +1,6 @@
 'use client';
 
+import {useMemo} from 'react';
 import {Link} from '~/lib/router-compat';
 
 import {ABOUT_FACTS, COMPANY_FACTS} from '~/data/companyFacts';
@@ -19,28 +20,36 @@ interface AboutStoryStatsProps {
 }
 
 export function AboutStoryStats({content}: AboutStoryStatsProps = {}) {
-  const dynamicFacts = [
-    {
-      ...COMPANY_FACTS.projects,
-      value: content?.statProjectsDelivered || COMPANY_FACTS.projects.value,
-      target: parseFloat(content?.statProjectsDelivered || '20') || COMPANY_FACTS.projects.target,
-    },
-    {
-      ...COMPANY_FACTS.engagements,
-      value: content?.statClientRating || COMPANY_FACTS.engagements.value,
-      target: parseFloat(content?.statClientRating || '15') || COMPANY_FACTS.engagements.target,
-    },
-    {
-      ...COMPANY_FACTS.jobSuccess,
-      value: content?.statRetentionRate || COMPANY_FACTS.jobSuccess.value,
-      target: parseFloat(content?.statRetentionRate || '98') || COMPANY_FACTS.jobSuccess.target,
-    },
-    {
-      ...COMPANY_FACTS.team,
-      value: content?.statTeamCount || COMPANY_FACTS.team.value,
-      target: parseFloat(content?.statTeamCount || '10') || COMPANY_FACTS.team.target,
-    },
-  ];
+  const dynamicFacts = useMemo(
+    () => [
+      {
+        ...COMPANY_FACTS.projects,
+        value: content?.statProjectsDelivered || COMPANY_FACTS.projects.value,
+        target: parseFloat(content?.statProjectsDelivered || '20') || COMPANY_FACTS.projects.target,
+      },
+      {
+        ...COMPANY_FACTS.engagements,
+        value: content?.statClientRating || COMPANY_FACTS.engagements.value,
+        target: parseFloat(content?.statClientRating || '15') || COMPANY_FACTS.engagements.target,
+      },
+      {
+        ...COMPANY_FACTS.jobSuccess,
+        value: content?.statRetentionRate || COMPANY_FACTS.jobSuccess.value,
+        target: parseFloat(content?.statRetentionRate || '98') || COMPANY_FACTS.jobSuccess.target,
+      },
+      {
+        ...COMPANY_FACTS.team,
+        value: content?.statTeamCount || COMPANY_FACTS.team.value,
+        target: parseFloat(content?.statTeamCount || '10') || COMPANY_FACTS.team.target,
+      },
+    ],
+    [
+      content?.statProjectsDelivered,
+      content?.statClientRating,
+      content?.statRetentionRate,
+      content?.statTeamCount,
+    ],
+  );
 
   const {ref: statsRef, displayValues} = useCountUp<HTMLElement>(dynamicFacts);
 
