@@ -670,6 +670,23 @@ export function getCmsDb(): CmsDatabaseStore {
     if (!db.articles || db.articles.length === 0) {
       db.articles = seedInitialArticles();
       saveCmsDb(db);
+    } else {
+      // Sync any newly added articles from ARTICLES_DATA into the CMS store
+      let hasNewArticles = false;
+      const existingHandles = new Set(db.articles.map((a) => a.handle));
+      const seeded = seedInitialArticles();
+      
+      for (const art of seeded) {
+        if (!existingHandles.has(art.handle)) {
+          db.articles.push(art);
+          existingHandles.add(art.handle);
+          hasNewArticles = true;
+        }
+      }
+
+      if (hasNewArticles) {
+        saveCmsDb(db);
+      }
     }
 
     return db;
