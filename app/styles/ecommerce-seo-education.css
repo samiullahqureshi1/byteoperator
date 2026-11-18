@@ -15,7 +15,7 @@
 .ft-ecommerce-seo-education__content > p:first-child {
   margin: 0 0 1rem;
   color: var(--ft-text-secondary, #A8B3C7);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.4;
@@ -24,7 +24,7 @@
 .ft-ecommerce-seo-education__content > h2 {
   margin: 0 0 1.5rem;
   color: var(--ft-text, #ffffff);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(2.125rem, 5vw, 3.75rem);
   font-weight: 400;
   line-height: 1.15;
@@ -33,7 +33,7 @@
 
 .ft-ecommerce-seo-education__content :where(p, li) {
   color: var(--ft-text-secondary, #A8B3C7);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.8;
@@ -46,7 +46,7 @@
 .ft-ecommerce-seo-education__content h3 {
   margin: 2rem 0 0.5rem;
   color: var(--ft-text, #ffffff);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.4;

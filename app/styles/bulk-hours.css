@@ -477,7 +477,7 @@
 }
 
 .ft-bulk-hours__service-label {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 0.8125rem;
   font-weight: 300;
 
@@ -485,7 +485,7 @@
 }
 
 .ft-bulk-hours__service-name {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 0.9375rem;
   font-weight: 400;
 

@@ -14,16 +14,16 @@ const DB_FILE_PATH = path.join(process.cwd(), 'app', 'data', 'cms-store.json');
 export const DEFAULT_SITE_CONTENT: CmsSiteContent = {
   home: {
     // Section 1: Hero
-    heroEyebrow: 'Byte Operator — AI Automation & Custom Software Engineering',
-    heroTitlePrefix: 'Byte Operator',
-    heroTitleHighlight: 'AI Automation & Custom Software Engineering',
+    heroEyebrow: 'HEALTHCARE AI SOLUTIONS & SOFTWARE ENGINEERING',
+    heroTitlePrefix: 'Smarter Healthcare Operations,',
+    heroTitleHighlight: 'Powered by AI and Software Engineering',
     heroTitleSuffix: '',
     heroSubtitle:
-      'Byte Operator is an independent software engineering and AI automation company. We design, engineer, and deploy high-velocity web platforms, custom SaaS architectures, and autonomous AI systems built for extreme performance.',
-    primaryCtaText: 'Explore our platforms',
-    primaryCtaLink: '#ft-home-hero-gallery',
-    secondaryCtaText: 'Book Technical Call',
-    secondaryCtaLink: '/book-a-call',
+      'Byte Operator helps healthcare organizations automate administrative workflows, streamline patient communication, and build connected software systems tailored to your operational needs.',
+    primaryCtaText: 'Explore Our Solutions',
+    primaryCtaLink: '/expertise',
+    secondaryCtaText: 'Book a Discovery Call',
+    secondaryCtaLink: '/contact',
     heroImage: 'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/ryan-waring-164_6wVEHfI-unsplash.jpg?v=1790430992',
     heroShowSection: true,
 
@@ -124,96 +124,74 @@ export const DEFAULT_SITE_CONTENT: CmsSiteContent = {
 
     // Section 3: About
     aboutShowSection: true,
-    aboutEyebrow: 'Independent AI Automation & Custom Software Engineering',
-    aboutHeading: 'Byte Operator Architects, Automates & Scales Digital Platforms for Measurable Business Growth',
+    aboutEyebrow: 'OPERATIONAL CHALLENGES',
+    aboutHeading: "Healthcare Operations Shouldn't Be Held Back by Manual Work",
     aboutDescription:
-      'Byte Operator is an independent AI automation and custom software engineering company. We engineer high-performance SaaS platforms, modern web applications, and autonomous AI workflow systems. Powered by our proprietary Replex Engine framework, visual n8n pipelines, and full-stack cloud architectures, we eliminate manual operational bottlenecks, capture every qualified inbound lead, and scale digital revenue.',
+      'Healthcare teams manage patient calls, appointments, administrative tasks, and multiple software systems every day. Disconnected technology and repetitive processes can make these responsibilities more difficult to manage.',
     aboutImage: '/images/home-gallery/project-08.webp',
-    aboutRightHeadingPrefix: 'About',
-    aboutRightHeadingEmphasis: 'Byte Operator',
-    aboutRightHeadingSuffix: '— Independent AI & Software Engineering',
-    aboutCtaText: 'Explore Our Case Studies',
-    aboutCtaLink: '/work',
-    aboutStat1Value: '20+',
-    aboutStat1Label: 'Projects Delivered',
-    aboutStat2Value: '4.9/5.0',
-    aboutStat2Label: 'Client Satisfaction',
-    aboutStat3Value: '100%',
-    aboutStat3Label: 'Job Success Rate',
-    aboutStat4Value: '2025',
-    aboutStat4Label: 'Established Since',
+    aboutRightHeadingPrefix: 'Byte Operator helps healthcare organizations address these challenges',
+    aboutRightHeadingEmphasis: 'through practical software',
+    aboutRightHeadingSuffix: 'and automation solutions.',
+    aboutCtaText: 'Explore Our Solutions',
+    aboutCtaLink: '/expertise',
+    aboutStat1Value: '01',
+    aboutStat1Label: 'Missed Patient Calls',
+    aboutStat2Value: '02',
+    aboutStat2Label: 'Repetitive Administrative Tasks',
+    aboutStat3Value: '03',
+    aboutStat3Label: 'Disconnected Systems',
+    aboutStat4Value: '04',
+    aboutStat4Label: 'Increasing Operational Demands',
 
     // Section 4: Services
     servicesShowSection: true,
-    servicesHeading: 'Engineering Capabilities Built for Scale',
+    servicesHeading: 'Healthcare AI and Software Solutions Built Around Your Operations',
     servicesSubtitle:
-      'From custom web applications to automated AI systems, our senior engineering teams build for mission-critical reliability.',
-    servicesCtaText: 'View all services',
-    servicesCtaLink: '/services',
+      'We bring AI automation, software engineering, and system integration together to help healthcare organizations improve the way their operations work.',
+    servicesCtaText: 'Explore Our Services',
+    servicesCtaLink: '/expertise',
     servicesList: [
       {
-        title: 'AI Automations & Autonomous Agents',
+        title: 'AI Voice Agents & Receptionists',
         description:
-          'Deploy Replex Engine zero-miss lead capture, n8n workflow pipelines, and autonomous support agents.',
-        href: '/services/ai-automations-agents',
-        badge: '/images/home-services/badges/logo-search-white.svg',
-        badgeAlt: 'AI',
+          'Deploy intelligent voice receptionists and conversational agents for 24/7 patient call answering, routing, and appointment scheduling.',
+        href: '/services/ai-voice-agents-healthcare',
       },
       {
-        title: 'Custom SaaS & Platform Engineering',
+        title: 'AI Workflow Automation',
         description:
-          'Full-stack web architectures, real-time data engines, and resilient cloud software built to scale.',
-        href: '/services/software-developers',
-        badge: '/images/home-services/badges/logo-launch-white.svg',
-        badgeAlt: 'Software',
+          'Automate routine patient communication, digital intake, task creation, and administrative processes with connected workflows.',
+        href: '/services/ai-workflow-automation-healthcare',
       },
       {
-        title: 'Shopify Store & Theme Development',
+        title: 'Custom Software Development',
         description:
-          'High-velocity custom storefronts, modular custom sections, and mobile-optimized buying funnels.',
-        href: '/services/software-web-design',
-        badge: '/images/home-services/badges/logo-launch-white.svg',
-        badgeAlt: 'Shopify',
+          'Develop web applications, patient and staff portals, and internal management tools tailored to your operational requirements.',
+        href: '/services/custom-healthcare-software-development',
       },
       {
-        title: 'n8n Workflow & API Pipelines',
+        title: 'SaaS & Web Application Development',
         description:
-          'Multi-system visual workflow pipelines connecting ERPs, CRMs, webhooks, and messaging queues.',
+          'Engineer scalable multi-user platforms, role-based administrative dashboards, and database-driven web applications.',
+        href: '/services/saas-web-application-development',
+      },
+      {
+        title: 'API & System Integration',
+        description:
+          'Connect third-party business platforms, CRMs, and communication tools through resilient API architectures.',
         href: '/services/software-integrations',
-        badge: '',
-        badgeAlt: '',
       },
       {
-        title: 'Shopify Apps & Custom Extensions',
+        title: 'Healthcare Software Integration',
         description:
-          'Proprietary tools like Speedify AI page speed optimizer, custom checkout extensions, and admin apps.',
-        href: '/services/shopify-app-development',
-        badge: '/images/home-services/badges/logo-sitelab-white.svg',
-        badgeAlt: 'Apps',
+          'Connect practice management platforms, EHR/EMR systems, and patient data workflows with structured data exchange.',
+        href: '/services/software-integrations',
       },
       {
-        title: 'Platform & Cloud Migrations',
+        title: 'Cloud & Infrastructure Engineering',
         description:
-          'Zero-downtime replatforming from Magento, WooCommerce, or BigCommerce with 100% SEO preserved.',
-        href: '/services/software-migrations',
-        badge: '/images/home-services/badges/logo-helpdesk-white.svg',
-        badgeAlt: 'Migrations',
-      },
-      {
-        title: 'Technical SEO & AI Search (GEO)',
-        description:
-          'Architect your storefront for LLM citation algorithms, sub-second Core Web Vitals, and dominant organic search rankings.',
-        href: '/ecommerce-seo-agency',
-        badge: '/images/home-services/badges/logo-search-white.svg',
-        badgeAlt: 'SEO',
-      },
-      {
-        title: 'Shopify Plus & Enterprise Systems',
-        description:
-          'Enterprise B2B wholesale portals, multi-store architecture, and high-AOV custom storefronts.',
-        href: '/shopify-plus-agency',
-        badge: '',
-        badgeAlt: '',
+          'Build and maintain the technical infrastructure needed to support reliable digital applications and future growth.',
+        href: '/services/cloud-infrastructure-engineering',
       },
     ],
 
@@ -310,9 +288,9 @@ export const DEFAULT_SITE_CONTENT: CmsSiteContent = {
     observatoryCtaLink: '/book-a-call',
 
     // SEO
-    seoTitle: 'Byte Operator — AI Automation & Custom Software Engineering',
+    seoTitle: 'Healthcare AI Solutions & Software Development | Byte Operator',
     seoDescription:
-      'Byte Operator is an independent software engineering and AI automation company. We design, engineer, and deploy high-velocity web platforms, custom SaaS architectures, and autonomous AI systems.',
+      'Build smarter healthcare operations with AI voice agents, workflow automation, custom software and system integrations from Byte Operator.',
   },
   about: {
     heroEyebrow: 'Engineering & Innovation',

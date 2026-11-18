@@ -17,6 +17,7 @@ export type CaseStudyArticle = {
   content: string;
   result?: {value: string} | null;
   services?: {value: string} | null;
+  website?: string | null;
   logo?: {
     reference?: {
       image?: CaseStudyImage | null;
@@ -55,6 +56,36 @@ export function CaseStudyCard({article}: CaseStudyCardProps) {
         {result ? (
           <span className="ft-case-study-card__result">{result}</span>
         ) : null}
+
+        {article.website ? (
+          <button
+            type="button"
+            className="ft-case-study-card__live-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.open(article.website!, '_blank', 'noopener,noreferrer');
+            }}
+            title={`Visit ${article.title} Live Site`}
+          >
+            <span>Live Site</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="ft-case-study-card__live-btn ft-case-study-card__query-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.location.href = '/contact';
+            }}
+            title={`Send an inquiry for ${article.title}`}
+          >
+            <span>Send Query</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        )}
       </div>
 
       <div className="ft-case-study-card__content">

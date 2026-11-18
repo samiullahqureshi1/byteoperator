@@ -280,7 +280,7 @@
 .ft-home-feature__caption-title {
   margin: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 1.125rem;
   font-weight: 500;
@@ -294,7 +294,7 @@
 .ft-home-feature__caption-text {
   margin: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 0.9375rem;
   font-weight: 400;
@@ -339,7 +339,7 @@
 .ft-home-feature__eyebrow {
   margin: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 1rem;
   font-weight: 400;
@@ -407,15 +407,25 @@
 
   margin: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
 
-  font-size: 2.125rem;
+  font-size: clamp(1.5rem, 4.2vw, 1.875rem);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.18;
 
-  letter-spacing: -0.04em;
+  letter-spacing: -0.035em;
 
   color: #ffffff;
+}
+
+.ft-home-feature__heading-br {
+  display: block;
+}
+
+@media (max-width: 30rem) {
+  .ft-home-feature__heading-br {
+    display: inline;
+  }
 }
 
 .ft-home-feature--light
@@ -456,7 +466,7 @@
 
   background: #151515;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 0.875rem;
   font-weight: 400;
@@ -493,7 +503,7 @@
 
   width: 100%;
 
-  gap: 3.2vh;
+  gap: clamp(0.875rem, 1.8vh, 1.25rem);
 }
 
 .ft-home-feature__description {
@@ -501,7 +511,7 @@
 
   margin: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 0.9375rem;
   font-weight: 400;
@@ -510,6 +520,24 @@
   letter-spacing: -0.015em;
 
   color: #a1a1a1;
+}
+
+.ft-home-feature__bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+  margin-top: 0.1rem;
+}
+
+.ft-home-feature__bullet-title {
+  display: inline;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+  font-family: inherit;
 }
 
 .ft-home-feature--light
@@ -562,7 +590,7 @@
   background: #306CE7;
   color: #ffffff;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 0.9375rem;
   font-weight: 400;
@@ -756,7 +784,8 @@
   }
 
   .ft-home-feature__heading {
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 2.6vw, 2.15rem);
+    line-height: 1.18;
   }
 
 
@@ -888,7 +917,9 @@
   }
 
   .ft-home-feature__heading {
-    font-size: 3.125rem;
+    font-size: clamp(1.625rem, 2vw, 2.15rem);
+    line-height: 1.2;
+    max-width: 100%;
   }
 
   .ft-home-feature__description {
@@ -956,7 +987,9 @@
   }
 
   .ft-home-feature__heading {
-    font-size: 3.75rem;
+    font-size: clamp(1.75rem, 2.1vw, 2.25rem);
+    line-height: 1.2;
+    max-width: 100%;
   }
 
   .ft-home-feature__image {
@@ -1007,7 +1040,9 @@
   }
 
   .ft-home-feature__heading {
-    font-size: 3.75rem;
+    font-size: clamp(1.75rem, 2.1vw, 2.25rem);
+    line-height: 1.2;
+    max-width: 100%;
   }
 }
 

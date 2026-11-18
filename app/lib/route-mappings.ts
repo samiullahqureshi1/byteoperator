@@ -37,6 +37,8 @@ const SERVICE_CONFIG_HANDLES_BY_SHOPIFY_HANDLE = {
 } as const;
 
 export const OLD_TO_CLEAN_PATHS = {
+  '/expertise': '/services',
+  '/thinking': '/articles',
   '/pages/services': '/services',
   '/pages/work': '/work',
   '/pages/our-work': '/work',

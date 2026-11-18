@@ -83,7 +83,7 @@
 
 .ft-work-testimonial__quote {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(1.375rem, 5.4vw, 2rem);
   font-weight: 300;
   line-height: 1.18;
@@ -94,7 +94,7 @@
 
 .ft-work-testimonial__author {
   margin: 1.125rem 0 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(0.9375rem, 3vw, 1.125rem);
   font-weight: 400;
   line-height: 1.4;
@@ -111,7 +111,7 @@
   border: 0;
   background: transparent;
   color: var(--ft-accent-blue, #3B82F6);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   line-height: 1.2;
   cursor: pointer;

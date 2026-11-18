@@ -16,7 +16,7 @@
 .ft-ecommerce-seo-reporting__eyebrow {
   margin: 0 0 1rem;
   color: var(--ft-text-secondary, #A8B3C7);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.4;
@@ -26,7 +26,7 @@
   max-width: 45rem;
   margin: 0 0 1.5rem;
   color: var(--ft-text, #ffffff);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 400;
   line-height: 1.12;
@@ -37,7 +37,7 @@
   max-width: 48rem;
   margin: 0;
   color: var(--ft-text-secondary, #A8B3C7);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.75;
@@ -61,7 +61,7 @@
 .ft-ecommerce-seo-reporting__card-title {
   margin: 0 0 0.5rem;
   color: var(--ft-text, #ffffff);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.4;
@@ -70,7 +70,7 @@
 .ft-ecommerce-seo-reporting__card-description {
   margin: 0;
   color: var(--ft-text-secondary, #A8B3C7);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 0.875rem;
   font-weight: 300;
   line-height: 1.65;

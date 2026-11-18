@@ -68,7 +68,9 @@
   display: inline-flex;
   align-items: center;
   min-height: 1.6rem;
+  max-width: calc(100% - 7rem);
   padding: 0.35rem 0.75rem;
+  overflow: hidden;
   border-radius: 999rem;
   background: var(--ft-primary-blue, #306CE7);
   color: #ffffff;
@@ -76,6 +78,39 @@
   line-height: 1;
   font-weight: 500;
   white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ft-work-featured__live-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 1.6rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999rem;
+  background: rgba(6, 15, 36, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: #38bdf8;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ft-work-featured__live-btn:hover {
+  background: #38bdf8;
+  color: #060F24;
+  border-color: #38bdf8;
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
 }
 
 .ft-work-featured__content {

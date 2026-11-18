@@ -220,20 +220,20 @@ export function HeaderMenu({
         const normalizedTitle =
           item.title.trim().toLowerCase();
 
-        const isServices =
-          normalizedTitle === 'services';
+        const isExpertise =
+          normalizedTitle === 'expertise' || normalizedTitle === 'services';
 
         const isResources =
           normalizedTitle === 'resources';
 
         /*
-         * Services and Resources have custom mega menus whose contents are
+         * Expertise and Resources have custom mega menus whose contents are
          * authored in this file. Every other item renders whatever children
          * the Software menu supplies, so a submenu added in the admin appears
          * without a code change.
          */
         const submenuItems =
-          isServices || isResources
+          isExpertise || isResources
             ? []
             : (item.items ?? []).filter(
                 (child) => child.url,
@@ -242,7 +242,7 @@ export function HeaderMenu({
         const hasSubmenu = submenuItems.length > 0;
 
         const hasMegaMenu =
-          isServices || isResources || hasSubmenu;
+          isExpertise || isResources || hasSubmenu;
 
         return (
           <div
@@ -278,17 +278,11 @@ export function HeaderMenu({
                 to={url}
               >
                 <span>{item.title}</span>
-
-                {isServices ? (
-                  <span className="charle-header__badge">
-                    {SERVICES_BADGE_COUNT}
-                  </span>
-                ) : null}
               </NavLink>
             )}
 
-            {isServices ? (
-              <ServicesMegaMenu />
+            {isExpertise ? (
+              <ExpertiseMegaMenu />
             ) : null}
 
             {isResources ? (
@@ -372,6 +366,310 @@ type ServiceMegaColumn = {
   secondaryItems?: MegaLink[];
 };
 
+
+/*
+ * ========================================================
+ * EXPERTISE MEGA MENU ICONS & DATA
+ * ========================================================
+ */
+
+function MicIcon({color = '#38bdf8'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+      <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+      <line x1="12" x2="12" y1="19" y2="22" />
+    </svg>
+  );
+}
+
+function WorkflowIcon({color = '#22d3ee'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="6" cy="6" r="3" />
+      <circle cx="6" cy="18" r="3" />
+      <circle cx="18" cy="12" r="3" />
+      <line x1="9" y1="6" x2="15" y2="12" />
+      <line x1="9" y1="18" x2="15" y2="12" />
+    </svg>
+  );
+}
+
+function CodeIcon({color = '#f472b6'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  );
+}
+
+function WindowAppIcon({color = '#38bdf8'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="M2 9h20" />
+      <path d="M9 9v11" />
+    </svg>
+  );
+}
+
+function ApiBranchIcon({color = '#4ade80'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="6" y1="3" x2="6" y2="15" />
+      <circle cx="18" cy="6" r="2.5" />
+      <circle cx="6" cy="18" r="2.5" />
+      <circle cx="6" cy="6" r="2.5" />
+      <path d="M18 9a7 7 0 0 1-7 7H6" />
+    </svg>
+  );
+}
+
+function PulseIcon({color = '#38bdf8'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+    </svg>
+  );
+}
+
+function CloudIcon({color = '#facc15'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+    </svg>
+  );
+}
+
+function StethoscopeIcon({color = '#38bdf8'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4.5 3v5a6 6 0 0 0 12 0V3" />
+      <path d="M10.5 14v4a4 4 0 0 0 8 0v-2" />
+      <circle cx="18.5" cy="16" r="2" />
+    </svg>
+  );
+}
+
+function ToothIcon({color = '#7dd3fc'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 3C4.5 3 3 5 3 8c0 3.5 1.5 6 2 9.5.5 3 2.5 3.5 3.5 1.5 1-2 1.5-4 3.5-4s2.5 2 3.5 4c1 2 3 1.5 3.5-1.5.5-3.5 2-6 2-9.5 0-3-1.5-5-4-5-2 0-3 1.5-4.5 1.5S9 3 7 3Z" />
+    </svg>
+  );
+}
+
+function SparkleIcon({color = '#f472b6'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m12 2-2.2 7.2L2 12l7.8 2.8L12 22l2.2-7.2L22 12l-7.8-2.8Z" />
+    </svg>
+  );
+}
+
+function EyeIcon({color = '#38bdf8'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
+function HeartIcon({color = '#4ade80'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+    </svg>
+  );
+}
+
+function PlusCircleIcon({color = '#fbbf24'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9" />
+      <line x1="12" y1="8" x2="12" y2="16" />
+      <line x1="8" y1="12" x2="16" y2="12" />
+    </svg>
+  );
+}
+
+function LightningIcon({color = '#38bdf8'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m13 2-8 12h6l-1 8 8-12h-6l1-8Z" />
+    </svg>
+  );
+}
+
+function ReactIcon({color = '#7dd3fc'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5">
+      <ellipse cx="12" cy="12" rx="10" ry="4" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+      <circle cx="12" cy="12" r="1.5" fill={color} />
+    </svg>
+  );
+}
+
+function PayloadIcon({color = '#e2e8f0'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m21 16-9 5-9-5V8l9-5 9 5v8Z" />
+      <path d="m12 3v18" />
+    </svg>
+  );
+}
+
+function LaravelIcon({color = '#f87171'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2 2 7l10 5 10-5-10-5Z" />
+      <path d="m2 17 10 5 10-5" />
+      <path d="m2 12 10 5 10-5" />
+    </svg>
+  );
+}
+
+function AiAutomationIcon({color = '#38bdf8'}: {color?: string}) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3v18" />
+      <path d="M3 12h18" />
+      <path d="m5.5 5.5 13 13" />
+      <path d="m5.5 18.5 13-13" />
+    </svg>
+  );
+}
+
+const EXPERTISE_MENU_COLUMNS = [
+  {
+    title: 'What We Do',
+    items: [
+      {
+        title: 'AI Voice Agents & Receptionists',
+        url: '/services/ai-voice-agents-healthcare',
+        color: '#38bdf8',
+        icon: MicIcon,
+      },
+      {
+        title: 'AI Workflow Automation',
+        url: '/services/ai-workflow-automation-healthcare',
+        color: '#22d3ee',
+        icon: WorkflowIcon,
+      },
+      {
+        title: 'Custom Software Development',
+        url: '/services/custom-healthcare-software-development',
+        color: '#f472b6',
+        icon: CodeIcon,
+      },
+      {
+        title: 'SaaS & Web Application Development',
+        url: '/services/saas-web-application-development',
+        color: '#38bdf8',
+        icon: WindowAppIcon,
+      },
+      {
+        title: 'API & System Integration',
+        url: '/services/software-integrations',
+        color: '#4ade80',
+        icon: ApiBranchIcon,
+      },
+      {
+        title: 'Healthcare Software Integration',
+        url: '/services/healthcare-software-integration',
+        color: '#38bdf8',
+        icon: PulseIcon,
+      },
+      {
+        title: 'Cloud & Infrastructure Engineering',
+        url: '/services/cloud-infrastructure-engineering',
+        color: '#facc15',
+        icon: CloudIcon,
+      },
+    ],
+  },
+  {
+    title: 'Healthcare Solutions',
+    items: [
+      {
+        title: 'Medical Practices',
+        url: '/healthcare-solutions/medical-practices',
+        color: '#38bdf8',
+        icon: StethoscopeIcon,
+      },
+      {
+        title: 'Dental Practices',
+        url: '/healthcare-solutions/dental-practices',
+        color: '#38bdf8',
+        icon: ToothIcon,
+      },
+      {
+        title: 'Dermatology & Aesthetic Clinics',
+        url: '/healthcare-solutions/dermatology-aesthetic-clinics',
+        color: '#38bdf8',
+        icon: SparkleIcon,
+      },
+      {
+        title: 'Ophthalmology Clinics',
+        url: '/healthcare-solutions/ophthalmology-clinics',
+        color: '#38bdf8',
+        icon: EyeIcon,
+      },
+      {
+        title: 'Primary Care',
+        url: '/healthcare-solutions/primary-care',
+        color: '#38bdf8',
+        icon: HeartIcon,
+      },
+      {
+        title: 'Other Specialties',
+        url: '/healthcare-solutions/other-specialties',
+        color: '#38bdf8',
+        icon: PlusCircleIcon,
+      },
+    ],
+  },
+];
+
+function ExpertiseMegaMenu() {
+  return (
+    <div
+      className="ft-mega-menu ft-mega-menu--expertise"
+      role="group"
+      aria-label="Expertise"
+    >
+      <div className="ft-expertise-mega__grid">
+        {EXPERTISE_MENU_COLUMNS.map((col) => (
+          <div className="ft-expertise-mega__column" key={col.title}>
+            <h3 className="ft-expertise-mega__title">{col.title}</h3>
+            <div className="ft-expertise-mega__links">
+              {col.items.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <NavLink
+                    className="ft-expertise-mega__link"
+                    key={item.title}
+                    to={item.url}
+                    prefetch="intent"
+                  >
+                    <span className="ft-expertise-mega__icon">
+                      <Icon color={item.color} />
+                    </span>
+                    <span className="ft-expertise-mega__text">{item.title}</span>
+                  </NavLink>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 /*
  * ========================================================
@@ -895,13 +1193,13 @@ function MobileHeaderMenu({
                       .trim()
                       .toLowerCase();
 
-                  const isServices =
-                    title === 'services';
+                  const isExpertise =
+                    title === 'expertise' || title === 'services';
 
                   const isResources =
                     title === 'resources';
 
-                  if (isServices) {
+                  if (isExpertise) {
                     return (
                       <button
                         className="
@@ -914,13 +1212,6 @@ function MobileHeaderMenu({
                       >
                         <span className="ft-mobile-menu__link-label">
                           {item.title}
-
-                          <span
-                            className="ft-mobile-menu__badge"
-                            aria-hidden="true"
-                          >
-                            {SERVICES_BADGE_COUNT}
-                          </span>
                         </span>
                       </button>
                     );
@@ -1045,123 +1336,46 @@ function MobileHeaderMenu({
                 <h2>
                   <NavLink
                     className="ft-mobile-submenu__title-link"
-                    to={servicesPageUrl}
-                    prefetch={
-                      servicesPageUrl.startsWith('/')
-                        ? 'intent'
-                        : 'none'
-                    }
+                    to="/expertise"
+                    prefetch="intent"
                     onClick={closeMenu}
                   >
-                    Services
-
-                    <span
-                      className="ft-mobile-submenu__badge"
-                      aria-hidden="true"
-                    >
-                      {SERVICES_BADGE_COUNT}
-                    </span>
+                    Expertise
                   </NavLink>
                 </h2>
               </div>
 
-              <div className="ft-mobile-services">
-                {SERVICE_MEGA_COLUMNS.map(
-                  (column, index) => (
-                    <section
-                      className="ft-mobile-services__group"
-                      key={`${column.labels.join(
-                        '-',
-                      )}-${index}`}
-                    >
-                      <div className="ft-mobile-services__labels">
-                        {column.labels.map(
-                          (label) => (
-                            <span
-                              className="ft-mobile-services__label"
-                              key={label}
-                            >
-                              {label}
+              <div className="ft-mobile-expertise">
+                {EXPERTISE_MENU_COLUMNS.map((col) => (
+                  <section
+                    className="ft-mobile-expertise__group"
+                    key={col.title}
+                  >
+                    <h3 className="ft-mobile-expertise__title">
+                      {col.title}
+                    </h3>
+
+                    <div className="ft-mobile-expertise__links">
+                      {col.items.map((link) => {
+                        const Icon = link.icon;
+                        return (
+                          <NavLink
+                            className="ft-mobile-expertise__link"
+                            key={link.title}
+                            to={link.url}
+                            prefetch="intent"
+                            onClick={closeMenu}
+                          >
+                            <span className="ft-mobile-expertise__icon">
+                              <Icon color={link.color} />
                             </span>
-                          ),
-                        )}
-                      </div>
-
-                      <div className="ft-mobile-services__divider" />
-
-                      <div className="ft-mobile-services__links">
-                        {column.items.map(
-                          (link) => (
-                            <NavLink
-                              className="ft-mobile-services__link"
-                              key={link.title}
-                              to={resolveCanonicalPath(link.url)}
-                              prefetch={
-                                resolveCanonicalPath(link.url).startsWith('/')
-                                  ? 'intent'
-                                  : 'none'
-                              }
-                              onClick={closeMenu}
-                            >
-                              <strong>
-                                {link.title}
-                              </strong>
-
-                              <span>
-                                {
-                                  link.description
-                                }
-                              </span>
-                            </NavLink>
-                          ),
-                        )}
-                      </div>
-
-                      {column.secondaryTitle &&
-                      column.secondaryItems ? (
-                        <div className="ft-mobile-services__secondary">
-                          <h3>
-                            {
-                              column.secondaryTitle
-                            }
-                          </h3>
-
-                          <div className="ft-mobile-services__divider" />
-
-                          <div className="ft-mobile-services__links">
-                            {column.secondaryItems.map(
-                              (link) => (
-                                <NavLink
-                                  className="ft-mobile-services__link"
-                                  key={
-                                    link.title
-                                  }
-                                  to={resolveCanonicalPath(link.url)}
-                                  prefetch="intent"
-                                  onClick={
-                                    closeMenu
-                                  }
-                                >
-                                  <strong>
-                                    {
-                                      link.title
-                                    }
-                                  </strong>
-
-                                  <span>
-                                    {
-                                      link.description
-                                    }
-                                  </span>
-                                </NavLink>
-                              ),
-                            )}
-                          </div>
-                        </div>
-                      ) : null}
-                    </section>
-                  ),
-                )}
+                            <span>{link.title}</span>
+                          </NavLink>
+                        );
+                      })}
+                    </div>
+                  </section>
+                ))}
               </div>
             </div>
 

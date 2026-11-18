@@ -39,7 +39,7 @@
 
 .ft-services-hero__eyebrow {
   margin: 0 0 2rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(1.125rem, 2vw, 2rem);
   font-weight: 400;
   line-height: 1;
@@ -73,7 +73,7 @@
 .ft-services-hero__title {
   width: 100%;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(2.125rem, 5vw, 3.75rem);
   font-weight: 300;
   line-height: 1.15;
@@ -108,7 +108,7 @@
   border-radius: 0.25rem;
   background: #10192F;
   border: 1px solid #1F2A44;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.15;
@@ -134,7 +134,7 @@
   border-radius: 999rem;
   background: #10192F;
   color: var(--ft-white, #ffffff);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.2;
@@ -196,7 +196,7 @@
   width: auto;
   min-width: 0;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.1;
@@ -263,7 +263,7 @@
 
 .ft-services-hero__description {
   width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: 400;
   line-height: 1.45;
@@ -300,7 +300,7 @@
   border-radius: 999rem;
   background: var(--ft-white, #ffffff);
   color: var(--ft-dark-deep, #01151b);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1;
@@ -349,14 +349,14 @@
 }
 
 .ft-services-hero--theme-light .ft-services-hero__title {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(2.125rem, 5vw, 3.75rem);
   font-weight: 400;
   line-height: 1.15;
 }
 
 .ft-services-hero--theme-light .ft-services-hero__description {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(1rem, 2vw, 1.125rem);
   line-height: 1.5;
 }
@@ -578,7 +578,7 @@
 }
 
 .ft-services-hero__bottom-brand-text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(1.5rem, 2.2vw, 2rem);
   font-weight: 500;
   line-height: 1;

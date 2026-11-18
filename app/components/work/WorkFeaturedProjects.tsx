@@ -9,6 +9,7 @@ export type WorkFeaturedArticle = NonNullable<
 
 export type WorkFeaturedProject = WorkFeaturedArticle & {
   href?: string;
+  website?: string;
 };
 
 interface WorkFeaturedProjectsProps {
@@ -56,6 +57,36 @@ export function WorkFeaturedProjects({
                     {result}
                   </span>
                 ) : null}
+
+                {article.website ? (
+                  <button
+                    type="button"
+                    className="ft-work-featured__live-btn"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      window.open(article.website!, '_blank', 'noopener,noreferrer');
+                    }}
+                    title={`Visit ${article.title} Live Site`}
+                  >
+                    <span>Live Site</span>
+                    <span aria-hidden="true">↗</span>
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="ft-work-featured__live-btn ft-work-featured__query-btn"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      window.location.href = '/contact';
+                    }}
+                    title={`Send an inquiry for ${article.title}`}
+                  >
+                    <span>Send Query</span>
+                    <span aria-hidden="true">→</span>
+                  </button>
+                )}
               </div>
 
               <div className="ft-work-featured__content">

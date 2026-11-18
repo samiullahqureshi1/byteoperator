@@ -237,7 +237,7 @@
 
 .ft-ecommerce-seo-stack__node span {
   display: block;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.05;
@@ -305,7 +305,7 @@
 .ft-ecommerce-seo-stack__eyebrow {
   margin: 0 0 1.5rem;
   color: rgba(59, 130, 246, 0.75);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1;
@@ -315,7 +315,7 @@
   max-width: 13.5em;
   margin: 0 0 2rem;
   color: var(--ft-white, #ffffff);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(2.125rem, 4.3vw, 3.75rem);
   font-weight: 400;
   line-height: 1.08;
@@ -326,7 +326,7 @@
   max-width: 48rem;
   margin: 0 0 2rem;
   color: rgba(255, 255, 255, 0.58);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.7;
@@ -345,7 +345,7 @@
   border-radius: 999rem;
   background: var(--ft-white, #ffffff);
   color: var(--ft-dark-deep, #060F24);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1;

@@ -47,7 +47,7 @@
   border: 0.0625rem solid rgba(59, 130, 246, 0.3);
   background: rgba(48, 108, 231, 0.1);
   color: var(--ft-accent-blue, #3B82F6);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -57,7 +57,7 @@
 .ft-newsletter-title {
   margin: 0 auto 1.25rem;
   max-width: 44rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(2.25rem, 4.5vw, 3.75rem);
   font-weight: 600;
   line-height: 1.15;
@@ -72,7 +72,7 @@
 .ft-newsletter-subtitle {
   max-width: 38rem;
   margin: 0 auto 2.5rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(1rem, 1.35vw, 1.15rem);
   line-height: 1.6;
   color: var(--ft-text-secondary, #A8B3C7);
@@ -167,7 +167,7 @@
 }
 
 .ft-newsletter-archive-heading {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(1.5rem, 2.5vw, 2.25rem);
   font-weight: 600;
   color: #ffffff;
@@ -220,7 +220,7 @@
 }
 
 .ft-newsletter-issue-title {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1.2rem;
   font-weight: 600;
   color: #ffffff;

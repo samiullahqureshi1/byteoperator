@@ -16,6 +16,7 @@
 @import './styles/home-partners.css';
 @import './styles/home-experts.css';
 @import './styles/home-observatory.css';
+@import './styles/home-faqs.css';
 
 /* About Page Styles */
 @import './styles/about-hero.css';
@@ -39,6 +40,20 @@
 @import './styles/bulk-hours.css';
 @import './styles/shopify-plus-page.css';
 @import './styles/shopify-cro-optimise.css';
+@import './styles/service-ai-voice.css';
+@import './styles/service-ai-workflow.css';
+@import './styles/service-custom-software.css';
+@import './styles/service-saas-web.css';
+@import './styles/service-software-integrations.css';
+@import './styles/service-healthcare-integration.css';
+@import './styles/service-cloud-infrastructure.css';
+@import './styles/service-healthcare-solutions.css';
+@import './styles/service-medical-practices.css';
+@import './styles/service-dental-practices.css';
+@import './styles/service-dermatology-clinics.css';
+@import './styles/service-ophthalmology-clinics.css';
+@import './styles/service-primary-care.css';
+@import './styles/service-other-specialties.css';
 
 /* SEO & CRO Styles */
 @import './styles/ecommerce-seo-hero.css';
@@ -84,6 +99,7 @@
 @import './styles/ai-visibility-audit.css';
 
 /* Shared & Utility Styles */
+@import './styles/service-final-cta.css';
 @import './styles/client-logo-grid.css';
 @import './styles/policy-page.css';
 @import './styles/cms-portal.css';

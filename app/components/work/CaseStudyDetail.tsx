@@ -173,7 +173,12 @@ export function CaseStudyLayout({
               <span aria-hidden="true">↗</span>
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
-          ) : null}
+          ) : (
+            <Link className="ft-cs__visit" to="/contact">
+              Send a Query
+              <span aria-hidden="true">↗</span>
+            </Link>
+          )}
           <Link className="ft-cs__more" to="/contact">
             Discuss a similar project
           </Link>
@@ -183,7 +188,52 @@ export function CaseStudyLayout({
         </div>
       </header>
 
-      {leadImage ? (
+      {videos.length ? (
+        <section
+          className="ft-cs__lead-video"
+          aria-label="Project video demonstration"
+          style={{
+            maxWidth: '1240px',
+            margin: '0 auto 4rem',
+            padding: '0 1.5rem',
+          }}
+        >
+          <div
+            style={{
+              position: 'relative',
+              borderRadius: '1.25rem',
+              overflow: 'hidden',
+              border: '1px solid rgba(56, 189, 248, 0.35)',
+              boxShadow:
+                '0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px -5px rgba(56, 189, 248, 0.2)',
+              background: '#040916',
+            }}
+          >
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              poster={videos[0].poster ?? undefined}
+              style={{
+                width: '100%',
+                display: 'block',
+                maxHeight: '760px',
+                aspectRatio: '16 / 9',
+                objectFit: 'cover',
+                backgroundColor: '#040916',
+              }}
+            >
+              {videos[0].sources.map((source) => (
+                <source
+                  key={source.url}
+                  src={source.url}
+                  type={source.mimeType ?? undefined}
+                />
+              ))}
+            </video>
+          </div>
+        </section>
+      ) : leadImage ? (
         <ProjectImage
           image={leadImage}
           alt={title}
@@ -310,9 +360,9 @@ export function CaseStudyLayout({
         <ProjectImage key={image.url} image={image} alt={title} />
       ))}
 
-      {videos.length ? (
+      {videos.length > 1 ? (
         <section className="ft-cs__videos" aria-label="Project videos">
-          {videos.map((video) => (
+          {videos.slice(1).map((video) => (
             // Software's Videos field has no caption-track field to query.
             // eslint-disable-next-line jsx-a11y/media-has-caption
             <video

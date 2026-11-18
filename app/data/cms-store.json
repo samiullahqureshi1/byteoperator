@@ -12,265 +12,81 @@
   ],
   "siteContent": {
     "home": {
-      "heroEyebrow": "Full-Stack Software, AI & Commerce Agency",
-      "heroTitlePrefix": "The Software Agency That",
-      "heroTitleHighlight": "Drives Real Growth",
-      "heroTitleSuffix": "",
-      "heroSubtitle": "We design, engineer, and scale high-performance web applications, headless commerce systems, and AI search visibility architectures.",
-      "primaryCtaText": "Explore Our Work",
-      "primaryCtaLink": "/work",
-      "secondaryCtaText": "Book Architecture Call",
-      "secondaryCtaLink": "/book-a-call",
-      "heroImage": "https://cdn.shopify.com/s/files/1/0676/1155/7936/files/ryan-waring-164_6wVEHfI-unsplash.jpg?v=1790430992",
+      "seoTitle": "Healthcare AI Solutions & Software Development | Byte Operator",
+      "seoDescription": "Build smarter healthcare operations with AI voice agents, workflow automation, custom software and system integrations from Byte Operator.",
+      "heroEyebrow": "HEALTHCARE AI SOLUTIONS & SOFTWARE ENGINEERING",
+      "heroTitlePrefix": "Smarter Healthcare Operations,",
+      "heroTitleHighlight": "Powered by AI and Software Engineering",
+      "heroSubtitle": "Byte Operator helps healthcare organizations automate administrative workflows, streamline patient communication, and build connected software systems tailored to your operational needs.",
+      "primaryCtaText": "Explore Our Solutions",
+      "primaryCtaLink": "/expertise",
+      "secondaryCtaText": "Book a Discovery Call",
+      "secondaryCtaLink": "/contact",
       "heroShowSection": true,
-      "galleryMediaType": "gallery",
-      "gallerySingleImageUrl": "https://cdn.shopify.com/s/files/1/0676/1155/7936/files/ryan-waring-164_6wVEHfI-unsplash.jpg?v=1790430992",
-      "gallerySingleImageAlt": "Byte Operator engineering platforms and modern architecture",
-      "galleryVideoUrl": "/videos/home-hero-1600.mp4",
-      "galleryVideoPoster": "/images/home-gallery/home-hero-video-poster.jpg",
-      "galleryVideoMobileUrl": "/videos/home-hero-960.mp4",
-      "galleryItems": [
-        {
-          "title": "Athletic Running Footwear (Concept)",
-          "image": "https://cdn.shopify.com/s/files/1/0676/1155/7936/files/ryan-waring-164_6wVEHfI-unsplash.jpg?v=1790430992",
-          "alt": "High-performance athletic running footwear",
-          "url": "/work"
-        },
-        {
-          "title": "Botanical Lotion & Care (Concept)",
-          "image": "https://cdn.shopify.com/s/files/1/0676/1155/7936/files/nataliya-melnychuk-51sGDpm5S78-unsplash.jpg?v=1790430987",
-          "alt": "Luxury botanical skincare and lotion product",
-          "url": "/work"
-        },
-        {
-          "title": "Minimalist Glass Beverage (Concept)",
-          "image": "https://cdn.shopify.com/s/files/1/0676/1155/7936/files/joan-tran-reEySFadyJQ-unsplash.jpg?v=1790430977",
-          "alt": "Minimalist designer glass beverage bottle",
-          "url": "/work"
-        },
-        {
-          "title": "Wireless Audio Headphones (Concept)",
-          "image": "https://cdn.shopify.com/s/files/1/0676/1155/7936/files/kiran-ck-LSNJ-pltdu8-unsplash.jpg?v=1790430955",
-          "alt": "Premium wireless headphones and handsfree audio",
-          "url": "/work"
-        },
-        {
-          "title": "Active Lifestyle Running (Concept)",
-          "image": "https://cdn.shopify.com/s/files/1/0676/1155/7936/files/reuben-mansell-nwOip8AOZz0-unsplash.jpg?v=1790431668",
-          "alt": "Active runner lifestyle and performance gear",
-          "url": "/work"
-        },
-        {
-          "title": "Organic Skincare (Concept)",
-          "image": "https://cdn.shopify.com/s/files/1/0676/1155/7936/files/mitzie-organics-dnstpPqCBbw-unsplash.jpg?v=1790431660",
-          "alt": "Natural organic cosmetic skincare range",
-          "url": "/work"
-        },
-        {
-          "title": "Organic Facial Essence (Concept)",
-          "image": "https://cdn.shopify.com/s/files/1/0676/1155/7936/files/nataliya-melnychuk-51sGDpm5S78-unsplash_837aa5a5-44fa-461d-b117-da92ca95bf85.jpg?v=1790431658",
-          "alt": "Luxury organic facial essence and hydration serum",
-          "url": "/work"
-        },
-        {
-          "title": "Fine Jewelry & Diamonds",
-          "image": "/images/home-gallery/project-04.webp",
-          "alt": "Gold diamond engagement ring and fine jewelry on black silk",
-          "url": "/work"
-        },
-        {
-          "title": "Nordic Interior Living",
-          "image": "/images/home-gallery/project-08.webp",
-          "alt": "Architectural living room with tufted sofa and marble table",
-          "url": "/work"
-        },
-        {
-          "title": "Ready-to-Wear Fashion",
-          "image": "/images/home-gallery/project-05.webp",
-          "alt": "Fashion model in cream lace blouse and ensemble",
-          "url": "/work"
-        },
-        {
-          "title": "Designer Apparel",
-          "image": "/images/home-gallery/project-11.webp",
-          "alt": "Artisan embroidered designer dress presentation",
-          "url": "/work"
-        },
-        {
-          "title": "Modern Living & Furniture",
-          "image": "/images/home-gallery/project-01.webp",
-          "alt": "Wooden lattice chair and contemporary home decor",
-          "url": "/work"
-        },
-        {
-          "title": "Handcrafted Headwear",
-          "image": "/images/home-gallery/project-13.webp",
-          "alt": "Straw fedora hat on custom wooden stand",
-          "url": "/work"
-        },
-        {
-          "title": "Active Streetwear & Boarding",
-          "image": "/images/home-gallery/project-10.webp",
-          "alt": "Urban skateboarder in athletic streetwear",
-          "url": "/work"
-        }
-      ],
       "galleryShowSection": true,
       "aboutShowSection": true,
-      "aboutEyebrow": "Independent AI Automation & Custom Software Engineering",
-      "aboutHeading": "Byte Operator Architects, Automates & Scales Digital Platforms for Measurable Business Growth",
-      "aboutDescription": "Byte Operator is an independent AI automation and custom software engineering company. We engineer high-performance SaaS platforms, modern web applications, and autonomous AI workflow systems. Powered by our proprietary Replex Engine framework, visual n8n pipelines, and full-stack cloud architectures, we eliminate manual operational bottlenecks, capture every qualified inbound lead, and scale digital revenue.",
-      "aboutImage": "/images/home-gallery/project-08.webp",
-      "aboutRightHeadingPrefix": "About",
-      "aboutRightHeadingEmphasis": "Byte Operator",
-      "aboutRightHeadingSuffix": "— Independent AI & Software Engineering",
-      "aboutCtaText": "Explore Our Case Studies",
-      "aboutCtaLink": "/work",
-      "aboutStat1Value": "20+",
-      "aboutStat1Label": "Projects Delivered",
-      "aboutStat2Value": "4.9/5.0",
-      "aboutStat2Label": "Client Satisfaction",
-      "aboutStat3Value": "100%",
-      "aboutStat3Label": "Job Success Rate",
-      "aboutStat4Value": "2025",
-      "aboutStat4Label": "Established Since",
+      "aboutEyebrow": "OPERATIONAL CHALLENGES",
+      "aboutHeading": "Healthcare Operations Shouldn't Be Held Back by Manual Work",
+      "aboutDescription": "Healthcare teams manage patient calls, appointments, administrative tasks, and multiple software systems every day. Disconnected technology and repetitive processes can make these responsibilities more difficult to manage.",
+      "aboutRightHeadingPrefix": "Byte Operator helps healthcare organizations address these challenges",
+      "aboutRightHeadingEmphasis": "through practical software",
+      "aboutRightHeadingSuffix": "and automation solutions.",
+      "aboutCtaText": "Explore Our Solutions",
+      "aboutCtaLink": "/expertise",
+      "aboutStat1Value": "01",
+      "aboutStat1Label": "Missed Patient Calls",
+      "aboutStat2Value": "02",
+      "aboutStat2Label": "Repetitive Administrative Tasks",
+      "aboutStat3Value": "03",
+      "aboutStat3Label": "Disconnected Systems",
+      "aboutStat4Value": "04",
+      "aboutStat4Label": "Increasing Operational Demands",
       "servicesShowSection": true,
-      "servicesHeading": "Engineering Capabilities Built for Scale",
-      "servicesSubtitle": "From custom web applications to automated AI systems, our senior engineering teams build for mission-critical reliability.",
-      "servicesCtaText": "View all services",
-      "servicesCtaLink": "/services",
+      "servicesHeading": "Healthcare AI and Software Solutions Built Around Your Operations",
+      "servicesSubtitle": "We bring AI automation, software engineering, and system integration together to help healthcare organizations improve the way their operations work.",
+      "servicesCtaText": "Explore Our Services",
+      "servicesCtaLink": "/expertise",
       "servicesList": [
         {
-          "title": "AI Automations & Autonomous Agents",
-          "description": "Deploy Replex Engine zero-miss lead capture, n8n workflow pipelines, and autonomous support agents.",
-          "href": "/services/ai-automations-agents",
-          "badge": "/images/home-services/badges/logo-search-white.svg",
-          "badgeAlt": "AI"
+          "title": "AI Voice Agents & Receptionists",
+          "description": "Deploy intelligent voice receptionists and conversational agents for 24/7 patient call answering, routing, and appointment scheduling.",
+          "href": "/services/ai-voice-agents-healthcare"
         },
         {
-          "title": "Custom SaaS & Platform Engineering",
-          "description": "Full-stack web architectures, real-time data engines, and resilient cloud software built to scale.",
-          "href": "/services/software-developers",
-          "badge": "/images/home-services/badges/logo-launch-white.svg",
-          "badgeAlt": "Software"
+          "title": "AI Workflow Automation",
+          "description": "Automate routine patient communication, digital intake, task creation, and administrative processes with connected workflows.",
+          "href": "/services/ai-workflow-automation-healthcare"
         },
         {
-          "title": "Shopify Store & Theme Development",
-          "description": "High-velocity custom storefronts, modular custom sections, and mobile-optimized buying funnels.",
-          "href": "/services/software-web-design",
-          "badge": "/images/home-services/badges/logo-launch-white.svg",
-          "badgeAlt": "Shopify"
+          "title": "Custom Software Development",
+          "description": "Develop web applications, patient and staff portals, and internal tools tailored to your operational requirements.",
+          "href": "/services/custom-healthcare-software-development"
         },
         {
-          "title": "n8n Workflow & API Pipelines",
-          "description": "Multi-system visual workflow pipelines connecting ERPs, CRMs, webhooks, and messaging queues.",
-          "href": "/services/software-integrations",
-          "badge": "",
-          "badgeAlt": ""
+          "title": "SaaS & Web Application Development",
+          "description": "Engineer scalable multi-user platforms, role-based administrative dashboards, and database-driven web applications.",
+          "href": "/services/saas-web-application-development"
         },
         {
-          "title": "Shopify Apps & Custom Extensions",
-          "description": "Proprietary tools like Speedify AI page speed optimizer, custom checkout extensions, and admin apps.",
-          "href": "/services/shopify-app-development",
-          "badge": "/images/home-services/badges/logo-sitelab-white.svg",
-          "badgeAlt": "Apps"
+          "title": "API & System Integration",
+          "description": "Connect third-party business platforms, CRMs, and communication tools through resilient API architectures.",
+          "href": "/services/software-integrations"
         },
         {
-          "title": "Platform & Cloud Migrations",
-          "description": "Zero-downtime replatforming from Magento, WooCommerce, or BigCommerce with 100% SEO preserved.",
-          "href": "/services/software-migrations",
-          "badge": "/images/home-services/badges/logo-helpdesk-white.svg",
-          "badgeAlt": "Migrations"
+          "title": "Healthcare Software Integration",
+          "description": "Connect practice management platforms, EHR/EMR systems, and patient data workflows with structured data exchange.",
+          "href": "/services/software-integrations"
         },
         {
-          "title": "Technical SEO & AI Search (GEO)",
-          "description": "Architect your storefront for LLM citation algorithms, sub-second Core Web Vitals, and dominant organic search rankings.",
-          "href": "/ecommerce-seo-agency",
-          "badge": "/images/home-services/badges/logo-search-white.svg",
-          "badgeAlt": "SEO"
-        },
-        {
-          "title": "Shopify Plus & Enterprise Systems",
-          "description": "Enterprise B2B wholesale portals, multi-store architecture, and high-AOV custom storefronts.",
-          "href": "/shopify-plus-agency",
-          "badge": "",
-          "badgeAlt": ""
-        }
-      ],
-      "projectsShowSection": true,
-      "projectsHeading": "Selected Client Case Studies",
-      "projectsSubtitle": "Explore how we engineered 2x+ conversion lifts and scalable platform architectures.",
-      "projectsImage": "/images/home-gallery/project-04.webp",
-      "projectsList": [
-        {
-          "title": "Collabix",
-          "type": "Custom SaaS & Enterprise Platform",
-          "href": "/services/software-developers",
-          "image": "https://cdn.shopify.com/s/files/1/0673/9610/8363/files/custom_software_case_study.png?v=1790400442",
-          "alt": "Collabix custom software and SaaS platform architecture"
-        },
-        {
-          "title": "Autonomous AI Agents",
-          "type": "Multi-Agent Task Orchestration & Automated Workflows",
-          "href": "/services/ai-automations-agents",
-          "image": "https://cdn.shopify.com/s/files/1/0673/9610/8363/files/second_autmation_imaeg.webp?v=1790409459",
-          "alt": "Autonomous AI agent orchestration and workflow platform"
-        },
-        {
-          "title": "Replex Engine",
-          "type": "Autonomous AI Lead Capture & Sub-Minute Replies",
-          "href": "/services/ai-automations-agents",
-          "image": "https://cdn.shopify.com/s/files/1/0673/9610/8363/files/replex.png?v=1790409470",
-          "alt": "Replex Engine AI communication and lead automation platform"
-        },
-        {
-          "title": "Kids Wonderland",
-          "type": "Shopify Store Development & Custom Catalog",
-          "href": "/services/software-web-design",
-          "image": "https://cdn.shopify.com/s/files/1/0673/9610/8363/files/toys.webp?v=1790407473",
-          "alt": "Kids Wonderland toy store development"
-        },
-        {
-          "title": "Nordic Haven Furniture",
-          "type": "Shopify Plus & Luxury Furniture Storefront",
-          "href": "/shopify-plus-agency",
-          "image": "https://cdn.shopify.com/s/files/1/0673/9610/8363/files/furniture.webp?v=1790407636",
-          "alt": "Nordic Haven luxury furniture digital storefront"
-        },
-        {
-          "title": "OmniRetail CRO & Migration",
-          "type": "Conversion Rate Optimisation & Enterprise Migration",
-          "href": "/services/software-migrations",
-          "image": "https://cdn.shopify.com/s/files/1/0673/9610/8363/files/shopify_cro_and_migration_store.webp?v=1790407473",
-          "alt": "Shopify CRO and enterprise platform migration"
+          "title": "Cloud & Infrastructure Engineering",
+          "description": "Build and maintain the technical infrastructure needed to support reliable digital applications and future growth.",
+          "href": "/services/cloud-infrastructure-engineering"
         }
       ],
       "featuresShowSection": true,
-      "featureImage": "/images/mega-menu-resources.webp",
-      "peopleShowSection": true,
-      "peopleEyebrow": "Senior Engineers, AI Architects & Growth Strategists",
-      "peopleHeadingFirstLine": "Engineering-led",
-      "peopleHeadingSecondLine": "software & AI agency",
-      "peopleDescription": "A specialized engineering team focused on full-stack web platforms, AI workflow automations, and modern ecommerce architecture, helping ambitious brands scale faster and operate smarter.",
-      "peopleImage": "/images/home-people/people.webp",
-      "peopleButtonLabel": "About Byte Operator",
-      "peopleButtonLink": "/about",
-      "partnersShowSection": true,
-      "expertsShowSection": true,
-      "expertsEyebrow": "Senior Engineering Team",
-      "expertsTitle": "Dedicated Software Engineers & AI Specialists",
-      "expertsDescription": "Work directly with senior developers and solution architects.",
-      "observatoryShowSection": true,
-      "observatoryEyebrow": "Senior Engineering & AI Architects",
-      "observatoryHeading": "Ready to Engineer Your Next Leap?",
-      "observatorySubtitle": "Connect directly with our engineering leadership to architect your custom solution.",
-      "observatoryDescriptionSecondary": "Speak directly with our senior software engineers and AI automation architects to map your technical roadmap.",
-      "observatoryImage": "https://cdn.shopify.com/s/files/1/0676/1155/7936/files/joan-tran-reEySFadyJQ-unsplash.jpg?v=1790430977",
-      "observatoryShowImage": true,
-      "observatoryCtaText": "Book Architecture Call",
-      "observatoryCtaLink": "/book-a-call",
-      "seoTitle": "Byte Operator — AI Automation & Custom Software Engineering",
-      "seoDescription": "Byte Operator is an independent software engineering and AI automation company. We design, engineer, and deploy high-velocity web platforms, custom SaaS architectures, and autonomous AI systems."
+      "galleryMediaType": "video",
+      "galleryVideoUrl": "https://cdn.shopify.com/videos/c/o/v/3786294d9d3c46808dc8259eaee42075.mp4",
+      "galleryVideoMobileUrl": "https://cdn.shopify.com/videos/c/o/v/3786294d9d3c46808dc8259eaee42075.mp4"
     },
     "about": {
       "heroEyebrow": "Engineering & Innovation",

@@ -269,7 +269,7 @@
 
   color: #ffffff;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 0.8125rem;
   font-weight: 400;
@@ -393,7 +393,7 @@
 
   border-radius: 50vw;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 0.9375rem;
   line-height: 1;
@@ -536,7 +536,7 @@
 
   color: rgba(255, 255, 255, 0.85);
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 0.6875rem;
   font-style: normal;
   font-weight: 600;
@@ -1464,7 +1464,7 @@
 
     border-radius: 0.1875rem;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inherit;
 
     font-size: 0.75rem;
     line-height: 1;
@@ -1795,7 +1795,7 @@
 
     border-radius: 50vw;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inherit;
 
     font-size: 0.875rem;
 
@@ -2126,7 +2126,7 @@
 
 
 .ft-bulk-promo__title {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 3.5rem;
   font-weight: 300;
@@ -2140,7 +2140,7 @@
   color:
     rgba(255, 255, 255, 0.72);
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 0.9375rem;
   line-height: 1.4;
@@ -2220,3 +2220,135 @@
     transition: none;
   }
 }
+
+/* =========================================================
+   EXPERTISE MEGA MENU (2-COLUMN WITH ICONS)
+========================================================= */
+
+.ft-mega-menu--expertise {
+  display: block;
+  width: min(52rem, calc(100vw - 3rem));
+  background: #060F24;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  box-shadow: 0 24px 60px -10px rgba(0, 0, 0, 0.75), 0 0 40px -5px rgba(59, 130, 246, 0.15);
+  padding: 2.75rem 3.25rem;
+  overflow: hidden;
+}
+
+.ft-expertise-mega__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3.5rem;
+}
+
+.ft-expertise-mega__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.ft-expertise-mega__title {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1.75rem 0;
+  letter-spacing: -0.025em;
+}
+
+.ft-expertise-mega__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+}
+
+.ft-expertise-mega__link {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 0.125rem 0;
+}
+
+.ft-expertise-mega__link:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.ft-expertise-mega__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.ft-expertise-mega__link:hover .ft-expertise-mega__icon {
+  transform: scale(1.15);
+}
+
+.ft-expertise-mega__text {
+  transition: color 0.2s ease;
+}
+
+.ft-expertise-mega__link:hover .ft-expertise-mega__text {
+  color: #ffffff;
+}
+
+/* MOBILE EXPERTISE STYLES */
+.ft-mobile-expertise {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem 0;
+}
+
+.ft-mobile-expertise__group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ft-mobile-expertise__title {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.ft-mobile-expertise__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.ft-mobile-expertise__link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  padding: 0.25rem 0;
+}
+
+.ft-mobile-expertise__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
+}
+

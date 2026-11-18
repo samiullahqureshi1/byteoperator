@@ -116,6 +116,20 @@ export default function CaseStudyPage({params}: Props) {
       : {}),
   });
 
+  const videos =
+    caseStudy.videos?.map((v) => ({
+      sources: v.sources,
+      poster: v.poster ?? null,
+    })) ||
+    (caseStudy.videoUrl
+      ? [
+          {
+            sources: [{url: caseStudy.videoUrl, mimeType: 'video/mp4'}],
+            poster: caseStudy.image?.url ?? null,
+          },
+        ]
+      : []);
+
   return (
     <>
       <JsonLd graph={graph} />
@@ -131,6 +145,7 @@ export default function CaseStudyPage({params}: Props) {
           href: service.path,
         }))}
         images={images as any}
+        videos={videos}
         related={related}
         website={caseStudy.website}
         naturalLeadImage={caseStudy.naturalImage}

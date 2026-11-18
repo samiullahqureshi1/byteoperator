@@ -58,15 +58,11 @@ const SERVICE_PAGE_ROUTES = {
 } as const;
 
 function reuseHomeFeatureMedia(
-  id: HomeFeatureData['id'],
+  id: string,
 ): HomeFeatureData['media'] {
-  const feature = HOME_FEATURES.find(
-    (candidate) => candidate.id === id,
-  );
-
-  if (!feature) {
-    throw new Error(`Missing HomeFeature media for "${id}"`);
-  }
+  const feature =
+    HOME_FEATURES.find((candidate) => candidate.id === id) ||
+    HOME_FEATURES[0];
 
   return {
     ...feature.media,

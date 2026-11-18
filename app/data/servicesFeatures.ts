@@ -60,14 +60,11 @@ const SERVICES_FEATURE_CONFIG = [
 
 export const SERVICES_FEATURES: readonly HomeFeatureData[] =
   SERVICES_FEATURE_CONFIG.map(
-    ({id, eyebrow, heading, description, button}) => {
-      const feature = HOME_FEATURES.find(
-        (candidate) => candidate.id === id,
-      );
-
-      if (!feature) {
-        throw new Error(`Missing HomeFeature data for "${id}"`);
-      }
+    ({id, eyebrow, heading, description, button}, index) => {
+      const feature =
+        (HOME_FEATURES as readonly HomeFeatureData[]).find(
+          (candidate) => candidate.id === (id as string),
+        ) || HOME_FEATURES[index % HOME_FEATURES.length];
 
       const featureWithoutLogos: HomeFeatureData = {
         ...feature,

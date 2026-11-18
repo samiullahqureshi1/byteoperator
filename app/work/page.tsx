@@ -36,6 +36,7 @@ export default function Work() {
     services: cs.services,
     tags: cs.tags,
     logo: cs.logo,
+    website: cs.website,
   }));
 
   // CollectionPage + ItemList of the case studies this page lists.

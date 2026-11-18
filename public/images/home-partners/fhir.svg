@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" width="160" height="40" fill="none">
+  <g transform="translate(6, 6)">
+    <circle cx="14" cy="14" r="12" stroke="#ffffff" stroke-width="1.8" fill="none"/>
+    <path d="M14 6V22M6 14H22" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="14" cy="14" r="3" fill="#ffffff"/>
+  </g>
+  <text x="42" y="26" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700" letter-spacing="-0.02em">HL7 FHIR</text>
+</svg>

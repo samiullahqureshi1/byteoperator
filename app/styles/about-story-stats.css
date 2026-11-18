@@ -75,7 +75,7 @@
 .ft-about-story__heading {
   margin: 0;
   max-width: 48rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(2.125rem, 5vw, 3.75rem);
   font-weight: 400;
   line-height: 1.15;
@@ -85,7 +85,7 @@
 
 .ft-about-story__description {
   max-width: 39rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(1rem, 1.8vw, 1.125rem);
   font-weight: 300;
   line-height: 1.5;
@@ -113,7 +113,7 @@
   background: #306CE7;
   color: #ffffff;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1;
@@ -168,7 +168,7 @@
   max-width: 62.5rem;
   margin: 0 auto 2.5rem;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(1.875rem, 5vw, 3.375rem);
   font-weight: 400;
   line-height: 1.15;
@@ -200,7 +200,7 @@
 .ft-about-stats__item-title {
   margin: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2;
@@ -216,7 +216,7 @@
   position: relative;
   display: block;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(3.25rem, 5.5vw, 5rem);
   font-weight: 600;
   line-height: 0.85;

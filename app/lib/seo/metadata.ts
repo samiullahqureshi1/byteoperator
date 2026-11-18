@@ -44,7 +44,7 @@ export function pageMetadata({
   robots,
   keywords,
 }: PageMetadataInput): Metadata {
-  const url = path === '/' ? SITE_URL : `${SITE_URL}${path}`;
+  const url = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`;
 
   return {
     title,

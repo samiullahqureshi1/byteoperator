@@ -153,6 +153,21 @@ export const SERVICE_SEO: Record<string, SeoCopy> = {
 
 /** Keyed by /work/[handle]. */
 export const CASE_STUDY_SEO: Record<string, Partial<SeoCopy>> = {
+  'patient-management-system': {
+    title: 'Bright Dental Clinic: Patient Management System Case Study',
+    description:
+      'How Byte Operator built Bright Dental Clinic’s patient management platform, uniting digital intake, chairside scheduling, and real-time PMS integration.',
+  },
+  'ai-voice-calling-agent': {
+    title: 'MedVoice AI: Healthcare Voice Calling Agent Case Study',
+    description:
+      'How Byte Operator engineered MedVoice AI, a conversational AI voice agent delivering 24/7 inbound patient call triage, scheduling, and EHR integration.',
+  },
+  'whatsapp-receptionist': {
+    title: 'CareConnect: WhatsApp Medical Receptionist Case Study',
+    description:
+      'How Byte Operator developed CareConnect, an AI WhatsApp receptionist automating patient intake, 24/7 consultation scheduling, and pre-procedure instructions.',
+  },
   collabix: {
     title: 'Collabix: Project Management SaaS Case Study',
     description:

@@ -79,7 +79,7 @@ export function HomeExperts({
   // Digital, Clara Jensen / Kinetics Logistics) could not be verified.
   testimonials = [],
   testimonial,
-  hideMedia = false,
+  hideMedia = true,
 }: HomeExpertsProps) {
   const classNames = [
     'ft-home-experts__media--one',
@@ -96,7 +96,8 @@ export function HomeExperts({
         : [];
 
   const hasTestimonials = testimonialList.length > 0;
-  const shouldShowMedia = !hideMedia && !hasTestimonials && media !== undefined ? media.length > 0 : !hideMedia && !hasTestimonials;
+  // Background floating media has been removed globally per user request
+  const shouldShowMedia = false;
 
   const mediaList = media?.length
     ? media.map((item, index) => ({

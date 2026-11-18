@@ -16,7 +16,7 @@
 
   background: var(--cs-bg);
   color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   letter-spacing: -0.035em;
 }
 
@@ -102,7 +102,7 @@
   font-size: clamp(2.75rem, 5.5vw, 5rem);
   font-weight: 400;
   line-height: 1;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.025em;
   overflow-wrap: anywhere;
 }
 
@@ -176,7 +176,7 @@
   border-radius: 50vw;
   background: var(--ft-primary-blue, #306CE7);
   color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 0.9375rem;
   font-weight: 500;
   line-height: 1;
@@ -318,7 +318,7 @@
   font-size: clamp(2.25rem, 4.3vw, 3.5rem);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.025em;
   font-variant-numeric: tabular-nums;
   color: #ffffff;
 }
@@ -354,7 +354,7 @@
   font-size: clamp(2.25rem, 4.3vw, 3.5rem);
   font-weight: 400;
   line-height: 1.05;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.025em;
 }
 
 .ft-cs__chapter-head > p:last-child:not(.ft-cs__eyebrow) {

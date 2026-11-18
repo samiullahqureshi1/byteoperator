@@ -17,6 +17,13 @@ export interface CaseStudyItem {
   client?: string;
   /** Live website, shown as a "Visit Website" button. */
   website?: string;
+  /** Direct MP4 video URL for interactive project demonstration. */
+  videoUrl?: string;
+  /** Full video source array. */
+  videos?: Array<{
+    sources: Array<{ url: string; mimeType: string }>;
+    poster?: string | null;
+  }>;
   /** Show the lead image uncropped (for images that are not 16:9). */
   naturalImage?: boolean;
   /** Closing call-to-action copy for this case study. */
@@ -70,6 +77,325 @@ export interface CaseStudyItem {
   - Client names below were confirmed as real Byte Operator clients.
 */
 export const CASE_STUDIES: CaseStudyItem[] = [
+  {
+    /*
+      Patient Management System
+      Bright Dental Clinic Operations & PMS Integration Platform
+    */
+    id: 'cs-patient-management-system',
+    handle: 'patient-management-system',
+    title: 'Bright Dental Clinic: Patient Management & Operations System',
+    subtitle: 'A custom clinical operations platform uniting digital intake, multi-chair scheduling, and real-time PMS integration',
+    category: 'Healthcare Software',
+    tags: ['all', 'healthcare software', 'healthcare solutions', 'saas & custom software', 'patient management', 'dental clinics'],
+    technologies: ['Next.js', 'Node.js', 'PostgreSQL', 'Dental PMS APIs', 'Docker', 'AWS Healthcare Cloud'],
+    result: { value: 'Unified Dental Patient Management & Clinical Workflow' },
+    services: { value: 'Custom Healthcare Software / Dental PMS Integration / Multi-Chair Scheduling' },
+    client: 'Bright Dental Clinic',
+    videoUrl: 'https://cdn.shopify.com/videos/c/o/v/f4702376680f40d38014ec47ecc34aa6.mp4',
+    image: {
+      url: 'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/application_engineering.webp?v=1794782203',
+      altText: 'Bright Dental Clinic patient management system and clinical workflow dashboard',
+      width: 2048,
+      height: 1152,
+    },
+    intro: 'Byte Operator architected and developed a comprehensive patient management system (PMS) for Bright Dental Clinic. Designed for high-volume dental practices, the platform consolidates fragmented administrative tools—unifying digital patient registration, operatory chair scheduling, dental PMS synchronization, and billing workflows into a single high-performance interface.',
+    relatedServices: [
+      { label: 'Custom Healthcare Software Development', path: '/services/custom-healthcare-software-development' },
+      { label: 'Dental Practice Solutions', path: '/services/dental-practices' },
+      { label: 'Healthcare Software Integration', path: '/services/healthcare-software-integration' },
+    ],
+    details: [
+      { label: 'Project', value: 'Bright Dental PMS' },
+      { label: 'Client', value: 'Bright Dental Clinic' },
+      { label: 'Project type', value: 'Patient Management System' },
+      { label: 'Year', value: '2026' },
+      { label: 'Inquiry', value: 'Book Technical Consultation', href: '/contact' },
+      { label: 'Technologies', value: 'Next.js, Node.js, PostgreSQL, Dental PMS APIs & Docker' },
+      { label: 'Services', value: 'Custom Healthcare Software, Dental PMS Integration, Multi-Chair Scheduling' },
+    ],
+    chapters: [
+      {
+        number: '01',
+        title: 'The Challenge',
+        subheading: 'Administrative fragmentation and manual data entry across disparate dental tools',
+        body: [
+          'Bright Dental Clinic previously operated across disconnected digital tools: one application for patient check-in, an on-premise PMS for charts, a third-party portal for appointment booking, and separate software for lab tracking and patient reminders.',
+          'This fragmentation created severe administrative bottlenecks: front desk staff spent hours daily manually re-keying patient data between systems, scheduling conflicts led to operatory chair downtime, and patients faced frustrating wait times during in-person check-in.',
+        ],
+        points: [
+          {
+            title: 'Siloed Patient Records',
+            text: 'Clinical charts, intake questionnaires, and insurance verifications were stored across disconnected platforms without automatic synchronization.',
+          },
+          {
+            title: 'Manual Double Data Entry',
+            text: 'Administrative staff spent hours manually copying patient demographic and insurance information from web intake forms into legacy dental PMS software.',
+          },
+          {
+            title: 'Complex Operatory Scheduling',
+            text: 'Standard calendar tools failed to coordinate specialized hygienist and dentist availability with operatory chair prep times and dental lab lead times.',
+          },
+        ],
+      },
+      {
+        number: '02',
+        title: 'The Solution',
+        subheading: 'A unified cloud-native platform connecting intake, chairside scheduling, and PMS data',
+        body: [
+          'Byte Operator engineered Bright Dental Clinic’s patient management platform from the ground up to solve clinical workflow bottlenecks. Built on modern web architecture with end-to-end encryption and role-based permissions, the platform seamlessly interfaces with existing dental PMS and digital imaging workstations.',
+        ],
+        points: [
+          {
+            title: 'Self-Serve Digital Intake',
+            text: 'Patients complete pre-visit medical history, dental insurance cards, and consent forms on their own mobile devices before arrival, populating records directly into the clinical dashboard.',
+          },
+          {
+            title: 'Intelligent Chairside Scheduling',
+            text: 'Automated appointment rules balance operatory chair availability, procedure lead times, and hygienist turnover buffers to prevent overbooking and clinic delays.',
+          },
+          {
+            title: 'Bi-Directional PMS Integration',
+            text: 'Secure middleware synchronizes patient records, treatment plans, and dental lab orders between the platform and core practice management software in real time.',
+          },
+        ],
+      },
+      {
+        number: '03',
+        title: 'The Operational Impact',
+        subheading: 'Streamlined front desk workflows and elevated patient check-in experience',
+        body: [
+          'The custom platform drastically lowered front-desk administrative friction, eliminated manual record duplication, and gave clinic leadership real-time visibility across chair utilization and daily appointment volumes.',
+        ],
+        points: [
+          {
+            title: 'Zero Duplicate Data Entry',
+            text: 'Automated data pipes transfer verified patient demographic and insurance data straight to billing and chart repositories without staff intervention.',
+          },
+          {
+            title: 'Reduced Patient Check-In Delays',
+            text: 'Pre-arrival digital check-in reduced front-desk waiting times from 12+ minutes to under 2 minutes per patient.',
+          },
+          {
+            title: 'Operatory Utilization Visibility',
+            text: 'Centralized administrative dashboards provide clinic directors with live metrics on operatory chair utilization, dentist capacity, and daily patient flow.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    /*
+      AI Voice Calling Agent
+      Complete Live Demo of Conversational Voice AI Receptionist
+    */
+    id: 'cs-ai-voice-calling-agent',
+    handle: 'ai-voice-calling-agent',
+    title: 'MedVoice AI: 24/7 Autonomous Voice Calling Agent & Clinical Receptionist',
+    subtitle: 'Complete live demo of conversational voice AI handling inbound triage, appointment bookings, and after-hours call flows',
+    category: 'AI & Automation',
+    tags: ['all', 'healthcare software', 'healthcare solutions', 'ai & automation', 'voice agents', 'telephony'],
+    technologies: ['WebRTC', 'SIP / Twilio Voice', 'Deepgram Nova-2', 'OpenAI Whisper', 'FastAPI', 'EHR Scheduling APIs'],
+    result: { value: '24/7 Inbound Call Triage & Automated Patient Scheduling' },
+    services: { value: 'AI Voice Agents / Inbound Call Triage / Outbound Patient Recalls / Telephony Integration' },
+    client: 'MedVoice Clinical AI',
+    videoUrl: 'https://cdn.shopify.com/videos/c/o/v/8bdbac54f88a42a98c042da706e7507f.mp4',
+    image: {
+      url: 'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/AI_Voice_Agents_Animated.webp?v=1793823156',
+      altText: 'MedVoice conversational AI voice calling agent for healthcare clinics',
+      width: 2048,
+      height: 1152,
+    },
+    intro: 'Byte Operator developed MedVoice AI, a sub-second latency conversational AI voice agent engineered specifically for healthcare practices and outpatient clinics. As demonstrated in the complete call recording below, MedVoice answers patient calls within two rings, answers routine clinic inquiries, verifies insurance eligibility, and schedules appointments directly into EHR calendar systems.',
+    relatedServices: [
+      { label: 'AI Voice Agents & Receptionists', path: '/services/ai-voice-agents-healthcare' },
+      { label: 'Healthcare Workflow Automation', path: '/services/ai-workflow-automation-healthcare' },
+      { label: 'Primary Care Solutions', path: '/services/primary-care' },
+    ],
+    details: [
+      { label: 'Project', value: 'MedVoice AI' },
+      { label: 'Project type', value: 'Healthcare Voice Calling Agent' },
+      { label: 'Year', value: '2026' },
+      { label: 'Inquiry', value: 'Request AI Voice Consultation', href: '/contact' },
+      { label: 'Technologies', value: 'WebRTC, Twilio SIP, Deepgram, Whisper & FastAPI' },
+      { label: 'Services', value: 'AI Voice Agents, Inbound Call Triage, Outbound Recalls, Telephony Integration' },
+    ],
+    chapters: [
+      {
+        number: '01',
+        title: 'The Challenge',
+        subheading: 'High inbound call volumes overwhelming clinic phone lines',
+        body: [
+          'Healthcare clinics receive hundreds of inbound calls every morning from patients attempting to schedule appointments, inquire about pre-op fasting guidelines, ask for directions, or request prescription refills.',
+          'Front-desk receptionists are routinely pulled between attending to in-person patients at the check-in window and answering ringing phones. This led to peak morning hold times exceeding 15 minutes, abandoned calls, and missed appointment opportunities.',
+        ],
+        points: [
+          {
+            title: 'Peak Morning Call Bottlenecks',
+            text: 'Front desk receptionists faced concurrent incoming calls, creating lengthy hold queues that frustrated patients seeking timely care.',
+          },
+          {
+            title: 'Repetitive Routine Inquiries',
+            text: 'Over 65% of incoming calls consisted of simple, repetitive queries: clinic opening hours, insurance network participation, and appointment confirmations.',
+          },
+          {
+            title: 'After-Hours Communication Gap',
+            text: 'Patients calling in the evening or over weekends reached voicemail, causing delayed bookings and high no-show rates without proactive confirmations.',
+          },
+        ],
+      },
+      {
+        number: '02',
+        title: 'The Solution',
+        subheading: 'Sub-second conversational voice AI integrated with clinic telephony and scheduling',
+        body: [
+          'Byte Operator deployed a high-concurrency AI voice agent stack combining low-latency speech-to-text, context-aware clinical dialogue models, and natural human voice synthesis. Operating over SIP trunks directly connected to clinic phone systems, MedVoice operates 24/7 without hold times.',
+        ],
+        points: [
+          {
+            title: 'Natural Conversational Cadence',
+            text: 'Under 600ms voice response latency ensures patients experience natural, polite, and responsive dialogue without robotic delays or awkward pauses.',
+          },
+          {
+            title: 'Automated Calendar Booking',
+            text: 'MedVoice checks real-time provider slot availability in practice management software and books or reschedules visits in accordance with clinic rules.',
+          },
+          {
+            title: 'Clinical Guardrails & Warm Transfer',
+            text: 'Strict clinical boundaries ensure the agent never diagnoses conditions; when acute medical symptoms are mentioned, calls are instantly transferred to on-duty nursing staff.',
+          },
+        ],
+      },
+      {
+        number: '03',
+        title: 'The Operational Impact',
+        subheading: '100% call capture with immediate resolution and front desk relief',
+        body: [
+          'MedVoice transformed clinic telephone operations by eliminating hold queues, capturing previously abandoned calls, and freeing front-desk staff to focus entirely on in-clinic patient care.',
+        ],
+        points: [
+          {
+            title: 'Zero Hold Queues',
+            text: 'Every incoming call is answered within two rings 24/7/365, managing concurrent spikes without busy signals or dropped connections.',
+          },
+          {
+            title: 'Front Desk Focus Restored',
+            text: 'Receptionists are no longer inundated by ringing phones while checking in in-person patients, elevating clinic atmosphere and staff satisfaction.',
+          },
+          {
+            title: 'Proactive Outbound Recalls',
+            text: 'Automated outbound voice workflows reach patients for upcoming appointment confirmations and preventive care check-in reminders.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    /*
+      WhatsApp Medical Receptionist
+      24/7 Patient Messaging Concierge & Automated Intake
+    */
+    id: 'cs-whatsapp-receptionist',
+    handle: 'whatsapp-receptionist',
+    title: 'CareConnect: 24/7 WhatsApp AI Medical Receptionist & Concierge',
+    subtitle: 'Automated messaging concierge handling patient intake, appointment bookings, and pre-procedure instructions over WhatsApp',
+    category: 'AI & Automation',
+    tags: ['all', 'healthcare software', 'healthcare solutions', 'ai & automation', 'whatsapp automation', 'messaging'],
+    technologies: ['WhatsApp Business Cloud API', 'Node.js', 'Vector Knowledge Base', 'EHR Calendar Webhooks', 'Redis'],
+    result: { value: 'Instant Patient Intake & 24/7 Automated WhatsApp Scheduling' },
+    services: { value: 'WhatsApp AI Receptionist / Patient Intake Automation / Calendar Synchronization / Pre-Visit Guidance' },
+    client: 'CareConnect Health',
+    videoUrl: 'https://cdn.shopify.com/videos/c/o/v/4d4e7a0aa052413fbf8dafbebdd13081.mp4',
+    image: {
+      url: 'https://cdn.shopify.com/s/files/1/0676/1155/7936/files/Workflow_Automation_Story_Image.png?v=1793792357',
+      altText: 'CareConnect 24/7 WhatsApp AI receptionist and patient messaging automation',
+      width: 2048,
+      height: 1152,
+    },
+    intro: 'Byte Operator architected CareConnect, an AI-powered WhatsApp receptionist and patient messaging assistant for specialty medical practices and aesthetic clinics. Operating via the official WhatsApp Business Cloud API, CareConnect serves as an always-on digital concierge—allowing patients to book consultations, complete pre-visit digital questionnaires, verify clinic policies, and receive timely pre-procedure preparation guidelines directly in their messaging app.',
+    relatedServices: [
+      { label: 'AI Workflow Automation', path: '/services/ai-workflow-automation-healthcare' },
+      { label: 'Healthcare Software Integration', path: '/services/healthcare-software-integration' },
+      { label: 'Dermatology & Aesthetic Clinics', path: '/services/dermatology-aesthetic-clinics' },
+    ],
+    details: [
+      { label: 'Project', value: 'CareConnect WhatsApp Receptionist' },
+      { label: 'Project type', value: 'Conversational WhatsApp AI Receptionist' },
+      { label: 'Year', value: '2026' },
+      { label: 'Inquiry', value: 'Request WhatsApp Demo', href: '/contact' },
+      { label: 'Technologies', value: 'WhatsApp Cloud API, Node.js, Vector Knowledge Base & Redis' },
+      { label: 'Services', value: 'WhatsApp AI Receptionist, Patient Intake Automation, EHR Calendar Webhooks' },
+    ],
+    chapters: [
+      {
+        number: '01',
+        title: 'The Challenge',
+        subheading: 'Patient communication friction across high-friction web forms and phone lines',
+        body: [
+          'Modern healthcare consumers prefer instant text messaging over phone calls or tedious online portal logins. Specialty clinics struggled to keep pace with hundreds of direct inquiries across social and messaging platforms.',
+          'Staff manually responded to repetitive WhatsApp inquiries about consultation fees, dermatologist availability, and pre-treatment protocols, leading to response delays of several hours and lost prospective patient inquiries.',
+        ],
+        points: [
+          {
+            title: 'Delayed Inquiry Responses',
+            text: 'Prospective patients inquiring after clinic hours often waited until the following afternoon for replies, during which many booked elsewhere.',
+          },
+          {
+            title: 'Repetitive Pre-Op Questions',
+            text: 'Clinical staff spent hours repeating pre-procedure instructions (e.g. retinoid pauses, fasting windows, post-laser skin care).',
+          },
+          {
+            title: 'Appointment No-Shows',
+            text: 'Generic SMS reminders went unread or unacknowledged without interactive two-way confirmation capabilities.',
+          },
+        ],
+      },
+      {
+        number: '02',
+        title: 'The Solution',
+        subheading: 'An intelligent WhatsApp Business agent connected directly to practice calendars',
+        body: [
+          'Byte Operator created an automated WhatsApp receptionist powered by conversational AI grounded in clinic-approved SOPs. Connected directly to practice scheduling software via webhooks, CareConnect handles entire booking and intake lifecycles conversationally.',
+        ],
+        points: [
+          {
+            title: 'Instant Sub-5-Second Replies',
+            text: 'CareConnect answers patient inquiries immediately 24/7 with accurate clinic information, pricing guidelines, and provider credentials.',
+          },
+          {
+            title: 'Interactive In-Chat Booking',
+            text: 'Patients select appointment dates, preferred providers, and consultation types through interactive WhatsApp list messages and quick-reply buttons.',
+          },
+          {
+            title: 'Automated Digital Intake & Consent',
+            text: 'Sends secure, mobile-friendly intake links and collects pre-appointment questionnaires directly before visits.',
+          },
+        ],
+      },
+      {
+        number: '03',
+        title: 'The Operational Impact',
+        subheading: 'Modern conversational access, reduced no-shows, and zero front-desk burden',
+        body: [
+          'CareConnect elevated patient engagement by meeting patients on their preferred channel, resulting in faster booking conversions and dramatically lower clinic inquiry backlogs.',
+        ],
+        points: [
+          {
+            title: '24/7 Instant Patient Engagement',
+            text: 'Over 40% of consultation bookings were secured during evening and weekend hours when physical front desks were closed.',
+          },
+          {
+            title: 'Substantial Reduction in No-Shows',
+            text: 'Two-way interactive WhatsApp confirmation prompts reduced consultation no-show rates to under 4%.',
+          },
+          {
+            title: 'Seamless Staff Escalation',
+            text: 'Complex medical questions or VIP requests are flagged and cleanly transferred to human coordinators via unified staff notification channels.',
+          },
+        ],
+      },
+    ],
+  },
   {
     /*
       Source: project brief supplied by Byte Operator (2026-09-28).

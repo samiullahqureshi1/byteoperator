@@ -1,5 +1,6 @@
 export const INDUSTRY_FILTERS = [
   'All',
+  'Healthcare Software',
   'AI & Automation',
   'SaaS & Custom Software',
   'Ecommerce & Storefronts',

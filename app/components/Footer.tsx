@@ -1,6 +1,6 @@
 'use client';
 
-import {useState, type FormEvent} from 'react';
+import {useState} from 'react';
 import {NavLink} from '~/lib/router-compat';
 
 import type {
@@ -8,7 +8,6 @@ import type {
   HeaderQuery,
 } from '~/lib/types';
 import {normalizeMenuUrl} from '~/lib/normalize-menu-url';
-import {CalendlyButton} from '~/components/shared/CalendlyButton';
 
 interface FooterProps {
   /** Static menu data, rendered directly so the links are in the server HTML. */
@@ -25,26 +24,9 @@ export function Footer({
   const [openGroup, setOpenGroup] =
     useState<string | null>(null);
 
-  const [newsletterMessage, setNewsletterMessage] =
-    useState('');
-
   function toggleGroup(group: string) {
     setOpenGroup((current) =>
       current === group ? null : group,
-    );
-  }
-
-  function handleNewsletterSubmit(
-    event: FormEvent<HTMLFormElement>,
-  ) {
-    event.preventDefault();
-
-    /*
-     * Byte Operator does not currently have a newsletter
-     * subscription backend connected.
-     */
-    setNewsletterMessage(
-      'Newsletter signup is being connected.',
     );
   }
 
@@ -53,82 +35,6 @@ export function Footer({
       <div className="ft-footer__background" />
 
       <div className="ft-footer__container">
-        {/* =================================================
-            TOP HERO
-        ================================================= */}
-
-        <div className="ft-footer__hero">
-          <div className="ft-footer__hero-left">
-            <h2 className="ft-footer__heading">
-              <span>Let&apos;s talk</span>
-            </h2>
-
-            <div className="ft-footer__cta-group">
-              <CalendlyButton className="ft-footer__primary-cta">
-                <span>Book a Call</span>
-
-                <DiagonalArrow />
-              </CalendlyButton>
-
-              <NavLink
-                className="ft-footer__primary-cta ft-footer__primary-cta--secondary"
-                to="/contact"
-                prefetch="intent"
-              >
-                <span>Get in touch</span>
-
-                <DiagonalArrow />
-              </NavLink>
-            </div>
-           
-          </div>
-
-          <div className="ft-footer__hero-right">
-            <p className="ft-footer__newsletter-label">
-              Get ecommerce insights, tips &amp; trends
-              straight to your inbox.
-            </p>
-
-            <form
-              className="ft-footer__newsletter"
-              onSubmit={handleNewsletterSubmit}
-            >
-              <label
-                className="ft-footer__sr-only"
-                htmlFor="ft-footer-email"
-              >
-                Email address
-              </label>
-
-              <input
-                className="ft-footer__newsletter-input"
-                id="ft-footer-email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                placeholder="Your email address"
-                required
-              />
-
-              <button
-                className="ft-footer__newsletter-button"
-                type="submit"
-              >
-                Subscribe
-              </button>
-            </form>
-
-            {newsletterMessage ? (
-              <p
-                className="ft-footer__newsletter-message"
-                role="status"
-              >
-                {newsletterMessage}
-              </p>
-            ) : null}
-          </div>
-        </div>
-
         {/* =================================================
             FOOTER NAVIGATION
         ================================================= */}
@@ -310,23 +216,6 @@ function DefaultPolicyLinks() {
 /* =========================================================
    ICONS
 ========================================================= */
-
-function DiagonalArrow() {
-  return (
-    <svg
-      className="ft-footer__cta-arrow"
-      viewBox="0 0 10 10"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M0.89 9.243L9.373 0.757M9.373 0.757H1.596M9.373 0.757V8.536"
-        stroke="currentColor"
-      />
-    </svg>
-  );
-}
-
 
 function PlusIcon() {
   return (

@@ -13,6 +13,180 @@ type HomeFeatureProps = {
   feature: HomeFeatureData;
 };
 
+function renderTwoLineHeading(id: string, heading: string) {
+  const customBreaks: Record<string, [string, string]> = {
+    'ai-voice-agents-healthcare': [
+      'AI Voice Agents for Healthcare',
+      'Patient Communication',
+    ],
+    'ai-workflow-automation-healthcare': [
+      'Healthcare Workflow Automation',
+      'That Reduces Repetitive Work',
+    ],
+    'healthcare-system-integration': [
+      'Connect Your Healthcare Systems',
+      'and Applications',
+    ],
+    'software-integrations': [
+      'Connect Your Healthcare Systems',
+      'and Applications',
+    ],
+    'solutions-by-specialty': [
+      'Healthcare Technology Tailored',
+      'to Your Medical Specialty',
+    ],
+    'custom-healthcare-software': [
+      'Custom Healthcare Software',
+      'Development',
+    ],
+    'custom-healthcare-software-development': [
+      'Custom Healthcare Software',
+      'Development',
+    ],
+    'saas-web-application-development': [
+      'SaaS and Web Applications',
+      'Designed to Scale',
+    ],
+    'cloud-infrastructure-engineering': [
+      'Cloud and Infrastructure Engineering',
+      'for Modern Healthcare Applications',
+    ],
+    'connected-healthcare-operations': [
+      'From Patient Communication',
+      'to Connected Healthcare Operations',
+    ],
+    'why-choose-byte-operator': [
+      'More Than a Software Vendor.',
+      'Your Healthcare Technology Partner.',
+    ],
+    'development-process': [
+      'A Clear Process From',
+      'Discovery to Deployment',
+    ],
+    'security-privacy': [
+      'Security and Privacy Considerations',
+      'From the Start',
+    ],
+  };
+
+  const pair = customBreaks[id];
+  if (pair) {
+    return (
+      <>
+        {pair[0]}
+        <br className="ft-home-feature__heading-br" />
+        {pair[1]}
+      </>
+    );
+  }
+
+  const words = heading.split(' ');
+  if (words.length > 2) {
+    const mid = Math.ceil(words.length / 2);
+    return (
+      <>
+        {words.slice(0, mid).join(' ')}
+        <br className="ft-home-feature__heading-br" />
+        {words.slice(mid).join(' ')}
+      </>
+    );
+  }
+
+  return heading;
+}
+
+function renderDescriptions(paragraphs: readonly string[]) {
+  const elements: React.ReactNode[] = [];
+  let currentBullets: Array<{label: string; rest: string}> = [];
+
+  const flushBullets = () => {
+    if (currentBullets.length > 0) {
+      const bulletsToRender = [...currentBullets];
+      elements.push(
+        <div
+          key={`bullet-group-${elements.length}`}
+          className="ft-home-feature__bullet-list"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.22rem',
+            marginTop: '0.1rem',
+          }}
+        >
+          {bulletsToRender.map((b, bIdx) => (
+            <div
+              key={`b-${bIdx}`}
+              className="ft-home-feature__description ft-home-feature__description--bullet"
+              style={{
+                margin: 0,
+                lineHeight: 1.48,
+                fontSize: '0.9375rem',
+                color: '#94a3b8',
+                display: 'flex',
+                alignItems: 'baseline',
+              }}
+            >
+              <span
+                style={{
+                  color: '#38bdf8',
+                  marginRight: '0.5rem',
+                  fontWeight: 700,
+                  flexShrink: 0,
+                }}
+              >
+                •
+              </span>
+              <span>
+                <h3
+                  className="ft-home-feature__bullet-title"
+                  style={{
+                    display: 'inline',
+                    fontSize: '0.9375rem',
+                    fontWeight: 600,
+                    color: '#f8fafc',
+                    margin: 0,
+                    padding: 0,
+                    fontFamily: 'inherit',
+                    lineHeight: 'inherit',
+                  }}
+                >
+                  {b.label}
+                </h3>
+                {b.rest}
+              </span>
+            </div>
+          ))}
+        </div>,
+      );
+      currentBullets = [];
+    }
+  };
+
+  paragraphs.forEach((paragraph, idx) => {
+    if (paragraph.startsWith('• ') && paragraph.includes(':')) {
+      const colonIdx = paragraph.indexOf(':');
+      currentBullets.push({
+        label: paragraph.slice(2, colonIdx + 1),
+        rest: paragraph.slice(colonIdx + 1),
+      });
+    } else {
+      flushBullets();
+      elements.push(
+        <p
+          key={`p-${idx}`}
+          className="ft-home-feature__description"
+          style={{ margin: 0 }}
+        >
+          {paragraph}
+        </p>,
+      );
+    }
+  });
+
+  flushBullets();
+  return elements;
+}
+
 export function HomeFeature({
   feature,
 }: HomeFeatureProps) {
@@ -74,7 +248,7 @@ export function HomeFeature({
               className="ft-home-feature__heading"
               id={headingId}
             >
-              {feature.heading}
+              {renderTwoLineHeading(feature.id, feature.heading)}
             </h2>
 
             {feature.badges?.length ? (
@@ -93,16 +267,7 @@ export function HomeFeature({
             ) : null}
 
             <div className="ft-home-feature__descriptions">
-              {feature.description.map(
-                (paragraph, index) => (
-                  <p
-                    className="ft-home-feature__description"
-                    key={`${feature.id}-paragraph-${index}`}
-                  >
-                    {paragraph}
-                  </p>
-                ),
-              )}
+              {renderDescriptions(feature.description)}
             </div>
 
             {feature.buttons.length ? (

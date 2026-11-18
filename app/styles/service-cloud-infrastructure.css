@@ -1,0 +1,1131 @@
+/* =========================================================
+   CLOUD INFRASTRUCTURE ENGINEERING SERVICES PAGE STYLES
+   Dark Navy Deep Theme (#060F24) with Sky/Electric Cyan Accent (#38bdf8),
+   Precision Typography, Trailing Centered Cards, and Interactive FAQs
+========================================================= */
+
+.ft-cloud-infra-page {
+  background-color: #060F24;
+  color: #f8fafc;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: clip;
+  font-family: inherit;
+}
+
+.ft-cloud-infra-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   1. HERO SECTION
+========================================================= */
+
+.ft-cloud-infra-hero {
+  position: relative;
+  padding: calc(var(--charle-header-height, 8.25rem) + clamp(2.5rem, 5vh, 4rem)) 0 4.5rem;
+  overflow: hidden;
+}
+
+.ft-cloud-infra-hero::before {
+  content: '';
+  position: absolute;
+  top: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 950px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.16) 0%, rgba(6, 15, 36, 0) 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ft-cloud-infra-hero__header {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ft-cloud-infra-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #38bdf8;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.ft-cloud-infra-hero__title {
+  font-family: inherit;
+  font-size: clamp(2.15rem, 4.2vw, 3.45rem);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0 0 1.75rem;
+}
+
+@media (min-width: 64rem) {
+  .ft-cloud-infra-hero__title {
+    font-size: 3.45rem;
+    line-height: 1.18;
+  }
+}
+
+.ft-cloud-infra-hero__title-line {
+  display: block;
+}
+
+.ft-cloud-infra-hero__text-group {
+  max-width: 860px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.ft-cloud-infra-hero__lead {
+  font-size: clamp(1.0625rem, 1.35vw, 1.2rem);
+  line-height: 1.75;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.ft-cloud-infra-hero__sublead {
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  line-height: 1.7;
+  color: #64748b;
+  margin: 0 0 1.25rem;
+}
+
+.ft-cloud-infra-hero__tagline {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.ft-cloud-infra-hero__cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.ft-cloud-infra-hero__btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2.25rem;
+  border-radius: 9999px;
+  background-color: #306CE7 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 18px rgba(48, 108, 231, 0.4);
+  border: none;
+  cursor: pointer;
+}
+
+.ft-cloud-infra-hero__btn-primary:hover {
+  background-color: #2563eb !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(48, 108, 231, 0.55);
+}
+
+.ft-cloud-infra-hero__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.ft-cloud-infra-hero__btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(56, 189, 248, 0.5);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   2. SECTION HEADERS & GENERAL UTILITIES
+========================================================= */
+
+.ft-cloud-infra-section {
+  padding: 6rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.ft-cloud-infra-section--darker {
+  background: rgba(4, 10, 24, 0.65);
+}
+
+.ft-cloud-infra-section__header {
+  max-width: 860px;
+  margin: 0 auto 3.75rem;
+  text-align: center;
+}
+
+.ft-cloud-infra-eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #38bdf8;
+  margin-bottom: 1rem;
+}
+
+.ft-cloud-infra-heading {
+  font-family: inherit;
+  font-size: clamp(2.15rem, 3.4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0 0 1.25rem;
+}
+
+.ft-cloud-infra-subheading {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   3. FLEXIBLE GRID LAYOUTS (TRAILING CARDS CENTERED)
+========================================================= */
+
+.ft-cloud-infra-grid-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.75rem;
+}
+
+.ft-cloud-infra-card {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 48rem) {
+  .ft-cloud-infra-card {
+    width: calc((100% - 1.75rem) / 2);
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-cloud-infra-card {
+    width: calc((100% - 3.5rem) / 3);
+  }
+}
+
+.ft-cloud-infra-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 16px 36px -10px rgba(56, 189, 248, 0.22);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.ft-cloud-infra-card__badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+.ft-cloud-infra-card__title {
+  font-family: inherit;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.ft-cloud-infra-card__desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #94a3b8;
+  margin: 0 0 1.25rem;
+  flex-grow: 1;
+}
+
+.ft-cloud-infra-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 1.25rem;
+}
+
+.ft-cloud-infra-card__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+.ft-cloud-infra-card__list-bullet {
+  color: #38bdf8;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   4. MIGRATION STRATEGIES (5 R's BOX)
+========================================================= */
+
+.ft-cloud-infra-strategies-box {
+  margin-top: 3.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 18px;
+  padding: 2.5rem;
+}
+
+.ft-cloud-infra-strategies-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.25rem;
+}
+
+.ft-cloud-infra-strategies-title {
+  font-family: inherit;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.75rem;
+}
+
+.ft-cloud-infra-strategies-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.ft-cloud-infra-strategies-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 48rem) {
+  .ft-cloud-infra-strategies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-cloud-infra-strategies-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ft-cloud-infra-strategy-item {
+  background: rgba(6, 15, 36, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.ft-cloud-infra-strategy-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.ft-cloud-infra-strategy-name {
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #38bdf8;
+  margin: 0 0 0.5rem;
+}
+
+.ft-cloud-infra-strategy-detail {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* =========================================================
+   5. PROCESS STEPS (6 CARDS - TRAILING CENTERED)
+========================================================= */
+
+.ft-cloud-infra-process-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.ft-cloud-infra-process-card {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (min-width: 48rem) {
+  .ft-cloud-infra-process-card {
+    width: calc((100% - 2rem) / 2);
+  }
+}
+
+@media (min-width: 64rem) {
+  .ft-cloud-infra-process-card {
+    width: calc((100% - 4rem) / 3);
+  }
+}
+
+.ft-cloud-infra-process-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 16px 36px -10px rgba(56, 189, 248, 0.25);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.ft-cloud-infra-process-step {
+  font-family: monospace;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #38bdf8;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.ft-cloud-infra-process-title {
+  font-family: inherit;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.875rem;
+  letter-spacing: -0.02em;
+}
+
+.ft-cloud-infra-process-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #94a3b8;
+  margin: 0 0 1.25rem;
+}
+
+.ft-cloud-infra-process-objective {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #7dd3fc;
+}
+
+/* =========================================================
+   6. TECHNOLOGIES SPLIT SECTION (2-COL REFERENCE LAYOUT)
+========================================================= */
+
+.ft-cloud-infra-tech-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+@media (min-width: 64rem) {
+  .ft-cloud-infra-tech-split {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+    gap: 5.5rem;
+  }
+}
+
+.ft-cloud-infra-tech-split__left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.ft-cloud-infra-tech-split__eyebrow {
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #38bdf8;
+  margin: 0;
+}
+
+.ft-cloud-infra-tech-split__title {
+  font-family: inherit;
+  font-size: clamp(2.15rem, 3.4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.ft-cloud-infra-tech-split__desc {
+  font-family: inherit;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.ft-cloud-infra-tech-split__right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2.5rem;
+  row-gap: 3rem;
+  align-items: center;
+  width: 100%;
+  padding-top: 0.5rem;
+}
+
+@media (min-width: 40rem) {
+  .ft-cloud-infra-tech-split__right {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 3rem;
+    row-gap: 3.5rem;
+  }
+}
+
+.ft-cloud-infra-tech-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.5rem 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.ft-cloud-infra-tech-logo-item:hover {
+  transform: translateY(-3px);
+}
+
+.ft-cloud-infra-tech-logo-item img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 42px;
+  object-fit: contain;
+  transition: filter 0.25s ease;
+}
+
+.ft-cloud-infra-tech-logo-item:hover img {
+  filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.45));
+}
+
+/* =========================================================
+   7. HEALTHCARE COMPLIANCE CALLOUT NOTICE
+========================================================= */
+
+.ft-cloud-infra-notice-box {
+  margin-top: 3.5rem;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-left: 4px solid #38bdf8;
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.ft-cloud-infra-notice-title {
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #38bdf8;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ft-cloud-infra-notice-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+/* =========================================================
+   8. FINAL CONVERSION CTA BLOCK
+========================================================= */
+
+.ft-cloud-infra-final-cta {
+  padding: 7rem 0 8rem;
+  position: relative;
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.18) 0%, rgba(6, 15, 36, 0) 70%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ft-cloud-infra-final-cta__container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.ft-cloud-infra-final-cta__title {
+  font-family: inherit;
+  font-size: clamp(2.25rem, 3.8vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0 0 1.5rem;
+}
+
+.ft-cloud-infra-final-cta__text {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: #94a3b8;
+  margin: 0 0 1.25rem;
+}
+
+.ft-cloud-infra-final-cta__tagline {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0 0 2.5rem;
+}
+
+/* =========================================================
+   3. CORE SERVICES COVERFLOW SLIDER (7 CARDS)
+========================================================= */
+
+.ft-cloud-infra-slider-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem 0 2rem;
+  user-select: none;
+}
+
+.ft-cloud-infra-slider-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 600px;
+  perspective: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 48rem) {
+  .ft-cloud-infra-slider-stage {
+    min-height: 720px;
+  }
+}
+
+.ft-cloud-infra-slider-card {
+  position: absolute;
+  width: min(92vw, 620px);
+  background: linear-gradient(180deg, rgba(14, 25, 52, 0.95) 0%, rgba(6, 15, 36, 0.98) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 24px;
+  padding: clamp(2rem, 3.5vw, 2.75rem);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+              opacity 0.45s ease,
+              box-shadow 0.45s ease,
+              border-color 0.45s ease;
+  overflow: hidden;
+}
+
+.ft-cloud-infra-slider-card--active {
+  transform: translateX(0) scale(1);
+  z-index: 10;
+  opacity: 1;
+  pointer-events: auto;
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 30px 75px -15px rgba(0, 0, 0, 0.85), 0 0 50px rgba(56, 189, 248, 0.22);
+}
+
+.ft-cloud-infra-slider-card--prev {
+  transform: translateX(-54%) scale(0.88);
+  z-index: 5;
+  opacity: 0.4;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.ft-cloud-infra-slider-card--prev:hover {
+  opacity: 0.65;
+}
+
+.ft-cloud-infra-slider-card--next {
+  transform: translateX(54%) scale(0.88);
+  z-index: 5;
+  opacity: 0.4;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.ft-cloud-infra-slider-card--next:hover {
+  opacity: 0.65;
+}
+
+.ft-cloud-infra-slider-card--hidden {
+  transform: translateX(0) scale(0.7);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 64rem) {
+  .ft-cloud-infra-slider-card {
+    width: min(92vw, 520px);
+  }
+  .ft-cloud-infra-slider-card--prev {
+    transform: translateX(-35%) scale(0.88);
+    opacity: 0.25;
+  }
+  .ft-cloud-infra-slider-card--next {
+    transform: translateX(35%) scale(0.88);
+    opacity: 0.25;
+  }
+}
+
+@media (max-width: 48rem) {
+  .ft-cloud-infra-slider-card {
+    width: 92vw;
+  }
+  .ft-cloud-infra-slider-card--prev {
+    transform: translateX(-92%) scale(0.84);
+    opacity: 0.15;
+  }
+  .ft-cloud-infra-slider-card--next {
+    transform: translateX(92%) scale(0.84);
+    opacity: 0.15;
+  }
+}
+
+/* Navigation Arrow Buttons */
+.ft-cloud-infra-slider-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 25;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(14, 25, 52, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.ft-cloud-infra-slider-nav-btn:hover {
+  background: #306CE7;
+  border-color: #306CE7;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 0 25px rgba(48, 108, 231, 0.6);
+}
+
+.ft-cloud-infra-slider-nav-btn--prev {
+  left: 0.5rem;
+}
+
+.ft-cloud-infra-slider-nav-btn--next {
+  right: 0.5rem;
+}
+
+@media (min-width: 64rem) {
+  .ft-cloud-infra-slider-nav-btn--prev {
+    left: 2rem;
+  }
+  .ft-cloud-infra-slider-nav-btn--next {
+    right: 2rem;
+  }
+}
+
+/* Dots Pagination */
+.ft-cloud-infra-slider-dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.75rem;
+}
+
+.ft-cloud-infra-slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ft-cloud-infra-slider-dot--active {
+  width: 28px;
+  background: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+}
+
+/* =========================================================
+   SCROLL-DRIVEN EXPERIENCE SECTION (BYTE OPERATOR ADVANTAGE)
+========================================================= */
+
+.ft-cloud-infra-experience-section {
+  position: relative;
+  height: 320vh;
+  padding: 0 1.5rem;
+  overflow: visible;
+}
+
+.ft-cloud-infra-experience-inner {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  max-height: 100vh;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 3rem 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.ft-cloud-infra-experience-heading {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 2rem;
+}
+
+.ft-cloud-infra-experience-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #38bdf8;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.ft-cloud-infra-experience-list {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  height: 250px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  overflow: visible;
+}
+
+.ft-cloud-infra-experience-item {
+  --experience-card-y: 0px;
+  --experience-card-z: 0px;
+  --experience-card-rotate-x: 0deg;
+  --experience-card-rotate-z: 0deg;
+  --experience-card-base-rotate: 0deg;
+  --experience-card-scale: 1;
+  --experience-card-opacity: 0;
+  --experience-card-layer: 1;
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  gap: clamp(24px, 2.5vw, 38px);
+  align-items: center;
+  min-height: 190px;
+  padding: clamp(24px, 2.6vw, 36px);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 20px;
+  background: linear-gradient(145deg, #0d172e 0%, #070c1b 100%);
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.08);
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  opacity: var(--experience-card-opacity);
+  z-index: var(--experience-card-layer);
+  transform:
+    translate3d(0, var(--experience-card-y), var(--experience-card-z))
+    rotateX(var(--experience-card-rotate-x))
+    rotateZ(calc(var(--experience-card-base-rotate) + var(--experience-card-rotate-z)))
+    scale(var(--experience-card-scale));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  will-change: transform, opacity;
+  box-sizing: border-box;
+  transition: border-color 0.25s ease, background 0.25s ease, opacity 0.16s ease;
+}
+
+.ft-cloud-infra-experience-item:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+.ft-cloud-infra-experience-arrow {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #091224;
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 15px rgba(56, 189, 248, 0.2);
+  flex-shrink: 0;
+}
+
+.ft-cloud-infra-experience-arrow:hover {
+  background: #306CE7;
+  border-color: #38bdf8;
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 12px 28px rgba(48, 108, 231, 0.5), 0 0 25px rgba(56, 189, 248, 0.4);
+}
+
+.ft-cloud-infra-experience-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.ft-cloud-infra-experience-copy__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ft-cloud-infra-experience-copy__title {
+  margin: 0;
+  font-family: inherit;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.ft-cloud-infra-experience-copy__subtitle {
+  font-size: 0.9375rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.ft-cloud-infra-experience-copy__summary {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.ft-cloud-infra-experience-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 120px;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.ft-cloud-infra-experience-date {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1.15rem;
+  border-radius: 9999px;
+  background: #0f1e3d;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.ft-cloud-infra-experience-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ft-cloud-infra-experience-link:hover {
+  background: #38bdf8;
+  color: #070b14;
+  border-color: #38bdf8;
+  transform: translateX(3px);
+}
+
+.ft-cloud-infra-experience-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  z-index: 10;
+}
+
+.ft-cloud-infra-experience-counter {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #7dd3fc;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+
+.ft-cloud-infra-experience-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ft-cloud-infra-experience-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ft-cloud-infra-experience-dot--active {
+  width: 26px;
+  background: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+}
+
+.ft-cloud-infra-experience-hint {
+  font-size: 0.8125rem;
+  color: #64748b;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .ft-cloud-infra-experience-section {
+    min-height: 480vh;
+    padding: 0 1rem;
+  }
+  .ft-cloud-infra-experience-inner {
+    padding: 3rem 0 1.5rem;
+    gap: 1.5rem;
+  }
+  .ft-cloud-infra-experience-heading {
+    margin-bottom: 1.5rem;
+  }
+  .ft-cloud-infra-experience-list {
+    height: 380px;
+  }
+  .ft-cloud-infra-experience-item {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem 1.25rem;
+  }
+  .ft-cloud-infra-experience-arrow {
+    display: none;
+  }
+  .ft-cloud-infra-experience-side {
+    flex-direction: row;
+    align-items: center;
+    min-height: auto;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .ft-cloud-infra-experience-hint {
+    display: none;
+  }
+}

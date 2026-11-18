@@ -1,193 +1,211 @@
 'use client';
 
-import {useMemo} from 'react';
 import {Link} from '~/lib/router-compat';
-import {HOME_FACTS, type CompanyFact} from '~/data/companyFacts';
-import {useCountUp} from '~/lib/useCountUp';
 import type {HomePageContent} from '~/lib/cms/types';
 
-export type HomeAboutData = {
-  eyebrow: string;
-  heading: string;
-  stats: readonly CompanyFact[];
-  rightHeading: {
-    prefix: string;
-    emphasis: string;
-    suffix: string;
-  };
+export type OperationalChallenge = {
+  number: string;
+  title: string;
   description: string;
-  cta: {
-    label: string;
-    href: string;
-  };
 };
 
-const DEFAULT_HOME_ABOUT_DATA: HomeAboutData = {
-  eyebrow:
-    'Independent AI Automation & Custom Software Engineering',
-  heading:
-    'Byte Operator Architects, Automates & Scales Digital Platforms for Measurable Business Growth',
-  stats: HOME_FACTS,
-  rightHeading: {
-    prefix: 'About',
-    emphasis: 'Byte Operator',
-    suffix: '— Independent AI & Software Engineering',
+const DEFAULT_CHALLENGES: readonly OperationalChallenge[] = [
+  {
+    number: '01',
+    title: 'Missed Patient Calls',
+    description:
+      'Unanswered calls and delayed responses can make it harder for patients to reach your practice and request appointments.',
   },
-  description:
-    'Byte Operator is an independent AI automation and custom software engineering company. We engineer high-performance SaaS platforms, modern web applications, and autonomous AI workflow systems. Powered by our proprietary Replex Engine framework, visual n8n pipelines, and full-stack cloud architectures, we eliminate manual operational bottlenecks, capture every qualified inbound lead, and scale digital revenue.',
-  cta: {
-    label: 'Explore Our Case Studies',
-    href: '/work',
+  {
+    number: '02',
+    title: 'Repetitive Administrative Tasks',
+    description:
+      'Manual appointment coordination, patient intake, reminders, and follow-ups can consume valuable staff time.',
   },
-};
+  {
+    number: '03',
+    title: 'Disconnected Systems',
+    description:
+      'When business applications and healthcare platforms operate separately, teams may need to repeat tasks and transfer information manually.',
+  },
+  {
+    number: '04',
+    title: 'Increasing Operational Demands',
+    description:
+      'As healthcare practices grow, maintaining efficient and consistent workflows becomes increasingly important.',
+  },
+] as const;
 
 export function HomeAbout({
-  data,
   content,
 }: {
-  data?: HomeAboutData;
   content?: HomePageContent;
 } = {}) {
   if (content?.aboutShowSection === false) {
     return null;
   }
 
-  const eyebrow = content?.aboutEyebrow || data?.eyebrow || DEFAULT_HOME_ABOUT_DATA.eyebrow;
-  const heading = content?.aboutHeading || data?.heading || DEFAULT_HOME_ABOUT_DATA.heading;
-  const description = content?.aboutDescription || data?.description || DEFAULT_HOME_ABOUT_DATA.description;
-  const rightPrefix = content?.aboutRightHeadingPrefix ?? data?.rightHeading?.prefix ?? DEFAULT_HOME_ABOUT_DATA.rightHeading.prefix;
-  const rightEmphasis = content?.aboutRightHeadingEmphasis ?? data?.rightHeading?.emphasis ?? DEFAULT_HOME_ABOUT_DATA.rightHeading.emphasis;
-  const rightSuffix = content?.aboutRightHeadingSuffix ?? data?.rightHeading?.suffix ?? DEFAULT_HOME_ABOUT_DATA.rightHeading.suffix;
-  const ctaLabel = content?.aboutCtaText || data?.cta?.label || DEFAULT_HOME_ABOUT_DATA.cta.label;
-  const ctaHref = content?.aboutCtaLink || data?.cta?.href || DEFAULT_HOME_ABOUT_DATA.cta.href;
-
-  const statsList: readonly CompanyFact[] = useMemo(() => {
-    return (data?.stats || HOME_FACTS).map((defaultFact, idx) => {
-      if (idx === 0) {
-        return {
-          ...defaultFact,
-          value: content?.aboutStat1Value || defaultFact.value,
-          label: content?.aboutStat1Label || defaultFact.label,
-        };
-      }
-      if (idx === 1) {
-        return {
-          ...defaultFact,
-          value: content?.aboutStat2Value || defaultFact.value,
-          label: content?.aboutStat2Label || defaultFact.label,
-        };
-      }
-      if (idx === 2) {
-        return {
-          ...defaultFact,
-          value: content?.aboutStat3Value || defaultFact.value,
-          label: content?.aboutStat3Label || defaultFact.label,
-        };
-      }
-      if (idx === 3) {
-        return {
-          ...defaultFact,
-          value: content?.aboutStat4Value || defaultFact.value,
-          label: content?.aboutStat4Label || defaultFact.label,
-        };
-      }
-      return defaultFact;
-    });
-  }, [
-    data?.stats,
-    content?.aboutStat1Value,
-    content?.aboutStat1Label,
-    content?.aboutStat2Value,
-    content?.aboutStat2Label,
-    content?.aboutStat3Value,
-    content?.aboutStat3Label,
-    content?.aboutStat4Value,
-    content?.aboutStat4Label,
-  ]);
-
-  const {ref: statsRef, displayValues} = useCountUp<HTMLDivElement>(statsList);
+  const eyebrow = content?.aboutEyebrow || 'OPERATIONAL CHALLENGES';
+  const ctaLabel = content?.aboutCtaText || 'Explore Our Solutions';
+  const ctaHref = content?.aboutCtaLink || '/expertise';
 
   return (
     <section
       className="ft-home-about"
       aria-labelledby="ft-home-about-title"
+      style={{
+        padding: '6rem 0',
+        backgroundColor: 'var(--ft-dark-deep, #060F24)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+      }}
     >
-      <div className="ft-home-about__inner">
-        <div className="ft-home-about__left">
-          <p className="ft-home-about__eyebrow">
+      <div
+        style={{
+          maxWidth: '1440px',
+          margin: '0 auto',
+          padding: '0 2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '3.5rem',
+        }}
+      >
+        {/* Section Header */}
+        <div style={{ maxWidth: '1240px' }}>
+          <p
+            className="ft-home-about__eyebrow"
+            style={{
+              textTransform: 'uppercase',
+              letterSpacing: '0.12em',
+              fontSize: '0.8125rem',
+              color: '#60a5fa',
+              marginBottom: '1rem',
+              fontWeight: 600,
+            }}
+          >
             {eyebrow}
           </p>
 
           <h2
             className="ft-home-about__heading"
             id="ft-home-about-title"
+            style={{
+              fontWeight: 600,
+              color: '#f8fafc',
+              marginBottom: '1.5rem',
+            }}
           >
-            {heading}
+            Healthcare Operations Shouldn&apos;t Be
+            <br />
+            Held Back by Manual Work
           </h2>
 
           <div
-            className="ft-home-about__stats"
-            role="group"
-            aria-label="Byte Operator performance statistics"
-            ref={statsRef}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.75rem',
+              maxWidth: '860px',
+            }}
           >
-            {statsList.map((stat, index) => (
-              <div
-                className="ft-home-about__stat"
-                key={stat.label}
-              >
-                <p className="ft-home-about__stat-value">
-                  {displayValues[index] || stat.value}
-                </p>
-
-                <p className="ft-home-about__stat-label">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+            <p
+              style={{
+                fontSize: '1.0625rem',
+                lineHeight: 1.7,
+                color: '#94a3b8',
+                margin: 0,
+              }}
+            >
+              Healthcare teams manage patient calls, appointments, administrative tasks, and multiple software systems every day. Disconnected technology and repetitive processes can make these responsibilities more difficult to manage.
+            </p>
+            <p
+              style={{
+                fontSize: '1.0625rem',
+                lineHeight: 1.7,
+                color: '#cbd5e1',
+                margin: 0,
+                fontWeight: 500,
+              }}
+            >
+              Byte Operator helps healthcare organizations address these challenges through practical software and automation solutions.
+            </p>
           </div>
         </div>
 
-        <div className="ft-home-about__right">
-          <h3 className="ft-home-about__right-heading">
-            <span>{rightPrefix} </span>
-            <strong>{rightEmphasis}</strong>
-            <span> {rightSuffix}</span>
-          </h3>
+        {/* 4-Column Structured Row */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1.5rem',
+            width: '100%',
+          }}
+        >
+          {DEFAULT_CHALLENGES.map((challenge) => (
+            <div
+              key={challenge.number}
+              className="ft-home-about__card"
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <span className="ft-home-about__card-num">
+                  {challenge.number}
+                </span>
+              </div>
 
-          <p className="ft-home-about__description">
-            {description}
-          </p>
+              <h3
+                style={{
+                  fontSize: '1.25rem',
+                  fontWeight: 700,
+                  color: '#f8fafc',
+                  lineHeight: 1.3,
+                  margin: 0,
+                  minHeight: '2.6em',
+                }}
+              >
+                {challenge.title}
+              </h3>
 
+              <p
+                style={{
+                  fontSize: '0.9375rem',
+                  lineHeight: 1.6,
+                  color: '#94a3b8',
+                  margin: 0,
+                  flexGrow: 1,
+                }}
+              >
+                {challenge.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Action Link */}
+        <div>
           <Link
-            className="ft-home-about__cta"
             to={ctaHref}
             prefetch="intent"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.625rem',
+              color: '#60a5fa',
+              fontSize: '1rem',
+              fontWeight: 600,
+              textDecoration: 'none',
+              transition: 'gap 0.2s ease',
+            }}
           >
             <span>{ctaLabel}</span>
-            <ArrowIcon />
+            <span aria-hidden="true">→</span>
           </Link>
         </div>
       </div>
     </section>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg
-      className="ft-home-about__cta-arrow"
-      viewBox="0 0 14 14"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M1 13L13 1M13 1H4M13 1V10"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }

@@ -36,117 +36,46 @@ export {HOME_CLIENT_LOGOS, type ClientLogoMarqueeItem};
 
 const SERVICES = [
   {
-    title: 'AI Automations & Autonomous Agents',
+    title: 'AI Voice Agents & Receptionists',
     description:
-      'Deploy Replex Engine zero-miss lead capture, n8n workflow pipelines, and autonomous support agents.',
-    href: '/services/ai-automations-agents',
-    badge: '/images/home-services/badges/logo-search-white.svg',
-    badgeAlt: 'AI',
+      'Deploy intelligent voice receptionists and conversational agents for 24/7 patient call answering, routing, and appointment scheduling.',
+    href: '/services/ai-voice-agents-healthcare',
   },
-
   {
-    title: 'Custom SaaS & Platform Engineering',
+    title: 'AI Workflow Automation',
     description:
-      'Full-stack web architectures, real-time data engines, and resilient cloud software built to scale.',
-    href: '/services/software-developers',
-    badge: '/images/home-services/badges/logo-launch-white.svg',
-    badgeAlt: 'Software',
+      'Automate routine patient communication, digital intake, task creation, and administrative processes with connected workflows.',
+    href: '/services/ai-workflow-automation-healthcare',
   },
-
   {
-    title: 'Shopify Store & Theme Development',
+    title: 'Custom Software Development',
     description:
-      'High-velocity custom storefronts, modular custom sections, and mobile-optimized buying funnels.',
-    href: '/services/software-web-design',
-    badge: '/images/home-services/badges/logo-launch-white.svg',
-    badgeAlt: 'Shopify',
+      'Develop web applications, patient and staff portals, and internal management tools tailored to your operational requirements.',
+    href: '/services/custom-healthcare-software-development',
   },
-
   {
-    title: 'Shopify Apps & Custom Extensions',
+    title: 'SaaS & Web Application Development',
     description:
-      'Proprietary tools like Speedify AI page speed optimizer, custom checkout extensions, and admin apps.',
-    href: '/services/shopify-app-development',
-    badge: '/images/home-services/badges/logo-sitelab-white.svg',
-    badgeAlt: 'Apps',
+      'Engineer scalable multi-user platforms, role-based administrative dashboards, and database-driven web applications.',
+    href: '/services/saas-web-application-development',
   },
-
   {
-    title: 'n8n Workflow & API Pipelines',
+    title: 'API & System Integration',
     description:
-      'Multi-system visual workflow pipelines connecting ERPs, CRMs, webhooks, and messaging queues.',
+      'Connect third-party business platforms, CRMs, and communication tools through resilient API architectures.',
     href: '/services/software-integrations',
-    badge: null,
-    badgeAlt: '',
   },
-
   {
-    title: 'Platform & Cloud Migrations',
+    title: 'Healthcare Software Integration',
     description:
-      'Zero-downtime replatforming from Magento, WooCommerce, or BigCommerce with 100% SEO preserved.',
-    href: '/services/software-migrations',
-    badge: '/images/home-services/badges/logo-helpdesk-white.svg',
-    badgeAlt: 'Migrations',
+      'Connect practice management platforms, EHR/EMR systems, and patient data workflows with structured data exchange.',
+    href: '/services/software-integrations',
   },
-
   {
-    title: 'Shopify Plus & Enterprise Systems',
+    title: 'Cloud & Infrastructure Engineering',
     description:
-      'Enterprise B2B wholesale portals, multi-store architecture, and high-AOV custom storefronts.',
-    href: '/shopify-plus-agency',
-    badge: null,
-    badgeAlt: '',
-  },
-
-  {
-    title: 'Technical SEO & AI Search (GEO)',
-    description:
-      'Dominant rankings on Google search and primary source citations in ChatGPT and Perplexity AI.',
-    href: '/ai-visibility-audit',
-    badge: '/images/home-services/badges/logo-retain-white.svg',
-    badgeAlt: 'Search',
-  },
-] as const;
-
-
-/* =========================================================
-   BOTTOM SERVICE PRODUCTS
-========================================================= */
-
-const SERVICE_PRODUCTS = [
-  {
-    label: 'Search',
-    href: SHOPIFY_SEO_CLEAN_PATH,
-    logo:
-      '/images/home-services/badges/logo-search-white.svg',
-  },
-
-  {
-    label: 'Launch',
-    href: '/services/software-theme-development-builds',
-    logo:
-      '/images/home-services/badges/logo-launch-white.svg',
-  },
-
-  {
-    label: 'Sitelab',
-    href: CRO_CLEAN_PATH,
-    logo:
-      '/images/home-services/badges/logo-sitelab-white.svg',
-  },
-
-  {
-    label: 'Helpdesk',
-    href: '/services/support-and-maintenance',
-    logo:
-      '/images/home-services/badges/logo-helpdesk-white.svg',
-  },
-
-  {
-    label: 'Retain',
-    href: '/services/email-marketing-agency',
-    logo:
-      '/images/home-services/badges/logo-retain-white.svg',
+      'Build and maintain the technical infrastructure needed to support reliable digital applications and future growth.',
+    href: '/services/cloud-infrastructure-engineering',
   },
 ] as const;
 
@@ -164,10 +93,10 @@ export function HomeServices({content}: {content?: HomePageContent} = {}) {
     return null;
   }
 
-  const heading = content?.servicesHeading || 'Our Services';
-  const subtitle = content?.servicesSubtitle || 'Delivering Growth';
-  const ctaText = content?.servicesCtaText || 'View all services';
-  const ctaLink = content?.servicesCtaLink || '/services';
+  const heading = content?.servicesHeading || 'Healthcare AI and Software Solutions Built Around Your Operations';
+  const subtitle = content?.servicesSubtitle || 'We bring AI automation, software engineering, and system integration together to help healthcare organizations improve the way their operations work.';
+  const ctaText = content?.servicesCtaText || 'Explore Our Services';
+  const ctaLink = content?.servicesCtaLink || '/expertise';
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -226,12 +155,10 @@ export function HomeServices({content}: {content?: HomePageContent} = {}) {
 
   const servicesToRender =
     content?.servicesList && content.servicesList.length > 0
-      ? content.servicesList.map((s, idx) => ({
+      ? content.servicesList.map((s) => ({
           title: s.title,
           description: s.description,
           href: s.href,
-          badge: s.badge !== undefined ? s.badge : (SERVICES[idx] ? SERVICES[idx].badge : null),
-          badgeAlt: s.badgeAlt || (SERVICES[idx] ? SERVICES[idx].badgeAlt : ''),
         }))
       : SERVICES;
 
@@ -250,7 +177,9 @@ export function HomeServices({content}: {content?: HomePageContent} = {}) {
           </p>
 
           <h2 className="ft-home-services__mobile-heading-main">
-            {heading}
+            Healthcare AI and Software Solutions
+            <br />
+            Built Around Your Operations
           </h2>
         </div>
 
@@ -261,28 +190,6 @@ export function HomeServices({content}: {content?: HomePageContent} = {}) {
               service={service}
               index={index}
             />
-          ))}
-        </div>
-
-        <div className="ft-home-services__products">
-          {SERVICE_PRODUCTS.map((product) => (
-            <Link
-              key={product.label}
-              className="ft-home-services__product"
-              to={resolveCanonicalPath(product.href)}
-              prefetch="intent"
-              aria-label={product.label}
-            >
-              <img
-                src={product.logo}
-                width={130}
-                height={50}
-                alt={product.label}
-                aria-hidden="true"
-                loading="lazy"
-                decoding="async"
-              />
-            </Link>
           ))}
         </div>
 
@@ -394,8 +301,6 @@ function ServiceCard({
       </span>
 
       <div className="ft-home-services__cell-content">
-        <ServiceBadge service={service} />
-
         <h3 className="ft-home-services__cell-name">
           {service.title}
         </h3>
@@ -411,31 +316,7 @@ function ServiceCard({
 }
 
 
-/* =========================================================
-   BADGE
-========================================================= */
 
-function ServiceBadge({
-  service,
-}: {
-  service: Service;
-}) {
-  if (!service.badge) return null;
-
-  return (
-    <span className="ft-home-services__cell-badge">
-      <img
-        src={service.badge}
-        width={130}
-        height={50}
-        alt={service.badgeAlt}
-        aria-hidden="true"
-        loading="lazy"
-        decoding="async"
-      />
-    </span>
-  );
-}
 
 
 /* =========================================================

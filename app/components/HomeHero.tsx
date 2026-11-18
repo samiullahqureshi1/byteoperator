@@ -1,38 +1,10 @@
 'use client';
 
-import {NavLink} from '~/lib/router-compat';
 import {
   resolveCleanPath,
   SHOPIFY_SEO_CLEAN_PATH,
 } from '~/lib/route-mappings';
 import {CalendlyButton} from '~/components/shared/CalendlyButton';
-
-const HERO_SERVICES = [
-  {
-    title: 'Custom Software & SaaS',
-    description:
-      'High-performance web applications, multi-tenant SaaS platforms & scalable cloud architectures.',
-    url: '/services/software-developers',
-  },
-  {
-    title: 'AI Automations & Agents',
-    description:
-      'Replex Engine lead replies, n8n workflow pipelines & autonomous multi-agent task execution.',
-    url: '/services/ai-automations-agents',
-  },
-  {
-    title: 'Shopify Store Development',
-    description:
-      'High-converting custom storefronts, Shopify Plus architecture & proprietary app extensions.',
-    url: '/services/software-web-design',
-  },
-  {
-    title: 'API & Cloud Integrations',
-    description:
-      'Real-time bi-directional CRM, ERP, webhook pipelines & mission-critical database sync.',
-    url: '/services/software-integrations',
-  },
-] as const;
 
 import type {HomePageContent} from '~/lib/cms/types';
 
@@ -56,13 +28,27 @@ export function HomeHero({content}: {content?: HomePageContent} = {}) {
     });
   };
 
-  const eyebrow = content?.heroEyebrow || 'Byte Operator — AI Automation & Custom Software Engineering';
-  const prefix = content?.heroTitlePrefix || 'Byte Operator';
-  const highlight = content?.heroTitleHighlight || 'AI Automation & Custom Software Engineering';
+  const eyebrow = content?.heroEyebrow || 'HEALTHCARE AI SOLUTIONS & SOFTWARE ENGINEERING';
+  const prefix = content?.heroTitlePrefix || 'Smarter Healthcare Operations,';
+  const highlight = content?.heroTitleHighlight || 'Powered by AI and Software Engineering';
   const description =
     content?.heroSubtitle ||
-    'Byte Operator is an independent software engineering and AI automation company. We design, engineer, and deploy high-velocity web platforms, custom SaaS architectures, and autonomous AI systems built for extreme performance.';
-  const primaryCta = content?.primaryCtaText || 'Explore our platforms';
+    'Byte Operator helps healthcare organizations automate administrative workflows, streamline patient communication, and build connected software systems tailored to your operational needs.';
+  const primaryCta = content?.primaryCtaText || 'Explore Our Solutions';
+  const primaryCtaLink = content?.primaryCtaLink || '/expertise';
+
+  const renderHeroLines = () => {
+    return (
+      <>
+        <span className="ft-home-hero__title-line">
+          {prefix}
+        </span>{' '}
+        <span className="ft-home-hero__title-line ft-home-hero__title-line--highlight">
+          <span>{highlight}</span>
+        </span>
+      </>
+    );
+  };
 
   return (
     <section
@@ -83,47 +69,42 @@ export function HomeHero({content}: {content?: HomePageContent} = {}) {
           className="ft-home-hero__title"
           id="ft-home-hero-title"
         >
-          <span className="ft-home-hero__title-line">
-            {prefix}
-          </span>{' '}
-          <span className="ft-home-hero__title-line">
-            <strong>{highlight}</strong>
-          </span>
+          {renderHeroLines()}
         </h1>
 
         <p className="ft-home-hero__description">
           {description}
         </p>
 
-        <div className="ft-home-hero__services">
-          {HERO_SERVICES.map((service) => (
-            <NavLink
-              className="ft-home-hero__service"
-              key={service.title}
-              prefetch="intent"
-              to={service.url}
-            >
-              <strong>{service.title}</strong>
-              <span>{service.description}</span>
-            </NavLink>
-          ))}
-        </div>
-
         <div className="ft-home-hero__actions">
-          <CalendlyButton className="ft-home-hero__book-cta" />
+          <CalendlyButton className="ft-home-hero__book-cta" label="Book a Discovery Call" />
 
           <a
             className="ft-home-hero__work-link"
-            href="#ft-home-hero-gallery"
+            href={primaryCtaLink}
             onClick={(event) => {
-              event.preventDefault();
-              scrollToGallery();
+              if (primaryCtaLink.startsWith('#')) {
+                event.preventDefault();
+                scrollToGallery();
+              }
             }}
           >
             <span>{primaryCta}</span>
             <ArrowDownIcon />
           </a>
         </div>
+
+        <p
+          className="ft-home-hero__subtag"
+          style={{
+            marginTop: '1.25rem',
+            fontSize: '0.9375rem',
+            color: 'var(--color-text-secondary, #94a3b8)',
+            letterSpacing: '0.01em',
+          }}
+        >
+          Technology solutions for medical practices, specialty clinics, and healthcare organizations.
+        </p>
       </div>
     </section>
   );

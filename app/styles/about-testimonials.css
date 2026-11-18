@@ -27,7 +27,7 @@
   max-width: 70rem;
   margin: 0 auto 1.75rem;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(2.125rem, 5vw, 4.375rem);
   font-weight: 400;
   line-height: 1.15;
@@ -101,7 +101,7 @@
 }
 
 .ft-about-testimonials__hear-text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.1;
@@ -129,7 +129,7 @@
 .ft-about-testimonials__description {
   margin: 0 0 2rem;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(1rem, 1.8vw, 1.125rem);
   font-weight: 300;
   line-height: 1.5;
@@ -206,7 +206,7 @@
   max-width: 64rem;
   margin: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: clamp(1.25rem, 3vw, 2.75rem);
   font-weight: 400;
   line-height: 1.15;
@@ -222,7 +222,7 @@
 
   margin: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 1rem;
   line-height: 1.35;
 
@@ -242,7 +242,7 @@
   position: absolute;
   z-index: 2;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
   font-size: 8rem;
   font-weight: 600;
   line-height: 0.7;

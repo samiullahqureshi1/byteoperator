@@ -79,7 +79,7 @@
     auto
     6vh;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: clamp(
     2.125rem,
@@ -380,7 +380,7 @@
 .ft-home-projects__title {
   margin: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 1.125rem;
   font-weight: 500;
@@ -403,7 +403,7 @@
 .ft-home-projects__type {
   margin: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 0.9375rem;
   font-weight: 400;
@@ -556,7 +556,7 @@
   background: #306CE7;
   color: #ffffff;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 
   font-size: 0.9375rem;
   font-weight: 400;

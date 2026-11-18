@@ -15,27 +15,33 @@ export const SITE_HEADER_MENU = {
     id: 'main-menu',
     items: [
       {
-        id: 'our-work',
-        title: 'Our Work',
-        url: '/work',
-        items: [],
-      },
-      {
-        id: 'services',
-        title: 'Services',
-        url: '/services',
+        id: 'home',
+        title: 'Home',
+        url: '/',
         items: [],
       },
       {
         id: 'about',
-        title: 'About us',
+        title: 'About',
         url: '/about',
         items: [],
       },
       {
-        id: 'resources',
-        title: 'Resources',
-        url: '/articles',
+        id: 'work',
+        title: 'Work',
+        url: '/work',
+        items: [],
+      },
+      {
+        id: 'expertise',
+        title: 'Expertise',
+        url: '/expertise',
+        items: [],
+      },
+      {
+        id: 'thinking',
+        title: 'Thinking',
+        url: '/thinking',
         items: [],
       },
       {

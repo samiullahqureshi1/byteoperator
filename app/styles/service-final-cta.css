@@ -1,0 +1,82 @@
+/* =========================================================
+   SERVICE FINAL CTA PILLAR CARDS HOVER EFFECT (ALL PAGES)
+========================================================= */
+
+.ft-service-cta-pillars-grid {
+  width: 100%;
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 0.75rem 0;
+  text-align: left;
+}
+
+.ft-service-cta-pillar-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-sizing: border-box;
+  cursor: default;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.ft-service-cta-pillar-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.45);
+  background-color: rgba(14, 25, 52, 0.65);
+  box-shadow: 0 16px 36px -10px rgba(56, 189, 248, 0.22), 0 0 24px rgba(48, 108, 231, 0.15);
+}
+
+.ft-service-cta-pillar-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.ft-service-cta-pillar-card:hover .ft-service-cta-pillar-icon {
+  background-color: rgba(56, 189, 248, 0.2);
+  border-color: rgba(56, 189, 248, 0.5);
+  transform: scale(1.08);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+}
+
+.ft-service-cta-pillar-title {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin: 0;
+  transition: color 0.25s ease;
+}
+
+.ft-service-cta-pillar-card:hover .ft-service-cta-pillar-title {
+  color: #ffffff;
+}
+
+.ft-service-cta-pillar-desc {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: #94a3b8;
+  margin: 0;
+  transition: color 0.25s ease;
+}
+
+.ft-service-cta-pillar-card:hover .ft-service-cta-pillar-desc {
+  color: #cbd5e1;
+}
