@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect} from 'react';
-import {loadCalendly, openCalendly} from '~/lib/calendly';
+import {useRouter} from 'next/navigation';
 
 const BOOKING_PATH = '/book-a-call';
 
@@ -9,20 +9,23 @@ function bookingLinkFrom(target: EventTarget | null): HTMLAnchorElement | null {
   const link = (target as Element | null)?.closest?.('a[href]');
   if (!(link instanceof HTMLAnchorElement)) return null;
 
-  const url = new URL(link.href, window.location.href);
-  const path = url.pathname.replace(/\/+$/, '');
-  return url.origin === window.location.origin && path === BOOKING_PATH
-    ? link
-    : null;
+  try {
+    const url = new URL(link.href, window.location.href);
+    const path = url.pathname.replace(/\/+$/, '');
+    return url.origin === window.location.origin && path === BOOKING_PATH
+      ? link
+      : null;
+  } catch {
+    return null;
+  }
 }
 
 /**
- * Any link to /book-a-call (footer menu, CMS copy, etc.) opens the Calendly
- * booking modal over the current page instead of navigating away. The
- * /book-a-call page stays as the fallback for direct visits, new tabs, and
- * visitors without JavaScript.
+ * Any link to /book-a-call navigates seamlessly to /contact.
  */
 export function BookingLinkInterceptor() {
+  const router = useRouter();
+
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
       // Let modified clicks (new tab / window) behave like normal links.
@@ -41,25 +44,16 @@ export function BookingLinkInterceptor() {
 
       event.preventDefault();
       event.stopPropagation();
-      void openCalendly();
-    };
-
-    // Warm the widget as soon as a booking link is hovered or focused.
-    const warm = (event: Event) => {
-      if (bookingLinkFrom(event.target)) void loadCalendly().catch(() => {});
+      router.push('/contact');
     };
 
     // Capture phase, so it runs before the router's own link handler.
     document.addEventListener('click', onClick, true);
-    document.addEventListener('pointerover', warm, true);
-    document.addEventListener('focusin', warm, true);
 
     return () => {
       document.removeEventListener('click', onClick, true);
-      document.removeEventListener('pointerover', warm, true);
-      document.removeEventListener('focusin', warm, true);
     };
-  }, []);
+  }, [router]);
 
   return null;
 }

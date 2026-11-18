@@ -1,8 +1,7 @@
 'use client';
 
-import {useState, type ButtonHTMLAttributes, type ReactNode} from 'react';
-
-import {CALENDLY_EVENT_URL, loadCalendly, openCalendly} from '~/lib/calendly';
+import {type ButtonHTMLAttributes, type ReactNode} from 'react';
+import {useRouter, usePathname} from 'next/navigation';
 
 type CalendlyButtonProps = {
   /**
@@ -15,44 +14,47 @@ type CalendlyButtonProps = {
   /** Pass the section's own markup (span + arrow icon) to match its siblings. */
   children?: ReactNode;
   url?: string;
+  targetPath?: string;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'className'>;
 
 /**
- * Opens the Calendly booking modal over the current page.
- *
- * Renders a real <button> because the popup is a script call, not navigation.
- * The widget is warmed on hover/focus so the click itself feels instant.
+ * Directs visitors to the contact page to start their project consultation.
  */
 export function CalendlyButton({
   className = '',
   label = 'Book a Call',
   children,
-  url = CALENDLY_EVENT_URL,
+  url,
+  targetPath = '/contact',
   onClick,
   ...rest
 }: CalendlyButtonProps) {
-  const [opening, setOpening] = useState(false);
-
-  const warm = () => {
-    void loadCalendly().catch(() => {});
-  };
+  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <button
       {...rest}
       type="button"
       className={`ft-calendly-button ${className}`.trim()}
-      aria-busy={opening || undefined}
-      aria-haspopup="dialog"
-      onPointerEnter={warm}
-      onFocus={warm}
       onClick={(event) => {
         onClick?.(event);
-        setOpening(true);
+        if (event.defaultPrevented) return;
 
-        void openCalendly(url)
-          .catch(() => {})
-          .finally(() => setOpening(false));
+        if (pathname === '/contact') {
+          const target =
+            document.querySelector('.ft-contact-hero__form-card') ||
+            document.getElementById('ft-contact-firstName') ||
+            document.querySelector('.ft-contact-form');
+          if (target) {
+            target.scrollIntoView({behavior: 'smooth', block: 'center'});
+            const input = document.getElementById('ft-contact-firstName');
+            input?.focus();
+            return;
+          }
+        }
+
+        router.push(targetPath);
       }}
     >
       {children ?? <span>{label}</span>}

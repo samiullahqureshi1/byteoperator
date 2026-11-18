@@ -1,47 +1,32 @@
 'use client';
 
 import {useEffect} from 'react';
-import {openCalendly} from '~/lib/calendly';
+import {useRouter} from 'next/navigation';
 import type {BookACallPageContent} from '~/lib/cms/types';
 
 export function BookACallClient({content}: {content?: BookACallPageContent}) {
-  useEffect(() => {
-    openCalendly();
-  }, []);
+  const router = useRouter();
 
-  const title = content?.heroTitle || 'Book a Call with Byte Operator';
-  const subtitle =
-    content?.heroSubtitle ||
-    'Opening the scheduling calendar. If the calendar did not open automatically, click the button below.';
-  const buttonText = content?.ctaButtonText || 'Open Calendar';
+  useEffect(() => {
+    router.replace('/contact');
+  }, [router]);
 
   return (
     <div style={{minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '40px 20px'}}>
-      {content?.heroEyebrow ? (
-        <p style={{ fontSize: '12px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#60a5fa', marginBottom: '16px' }}>
-          {content.heroEyebrow}
-        </p>
-      ) : null}
-      <h1 style={{fontSize: '32px', marginBottom: '16px', color: '#fff'}}>{title}</h1>
-      <p style={{color: '#aaa', maxWidth: '500px', marginBottom: '24px', lineHeight: 1.6}}>
-        {subtitle}
-      </p>
-      <button
-        type="button"
-        onClick={() => openCalendly()}
+      <h1 style={{fontSize: '28px', marginBottom: '16px', color: '#fff'}}>Redirecting to Contact...</h1>
+      <a
+        href="/contact"
         style={{
-          padding: '14px 28px',
-          background: '#fff',
+          padding: '12px 24px',
+          background: '#38bdf8',
           color: '#000',
-          border: 'none',
           borderRadius: '100px',
-          fontSize: '15px',
           fontWeight: 600,
-          cursor: 'pointer',
+          textDecoration: 'none',
         }}
       >
-        {buttonText}
-      </button>
+        Go to Contact Page
+      </a>
     </div>
   );
 }
