@@ -1,3 +1,5 @@
+'use client';
+
 import {getCaseStudyPath} from '~/lib/route-mappings';
 import {Link} from '~/lib/router-compat';
 import type {WorkFeaturedProjectsQuery} from '~/lib/types';
@@ -59,33 +61,49 @@ export function WorkFeaturedProjects({
                 ) : null}
 
                 {article.website ? (
-                  <button
-                    type="button"
+                  <span
+                    role="button"
+                    tabIndex={0}
                     className="ft-work-featured__live-btn"
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
                       window.open(article.website!, '_blank', 'noopener,noreferrer');
                     }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.open(article.website!, '_blank', 'noopener,noreferrer');
+                      }
+                    }}
                     title={`Visit ${article.title} Live Site`}
                   >
                     <span>Live Site</span>
                     <span aria-hidden="true">↗</span>
-                  </button>
+                  </span>
                 ) : (
-                  <button
-                    type="button"
+                  <span
+                    role="button"
+                    tabIndex={0}
                     className="ft-work-featured__live-btn ft-work-featured__query-btn"
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      window.location.href = '/contact';
+                      window.location.href = `/contact?service=${encodeURIComponent(article.title)}`;
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.location.href = `/contact?service=${encodeURIComponent(article.title)}`;
+                      }
                     }}
                     title={`Send an inquiry for ${article.title}`}
                   >
                     <span>Send Query</span>
                     <span aria-hidden="true">→</span>
-                  </button>
+                  </span>
                 )}
               </div>
 

@@ -23,13 +23,14 @@ export async function POST(request: Request) {
         message: data.get('message')?.toString() || '',
         uploadedUrl: data.get('uploadedUrl')?.toString() || '',
         enquirySource: data.get('enquirySource')?.toString() || '',
+        contact_bot_check: data.get('contact_bot_check')?.toString() || '',
         website: data.get('website')?.toString() || '', // honeypot
         marketingConsent: data.get('marketingConsent') === 'on' || data.get('marketingConsent') === 'true',
       };
     }
 
     // Honeypot check for bots
-    if (payload.website) {
+    if (payload.contact_bot_check || payload.website) {
       console.warn('[Contact] Honeypot triggered by bot submission.');
       return NextResponse.json({ok: true, success: true});
     }

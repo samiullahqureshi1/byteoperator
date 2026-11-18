@@ -707,8 +707,13 @@ export function updateUser(updatedUser: CmsUser): void {
 }
 
 export function getSiteContent(): CmsSiteContent {
-  const db = getCmsDb();
-  return deepMergeSiteContent(DEFAULT_SITE_CONTENT, db.siteContent || {});
+  try {
+    const db = getCmsDb();
+    return deepMergeSiteContent(DEFAULT_SITE_CONTENT, db.siteContent || {});
+  } catch (err) {
+    console.error('Failed to get site content, fallback to default:', err);
+    return DEFAULT_SITE_CONTENT;
+  }
 }
 
 export function updateSiteContent(updates: Partial<CmsSiteContent>): CmsSiteContent {

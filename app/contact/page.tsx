@@ -11,18 +11,36 @@ import {getSiteContent} from '~/lib/cms/db';
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const cmsContent = getSiteContent();
-  const contact = cmsContent.contact;
+  let contact = null;
+  try {
+    const cmsContent = getSiteContent();
+    contact = cmsContent?.contact;
+  } catch (err) {
+    console.error('Failed to load contact metadata from CMS:', err);
+  }
+
   return pageMetadata({
-    title: contact?.seoTitle || 'Contact Us | Byte Operator - Get In Touch',
+    title: contact?.seoTitle || 'Contact Our Healthcare AI & Engineering Team | Byte Operator',
     description:
       contact?.seoDescription ||
-      'Start your Software project with Byte Operator. Reach out for new store builds, CRO audits, SEO optimization, and migrations.',
+      'Get in touch with Byte Operator leadership for healthcare AI automation, clinic PMS integration, and custom software engineering projects.',
     path: '/contact',
   });
 }
 
-export default function Contact() {
+interface ContactPageProps {
+  searchParams?: {
+    service?: string;
+    subject?: string;
+    enquirySource?: string;
+  };
+}
+
+export default function Contact({ searchParams }: ContactPageProps) {
+  const defaultService = searchParams?.service;
+  const defaultMessage = searchParams?.subject ? `Inquiry regarding: ${searchParams.subject}` : undefined;
+  const enquirySource = searchParams?.enquirySource;
+
   const featuredArticles: any[] = CASE_STUDIES.slice(0, 3).map((cs) => ({
     id: cs.id,
     handle: cs.handle,
@@ -37,7 +55,11 @@ export default function Contact() {
 
   return (
     <div className="ft-contact-page">
-      <ContactHero />
+      <ContactHero
+        defaultService={defaultService}
+        defaultMessage={defaultMessage}
+        enquirySource={enquirySource}
+      />
 
       <section
         className="ft-contact-results"

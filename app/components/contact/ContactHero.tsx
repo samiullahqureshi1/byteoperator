@@ -7,7 +7,17 @@ import {ContactForm} from '~/components/contact/ContactForm';
 
 const CONTACT_STATS = CONTACT_FACTS;
 
-export function ContactHero() {
+interface ContactHeroProps {
+  defaultService?: string;
+  defaultMessage?: string;
+  enquirySource?: string;
+}
+
+export function ContactHero({
+  defaultService,
+  defaultMessage,
+  enquirySource,
+}: ContactHeroProps = {}) {
   return (
     <section className="ft-contact-hero">
       <div
@@ -20,13 +30,13 @@ export function ContactHero() {
           <div className="ft-contact-hero__left">
             <div className="ft-contact-hero__content">
               <h1 className="ft-contact-hero__title">
-                Let&apos;s grow your digital platform
+                Let&apos;s build smarter healthcare technology
               </h1>
 
               <p className="ft-contact-hero__description">
-                Tell us about your goals and speak to our team about
-                the right Software, SEO, CRO or ecommerce solution for
-                your next stage of growth.
+                Tell us about your clinical operations, AI voice automation,
+                practice management integration, or custom software requirements
+                and speak directly with our senior engineering team.
               </p>
 
               <div className="ft-contact-hero__response">
@@ -69,7 +79,7 @@ export function ContactHero() {
 
             <div className="ft-contact-hero__logos">
               <p className="ft-contact-hero__logos-label">
-                Trusted by ecommerce brands
+                Trusted by modern clinics &amp; healthcare practices
               </p>
 
               <div className="ft-contact-hero__logos-window">
@@ -100,7 +110,11 @@ export function ContactHero() {
           </div>
 
           <div className="ft-contact-hero__form-card">
-            <ContactForm />
+            <ContactForm
+              defaultService={defaultService}
+              defaultMessage={defaultMessage}
+              enquirySource={enquirySource}
+            />
           </div>
         </div>
       </div>

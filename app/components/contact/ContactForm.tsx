@@ -15,13 +15,14 @@ const BUDGET_OPTIONS = [
 ] as const;
 
 const SERVICE_OPTIONS = [
+  'AI Voice Agents & Receptionists',
+  'AI Workflow Automation & WhatsApp',
+  'Custom Healthcare Software Development',
+  'Clinic PMS & EHR / EMR Integration',
+  'Specialty Clinic Solutions (Dental, Derm, Ophtha)',
+  'Cloud & Healthcare Infrastructure',
+  'Custom Software & SaaS Development',
   'Software Development',
-  'Enterprise Platform Solutions',
-  'SEO',
-  'CRO',
-  'Email & SMS',
-  'AI / GEO',
-  'Support & Maintenance',
   'Other',
 ] as const;
 
@@ -32,7 +33,6 @@ const SOURCE_OPTIONS = [
   'Saw Our Work',
   'Social Media',
   'ChatGPT / AI Search',
-  'Software',
   'Other',
 ] as const;
 
@@ -178,16 +178,14 @@ export function ContactForm({
             label="Last Name"
             name="lastName"
             autoComplete="family-name"
-            required
           />
         </div>
 
         <div className="ft-contact-form__row ft-contact-form__row--split">
           <ContactInput
-            label="Company Name"
+            label="Clinic / Company Name"
             name="company"
             autoComplete="organization"
-            required
           />
 
           <ContactInput
@@ -205,15 +203,13 @@ export function ContactForm({
             name="phone"
             type="tel"
             autoComplete="tel"
-            required
           />
 
           <ContactSelect
-            label="Budget"
+            label="Estimated Budget"
             name="budget"
-            placeholder="Select a budget band"
+            placeholder="Select a budget band (optional)"
             options={BUDGET_OPTIONS}
-            required
           />
         </div>
 
@@ -229,9 +225,8 @@ export function ContactForm({
           <ContactSelect
             label="How did you find us?"
             name="source"
-            placeholder="Select an option"
+            placeholder="Select an option (optional)"
             options={SOURCE_OPTIONS}
-            required
           />
         </div>
 
@@ -249,7 +244,7 @@ export function ContactForm({
             name="message"
             className="ft-contact-form__textarea"
             rows={4}
-            placeholder="Goals, timelines, what you're stuck on..."
+            placeholder="Goals, timelines, clinical workflow requirements..."
             defaultValue={defaultMessage}
             required
           />
@@ -258,13 +253,14 @@ export function ContactForm({
         <div
           className="ft-contact-form__honeypot"
           aria-hidden="true"
+          style={{display: 'none'}}
         >
-          <label htmlFor="ft-contact-website">Website URL</label>
+          <label htmlFor="ft-contact-bot-check">Leave empty</label>
 
           <input
-            id="ft-contact-website"
+            id="ft-contact-bot-check"
             type="text"
-            name="website"
+            name="contact_bot_check"
             tabIndex={-1}
             autoComplete="off"
           />
