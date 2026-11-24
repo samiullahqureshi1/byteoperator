@@ -1367,7 +1367,94 @@ const headlessCms = base(688, 380, `
 </g>
 `);
 
+/* Healthcare voice AI cluster — shared icons */
+const medCross=(x,y,s,fill='#fff')=>`<path d="M${x-s*0.3} ${y-s} h${s*0.6} v${s*0.7} h${s*0.7} v${s*0.6} h-${s*0.7} v${s*0.7} h-${s*0.6} v-${s*0.7} h-${s*0.7} v-${s*0.6} h${s*0.7}z" fill="${fill}"/>`;
+const handset=(x,y,s=1,fill='#fff')=>`<path transform="translate(${x} ${y}) scale(${s})" d="M-22 -30 c6 -4 12 -2 14 4 l5 12 c2 5 0 9 -4 12 l-6 4 c4 10 12 18 22 22 l4 -6 c3 -4 7 -6 12 -4 l12 5 c6 2 8 8 4 14 l-6 8 c-6 6 -16 8 -26 4 c-22 -9 -40 -27 -49 -49 c-4 -10 -2 -20 4 -26z" fill="${fill}"/>`;
+const wave=(x,y,hs,gap=14,w=7,fill='url(#cyan)')=>hs.map((h,i)=>`<rect x="${x+i*gap}" y="${y-h/2}" width="${w}" height="${h}" rx="${w/2}" fill="${fill}"/>`).join('');
+const person=(x,y,s=1,c='#fff')=>`<g transform="translate(${x} ${y}) scale(${s})"><circle cx="0" cy="-12" r="11" fill="none" stroke="${c}" stroke-width="3"/><path d="M-20 22 a20 18 0 0 1 40 0" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round"/></g>`;
+const headsetPerson=(x,y,s=1)=>`${person(x,y,s)}<g transform="translate(${x} ${y}) scale(${s})"><path d="M-15 -14 a15 15 0 0 1 30 0" fill="none" stroke="#38d6ff" stroke-width="3"/><rect x="-19" y="-16" width="7" height="11" rx="3" fill="#38d6ff"/><rect x="12" y="-16" width="7" height="11" rx="3" fill="#38d6ff"/><path d="M15 -6 q0 10 -10 10" fill="none" stroke="#38d6ff" stroke-width="2.5"/></g>`;
+const check=(x,y,r=16,c='#3ddc97')=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/><path d="M${x-r*0.42} ${y} l${r*0.3} ${r*0.32} l${r*0.58} -${r*0.62}" fill="none" stroke="#070f2b" stroke-width="${r*0.22}" stroke-linecap="round" stroke-linejoin="round"/>`;
+
+/* AI voice agents in healthcare: call hub connected to scheduling, EHR, security and staff */
+const vaX=688,vaY=384;
+const vaCard=(x,y,inner)=>`<rect x="${x-90}" y="${y-70}" width="180" height="140" rx="26" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>${inner}`;
+const vaSats=[[300,200],[1076,200],[300,568],[1076,568]];
+const voiceAgents=base(vaX,vaY,`
+${vaSats.map(([x,y])=>`<path d="M${vaX} ${vaY} C${(vaX+x)/2} ${vaY} ${(vaX+x)/2} ${y} ${x} ${y}" fill="none" stroke="#2f86ff" stroke-width="3" stroke-opacity="0.8" stroke-dasharray="2 10" stroke-linecap="round"/>`).join('')}
+${vaCard(300,200,`<rect x="258" y="160" width="84" height="76" rx="10" fill="none" stroke="#fff" stroke-width="3"/><path d="M258 182 h84 M276 150 v18 M324 150 v18" stroke="#fff" stroke-width="3" stroke-linecap="round"/>${[0,1,2].map(c=>[0,1].map(r=>`<rect x="${268+c*24}" y="${194+r*20}" width="16" height="12" rx="3" fill="${c===1&&r===0?'#38d6ff':'#fff'}" fill-opacity="${c===1&&r===0?1:0.45}"/>`).join('')).join('')}`)}
+${vaCard(1076,200,`<rect x="1040" y="150" width="72" height="96" rx="8" fill="none" stroke="#fff" stroke-width="3"/>${medCross(1076,184,16,'#38d6ff')}<path d="M1054 216 h44 M1054 230 h30" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-opacity="0.7"/>`)}
+${vaCard(300,568,`<path d="M300 516 l40 14 v30 c0 26 -18 42 -40 50 c-22 -8 -40 -24 -40 -50 v-30z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M284 562 l11 11 l22 -24" fill="none" stroke="#3ddc97" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`)}
+${vaCard(1076,568,`${headsetPerson(1076,576,1.6)}`)}
+<circle cx="${vaX}" cy="${vaY}" r="190" fill="none" stroke="#2a3f7a" stroke-width="2" stroke-dasharray="4 10"/>
+<circle cx="${vaX}" cy="${vaY}" r="150" fill="#0550ff" fill-opacity="0.10"/>
+<circle cx="${vaX}" cy="${vaY}" r="118" fill="#0550ff" fill-opacity="0.16"/>
+<circle cx="${vaX}" cy="${vaY}" r="92" fill="url(#blue)"/>
+${handset(vaX-6,vaY-6,1.25)}
+${wave(vaX-118,vaY+150,[18,34,52,30,60,40,22,46,58,28,40,20,34,16,26,12,20],14,7)}
+<rect x="${vaX+52}" y="${vaY-118}" width="104" height="44" rx="22" fill="#070f2b" stroke="#38d6ff" stroke-width="2.5"/>
+<path d="M${vaX+80} ${vaY-104} l4 9 l9 4 l-9 4 l-4 9 l-4 -9 l-9 -4 l9 -4z" fill="#38d6ff"/>
+<rect x="${vaX+98}" y="${vaY-102}" width="42" height="8" rx="4" fill="#ffffff" fill-opacity="0.6"/><rect x="${vaX+98}" y="${vaY-88}" width="28" height="6" rx="3" fill="#ffffff" fill-opacity="0.3"/>
+`);
+
+/* AI medical receptionist: call queue + transcript + staff handoff */
+const callRow=(y,status,active)=>`<rect x="190" y="${y}" width="330" height="76" rx="16" fill="${active?'#16357f':'#0b1a44'}" stroke="${active?'#38d6ff':'#2a3f7a'}" stroke-width="${active?2.5:1.5}"/><circle cx="230" cy="${y+38}" r="22" fill="${active?'url(#blue)':'#1b2c5c'}"/>${handset(232,y+40,0.42)}<rect x="266" y="${y+24}" width="120" height="11" rx="5.5" fill="#ffffff" fill-opacity="${active?0.75:0.45}"/><rect x="266" y="${y+44}" width="80" height="8" rx="4" fill="#ffffff" fill-opacity="0.22"/><rect x="420" y="${y+26}" width="82" height="24" rx="12" fill="${status}" fill-opacity="0.9"/>`;
+const bubble=(x,y,w,ai)=>`<rect x="${x}" y="${y}" width="${w}" height="58" rx="18" fill="${ai?'url(#blue)':'#1b2c5c'}"/><rect x="${x+20}" y="${y+16}" width="${w*0.62}" height="10" rx="5" fill="#ffffff" fill-opacity="${ai?0.85:0.55}"/><rect x="${x+20}" y="${y+34}" width="${w*0.4}" height="8" rx="4" fill="#ffffff" fill-opacity="${ai?0.45:0.28}"/>`;
+const receptionist=base(640,380,`
+<rect x="160" y="110" width="820" height="520" rx="24" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<rect x="160" y="110" width="820" height="46" rx="24" fill="#1b2c5c"/><rect x="160" y="134" width="820" height="22" fill="#1b2c5c"/>
+<circle cx="192" cy="133" r="7" fill="#ff5f7a"/><circle cx="216" cy="133" r="7" fill="#ffc14d"/><circle cx="240" cy="133" r="7" fill="#3ddc97"/>
+${callRow(182,'#3ddc97',1)}${callRow(274,'#4d86ff',0)}${callRow(366,'#ffc14d',0)}${callRow(458,'#4d86ff',0)}
+<rect x="190" y="552" width="330" height="52" rx="14" fill="#0b1a44" stroke="#2a3f7a"/>${wave(214,578,[10,20,30,16,26,12,22,30,14,24,10,18,26,12,20,8,14,22],16,6)}
+<rect x="546" y="182" width="408" height="422" rx="18" fill="#0b1a44" stroke="#2a3f7a"/>
+${bubble(570,206,250,0)}${bubble(680,282,250,1)}${bubble(570,358,220,0)}${bubble(680,434,250,1)}
+<rect x="570" y="520" width="360" height="58" rx="29" fill="url(#cyan)"/>${person(612,551,0.7)}<path d="M650 551 h200" stroke="#070f2b" stroke-width="0"/><rect x="644" y="543" width="150" height="14" rx="7" fill="#070f2b" fill-opacity="0.55"/><path d="M880 538 l14 13 l-14 13" fill="none" stroke="#070f2b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(1100 250)">
+<circle cx="0" cy="0" r="108" fill="#0550ff" fill-opacity="0.14"/>
+<rect x="-72" y="-62" width="144" height="124" rx="36" fill="url(#blue)"/>
+<rect x="-50" y="-34" width="100" height="56" rx="24" fill="#070f2b"/>
+<circle cx="-20" cy="-6" r="10" fill="#38d6ff"/><circle cx="20" cy="-6" r="10" fill="#38d6ff"/>
+<path d="M-84 -10 a84 84 0 0 1 168 0" fill="none" stroke="#38d6ff" stroke-width="6"/>
+<rect x="-96" y="-18" width="22" height="40" rx="10" fill="#38d6ff"/><rect x="74" y="-18" width="22" height="40" rx="10" fill="#38d6ff"/>
+<path d="M85 22 q0 40 -50 46" fill="none" stroke="#38d6ff" stroke-width="5" stroke-linecap="round"/><circle cx="32" cy="68" r="8" fill="#38d6ff"/>
+</g>
+<path d="M1100 380 V450" stroke="#38d6ff" stroke-width="3" stroke-dasharray="6 8"/>
+<rect x="1010" y="460" width="180" height="150" rx="24" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+${person(1100,528,1.7)}${medCross(1160,488,12,'#38d6ff')}
+`);
+
+/* AI appointment scheduling: calendar with booked, cancelled and rescheduled slots */
+const gx=170,gy=200,cw=128,ch=86,gap=12;
+const cell=(c,r)=>[gx+c*(cw+gap),gy+r*(ch+gap)];
+const slot=(c,r,kind)=>{const[x,y]=cell(c,r);
+ if(kind==='booked')return `<rect x="${x+10}" y="${y+12}" width="${cw-20}" height="${ch-24}" rx="12" fill="url(#blue)" fill-opacity="0.85"/><rect x="${x+24}" y="${y+28}" width="56" height="9" rx="4.5" fill="#fff" fill-opacity="0.8"/><rect x="${x+24}" y="${y+46}" width="36" height="7" rx="3.5" fill="#fff" fill-opacity="0.4"/>`;
+ if(kind==='cancel')return `<rect x="${x+10}" y="${y+12}" width="${cw-20}" height="${ch-24}" rx="12" fill="none" stroke="#ff5f7a" stroke-width="2.5" stroke-dasharray="6 6"/><path d="M${x+cw/2-12} ${y+ch/2-12} l24 24 M${x+cw/2+12} ${y+ch/2-12} l-24 24" stroke="#ff5f7a" stroke-width="4" stroke-linecap="round"/>`;
+ if(kind==='new')return `<rect x="${x+10}" y="${y+12}" width="${cw-20}" height="${ch-24}" rx="12" fill="url(#cyan)"/><rect x="${x+24}" y="${y+28}" width="50" height="9" rx="4.5" fill="#070f2b" fill-opacity="0.6"/>${check(x+cw-30,y+ch/2,13)}`;
+ return '';};
+const layout=[[0,0,'booked'],[2,0,'booked'],[3,0,'booked'],[1,1,'booked'],[4,1,'booked'],[0,2,'booked'],[2,2,'cancel'],[3,2,'booked'],[1,3,'booked'],[4,3,'new'],[0,3,'booked']];
+const [fx,fy]=cell(2,2),[tx,ty]=cell(4,3);
+const scheduling=base(560,380,`
+<rect x="140" y="110" width="760" height="530" rx="24" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<rect x="170" y="138" width="180" height="16" rx="8" fill="#ffffff" fill-opacity="0.7"/>
+<circle cx="820" cy="146" r="16" fill="#1b2c5c"/><path d="M824 138 l-8 8 l8 8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="860" cy="146" r="16" fill="#1b2c5c"/><path d="M856 138 l8 8 l-8 8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+${[0,1,2,3,4].map(c=>[0,1,2,3].map(r=>{const[x,y]=cell(c,r);return `<rect x="${x}" y="${y}" width="${cw}" height="${ch}" rx="14" fill="#0b1a44" stroke="#1e3166"/>`}).join('')).join('')}
+${layout.map(([c,r,k])=>slot(c,r,k)).join('')}
+<path d="M${fx+cw/2} ${fy+ch} C${fx+cw/2} ${fy+ch+70} ${tx-60} ${ty+ch/2} ${tx+6} ${ty+ch/2}" fill="none" stroke="#38d6ff" stroke-width="3.5" stroke-dasharray="7 8" stroke-linecap="round"/>
+<path d="M${tx-8} ${ty+ch/2-10} l14 10 l-14 10" fill="none" stroke="#38d6ff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="960" y="170" width="280" height="300" rx="24" fill="url(#panel)" stroke="#38d6ff" stroke-width="2.5"/>
+${check(1100,250,40)}
+<rect x="1010" y="318" width="180" height="14" rx="7" fill="#ffffff" fill-opacity="0.75"/>
+<rect x="1036" y="344" width="128" height="10" rx="5" fill="#ffffff" fill-opacity="0.35"/>
+<rect x="996" y="380" width="208" height="54" rx="14" fill="#0b1a44" stroke="#2a3f7a"/>
+<rect x="1014" y="396" width="24" height="22" rx="5" fill="none" stroke="#38d6ff" stroke-width="2.5"/><rect x="1052" y="398" width="100" height="9" rx="4.5" fill="#ffffff" fill-opacity="0.55"/><rect x="1052" y="413" width="64" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.25"/>
+<rect x="960" y="500" width="280" height="110" rx="24" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+<circle cx="1010" cy="555" r="28" fill="url(#blue)"/>${handset(1012,557,0.55)}
+${wave(1056,555,[14,28,40,22,36,18,30,12,24,34,16,10],14,7)}
+`);
+
 export default {
+  'ai-voice-agents-in-healthcare': voiceAgents,
+  'ai-medical-receptionist-medical-practices': receptionist,
+  'ai-appointment-scheduling-healthcare': scheduling,
   'custom-software-development-cost': cost,
   'ai-agents-business-automation': agents,
   'headless-vs-traditional-commerce': headless,

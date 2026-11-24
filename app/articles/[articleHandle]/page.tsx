@@ -49,6 +49,9 @@ function resolveArticle(handle: string): ArticleItem | undefined {
       mainFeatured: cmsArt.mainFeatured,
       image: cmsArt.image,
       seo: cmsArt.seo,
+      // The CMS store has no FAQ field; keep the visible FAQ + FAQPage schema
+      // from the static article when one exists.
+      faqs: getArticleByHandle(cmsArt.handle)?.faqs,
     };
   }
   return getArticleByHandle(handle);
