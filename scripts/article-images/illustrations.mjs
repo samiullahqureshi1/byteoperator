@@ -1451,7 +1451,61 @@ ${check(1100,250,40)}
 ${wave(1056,555,[14,28,40,22,36,18,30,12,24,34,16,10],14,7)}
 `);
 
+/* After-hours answering: night sky + clinic, AI phone answering, routing to on-call and next-morning queue */
+const stars=[[120,90],[260,60],[420,120],[560,70],[820,60],[980,110],[1120,70],[1260,130],[180,200],[1300,240],[70,320]].map(([x,y],i)=>`<circle cx="${x}" cy="${y}" r="${i%3?2:3}" fill="#fff" fill-opacity="${i%2?0.5:0.8}"/>`).join('');
+const afterHours=base(688,420,`
+${stars}
+<circle cx="860" cy="120" r="46" fill="#ffc14d" fill-opacity="0.9"/><circle cx="880" cy="104" r="42" fill="#0b1636"/>
+<g transform="translate(140 330)">
+<rect x="0" y="40" width="300" height="250" rx="16" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+<path d="M-14 48 L150 -30 L314 48" fill="none" stroke="#3a5bb0" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="110" y="70" width="80" height="80" rx="14" fill="#0b1a44" stroke="#2a3f7a"/>${medCross(150,110,22,'#38d6ff')}
+${[0,1].map(r=>[0,1,2].map(c=>`<rect x="${30+c*90}" y="${172+r*44}" width="60" height="30" rx="6" fill="#ffc14d" fill-opacity="${(r+c)%2?0.08:0.35}"/>`).join('')).join('')}
+<rect x="120" y="236" width="60" height="54" rx="6" fill="#0b1a44" stroke="#2a3f7a"/>
+</g>
+<rect x="545" y="240" width="300" height="300" rx="150" fill="#0550ff" fill-opacity="0.12"/>
+<circle cx="695" cy="390" r="118" fill="#0550ff" fill-opacity="0.18"/>
+<circle cx="695" cy="390" r="88" fill="url(#blue)"/>
+${handset(689,384,1.15)}
+${wave(590,530,[16,30,46,26,52,34,20,40,50,24,36,18,28,14,22],15,7)}
+<path d="M440 470 C500 470 520 400 600 395" fill="none" stroke="#2f86ff" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+<path d="M790 360 C860 340 880 250 960 250" fill="none" stroke="#ff5f7a" stroke-width="3.5" stroke-dasharray="7 8" stroke-linecap="round"/>
+<path d="M790 430 C860 450 880 520 960 520" fill="none" stroke="#38d6ff" stroke-width="3.5" stroke-dasharray="7 8" stroke-linecap="round"/>
+<rect x="960" y="190" width="290" height="120" rx="22" fill="url(#panel)" stroke="#ff5f7a" stroke-width="2.5"/>
+${headsetPerson(1020,252,1.3)}
+<rect x="1070" y="226" width="140" height="13" rx="6.5" fill="#ffffff" fill-opacity="0.7"/><rect x="1070" y="250" width="90" height="9" rx="4.5" fill="#ffffff" fill-opacity="0.3"/>
+<circle cx="1222" cy="214" r="10" fill="#ff5f7a"/>
+<rect x="960" y="420" width="290" height="210" rx="22" fill="url(#panel)" stroke="#3a5bb0" stroke-width="2"/>
+${[0,1,2].map(i=>`<rect x="984" y="${444+i*58}" width="242" height="46" rx="12" fill="#0b1a44" stroke="#2a3f7a"/><rect x="1000" y="${458+i*58}" width="18" height="18" rx="4" fill="none" stroke="#38d6ff" stroke-width="2.5"/><rect x="1032" y="${457+i*58}" width="${[120,96,140][i]}" height="9" rx="4.5" fill="#ffffff" fill-opacity="0.55"/><rect x="1032" y="${471+i*58}" width="70" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.22"/>`).join('')}
+`);
+
+/* Missed-call recovery: missed calls turned into answered calls and booked appointments */
+const missedRow=(y,missed)=>`<rect x="150" y="${y}" width="330" height="70" rx="16" fill="#0b1a44" stroke="${missed?'#ff5f7a':'#2a3f7a'}" stroke-width="${missed?2:1.5}"/><circle cx="188" cy="${y+35}" r="20" fill="${missed?'#3a1530':'#1b2c5c'}"/>${handset(190,y+37,0.38,missed?'#ff5f7a':'#fff')}<rect x="224" y="${y+22}" width="120" height="10" rx="5" fill="#ffffff" fill-opacity="0.5"/><rect x="224" y="${y+40}" width="70" height="8" rx="4" fill="#ffffff" fill-opacity="0.22"/><rect x="400" y="${y+24}" width="60" height="22" rx="11" fill="${missed?'#ff5f7a':'#4d86ff'}" fill-opacity="0.85"/>`;
+const doneRow=(y,i)=>`<rect x="896" y="${y}" width="330" height="70" rx="16" fill="#0b1a44" stroke="#2a3f7a" stroke-width="1.5"/>${check(934,y+35,18)}<rect x="968" y="${y+22}" width="${[130,110,140][i]}" height="10" rx="5" fill="#ffffff" fill-opacity="0.6"/><rect x="968" y="${y+40}" width="80" height="8" rx="4" fill="#ffffff" fill-opacity="0.25"/><rect x="${1150}" y="${y+18}" width="54" height="34" rx="8" fill="none" stroke="#38d6ff" stroke-width="2.5"/><path d="M1150 ${y+28} h54" stroke="#38d6ff" stroke-width="2.5"/>`;
+const missedCalls=base(688,384,`
+<rect x="120" y="150" width="390" height="430" rx="24" fill="url(#panel)" stroke="#2a3f7a" stroke-width="2"/>
+<rect x="150" y="176" width="150" height="14" rx="7" fill="#ffffff" fill-opacity="0.65"/><circle cx="462" cy="183" r="15" fill="#ff5f7a"/><rect x="456" y="175" width="12" height="4" rx="2" fill="#070f2b" fill-opacity="0"/>
+${missedRow(214,1)}${missedRow(298,1)}${missedRow(382,0)}${missedRow(466,1)}
+${[260,384,508].map((y,i)=>`<path d="M510 ${[249,333,501][i]} C560 ${[249,333,501][i]} 560 384 600 384" fill="none" stroke="#ff5f7a" stroke-width="3" stroke-opacity="0.7" stroke-dasharray="6 8"/>`).join('')}
+<circle cx="688" cy="384" r="130" fill="#0550ff" fill-opacity="0.12"/>
+<rect x="616" y="322" width="144" height="124" rx="36" fill="url(#blue)"/>
+<rect x="638" y="350" width="100" height="56" rx="24" fill="#070f2b"/>
+<circle cx="668" cy="378" r="10" fill="#38d6ff"/><circle cx="708" cy="378" r="10" fill="#38d6ff"/>
+<path d="M604 374 a84 84 0 0 1 168 0" fill="none" stroke="#38d6ff" stroke-width="6"/>
+<rect x="592" y="366" width="22" height="40" rx="10" fill="#38d6ff"/><rect x="762" y="366" width="22" height="40" rx="10" fill="#38d6ff"/>
+${wave(624,486,[14,26,38,22,34,18,28,12,20,30],14,7)}
+${[249,333,417].map((y)=>`<path d="M776 384 C830 384 836 ${y+25} 886 ${y+25}" fill="none" stroke="#38d6ff" stroke-width="3" stroke-dasharray="6 8"/>`).join('')}
+<rect x="866" y="150" width="390" height="430" rx="24" fill="url(#panel)" stroke="#38d6ff" stroke-width="2"/>
+<rect x="896" y="176" width="150" height="14" rx="7" fill="#ffffff" fill-opacity="0.65"/>
+${doneRow(240,0)}${doneRow(324,1)}${doneRow(408,2)}
+<rect x="896" y="500" width="330" height="54" rx="27" fill="url(#cyan)"/>
+<path d="M926 538 l40 -26 l34 16 l50 -24" fill="none" stroke="#070f2b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1080" y="518" width="120" height="14" rx="7" fill="#070f2b" fill-opacity="0.5"/>
+`);
+
 export default {
+  'ai-after-hours-answering-service-medical-practices': afterHours,
+  'ai-voice-agents-recover-missed-patient-calls': missedCalls,
   'ai-voice-agents-in-healthcare': voiceAgents,
   'ai-medical-receptionist-medical-practices': receptionist,
   'ai-appointment-scheduling-healthcare': scheduling,
